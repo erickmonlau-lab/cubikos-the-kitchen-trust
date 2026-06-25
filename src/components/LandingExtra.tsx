@@ -260,10 +260,10 @@ export function CTAFinal() {
                     </div>
                     <button 
                       type="submit" 
-                      className="group relative overflow-hidden flex items-center justify-center w-full h-16 bg-gradient-to-r from-[#FFDE00] to-[#F39C12] text-ink font-black text-[15px] md:text-[16px] uppercase tracking-[0.2em] rounded-full transition-all duration-300 shadow-[0_10px_40px_rgba(243,156,18,0.4)] hover:shadow-[0_20px_60px_rgba(243,156,18,0.7)] hover:-translate-y-1"
+                      className="group relative overflow-hidden flex items-center justify-center w-full h-16 bg-gradient-to-r from-[#FFDE00] to-[#F39C12] text-white font-black text-[15px] md:text-[16px] uppercase tracking-[0.2em] rounded-full transition-all duration-300 shadow-[0_10px_40px_rgba(243,156,18,0.4)] hover:shadow-[0_20px_60px_rgba(243,156,18,0.7)] hover:-translate-y-1"
                     >
                       <div className="absolute inset-0 -translate-x-[150%] bg-gradient-to-r from-transparent via-white/60 to-transparent group-hover:translate-x-[150%] transition-transform duration-[1.2s] ease-in-out" />
-                      <span className="relative z-10 drop-shadow-sm">Solicitar Valoración</span>
+                      <span className="relative z-10 drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)]">Solicitar Valoración</span>
                     </button>
                     
                     <div className="flex items-center justify-center gap-2 text-xs text-[#D1CFCC] opacity-80 pt-2">

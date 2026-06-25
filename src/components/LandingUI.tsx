@@ -160,10 +160,10 @@ export function Header() {
         <div className="hidden lg:block">
           <a 
             href="#contacto" 
-            className="group relative overflow-hidden flex items-center justify-center px-8 h-12 rounded-full font-bold text-[13px] uppercase tracking-[0.15em] transition-all duration-300 bg-gradient-to-r from-[#FFDE00] to-[#F39C12] text-ink shadow-[0_5px_20px_rgba(243,156,18,0.4)] hover:shadow-[0_10px_30px_rgba(243,156,18,0.6)] hover:-translate-y-0.5"
+            className="group relative overflow-hidden flex items-center justify-center px-8 h-12 rounded-full font-bold text-[13px] uppercase tracking-[0.15em] transition-all duration-300 bg-gradient-to-r from-[#FFDE00] to-[#F39C12] text-white shadow-[0_5px_20px_rgba(243,156,18,0.4)] hover:shadow-[0_10px_30px_rgba(243,156,18,0.6)] hover:-translate-y-0.5"
           >
             <div className="absolute inset-0 -translate-x-[150%] bg-gradient-to-r from-transparent via-white/60 to-transparent group-hover:translate-x-[150%] transition-transform duration-1000 ease-in-out" />
-            <span className="relative z-10">Solicitar presupuesto</span>
+            <span className="relative z-10 drop-shadow-md">Solicitar presupuesto</span>
           </a>
         </div>
         <button
@@ -288,9 +288,9 @@ export function Hero() {
           </FadeUp>
           
           <FadeUp delay={0.4} className="mt-10 md:mt-14 flex flex-col sm:flex-row items-center gap-5 sm:gap-6">
-            <a href="#contacto" className="group relative overflow-hidden w-full sm:w-auto flex items-center justify-center px-10 h-16 rounded-full bg-gradient-to-r from-[#FFDE00] to-[#F39C12] text-ink font-black text-[14px] md:text-[16px] uppercase tracking-[0.2em] transition-all duration-300 shadow-[0_10px_40px_rgba(243,156,18,0.5)] hover:shadow-[0_20px_60px_rgba(243,156,18,0.8)] hover:-translate-y-1">
+            <a href="#contacto" className="group relative overflow-hidden w-full sm:w-auto flex items-center justify-center px-10 h-16 rounded-full bg-gradient-to-r from-[#FFDE00] to-[#F39C12] text-white font-black text-[14px] md:text-[16px] uppercase tracking-[0.2em] transition-all duration-300 shadow-[0_10px_40px_rgba(243,156,18,0.5)] hover:shadow-[0_20px_60px_rgba(243,156,18,0.8)] hover:-translate-y-1">
               <div className="absolute inset-0 -translate-x-[150%] bg-gradient-to-r from-transparent via-white/60 to-transparent group-hover:translate-x-[150%] transition-transform duration-[1.2s] ease-in-out" />
-              <span className="relative z-10 drop-shadow-sm">Solicitar presupuesto</span>
+              <span className="relative z-10 drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)]">Solicitar presupuesto</span>
             </a>
             <a href="#proyectos" className="group relative overflow-hidden w-full sm:w-auto flex items-center justify-center px-10 h-16 rounded-full bg-white text-ink font-bold text-[14px] md:text-[15px] uppercase tracking-[0.2em] transition-all duration-300 shadow-[0_10px_30px_rgba(0,0,0,0.3)] hover:shadow-[0_15px_40px_rgba(255,255,255,0.4)] hover:-translate-y-1">
               <span className="relative z-10">Ver proyectos</span>
