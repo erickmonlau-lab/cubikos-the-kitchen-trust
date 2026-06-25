@@ -486,3 +486,115 @@ export function Testimonios() {
     </section>
   );
 }
+
+export function BotelleroShowcase() {
+  return (
+    <section className="relative bg-[#0D0D0D] text-[#FAFAF8] py-24 md:py-40 overflow-hidden z-20">
+      <div className="container-x">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+          
+          <div className="flex flex-col justify-center">
+            <PremiumFade delay={0}>
+              <div className="text-brand font-bold uppercase tracking-widest text-sm mb-4">La firma de un artesano</div>
+              <h2 className="font-display font-black text-4xl md:text-5xl lg:text-6xl tracking-tight leading-tight mb-8">
+                El Arte del Ensamblaje
+              </h2>
+              <p className="text-[#EDEBE8]/80 text-lg md:text-xl leading-relaxed mb-6 font-light">
+                Un botellero a medida no admite márgenes de error. Cada balda y cada separador debe encajar con tolerancias milimétricas para garantizar la estabilidad y una estética perfecta.
+              </p>
+              <p className="text-[#EDEBE8]/80 text-lg md:text-xl leading-relaxed font-light">
+                Es en estos pequeños detalles donde la verdadera calidad de un montaje sale a relucir. No instalamos cocinas; construimos mobiliario de precisión.
+              </p>
+            </PremiumFade>
+          </div>
+
+          <div className="relative aspect-square md:aspect-[4/3] lg:aspect-square w-full rounded-2xl bg-[#1A1A1A] border border-white/10 flex items-center justify-center p-8 overflow-hidden shadow-2xl">
+            <svg viewBox="0 0 400 400" className="w-full h-full drop-shadow-2xl overflow-visible">
+               {/* Frame */}
+               <motion.rect x="100" y="50" width="200" height="300" fill="none" stroke="#2D1A11" strokeWidth="12" rx="4"
+                 initial={{ opacity: 0, y: -50, scale: 0.95 }}
+                 whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                 viewport={{ once: true, margin: "-10%" }}
+                 transition={{ duration: 0.8, type: "spring", bounce: 0.4 }}
+               />
+               <motion.rect x="100" y="50" width="200" height="300" fill="#3E2723" rx="4"
+                 initial={{ opacity: 0 }}
+                 whileInView={{ opacity: 1 }}
+                 viewport={{ once: true, margin: "-10%" }}
+                 transition={{ duration: 0.5, delay: 0.3 }}
+               />
+
+               {/* Horizontal Shelves */}
+               <motion.line x1="106" y1="125" x2="294" y2="125" stroke="#5D4037" strokeWidth="8"
+                 initial={{ pathLength: 0, x: -20, opacity: 0 }}
+                 whileInView={{ pathLength: 1, x: 0, opacity: 1 }}
+                 viewport={{ once: true, margin: "-10%" }}
+                 transition={{ duration: 0.6, delay: 0.8 }}
+               />
+               <motion.line x1="106" y1="200" x2="294" y2="200" stroke="#5D4037" strokeWidth="8"
+                 initial={{ pathLength: 0, x: 20, opacity: 0 }}
+                 whileInView={{ pathLength: 1, x: 0, opacity: 1 }}
+                 viewport={{ once: true, margin: "-10%" }}
+                 transition={{ duration: 0.6, delay: 1.0 }}
+               />
+               <motion.line x1="106" y1="275" x2="294" y2="275" stroke="#5D4037" strokeWidth="8"
+                 initial={{ pathLength: 0, x: -20, opacity: 0 }}
+                 whileInView={{ pathLength: 1, x: 0, opacity: 1 }}
+                 viewport={{ once: true, margin: "-10%" }}
+                 transition={{ duration: 0.6, delay: 1.2 }}
+               />
+
+               {/* Vertical Dividers */}
+               <motion.line x1="166" y1="56" x2="166" y2="344" stroke="#5D4037" strokeWidth="8"
+                 initial={{ pathLength: 0, y: -20, opacity: 0 }}
+                 whileInView={{ pathLength: 1, y: 0, opacity: 1 }}
+                 viewport={{ once: true, margin: "-10%" }}
+                 transition={{ duration: 0.6, delay: 1.6 }}
+               />
+               <motion.line x1="233" y1="56" x2="233" y2="344" stroke="#5D4037" strokeWidth="8"
+                 initial={{ pathLength: 0, y: 20, opacity: 0 }}
+                 whileInView={{ pathLength: 1, y: 0, opacity: 1 }}
+                 viewport={{ once: true, margin: "-10%" }}
+                 transition={{ duration: 0.6, delay: 1.8 }}
+               />
+
+               {/* Bottles */}
+               {/* Bottle 1 */}
+               <motion.g initial={{ opacity: 0, scale: 0 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true, margin: "-10%" }} transition={{ type: "spring", delay: 2.4, bounce: 0.6 }} style={{ originX: "136px", originY: "110px" }}>
+                 <rect x="126" y="65" width="20" height="56" fill="#1B5E20" rx="10" />
+                 <rect x="131" y="55" width="10" height="15" fill="#1B5E20" />
+                 <rect x="132" y="53" width="8" height="5" fill="#D4AF37" />
+                 <rect x="129" y="85" width="14" height="20" fill="#F5F5DC" />
+               </motion.g>
+
+               {/* Bottle 2 */}
+               <motion.g initial={{ opacity: 0, scale: 0 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true, margin: "-10%" }} transition={{ type: "spring", delay: 2.7, bounce: 0.6 }} style={{ originX: "200px", originY: "180px" }}>
+                 <rect x="190" y="140" width="20" height="56" fill="#4A148C" rx="10" />
+                 <rect x="195" y="130" width="10" height="15" fill="#4A148C" />
+                 <rect x="196" y="128" width="8" height="5" fill="#D4AF37" />
+                 <rect x="193" y="160" width="14" height="20" fill="#F5F5DC" />
+               </motion.g>
+
+               {/* Bottle 3 */}
+               <motion.g initial={{ opacity: 0, scale: 0 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true, margin: "-10%" }} transition={{ type: "spring", delay: 3.0, bounce: 0.6 }} style={{ originX: "263px", originY: "250px" }}>
+                 <rect x="253" y="215" width="20" height="56" fill="#B71C1C" rx="10" />
+                 <rect x="258" y="205" width="10" height="15" fill="#B71C1C" />
+                 <rect x="259" y="203" width="8" height="5" fill="#D4AF37" />
+                 <rect x="256" y="235" width="14" height="20" fill="#F5F5DC" />
+               </motion.g>
+
+               {/* Bottle 4 */}
+               <motion.g initial={{ opacity: 0, scale: 0 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true, margin: "-10%" }} transition={{ type: "spring", delay: 3.3, bounce: 0.6 }} style={{ originX: "136px", originY: "330px" }}>
+                 <rect x="126" y="290" width="20" height="56" fill="#F57F17" rx="10" />
+                 <rect x="131" y="280" width="10" height="15" fill="#F57F17" />
+                 <rect x="132" y="278" width="8" height="5" fill="#D4AF37" />
+                 <rect x="129" y="310" width="14" height="20" fill="#F5F5DC" />
+               </motion.g>
+            </svg>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  );
+}
