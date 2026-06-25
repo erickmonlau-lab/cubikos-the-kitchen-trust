@@ -1,19 +1,20 @@
-//#region node_modules/.nitro/vite/services/ssr/assets/_tanstack-start-manifest_v-CV9XtcPV.js
+//#region node_modules/.nitro/vite/services/ssr/assets/_tanstack-start-manifest_v-BQfv6C5b.js
 var tsrStartManifest = () => ({ routes: {
 	__root__: {
 		filePath: "C:/Users/erick/.gemini/antigravity/scratch/cubikos-the-kitchen-trust/src/routes/__root.tsx",
 		children: ["/"],
-		preloads: ["/assets/index-5FCBmqZ4.js"],
+		css: ["/assets/index-BJz0GLpu.css"],
+		preloads: ["/assets/index-ygF3aix0.js"],
 		scripts: [{ attrs: {
 			type: "module",
 			async: !0,
-			src: "/assets/index-5FCBmqZ4.js"
+			src: "/assets/index-ygF3aix0.js"
 		} }]
 	},
 	"/": {
 		filePath: "C:/Users/erick/.gemini/antigravity/scratch/cubikos-the-kitchen-trust/src/routes/index.tsx",
 		children: void 0,
-		preloads: ["/assets/routes-Br6Od8e4.js"]
+		preloads: ["/assets/routes-B3pk1JgC.js"]
 	}
 } });
 //#endregion

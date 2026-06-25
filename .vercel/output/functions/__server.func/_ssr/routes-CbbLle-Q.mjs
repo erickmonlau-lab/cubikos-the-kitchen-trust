@@ -3,7 +3,7 @@ import { t as hero_kitchen_default } from "./hero-kitchen-D0ioLp_Y.mjs";
 import { n as require_jsx_runtime, r as require_react } from "../_libs/react+tanstack__react-query.mjs";
 import { n as motion, t as useInView } from "../_libs/framer-motion.mjs";
 import { a as CircleCheckBig, i as FileSearch, n as PhoneCall, r as Hammer, t as Ruler } from "../_libs/lucide-react.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/routes-f-H5suwi.js
+//#region node_modules/.nitro/vite/services/ssr/assets/routes-CbbLle-Q.js
 var import_react = /* @__PURE__ */ __toESM(require_react());
 var import_jsx_runtime = require_jsx_runtime();
 var hero_worker_hq_default = "/assets/hero-worker-hq-ZMCYrJ5u.webp";
@@ -395,7 +395,7 @@ var HammerHit = ({ className, delay }) => /* @__PURE__ */ (0, import_jsx_runtime
 function Hero() {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
 		id: "top",
-		className: "relative min-h-[100svh] flex flex-col justify-center overflow-hidden bg-ink pt-32 pb-24 md:py-0",
+		className: "relative min-h-[100svh] flex flex-col overflow-hidden bg-ink",
 		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(motion.div, {
 			initial: { scale: 1.05 },
 			animate: { scale: 1 },
@@ -426,7 +426,7 @@ function Hero() {
 				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute inset-0 pointer-events-none bg-gradient-to-t from-black/90 via-black/40 to-transparent md:hidden" })
 			]
 		}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			className: "relative z-10 w-full h-full flex flex-col justify-center container-x mt-8 md:mt-0",
+			className: "relative z-10 w-full flex flex-col container-x my-auto pt-32 pb-24 md:pt-40 md:pb-32",
 			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 				className: "w-full max-w-[480px]",
 				children: [
