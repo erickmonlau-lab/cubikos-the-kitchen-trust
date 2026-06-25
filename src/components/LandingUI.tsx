@@ -244,12 +244,12 @@ const HammerHit = ({ className, delay }: { className: string, delay: number }) =
 
 export function Hero() {
   return (
-    <section id="top" className="relative min-h-[100svh] flex flex-col overflow-hidden bg-ink">
+    <section id="top" className="relative min-h-[100svh] flex flex-col bg-ink pb-32 md:pb-40">
       <motion.div 
         initial={{ scale: 1.05 }}
         animate={{ scale: 1 }}
         transition={{ duration: 1.5, ease: "easeOut" }}
-        className="absolute inset-0 z-0"
+        className="absolute inset-0 z-0 overflow-hidden"
       >
         <svg className="hidden">
           <filter id="crisp-sharpen">
@@ -287,47 +287,7 @@ export function Hero() {
             </p>
           </FadeUp>
           
-          <FadeUp delay={0.3} className="mt-4 mb-5 flex flex-wrap gap-x-6 gap-y-4 max-w-[480px]">
-            <div className="flex items-center gap-3 w-[calc(50%-12px)] sm:w-auto">
-              <div className="flex items-center justify-center shrink-0 w-8 h-8 rounded-full bg-brand/20 text-brand">
-                <Ico.Check className="w-4 h-4" />
-              </div>
-              <div className="flex flex-col">
-                <span className="text-white font-bold text-[14px] leading-tight">30+ Años</span>
-                <span className="text-white/60 text-[11px] uppercase tracking-wider font-semibold">Experiencia</span>
-              </div>
-            </div>
-            
-            <div className="flex items-center gap-3 w-[calc(50%-12px)] sm:w-auto">
-              <div className="flex items-center justify-center shrink-0 w-8 h-8 rounded-full bg-brand/20 text-brand">
-                <Ico.Check className="w-4 h-4" />
-              </div>
-              <div className="flex flex-col">
-                <span className="text-white font-bold text-[14px] leading-tight">500+</span>
-                <span className="text-white/60 text-[11px] uppercase tracking-wider font-semibold">Cocinas</span>
-              </div>
-            </div>
 
-            <div className="flex items-center gap-3 w-[calc(50%-12px)] sm:w-auto">
-              <div className="flex items-center justify-center shrink-0 w-8 h-8 rounded-full bg-brand/20 text-brand">
-                <Ico.Check className="w-4 h-4" />
-              </div>
-              <div className="flex flex-col">
-                <span className="text-white font-bold text-[14px] leading-tight">Cataluña</span>
-                <span className="text-white/60 text-[11px] uppercase tracking-wider font-semibold">Cobertura</span>
-              </div>
-            </div>
-
-            <div className="flex items-center gap-3 w-[calc(50%-12px)] sm:w-auto">
-              <div className="flex items-center justify-center shrink-0 w-8 h-8 rounded-full bg-brand/20 text-brand">
-                <Ico.Check className="w-4 h-4" />
-              </div>
-              <div className="flex flex-col">
-                <span className="text-white font-bold text-[14px] leading-tight">Garantía</span>
-                <span className="text-white/60 text-[11px] uppercase tracking-wider font-semibold">Profesional</span>
-              </div>
-            </div>
-          </FadeUp>
           
           <FadeUp delay={0.4} className="flex flex-col sm:flex-row items-center gap-5 sm:gap-6">
             <a href="#contacto" className="group relative overflow-hidden w-full sm:w-auto flex items-center justify-center px-10 h-16 rounded-full bg-gradient-to-r from-[#FFDE00] to-[#F39C12] text-white font-black text-[14px] md:text-[16px] uppercase tracking-[0.2em] transition-all duration-300 shadow-[0_10px_40px_rgba(243,156,18,0.5)] hover:shadow-[0_20px_60px_rgba(243,156,18,0.8)] hover:-translate-y-1">
@@ -339,6 +299,69 @@ export function Hero() {
             </a>
           </FadeUp>
         </div>
+      </div>
+
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 z-20 w-[90%] max-w-[900px]">
+        <FadeUp delay={0.6}>
+          <div 
+            className="relative rounded-3xl p-8 md:px-14 md:py-12 shadow-[0_30px_80px_rgba(0,0,0,0.8)] border border-white/20"
+            style={{
+              backgroundImage: "url('/wood-panel.webp')",
+              backgroundSize: 'cover',
+              backgroundPosition: 'center'
+            }}
+          >
+            {/* Subtle inner shadow for depth, letting the natural wood color shine */}
+            <div className="absolute inset-0 rounded-3xl shadow-[inset_0_0_50px_rgba(0,0,0,0.2)] pointer-events-none" />
+            
+            {/* Skeuomorphic Screws with Hammer Animation */}
+            <HammerHit className="top-0 left-0" delay={1.0} />
+            <AnimatedScrew className="top-4 left-4 -rotate-12" delay={1.0} />
+            
+            <HammerHit className="top-0 right-0" delay={1.2} />
+            <AnimatedScrew className="top-4 right-4 rotate-45" delay={1.2} />
+            
+            <HammerHit className="bottom-0 left-0" delay={1.4} />
+            <AnimatedScrew className="bottom-4 left-4 rotate-90" delay={1.4} />
+            
+            <HammerHit className="bottom-0 right-0" delay={1.6} />
+            <AnimatedScrew className="bottom-4 right-4 -rotate-45" delay={1.6} />
+            
+            <div className="relative z-10 grid grid-cols-2 gap-4 md:gap-6 md:grid-cols-4 px-2 py-2">
+              <div className="group flex flex-col items-center text-center bg-white/95 backdrop-blur-sm rounded-lg p-5 md:p-6 shadow-md border border-white/50 cursor-default transition-transform duration-500 hover:-translate-y-2 hover:shadow-xl">
+                <span className="text-[32px] md:text-[44px] font-black text-ink leading-none tracking-tighter">30+</span>
+                <span className="relative inline-block mt-2">
+                  <span className="absolute bottom-[-2px] -left-1 -right-1 h-[4px] bg-yellow-400 group-hover:h-full group-hover:bottom-0 transition-all duration-300 rounded-sm" />
+                  <span className="relative z-10 text-[11px] md:text-[13px] font-bold text-ink uppercase tracking-[0.2em]">Años</span>
+                </span>
+              </div>
+              
+              <div className="group flex flex-col items-center text-center bg-white/95 backdrop-blur-sm rounded-lg p-5 md:p-6 shadow-md border border-white/50 cursor-default transition-transform duration-500 hover:-translate-y-2 hover:shadow-xl">
+                <span className="text-[32px] md:text-[44px] font-black text-ink leading-none tracking-tighter">500+</span>
+                <span className="relative inline-block mt-2">
+                  <span className="absolute bottom-[-2px] -left-1 -right-1 h-[4px] bg-yellow-400 group-hover:h-full group-hover:bottom-0 transition-all duration-300 rounded-sm" />
+                  <span className="relative z-10 text-[11px] md:text-[13px] font-bold text-ink uppercase tracking-[0.2em]">Cocinas</span>
+                </span>
+              </div>
+              
+              <div className="group flex flex-col items-center text-center bg-white/95 backdrop-blur-sm rounded-lg p-5 md:p-6 shadow-md border border-white/50 cursor-default transition-transform duration-500 hover:-translate-y-2 hover:shadow-xl">
+                <span className="text-[26px] md:text-[34px] font-black text-ink leading-none tracking-tight pt-1 md:pt-2">Cataluña</span>
+                <span className="relative inline-block mt-2">
+                  <span className="absolute bottom-[-2px] -left-1 -right-1 h-[4px] bg-yellow-400 group-hover:h-full group-hover:bottom-0 transition-all duration-300 rounded-sm" />
+                  <span className="relative z-10 text-[11px] md:text-[13px] font-bold text-ink uppercase tracking-[0.2em]">Cobertura</span>
+                </span>
+              </div>
+              
+              <div className="group flex flex-col items-center text-center bg-white/95 backdrop-blur-sm rounded-lg p-5 md:p-6 shadow-md border border-white/50 cursor-default transition-transform duration-500 hover:-translate-y-2 hover:shadow-xl">
+                <span className="text-[26px] md:text-[34px] font-black text-ink leading-none tracking-tight pt-1 md:pt-2">Garantía</span>
+                <span className="relative inline-block mt-2">
+                  <span className="absolute bottom-[-2px] -left-1 -right-1 h-[4px] bg-yellow-400 group-hover:h-full group-hover:bottom-0 transition-all duration-300 rounded-sm" />
+                  <span className="relative z-10 text-[11px] md:text-[13px] font-bold text-ink uppercase tracking-[0.2em]">Profesional</span>
+                </span>
+              </div>
+            </div>
+          </div>
+        </FadeUp>
       </div>
     </section>
   );
