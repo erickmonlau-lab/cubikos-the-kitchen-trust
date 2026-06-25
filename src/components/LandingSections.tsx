@@ -1,6 +1,7 @@
 import { FadeUp, Ico, RevealMask, Counter } from "./LandingUI";
 import useEmblaCarousel from "embla-carousel-react";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 import { PhoneCall, FileSearch, Ruler, Hammer, CheckCircle, User } from "lucide-react";
 
 import showcase1 from "@/assets/showcase-1.png";
@@ -456,13 +457,39 @@ export function Testimonios() {
 }
 
 export function BotelleroShowcase() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end end"]
+  });
+
+  // Main Photo (Wine Rack) scales up and fades in
+  const y1 = useTransform(scrollYProgress, [0, 0.2], [100, 0]);
+  const opacity1 = useTransform(scrollYProgress, [0, 0.2], [0, 1]);
+  const scale1 = useTransform(scrollYProgress, [0, 0.3], [0.8, 1]);
+
+  // Photo 2 (Top Right - Island) slides in from right/top
+  const x2 = useTransform(scrollYProgress, [0.2, 0.5], [100, 0]);
+  const y2 = useTransform(scrollYProgress, [0.2, 0.5], [-100, 0]);
+  const opacity2 = useTransform(scrollYProgress, [0.2, 0.5], [0, 1]);
+
+  // Photo 3 (Bottom Right - Pantry) slides in from right/bottom
+  const x3 = useTransform(scrollYProgress, [0.5, 0.8], [100, 0]);
+  const y3 = useTransform(scrollYProgress, [0.5, 0.8], [100, 0]);
+  const opacity3 = useTransform(scrollYProgress, [0.5, 0.8], [0, 1]);
+
+  // Text fades in early
+  const textOpacity = useTransform(scrollYProgress, [0, 0.15], [0, 1]);
+  const textY = useTransform(scrollYProgress, [0, 0.15], [40, 0]);
+
   return (
-    <section className="relative bg-[#0D0D0D] text-[#FAFAF8] py-24 md:py-40 overflow-hidden z-20">
-      <div className="container-x">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-          
-          <div className="flex flex-col justify-center">
-            <PremiumFade delay={0}>
+    <section ref={containerRef} className="relative bg-[#0D0D0D] text-[#FAFAF8] h-[300vh]">
+      <div className="sticky top-0 h-screen w-full flex items-center overflow-hidden z-20">
+        <div className="container-x w-full">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+            
+            <motion.div style={{ opacity: textOpacity, y: textY }} className="flex flex-col justify-center">
               <div className="text-brand font-bold uppercase tracking-widest text-sm mb-4">La firma de un artesano</div>
               <h2 className="font-display font-black text-4xl md:text-5xl lg:text-6xl tracking-tight leading-tight mb-8">
                 El Arte del Ensamblaje
@@ -473,44 +500,35 @@ export function BotelleroShowcase() {
               <p className="text-[#EDEBE8]/80 text-lg md:text-xl leading-relaxed font-light">
                 Es en estos pequeños detalles donde la verdadera calidad de un montaje sale a relucir. No instalamos cocinas; construimos mobiliario de precisión.
               </p>
-            </PremiumFade>
+            </motion.div>
+
+            <div className="relative aspect-[4/5] md:aspect-square lg:aspect-square w-full rounded-2xl flex items-center justify-center overflow-visible">
+              {/* Main Photo (Wine Rack) */}
+              <motion.div 
+                style={{ y: y1, opacity: opacity1, scale: scale1 }}
+                className="absolute left-0 bottom-0 w-[70%] h-[80%] rounded-2xl overflow-hidden shadow-2xl z-10 border-[6px] border-[#0D0D0D]"
+              >
+                <img src={showcase1} alt="Montaje de estantería iluminada" className="w-full h-full object-cover" />
+              </motion.div>
+
+              {/* Top Right Photo (Island) */}
+              <motion.div 
+                style={{ x: x2, y: y2, opacity: opacity2 }}
+                className="absolute right-0 top-0 w-[55%] h-[50%] rounded-2xl overflow-hidden shadow-xl z-20 border-[6px] border-[#0D0D0D]"
+              >
+                <img src={showcase2} alt="Isla de cocina premium" className="w-full h-full object-cover" />
+              </motion.div>
+
+              {/* Bottom Right Photo (Pantry) */}
+              <motion.div 
+                style={{ x: x3, y: y3, opacity: opacity3 }}
+                className="absolute right-12 bottom-8 w-[40%] h-[40%] rounded-2xl overflow-hidden shadow-xl z-30 border-[6px] border-[#0D0D0D]"
+              >
+                <img src={showcase3} alt="Detalle de montaje en columna" className="w-full h-full object-cover object-left-top" />
+              </motion.div>
+            </div>
+
           </div>
-
-          <div className="relative aspect-[4/5] md:aspect-square lg:aspect-square w-full rounded-2xl flex items-center justify-center overflow-visible">
-            {/* Main Photo (Wine Rack) */}
-            <motion.div 
-              initial={{ opacity: 0, y: 60 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-10%" }}
-              transition={{ duration: 1, ease: easing }}
-              className="absolute left-0 bottom-0 w-[70%] h-[80%] rounded-2xl overflow-hidden shadow-2xl z-10 border-[6px] border-[#0D0D0D]"
-            >
-              <img src={showcase1} alt="Montaje de estantería iluminada" className="w-full h-full object-cover" />
-            </motion.div>
-
-            {/* Top Right Photo (Island) */}
-            <motion.div 
-              initial={{ opacity: 0, x: 40, y: -40 }}
-              whileInView={{ opacity: 1, x: 0, y: 0 }}
-              viewport={{ once: true, margin: "-10%" }}
-              transition={{ duration: 1, delay: 0.2, ease: easing }}
-              className="absolute right-0 top-0 w-[55%] h-[50%] rounded-2xl overflow-hidden shadow-xl z-20 border-[6px] border-[#0D0D0D]"
-            >
-              <img src={showcase2} alt="Isla de cocina premium" className="w-full h-full object-cover" />
-            </motion.div>
-
-            {/* Bottom Right Photo (Pantry) */}
-            <motion.div 
-              initial={{ opacity: 0, x: 40, y: 40 }}
-              whileInView={{ opacity: 1, x: 0, y: 0 }}
-              viewport={{ once: true, margin: "-10%" }}
-              transition={{ duration: 1, delay: 0.4, ease: easing }}
-              className="absolute right-12 bottom-8 w-[40%] h-[40%] rounded-2xl overflow-hidden shadow-xl z-30 border-[6px] border-[#0D0D0D]"
-            >
-              <img src={showcase3} alt="Detalle de montaje en columna" className="w-full h-full object-cover object-left-top" />
-            </motion.div>
-          </div>
-
         </div>
       </div>
     </section>
