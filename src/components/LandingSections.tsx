@@ -693,7 +693,7 @@ export function BotelleroShowcase() {
               <div className="text-brand font-bold uppercase tracking-widest text-sm mb-4">
                 La firma de un artesano
               </div>
-              <h2 className="font-display font-black text-4xl md:text-5xl lg:text-6xl tracking-tight leading-tight mb-8">
+              <h2 className="font-display font-black text-4xl md:text-5xl lg:text-6xl tracking-tight leading-tight mb-8 text-[#FAFAF8]">
                 El Arte del Ensamblaje
               </h2>
               <p className="text-[#EDEBE8]/80 text-lg md:text-xl leading-relaxed mb-6 font-light">
