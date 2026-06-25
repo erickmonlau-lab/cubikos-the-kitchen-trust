@@ -3,6 +3,10 @@ import useEmblaCarousel from "embla-carousel-react";
 import { motion } from "framer-motion";
 import { PhoneCall, FileSearch, Ruler, Hammer, CheckCircle, User } from "lucide-react";
 
+import showcase1 from "@/assets/showcase-1.png";
+import showcase2 from "@/assets/showcase-2.jpg";
+import showcase3 from "@/assets/showcase-3.png";
+
 const easing: any = [0.22, 1, 0.36, 1];
 
 const PremiumFade = ({ children, delay = 0, className = "" }: { children: React.ReactNode, delay?: number, className?: string }) => (
@@ -508,89 +512,39 @@ export function BotelleroShowcase() {
             </PremiumFade>
           </div>
 
-          <div className="relative aspect-square md:aspect-[4/3] lg:aspect-square w-full rounded-2xl bg-[#1A1A1A] border border-white/10 flex items-center justify-center p-8 overflow-hidden shadow-2xl">
-            <svg viewBox="0 0 400 400" className="w-full h-full drop-shadow-2xl overflow-visible">
-               {/* Frame */}
-               <motion.rect x="100" y="50" width="200" height="300" fill="none" stroke="#2D1A11" strokeWidth="12" rx="4"
-                 initial={{ opacity: 0, y: -50, scale: 0.95 }}
-                 whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                 viewport={{ once: true, margin: "-10%" }}
-                 transition={{ duration: 0.8, type: "spring", bounce: 0.4 }}
-               />
-               <motion.rect x="100" y="50" width="200" height="300" fill="#3E2723" rx="4"
-                 initial={{ opacity: 0 }}
-                 whileInView={{ opacity: 1 }}
-                 viewport={{ once: true, margin: "-10%" }}
-                 transition={{ duration: 0.5, delay: 0.3 }}
-               />
+          <div className="relative aspect-[4/5] md:aspect-square lg:aspect-square w-full rounded-2xl flex items-center justify-center overflow-visible">
+            {/* Main Photo (Wine Rack) */}
+            <motion.div 
+              initial={{ opacity: 0, y: 60 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-10%" }}
+              transition={{ duration: 1, ease: easing }}
+              className="absolute left-0 bottom-0 w-[70%] h-[80%] rounded-2xl overflow-hidden shadow-2xl z-10 border-[6px] border-[#0D0D0D]"
+            >
+              <img src={showcase1} alt="Montaje de estantería iluminada" className="w-full h-full object-cover" />
+            </motion.div>
 
-               {/* Horizontal Shelves */}
-               <motion.line x1="106" y1="125" x2="294" y2="125" stroke="#5D4037" strokeWidth="8"
-                 initial={{ pathLength: 0, x: -20, opacity: 0 }}
-                 whileInView={{ pathLength: 1, x: 0, opacity: 1 }}
-                 viewport={{ once: true, margin: "-10%" }}
-                 transition={{ duration: 0.6, delay: 0.8 }}
-               />
-               <motion.line x1="106" y1="200" x2="294" y2="200" stroke="#5D4037" strokeWidth="8"
-                 initial={{ pathLength: 0, x: 20, opacity: 0 }}
-                 whileInView={{ pathLength: 1, x: 0, opacity: 1 }}
-                 viewport={{ once: true, margin: "-10%" }}
-                 transition={{ duration: 0.6, delay: 1.0 }}
-               />
-               <motion.line x1="106" y1="275" x2="294" y2="275" stroke="#5D4037" strokeWidth="8"
-                 initial={{ pathLength: 0, x: -20, opacity: 0 }}
-                 whileInView={{ pathLength: 1, x: 0, opacity: 1 }}
-                 viewport={{ once: true, margin: "-10%" }}
-                 transition={{ duration: 0.6, delay: 1.2 }}
-               />
+            {/* Top Right Photo (Island) */}
+            <motion.div 
+              initial={{ opacity: 0, x: 40, y: -40 }}
+              whileInView={{ opacity: 1, x: 0, y: 0 }}
+              viewport={{ once: true, margin: "-10%" }}
+              transition={{ duration: 1, delay: 0.2, ease: easing }}
+              className="absolute right-0 top-0 w-[55%] h-[50%] rounded-2xl overflow-hidden shadow-xl z-20 border-[6px] border-[#0D0D0D]"
+            >
+              <img src={showcase2} alt="Isla de cocina premium" className="w-full h-full object-cover" />
+            </motion.div>
 
-               {/* Vertical Dividers */}
-               <motion.line x1="166" y1="56" x2="166" y2="344" stroke="#5D4037" strokeWidth="8"
-                 initial={{ pathLength: 0, y: -20, opacity: 0 }}
-                 whileInView={{ pathLength: 1, y: 0, opacity: 1 }}
-                 viewport={{ once: true, margin: "-10%" }}
-                 transition={{ duration: 0.6, delay: 1.6 }}
-               />
-               <motion.line x1="233" y1="56" x2="233" y2="344" stroke="#5D4037" strokeWidth="8"
-                 initial={{ pathLength: 0, y: 20, opacity: 0 }}
-                 whileInView={{ pathLength: 1, y: 0, opacity: 1 }}
-                 viewport={{ once: true, margin: "-10%" }}
-                 transition={{ duration: 0.6, delay: 1.8 }}
-               />
-
-               {/* Bottles */}
-               {/* Bottle 1 */}
-               <motion.g initial={{ opacity: 0, scale: 0 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true, margin: "-10%" }} transition={{ type: "spring", delay: 2.4, bounce: 0.6 }} style={{ originX: "136px", originY: "110px" }}>
-                 <rect x="126" y="65" width="20" height="56" fill="#1B5E20" rx="10" />
-                 <rect x="131" y="55" width="10" height="15" fill="#1B5E20" />
-                 <rect x="132" y="53" width="8" height="5" fill="#D4AF37" />
-                 <rect x="129" y="85" width="14" height="20" fill="#F5F5DC" />
-               </motion.g>
-
-               {/* Bottle 2 */}
-               <motion.g initial={{ opacity: 0, scale: 0 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true, margin: "-10%" }} transition={{ type: "spring", delay: 2.7, bounce: 0.6 }} style={{ originX: "200px", originY: "180px" }}>
-                 <rect x="190" y="140" width="20" height="56" fill="#4A148C" rx="10" />
-                 <rect x="195" y="130" width="10" height="15" fill="#4A148C" />
-                 <rect x="196" y="128" width="8" height="5" fill="#D4AF37" />
-                 <rect x="193" y="160" width="14" height="20" fill="#F5F5DC" />
-               </motion.g>
-
-               {/* Bottle 3 */}
-               <motion.g initial={{ opacity: 0, scale: 0 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true, margin: "-10%" }} transition={{ type: "spring", delay: 3.0, bounce: 0.6 }} style={{ originX: "263px", originY: "250px" }}>
-                 <rect x="253" y="215" width="20" height="56" fill="#B71C1C" rx="10" />
-                 <rect x="258" y="205" width="10" height="15" fill="#B71C1C" />
-                 <rect x="259" y="203" width="8" height="5" fill="#D4AF37" />
-                 <rect x="256" y="235" width="14" height="20" fill="#F5F5DC" />
-               </motion.g>
-
-               {/* Bottle 4 */}
-               <motion.g initial={{ opacity: 0, scale: 0 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true, margin: "-10%" }} transition={{ type: "spring", delay: 3.3, bounce: 0.6 }} style={{ originX: "136px", originY: "330px" }}>
-                 <rect x="126" y="290" width="20" height="56" fill="#F57F17" rx="10" />
-                 <rect x="131" y="280" width="10" height="15" fill="#F57F17" />
-                 <rect x="132" y="278" width="8" height="5" fill="#D4AF37" />
-                 <rect x="129" y="310" width="14" height="20" fill="#F5F5DC" />
-               </motion.g>
-            </svg>
+            {/* Bottom Right Photo (Pantry) */}
+            <motion.div 
+              initial={{ opacity: 0, x: 40, y: 40 }}
+              whileInView={{ opacity: 1, x: 0, y: 0 }}
+              viewport={{ once: true, margin: "-10%" }}
+              transition={{ duration: 1, delay: 0.4, ease: easing }}
+              className="absolute right-12 bottom-8 w-[40%] h-[40%] rounded-2xl overflow-hidden shadow-xl z-30 border-[6px] border-[#0D0D0D]"
+            >
+              <img src={showcase3} alt="Detalle de montaje en columna" className="w-full h-full object-cover object-left-top" />
+            </motion.div>
           </div>
 
         </div>
