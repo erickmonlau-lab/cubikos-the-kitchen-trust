@@ -160,13 +160,14 @@ export function Header() {
         <div className="hidden lg:block">
           <a 
             href="#contacto" 
-            className={`flex items-center justify-center px-8 h-12 rounded-full font-bold text-[13px] uppercase tracking-[0.15em] transition-all duration-300 shadow-lg ${
+            className={`group relative overflow-hidden flex items-center justify-center px-8 h-12 rounded-full font-bold text-[13px] uppercase tracking-[0.15em] transition-all duration-300 ${
               scrolled 
-                ? "bg-brand text-white hover:bg-ink hover:shadow-xl hover:-translate-y-0.5" 
-                : "bg-white text-ink hover:bg-brand hover:text-white hover:shadow-xl hover:-translate-y-0.5"
+                ? "bg-gradient-to-r from-[#FFDE00] to-[#F39C12] text-ink shadow-[0_5px_20px_rgba(243,156,18,0.4)] hover:shadow-[0_10px_30px_rgba(243,156,18,0.6)] hover:-translate-y-0.5" 
+                : "bg-white text-ink shadow-lg hover:shadow-2xl hover:-translate-y-0.5"
             }`}
           >
-            Solicitar presupuesto
+            <div className="absolute inset-0 -translate-x-[150%] bg-gradient-to-r from-transparent via-white/60 to-transparent group-hover:translate-x-[150%] transition-transform duration-1000 ease-in-out" />
+            <span className="relative z-10">Solicitar presupuesto</span>
           </a>
         </div>
         <button
@@ -247,7 +248,7 @@ const HammerHit = ({ className, delay }: { className: string, delay: number }) =
 
 export function Hero() {
   return (
-    <section id="top" className="relative h-[100svh] min-h-[700px] flex flex-col justify-center overflow-hidden bg-ink">
+    <section id="top" className="relative min-h-[100svh] flex flex-col justify-center overflow-hidden bg-ink pt-32 pb-24 md:py-0">
       <motion.div 
         initial={{ scale: 1.05 }}
         animate={{ scale: 1 }}
@@ -273,7 +274,7 @@ export function Hero() {
         <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-black/90 via-black/40 to-transparent md:hidden" />
       </motion.div>
       
-      <div className="relative z-10 w-full h-full flex flex-col justify-center container-x pt-32 pb-16 md:py-0">
+      <div className="relative z-10 w-full h-full flex flex-col justify-center container-x mt-8 md:mt-0">
         <div className="w-full max-w-[480px]">
           <RevealMask>
             <h1 className="font-display font-black text-[clamp(2.5rem,8vw,3.5rem)] md:text-[clamp(3.5rem,5vw,4.5rem)] text-white tracking-tighter leading-[1.05]">
@@ -291,11 +292,12 @@ export function Hero() {
           </FadeUp>
           
           <FadeUp delay={0.4} className="mt-10 md:mt-14 flex flex-col sm:flex-row items-center gap-5 sm:gap-6">
-            <a href="#contacto" className="group w-full sm:w-auto flex items-center justify-center px-10 h-16 rounded-full bg-gradient-to-r from-brand to-[#E6C65C] text-ink font-black text-[14px] md:text-[15px] uppercase tracking-[0.2em] hover:scale-[1.03] transition-all duration-300 shadow-[0_15px_35px_rgba(212,175,55,0.4)] hover:shadow-[0_20px_50px_rgba(212,175,55,0.6)]">
-              Solicitar presupuesto
+            <a href="#contacto" className="group relative overflow-hidden w-full sm:w-auto flex items-center justify-center px-10 h-16 rounded-full bg-gradient-to-r from-[#FFDE00] to-[#F39C12] text-ink font-black text-[14px] md:text-[16px] uppercase tracking-[0.2em] transition-all duration-300 shadow-[0_10px_40px_rgba(243,156,18,0.5)] hover:shadow-[0_20px_60px_rgba(243,156,18,0.8)] hover:-translate-y-1">
+              <div className="absolute inset-0 -translate-x-[150%] bg-gradient-to-r from-transparent via-white/60 to-transparent group-hover:translate-x-[150%] transition-transform duration-[1.2s] ease-in-out" />
+              <span className="relative z-10 drop-shadow-sm">Solicitar presupuesto</span>
             </a>
-            <a href="#proyectos" className="w-full sm:w-auto flex items-center justify-center px-10 h-16 rounded-full bg-transparent backdrop-blur-md border-2 border-white/80 text-white font-bold text-[14px] md:text-[15px] uppercase tracking-[0.2em] hover:bg-white hover:text-ink hover:scale-[1.03] transition-all duration-300 shadow-[0_10px_30px_rgba(0,0,0,0.2)] hover:border-white">
-              Ver proyectos
+            <a href="#proyectos" className="group relative overflow-hidden w-full sm:w-auto flex items-center justify-center px-10 h-16 rounded-full bg-white/5 backdrop-blur-md border border-white/30 text-white font-bold text-[14px] md:text-[15px] uppercase tracking-[0.2em] transition-all duration-300 shadow-[0_10px_30px_rgba(0,0,0,0.3)] hover:bg-white hover:text-ink hover:shadow-[0_15px_40px_rgba(255,255,255,0.2)] hover:-translate-y-1">
+              <span className="relative z-10">Ver proyectos</span>
             </a>
           </FadeUp>
         </div>
