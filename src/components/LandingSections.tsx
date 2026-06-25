@@ -3,7 +3,7 @@ import useEmblaCarousel from "embla-carousel-react";
 import { motion } from "framer-motion";
 import { PhoneCall, FileSearch, Ruler, Hammer, CheckCircle, User } from "lucide-react";
 
-const easing = [0.22, 1, 0.36, 1];
+const easing: any = [0.22, 1, 0.36, 1];
 
 const PremiumFade = ({ children, delay = 0, className = "" }: { children: React.ReactNode, delay?: number, className?: string }) => (
   <motion.div

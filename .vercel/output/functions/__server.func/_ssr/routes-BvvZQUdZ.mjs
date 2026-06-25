@@ -3,7 +3,7 @@ import { t as hero_kitchen_default } from "./hero-kitchen-D0ioLp_Y.mjs";
 import { n as require_jsx_runtime, r as require_react } from "../_libs/react+tanstack__react-query.mjs";
 import { n as motion, t as useInView } from "../_libs/framer-motion.mjs";
 import { a as CircleCheckBig, i as FileSearch, n as PhoneCall, r as Hammer, t as Ruler } from "../_libs/lucide-react.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/routes-CbbLle-Q.js
+//#region node_modules/.nitro/vite/services/ssr/assets/routes-BvvZQUdZ.js
 var import_react = /* @__PURE__ */ __toESM(require_react());
 var import_jsx_runtime = require_jsx_runtime();
 var hero_worker_hq_default = "/assets/hero-worker-hq-ZMCYrJ5u.webp";
@@ -395,202 +395,235 @@ var HammerHit = ({ className, delay }) => /* @__PURE__ */ (0, import_jsx_runtime
 function Hero() {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
 		id: "top",
-		className: "relative min-h-[100svh] flex flex-col overflow-hidden bg-ink",
-		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(motion.div, {
-			initial: { scale: 1.05 },
-			animate: { scale: 1 },
-			transition: {
-				duration: 1.5,
-				ease: "easeOut"
-			},
-			className: "absolute inset-0 z-0",
-			children: [
-				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("svg", {
-					className: "hidden",
-					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("filter", {
-						id: "crisp-sharpen",
-						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("feConvolveMatrix", {
-							order: "3",
-							preserveAlpha: "true",
-							kernelMatrix: "0 -1 0 -1 5 -1 0 -1 0"
-						})
-					})
-				}),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
-					src: hero_worker_hq_default,
-					alt: "Montador profesional ajustando cocina premium",
-					className: "absolute inset-0 w-full h-full object-cover object-[85%_center] sm:object-[65%_center] md:object-[55%_center] contrast-[1.10] saturate-[1.05]",
-					style: { filter: "url(#crisp-sharpen)" }
-				}),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_30%_50%,rgba(0,0,0,0.45)_0%,transparent_65%)] md:bg-[radial-gradient(circle_at_25%_50%,rgba(0,0,0,0.55)_0%,transparent_50%)]" }),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute inset-0 pointer-events-none bg-gradient-to-t from-black/90 via-black/40 to-transparent md:hidden" })
-			]
-		}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			className: "relative z-10 w-full flex flex-col container-x my-auto pt-32 pb-24 md:pt-40 md:pb-32",
-			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				className: "w-full max-w-[480px]",
+		className: "relative min-h-[100svh] flex flex-col bg-ink pb-32 md:pb-40",
+		children: [
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(motion.div, {
+				initial: { scale: 1.05 },
+				animate: { scale: 1 },
+				transition: {
+					duration: 1.5,
+					ease: "easeOut"
+				},
+				className: "absolute inset-0 z-0 overflow-hidden",
 				children: [
-					/* @__PURE__ */ (0, import_jsx_runtime.jsx)(RevealMask, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("h1", {
-						className: "font-display font-black text-[clamp(2.5rem,8vw,3.5rem)] md:text-[clamp(3.5rem,5vw,4.5rem)] text-white tracking-tighter leading-[1.05]",
-						children: [
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-								className: "block",
-								children: "Una cocina"
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-								className: "block",
-								children: "perfecta"
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-								className: "block text-white/90",
-								children: "empieza con un"
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
-								className: "block",
-								children: ["montaje perfecto", /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-									className: "text-brand",
-									children: "."
-								})]
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("svg", {
+						className: "hidden",
+						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("filter", {
+							id: "crisp-sharpen",
+							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("feConvolveMatrix", {
+								order: "3",
+								preserveAlpha: "true",
+								kernelMatrix: "0 -1 0 -1 5 -1 0 -1 0"
 							})
-						]
-					}) }),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsx)(FadeUp, {
-						delay: .2,
-						className: "mt-8 md:mt-10 max-w-[440px]",
-						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-							className: "text-lg md:text-[20px] text-white/95 font-medium tracking-wide leading-relaxed text-balance antialiased drop-shadow-sm",
-							children: "Más de 30 años instalando cocinas en toda Cataluña con precisión milimétrica y acabados impecables."
 						})
 					}),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(FadeUp, {
-						delay: .4,
-						className: "mt-10 md:mt-14 flex flex-col sm:flex-row items-center gap-5 sm:gap-6",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("a", {
-							href: "#contacto",
-							className: "group relative overflow-hidden w-full sm:w-auto flex items-center justify-center px-10 h-16 rounded-full bg-gradient-to-r from-[#FFDE00] to-[#F39C12] text-white font-black text-[14px] md:text-[16px] uppercase tracking-[0.2em] transition-all duration-300 shadow-[0_10px_40px_rgba(243,156,18,0.5)] hover:shadow-[0_20px_60px_rgba(243,156,18,0.8)] hover:-translate-y-1",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute inset-0 -translate-x-[150%] bg-gradient-to-r from-transparent via-white/60 to-transparent group-hover:translate-x-[150%] transition-transform duration-[1.2s] ease-in-out" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-								className: "relative z-10 drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)]",
-								children: "Solicitar presupuesto"
-							})]
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
-							href: "#proyectos",
-							className: "group relative overflow-hidden w-full sm:w-auto flex items-center justify-center px-10 h-16 rounded-full bg-white text-ink font-bold text-[14px] md:text-[15px] uppercase tracking-[0.2em] transition-all duration-300 shadow-[0_10px_30px_rgba(0,0,0,0.3)] hover:shadow-[0_15px_40px_rgba(255,255,255,0.4)] hover:-translate-y-1",
-							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-								className: "relative z-10",
-								children: "Ver proyectos"
-							})
-						})]
-					})
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
+						src: hero_worker_hq_default,
+						alt: "Montador profesional ajustando cocina premium",
+						className: "absolute inset-0 w-full h-full object-cover object-[85%_center] sm:object-[65%_center] md:object-[55%_center] contrast-[1.10] saturate-[1.05]",
+						style: { filter: "url(#crisp-sharpen)" }
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_30%_50%,rgba(0,0,0,0.45)_0%,transparent_65%)] md:bg-[radial-gradient(circle_at_25%_50%,rgba(0,0,0,0.55)_0%,transparent_50%)]" }),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute inset-0 pointer-events-none bg-gradient-to-t from-black/90 via-black/40 to-transparent md:hidden" })
 				]
-			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(FadeUp, {
-				delay: .6,
-				className: "mt-16 md:mt-24 w-full max-w-[900px]",
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "relative z-10 w-full flex flex-col container-x my-auto pt-24 pb-10 md:pt-32 md:pb-16",
 				children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "relative rounded-3xl p-8 md:px-14 md:py-12 shadow-[0_30px_80px_rgba(0,0,0,0.8)] border border-white/20",
-					style: {
-						backgroundImage: "url('/wood-panel.webp')",
-						backgroundSize: "cover",
-						backgroundPosition: "center"
-					},
+					className: "w-full max-w-[480px]",
 					children: [
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute inset-0 rounded-3xl shadow-[inset_0_0_50px_rgba(0,0,0,0.2)] pointer-events-none" }),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)(HammerHit, {
-							className: "top-0 left-0",
-							delay: 1
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)(AnimatedScrew, {
-							className: "top-4 left-4 -rotate-12",
-							delay: 1
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)(HammerHit, {
-							className: "top-0 right-0",
-							delay: 1.2
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)(AnimatedScrew, {
-							className: "top-4 right-4 rotate-45",
-							delay: 1.2
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)(HammerHit, {
-							className: "bottom-0 left-0",
-							delay: 1.4
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)(AnimatedScrew, {
-							className: "bottom-4 left-4 rotate-90",
-							delay: 1.4
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)(HammerHit, {
-							className: "bottom-0 right-0",
-							delay: 1.6
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)(AnimatedScrew, {
-							className: "bottom-4 right-4 -rotate-45",
-							delay: 1.6
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							className: "relative z-10 grid grid-cols-2 gap-4 md:gap-6 md:grid-cols-4 px-2 py-2",
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)(RevealMask, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("h1", {
+							className: "font-display font-black text-[clamp(1.9rem,5.5vw,2.6rem)] md:text-[clamp(2.8rem,4vw,3.6rem)] text-white tracking-tighter leading-[1.05]",
 							children: [
-								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-									className: "group flex flex-col items-center text-center bg-white/95 backdrop-blur-sm rounded-lg p-5 md:p-6 shadow-md border border-white/50 cursor-default transition-transform duration-500 hover:-translate-y-2 hover:shadow-xl",
-									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-										className: "text-[32px] md:text-[44px] font-black text-ink leading-none tracking-tighter",
-										children: "30+"
-									}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
-										className: "relative inline-block mt-2",
-										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "absolute bottom-[-2px] -left-1 -right-1 h-[4px] bg-yellow-400 group-hover:h-full group-hover:bottom-0 transition-all duration-300 rounded-sm" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-											className: "relative z-10 text-[11px] md:text-[13px] font-bold text-ink uppercase tracking-[0.2em]",
-											children: "Años"
-										})]
-									})]
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									className: "block",
+									children: "Una cocina"
 								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-									className: "group flex flex-col items-center text-center bg-white/95 backdrop-blur-sm rounded-lg p-5 md:p-6 shadow-md border border-white/50 cursor-default transition-transform duration-500 hover:-translate-y-2 hover:shadow-xl",
-									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-										className: "text-[32px] md:text-[44px] font-black text-ink leading-none tracking-tighter",
-										children: "500+"
-									}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
-										className: "relative inline-block mt-2",
-										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "absolute bottom-[-2px] -left-1 -right-1 h-[4px] bg-yellow-400 group-hover:h-full group-hover:bottom-0 transition-all duration-300 rounded-sm" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-											className: "relative z-10 text-[11px] md:text-[13px] font-bold text-ink uppercase tracking-[0.2em]",
-											children: "Cocinas"
-										})]
-									})]
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									className: "block",
+									children: "perfecta"
 								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-									className: "group flex flex-col items-center text-center bg-white/95 backdrop-blur-sm rounded-lg p-5 md:p-6 shadow-md border border-white/50 cursor-default transition-transform duration-500 hover:-translate-y-2 hover:shadow-xl",
-									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-										className: "text-[26px] md:text-[34px] font-black text-ink leading-none tracking-tight pt-1 md:pt-2",
-										children: "Cataluña"
-									}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
-										className: "relative inline-block mt-2",
-										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "absolute bottom-[-2px] -left-1 -right-1 h-[4px] bg-yellow-400 group-hover:h-full group-hover:bottom-0 transition-all duration-300 rounded-sm" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-											className: "relative z-10 text-[11px] md:text-[13px] font-bold text-ink uppercase tracking-[0.2em]",
-											children: "Cobertura"
-										})]
-									})]
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									className: "block text-white/90",
+									children: "empieza con un"
 								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-									className: "group flex flex-col items-center text-center bg-white/95 backdrop-blur-sm rounded-lg p-5 md:p-6 shadow-md border border-white/50 cursor-default transition-transform duration-500 hover:-translate-y-2 hover:shadow-xl",
-									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-										className: "text-[26px] md:text-[34px] font-black text-ink leading-none tracking-tight pt-1 md:pt-2",
-										children: "Garantía"
-									}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
-										className: "relative inline-block mt-2",
-										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "absolute bottom-[-2px] -left-1 -right-1 h-[4px] bg-yellow-400 group-hover:h-full group-hover:bottom-0 transition-all duration-300 rounded-sm" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-											className: "relative z-10 text-[11px] md:text-[13px] font-bold text-ink uppercase tracking-[0.2em]",
-											children: "Profesional"
-										})]
+								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+									className: "block",
+									children: ["montaje perfecto", /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+										className: "text-brand",
+										children: "."
 									})]
 								})
 							]
+						}) }),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)(FadeUp, {
+							delay: .2,
+							className: "mt-4 md:mt-5 max-w-[440px]",
+							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+								className: "text-lg md:text-[20px] text-white/95 font-medium tracking-wide leading-relaxed text-balance antialiased drop-shadow-sm",
+								children: "Más de 30 años instalando cocinas en toda Cataluña con precisión milimétrica y acabados impecables."
+							})
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(FadeUp, {
+							delay: .4,
+							className: "flex flex-col sm:flex-row items-center gap-5 sm:gap-6",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+								className: "relative w-full sm:w-auto",
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(motion.div, {
+									animate: {
+										scale: [
+											1,
+											1.15,
+											1
+										],
+										opacity: [
+											.6,
+											0,
+											.6
+										]
+									},
+									transition: {
+										repeat: Infinity,
+										duration: 2,
+										repeatDelay: 2
+									},
+									className: "absolute inset-0 rounded-full border-[2px] border-brand pointer-events-none"
+								}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("a", {
+									href: "#contacto",
+									className: "group relative overflow-hidden w-full sm:w-auto flex items-center justify-center px-10 h-16 rounded-full bg-gradient-to-r from-[#FFDE00] to-[#F39C12] text-white font-black text-[14px] md:text-[16px] uppercase tracking-[0.2em] transition-all duration-300 shadow-[0_10px_40px_rgba(243,156,18,0.5)] hover:shadow-[0_20px_60px_rgba(243,156,18,0.8)] hover:-translate-y-1",
+									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute inset-0 -translate-x-[150%] bg-gradient-to-r from-transparent via-white/60 to-transparent group-hover:translate-x-[150%] transition-transform duration-[1.2s] ease-in-out" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+										className: "relative z-10 drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)]",
+										children: "Solicitar presupuesto"
+									})]
+								})]
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
+								href: "#proyectos",
+								className: "group relative overflow-hidden w-full sm:w-auto flex items-center justify-center px-10 h-16 rounded-full bg-white text-ink font-bold text-[14px] md:text-[15px] uppercase tracking-[0.2em] transition-all duration-300 shadow-[0_10px_30px_rgba(0,0,0,0.3)] hover:shadow-[0_15px_40px_rgba(255,255,255,0.4)] hover:-translate-y-1",
+								children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									className: "relative z-10",
+									children: "Ver proyectos"
+								})
+							})]
 						})
 					]
 				})
-			})]
-		})]
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 z-20 w-[90%] max-w-[900px]",
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(FadeUp, {
+					delay: .6,
+					children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "relative rounded-3xl p-8 md:px-14 md:py-12 shadow-[0_30px_80px_rgba(0,0,0,0.8)] border border-white/20",
+						style: {
+							backgroundImage: "url('/wood-panel.webp')",
+							backgroundSize: "cover",
+							backgroundPosition: "center"
+						},
+						children: [
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute inset-0 rounded-3xl shadow-[inset_0_0_50px_rgba(0,0,0,0.2)] pointer-events-none" }),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)(HammerHit, {
+								className: "top-0 left-0",
+								delay: 1
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)(AnimatedScrew, {
+								className: "top-4 left-4 -rotate-12",
+								delay: 1
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)(HammerHit, {
+								className: "top-0 right-0",
+								delay: 1.2
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)(AnimatedScrew, {
+								className: "top-4 right-4 rotate-45",
+								delay: 1.2
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)(HammerHit, {
+								className: "bottom-0 left-0",
+								delay: 1.4
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)(AnimatedScrew, {
+								className: "bottom-4 left-4 rotate-90",
+								delay: 1.4
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)(HammerHit, {
+								className: "bottom-0 right-0",
+								delay: 1.6
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)(AnimatedScrew, {
+								className: "bottom-4 right-4 -rotate-45",
+								delay: 1.6
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+								className: "relative z-10 grid grid-cols-2 gap-4 md:gap-6 md:grid-cols-4 px-2 py-2",
+								children: [
+									/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+										className: "group flex flex-col items-center text-center bg-white/95 backdrop-blur-sm rounded-lg p-5 md:p-6 shadow-md border border-white/50 cursor-default transition-transform duration-500 hover:-translate-y-2 hover:shadow-xl",
+										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+											className: "text-[32px] md:text-[44px] font-black text-ink leading-none tracking-tighter",
+											children: "30+"
+										}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+											className: "relative inline-block mt-2",
+											children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "absolute bottom-[-2px] -left-1 -right-1 h-[4px] bg-yellow-400 group-hover:h-full group-hover:bottom-0 transition-all duration-300 rounded-sm" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+												className: "relative z-10 text-[11px] md:text-[13px] font-bold text-ink uppercase tracking-[0.2em]",
+												children: "Años"
+											})]
+										})]
+									}),
+									/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+										className: "group flex flex-col items-center text-center bg-white/95 backdrop-blur-sm rounded-lg p-5 md:p-6 shadow-md border border-white/50 cursor-default transition-transform duration-500 hover:-translate-y-2 hover:shadow-xl",
+										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+											className: "text-[32px] md:text-[44px] font-black text-ink leading-none tracking-tighter",
+											children: "500+"
+										}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+											className: "relative inline-block mt-2",
+											children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "absolute bottom-[-2px] -left-1 -right-1 h-[4px] bg-yellow-400 group-hover:h-full group-hover:bottom-0 transition-all duration-300 rounded-sm" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+												className: "relative z-10 text-[11px] md:text-[13px] font-bold text-ink uppercase tracking-[0.2em]",
+												children: "Cocinas"
+											})]
+										})]
+									}),
+									/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+										className: "group flex flex-col items-center text-center bg-white/95 backdrop-blur-sm rounded-lg p-5 md:p-6 shadow-md border border-white/50 cursor-default transition-transform duration-500 hover:-translate-y-2 hover:shadow-xl",
+										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+											className: "text-[26px] md:text-[34px] font-black text-ink leading-none tracking-tight pt-1 md:pt-2",
+											children: "Cataluña"
+										}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+											className: "relative inline-block mt-2",
+											children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "absolute bottom-[-2px] -left-1 -right-1 h-[4px] bg-yellow-400 group-hover:h-full group-hover:bottom-0 transition-all duration-300 rounded-sm" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+												className: "relative z-10 text-[11px] md:text-[13px] font-bold text-ink uppercase tracking-[0.2em]",
+												children: "Cobertura"
+											})]
+										})]
+									}),
+									/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+										className: "group flex flex-col items-center text-center bg-white/95 backdrop-blur-sm rounded-lg p-5 md:p-6 shadow-md border border-white/50 cursor-default transition-transform duration-500 hover:-translate-y-2 hover:shadow-xl",
+										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+											className: "text-[26px] md:text-[34px] font-black text-ink leading-none tracking-tight pt-1 md:pt-2",
+											children: "Garantía"
+										}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+											className: "relative inline-block mt-2",
+											children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "absolute bottom-[-2px] -left-1 -right-1 h-[4px] bg-yellow-400 group-hover:h-full group-hover:bottom-0 transition-all duration-300 rounded-sm" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+												className: "relative z-10 text-[11px] md:text-[13px] font-bold text-ink uppercase tracking-[0.2em]",
+												children: "Profesional"
+											})]
+										})]
+									})
+								]
+							})
+						]
+					})
+				})
+			})
+		]
 	});
 }
 function Diferenciadora() {
 	const [sliderPos, setSliderPos] = (0, import_react.useState)(50);
+	const [mousePos, setMousePos] = (0, import_react.useState)({
+		x: 0,
+		y: 0
+	});
+	const [isHovering, setIsHovering] = (0, import_react.useState)(false);
 	const containerRef = (0, import_react.useRef)(null);
 	const isDragging = (0, import_react.useRef)(false);
 	const handleMove = (clientX) => {
@@ -600,9 +633,23 @@ function Diferenciadora() {
 	};
 	const onMouseMove = (e) => {
 		handleMove(e.clientX);
+		if (containerRef.current) {
+			const rect = containerRef.current.getBoundingClientRect();
+			setMousePos({
+				x: e.clientX - rect.left,
+				y: e.clientY - rect.top
+			});
+		}
 	};
 	const onTouchMove = (e) => {
 		handleMove(e.touches[0].clientX);
+		if (containerRef.current) {
+			const rect = containerRef.current.getBoundingClientRect();
+			setMousePos({
+				x: e.touches[0].clientX - rect.left,
+				y: e.touches[0].clientY - rect.top
+			});
+		}
 	};
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("section", {
 		id: "metodo",
@@ -633,13 +680,58 @@ function Diferenciadora() {
 					}),
 					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 						ref: containerRef,
-						className: "relative w-full aspect-square md:aspect-[21/9] bg-[#E8E6E1] overflow-hidden cursor-crosshair select-none touch-none shadow-premium",
+						className: "relative w-full aspect-square md:aspect-[21/9] bg-[#E8E6E1] overflow-hidden cursor-none select-none touch-none shadow-premium",
 						onMouseMove,
 						onTouchMove,
+						onMouseEnter: () => setIsHovering(true),
+						onMouseLeave: () => {
+							setIsHovering(false);
+							isDragging.current = false;
+						},
 						onMouseDown: () => isDragging.current = true,
 						onMouseUp: () => isDragging.current = false,
-						onMouseLeave: () => isDragging.current = false,
 						children: [
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)(motion.div, {
+								className: "absolute pointer-events-none z-50 flex items-center justify-center",
+								style: {
+									left: mousePos.x,
+									top: mousePos.y,
+									x: "-50%",
+									y: "-50%"
+								},
+								initial: { opacity: 0 },
+								animate: { opacity: isHovering ? 1 : 0 },
+								transition: { duration: .15 },
+								children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", {
+									width: "32",
+									height: "32",
+									viewBox: "0 0 32 32",
+									fill: "none",
+									stroke: "#F39C12",
+									strokeWidth: "1.5",
+									children: [
+										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("line", {
+											x1: "16",
+											y1: "0",
+											x2: "16",
+											y2: "32"
+										}),
+										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("line", {
+											x1: "0",
+											y1: "16",
+											x2: "32",
+											y2: "16"
+										}),
+										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", {
+											cx: "16",
+											cy: "16",
+											r: "4",
+											fill: "#F39C12",
+											stroke: "none"
+										})
+									]
+								})
+							}),
 							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
 								src: gallery_1_default,
 								alt: "Método Cubikos perfecto",
@@ -781,6 +873,60 @@ var PremiumScale = ({ children, delay = 0, className = "" }) => /* @__PURE__ */ 
 	className,
 	children
 });
+var Odometer = ({ value, className = "" }) => {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+		className: `flex items-baseline ${className}`,
+		children: value.split("").map((char, i) => {
+			if (isNaN(parseInt(char))) return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(motion.span, {
+				initial: { opacity: 0 },
+				whileInView: { opacity: 1 },
+				viewport: { once: true },
+				transition: {
+					duration: .5,
+					delay: 1.2
+				},
+				children: char
+			}, i);
+			const num = parseInt(char);
+			const targetIndex = num === 0 ? 10 : num;
+			return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "relative inline-block overflow-hidden",
+				style: { height: "1em" },
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+					className: "invisible px-[2px]",
+					children: num
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(motion.div, {
+					initial: { y: 0 },
+					whileInView: { y: `calc(-100% * ${targetIndex} / 11)` },
+					viewport: { once: true },
+					transition: {
+						duration: 1.2,
+						ease: "easeOut"
+					},
+					className: "absolute top-0 left-0 flex flex-col",
+					style: { height: "1100%" },
+					children: [
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						0
+					].map((n, idx) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+						className: "flex items-center justify-center leading-none px-[2px]",
+						style: { height: `${100 / 11}%` },
+						children: n
+					}, idx))
+				})]
+			}, i);
+		})
+	});
+};
 function Experiencia() {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
 		id: "experiencia",
@@ -791,19 +937,15 @@ function Experiencia() {
 				style: { backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E\")" }
 			}),
 			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute top-1/4 left-[10%] w-[500px] h-[500px] bg-brand/20 rounded-full blur-[120px] pointer-events-none" }),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 				className: "container-x relative z-10",
-				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 					className: "grid lg:grid-cols-12 gap-16 lg:gap-12",
 					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 						className: "lg:col-span-5 flex flex-col justify-start",
 						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(PremiumScale, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 							className: "font-display font-black leading-none tracking-tighter text-brand text-[8rem] sm:text-[11rem] md:text-[14rem] lg:text-[15rem]",
-							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Counter, {
-								to: 30,
-								duration: 1.5,
-								suffix: "+"
-							})
+							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Odometer, { value: "30+" })
 						}) }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PremiumFade, {
 							delay: .2,
 							className: "mt-8",
@@ -846,92 +988,150 @@ function Experiencia() {
 							]
 						})]
 					})]
-				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-					className: "mt-32 md:mt-40 border-t border-white/10 pt-16",
-					children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						className: "grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-16",
+				})
+			})
+		]
+	});
+}
+function StatsGrid() {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("section", {
+		className: "bg-[#FAFAF8] py-16 md:py-24 border-b border-[#E5E0D8]",
+		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+			className: "container-x",
+			children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "grid grid-cols-2 md:grid-cols-4 gap-y-12 md:gap-y-0",
+				children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(PremiumFade, {
+						delay: 0,
+						className: "flex flex-col items-center md:items-start px-4 md:px-8 border-r border-[#E5E0D8] py-4",
 						children: [
-							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(PremiumFade, {
-								delay: .4,
-								className: "group flex flex-col items-start relative pb-6 w-full cursor-default",
-								children: [
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-										className: "font-display text-4xl md:text-5xl lg:text-6xl font-black text-[#FAFAF8]",
-										children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Counter, {
-											to: 30,
-											duration: 1.5,
-											suffix: "+"
-										})
-									}),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-										className: "mt-4 text-sm font-bold uppercase tracking-widest text-[#EDEBE8]",
-										children: "Años"
-									}),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute bottom-0 left-0 w-0 h-1 bg-brand transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:w-full" })
-								]
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+								className: "font-display font-black text-[clamp(3rem,6vw,5rem)] text-brand leading-none",
+								children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Counter, {
+									to: 30,
+									duration: 1.5,
+									suffix: "+"
+								})
 							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(PremiumFade, {
-								delay: .5,
-								className: "group flex flex-col items-start relative pb-6 w-full cursor-default",
-								children: [
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-										className: "font-display text-4xl md:text-5xl lg:text-6xl font-black text-[#FAFAF8]",
-										children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Counter, {
-											to: 1e4,
-											duration: 2,
-											suffix: "+"
-										})
-									}),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-										className: "mt-4 text-sm font-bold uppercase tracking-widest text-[#EDEBE8]",
-										children: "Montajes"
-									}),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute bottom-0 left-0 w-0 h-1 bg-brand transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:w-full" })
-								]
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+								className: "mt-4 text-[#888] text-[11px] font-bold uppercase tracking-widest text-center md:text-left",
+								children: "Años de experiencia"
 							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(PremiumFade, {
-								delay: .6,
-								className: "group flex flex-col items-start relative pb-6 w-full cursor-default",
-								children: [
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-										className: "font-display text-4xl md:text-5xl lg:text-6xl font-black text-[#FAFAF8]",
-										children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Counter, {
-											to: 5,
-											duration: 1,
-											suffix: "/5"
-										})
-									}),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-										className: "mt-4 text-sm font-bold uppercase tracking-widest text-[#EDEBE8]",
-										children: "Valoración"
-									}),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute bottom-0 left-0 w-0 h-1 bg-brand transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:w-full" })
-								]
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)(motion.div, {
+								initial: { scaleX: 0 },
+								whileInView: { scaleX: 1 },
+								viewport: {
+									once: true,
+									margin: "-10%"
+								},
+								transition: {
+									duration: .6,
+									delay: 0
+								},
+								style: { originX: 0 },
+								className: "h-[2px] w-[40px] bg-brand mt-5"
+							})
+						]
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(PremiumFade, {
+						delay: .15,
+						className: "flex flex-col items-center md:items-start px-4 md:px-8 md:border-r border-[#E5E0D8] py-4",
+						children: [
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+								className: "font-display font-black text-[clamp(3rem,6vw,5rem)] text-brand leading-none",
+								children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Counter, {
+									to: 1e4,
+									duration: 2,
+									suffix: "+"
+								})
 							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(PremiumFade, {
-								delay: .7,
-								className: "group flex flex-col items-start relative pb-6 w-full cursor-default",
-								children: [
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-										className: "font-display text-4xl md:text-5xl lg:text-6xl font-black text-[#FAFAF8]",
-										children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Counter, {
-											to: 100,
-											duration: 1.5,
-											suffix: "%"
-										})
-									}),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-										className: "mt-4 text-sm font-bold uppercase tracking-widest text-[#EDEBE8]",
-										children: "Cataluña"
-									}),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute bottom-0 left-0 w-0 h-1 bg-brand transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:w-full" })
-								]
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+								className: "mt-4 text-[#888] text-[11px] font-bold uppercase tracking-widest text-center md:text-left",
+								children: "Cocinas montadas"
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)(motion.div, {
+								initial: { scaleX: 0 },
+								whileInView: { scaleX: 1 },
+								viewport: {
+									once: true,
+									margin: "-10%"
+								},
+								transition: {
+									duration: .6,
+									delay: .15
+								},
+								style: { originX: 0 },
+								className: "h-[2px] w-[40px] bg-brand mt-5"
+							})
+						]
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(PremiumFade, {
+						delay: .3,
+						className: "flex flex-col items-center md:items-start px-4 md:px-8 border-r border-[#E5E0D8] py-4",
+						children: [
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+								className: "font-display font-black text-[clamp(3rem,6vw,5rem)] text-brand leading-none",
+								children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Counter, {
+									to: 5,
+									duration: 1,
+									suffix: "/5"
+								})
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+								className: "mt-4 text-[#888] text-[11px] font-bold uppercase tracking-widest text-center md:text-left",
+								children: "Valoración"
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)(motion.div, {
+								initial: { scaleX: 0 },
+								whileInView: { scaleX: 1 },
+								viewport: {
+									once: true,
+									margin: "-10%"
+								},
+								transition: {
+									duration: .6,
+									delay: .3
+								},
+								style: { originX: 0 },
+								className: "h-[2px] w-[40px] bg-brand mt-5"
+							})
+						]
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(PremiumFade, {
+						delay: .45,
+						className: "flex flex-col items-center md:items-start px-4 md:px-8 py-4",
+						children: [
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+								className: "font-display font-black text-[clamp(3rem,6vw,5rem)] text-brand leading-none",
+								children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Counter, {
+									to: 100,
+									duration: 1.5,
+									suffix: "%"
+								})
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+								className: "mt-4 text-[#888] text-[11px] font-bold uppercase tracking-widest text-center md:text-left",
+								children: "Garantía"
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)(motion.div, {
+								initial: { scaleX: 0 },
+								whileInView: { scaleX: 1 },
+								viewport: {
+									once: true,
+									margin: "-10%"
+								},
+								transition: {
+									duration: .6,
+									delay: .45
+								},
+								style: { originX: 0 },
+								className: "h-[2px] w-[40px] bg-brand mt-5"
 							})
 						]
 					})
-				})]
+				]
 			})
-		]
+		})
 	});
 }
 var steps = [
@@ -1471,6 +1671,191 @@ var KitchenAssembly = () => {
 							rx: "1"
 						})
 					]
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(motion.g, {
+					initial: { opacity: 0 },
+					whileInView: { opacity: 1 },
+					viewport: { once: true },
+					transition: { delay: 2.1 },
+					children: [
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)(motion.rect, {
+							x: "370",
+							y: "80",
+							width: "50",
+							height: "90",
+							fill: "#3E2723",
+							rx: "2",
+							initial: {
+								opacity: 0,
+								y: -30
+							},
+							whileInView: {
+								opacity: 1,
+								y: 0
+							},
+							viewport: { once: true },
+							transition: {
+								type: "spring",
+								delay: 2.1
+							}
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)(motion.path, {
+							d: "M 370 102 H 420 M 370 124 H 420 M 370 146 H 420",
+							stroke: "#5D4037",
+							strokeWidth: "2",
+							initial: { pathLength: 0 },
+							whileInView: { pathLength: 1 },
+							viewport: { once: true },
+							transition: {
+								duration: .4,
+								delay: 2.4
+							}
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)(motion.path, {
+							d: "M 386 80 V 170 M 403 80 V 170",
+							stroke: "#5D4037",
+							strokeWidth: "2",
+							initial: { pathLength: 0 },
+							whileInView: { pathLength: 1 },
+							viewport: { once: true },
+							transition: {
+								duration: .4,
+								delay: 2.7
+							}
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(motion.g, {
+							initial: {
+								opacity: 0,
+								scale: 0
+							},
+							whileInView: {
+								opacity: 1,
+								scale: 1
+							},
+							viewport: { once: true },
+							transition: {
+								type: "spring",
+								delay: 3,
+								bounce: .6
+							},
+							style: {
+								originX: "378px",
+								originY: "100px"
+							},
+							children: [
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("rect", {
+									x: "375",
+									y: "85",
+									width: "6",
+									height: "15",
+									fill: "#1B5E20",
+									rx: "2"
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("rect", {
+									x: "376",
+									y: "83",
+									width: "4",
+									height: "4",
+									fill: "#1B5E20"
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("rect", {
+									x: "376.5",
+									y: "82",
+									width: "3",
+									height: "2",
+									fill: "#D4AF37"
+								})
+							]
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(motion.g, {
+							initial: {
+								opacity: 0,
+								scale: 0
+							},
+							whileInView: {
+								opacity: 1,
+								scale: 1
+							},
+							viewport: { once: true },
+							transition: {
+								type: "spring",
+								delay: 3.2,
+								bounce: .6
+							},
+							style: {
+								originX: "411px",
+								originY: "122px"
+							},
+							children: [
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("rect", {
+									x: "408",
+									y: "107",
+									width: "6",
+									height: "15",
+									fill: "#4A148C",
+									rx: "2"
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("rect", {
+									x: "409",
+									y: "105",
+									width: "4",
+									height: "4",
+									fill: "#4A148C"
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("rect", {
+									x: "409.5",
+									y: "104",
+									width: "3",
+									height: "2",
+									fill: "#D4AF37"
+								})
+							]
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(motion.g, {
+							initial: {
+								opacity: 0,
+								scale: 0
+							},
+							whileInView: {
+								opacity: 1,
+								scale: 1
+							},
+							viewport: { once: true },
+							transition: {
+								type: "spring",
+								delay: 3.4,
+								bounce: .6
+							},
+							style: {
+								originX: "394px",
+								originY: "166px"
+							},
+							children: [
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("rect", {
+									x: "391",
+									y: "151",
+									width: "6",
+									height: "15",
+									fill: "#B71C1C",
+									rx: "2"
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("rect", {
+									x: "392",
+									y: "149",
+									width: "4",
+									height: "4",
+									fill: "#B71C1C"
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("rect", {
+									x: "392.5",
+									y: "148",
+									width: "3",
+									height: "2",
+									fill: "#D4AF37"
+								})
+							]
+						})
+					]
 				})
 			]
 		})
@@ -1662,6 +2047,442 @@ function Testimonios() {
 						})]
 					})
 				]
+			})
+		})
+	});
+}
+function BotelleroShowcase() {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("section", {
+		className: "relative bg-[#0D0D0D] text-[#FAFAF8] py-24 md:py-40 overflow-hidden z-20",
+		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+			className: "container-x",
+			children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+					className: "flex flex-col justify-center",
+					children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(PremiumFade, {
+						delay: 0,
+						children: [
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+								className: "text-brand font-bold uppercase tracking-widest text-sm mb-4",
+								children: "La firma de un artesano"
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
+								className: "font-display font-black text-4xl md:text-5xl lg:text-6xl tracking-tight leading-tight mb-8",
+								children: "El Arte del Ensamblaje"
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+								className: "text-[#EDEBE8]/80 text-lg md:text-xl leading-relaxed mb-6 font-light",
+								children: "Un botellero a medida no admite márgenes de error. Cada balda y cada separador debe encajar con tolerancias milimétricas para garantizar la estabilidad y una estética perfecta."
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+								className: "text-[#EDEBE8]/80 text-lg md:text-xl leading-relaxed font-light",
+								children: "Es en estos pequeños detalles donde la verdadera calidad de un montaje sale a relucir. No instalamos cocinas; construimos mobiliario de precisión."
+							})
+						]
+					})
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+					className: "relative aspect-square md:aspect-[4/3] lg:aspect-square w-full rounded-2xl bg-[#1A1A1A] border border-white/10 flex items-center justify-center p-8 overflow-hidden shadow-2xl",
+					children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", {
+						viewBox: "0 0 400 400",
+						className: "w-full h-full drop-shadow-2xl overflow-visible",
+						children: [
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)(motion.rect, {
+								x: "100",
+								y: "50",
+								width: "200",
+								height: "300",
+								fill: "none",
+								stroke: "#2D1A11",
+								strokeWidth: "12",
+								rx: "4",
+								initial: {
+									opacity: 0,
+									y: -50,
+									scale: .95
+								},
+								whileInView: {
+									opacity: 1,
+									y: 0,
+									scale: 1
+								},
+								viewport: {
+									once: true,
+									margin: "-10%"
+								},
+								transition: {
+									duration: .8,
+									type: "spring",
+									bounce: .4
+								}
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)(motion.rect, {
+								x: "100",
+								y: "50",
+								width: "200",
+								height: "300",
+								fill: "#3E2723",
+								rx: "4",
+								initial: { opacity: 0 },
+								whileInView: { opacity: 1 },
+								viewport: {
+									once: true,
+									margin: "-10%"
+								},
+								transition: {
+									duration: .5,
+									delay: .3
+								}
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)(motion.line, {
+								x1: "106",
+								y1: "125",
+								x2: "294",
+								y2: "125",
+								stroke: "#5D4037",
+								strokeWidth: "8",
+								initial: {
+									pathLength: 0,
+									x: -20,
+									opacity: 0
+								},
+								whileInView: {
+									pathLength: 1,
+									x: 0,
+									opacity: 1
+								},
+								viewport: {
+									once: true,
+									margin: "-10%"
+								},
+								transition: {
+									duration: .6,
+									delay: .8
+								}
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)(motion.line, {
+								x1: "106",
+								y1: "200",
+								x2: "294",
+								y2: "200",
+								stroke: "#5D4037",
+								strokeWidth: "8",
+								initial: {
+									pathLength: 0,
+									x: 20,
+									opacity: 0
+								},
+								whileInView: {
+									pathLength: 1,
+									x: 0,
+									opacity: 1
+								},
+								viewport: {
+									once: true,
+									margin: "-10%"
+								},
+								transition: {
+									duration: .6,
+									delay: 1
+								}
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)(motion.line, {
+								x1: "106",
+								y1: "275",
+								x2: "294",
+								y2: "275",
+								stroke: "#5D4037",
+								strokeWidth: "8",
+								initial: {
+									pathLength: 0,
+									x: -20,
+									opacity: 0
+								},
+								whileInView: {
+									pathLength: 1,
+									x: 0,
+									opacity: 1
+								},
+								viewport: {
+									once: true,
+									margin: "-10%"
+								},
+								transition: {
+									duration: .6,
+									delay: 1.2
+								}
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)(motion.line, {
+								x1: "166",
+								y1: "56",
+								x2: "166",
+								y2: "344",
+								stroke: "#5D4037",
+								strokeWidth: "8",
+								initial: {
+									pathLength: 0,
+									y: -20,
+									opacity: 0
+								},
+								whileInView: {
+									pathLength: 1,
+									y: 0,
+									opacity: 1
+								},
+								viewport: {
+									once: true,
+									margin: "-10%"
+								},
+								transition: {
+									duration: .6,
+									delay: 1.6
+								}
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)(motion.line, {
+								x1: "233",
+								y1: "56",
+								x2: "233",
+								y2: "344",
+								stroke: "#5D4037",
+								strokeWidth: "8",
+								initial: {
+									pathLength: 0,
+									y: 20,
+									opacity: 0
+								},
+								whileInView: {
+									pathLength: 1,
+									y: 0,
+									opacity: 1
+								},
+								viewport: {
+									once: true,
+									margin: "-10%"
+								},
+								transition: {
+									duration: .6,
+									delay: 1.8
+								}
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(motion.g, {
+								initial: {
+									opacity: 0,
+									scale: 0
+								},
+								whileInView: {
+									opacity: 1,
+									scale: 1
+								},
+								viewport: {
+									once: true,
+									margin: "-10%"
+								},
+								transition: {
+									type: "spring",
+									delay: 2.4,
+									bounce: .6
+								},
+								style: {
+									originX: "136px",
+									originY: "110px"
+								},
+								children: [
+									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("rect", {
+										x: "126",
+										y: "65",
+										width: "20",
+										height: "56",
+										fill: "#1B5E20",
+										rx: "10"
+									}),
+									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("rect", {
+										x: "131",
+										y: "55",
+										width: "10",
+										height: "15",
+										fill: "#1B5E20"
+									}),
+									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("rect", {
+										x: "132",
+										y: "53",
+										width: "8",
+										height: "5",
+										fill: "#D4AF37"
+									}),
+									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("rect", {
+										x: "129",
+										y: "85",
+										width: "14",
+										height: "20",
+										fill: "#F5F5DC"
+									})
+								]
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(motion.g, {
+								initial: {
+									opacity: 0,
+									scale: 0
+								},
+								whileInView: {
+									opacity: 1,
+									scale: 1
+								},
+								viewport: {
+									once: true,
+									margin: "-10%"
+								},
+								transition: {
+									type: "spring",
+									delay: 2.7,
+									bounce: .6
+								},
+								style: {
+									originX: "200px",
+									originY: "180px"
+								},
+								children: [
+									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("rect", {
+										x: "190",
+										y: "140",
+										width: "20",
+										height: "56",
+										fill: "#4A148C",
+										rx: "10"
+									}),
+									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("rect", {
+										x: "195",
+										y: "130",
+										width: "10",
+										height: "15",
+										fill: "#4A148C"
+									}),
+									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("rect", {
+										x: "196",
+										y: "128",
+										width: "8",
+										height: "5",
+										fill: "#D4AF37"
+									}),
+									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("rect", {
+										x: "193",
+										y: "160",
+										width: "14",
+										height: "20",
+										fill: "#F5F5DC"
+									})
+								]
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(motion.g, {
+								initial: {
+									opacity: 0,
+									scale: 0
+								},
+								whileInView: {
+									opacity: 1,
+									scale: 1
+								},
+								viewport: {
+									once: true,
+									margin: "-10%"
+								},
+								transition: {
+									type: "spring",
+									delay: 3,
+									bounce: .6
+								},
+								style: {
+									originX: "263px",
+									originY: "250px"
+								},
+								children: [
+									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("rect", {
+										x: "253",
+										y: "215",
+										width: "20",
+										height: "56",
+										fill: "#B71C1C",
+										rx: "10"
+									}),
+									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("rect", {
+										x: "258",
+										y: "205",
+										width: "10",
+										height: "15",
+										fill: "#B71C1C"
+									}),
+									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("rect", {
+										x: "259",
+										y: "203",
+										width: "8",
+										height: "5",
+										fill: "#D4AF37"
+									}),
+									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("rect", {
+										x: "256",
+										y: "235",
+										width: "14",
+										height: "20",
+										fill: "#F5F5DC"
+									})
+								]
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(motion.g, {
+								initial: {
+									opacity: 0,
+									scale: 0
+								},
+								whileInView: {
+									opacity: 1,
+									scale: 1
+								},
+								viewport: {
+									once: true,
+									margin: "-10%"
+								},
+								transition: {
+									type: "spring",
+									delay: 3.3,
+									bounce: .6
+								},
+								style: {
+									originX: "136px",
+									originY: "330px"
+								},
+								children: [
+									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("rect", {
+										x: "126",
+										y: "290",
+										width: "20",
+										height: "56",
+										fill: "#F57F17",
+										rx: "10"
+									}),
+									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("rect", {
+										x: "131",
+										y: "280",
+										width: "10",
+										height: "15",
+										fill: "#F57F17"
+									}),
+									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("rect", {
+										x: "132",
+										y: "278",
+										width: "8",
+										height: "5",
+										fill: "#D4AF37"
+									}),
+									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("rect", {
+										x: "129",
+										y: "310",
+										width: "14",
+										height: "20",
+										fill: "#F5F5DC"
+									})
+								]
+							})
+						]
+					})
+				})]
 			})
 		})
 	});
@@ -2168,7 +2989,9 @@ function Landing() {
 				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Hero, {}),
 				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Diferenciadora, {}),
 				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Experiencia, {}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(StatsGrid, {}),
 				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Proceso, {}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(BotelleroShowcase, {}),
 				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Proyectos, {}),
 				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Testimonios, {}),
 				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(FAQ, {}),
