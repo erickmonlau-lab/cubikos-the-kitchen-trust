@@ -273,8 +273,8 @@ export function Hero() {
         <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-black/90 via-black/40 to-transparent md:hidden" />
       </motion.div>
       
-      <div className="relative z-10 w-full h-full flex flex-col justify-center container-x">
-        <div className="w-full max-w-[480px] pt-12 md:pt-0">
+      <div className="relative z-10 w-full h-full flex flex-col justify-center container-x pt-32 pb-16 md:py-0">
+        <div className="w-full max-w-[480px]">
           <RevealMask>
             <h1 className="font-display font-black text-[clamp(2.5rem,8vw,3.5rem)] md:text-[clamp(3.5rem,5vw,4.5rem)] text-white tracking-tighter leading-[1.05]">
               <span className="block">Una cocina</span>
