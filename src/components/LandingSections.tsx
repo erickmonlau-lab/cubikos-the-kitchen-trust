@@ -328,43 +328,7 @@ const KitchenAssembly = () => {
            <rect x="520" y="165" width="20" height="3" fill="#374151" rx="1" />
          </motion.g>
 
-         {/* Wine Rack (Botellero) - Assembled step by step */}
-         <motion.g initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 2.1 }}>
-            {/* Frame drops in */}
-            <motion.rect x="370" y="80" width="50" height="90" fill="#3E2723" rx="2" 
-               initial={{ opacity: 0, y: -30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ type: "spring", delay: 2.1 }} 
-            />
-            {/* Horizontal Shelves drawing in */}
-            <motion.path d="M 370 102 H 420 M 370 124 H 420 M 370 146 H 420" stroke="#5D4037" strokeWidth="2" 
-               initial={{ pathLength: 0 }} whileInView={{ pathLength: 1 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: 2.4 }}
-            />
-            {/* Vertical Dividers drawing in */}
-            <motion.path d="M 386 80 V 170 M 403 80 V 170" stroke="#5D4037" strokeWidth="2" 
-               initial={{ pathLength: 0 }} whileInView={{ pathLength: 1 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: 2.7 }}
-            />
-            
-            {/* Wine Bottles popping into slots */}
-            <motion.g initial={{ opacity: 0, scale: 0 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ type: "spring", delay: 3.0, bounce: 0.6 }} style={{ originX: "378px", originY: "100px" }}>
-               {/* Bottle 1: Top Left slot */}
-               <rect x="375" y="85" width="6" height="15" fill="#1B5E20" rx="2" />
-               <rect x="376" y="83" width="4" height="4" fill="#1B5E20" />
-               <rect x="376.5" y="82" width="3" height="2" fill="#D4AF37" />
-            </motion.g>
-            
-            <motion.g initial={{ opacity: 0, scale: 0 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ type: "spring", delay: 3.2, bounce: 0.6 }} style={{ originX: "411px", originY: "122px" }}>
-               {/* Bottle 2: 2nd row, right slot */}
-               <rect x="408" y="107" width="6" height="15" fill="#4A148C" rx="2" />
-               <rect x="409" y="105" width="4" height="4" fill="#4A148C" />
-               <rect x="409.5" y="104" width="3" height="2" fill="#D4AF37" />
-            </motion.g>
-            
-            <motion.g initial={{ opacity: 0, scale: 0 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ type: "spring", delay: 3.4, bounce: 0.6 }} style={{ originX: "394px", originY: "166px" }}>
-               {/* Bottle 3: Bottom center slot */}
-               <rect x="391" y="151" width="6" height="15" fill="#B71C1C" rx="2" />
-               <rect x="392" y="149" width="4" height="4" fill="#B71C1C" />
-               <rect x="392.5" y="148" width="3" height="2" fill="#D4AF37" />
-            </motion.g>
-         </motion.g>
+
 
       </svg>
     </div>

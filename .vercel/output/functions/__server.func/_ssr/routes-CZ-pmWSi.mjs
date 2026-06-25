@@ -3,7 +3,7 @@ import { t as hero_kitchen_default } from "./hero-kitchen-D0ioLp_Y.mjs";
 import { n as require_jsx_runtime, r as require_react } from "../_libs/react+tanstack__react-query.mjs";
 import { n as motion, t as useInView } from "../_libs/framer-motion.mjs";
 import { a as CircleCheckBig, i as FileSearch, n as PhoneCall, r as Hammer, t as Ruler } from "../_libs/lucide-react.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/routes-BvvZQUdZ.js
+//#region node_modules/.nitro/vite/services/ssr/assets/routes-CZ-pmWSi.js
 var import_react = /* @__PURE__ */ __toESM(require_react());
 var import_jsx_runtime = require_jsx_runtime();
 var hero_worker_hq_default = "/assets/hero-worker-hq-ZMCYrJ5u.webp";
@@ -824,6 +824,9 @@ function Diferenciadora() {
 		})
 	});
 }
+var showcase_1_default = "/assets/showcase-1-VjeLoU0L.png";
+var showcase_2_default = "/assets/showcase-2-9OYfbOaq.jpg";
+var showcase_3_default = "/assets/showcase-3-Cin858Re.png";
 var gallery_5_default = "/assets/gallery-5-BUWLZ2B8.webp";
 var easing = [
 	.22,
@@ -2081,407 +2084,88 @@ function BotelleroShowcase() {
 							})
 						]
 					})
-				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-					className: "relative aspect-square md:aspect-[4/3] lg:aspect-square w-full rounded-2xl bg-[#1A1A1A] border border-white/10 flex items-center justify-center p-8 overflow-hidden shadow-2xl",
-					children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", {
-						viewBox: "0 0 400 400",
-						className: "w-full h-full drop-shadow-2xl overflow-visible",
-						children: [
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)(motion.rect, {
-								x: "100",
-								y: "50",
-								width: "200",
-								height: "300",
-								fill: "none",
-								stroke: "#2D1A11",
-								strokeWidth: "12",
-								rx: "4",
-								initial: {
-									opacity: 0,
-									y: -50,
-									scale: .95
-								},
-								whileInView: {
-									opacity: 1,
-									y: 0,
-									scale: 1
-								},
-								viewport: {
-									once: true,
-									margin: "-10%"
-								},
-								transition: {
-									duration: .8,
-									type: "spring",
-									bounce: .4
-								}
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)(motion.rect, {
-								x: "100",
-								y: "50",
-								width: "200",
-								height: "300",
-								fill: "#3E2723",
-								rx: "4",
-								initial: { opacity: 0 },
-								whileInView: { opacity: 1 },
-								viewport: {
-									once: true,
-									margin: "-10%"
-								},
-								transition: {
-									duration: .5,
-									delay: .3
-								}
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)(motion.line, {
-								x1: "106",
-								y1: "125",
-								x2: "294",
-								y2: "125",
-								stroke: "#5D4037",
-								strokeWidth: "8",
-								initial: {
-									pathLength: 0,
-									x: -20,
-									opacity: 0
-								},
-								whileInView: {
-									pathLength: 1,
-									x: 0,
-									opacity: 1
-								},
-								viewport: {
-									once: true,
-									margin: "-10%"
-								},
-								transition: {
-									duration: .6,
-									delay: .8
-								}
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)(motion.line, {
-								x1: "106",
-								y1: "200",
-								x2: "294",
-								y2: "200",
-								stroke: "#5D4037",
-								strokeWidth: "8",
-								initial: {
-									pathLength: 0,
-									x: 20,
-									opacity: 0
-								},
-								whileInView: {
-									pathLength: 1,
-									x: 0,
-									opacity: 1
-								},
-								viewport: {
-									once: true,
-									margin: "-10%"
-								},
-								transition: {
-									duration: .6,
-									delay: 1
-								}
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)(motion.line, {
-								x1: "106",
-								y1: "275",
-								x2: "294",
-								y2: "275",
-								stroke: "#5D4037",
-								strokeWidth: "8",
-								initial: {
-									pathLength: 0,
-									x: -20,
-									opacity: 0
-								},
-								whileInView: {
-									pathLength: 1,
-									x: 0,
-									opacity: 1
-								},
-								viewport: {
-									once: true,
-									margin: "-10%"
-								},
-								transition: {
-									duration: .6,
-									delay: 1.2
-								}
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)(motion.line, {
-								x1: "166",
-								y1: "56",
-								x2: "166",
-								y2: "344",
-								stroke: "#5D4037",
-								strokeWidth: "8",
-								initial: {
-									pathLength: 0,
-									y: -20,
-									opacity: 0
-								},
-								whileInView: {
-									pathLength: 1,
-									y: 0,
-									opacity: 1
-								},
-								viewport: {
-									once: true,
-									margin: "-10%"
-								},
-								transition: {
-									duration: .6,
-									delay: 1.6
-								}
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)(motion.line, {
-								x1: "233",
-								y1: "56",
-								x2: "233",
-								y2: "344",
-								stroke: "#5D4037",
-								strokeWidth: "8",
-								initial: {
-									pathLength: 0,
-									y: 20,
-									opacity: 0
-								},
-								whileInView: {
-									pathLength: 1,
-									y: 0,
-									opacity: 1
-								},
-								viewport: {
-									once: true,
-									margin: "-10%"
-								},
-								transition: {
-									duration: .6,
-									delay: 1.8
-								}
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(motion.g, {
-								initial: {
-									opacity: 0,
-									scale: 0
-								},
-								whileInView: {
-									opacity: 1,
-									scale: 1
-								},
-								viewport: {
-									once: true,
-									margin: "-10%"
-								},
-								transition: {
-									type: "spring",
-									delay: 2.4,
-									bounce: .6
-								},
-								style: {
-									originX: "136px",
-									originY: "110px"
-								},
-								children: [
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("rect", {
-										x: "126",
-										y: "65",
-										width: "20",
-										height: "56",
-										fill: "#1B5E20",
-										rx: "10"
-									}),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("rect", {
-										x: "131",
-										y: "55",
-										width: "10",
-										height: "15",
-										fill: "#1B5E20"
-									}),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("rect", {
-										x: "132",
-										y: "53",
-										width: "8",
-										height: "5",
-										fill: "#D4AF37"
-									}),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("rect", {
-										x: "129",
-										y: "85",
-										width: "14",
-										height: "20",
-										fill: "#F5F5DC"
-									})
-								]
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(motion.g, {
-								initial: {
-									opacity: 0,
-									scale: 0
-								},
-								whileInView: {
-									opacity: 1,
-									scale: 1
-								},
-								viewport: {
-									once: true,
-									margin: "-10%"
-								},
-								transition: {
-									type: "spring",
-									delay: 2.7,
-									bounce: .6
-								},
-								style: {
-									originX: "200px",
-									originY: "180px"
-								},
-								children: [
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("rect", {
-										x: "190",
-										y: "140",
-										width: "20",
-										height: "56",
-										fill: "#4A148C",
-										rx: "10"
-									}),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("rect", {
-										x: "195",
-										y: "130",
-										width: "10",
-										height: "15",
-										fill: "#4A148C"
-									}),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("rect", {
-										x: "196",
-										y: "128",
-										width: "8",
-										height: "5",
-										fill: "#D4AF37"
-									}),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("rect", {
-										x: "193",
-										y: "160",
-										width: "14",
-										height: "20",
-										fill: "#F5F5DC"
-									})
-								]
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(motion.g, {
-								initial: {
-									opacity: 0,
-									scale: 0
-								},
-								whileInView: {
-									opacity: 1,
-									scale: 1
-								},
-								viewport: {
-									once: true,
-									margin: "-10%"
-								},
-								transition: {
-									type: "spring",
-									delay: 3,
-									bounce: .6
-								},
-								style: {
-									originX: "263px",
-									originY: "250px"
-								},
-								children: [
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("rect", {
-										x: "253",
-										y: "215",
-										width: "20",
-										height: "56",
-										fill: "#B71C1C",
-										rx: "10"
-									}),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("rect", {
-										x: "258",
-										y: "205",
-										width: "10",
-										height: "15",
-										fill: "#B71C1C"
-									}),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("rect", {
-										x: "259",
-										y: "203",
-										width: "8",
-										height: "5",
-										fill: "#D4AF37"
-									}),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("rect", {
-										x: "256",
-										y: "235",
-										width: "14",
-										height: "20",
-										fill: "#F5F5DC"
-									})
-								]
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(motion.g, {
-								initial: {
-									opacity: 0,
-									scale: 0
-								},
-								whileInView: {
-									opacity: 1,
-									scale: 1
-								},
-								viewport: {
-									once: true,
-									margin: "-10%"
-								},
-								transition: {
-									type: "spring",
-									delay: 3.3,
-									bounce: .6
-								},
-								style: {
-									originX: "136px",
-									originY: "330px"
-								},
-								children: [
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("rect", {
-										x: "126",
-										y: "290",
-										width: "20",
-										height: "56",
-										fill: "#F57F17",
-										rx: "10"
-									}),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("rect", {
-										x: "131",
-										y: "280",
-										width: "10",
-										height: "15",
-										fill: "#F57F17"
-									}),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("rect", {
-										x: "132",
-										y: "278",
-										width: "8",
-										height: "5",
-										fill: "#D4AF37"
-									}),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("rect", {
-										x: "129",
-										y: "310",
-										width: "14",
-										height: "20",
-										fill: "#F5F5DC"
-									})
-								]
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "relative aspect-[4/5] md:aspect-square lg:aspect-square w-full rounded-2xl flex items-center justify-center overflow-visible",
+					children: [
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)(motion.div, {
+							initial: {
+								opacity: 0,
+								y: 60
+							},
+							whileInView: {
+								opacity: 1,
+								y: 0
+							},
+							viewport: {
+								once: true,
+								margin: "-10%"
+							},
+							transition: {
+								duration: 1,
+								ease: easing
+							},
+							className: "absolute left-0 bottom-0 w-[70%] h-[80%] rounded-2xl overflow-hidden shadow-2xl z-10 border-[6px] border-[#0D0D0D]",
+							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
+								src: showcase_1_default,
+								alt: "Montaje de estantería iluminada",
+								className: "w-full h-full object-cover"
 							})
-						]
-					})
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)(motion.div, {
+							initial: {
+								opacity: 0,
+								x: 40,
+								y: -40
+							},
+							whileInView: {
+								opacity: 1,
+								x: 0,
+								y: 0
+							},
+							viewport: {
+								once: true,
+								margin: "-10%"
+							},
+							transition: {
+								duration: 1,
+								delay: .2,
+								ease: easing
+							},
+							className: "absolute right-0 top-0 w-[55%] h-[50%] rounded-2xl overflow-hidden shadow-xl z-20 border-[6px] border-[#0D0D0D]",
+							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
+								src: showcase_2_default,
+								alt: "Isla de cocina premium",
+								className: "w-full h-full object-cover"
+							})
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)(motion.div, {
+							initial: {
+								opacity: 0,
+								x: 40,
+								y: 40
+							},
+							whileInView: {
+								opacity: 1,
+								x: 0,
+								y: 0
+							},
+							viewport: {
+								once: true,
+								margin: "-10%"
+							},
+							transition: {
+								duration: 1,
+								delay: .4,
+								ease: easing
+							},
+							className: "absolute right-12 bottom-8 w-[40%] h-[40%] rounded-2xl overflow-hidden shadow-xl z-30 border-[6px] border-[#0D0D0D]",
+							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
+								src: showcase_3_default,
+								alt: "Detalle de montaje en columna",
+								className: "w-full h-full object-cover object-left-top"
+							})
+						})
+					]
 				})]
 			})
 		})
