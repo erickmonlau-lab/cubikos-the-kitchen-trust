@@ -322,7 +322,7 @@ export function Proceso() {
   );
 }
 
-import usr from "@/assets/gallery-5.jpg"; // Placeholder for client photo
+import usr from "@/assets/gallery-5.webp"; // Placeholder for client photo
 
 export function Testimonios() {
   return (

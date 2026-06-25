@@ -1,8 +1,8 @@
 import { useEffect, useState, useRef, MouseEvent, TouchEvent } from "react";
 import { motion, useInView } from "framer-motion";
-import heroImg from "@/assets/hero-worker-hq.png";
-import gal3 from "@/assets/gallery-3.jpg"; // Error habitual
-import gal1 from "@/assets/gallery-1.jpg"; // Método Cubikos
+import heroImg from "@/assets/hero-worker-hq.webp";
+import gal3 from "@/assets/gallery-3.webp"; // Error habitual
+import gal1 from "@/assets/gallery-1.webp"; // Método Cubikos
 
 /* ───────────── icons ───────────── */
 export const Ico = {
@@ -308,7 +308,7 @@ export function Hero() {
           <div 
             className="relative rounded-3xl p-8 md:px-14 md:py-12 shadow-[0_30px_80px_rgba(0,0,0,0.8)] border border-white/20"
             style={{
-              backgroundImage: "url('/wood-panel.png')",
+              backgroundImage: "url('/wood-panel.webp')",
               backgroundSize: 'cover',
               backgroundPosition: 'center'
             }}

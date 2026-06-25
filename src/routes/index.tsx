@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import heroImg from "@/assets/hero-kitchen.jpg";
+import heroImg from "@/assets/hero-kitchen.webp";
 import { Header, Hero, Diferenciadora } from "../components/LandingUI";
 import { Experiencia, Proceso, Testimonios } from "../components/LandingSections";
 import { Proyectos, FAQ, CTAFinal, Footer } from "../components/LandingExtra";

@@ -1,13 +1,13 @@
 import { useState, type FormEvent } from "react";
 import { motion } from "framer-motion";
 import { FadeUp, Ico, RevealMask, LogoCubikos } from "./LandingUI";
-import heroImg from "@/assets/hero-kitchen.jpg";
-import gal1 from "@/assets/gallery-1.jpg";
-import gal2 from "@/assets/gallery-2.jpg";
-import gal3 from "@/assets/gallery-3.jpg";
-import gal4 from "@/assets/gallery-4.jpg";
-import gal5 from "@/assets/gallery-5.jpg";
-import gal6 from "@/assets/gallery-6.jpg";
+import heroImg from "@/assets/hero-kitchen.webp";
+import gal1 from "@/assets/gallery-1.webp";
+import gal2 from "@/assets/gallery-2.webp";
+import gal3 from "@/assets/gallery-3.webp";
+import gal4 from "@/assets/gallery-4.webp";
+import gal5 from "@/assets/gallery-5.webp";
+import gal6 from "@/assets/gallery-6.webp";
 
 const details = [
   { 
