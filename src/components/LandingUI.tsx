@@ -140,7 +140,7 @@ export function Header() {
   ];
 
   return (
-    <header className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${scrolled ? "bg-white/95 backdrop-blur-xl shadow-[0_4px_30px_rgba(0,0,0,0.08)] py-5" : "bg-transparent py-8"}`}>
+    <header className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 bg-white/95 backdrop-blur-xl shadow-[0_4px_30px_rgba(0,0,0,0.08)] ${scrolled ? "py-4" : "py-6"}`}>
       <div className="container-x flex items-center justify-between">
         <a href="#top" className="text-brand transition-transform hover:scale-105 duration-300">
           <LogoCubikos className="text-[22px] md:text-[26px]" />
@@ -150,7 +150,7 @@ export function Header() {
             <a 
               key={i.href} 
               href={i.href} 
-              className={`group relative text-[17px] font-medium tracking-wide transition-colors ${scrolled ? "text-ink hover:text-brand" : "text-white hover:text-white"}`}
+              className="group relative text-[17px] font-medium tracking-wide transition-colors text-ink hover:text-brand"
             >
               {i.label}
               <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-brand transition-all duration-300 group-hover:w-full" />
@@ -160,11 +160,7 @@ export function Header() {
         <div className="hidden lg:block">
           <a 
             href="#contacto" 
-            className={`group relative overflow-hidden flex items-center justify-center px-8 h-12 rounded-full font-bold text-[13px] uppercase tracking-[0.15em] transition-all duration-300 ${
-              scrolled 
-                ? "bg-gradient-to-r from-[#FFDE00] to-[#F39C12] text-ink shadow-[0_5px_20px_rgba(243,156,18,0.4)] hover:shadow-[0_10px_30px_rgba(243,156,18,0.6)] hover:-translate-y-0.5" 
-                : "bg-white text-ink shadow-lg hover:shadow-2xl hover:-translate-y-0.5"
-            }`}
+            className="group relative overflow-hidden flex items-center justify-center px-8 h-12 rounded-full font-bold text-[13px] uppercase tracking-[0.15em] transition-all duration-300 bg-gradient-to-r from-[#FFDE00] to-[#F39C12] text-ink shadow-[0_5px_20px_rgba(243,156,18,0.4)] hover:shadow-[0_10px_30px_rgba(243,156,18,0.6)] hover:-translate-y-0.5"
           >
             <div className="absolute inset-0 -translate-x-[150%] bg-gradient-to-r from-transparent via-white/60 to-transparent group-hover:translate-x-[150%] transition-transform duration-1000 ease-in-out" />
             <span className="relative z-10">Solicitar presupuesto</span>
@@ -173,7 +169,7 @@ export function Header() {
         <button
           aria-label="Abrir menú"
           onClick={() => setOpen(!open)}
-          className={`grid h-12 w-12 place-items-center lg:hidden ${scrolled ? "text-ink" : "text-white"}`}
+          className="grid h-12 w-12 place-items-center lg:hidden text-ink"
         >
           {open ? <Ico.Close className="h-8 w-8" /> : <Ico.Menu className="h-8 w-8" />}
         </button>
@@ -296,7 +292,7 @@ export function Hero() {
               <div className="absolute inset-0 -translate-x-[150%] bg-gradient-to-r from-transparent via-white/60 to-transparent group-hover:translate-x-[150%] transition-transform duration-[1.2s] ease-in-out" />
               <span className="relative z-10 drop-shadow-sm">Solicitar presupuesto</span>
             </a>
-            <a href="#proyectos" className="group relative overflow-hidden w-full sm:w-auto flex items-center justify-center px-10 h-16 rounded-full bg-white/5 backdrop-blur-md border border-white/30 text-white font-bold text-[14px] md:text-[15px] uppercase tracking-[0.2em] transition-all duration-300 shadow-[0_10px_30px_rgba(0,0,0,0.3)] hover:bg-white hover:text-ink hover:shadow-[0_15px_40px_rgba(255,255,255,0.2)] hover:-translate-y-1">
+            <a href="#proyectos" className="group relative overflow-hidden w-full sm:w-auto flex items-center justify-center px-10 h-16 rounded-full bg-white text-ink font-bold text-[14px] md:text-[15px] uppercase tracking-[0.2em] transition-all duration-300 shadow-[0_10px_30px_rgba(0,0,0,0.3)] hover:shadow-[0_15px_40px_rgba(255,255,255,0.4)] hover:-translate-y-1">
               <span className="relative z-10">Ver proyectos</span>
             </a>
           </FadeUp>
