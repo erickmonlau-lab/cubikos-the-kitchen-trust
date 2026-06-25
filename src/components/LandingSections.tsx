@@ -175,7 +175,7 @@ export function StatsGrid() {
             delay={0.0}
             className="flex flex-col items-center md:items-start px-4 md:px-8 border-r border-[#E5E0D8] py-4"
           >
-            <div className="font-display font-black text-[clamp(3rem,6vw,5rem)] text-brand leading-none">
+            <div className="font-display font-black text-[clamp(2.5rem,3.5vw,4.5rem)] xl:text-[5rem] tracking-tighter text-brand leading-none">
               <Counter to={30} duration={1.5} suffix="+" />
             </div>
             <div className="mt-4 text-[#888] text-[11px] font-bold uppercase tracking-widest text-center md:text-left">
@@ -195,7 +195,7 @@ export function StatsGrid() {
             delay={0.15}
             className="flex flex-col items-center md:items-start px-4 md:px-8 md:border-r border-[#E5E0D8] py-4"
           >
-            <div className="font-display font-black text-[clamp(3rem,6vw,5rem)] text-brand leading-none">
+            <div className="font-display font-black text-[clamp(2.5rem,3.5vw,4.5rem)] xl:text-[5rem] tracking-tighter text-brand leading-none">
               <Counter to={10000} duration={2} suffix="+" />
             </div>
             <div className="mt-4 text-[#888] text-[11px] font-bold uppercase tracking-widest text-center md:text-left">
@@ -215,7 +215,7 @@ export function StatsGrid() {
             delay={0.3}
             className="flex flex-col items-center md:items-start px-4 md:px-8 border-r border-[#E5E0D8] py-4"
           >
-            <div className="font-display font-black text-[clamp(3rem,6vw,5rem)] text-brand leading-none">
+            <div className="font-display font-black text-[clamp(2.5rem,3.5vw,4.5rem)] xl:text-[5rem] tracking-tighter text-brand leading-none">
               <Counter to={5} duration={1} suffix="/5" />
             </div>
             <div className="mt-4 text-[#888] text-[11px] font-bold uppercase tracking-widest text-center md:text-left">
@@ -235,7 +235,7 @@ export function StatsGrid() {
             delay={0.45}
             className="flex flex-col items-center md:items-start px-4 md:px-8 py-4"
           >
-            <div className="font-display font-black text-[clamp(3rem,6vw,5rem)] text-brand leading-none">
+            <div className="font-display font-black text-[clamp(2.5rem,3.5vw,4.5rem)] xl:text-[5rem] tracking-tighter text-brand leading-none">
               <Counter to={100} duration={1.5} suffix="%" />
             </div>
             <div className="mt-4 text-[#888] text-[11px] font-bold uppercase tracking-widest text-center md:text-left">
