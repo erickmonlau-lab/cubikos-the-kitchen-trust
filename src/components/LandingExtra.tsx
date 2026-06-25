@@ -49,14 +49,14 @@ const details = [
 
 export function Proyectos() {
   return (
-    <section id="proyectos" className="bg-[#111111] text-[#FAFAF8] py-32 md:py-48">
-      <div className="container-x mb-24">
+    <section id="proyectos" className="bg-[#111111] text-[#FAFAF8] py-16 md:py-48">
+      <div className="container-x mb-12 md:mb-24">
         <FadeUp>
-          <span className="eyebrow text-[#D1CFCC]">Casos de Estudio</span>
+          <span className="text-sm md:text-base font-bold tracking-[0.2em] uppercase text-[#D1CFCC]">Casos de Estudio</span>
           <h2 className="font-display font-black text-[3rem] md:text-[5rem] tracking-tighter mt-4 text-balance">
             Precisión documentada.
           </h2>
-          <p className="mt-6 text-xl md:text-2xl text-[#EDEBE8] font-medium leading-relaxed text-balance max-w-2xl">
+          <p className="mt-4 md:mt-6 text-lg md:text-2xl text-[#EDEBE8] font-medium leading-relaxed text-balance max-w-2xl">
             La excelencia no se demuestra en un plano general, sino en la perfección de cada detalle, unión y remate.
           </p>
         </FadeUp>
