@@ -160,10 +160,10 @@ export function Header() {
         <div className="hidden lg:block">
           <a 
             href="#contacto" 
-            className={`flex items-center justify-center px-8 h-12 rounded-full font-bold text-[13px] uppercase tracking-[0.15em] transition-all duration-400 ${
+            className={`flex items-center justify-center px-8 h-12 rounded-full font-bold text-[13px] uppercase tracking-[0.15em] transition-all duration-300 shadow-lg ${
               scrolled 
-                ? "bg-brand text-white hover:bg-ink hover:text-white shadow-[0_4px_15px_rgba(212,175,55,0.3)]" 
-                : "bg-brand text-white hover:scale-[1.02] shadow-[0_10px_30px_rgba(212,175,55,0.2)]"
+                ? "bg-brand text-white hover:bg-ink hover:shadow-xl hover:-translate-y-0.5" 
+                : "bg-white text-ink hover:bg-brand hover:text-white hover:shadow-xl hover:-translate-y-0.5"
             }`}
           >
             Solicitar presupuesto
@@ -291,13 +291,10 @@ export function Hero() {
           </FadeUp>
           
           <FadeUp delay={0.4} className="mt-10 md:mt-14 flex flex-col sm:flex-row items-center gap-5 sm:gap-6">
-            <a href="#contacto" className="group relative w-full sm:w-auto flex items-center justify-between gap-6 px-2 pl-8 h-16 rounded-full bg-brand text-white font-bold text-[14px] uppercase tracking-[0.15em] hover:scale-[1.02] transition-all duration-500 shadow-[0_10px_40px_rgba(212,175,55,0.3)] overflow-hidden">
-              <span className="relative z-10">Solicitar presupuesto</span>
-              <div className="relative z-10 w-12 h-12 rounded-full bg-white flex items-center justify-center text-ink group-hover:rotate-45 transition-transform duration-500 shadow-sm">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
-              </div>
+            <a href="#contacto" className="group w-full sm:w-auto flex items-center justify-center px-10 h-16 rounded-full bg-gradient-to-r from-brand to-[#E6C65C] text-ink font-black text-[14px] md:text-[15px] uppercase tracking-[0.2em] hover:scale-[1.03] transition-all duration-300 shadow-[0_15px_35px_rgba(212,175,55,0.4)] hover:shadow-[0_20px_50px_rgba(212,175,55,0.6)]">
+              Solicitar presupuesto
             </a>
-            <a href="#proyectos" className="w-full sm:w-auto flex items-center justify-center px-10 h-16 rounded-full bg-black/40 backdrop-blur-md border border-white/40 text-white font-bold text-[14px] uppercase tracking-[0.15em] hover:bg-white hover:text-ink hover:scale-[1.02] transition-all duration-500 shadow-[0_10px_30px_rgba(0,0,0,0.3)]">
+            <a href="#proyectos" className="w-full sm:w-auto flex items-center justify-center px-10 h-16 rounded-full bg-transparent backdrop-blur-md border-2 border-white/80 text-white font-bold text-[14px] md:text-[15px] uppercase tracking-[0.2em] hover:bg-white hover:text-ink hover:scale-[1.03] transition-all duration-300 shadow-[0_10px_30px_rgba(0,0,0,0.2)] hover:border-white">
               Ver proyectos
             </a>
           </FadeUp>

@@ -260,10 +260,9 @@ export function CTAFinal() {
                     </div>
                     <button 
                       type="submit" 
-                      className="group flex items-center justify-center gap-4 w-full h-16 bg-white hover:bg-[#f5f5f5] text-ink font-bold text-lg rounded-none transition-colors duration-300"
+                      className="group flex items-center justify-center w-full h-16 bg-gradient-to-r from-brand to-[#E6C65C] text-ink font-black text-[14px] md:text-[15px] uppercase tracking-[0.2em] rounded-full transition-all duration-300 shadow-[0_15px_35px_rgba(212,175,55,0.4)] hover:shadow-[0_20px_50px_rgba(212,175,55,0.6)] hover:scale-[1.02]"
                     >
                       Solicitar Valoración
-                      <Ico.Arrow className="w-5 h-5 group-hover:translate-x-2 transition-transform duration-300" />
                     </button>
                     
                     <div className="flex items-center justify-center gap-2 text-xs text-[#D1CFCC] opacity-80 pt-2">
