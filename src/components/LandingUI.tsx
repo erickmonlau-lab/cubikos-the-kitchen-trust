@@ -12,40 +12,94 @@ export const Ico = {
     </svg>
   ),
   Check: (p: React.SVGProps<SVGSVGElement>) => (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden {...p}>
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden
+      {...p}
+    >
       <path d="M5 12.5l4.5 4.5L19 7" />
     </svg>
   ),
   Close: (p: React.SVGProps<SVGSVGElement>) => (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden {...p}>
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      aria-hidden
+      {...p}
+    >
       <path d="M6 6l12 12M18 6l-6 12" />
     </svg>
   ),
   Arrow: (p: React.SVGProps<SVGSVGElement>) => (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden {...p}>
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden
+      {...p}
+    >
       <path d="M5 12h14M13 5l7 7-7 7" />
     </svg>
   ),
   Menu: (p: React.SVGProps<SVGSVGElement>) => (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" aria-hidden {...p}>
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.6"
+      strokeLinecap="round"
+      aria-hidden
+      {...p}
+    >
       <path d="M4 7h16M4 12h16M4 17h16" />
     </svg>
   ),
   Plus: (p: React.SVGProps<SVGSVGElement>) => (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" aria-hidden {...p}>
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.6"
+      strokeLinecap="round"
+      aria-hidden
+      {...p}
+    >
       <path d="M12 5v14M5 12h14" />
     </svg>
   ),
   Drag: (p: React.SVGProps<SVGSVGElement>) => (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden {...p}>
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden
+      {...p}
+    >
       <path d="M8 9l-4 3 4 3M16 9l4 3-4 3" />
     </svg>
-  )
+  ),
 };
 
 export const LogoCubikos = ({ className = "" }: { className?: string }) => (
   <div className={`flex items-center gap-2 ${className}`}>
-    <div className="relative font-display font-black tracking-normal" style={{ fontSize: '1.4em', lineHeight: 1, letterSpacing: '0.05em' }}>
+    <div
+      className="relative font-display font-black tracking-normal"
+      style={{ fontSize: "1.4em", lineHeight: 1, letterSpacing: "0.05em" }}
+    >
       C
       <span className="relative inline-block">
         U
@@ -58,7 +112,15 @@ export const LogoCubikos = ({ className = "" }: { className?: string }) => (
       </span>
       S
     </div>
-    <svg viewBox="0 0 32 36" className="h-[1.6em] w-auto" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinejoin="round" strokeLinecap="round">
+    <svg
+      viewBox="0 0 32 36"
+      className="h-[1.6em] w-auto"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2.5"
+      strokeLinejoin="round"
+      strokeLinecap="round"
+    >
       <polygon points="16,2 30,10 30,26 16,34 2,26 2,10" fill="none" />
       <polyline points="2,10 16,18 30,10" fill="none" />
       <line x1="16" y1="18" x2="16" y2="34" fill="none" />
@@ -66,7 +128,15 @@ export const LogoCubikos = ({ className = "" }: { className?: string }) => (
   </div>
 );
 
-export const FadeUp = ({ children, delay = 0, className = "" }: { children: React.ReactNode, delay?: number, className?: string }) => {
+export const FadeUp = ({
+  children,
+  delay = 0,
+  className = "",
+}: {
+  children: React.ReactNode;
+  delay?: number;
+  className?: string;
+}) => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
@@ -80,7 +150,13 @@ export const FadeUp = ({ children, delay = 0, className = "" }: { children: Reac
   );
 };
 
-export const RevealMask = ({ children, delay = 0 }: { children: React.ReactNode, delay?: number }) => {
+export const RevealMask = ({
+  children,
+  delay = 0,
+}: {
+  children: React.ReactNode;
+  delay?: number;
+}) => {
   return (
     <div className="overflow-hidden">
       <motion.div
@@ -95,7 +171,15 @@ export const RevealMask = ({ children, delay = 0 }: { children: React.ReactNode,
   );
 };
 
-export function Counter({ to, suffix = "", duration = 2 }: { to: number; suffix?: string; duration?: number }) {
+export function Counter({
+  to,
+  suffix = "",
+  duration = 2,
+}: {
+  to: number;
+  suffix?: string;
+  duration?: number;
+}) {
   const [val, setVal] = useState(0);
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-10%" });
@@ -118,13 +202,18 @@ export function Counter({ to, suffix = "", duration = 2 }: { to: number; suffix?
     }
   }, [inView, to, duration]);
 
-  return <span ref={ref}>{val.toLocaleString("es-ES")}{suffix}</span>;
+  return (
+    <span ref={ref}>
+      {val.toLocaleString("es-ES")}
+      {suffix}
+    </span>
+  );
 }
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-  
+
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
     onScroll();
@@ -140,16 +229,18 @@ export function Header() {
   ];
 
   return (
-    <header className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 bg-white/95 backdrop-blur-xl shadow-[0_4px_30px_rgba(0,0,0,0.08)] ${scrolled ? "py-4" : "py-6"}`}>
+    <header
+      className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 bg-white/95 backdrop-blur-xl shadow-[0_4px_30px_rgba(0,0,0,0.08)] ${scrolled ? "py-4" : "py-6"}`}
+    >
       <div className="container-x flex items-center justify-between">
         <a href="#top" className="text-brand transition-transform hover:scale-105 duration-300">
           <LogoCubikos className="text-[22px] md:text-[26px]" />
         </a>
         <nav className="hidden items-center gap-14 lg:flex">
           {navItems.map((i) => (
-            <a 
-              key={i.href} 
-              href={i.href} 
+            <a
+              key={i.href}
+              href={i.href}
               className="group relative text-[17px] font-medium tracking-wide transition-colors text-ink hover:text-brand"
             >
               {i.label}
@@ -158,8 +249,8 @@ export function Header() {
           ))}
         </nav>
         <div className="hidden lg:block">
-          <a 
-            href="#contacto" 
+          <a
+            href="#contacto"
             className="group relative overflow-hidden flex items-center justify-center px-8 h-12 rounded-full font-bold text-[13px] uppercase tracking-[0.15em] transition-all duration-300 bg-gradient-to-r from-[#FFDE00] to-[#F39C12] text-white shadow-[0_5px_20px_rgba(243,156,18,0.4)] hover:shadow-[0_10px_30px_rgba(243,156,18,0.6)] hover:-translate-y-0.5"
           >
             <div className="absolute inset-0 -translate-x-[150%] bg-gradient-to-r from-transparent via-white/60 to-transparent group-hover:translate-x-[150%] transition-transform duration-1000 ease-in-out" />
@@ -174,12 +265,12 @@ export function Header() {
           {open ? <Ico.Close className="h-8 w-8" /> : <Ico.Menu className="h-8 w-8" />}
         </button>
       </div>
-      
+
       {/* Mobile Menu */}
       {open && (
-        <motion.div 
-          initial={{ opacity: 0, y: -10 }} 
-          animate={{ opacity: 1, y: 0 }} 
+        <motion.div
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
           className="lg:hidden bg-background absolute top-full w-full left-0 border-b border-line pb-6"
         >
           <div className="container-x flex flex-col gap-2 pt-4">
@@ -203,8 +294,8 @@ export function Header() {
   );
 }
 
-const AnimatedScrew = ({ className, delay }: { className?: string, delay: number }) => (
-  <motion.div 
+const AnimatedScrew = ({ className, delay }: { className?: string; delay: number }) => (
+  <motion.div
     initial={{ scale: 0, opacity: 0 }}
     whileInView={{ scale: [0, 1.6, 1], opacity: 1 }}
     viewport={{ once: true }}
@@ -216,28 +307,38 @@ const AnimatedScrew = ({ className, delay }: { className?: string, delay: number
   </motion.div>
 );
 
-const HammerHit = ({ className, delay }: { className: string, delay: number }) => (
+const HammerHit = ({ className, delay }: { className: string; delay: number }) => (
   <motion.div
     initial={{ opacity: 0, rotate: -45, x: -30, y: -30 }}
-    whileInView={{ 
+    whileInView={{
       opacity: [0, 1, 1, 0],
       rotate: [-45, -60, 20, 20],
       x: [-30, -40, 0, 10],
       y: [-30, -40, 0, 20],
     }}
     viewport={{ once: true }}
-    transition={{ 
-      duration: 0.6, 
-      delay: delay - 0.25, 
-      times: [0, 0.4, 0.6, 1], 
-      ease: "easeInOut"
+    transition={{
+      duration: 0.6,
+      delay: delay - 0.25,
+      times: [0, 0.4, 0.6, 1],
+      ease: "easeInOut",
     }}
     className={`absolute z-30 pointer-events-none ${className}`}
   >
-    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-ink drop-shadow-2xl fill-white/90">
-      <path d="m15 12-8.373 8.373a1 1 0 1 1-1.414-1.414L13.586 10.586"/>
-      <path d="m18 11.5-4.5-4.5"/>
-      <path d="M14 6h3l5 5v3h-3l-5-5Z"/>
+    <svg
+      width="40"
+      height="40"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="text-ink drop-shadow-2xl fill-white/90"
+    >
+      <path d="m15 12-8.373 8.373a1 1 0 1 1-1.414-1.414L13.586 10.586" />
+      <path d="m18 11.5-4.5-4.5" />
+      <path d="M14 6h3l5 5v3h-3l-5-5Z" />
     </svg>
   </motion.div>
 );
@@ -245,7 +346,7 @@ const HammerHit = ({ className, delay }: { className: string, delay: number }) =
 export function Hero() {
   return (
     <section id="top" className="relative min-h-[100svh] flex flex-col bg-ink pb-32 md:pb-40">
-      <motion.div 
+      <motion.div
         initial={{ scale: 1.05 }}
         animate={{ scale: 1 }}
         transition={{ duration: 1.5, ease: "easeOut" }}
@@ -260,16 +361,14 @@ export function Hero() {
           src={heroImg}
           alt="Montador profesional ajustando cocina premium"
           className="absolute inset-0 w-full h-full object-cover object-[85%_center] sm:object-[65%_center] md:object-[55%_center] contrast-[1.10] saturate-[1.05]"
-          style={{ filter: 'url(#crisp-sharpen)' }}
+          style={{ filter: "url(#crisp-sharpen)" }}
         />
         {/* Subtle Radial Atmosphere for Text Legibility (No solid blocks) */}
-        <div 
-          className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_30%_50%,rgba(0,0,0,0.45)_0%,transparent_65%)] md:bg-[radial-gradient(circle_at_25%_50%,rgba(0,0,0,0.55)_0%,transparent_50%)]" 
-        />
+        <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_30%_50%,rgba(0,0,0,0.45)_0%,transparent_65%)] md:bg-[radial-gradient(circle_at_25%_50%,rgba(0,0,0,0.55)_0%,transparent_50%)]" />
         {/* Mobile Dedicated Text Protection Layer */}
         <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-black/90 via-black/40 to-transparent md:hidden" />
       </motion.div>
-      
+
       <div className="relative z-10 w-full flex flex-col container-x my-auto pt-24 pb-10 md:pt-32 md:pb-16">
         <div className="w-full max-w-[480px]">
           <RevealMask>
@@ -277,18 +376,19 @@ export function Hero() {
               <span className="block">Una cocina</span>
               <span className="block">perfecta</span>
               <span className="block text-white/90">empieza con un</span>
-              <span className="block">montaje perfecto<span className="text-brand">.</span></span>
+              <span className="block">
+                montaje perfecto<span className="text-brand">.</span>
+              </span>
             </h1>
           </RevealMask>
-          
+
           <FadeUp delay={0.2} className="mt-4 md:mt-5 max-w-[440px]">
             <p className="text-lg md:text-[20px] text-white/95 font-medium tracking-wide leading-relaxed text-balance antialiased drop-shadow-sm">
-              Más de 30 años instalando cocinas en toda Cataluña con precisión milimétrica y acabados impecables.
+              Más de 30 años instalando cocinas en toda Cataluña con precisión milimétrica y
+              acabados impecables.
             </p>
           </FadeUp>
-          
 
-          
           <FadeUp delay={0.4} className="flex flex-col sm:flex-row items-center gap-5 sm:gap-6">
             <div className="relative w-full sm:w-auto">
               <motion.div
@@ -296,12 +396,20 @@ export function Hero() {
                 transition={{ repeat: Infinity, duration: 2, repeatDelay: 2 }}
                 className="absolute inset-0 rounded-full border-[2px] border-brand pointer-events-none"
               />
-              <a href="#contacto" className="group relative overflow-hidden w-full sm:w-auto flex items-center justify-center px-10 h-16 rounded-full bg-gradient-to-r from-[#FFDE00] to-[#F39C12] text-white font-black text-[14px] md:text-[16px] uppercase tracking-[0.2em] transition-all duration-300 shadow-[0_10px_40px_rgba(243,156,18,0.5)] hover:shadow-[0_20px_60px_rgba(243,156,18,0.8)] hover:-translate-y-1">
+              <a
+                href="#contacto"
+                className="group relative overflow-hidden w-full sm:w-auto flex items-center justify-center px-10 h-16 rounded-full bg-gradient-to-r from-[#FFDE00] to-[#F39C12] text-white font-black text-[14px] md:text-[16px] uppercase tracking-[0.2em] transition-all duration-300 shadow-[0_10px_40px_rgba(243,156,18,0.5)] hover:shadow-[0_20px_60px_rgba(243,156,18,0.8)] hover:-translate-y-1"
+              >
                 <div className="absolute inset-0 -translate-x-[150%] bg-gradient-to-r from-transparent via-white/60 to-transparent group-hover:translate-x-[150%] transition-transform duration-[1.2s] ease-in-out" />
-                <span className="relative z-10 drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)]">Solicitar presupuesto</span>
+                <span className="relative z-10 drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)]">
+                  Solicitar presupuesto
+                </span>
               </a>
             </div>
-            <a href="#proyectos" className="group relative overflow-hidden w-full sm:w-auto flex items-center justify-center px-10 h-16 rounded-full bg-white text-ink font-bold text-[14px] md:text-[15px] uppercase tracking-[0.2em] transition-all duration-300 shadow-[0_10px_30px_rgba(0,0,0,0.3)] hover:shadow-[0_15px_40px_rgba(255,255,255,0.4)] hover:-translate-y-1">
+            <a
+              href="#proyectos"
+              className="group relative overflow-hidden w-full sm:w-auto flex items-center justify-center px-10 h-16 rounded-full bg-white text-ink font-bold text-[14px] md:text-[15px] uppercase tracking-[0.2em] transition-all duration-300 shadow-[0_10px_30px_rgba(0,0,0,0.3)] hover:shadow-[0_15px_40px_rgba(255,255,255,0.4)] hover:-translate-y-1"
+            >
               <span className="relative z-10">Ver proyectos</span>
             </a>
           </FadeUp>
@@ -310,60 +418,76 @@ export function Hero() {
 
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 z-20 w-[90%] max-w-[900px]">
         <FadeUp delay={0.6}>
-          <div 
+          <div
             className="relative rounded-3xl p-8 md:px-14 md:py-12 shadow-[0_30px_80px_rgba(0,0,0,0.8)] border border-white/20"
             style={{
               backgroundImage: "url('/wood-panel.webp')",
-              backgroundSize: 'cover',
-              backgroundPosition: 'center'
+              backgroundSize: "cover",
+              backgroundPosition: "center",
             }}
           >
             {/* Subtle inner shadow for depth, letting the natural wood color shine */}
             <div className="absolute inset-0 rounded-3xl shadow-[inset_0_0_50px_rgba(0,0,0,0.2)] pointer-events-none" />
-            
+
             {/* Skeuomorphic Screws with Hammer Animation */}
             <HammerHit className="top-0 left-0" delay={1.0} />
             <AnimatedScrew className="top-4 left-4 -rotate-12" delay={1.0} />
-            
+
             <HammerHit className="top-0 right-0" delay={1.2} />
             <AnimatedScrew className="top-4 right-4 rotate-45" delay={1.2} />
-            
+
             <HammerHit className="bottom-0 left-0" delay={1.4} />
             <AnimatedScrew className="bottom-4 left-4 rotate-90" delay={1.4} />
-            
+
             <HammerHit className="bottom-0 right-0" delay={1.6} />
             <AnimatedScrew className="bottom-4 right-4 -rotate-45" delay={1.6} />
-            
+
             <div className="relative z-10 grid grid-cols-2 gap-4 md:gap-6 md:grid-cols-4 px-2 py-2">
               <div className="group flex flex-col items-center text-center bg-white/95 backdrop-blur-sm rounded-lg p-5 md:p-6 shadow-md border border-white/50 cursor-default transition-transform duration-500 hover:-translate-y-2 hover:shadow-xl">
-                <span className="text-[32px] md:text-[44px] font-black text-ink leading-none tracking-tighter">30+</span>
+                <span className="text-[32px] md:text-[44px] font-black text-ink leading-none tracking-tighter">
+                  30+
+                </span>
                 <span className="relative inline-block mt-2">
                   <span className="absolute bottom-[-2px] -left-1 -right-1 h-[4px] bg-yellow-400 group-hover:h-full group-hover:bottom-0 transition-all duration-300 rounded-sm" />
-                  <span className="relative z-10 text-[11px] md:text-[13px] font-bold text-ink uppercase tracking-[0.2em]">Años</span>
+                  <span className="relative z-10 text-[11px] md:text-[13px] font-bold text-ink uppercase tracking-[0.2em]">
+                    Años
+                  </span>
                 </span>
               </div>
-              
+
               <div className="group flex flex-col items-center text-center bg-white/95 backdrop-blur-sm rounded-lg p-5 md:p-6 shadow-md border border-white/50 cursor-default transition-transform duration-500 hover:-translate-y-2 hover:shadow-xl">
-                <span className="text-[32px] md:text-[44px] font-black text-ink leading-none tracking-tighter">500+</span>
+                <span className="text-[32px] md:text-[44px] font-black text-ink leading-none tracking-tighter">
+                  500+
+                </span>
                 <span className="relative inline-block mt-2">
                   <span className="absolute bottom-[-2px] -left-1 -right-1 h-[4px] bg-yellow-400 group-hover:h-full group-hover:bottom-0 transition-all duration-300 rounded-sm" />
-                  <span className="relative z-10 text-[11px] md:text-[13px] font-bold text-ink uppercase tracking-[0.2em]">Cocinas</span>
+                  <span className="relative z-10 text-[11px] md:text-[13px] font-bold text-ink uppercase tracking-[0.2em]">
+                    Cocinas
+                  </span>
                 </span>
               </div>
-              
+
               <div className="group flex flex-col items-center text-center bg-white/95 backdrop-blur-sm rounded-lg p-5 md:p-6 shadow-md border border-white/50 cursor-default transition-transform duration-500 hover:-translate-y-2 hover:shadow-xl">
-                <span className="text-[26px] md:text-[34px] font-black text-ink leading-none tracking-tight pt-1 md:pt-2">Cataluña</span>
+                <span className="text-[26px] md:text-[34px] font-black text-ink leading-none tracking-tight pt-1 md:pt-2">
+                  Cataluña
+                </span>
                 <span className="relative inline-block mt-2">
                   <span className="absolute bottom-[-2px] -left-1 -right-1 h-[4px] bg-yellow-400 group-hover:h-full group-hover:bottom-0 transition-all duration-300 rounded-sm" />
-                  <span className="relative z-10 text-[11px] md:text-[13px] font-bold text-ink uppercase tracking-[0.2em]">Cobertura</span>
+                  <span className="relative z-10 text-[11px] md:text-[13px] font-bold text-ink uppercase tracking-[0.2em]">
+                    Cobertura
+                  </span>
                 </span>
               </div>
-              
+
               <div className="group flex flex-col items-center text-center bg-white/95 backdrop-blur-sm rounded-lg p-5 md:p-6 shadow-md border border-white/50 cursor-default transition-transform duration-500 hover:-translate-y-2 hover:shadow-xl">
-                <span className="text-[26px] md:text-[34px] font-black text-ink leading-none tracking-tight pt-1 md:pt-2">Garantía</span>
+                <span className="text-[26px] md:text-[34px] font-black text-ink leading-none tracking-tight pt-1 md:pt-2">
+                  Garantía
+                </span>
                 <span className="relative inline-block mt-2">
                   <span className="absolute bottom-[-2px] -left-1 -right-1 h-[4px] bg-yellow-400 group-hover:h-full group-hover:bottom-0 transition-all duration-300 rounded-sm" />
-                  <span className="relative z-10 text-[11px] md:text-[13px] font-bold text-ink uppercase tracking-[0.2em]">Profesional</span>
+                  <span className="relative z-10 text-[11px] md:text-[13px] font-bold text-ink uppercase tracking-[0.2em]">
+                    Profesional
+                  </span>
                 </span>
               </div>
             </div>
@@ -431,25 +555,35 @@ export function Diferenciadora() {
           </div>
 
           {/* Slider Container */}
-          <div 
+          <div
             ref={containerRef}
             className="relative w-full aspect-square md:aspect-[21/9] bg-[#E8E6E1] overflow-hidden cursor-none select-none touch-none shadow-premium"
             onMouseMove={onMouseMove}
             onTouchMove={onTouchMove}
             onMouseEnter={() => setIsHovering(true)}
-            onMouseLeave={() => { setIsHovering(false); isDragging.current = false; }}
-            onMouseDown={() => isDragging.current = true}
-            onMouseUp={() => isDragging.current = false}
+            onMouseLeave={() => {
+              setIsHovering(false);
+              isDragging.current = false;
+            }}
+            onMouseDown={() => (isDragging.current = true)}
+            onMouseUp={() => (isDragging.current = false)}
           >
             {/* Custom SVG Crosshair Cursor */}
-            <motion.div 
+            <motion.div
               className="absolute pointer-events-none z-50 flex items-center justify-center"
               style={{ left: mousePos.x, top: mousePos.y, x: "-50%", y: "-50%" }}
               initial={{ opacity: 0 }}
               animate={{ opacity: isHovering ? 1 : 0 }}
               transition={{ duration: 0.15 }}
             >
-              <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="#F39C12" strokeWidth="1.5">
+              <svg
+                width="32"
+                height="32"
+                viewBox="0 0 32 32"
+                fill="none"
+                stroke="#F39C12"
+                strokeWidth="1.5"
+              >
                 <line x1="16" y1="0" x2="16" y2="32" />
                 <line x1="0" y1="16" x2="32" y2="16" />
                 <circle cx="16" cy="16" r="4" fill="#F39C12" stroke="none" />
@@ -457,28 +591,28 @@ export function Diferenciadora() {
             </motion.div>
 
             {/* UNDER IMAGE (After / Perfect) */}
-            <img 
-              src={gal1} 
-              alt="Método Cubikos perfecto" 
-              className="absolute inset-0 w-full h-full object-cover pointer-events-none" 
+            <img
+              src={gal1}
+              alt="Método Cubikos perfecto"
+              className="absolute inset-0 w-full h-full object-cover pointer-events-none"
             />
-            
+
             {/* OVER IMAGE (Before / Error) */}
-            <div 
+            <div
               className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none"
               style={{ clipPath: `inset(0 ${100 - sliderPos}% 0 0)` }}
             >
-              <img 
-                src={gal3} 
-                alt="Ejemplo de mala ejecución" 
-                className="absolute inset-0 w-full h-full object-cover grayscale pointer-events-none" 
+              <img
+                src={gal3}
+                alt="Ejemplo de mala ejecución"
+                className="absolute inset-0 w-full h-full object-cover grayscale pointer-events-none"
               />
             </div>
 
             {/* Slider Handle */}
-            <div 
+            <div
               className="absolute top-0 bottom-0 w-[2px] bg-white shadow-[0_0_15px_rgba(0,0,0,0.5)] pointer-events-none"
-              style={{ left: `${sliderPos}%`, transform: 'translateX(-50%)' }}
+              style={{ left: `${sliderPos}%`, transform: "translateX(-50%)" }}
             >
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-lg text-ink">
                 <Ico.Drag className="h-5 w-5" />
@@ -490,20 +624,31 @@ export function Diferenciadora() {
           <div className="grid grid-cols-2 mt-8 md:mt-12 gap-8 px-4 md:px-0">
             <div className="text-left">
               <ul className="space-y-4 font-medium text-lg md:text-xl text-ink-soft">
-                <li className="flex items-start gap-3"><span className="text-ink mt-1">•</span> Puertas torcidas</li>
-                <li className="flex items-start gap-3"><span className="text-ink mt-1">•</span> Holguras visibles</li>
-                <li className="flex items-start gap-3"><span className="text-ink mt-1">•</span> Desniveles</li>
+                <li className="flex items-start gap-3">
+                  <span className="text-ink mt-1">•</span> Puertas torcidas
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-ink mt-1">•</span> Holguras visibles
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-ink mt-1">•</span> Desniveles
+                </li>
               </ul>
             </div>
             <div className="text-right">
               <ul className="space-y-4 font-medium text-lg md:text-xl text-ink inline-block text-left">
-                <li className="flex items-start gap-3"><span className="text-brand mt-1">•</span> Ajuste láser</li>
-                <li className="flex items-start gap-3"><span className="text-brand mt-1">•</span> Nivelación perfecta</li>
-                <li className="flex items-start gap-3"><span className="text-brand mt-1">•</span> Acabados premium</li>
+                <li className="flex items-start gap-3">
+                  <span className="text-brand mt-1">•</span> Ajuste láser
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-brand mt-1">•</span> Nivelación perfecta
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-brand mt-1">•</span> Acabados premium
+                </li>
               </ul>
             </div>
           </div>
-
         </div>
       </div>
     </section>

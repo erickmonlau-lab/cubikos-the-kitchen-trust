@@ -1,7 +1,13 @@
 import { createFileRoute } from "@tanstack/react-router";
 import heroImg from "@/assets/hero-kitchen.webp";
 import { Header, Hero, Diferenciadora } from "../components/LandingUI";
-import { Experiencia, StatsGrid, Proceso, BotelleroShowcase, Testimonios } from "../components/LandingSections";
+import {
+  Experiencia,
+  StatsGrid,
+  Proceso,
+  BotelleroShowcase,
+  Testimonios,
+} from "../components/LandingSections";
 import { Proyectos, FAQ, CTAFinal, Footer } from "../components/LandingExtra";
 
 export const Route = createFileRoute("/")({
@@ -31,12 +37,13 @@ export const Route = createFileRoute("/")({
           "@context": "https://schema.org",
           "@type": "LocalBusiness",
           name: "CUBIKOS",
-          description: "Especialistas en montaje profesional de cocinas para particulares en toda Cataluña.",
+          description:
+            "Especialistas en montaje profesional de cocinas para particulares en toda Cataluña.",
           areaServed: "Cataluña",
           telephone: "+34 000 000 000",
           priceRange: "€€€",
         }),
-      }
+      },
     ],
   }),
   component: Landing,

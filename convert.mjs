@@ -1,8 +1,8 @@
-import fs from 'fs';
-import path from 'path';
-import sharp from 'sharp';
+import fs from "fs";
+import path from "path";
+import sharp from "sharp";
 
-const dirs = ['src/assets', 'public'];
+const dirs = ["src/assets", "public"];
 
 async function processDir(dir) {
   const files = fs.readdirSync(dir);
@@ -13,8 +13,8 @@ async function processDir(dir) {
       await processDir(fullPath);
     } else {
       const ext = path.extname(file).toLowerCase();
-      if (ext === '.jpg' || ext === '.jpeg' || ext === '.png') {
-        const outPath = path.join(dir, path.basename(file, path.extname(file)) + '.webp');
+      if (ext === ".jpg" || ext === ".jpeg" || ext === ".png") {
+        const outPath = path.join(dir, path.basename(file, path.extname(file)) + ".webp");
         console.log(`Converting ${fullPath} to ${outPath}...`);
         try {
           await sharp(fullPath).webp({ quality: 80 }).toFile(outPath);
