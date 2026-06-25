@@ -270,10 +270,10 @@ export function Hero() {
         <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-black/90 via-black/40 to-transparent md:hidden" />
       </motion.div>
       
-      <div className="relative z-10 w-full flex flex-col container-x my-auto pt-32 pb-24 md:pt-40 md:pb-32">
+      <div className="relative z-10 w-full flex flex-col container-x my-auto pt-28 pb-16 md:pt-36 md:pb-24">
         <div className="w-full max-w-[480px]">
           <RevealMask>
-            <h1 className="font-display font-black text-[clamp(2.5rem,8vw,3.5rem)] md:text-[clamp(3.5rem,5vw,4.5rem)] text-white tracking-tighter leading-[1.05]">
+            <h1 className="font-display font-black text-[clamp(2rem,6.5vw,2.8rem)] md:text-[clamp(3rem,4.5vw,4rem)] text-white tracking-tighter leading-[1.05]">
               <span className="block">Una cocina</span>
               <span className="block">perfecta</span>
               <span className="block text-white/90">empieza con un</span>
@@ -281,13 +281,13 @@ export function Hero() {
             </h1>
           </RevealMask>
           
-          <FadeUp delay={0.2} className="mt-8 md:mt-10 max-w-[440px]">
+          <FadeUp delay={0.2} className="mt-5 md:mt-6 max-w-[440px]">
             <p className="text-lg md:text-[20px] text-white/95 font-medium tracking-wide leading-relaxed text-balance antialiased drop-shadow-sm">
               Más de 30 años instalando cocinas en toda Cataluña con precisión milimétrica y acabados impecables.
             </p>
           </FadeUp>
           
-          <FadeUp delay={0.3} className="mt-8 mb-10 flex flex-wrap gap-x-6 gap-y-4 max-w-[480px]">
+          <FadeUp delay={0.3} className="mt-5 mb-6 flex flex-wrap gap-x-6 gap-y-4 max-w-[480px]">
             <div className="flex items-center gap-3 w-[calc(50%-12px)] sm:w-auto">
               <div className="flex items-center justify-center shrink-0 w-8 h-8 rounded-full bg-brand/20 text-brand">
                 <Ico.Check className="w-4 h-4" />
