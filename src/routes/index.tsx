@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import heroImg from "@/assets/hero-kitchen.webp";
 import { Header, Hero, Diferenciadora } from "../components/LandingUI";
-import { Experiencia, Proceso, Testimonios } from "../components/LandingSections";
+import { Experiencia, StatsGrid, Proceso, Testimonios } from "../components/LandingSections";
 import { Proyectos, FAQ, CTAFinal, Footer } from "../components/LandingExtra";
 
 export const Route = createFileRoute("/")({
@@ -50,6 +50,7 @@ function Landing() {
         <Hero />
         <Diferenciadora />
         <Experiencia />
+        <StatsGrid />
         <Proceso />
         <Proyectos />
         <Testimonios />

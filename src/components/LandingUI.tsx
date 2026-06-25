@@ -290,10 +290,17 @@ export function Hero() {
 
           
           <FadeUp delay={0.4} className="flex flex-col sm:flex-row items-center gap-5 sm:gap-6">
-            <a href="#contacto" className="group relative overflow-hidden w-full sm:w-auto flex items-center justify-center px-10 h-16 rounded-full bg-gradient-to-r from-[#FFDE00] to-[#F39C12] text-white font-black text-[14px] md:text-[16px] uppercase tracking-[0.2em] transition-all duration-300 shadow-[0_10px_40px_rgba(243,156,18,0.5)] hover:shadow-[0_20px_60px_rgba(243,156,18,0.8)] hover:-translate-y-1">
-              <div className="absolute inset-0 -translate-x-[150%] bg-gradient-to-r from-transparent via-white/60 to-transparent group-hover:translate-x-[150%] transition-transform duration-[1.2s] ease-in-out" />
-              <span className="relative z-10 drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)]">Solicitar presupuesto</span>
-            </a>
+            <div className="relative w-full sm:w-auto">
+              <motion.div
+                animate={{ scale: [1, 1.15, 1], opacity: [0.6, 0, 0.6] }}
+                transition={{ repeat: Infinity, duration: 2, repeatDelay: 2 }}
+                className="absolute inset-0 rounded-full border-[2px] border-brand pointer-events-none"
+              />
+              <a href="#contacto" className="group relative overflow-hidden w-full sm:w-auto flex items-center justify-center px-10 h-16 rounded-full bg-gradient-to-r from-[#FFDE00] to-[#F39C12] text-white font-black text-[14px] md:text-[16px] uppercase tracking-[0.2em] transition-all duration-300 shadow-[0_10px_40px_rgba(243,156,18,0.5)] hover:shadow-[0_20px_60px_rgba(243,156,18,0.8)] hover:-translate-y-1">
+                <div className="absolute inset-0 -translate-x-[150%] bg-gradient-to-r from-transparent via-white/60 to-transparent group-hover:translate-x-[150%] transition-transform duration-[1.2s] ease-in-out" />
+                <span className="relative z-10 drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)]">Solicitar presupuesto</span>
+              </a>
+            </div>
             <a href="#proyectos" className="group relative overflow-hidden w-full sm:w-auto flex items-center justify-center px-10 h-16 rounded-full bg-white text-ink font-bold text-[14px] md:text-[15px] uppercase tracking-[0.2em] transition-all duration-300 shadow-[0_10px_30px_rgba(0,0,0,0.3)] hover:shadow-[0_15px_40px_rgba(255,255,255,0.4)] hover:-translate-y-1">
               <span className="relative z-10">Ver proyectos</span>
             </a>
@@ -369,6 +376,8 @@ export function Hero() {
 
 export function Diferenciadora() {
   const [sliderPos, setSliderPos] = useState(50);
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [isHovering, setIsHovering] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const isDragging = useRef(false);
 
@@ -382,10 +391,18 @@ export function Diferenciadora() {
 
   const onMouseMove = (e: MouseEvent) => {
     handleMove(e.clientX);
+    if (containerRef.current) {
+      const rect = containerRef.current.getBoundingClientRect();
+      setMousePos({ x: e.clientX - rect.left, y: e.clientY - rect.top });
+    }
   };
 
   const onTouchMove = (e: TouchEvent) => {
     handleMove(e.touches[0].clientX);
+    if (containerRef.current) {
+      const rect = containerRef.current.getBoundingClientRect();
+      setMousePos({ x: e.touches[0].clientX - rect.left, y: e.touches[0].clientY - rect.top });
+    }
   };
 
   return (
@@ -416,13 +433,29 @@ export function Diferenciadora() {
           {/* Slider Container */}
           <div 
             ref={containerRef}
-            className="relative w-full aspect-square md:aspect-[21/9] bg-[#E8E6E1] overflow-hidden cursor-crosshair select-none touch-none shadow-premium"
+            className="relative w-full aspect-square md:aspect-[21/9] bg-[#E8E6E1] overflow-hidden cursor-none select-none touch-none shadow-premium"
             onMouseMove={onMouseMove}
             onTouchMove={onTouchMove}
+            onMouseEnter={() => setIsHovering(true)}
+            onMouseLeave={() => { setIsHovering(false); isDragging.current = false; }}
             onMouseDown={() => isDragging.current = true}
             onMouseUp={() => isDragging.current = false}
-            onMouseLeave={() => isDragging.current = false}
           >
+            {/* Custom SVG Crosshair Cursor */}
+            <motion.div 
+              className="absolute pointer-events-none z-50 flex items-center justify-center"
+              style={{ left: mousePos.x, top: mousePos.y, x: "-50%", y: "-50%" }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: isHovering ? 1 : 0 }}
+              transition={{ duration: 0.15 }}
+            >
+              <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="#F39C12" strokeWidth="1.5">
+                <line x1="16" y1="0" x2="16" y2="32" />
+                <line x1="0" y1="16" x2="32" y2="16" />
+                <circle cx="16" cy="16" r="4" fill="#F39C12" stroke="none" />
+              </svg>
+            </motion.div>
+
             {/* UNDER IMAGE (After / Perfect) */}
             <img 
               src={gal1} 

@@ -29,6 +29,47 @@ const PremiumScale = ({ children, delay = 0, className = "" }: { children: React
   </motion.div>
 );
 
+const Odometer = ({ value, className = "" }: { value: string, className?: string }) => {
+  return (
+    <div className={`flex items-baseline ${className}`}>
+      {value.split('').map((char, i) => {
+        if (isNaN(parseInt(char))) {
+          return (
+            <motion.span 
+              key={i}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 1.2 }}
+            >
+              {char}
+            </motion.span>
+          );
+        }
+        const num = parseInt(char);
+        const targetIndex = num === 0 ? 10 : num;
+        return (
+          <div key={i} className="relative inline-block overflow-hidden" style={{ height: '1em' }}>
+            <span className="invisible px-[2px]">{num}</span>
+            <motion.div
+              initial={{ y: 0 }}
+              whileInView={{ y: `calc(-100% * ${targetIndex} / 11)` }}
+              viewport={{ once: true }}
+              transition={{ duration: 1.2, ease: "easeOut" }}
+              className="absolute top-0 left-0 flex flex-col"
+              style={{ height: '1100%' }}
+            >
+              {[0,1,2,3,4,5,6,7,8,9,0].map((n, idx) => (
+                <span key={idx} className="flex items-center justify-center leading-none px-[2px]" style={{ height: `${100/11}%` }}>{n}</span>
+              ))}
+            </motion.div>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
 export function Experiencia() {
   return (
     <section id="experiencia" className="relative bg-[#050505] text-[#FAFAF8] py-32 md:py-48 overflow-hidden z-10">
@@ -44,7 +85,7 @@ export function Experiencia() {
           <div className="lg:col-span-5 flex flex-col justify-start">
             <PremiumScale>
               <div className="font-display font-black leading-none tracking-tighter text-brand text-[8rem] sm:text-[11rem] md:text-[14rem] lg:text-[15rem]">
-                <Counter to={30} duration={1.5} suffix="+" />
+                <Odometer value="30+" />
               </div>
             </PremiumScale>
             <PremiumFade delay={0.2} className="mt-8">
@@ -82,45 +123,84 @@ export function Experiencia() {
           </div>
         </div>
         
-        {/* GRID INFERIOR DE ESTADÍSTICAS */}
-        <div className="mt-32 md:mt-40 border-t border-white/10 pt-16">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-16">
-            
-            <PremiumFade delay={0.4} className="group flex flex-col items-start relative pb-6 w-full cursor-default">
-              <div className="font-display text-4xl md:text-5xl lg:text-6xl font-black text-[#FAFAF8]">
-                <Counter to={30} duration={1.5} suffix="+" />
-              </div>
-              <div className="mt-4 text-sm font-bold uppercase tracking-widest text-[#EDEBE8]">Años</div>
-              <div className="absolute bottom-0 left-0 w-0 h-1 bg-brand transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:w-full" />
-            </PremiumFade>
+      </div>
+    </section>
+  );
+}
 
-            <PremiumFade delay={0.5} className="group flex flex-col items-start relative pb-6 w-full cursor-default">
-              <div className="font-display text-4xl md:text-5xl lg:text-6xl font-black text-[#FAFAF8]">
-                <Counter to={10000} duration={2} suffix="+" />
-              </div>
-              <div className="mt-4 text-sm font-bold uppercase tracking-widest text-[#EDEBE8]">Montajes</div>
-              <div className="absolute bottom-0 left-0 w-0 h-1 bg-brand transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:w-full" />
-            </PremiumFade>
-            
-            <PremiumFade delay={0.6} className="group flex flex-col items-start relative pb-6 w-full cursor-default">
-              <div className="font-display text-4xl md:text-5xl lg:text-6xl font-black text-[#FAFAF8]">
-                <Counter to={5} duration={1} suffix="/5" />
-              </div>
-              <div className="mt-4 text-sm font-bold uppercase tracking-widest text-[#EDEBE8]">Valoración</div>
-              <div className="absolute bottom-0 left-0 w-0 h-1 bg-brand transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:w-full" />
-            </PremiumFade>
-            
-            <PremiumFade delay={0.7} className="group flex flex-col items-start relative pb-6 w-full cursor-default">
-              <div className="font-display text-4xl md:text-5xl lg:text-6xl font-black text-[#FAFAF8]">
-                <Counter to={100} duration={1.5} suffix="%" />
-              </div>
-              <div className="mt-4 text-sm font-bold uppercase tracking-widest text-[#EDEBE8]">Cataluña</div>
-              <div className="absolute bottom-0 left-0 w-0 h-1 bg-brand transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:w-full" />
-            </PremiumFade>
+export function StatsGrid() {
+  return (
+    <section className="bg-[#FAFAF8] py-16 md:py-24 border-b border-[#E5E0D8]">
+      <div className="container-x">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-y-12 md:gap-y-0">
+          <PremiumFade delay={0.0} className="flex flex-col items-center md:items-start px-4 md:px-8 border-r border-[#E5E0D8] py-4">
+            <div className="font-display font-black text-[clamp(3rem,6vw,5rem)] text-brand leading-none">
+              <Counter to={30} duration={1.5} suffix="+" />
+            </div>
+            <div className="mt-4 text-[#888] text-[11px] font-bold uppercase tracking-widest text-center md:text-left">
+              Años de experiencia
+            </div>
+            <motion.div 
+              initial={{ scaleX: 0 }}
+              whileInView={{ scaleX: 1 }}
+              viewport={{ once: true, margin: "-10%" }}
+              transition={{ duration: 0.6, delay: 0.0 }}
+              style={{ originX: 0 }}
+              className="h-[2px] w-[40px] bg-brand mt-5"
+            />
+          </PremiumFade>
 
-          </div>
+          <PremiumFade delay={0.15} className="flex flex-col items-center md:items-start px-4 md:px-8 md:border-r border-[#E5E0D8] py-4">
+            <div className="font-display font-black text-[clamp(3rem,6vw,5rem)] text-brand leading-none">
+              <Counter to={10000} duration={2} suffix="+" />
+            </div>
+            <div className="mt-4 text-[#888] text-[11px] font-bold uppercase tracking-widest text-center md:text-left">
+              Cocinas montadas
+            </div>
+            <motion.div 
+              initial={{ scaleX: 0 }}
+              whileInView={{ scaleX: 1 }}
+              viewport={{ once: true, margin: "-10%" }}
+              transition={{ duration: 0.6, delay: 0.15 }}
+              style={{ originX: 0 }}
+              className="h-[2px] w-[40px] bg-brand mt-5"
+            />
+          </PremiumFade>
+
+          <PremiumFade delay={0.3} className="flex flex-col items-center md:items-start px-4 md:px-8 border-r border-[#E5E0D8] py-4">
+            <div className="font-display font-black text-[clamp(3rem,6vw,5rem)] text-brand leading-none">
+              <Counter to={5} duration={1} suffix="/5" />
+            </div>
+            <div className="mt-4 text-[#888] text-[11px] font-bold uppercase tracking-widest text-center md:text-left">
+              Valoración
+            </div>
+            <motion.div 
+              initial={{ scaleX: 0 }}
+              whileInView={{ scaleX: 1 }}
+              viewport={{ once: true, margin: "-10%" }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              style={{ originX: 0 }}
+              className="h-[2px] w-[40px] bg-brand mt-5"
+            />
+          </PremiumFade>
+
+          <PremiumFade delay={0.45} className="flex flex-col items-center md:items-start px-4 md:px-8 py-4">
+            <div className="font-display font-black text-[clamp(3rem,6vw,5rem)] text-brand leading-none">
+              <Counter to={100} duration={1.5} suffix="%" />
+            </div>
+            <div className="mt-4 text-[#888] text-[11px] font-bold uppercase tracking-widest text-center md:text-left">
+              Garantía
+            </div>
+            <motion.div 
+              initial={{ scaleX: 0 }}
+              whileInView={{ scaleX: 1 }}
+              viewport={{ once: true, margin: "-10%" }}
+              transition={{ duration: 0.6, delay: 0.45 }}
+              style={{ originX: 0 }}
+              className="h-[2px] w-[40px] bg-brand mt-5"
+            />
+          </PremiumFade>
         </div>
-        
       </div>
     </section>
   );
