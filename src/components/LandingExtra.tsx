@@ -1,4 +1,4 @@
-﻿import React, { useState, useCallback, type FormEvent } from "react";
+﻿import { memo, useState, useCallback, type FormEvent } from "react";
 import { m as motion } from "framer-motion";
 import { FadeUp, Ico, RevealMask, LogoCubikos } from "./LandingUI";
 import heroImg from "@/assets/hero-kitchen.webp";
@@ -375,7 +375,7 @@ export function CTAFinal() {
   );
 }
 
-export const Footer = React.memo(() => {
+export const Footer = memo(() => {
   return (
     <footer className="bg-ink text-white py-12 md:py-16 border-t border-white/10">
       <div className="container-x">

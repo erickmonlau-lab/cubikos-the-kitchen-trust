@@ -1,4 +1,4 @@
-﻿import React, { useEffect, useState, useRef, MouseEvent, TouchEvent } from "react";
+﻿import { memo, useEffect, useState, useRef, MouseEvent, TouchEvent, type SVGProps, type ReactNode } from "react";
 import { m as motion, useInView } from "framer-motion";
 import heroImg from "@/assets/hero-worker-hq.webp";
 import gal3 from "@/assets/gallery-3.webp"; // Error habitual
@@ -6,12 +6,12 @@ import gal1 from "@/assets/gallery-1.webp"; // Método Cubikos
 
 /* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ icons â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 export const Ico = {
-  Star: (p: React.SVGProps<SVGSVGElement>) => (
+  Star: (p: SVGProps<SVGSVGElement>) => (
     <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden {...p}>
       <path d="M12 2l2.95 6.6 7.05.7-5.3 4.8 1.6 7-6.3-3.7-6.3 3.7 1.6-7-5.3-4.8 7.05-.7L12 2z" />
     </svg>
   ),
-  Check: (p: React.SVGProps<SVGSVGElement>) => (
+  Check: (p: SVGProps<SVGSVGElement>) => (
     <svg
       viewBox="0 0 24 24"
       fill="none"
@@ -25,7 +25,7 @@ export const Ico = {
       <path d="M5 12.5l4.5 4.5L19 7" />
     </svg>
   ),
-  Close: (p: React.SVGProps<SVGSVGElement>) => (
+  Close: (p: SVGProps<SVGSVGElement>) => (
     <svg
       viewBox="0 0 24 24"
       fill="none"
@@ -38,7 +38,7 @@ export const Ico = {
       <path d="M6 6l12 12M18 6l-6 12" />
     </svg>
   ),
-  Arrow: (p: React.SVGProps<SVGSVGElement>) => (
+  Arrow: (p: SVGProps<SVGSVGElement>) => (
     <svg
       viewBox="0 0 24 24"
       fill="none"
@@ -52,7 +52,7 @@ export const Ico = {
       <path d="M5 12h14M13 5l7 7-7 7" />
     </svg>
   ),
-  Menu: (p: React.SVGProps<SVGSVGElement>) => (
+  Menu: (p: SVGProps<SVGSVGElement>) => (
     <svg
       viewBox="0 0 24 24"
       fill="none"
@@ -65,7 +65,7 @@ export const Ico = {
       <path d="M4 7h16M4 12h16M4 17h16" />
     </svg>
   ),
-  Plus: (p: React.SVGProps<SVGSVGElement>) => (
+  Plus: (p: SVGProps<SVGSVGElement>) => (
     <svg
       viewBox="0 0 24 24"
       fill="none"
@@ -78,7 +78,7 @@ export const Ico = {
       <path d="M12 5v14M5 12h14" />
     </svg>
   ),
-  Drag: (p: React.SVGProps<SVGSVGElement>) => (
+  Drag: (p: SVGProps<SVGSVGElement>) => (
     <svg
       viewBox="0 0 24 24"
       fill="none"
@@ -133,7 +133,7 @@ export const FadeUp = ({
   delay = 0,
   className = "",
 }: {
-  children: React.ReactNode;
+  children: ReactNode;
   delay?: number;
   className?: string;
 }) => {
@@ -154,7 +154,7 @@ export const RevealMask = ({
   children,
   delay = 0,
 }: {
-  children: React.ReactNode;
+  children: ReactNode;
   delay?: number;
 }) => {
   return (
@@ -217,7 +217,7 @@ const navItems = [
   { label: "Contacto", href: "#contacto" },
 ];
 
-export const Header = React.memo(() => {
+export const Header = memo(() => {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
