@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { lazy, Suspense, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import heroImg from "@/assets/hero-kitchen.webp";
 import { Header } from "../components/LandingUI";
 import { Footer } from "../components/LandingExtra";
@@ -7,16 +7,15 @@ import { Footer } from "../components/LandingExtra";
 // Eager load
 import HeroSection from "../components/sections/HeroSection";
 
-// Lazy load
-const MetodoSection = lazy(() => import("../components/sections/MetodoSection"));
-const ExperienciaSection = lazy(() => import("../components/sections/ExperienciaSection"));
-const StatsSection = lazy(() => import("../components/sections/StatsSection"));
-const ProcesoSection = lazy(() => import("../components/sections/ProcesoSection"));
-const DetallesSection = lazy(() => import("../components/sections/DetallesSection"));
-const ProyectosSection = lazy(() => import("../components/sections/ProyectosSection"));
-const TestimoniosSection = lazy(() => import("../components/sections/TestimoniosSection"));
-const FAQSection = lazy(() => import("../components/sections/FAQSection"));
-const ContactoSection = lazy(() => import("../components/sections/ContactoSection"));
+import MetodoSection from "../components/sections/MetodoSection";
+import ExperienciaSection from "../components/sections/ExperienciaSection";
+import StatsSection from "../components/sections/StatsSection";
+import ProcesoSection from "../components/sections/ProcesoSection";
+import DetallesSection from "../components/sections/DetallesSection";
+import ProyectosSection from "../components/sections/ProyectosSection";
+import TestimoniosSection from "../components/sections/TestimoniosSection";
+import FAQSection from "../components/sections/FAQSection";
+import ContactoSection from "../components/sections/ContactoSection";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -84,7 +83,7 @@ function FloatingWidgets() {
   );
 }
 
-const SectionFallback = () => <div style={{ minHeight: '400px' }} aria-hidden="true" />;
+
 
 function Landing() {
   return (
@@ -96,33 +95,33 @@ function Landing() {
       <FloatingWidgets />
       <main id="main">
         <HeroSection />
-        <Suspense fallback={<SectionFallback />}>
+        
           <MetodoSection />
-        </Suspense>
-        <Suspense fallback={<SectionFallback />}>
+        
+        
           <ExperienciaSection />
-        </Suspense>
-        <Suspense fallback={<SectionFallback />}>
+        
+        
           <StatsSection />
-        </Suspense>
-        <Suspense fallback={<SectionFallback />}>
+        
+        
           <ProcesoSection />
-        </Suspense>
-        <Suspense fallback={<SectionFallback />}>
+        
+        
           <DetallesSection />
-        </Suspense>
-        <Suspense fallback={<SectionFallback />}>
+        
+        
           <ProyectosSection />
-        </Suspense>
-        <Suspense fallback={<SectionFallback />}>
+        
+        
           <TestimoniosSection />
-        </Suspense>
-        <Suspense fallback={<SectionFallback />}>
+        
+        
           <FAQSection />
-        </Suspense>
-        <Suspense fallback={<SectionFallback />}>
+        
+        
           <ContactoSection />
-        </Suspense>
+        
       </main>
       <Footer />
     </div>
