@@ -1,4 +1,4 @@
-import React, { useState, useCallback, type FormEvent } from "react";
+﻿import React, { useState, useCallback, type FormEvent } from "react";
 import { m as motion } from "framer-motion";
 import { FadeUp, Ico, RevealMask, LogoCubikos } from "./LandingUI";
 import heroImg from "@/assets/hero-kitchen.webp";
@@ -12,21 +12,21 @@ import gal6 from "@/assets/gallery-6.webp";
 const details = [
   {
     src: gal1,
-    title: "AlineaciÃ³n perfecta de frentes",
-    subtitle: "PlanimetrÃ­a e integraciÃ³n de electrodomÃ©sticos",
+    title: "Alineación perfecta de frentes",
+    subtitle: "Planimetría e integración de electrodomésticos",
     span: "lg:col-span-2 lg:row-span-2",
     aspect: "aspect-[4/3] lg:aspect-auto",
   },
   {
     src: gal2,
     title: "Tolerancia < 1mm",
-    subtitle: "UniÃ³n de encimeras",
+    subtitle: "Unión de encimeras",
     span: "lg:col-span-1 lg:row-span-1",
     aspect: "aspect-square",
   },
   {
     src: gal4,
-    title: "NivelaciÃ³n lÃ¡ser",
+    title: "Nivelación láser",
     subtitle: "Ajuste de mÃ³dulos base",
     span: "lg:col-span-1 lg:row-span-1",
     aspect: "aspect-square",
@@ -34,7 +34,7 @@ const details = [
   {
     src: gal5,
     title: "Mecanizados exactos",
-    subtitle: "Encastres al milÃ­metro",
+    subtitle: "Encastres al milímetro",
     span: "lg:col-span-1 lg:row-span-1",
     aspect: "aspect-square",
   },
@@ -56,8 +56,8 @@ export function Proyectos() {
             Casos de estudio.
           </h2>
           <p className="mt-6 md:mt-8 text-lg md:text-2xl text-[#EDEBE8] font-medium leading-relaxed text-balance max-w-2xl">
-            La excelencia no se demuestra en un plano general, sino en la perfecciÃ³n de cada
-            detalle, uniÃ³n y remate.
+            La excelencia no se demuestra en un plano general, sino en la perfección de cada
+            detalle, Unión y remate.
           </p>
         </FadeUp>
       </div>
@@ -70,7 +70,8 @@ export function Proyectos() {
               delay={i * 0.1}
               className={`group relative overflow-hidden bg-[#1a1a1a] ${g.span} ${g.aspect || ""}`}
             >
-              <img loading="lazy"
+              <img
+                loading="lazy"
                 src={g.src}
                 alt={g.title}
                 loading="lazy"
@@ -99,20 +100,20 @@ export function Proyectos() {
 
 const faqs = [
   {
-    q: "Â¿TrabajÃ¡is en toda CataluÃ±a?",
-    a: "SÃ­. Cubrimos las cuatro provincias y nos desplazamos a cualquier poblaciÃ³n de CataluÃ±a con nuestro propio equipo.",
+    q: "¿Trabajáis en toda Cataluña?",
+    a: "Sí. Cubrimos las cuatro provincias y nos desplazamos a cualquier población de Cataluña con nuestro propio equipo.",
   },
   {
-    q: "Â¿MontÃ¡is cualquier tipo de cocina?",
+    q: "¿Montáis cualquier tipo de cocina?",
     a: "Instalamos firmas italianas de lujo, mobiliario de estudios de interiorismo, proyectos a medida y firmas comerciales de gama alta.",
   },
   {
-    q: "Â¿GestionÃ¡is los imprevistos de obra?",
-    a: "Nuestra fase de revisiÃ³n previa y auditorÃ­a de planos minimiza imprevistos. Si surgen desviaciones en obra, tenemos la capacidad tÃ©cnica para resolverlas in situ.",
+    q: "¿Gestionáis los imprevistos de obra?",
+    a: "Nuestra fase de revisión previa y auditoría de planos minimiza imprevistos. Si surgen desviaciones en obra, tenemos la capacidad técnica para resolverlas in situ.",
   },
   {
-    q: "Â¿CuÃ¡nto tarda un montaje premium?",
-    a: "Depende de la planimetrÃ­a y el volumen, pero la excelencia requiere tiempo. Un montaje estÃ¡ndar de alta gama dura entre 3 y 5 dÃ­as. La revisiÃ³n final es innegociable.",
+    q: "¿Cuánto tarda un montaje premium?",
+    a: "Depende de la Planimetría y el volumen, pero la excelencia requiere tiempo. Un montaje estándar de alta gama dura entre 3 y 5 días. La revisión final es innegociable.",
   },
 ];
 
@@ -196,7 +197,7 @@ export function CTAFinal() {
               <div className="flex items-center gap-4 mb-8">
                 <div className="h-[2px] w-12 bg-brand" />
                 <span className="font-display font-black text-sm uppercase tracking-widest text-brand">
-                  ValoraciÃ³n TÃ©cnica
+                  Valoración técnica
                 </span>
               </div>
 
@@ -205,7 +206,7 @@ export function CTAFinal() {
               </h2>
 
               <p className="mt-8 text-xl md:text-2xl font-medium text-[#EDEBE8] max-w-[550px] leading-relaxed">
-                Solicita una valoraciÃ³n tÃ©cnica sin compromiso y descubre cÃ³mo podemos materializar
+                Solicita una Valoración técnica sin compromiso y descubre cómo podemos materializar
                 tu proyecto.
               </p>
             </motion.div>
@@ -236,7 +237,7 @@ export function CTAFinal() {
                 <Ico.Check className="w-6 h-6 text-brand shrink-0" />
                 <div>
                   <div className="font-bold text-white text-lg">Experiencia</div>
-                  <div className="text-sm text-white/70 mt-1">MÃ¡s de 10 aÃ±os</div>
+                  <div className="text-sm text-white/70 mt-1">Más de 10 años</div>
                 </div>
               </div>
             </motion.div>
@@ -257,7 +258,7 @@ export function CTAFinal() {
                     Recibido
                   </h3>
                   <p className="mt-6 text-lg font-medium text-[#EDEBE8]">
-                    Nuestro equipo tÃ©cnico revisarÃ¡ tu solicitud y te contactarÃ¡ en breve.
+                    Nuestro equipo técnico revisará tu solicitud y te contactará en breve.
                   </p>
                 </div>
               ) : (
@@ -278,7 +279,7 @@ export function CTAFinal() {
                     </div>
                     <div className="group relative">
                       <label className="text-xs font-bold uppercase tracking-widest text-[#EDEBE8] block mb-2">
-                        TelÃ©fono / Email
+                        Teléfono / Email
                       </label>
                       <input
                         required
@@ -288,21 +289,45 @@ export function CTAFinal() {
                     </div>
                     <div className="group relative">
                       <label className="text-xs font-bold uppercase tracking-widest text-[#EDEBE8] block mb-2">
-                        Â¿QuÃ© tipo de cocina necesitas montar?
+                        ¿Qué tipo de cocina necesitas montar?
                       </label>
                       <select
                         required
                         className="w-full bg-transparent border-b border-white/20 py-2 text-xl font-medium text-white focus:outline-none focus:border-white hover:border-white transition-all duration-300 focus:-translate-y-[2px] cursor-pointer appearance-none"
                       >
-                        <option value="" disabled selected className="bg-[#111] text-white/50">Selecciona una opciÃ³n</option>
-                        <option value="ikea" className="bg-[#111] text-white">IKEA</option>
-                        <option value="bauhaus" className="bg-[#111] text-white">Bauhaus</option>
-                        <option value="santos" className="bg-[#111] text-white">Santos</option>
-                        <option value="amedida" className="bg-[#111] text-white">A medida</option>
-                        <option value="otros" className="bg-[#111] text-white">Otros</option>
+                        <option value="" disabled selected className="bg-[#111] text-white/50">
+                          Selecciona una opción
+                        </option>
+                        <option value="ikea" className="bg-[#111] text-white">
+                          IKEA
+                        </option>
+                        <option value="bauhaus" className="bg-[#111] text-white">
+                          Bauhaus
+                        </option>
+                        <option value="santos" className="bg-[#111] text-white">
+                          Santos
+                        </option>
+                        <option value="amedida" className="bg-[#111] text-white">
+                          A medida
+                        </option>
+                        <option value="otros" className="bg-[#111] text-white">
+                          Otros
+                        </option>
                       </select>
                       <div className="absolute right-0 top-9 pointer-events-none text-white/50">
-                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
+                        <svg
+                          className="w-5 h-5"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            d="M19 9l-7 7-7-7"
+                          ></path>
+                        </svg>
                       </div>
                     </div>
                     <div className="group relative">
@@ -320,7 +345,7 @@ export function CTAFinal() {
                     >
                       <div className="absolute inset-0 -translate-x-[150%] bg-gradient-to-r from-transparent via-white/60 to-transparent group-hover:translate-x-[150%] transition-transform duration-[1.2s] ease-in-out" />
                       <span className="relative z-10 drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)]">
-                        Solicitar ValoraciÃ³n
+                        Solicitar Valoración
                       </span>
                     </button>
 
@@ -337,7 +362,7 @@ export function CTAFinal() {
                         <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
                         <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
                       </svg>
-                      Tu informaciÃ³n estÃ¡ protegida y nunca serÃ¡ compartida.
+                      Tu información está protegida y nunca será compartida.
                     </div>
                   </div>
                 </form>
@@ -349,8 +374,6 @@ export function CTAFinal() {
     </section>
   );
 }
-
-
 
 export const Footer = React.memo(() => {
   return (
@@ -415,7 +438,7 @@ export const Footer = React.memo(() => {
                 </a>
               </li>
               <li className="text-[#D1CFCC] text-sm font-bold tracking-widest uppercase pt-2">
-                CataluÃ±a, EspaÃ±a
+                Cataluña, España
               </li>
             </ul>
           </div>
@@ -447,4 +470,3 @@ export const Footer = React.memo(() => {
     </footer>
   );
 });
-

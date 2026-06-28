@@ -1,1 +1,1 @@
-﻿export { Hero as default } from '../LandingUI';
+﻿export { Hero as default } from "../LandingUI";

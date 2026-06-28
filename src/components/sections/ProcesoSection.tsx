@@ -1,1 +1,1 @@
-﻿export { Proceso as default } from '../LandingSections';
+﻿export { Proceso as default } from "../LandingSections";

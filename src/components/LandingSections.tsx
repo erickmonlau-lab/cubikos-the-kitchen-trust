@@ -1,4 +1,4 @@
-import { FadeUp, Ico, RevealMask, Counter } from "./LandingUI";
+﻿import { FadeUp, Ico, RevealMask, Counter } from "./LandingUI";
 import useEmblaCarousel from "embla-carousel-react";
 import { m as motion } from "framer-motion";
 import { PhoneCall, FileSearch, Ruler, Hammer, CheckCircle, User } from "lucide-react";
@@ -135,7 +135,7 @@ export function Experiencia() {
           <div className="lg:col-span-7 lg:pl-12 flex flex-col justify-center pt-4 lg:pt-12">
             <PremiumFade delay={0.1}>
               <h2 className="font-display font-bold text-[40px] md:text-[56px] leading-[1.1] text-[#FAFAF8] text-balance">
-                Tres dÃ©cadas perfeccionando un Ãºnico oficio.
+                Tres décadas perfeccionando un único oficio.
               </h2>
             </PremiumFade>
 
@@ -144,19 +144,19 @@ export function Experiencia() {
               className="mt-12 space-y-6 text-xl md:text-[22px] text-[#EDEBE8] font-medium leading-relaxed max-w-3xl"
             >
               <p>
-                Mientras otras empresas reparten su atenciÃ³n entre reformas, coordinaciÃ³n de gremios
-                y decenas de servicios distintos, Cubikos ha dedicado mÃ¡s de treinta aÃ±os a una sola
-                misiÃ³n:
+                Mientras otras empresas reparten su atención entre reformas, Coordinación de gremios
+                y decenas de servicios distintos, Cubikos ha dedicado más de treinta años a una sola
+                misión:
               </p>
-              <p className="font-bold text-[#FAFAF8]">Montar cocinas con precisiÃ³n absoluta.</p>
+              <p className="font-bold text-[#FAFAF8]">Montar cocinas con precisión absoluta.</p>
               <div>
                 <p>Cada ajuste.</p>
-                <p>Cada nivelaciÃ³n.</p>
+                <p>Cada nivelación.</p>
                 <p>Cada encuentro.</p>
                 <p>Cada acabado.</p>
               </div>
               <p className="text-brand font-bold pt-4">
-                Perfeccionados tras mÃ¡s de 10.000 instalaciones.
+                Perfeccionados tras más de 10.000 instalaciones.
               </p>
             </PremiumFade>
           </div>
@@ -179,7 +179,7 @@ export function StatsGrid() {
               <Counter to={30} duration={1.5} suffix="+" />
             </div>
             <div className="mt-4 text-[#888] text-[11px] font-bold uppercase tracking-widest text-center md:text-left">
-              AÃ±os de experiencia
+              años de experiencia
             </div>
             <motion.div
               initial={{ scaleX: 0 }}
@@ -219,7 +219,7 @@ export function StatsGrid() {
               <Counter to={5} duration={1} suffix="/5" />
             </div>
             <div className="mt-4 text-[#888] text-[11px] font-bold uppercase tracking-widest text-center md:text-left">
-              ValoraciÃ³n
+              Valoración
             </div>
             <motion.div
               initial={{ scaleX: 0 }}
@@ -239,7 +239,7 @@ export function StatsGrid() {
               <Counter to={100} duration={1.5} suffix="%" />
             </div>
             <div className="mt-4 text-[#888] text-[11px] font-bold uppercase tracking-widest text-center md:text-left">
-              GarantÃ­a
+              Garantía
             </div>
             <motion.div
               initial={{ scaleX: 0 }}
@@ -257,10 +257,10 @@ export function StatsGrid() {
 }
 
 const steps = [
-  { n: "01", t: "CONTACTO", d: "ValoraciÃ³n inicial del proyecto.", icon: PhoneCall },
-  { n: "02", t: "REVISIÃ“N", d: "AuditorÃ­a de planos y materiales.", icon: FileSearch },
-  { n: "03", t: "PLANIFICACIÃ“N", d: "CoordinaciÃ³n milimÃ©trica.", icon: Ruler },
-  { n: "04", t: "MONTAJE", d: "EjecuciÃ³n precisa y limpia.", icon: Hammer },
+  { n: "01", t: "CONTACTO", d: "Valoración inicial del proyecto.", icon: PhoneCall },
+  { n: "02", t: "REVISIÓN", d: "Auditoría de planos y materiales.", icon: FileSearch },
+  { n: "03", t: "PLANIFICACIÓN", d: "Coordinación milimétrica.", icon: Ruler },
+  { n: "04", t: "MONTAJE", d: "Ejecución precisa y limpia.", icon: Hammer },
   { n: "05", t: "ENTREGA", d: "Repaso final exhaustivo.", icon: CheckCircle },
 ];
 
@@ -274,11 +274,12 @@ const KitchenAssembly = () => {
         transition={{ duration: 0.8, ease: "easeOut" }}
         className="relative aspect-video rounded-3xl overflow-hidden shadow-[0_30px_60px_rgba(0,0,0,0.15)] border-[4px] border-white"
       >
-        <img loading="lazy" 
-          src={showcase3} 
-          alt="Cocina terminada con precisión milimétrica" 
+        <img
           loading="lazy"
-          className="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-1000 ease-out" 
+          src={showcase3}
+          alt="Cocina terminada con precisión milimétrica"
+          loading="lazy"
+          className="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-1000 ease-out"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent pointer-events-none" />
       </motion.div>
@@ -310,11 +311,11 @@ export function Proceso() {
           <div className="flex items-center gap-4 mb-6">
             <div className="h-[1px] w-12 bg-brand" />
             <span className="text-[12px] font-semibold tracking-[0.3em] uppercase text-brand">
-              MetodologÃ­a
+              Metodología
             </span>
           </div>
           <h2 className="font-display font-black text-[clamp(64px,6vw,96px)] leading-[0.95] text-ink max-w-[900px] text-balance">
-            PrecisiÃ³n en cada fase.
+            precisión en cada fase.
           </h2>
         </motion.div>
 
@@ -363,8 +364,6 @@ export function Proceso() {
   );
 }
 
-
-
 export function Testimonios() {
   return (
     <section id="opiniones" className="bg-background py-32 md:py-48 overflow-hidden">
@@ -373,7 +372,9 @@ export function Testimonios() {
           {/* Client Photo & Stars */}
           <FadeUp className="flex flex-col items-center">
             <div className="w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden mb-8 shadow-premium flex items-center justify-center bg-[#d8a843] text-[#111]">
-              <span className="font-display font-black text-4xl md:text-5xl tracking-widest">MS</span>
+              <span className="font-display font-black text-4xl md:text-5xl tracking-widest">
+                MS
+              </span>
             </div>
             <div className="flex gap-2 text-ink mb-12">
               {Array.from({ length: 5 }).map((_, i) => (
@@ -429,8 +430,8 @@ export function BotelleroShowcase() {
                 perfecta.
               </p>
               <p className="text-[#EDEBE8]/80 text-lg md:text-xl leading-relaxed font-light">
-                Es en estos pequeÃ±os detalles donde la verdadera calidad de un montaje sale a
-                relucir. No instalamos cocinas; construimos mobiliario de precisiÃ³n.
+                Es en estos pequeños detalles donde la verdadera calidad de un montaje sale a
+                relucir. No instalamos cocinas; construimos mobiliario de precisión.
               </p>
             </PremiumFade>
           </div>
@@ -444,9 +445,10 @@ export function BotelleroShowcase() {
               transition={{ duration: 1, ease: easing }}
               className="absolute left-0 bottom-0 w-[70%] h-[80%] rounded-2xl overflow-hidden shadow-2xl z-10 border-[6px] border-[#0D0D0D]"
             >
-              <img loading="lazy"
+              <img
+                loading="lazy"
                 src={showcase1}
-                alt="Montaje de estanterÃ­a iluminada"
+                alt="Montaje de estantería iluminada"
                 className="w-full h-full object-cover"
               />
             </motion.div>
@@ -459,7 +461,8 @@ export function BotelleroShowcase() {
               transition={{ duration: 1, delay: 0.2, ease: easing }}
               className="absolute right-0 top-0 w-[55%] h-[50%] rounded-2xl overflow-hidden shadow-xl z-20 border-[6px] border-[#0D0D0D]"
             >
-              <img loading="lazy"
+              <img
+                loading="lazy"
                 src={showcase2}
                 alt="Isla de cocina premium"
                 className="w-full h-full object-cover"
@@ -474,7 +477,8 @@ export function BotelleroShowcase() {
               transition={{ duration: 1, delay: 0.4, ease: easing }}
               className="absolute right-12 bottom-8 w-[40%] h-[40%] rounded-2xl overflow-hidden shadow-xl z-30 border-[6px] border-[#0D0D0D]"
             >
-              <img loading="lazy"
+              <img
+                loading="lazy"
                 src={showcase3}
                 alt="Detalle de montaje en columna"
                 className="w-full h-full object-cover object-left-top"
@@ -486,5 +490,3 @@ export function BotelleroShowcase() {
     </section>
   );
 }
-
-

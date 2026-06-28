@@ -1,1 +1,1 @@
-﻿export { Testimonios as default } from '../LandingSections';
+﻿export { Testimonios as default } from "../LandingSections";

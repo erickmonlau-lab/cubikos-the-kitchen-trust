@@ -1,1 +1,1 @@
-﻿export { Proyectos as default } from '../LandingExtra';
+﻿export { Proyectos as default } from "../LandingExtra";

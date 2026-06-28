@@ -210,8 +210,6 @@ export function Counter({
   );
 }
 
-
-
 const navItems = [
   { label: "Método", href: "#metodo" },
   { label: "Proyectos", href: "#proyectos" },
@@ -445,12 +443,19 @@ export function Hero() {
           <FadeUp delay={0.5} className="mt-6">
             <div className="flex items-center gap-2">
               <div className="flex -space-x-2">
-                <div className="w-8 h-8 rounded-full bg-brand flex items-center justify-center text-[10px] font-bold text-white border-2 border-white/20">MR</div>
-                <div className="w-8 h-8 rounded-full bg-[#444] flex items-center justify-center text-[10px] font-bold text-white border-2 border-white/20">AC</div>
-                <div className="w-8 h-8 rounded-full bg-[#666] flex items-center justify-center text-[10px] font-bold text-white border-2 border-white/20">JP</div>
+                <div className="w-8 h-8 rounded-full bg-brand flex items-center justify-center text-[10px] font-bold text-white border-2 border-white/20">
+                  MR
+                </div>
+                <div className="w-8 h-8 rounded-full bg-[#444] flex items-center justify-center text-[10px] font-bold text-white border-2 border-white/20">
+                  AC
+                </div>
+                <div className="w-8 h-8 rounded-full bg-[#666] flex items-center justify-center text-[10px] font-bold text-white border-2 border-white/20">
+                  JP
+                </div>
               </div>
               <span className="text-white/80 text-sm font-medium">
-                â˜…â˜…â˜…â˜…â˜… <strong className="text-white">4.9</strong> Â· 47 reseÃ±as verificadas
+                â˜…â˜…â˜…â˜…â˜… <strong className="text-white">4.9</strong> Â· 47 reseÃ±as
+                verificadas
               </span>
             </div>
           </FadeUp>

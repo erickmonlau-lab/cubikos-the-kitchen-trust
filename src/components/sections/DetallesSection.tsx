@@ -1,1 +1,1 @@
-﻿export { BotelleroShowcase as default } from '../LandingSections';
+﻿export { BotelleroShowcase as default } from "../LandingSections";

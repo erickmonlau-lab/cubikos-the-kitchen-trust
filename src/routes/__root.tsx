@@ -85,11 +85,19 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "author", content: "CUBIKOS" },
       { name: "geo.region", content: "ES-CT" },
       { name: "geo.placename", content: "Barcelona" },
-      { name: "keywords", content: "montaje cocinas barcelona, instalación cocinas cataluña, montadores cocinas profesionales, montaje muebles cocina, instalación cocina premium barcelona, montadores ikea barcelona" },
+      {
+        name: "keywords",
+        content:
+          "montaje cocinas barcelona, instalación cocinas cataluña, montadores cocinas profesionales, montaje muebles cocina, instalación cocina premium barcelona, montadores ikea barcelona",
+      },
       { property: "og:locale", content: "es_ES" },
       { property: "og:url", content: "https://cubikos.es/" },
       { name: "twitter:title", content: "CUBIKOS | Montaje Profesional de Cocinas en Cataluña" },
-      { name: "twitter:description", content: "30 años y 10.000 cocinas instaladas con precisión milimétrica. El mejor montaje de cocinas de Cataluña. Solicita presupuesto sin compromiso." },
+      {
+        name: "twitter:description",
+        content:
+          "30 años y 10.000 cocinas instaladas con precisión milimétrica. El mejor montaje de cocinas de Cataluña. Solicita presupuesto sin compromiso.",
+      },
     ],
     links: [
       { rel: "canonical", href: "https://cubikos.es/" },
@@ -129,7 +137,8 @@ function RootShell({ children }: { children: ReactNode }) {
               "@id": "https://cubikos.es/#business",
               name: "CUBIKOS",
               alternateName: "Cubikos Kitchen Trust",
-              description: "Especialistas en montaje profesional de cocinas en Cataluña. Más de 30 años y 10.000 instalaciones con precisión milimétrica.",
+              description:
+                "Especialistas en montaje profesional de cocinas en Cataluña. Más de 30 años y 10.000 instalaciones con precisión milimétrica.",
               url: "https://cubikos.es",
               telephone: "+34666871144",
               email: "cubikos25@gmail.com",

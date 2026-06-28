@@ -1,1 +1,1 @@
-﻿export { CTAFinal as default } from '../LandingExtra';
+﻿export { CTAFinal as default } from "../LandingExtra";

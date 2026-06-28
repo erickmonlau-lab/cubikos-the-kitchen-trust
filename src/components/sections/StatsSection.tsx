@@ -1,1 +1,1 @@
-﻿export { StatsGrid as default } from '../LandingSections';
+﻿export { StatsGrid as default } from "../LandingSections";

@@ -1,1 +1,1 @@
-﻿export { Experiencia as default } from '../LandingSections';
+﻿export { Experiencia as default } from "../LandingSections";
