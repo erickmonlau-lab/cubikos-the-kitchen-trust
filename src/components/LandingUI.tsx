@@ -1,4 +1,4 @@
-﻿import { useEffect, useState, useRef, MouseEvent, TouchEvent } from "react";
+﻿import React, { useEffect, useState, useRef, MouseEvent, TouchEvent } from "react";
 import { m as motion, useInView } from "framer-motion";
 import heroImg from "@/assets/hero-worker-hq.webp";
 import gal3 from "@/assets/gallery-3.webp"; // Error habitual
