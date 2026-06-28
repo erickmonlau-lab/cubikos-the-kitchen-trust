@@ -1,8 +1,8 @@
-import { useEffect, useState, useRef, MouseEvent, TouchEvent } from "react";
+﻿import { useEffect, useState, useRef, MouseEvent, TouchEvent } from "react";
 import { m as motion, useInView } from "framer-motion";
 import heroImg from "@/assets/hero-worker-hq.webp";
 import gal3 from "@/assets/gallery-3.webp"; // Error habitual
-import gal1 from "@/assets/gallery-1.webp"; // MÃ©todo Cubikos
+import gal1 from "@/assets/gallery-1.webp"; // Método Cubikos
 
 /* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ icons â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 export const Ico = {
@@ -413,7 +413,7 @@ export function Hero() {
 
           <FadeUp delay={0.2} className="mt-4 md:mt-5 max-w-[440px]">
             <p className="text-lg md:text-[20px] text-white/95 font-medium tracking-wide leading-relaxed text-balance antialiased drop-shadow-sm">
-              MÃ¡s de 30 aÃ±os instalando cocinas en toda CataluÃ±a con precisiÃ³n milimÃ©trica y
+              MÃ¡s de 30 Años instalando cocinas en toda Cataluña con precisiÃ³n milimÃ©trica y
               acabados impecables.
             </p>
           </FadeUp>
@@ -491,7 +491,7 @@ export function Hero() {
                 <span className="relative inline-block mt-2">
                   <span className="absolute bottom-[-2px] -left-1 -right-1 h-[4px] bg-yellow-400 group-hover:h-full group-hover:bottom-0 transition-all duration-300 rounded-sm" />
                   <span className="relative z-10 text-[11px] md:text-[13px] font-bold text-ink uppercase tracking-[0.2em]">
-                    AÃ±os
+                    Años
                   </span>
                 </span>
               </div>
@@ -510,7 +510,7 @@ export function Hero() {
 
               <div className="group flex flex-col items-center text-center bg-white/95 backdrop-blur-sm rounded-lg p-5 md:p-6 shadow-md border border-white/50 cursor-default transition-transform duration-500 hover:-translate-y-2 hover:shadow-xl">
                 <span className="text-[26px] md:text-[34px] font-black text-ink leading-none tracking-tight pt-1 md:pt-2">
-                  CataluÃ±a
+                  Cataluña
                 </span>
                 <span className="relative inline-block mt-2">
                   <span className="absolute bottom-[-2px] -left-1 -right-1 h-[4px] bg-yellow-400 group-hover:h-full group-hover:bottom-0 transition-all duration-300 rounded-sm" />
@@ -522,7 +522,7 @@ export function Hero() {
 
               <div className="group flex flex-col items-center text-center bg-white/95 backdrop-blur-sm rounded-lg p-5 md:p-6 shadow-md border border-white/50 cursor-default transition-transform duration-500 hover:-translate-y-2 hover:shadow-xl">
                 <span className="text-[26px] md:text-[34px] font-black text-ink leading-none tracking-tight pt-1 md:pt-2">
-                  GarantÃ­a
+                  Garantía
                 </span>
                 <span className="relative inline-block mt-2">
                   <span className="absolute bottom-[-2px] -left-1 -right-1 h-[4px] bg-yellow-400 group-hover:h-full group-hover:bottom-0 transition-all duration-300 rounded-sm" />
@@ -651,7 +651,7 @@ export function Diferenciadora() {
             {/* UNDER IMAGE (After / Perfect) */}
             <img
               src={gal1}
-              alt="MÃ©todo Cubikos perfecto"
+              alt="Método Cubikos perfecto"
               className="absolute inset-0 w-full h-full object-cover pointer-events-none"
             />
 
@@ -662,7 +662,7 @@ export function Diferenciadora() {
             >
               <img
                 src={gal3}
-                alt="Ejemplo de mala ejecuciÃ³n"
+                alt="Ejemplo de mala ejecución"
                 className="absolute inset-0 w-full h-full object-cover grayscale pointer-events-none"
               />
             </div>
@@ -683,26 +683,26 @@ export function Diferenciadora() {
             <div className="text-left">
               <ul className="space-y-4 font-medium text-lg md:text-xl text-ink-soft">
                 <li className="flex items-start gap-3">
-                  <span className="text-ink mt-1">â€¢</span> Puertas torcidas
+                  <span className="text-ink mt-1">•</span> Puertas torcidas
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="text-ink mt-1">â€¢</span> Holguras visibles
+                  <span className="text-ink mt-1">•</span> Holguras visibles
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="text-ink mt-1">â€¢</span> Desniveles
+                  <span className="text-ink mt-1">•</span> Desniveles
                 </li>
               </ul>
             </div>
             <div className="text-right">
               <ul className="space-y-4 font-medium text-lg md:text-xl text-ink inline-block text-left">
                 <li className="flex items-start gap-3">
-                  <span className="text-brand mt-1">â€¢</span> Ajuste lÃ¡ser
+                  <span className="text-brand mt-1">•</span> Ajuste láser
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="text-brand mt-1">â€¢</span> NivelaciÃ³n perfecta
+                  <span className="text-brand mt-1">•</span> Nivelación perfecta
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="text-brand mt-1">â€¢</span> Acabados premium
+                  <span className="text-brand mt-1">•</span> Acabados premium
                 </li>
               </ul>
             </div>
@@ -712,4 +712,3 @@ export function Diferenciadora() {
     </section>
   );
 }
-

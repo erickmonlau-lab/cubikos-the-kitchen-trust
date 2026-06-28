@@ -1,1 +1,291 @@
-import{a as t,c as e,o as s,s as r}from"./h3.mjs";import{a as n,n as a,r as o}from"./@tanstack/query-core.mjs";var i,u,d,h="h3.internal.event.",c=Symbol.for(`${h}res`),f=Symbol.for(`${h}res.headers`),l=Symbol.for(`${h}res.err.headers`),p=(i=class{constructor(t,n,a){s(this,"app",void 0),s(this,"req",void 0),s(this,"url",void 0),s(this,"context",void 0),this.context=n||t.context||new e,this.req=t,this.app=a;const o=t._url,i=o&&o instanceof URL?o:new r(t.url);var u;i.pathname.includes("%")&&(i.pathname=(u=i.pathname,decodeURI(u.includes("%25")?u.replace(/%25/g,"%2525"):u))),this.url=i}get res(){return this[c]||(this[c]=new g)}get runtime(){return this.req.runtime}waitUntil(t){this.req.waitUntil?.(t)}toString(){return`[${this.req.method}] ${this.req.url}`}toJSON(){return this.toString()}get node(){return this.req.runtime?.node}get headers(){return this.req.headers}get path(){return this.url.pathname+this.url.search}get method(){return this.req.method}},s(i,"__is_event__",!0),i),g=class{constructor(){s(this,"status",void 0),s(this,"statusText",void 0)}get headers(){return this[f]||(this[f]=new Headers)}get errHeaders(){return this[l]||(this[l]=new Headers)}},m=/[^\u0009\u0020-\u007E]/g,y=class t extends Error{get name(){return"HTTPError"}static isError(t){return t instanceof Error&&"HTTPError"===t?.name}static status(e,s,r){return new t({...r,statusText:s,status:e})}constructor(t,e){let r,n;"string"==typeof t?(r=t,n=e):n=t;const a=function(t,e=200){return t?("string"==typeof t&&(t=+t),t<100||t>599?e:t):e}(n?.status||n?.statusCode||(n?.cause)?.status||(n?.cause)?.statusCode,500),o=function(t=""){return t.replace(m,"")}(n?.statusText||n?.statusMessage||(n?.cause)?.statusText||(n?.cause)?.statusMessage);super(r||n?.message||(n?.cause)?.message||n?.statusText||n?.statusMessage||["HTTPError",a,o].filter(Boolean).join(" "),{cause:n}),s(this,"status",void 0),s(this,"statusText",void 0),s(this,"headers",void 0),s(this,"cause",void 0),s(this,"data",void 0),s(this,"body",void 0),s(this,"unhandled",void 0),this.cause=n,this.status=a,this.statusText=o||void 0;const i=n?.headers||(n?.cause)?.headers;this.headers=i?new Headers(i):void 0,this.unhandled=n?.unhandled??(n?.cause)?.unhandled??void 0,this.data=n?.data,this.body=n?.body}get statusCode(){return this.status}get statusMessage(){return this.statusText}toJSON(){const t=this.unhandled;return{status:this.status,statusText:this.statusText,unhandled:t,message:t?"HTTPError":this.message,data:t?void 0:this.data,...t?void 0:this.body}}},v=Symbol.for("h3.notFound"),b=Symbol.for("h3.handled");function T(t,e,s={}){if("function"==typeof t?.then)return(t.catch?.(t=>t)||Promise.resolve(t)).then(t=>T(t,e,s));const r=x(t,e,s);if("function"==typeof r?.then)return T(r,e,s);const{onResponse:n}=s;return n?Promise.resolve(n(r,e)).then(()=>r):r}var w=(u=new WeakMap,d=new WeakMap,class{constructor(t,e){n(this,u,void 0),n(this,d,void 0),s(this,"body",void 0),this.body=t,o(d,this,e)}get status(){return a(d,this)?.status||200}get statusText(){return a(d,this)?.statusText||"OK"}get headers(){return a(u,this)||o(u,this,new Headers(a(d,this)?.headers))}});function x(s,r,n,a){if(s===b)return new t(null);if(s===v&&(s=new y({status:404,message:`Cannot find any route matching [${r.req.method}] ${r.url}`})),s&&s instanceof Error){const e=y.isError(s),o=e?s:new y(s);e||(o.unhandled=!0,s?.stack&&(o.stack=s.stack)),o.unhandled&&n.silent;const{onError:i}=n,u=r[c]?.[l];return i&&!a?Promise.resolve(i(o,r)).catch(t=>t).then(t=>x(t??s,r,n,!0)):function(e,s,r){let n=e.headers?S($,e.headers):new Headers($);return r&&(n=S(n,r)),new t(JSON.stringify({...e.toJSON(),stack:s&&e.stack?e.stack.split("\n").map(t=>t.trim()):void 0},void 0,s?2:void 0),{status:e.status,statusText:e.statusText,headers:n})}(o,n.debug,u)}const o=r[c],i=o?.[f];if(r[c]=void 0,!(s instanceof Response)){const a=function(t,s,r){if(null==t)return{body:"",headers:E};const n=typeof t;if("string"===n)return{body:t};if(t instanceof Uint8Array)return s.res.headers.set("content-length",t.byteLength.toString()),{body:t};if(t instanceof w||"HTTPResponse"===t?.constructor?.name)return t;if(function(t,s){if(null==t)return!0;if("object"!==s)return"boolean"===s||"number"===s||"string"===s;if("function"==typeof t.toJSON)return!0;if(Array.isArray(t))return!0;if("function"==typeof t.pipe||"function"==typeof t.pipeTo)return!1;if(t instanceof e)return!0;const r=Object.getPrototypeOf(t);return r===Object.prototype||null===r}(t,n))return{body:JSON.stringify(t,void 0,r.debug?2:void 0),headers:$};if("bigint"===n)return{body:t.toString(),headers:$};if(t instanceof Blob){const e=new Headers({"content-type":t.type,"content-length":t.size.toString()});let s=t.name;return s&&(s=encodeURIComponent(s),e.set("content-disposition",`filename="${s}"; filename*=UTF-8''${s}`)),{body:t.stream(),headers:e}}return"symbol"===n?{body:t.toString()}:"function"===n?{body:`${t.name}()`}:{body:t}}(s,r,n),u=a.status||o?.status;return new t(k(r.req.method,u)?null:a.body,{status:u,statusText:a.statusText||o?.statusText,headers:a.headers&&i?S(a.headers,i):a.headers||i})}if(!i||a||!s.ok)return s;try{return S(s.headers,i,s.headers),s}catch{return new t(k(r.req.method,s.status)?null:s.body,{status:s.status,statusText:s.statusText,headers:S(s.headers,i)})}}function S(t,e,s=new Headers(t)){for(const[r,n]of e)"set-cookie"===r?s.append(r,n):s.set(r,n);return s}var H=t=>(...e)=>{throw new Error(`Headers are frozen (${t} ${e.join(", ")})`)},q=class extends Headers{constructor(...t){super(...t),s(this,"set",H("set")),s(this,"append",H("append")),s(this,"delete",H("delete"))}},E=new q({"content-length":"0"}),$=new q({"content-type":"application/json;charset=UTF-8"});function k(t,e){return"HEAD"===t||100===e||101===e||102===e||204===e||205===e||304===e}export{T as n,p as t};
+import { a as NodeResponse, c as NullProtoObj, o as _defineProperty, s as FastURL } from "./h3.mjs";
+import { a as _classPrivateFieldInitSpec, n as _classPrivateFieldGet2, r as _classPrivateFieldSet2 } from "./@tanstack/query-core.mjs";
+//#region node_modules/h3-v2/dist/h3-Bz4OPZv_.mjs
+var _Class, _headers, _init2;
+function decodePathname(pathname) {
+	return decodeURI(pathname.includes("%25") ? pathname.replace(/%25/g, "%2525") : pathname);
+}
+var kEventNS = "h3.internal.event.";
+var kEventRes = /* @__PURE__ */ Symbol.for(`${kEventNS}res`);
+var kEventResHeaders = /* @__PURE__ */ Symbol.for(`${kEventNS}res.headers`);
+var kEventResErrHeaders = /* @__PURE__ */ Symbol.for(`${kEventNS}res.err.headers`);
+var H3Event = (_Class = class {
+	constructor(req, context, app) {
+		_defineProperty(this, "app", void 0);
+		_defineProperty(this, "req", void 0);
+		_defineProperty(this, "url", void 0);
+		_defineProperty(this, "context", void 0);
+		this.context = context || req.context || new NullProtoObj();
+		this.req = req;
+		this.app = app;
+		const _url = req._url;
+		const url = _url && _url instanceof URL ? _url : new FastURL(req.url);
+		if (url.pathname.includes("%")) url.pathname = decodePathname(url.pathname);
+		this.url = url;
+	}
+	get res() {
+		return this[kEventRes] || (this[kEventRes] = new H3EventResponse());
+	}
+	get runtime() {
+		return this.req.runtime;
+	}
+	waitUntil(promise) {
+		this.req.waitUntil?.(promise);
+	}
+	toString() {
+		return `[${this.req.method}] ${this.req.url}`;
+	}
+	toJSON() {
+		return this.toString();
+	}
+	get node() {
+		return this.req.runtime?.node;
+	}
+	get headers() {
+		return this.req.headers;
+	}
+	get path() {
+		return this.url.pathname + this.url.search;
+	}
+	get method() {
+		return this.req.method;
+	}
+}, _defineProperty(_Class, "__is_event__", true), _Class);
+var H3EventResponse = class {
+	constructor() {
+		_defineProperty(this, "status", void 0);
+		_defineProperty(this, "statusText", void 0);
+	}
+	get headers() {
+		return this[kEventResHeaders] || (this[kEventResHeaders] = new Headers());
+	}
+	get errHeaders() {
+		return this[kEventResErrHeaders] || (this[kEventResErrHeaders] = new Headers());
+	}
+};
+var DISALLOWED_STATUS_CHARS = /[^\u0009\u0020-\u007E]/g;
+function sanitizeStatusMessage(statusMessage = "") {
+	return statusMessage.replace(DISALLOWED_STATUS_CHARS, "");
+}
+function sanitizeStatusCode(statusCode, defaultStatusCode = 200) {
+	if (!statusCode) return defaultStatusCode;
+	if (typeof statusCode === "string") statusCode = +statusCode;
+	if (statusCode < 100 || statusCode > 599) return defaultStatusCode;
+	return statusCode;
+}
+var HTTPError = class HTTPError extends Error {
+	get name() {
+		return "HTTPError";
+	}
+	static isError(input) {
+		return input instanceof Error && input?.name === "HTTPError";
+	}
+	static status(status, statusText, details) {
+		return new HTTPError({
+			...details,
+			statusText,
+			status
+		});
+	}
+	constructor(arg1, arg2) {
+		let messageInput;
+		let details;
+		if (typeof arg1 === "string") {
+			messageInput = arg1;
+			details = arg2;
+		} else details = arg1;
+		const status = sanitizeStatusCode(details?.status || details?.statusCode || (details?.cause)?.status || (details?.cause)?.statusCode, 500);
+		const statusText = sanitizeStatusMessage(details?.statusText || details?.statusMessage || (details?.cause)?.statusText || (details?.cause)?.statusMessage);
+		const message = messageInput || details?.message || (details?.cause)?.message || details?.statusText || details?.statusMessage || [
+			"HTTPError",
+			status,
+			statusText
+		].filter(Boolean).join(" ");
+		super(message, { cause: details });
+		_defineProperty(this, "status", void 0);
+		_defineProperty(this, "statusText", void 0);
+		_defineProperty(this, "headers", void 0);
+		_defineProperty(this, "cause", void 0);
+		_defineProperty(this, "data", void 0);
+		_defineProperty(this, "body", void 0);
+		_defineProperty(this, "unhandled", void 0);
+		this.cause = details;
+		this.status = status;
+		this.statusText = statusText || void 0;
+		const rawHeaders = details?.headers || (details?.cause)?.headers;
+		this.headers = rawHeaders ? new Headers(rawHeaders) : void 0;
+		this.unhandled = details?.unhandled ?? (details?.cause)?.unhandled ?? void 0;
+		this.data = details?.data;
+		this.body = details?.body;
+	}
+	get statusCode() {
+		return this.status;
+	}
+	get statusMessage() {
+		return this.statusText;
+	}
+	toJSON() {
+		const unhandled = this.unhandled;
+		return {
+			status: this.status,
+			statusText: this.statusText,
+			unhandled,
+			message: unhandled ? "HTTPError" : this.message,
+			data: unhandled ? void 0 : this.data,
+			...unhandled ? void 0 : this.body
+		};
+	}
+};
+function isJSONSerializable(value, _type) {
+	if (value === null || value === void 0) return true;
+	if (_type !== "object") return _type === "boolean" || _type === "number" || _type === "string";
+	if (typeof value.toJSON === "function") return true;
+	if (Array.isArray(value)) return true;
+	if (typeof value.pipe === "function" || typeof value.pipeTo === "function") return false;
+	if (value instanceof NullProtoObj) return true;
+	const proto = Object.getPrototypeOf(value);
+	return proto === Object.prototype || proto === null;
+}
+var kNotFound = /* @__PURE__ */ Symbol.for("h3.notFound");
+var kHandled = /* @__PURE__ */ Symbol.for("h3.handled");
+function toResponse(val, event, config = {}) {
+	if (typeof val?.then === "function") return (val.catch?.((error) => error) || Promise.resolve(val)).then((resolvedVal) => toResponse(resolvedVal, event, config));
+	const response = prepareResponse(val, event, config);
+	if (typeof response?.then === "function") return toResponse(response, event, config);
+	const { onResponse } = config;
+	return onResponse ? Promise.resolve(onResponse(response, event)).then(() => response) : response;
+}
+var HTTPResponse = (_headers = /* @__PURE__ */ new WeakMap(), _init2 = /* @__PURE__ */ new WeakMap(), class {
+	constructor(body, init) {
+		_classPrivateFieldInitSpec(this, _headers, void 0);
+		_classPrivateFieldInitSpec(this, _init2, void 0);
+		_defineProperty(this, "body", void 0);
+		this.body = body;
+		_classPrivateFieldSet2(_init2, this, init);
+	}
+	get status() {
+		return _classPrivateFieldGet2(_init2, this)?.status || 200;
+	}
+	get statusText() {
+		return _classPrivateFieldGet2(_init2, this)?.statusText || "OK";
+	}
+	get headers() {
+		return _classPrivateFieldGet2(_headers, this) || _classPrivateFieldSet2(_headers, this, new Headers(_classPrivateFieldGet2(_init2, this)?.headers));
+	}
+});
+function prepareResponse(val, event, config, nested) {
+	if (val === kHandled) return new NodeResponse(null);
+	if (val === kNotFound) val = new HTTPError({
+		status: 404,
+		message: `Cannot find any route matching [${event.req.method}] ${event.url}`
+	});
+	if (val && val instanceof Error) {
+		const isHTTPError = HTTPError.isError(val);
+		const error = isHTTPError ? val : new HTTPError(val);
+		if (!isHTTPError) {
+			error.unhandled = true;
+			if (val?.stack) error.stack = val.stack;
+		}
+		if (error.unhandled && !config.silent) console.error(error);
+		const { onError } = config;
+		const errHeaders = event[kEventRes]?.[kEventResErrHeaders];
+		return onError && !nested ? Promise.resolve(onError(error, event)).catch((error) => error).then((newVal) => prepareResponse(newVal ?? val, event, config, true)) : errorResponse(error, config.debug, errHeaders);
+	}
+	const preparedRes = event[kEventRes];
+	const preparedHeaders = preparedRes?.[kEventResHeaders];
+	event[kEventRes] = void 0;
+	if (!(val instanceof Response)) {
+		const res = prepareResponseBody(val, event, config);
+		const status = res.status || preparedRes?.status;
+		return new NodeResponse(nullBody(event.req.method, status) ? null : res.body, {
+			status,
+			statusText: res.statusText || preparedRes?.statusText,
+			headers: res.headers && preparedHeaders ? mergeHeaders$1(res.headers, preparedHeaders) : res.headers || preparedHeaders
+		});
+	}
+	if (!preparedHeaders || nested || !val.ok) return val;
+	try {
+		mergeHeaders$1(val.headers, preparedHeaders, val.headers);
+		return val;
+	} catch {
+		return new NodeResponse(nullBody(event.req.method, val.status) ? null : val.body, {
+			status: val.status,
+			statusText: val.statusText,
+			headers: mergeHeaders$1(val.headers, preparedHeaders)
+		});
+	}
+}
+function mergeHeaders$1(base, overrides, target = new Headers(base)) {
+	for (const [name, value] of overrides) if (name === "set-cookie") target.append(name, value);
+	else target.set(name, value);
+	return target;
+}
+var frozen = (name) => (...args) => {
+	throw new Error(`Headers are frozen (${name} ${args.join(", ")})`);
+};
+var FrozenHeaders = class extends Headers {
+	constructor(..._args) {
+		super(..._args);
+		_defineProperty(this, "set", frozen("set"));
+		_defineProperty(this, "append", frozen("append"));
+		_defineProperty(this, "delete", frozen("delete"));
+	}
+};
+var emptyHeaders = /* @__PURE__ */ new FrozenHeaders({ "content-length": "0" });
+var jsonHeaders = /* @__PURE__ */ new FrozenHeaders({ "content-type": "application/json;charset=UTF-8" });
+function prepareResponseBody(val, event, config) {
+	if (val === null || val === void 0) return {
+		body: "",
+		headers: emptyHeaders
+	};
+	const valType = typeof val;
+	if (valType === "string") return { body: val };
+	if (val instanceof Uint8Array) {
+		event.res.headers.set("content-length", val.byteLength.toString());
+		return { body: val };
+	}
+	if (val instanceof HTTPResponse || val?.constructor?.name === "HTTPResponse") return val;
+	if (isJSONSerializable(val, valType)) return {
+		body: JSON.stringify(val, void 0, config.debug ? 2 : void 0),
+		headers: jsonHeaders
+	};
+	if (valType === "bigint") return {
+		body: val.toString(),
+		headers: jsonHeaders
+	};
+	if (val instanceof Blob) {
+		const headers = new Headers({
+			"content-type": val.type,
+			"content-length": val.size.toString()
+		});
+		let filename = val.name;
+		if (filename) {
+			filename = encodeURIComponent(filename);
+			headers.set("content-disposition", `filename="${filename}"; filename*=UTF-8''${filename}`);
+		}
+		return {
+			body: val.stream(),
+			headers
+		};
+	}
+	if (valType === "symbol") return { body: val.toString() };
+	if (valType === "function") return { body: `${val.name}()` };
+	return { body: val };
+}
+function nullBody(method, status) {
+	return method === "HEAD" || status === 100 || status === 101 || status === 102 || status === 204 || status === 205 || status === 304;
+}
+function errorResponse(error, debug, errHeaders) {
+	let headers = error.headers ? mergeHeaders$1(jsonHeaders, error.headers) : new Headers(jsonHeaders);
+	if (errHeaders) headers = mergeHeaders$1(headers, errHeaders);
+	return new NodeResponse(JSON.stringify({
+		...error.toJSON(),
+		stack: debug && error.stack ? error.stack.split("\n").map((l) => l.trim()) : void 0
+	}, void 0, debug ? 2 : void 0), {
+		status: error.status,
+		statusText: error.statusText,
+		headers
+	});
+}
+//#endregion
+export { toResponse as n, H3Event as t };

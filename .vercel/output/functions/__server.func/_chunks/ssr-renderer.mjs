@@ -1,1 +1,15 @@
-import{i as s,n as t}from"../_libs/h3.mjs";function r({req:r}){return function(r,o){const e=(globalThis.__nitro_vite_envs__||{}).ssr;if(!e)throw t.status(404);return Promise.resolve(e.fetch(s(o,void 0)))}(0,r)}export{r as default};
+import { i as toRequest, n as HTTPError } from "../_libs/h3.mjs";
+//#region node_modules/nitro/dist/runtime/vite.mjs
+function fetchViteEnv(viteEnvName, input, init) {
+	const viteEnv = (globalThis.__nitro_vite_envs__ || {})[viteEnvName];
+	if (!viteEnv) throw HTTPError.status(404);
+	return Promise.resolve(viteEnv.fetch(toRequest(input, init)));
+}
+//#endregion
+//#region node_modules/nitro/dist/runtime/internal/vite/ssr-renderer.mjs
+/** @param {{ req: Request }} HTTPEvent */
+function ssrRenderer({ req }) {
+	return fetchViteEnv("ssr", req);
+}
+//#endregion
+export { ssrRenderer as default };

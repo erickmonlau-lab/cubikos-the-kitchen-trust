@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+﻿import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef } from "react";
 import heroImg from "@/assets/hero-kitchen.webp";
 import { Header } from "../components/LandingUI";

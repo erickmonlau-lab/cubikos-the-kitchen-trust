@@ -1,1 +1,232 @@
-globalThis.__nitro_main__=import.meta.url;import{a as e,n as t,r,t as n}from"./_libs/h3.mjs";var o={ssr:function(){let e,t;return{fetch:r=>t?t.fetch(r):(e||(e=import("./_ssr/index-DQbvW8Sn.mjs").then(e=>t=e.default||e)),e.then(e=>e.fetch(r)))}}()};globalThis.__nitro_vite_envs__=o;var s=e=>function(t){for(const[r,n]of Object.entries(e.options||{}))t.res.headers.set(r,n)},a=(()=>{const e=[{name:"headers",route:"/assets/**",handler:s,options:{"cache-control":"public, max-age=31536000, immutable"}}];return(t,r)=>{let n=[];47===r.charCodeAt(r.length-1)&&(r=r.slice(0,-1)||"/");let o=r.split("/");return o.length>1&&"assets"===o[1]&&n.unshift({data:e,params:{_:o.slice(2).join("/")}}),n}})(),i=r(()=>import("./_chunks/ssr-renderer.mjs")),u=(()=>{const e={route:"/**",handler:i};return(t,r)=>({data:e,params:{_:r.slice(1)}})})();function c(e,r){const n=e.unhandled??!t.isError(e),{status:o=500,statusText:s=""}=n?{}:e;if(404===o){const e=r.url||new URL(r.req.url),t="/";if(/^\/[^/]/.test(t)&&!e.pathname.startsWith(t))return{status:302,headers:new Headers({location:`${t}${e.pathname.slice(1)}${e.search}`})}}const a=new Headers(n?{}:e.headers);return a.set("content-type","application/json; charset=utf-8"),{status:o,statusText:s,headers:a,body:{error:!0,...n?{status:o,unhandled:!0}:"function"==typeof e.toJSON?e.toJSON():{status:o,statusText:s,message:e.message}}}}[].filter(Boolean);var l=[(t,r)=>{const n=c(t,r);return new e("string"==typeof n.body?n.body:JSON.stringify(n.body,null,2),n)}];function d(e,t){const r=a(e,t);if(!r?.length)return{routeRuleMiddleware:[]};const n={};for(const a of r)for(const e of a.data){const t=n[e.name];if(t){if(!1===e.options){delete n[e.name];continue}"object"==typeof t.options&&"object"==typeof e.options?t.options={...t.options,...e.options}:t.options=e.options,t.route=e.route,t.params={...t.params,...a.params}}else!1!==e.options&&(n[e.name]={...e,params:a.params})}const o=[],s=Object.values(n).sort((e,t)=>(e.handler?.order||0)-(t.handler?.order||0));for(const a of s)!1!==a.options&&a.handler&&o.push(a.handler(a));return{routeRules:n,routeRuleMiddleware:o}}var h="__isr_route",f=function e(){let t=e._instance;return t||(t=e._instance=function(){const e=function(e){const t=new n(e);return t["~findRoute"]=e=>u(e.req.method,e.url.pathname),t["~getMiddleware"]=(e,t)=>{const r=e.url.pathname,n=[],o=d(e.req.method,r);return e.context.routeRules=o?.routeRules,o?.routeRuleMiddleware.length&&n.push(...o.routeRuleMiddleware),t?.data?.middleware?.length&&n.push(...t.data.middleware),n},t}({onError:(e,t)=>async function(e,t){for(const r of l)try{const n=await r(e,t,{defaultHandler:c});if(n)return n}catch(e){}}(e,t)});return{fetch:t=>(t.context||(t.context={}),t.context.nitro=t.context.nitro||{errors:[]},e.fetch(t)),h3:e,hooks:void 0,captureError:(e,t)=>{if(t?.event){const r=t.event.req.context?.nitro?.errors;r&&r.push({error:e,context:t})}}}}(),globalThis.__nitro__=globalThis.__nitro__||{},globalThis.__nitro__.default=t,t)}(),p={fetch(e,t){var r;const n=function(e,t){if(t){const e=new URLSearchParams(t).get(h);if(e)return[decodeURIComponent(e),""]}else{const t=e.indexOf("?");if(-1!==t){const r=new URLSearchParams(e.slice(t+1)),n=r.get(h);if(n)return r.delete(h),[decodeURIComponent(n),r.toString()]}}}(e.url,e.headers.get("x-now-route-matches"));if(n){const{routeRules:t}=d("",n[0]);t?.isr&&(e=new Request(new URL(n[0]+(n[1]?`?${n[1]}`:""),e.url).href,e))}let o;return(r=e).runtime??(r.runtime={name:"vercel"}),e.runtime.vercel={context:t},Object.defineProperty(e,"ip",{get(){const t=e.headers.get("x-forwarded-for");return o??(o=t?.split(",").shift()?.trim())}}),e.waitUntil=t?.waitUntil,f.fetch(e)}};export{p as default};
+globalThis.__nitro_main__ = import.meta.url;
+import { a as NodeResponse, n as HTTPError, r as defineLazyEventHandler, t as H3Core } from "./_libs/h3.mjs";
+//#region #nitro-vite-setup
+function lazyService(loader) {
+	let promise, mod;
+	return { fetch(req) {
+		if (mod) return mod.fetch(req);
+		if (!promise) promise = loader().then((_mod) => mod = _mod.default || _mod);
+		return promise.then((mod) => mod.fetch(req));
+	} };
+}
+var services = { ["ssr"]: lazyService(() => import("./_ssr/ssr.mjs")) };
+globalThis.__nitro_vite_envs__ = services;
+//#endregion
+//#region node_modules/nitro/dist/runtime/internal/route-rules.mjs
+var headers = ((m) => function headersRouteRule(event) {
+	for (const [key, value] of Object.entries(m.options || {})) event.res.headers.set(key, value);
+});
+//#endregion
+//#region #nitro/virtual/routing
+var findRouteRules = /* @__PURE__ */ (() => {
+	const $0 = [{
+		name: "headers",
+		route: "/assets/**",
+		handler: headers,
+		options: { "cache-control": "public, max-age=31536000, immutable" }
+	}];
+	return (m, p) => {
+		let r = [];
+		if (p.charCodeAt(p.length - 1) === 47) p = p.slice(0, -1) || "/";
+		let s = p.split("/");
+		if (s.length > 1) {
+			if (s[1] === "assets") r.unshift({
+				data: $0,
+				params: { "_": s.slice(2).join("/") }
+			});
+		}
+		return r;
+	};
+})();
+var _lazy_bSGqAH = defineLazyEventHandler(() => import("./_chunks/ssr-renderer.mjs"));
+var findRoute = /* @__PURE__ */ (() => {
+	const data = {
+		route: "/**",
+		handler: _lazy_bSGqAH
+	};
+	return ((_m, p) => {
+		return {
+			data,
+			params: { "_": p.slice(1) }
+		};
+	});
+})();
+[].filter(Boolean);
+//#endregion
+//#region node_modules/nitro/dist/runtime/internal/error/prod.mjs
+var errorHandler = (error, event) => {
+	const res = defaultHandler(error, event);
+	return new NodeResponse(typeof res.body === "string" ? res.body : JSON.stringify(res.body, null, 2), res);
+};
+function defaultHandler(error, event) {
+	const unhandled = error.unhandled ?? !HTTPError.isError(error);
+	const { status = 500, statusText = "" } = unhandled ? {} : error;
+	if (status === 404) {
+		const url = event.url || new URL(event.req.url);
+		const baseURL = "/";
+		if (/^\/[^/]/.test(baseURL) && !url.pathname.startsWith(baseURL)) return {
+			status: 302,
+			headers: new Headers({ location: `${baseURL}${url.pathname.slice(1)}${url.search}` })
+		};
+	}
+	const headers = new Headers(unhandled ? {} : error.headers);
+	headers.set("content-type", "application/json; charset=utf-8");
+	return {
+		status,
+		statusText,
+		headers,
+		body: {
+			error: true,
+			...unhandled ? {
+				status,
+				unhandled: true
+			} : typeof error.toJSON === "function" ? error.toJSON() : {
+				status,
+				statusText,
+				message: error.message
+			}
+		}
+	};
+}
+//#endregion
+//#region #nitro/virtual/error-handler
+var errorHandlers = [errorHandler];
+async function error_handler_default(error, event) {
+	for (const handler of errorHandlers) try {
+		const response = await handler(error, event, { defaultHandler });
+		if (response) return response;
+	} catch (error) {
+		console.error(error);
+	}
+}
+//#endregion
+//#region #nitro/virtual/app
+function createNitroApp() {
+	const captureError = (error, errorCtx) => {
+		if (errorCtx?.event) {
+			const errors = errorCtx.event.req.context?.nitro?.errors;
+			if (errors) errors.push({
+				error,
+				context: errorCtx
+			});
+		}
+	};
+	const h3App = createH3App({ onError(error, event) {
+		return error_handler_default(error, event);
+	} });
+	let appHandler = (req) => {
+		req.context || (req.context = {});
+		req.context.nitro = req.context.nitro || { errors: [] };
+		return h3App.fetch(req);
+	};
+	return {
+		fetch: appHandler,
+		h3: h3App,
+		hooks: void 0,
+		captureError
+	};
+}
+function createH3App(config) {
+	const h3App = new H3Core(config);
+	h3App["~findRoute"] = (event) => findRoute(event.req.method, event.url.pathname);
+	h3App["~getMiddleware"] = (event, route) => {
+		const pathname = event.url.pathname;
+		const method = event.req.method;
+		const middleware = [];
+		const routeRules = getRouteRules(method, pathname);
+		event.context.routeRules = routeRules?.routeRules;
+		if (routeRules?.routeRuleMiddleware.length) middleware.push(...routeRules.routeRuleMiddleware);
+		if (route?.data?.middleware?.length) middleware.push(...route.data.middleware);
+		return middleware;
+	};
+	return h3App;
+}
+//#endregion
+//#region node_modules/nitro/dist/runtime/internal/app.mjs
+var APP_ID = "default";
+function useNitroApp() {
+	let instance = useNitroApp._instance;
+	if (instance) return instance;
+	instance = useNitroApp._instance = createNitroApp();
+	globalThis.__nitro__ = globalThis.__nitro__ || {};
+	globalThis.__nitro__[APP_ID] = instance;
+	return instance;
+}
+function getRouteRules(method, pathname) {
+	const m = findRouteRules(method, pathname);
+	if (!m?.length) return { routeRuleMiddleware: [] };
+	const routeRules = {};
+	for (const layer of m) for (const rule of layer.data) {
+		const currentRule = routeRules[rule.name];
+		if (currentRule) {
+			if (rule.options === false) {
+				delete routeRules[rule.name];
+				continue;
+			}
+			if (typeof currentRule.options === "object" && typeof rule.options === "object") currentRule.options = {
+				...currentRule.options,
+				...rule.options
+			};
+			else currentRule.options = rule.options;
+			currentRule.route = rule.route;
+			currentRule.params = {
+				...currentRule.params,
+				...layer.params
+			};
+		} else if (rule.options !== false) routeRules[rule.name] = {
+			...rule,
+			params: layer.params
+		};
+	}
+	const middleware = [];
+	const orderedRules = Object.values(routeRules).sort((a, b) => (a.handler?.order || 0) - (b.handler?.order || 0));
+	for (const rule of orderedRules) {
+		if (rule.options === false || !rule.handler) continue;
+		middleware.push(rule.handler(rule));
+	}
+	return {
+		routeRules,
+		routeRuleMiddleware: middleware
+	};
+}
+//#endregion
+//#region node_modules/nitro/dist/presets/vercel/runtime/isr.mjs
+var ISR_URL_PARAM = "__isr_route";
+function isrRouteRewrite(reqUrl, xNowRouteMatches) {
+	if (xNowRouteMatches) {
+		const isrURL = new URLSearchParams(xNowRouteMatches).get(ISR_URL_PARAM);
+		if (isrURL) return [decodeURIComponent(isrURL), ""];
+	} else {
+		const queryIndex = reqUrl.indexOf("?");
+		if (queryIndex !== -1) {
+			const params = new URLSearchParams(reqUrl.slice(queryIndex + 1));
+			const isrURL = params.get(ISR_URL_PARAM);
+			if (isrURL) {
+				params.delete(ISR_URL_PARAM);
+				return [decodeURIComponent(isrURL), params.toString()];
+			}
+		}
+	}
+}
+//#endregion
+//#region node_modules/nitro/dist/presets/vercel/runtime/vercel.web.mjs
+var nitroApp = useNitroApp();
+var vercel_web_default = { fetch(req, context) {
+	var _req;
+	const isrURL = isrRouteRewrite(req.url, req.headers.get("x-now-route-matches"));
+	if (isrURL) {
+		const { routeRules } = getRouteRules("", isrURL[0]);
+		if (routeRules?.isr) req = new Request(new URL(isrURL[0] + (isrURL[1] ? `?${isrURL[1]}` : ""), req.url).href, req);
+	}
+	(_req = req).runtime ?? (_req.runtime = { name: "vercel" });
+	req.runtime.vercel = { context };
+	let ip;
+	Object.defineProperty(req, "ip", { get() {
+		const h = req.headers.get("x-forwarded-for");
+		return ip ?? (ip = h?.split(",").shift()?.trim());
+	} });
+	req.waitUntil = context?.waitUntil;
+	return nitroApp.fetch(req);
+} };
+//#endregion
+export { vercel_web_default as default };

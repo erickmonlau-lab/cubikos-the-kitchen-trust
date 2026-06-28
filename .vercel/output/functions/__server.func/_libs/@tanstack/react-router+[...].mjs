@@ -1,1 +1,14648 @@
-import{i as e,o as t,t as n}from"../../_runtime.mjs";import{n as r,r as o}from"../react+tanstack__react-query.mjs";import{r as s,t as a}from"../tanstack__history.mjs";import{PassThrough as i,Readable as l}from"node:stream";import{ReadableStream as c}from"node:stream/web";var u=t(o(),1),d=u.createContext(null);function h(e){return u.useContext(d)}var p=u.use;"undefined"!=typeof window?u.useLayoutEffect:u.useEffect;var f=r();function g({children:e,fallback:t=null}){return m()?(0,f.jsx)(u.Fragment,{children:e}):(0,f.jsx)(u.Fragment,{children:t})}function m(){return u.useSyncExternalStore(y,()=>!0,()=>!1)}function y(){return()=>{}}function v(e){return e[e.length-1]}function b(e,t){return"function"==typeof e?e(t):e}var k=Object.prototype.hasOwnProperty;function S(e){for(const t in e)if(k.call(e,t))return!0;return!1}Object.prototype.propertyIsEnumerable;var w=()=>Object.create(null),x=(e,t)=>P(0,t,w);function P(e,t,n=()=>({}),r=0){return t}function R(e){if(!C(e))return!1;const t=e.constructor;if(void 0===t)return!0;const n=t.prototype;return!!C(n)&&!!n.hasOwnProperty("isPrototypeOf")}function C(e){return"[object Object]"===Object.prototype.toString.call(e)}function T(e,t,n){if(e===t)return!0;if(typeof e!=typeof t)return!1;if(Array.isArray(e)&&Array.isArray(t)){if(e.length!==t.length)return!1;for(let r=0,o=e.length;r<o;r++)if(!T(e[r],t[r],n))return!1;return!0}if(R(e)&&R(t)){const r=n?.ignoreUndefined??!0;if(n?.partial){for(const o in t)if(!(r&&void 0===t[o]||T(e[o],t[o],n)))return!1;return!0}let o=0;if(r)for(const t in e)void 0!==e[t]&&o++;else o=Object.keys(e).length;let s=0;for(const a in t)if((!r||void 0!==t[a])&&(s++,s>o||!T(e[a],t[a],n)))return!1;return o===s}return!1}function _(e){let t,n;const r=new Promise((e,r)=>{t=e,n=r});return r.status="pending",r.resolve=n=>{r.status="resolved",r.value=n,t(n),e?.(n)},r.reject=e=>{r.status="rejected",n(e)},r}function E(e){return Boolean(e&&"object"==typeof e&&"function"==typeof e.then)}function I(e){let t;try{t=decodeURI(e)}catch{t=e.replaceAll(/%[0-9A-F]{2}/gi,e=>{try{return decodeURI(e)}catch{return e}})}return function(e){return e.replace(/[\x00-\x1f\x7f]/g,"")}(t)}var M=["http:","https:","mailto:","tel:"];function F(e,t){if(!e)return!1;try{const n=new URL(e);return!t.has(n.protocol)}catch{return!1}}var L={"&":"\\u0026",">":"\\u003e","<":"\\u003c","\u2028":"\\u2028","\u2029":"\\u2029"},O=/[&><\u2028\u2029]/g;function A(e){return e.replace(O,e=>L[e])}function j(e){if(!e)return{path:e,handledProtocolRelativeURL:!1};if(!/[%\\\x00-\x1f\x7f]/.test(e)&&!e.startsWith("//"))return{path:e,handledProtocolRelativeURL:!1};const t=/%25|%5C/gi;let n,r=0,o="";for(;null!==(n=t.exec(e));)o+=I(e.slice(r,n.index))+n[0],r=t.lastIndex;o+=I(r?e.slice(r):e);let s=!1;return o.startsWith("//")&&(s=!0,o="/"+o.replace(/^\/+/,"")),{path:o,handledProtocolRelativeURL:s}}function D(){throw new Error("Invariant failed")}function B(e){const t=new Map;let n,r;const o=e=>{e.next&&(e.prev?(e.prev.next=e.next,e.next.prev=e.prev,e.next=void 0,r&&(r.next=e,e.prev=r)):(e.next.prev=void 0,n=e.next,e.next=void 0,r&&(e.prev=r,r.next=e)),r=e)};return{get(e){const n=t.get(e);if(n)return o(n),n.value},set(s,a){if(t.size>=e&&n){const e=n;t.delete(e.key),e.next&&(n=e.next,e.next.prev=void 0),e===r&&(r=void 0)}const i=t.get(s);if(i)i.value=a,o(i);else{const e={key:s,value:a,prev:r};r&&(r.next=e),r=e,n||(n=e),t.set(s,e)}},clear(){t.clear(),n=void 0,r=void 0}}}function $(e,t,n=new Uint16Array(6)){const r=e.indexOf("/",t),o=-1===r?e.length:r,s=e.substring(t,o);if(!s||!s.includes("$"))return n[0]=0,n[1]=t,n[2]=t,n[3]=o,n[4]=o,n[5]=o,n;if("$"===s){const r=e.length;return n[0]=2,n[1]=t,n[2]=t,n[3]=r,n[4]=r,n[5]=r,n}if(36===s.charCodeAt(0))return n[0]=1,n[1]=t,n[2]=t+1,n[3]=o,n[4]=o,n[5]=o,n;const a=function(e){const t=e.indexOf("{");if(-1===t)return null;const n=e.indexOf("}",t);return-1===n||t+1>=e.length?null:[t,n]}(s);if(a){const[r,i]=a,l=s.charCodeAt(r+1);if(45===l){if(r+2<s.length&&36===s.charCodeAt(r+2)){const e=r+3,s=i;if(e<s)return n[0]=3,n[1]=t+r,n[2]=t+e,n[3]=t+s,n[4]=t+i+1,n[5]=o,n}}else if(36===l){const s=r+1,a=r+2;return a===i?(n[0]=2,n[1]=t+r,n[2]=t+s,n[3]=t+a,n[4]=t+i+1,n[5]=e.length,n):(n[0]=1,n[1]=t+r,n[2]=t+a,n[3]=t+i,n[4]=t+i+1,n[5]=o,n)}}return n[0]=0,n[1]=t,n[2]=t,n[3]=o,n[4]=o,n[5]=o,n}function N(e,t,n,r,o,s,a){a?.(n);let i=r;{const r=n.fullPath??n.from,a=r.length,f=n.options?.caseSensitive??e,g=n.options?.params?.parse??n.options?.parseParams;for(;i<a;){const e=$(r,i,t);let a;const p=i,m=e[5];switch(i=m+1,s++,e[0]){case 0:{const t=r.substring(e[2],e[3]);if(f){const e=o.static?.get(t);if(e)a=e;else{var l;(l=o).static??(l.static=new Map);const e=V(n.fullPath??n.from);e.parent=o,e.depth=s,a=e,o.static.set(t,e)}}else{const e=t.toLowerCase(),r=o.staticInsensitive?.get(e);if(r)a=r;else{var c;(c=o).staticInsensitive??(c.staticInsensitive=new Map);const t=V(n.fullPath??n.from);t.parent=o,t.depth=s,a=t,o.staticInsensitive.set(e,t)}}break}case 1:{const t=r.substring(p,e[1]),i=r.substring(e[4],m),l=f&&!(!t&&!i),c=t?l?t:t.toLowerCase():void 0,d=i?l?i:i.toLowerCase():void 0,h=!g&&o.dynamic?.find(e=>!e.parse&&e.caseSensitive===l&&e.prefix===c&&e.suffix===d);if(h)a=h;else{var u;const e=W(1,n.fullPath??n.from,l,c,d);a=e,e.depth=s,e.parent=o,(u=o).dynamic??(u.dynamic=[]),o.dynamic.push(e)}break}case 3:{const t=r.substring(p,e[1]),i=r.substring(e[4],m),l=f&&!(!t&&!i),c=t?l?t:t.toLowerCase():void 0,u=i?l?i:i.toLowerCase():void 0,h=!g&&o.optional?.find(e=>!e.parse&&e.caseSensitive===l&&e.prefix===c&&e.suffix===u);if(h)a=h;else{var d;const e=W(3,n.fullPath??n.from,l,c,u);a=e,e.parent=o,e.depth=s,(d=o).optional??(d.optional=[]),o.optional.push(e)}break}case 2:{var h;const t=r.substring(p,e[1]),i=r.substring(e[4],m),l=f&&!(!t&&!i),c=t?l?t:t.toLowerCase():void 0,u=i?l?i:i.toLowerCase():void 0,d=W(2,n.fullPath??n.from,l,c,u);a=d,d.parent=o,d.depth=s,(h=o).wildcard??(h.wildcard=[]),o.wildcard.push(d)}}o=a}if(g&&n.children&&!n.isRoot&&n.id&&95===n.id.charCodeAt(n.id.lastIndexOf("/")+1)){var p;const e=V(n.fullPath??n.from);e.kind=5,e.parent=o,s++,e.depth=s,(p=o).pathless??(p.pathless=[]),o.pathless.push(e),o=e}const m=(n.path||!n.children)&&!n.isRoot;if(m&&r.endsWith("/")){const e=V(n.fullPath??n.from);e.kind=4,e.parent=o,s++,e.depth=s,o.index=e,o=e}o.parse=g??null,o.priority=n.options?.params?.priority??0,m&&!o.route&&(o.route=n,o.fullPath=n.fullPath??n.from)}if(n.children)for(const f of n.children)N(e,t,f,i,o,s,a)}function H(e,t){if(e.parse&&!t.parse)return-1;if(!e.parse&&t.parse)return 1;if(e.parse&&t.parse&&(e.priority||t.priority))return t.priority-e.priority;if(e.prefix&&t.prefix&&e.prefix!==t.prefix){if(e.prefix.startsWith(t.prefix))return-1;if(t.prefix.startsWith(e.prefix))return 1}if(e.suffix&&t.suffix&&e.suffix!==t.suffix){if(e.suffix.endsWith(t.suffix))return-1;if(t.suffix.endsWith(e.suffix))return 1}return e.prefix&&!t.prefix?-1:!e.prefix&&t.prefix?1:e.suffix&&!t.suffix?-1:!e.suffix&&t.suffix?1:e.caseSensitive&&!t.caseSensitive?-1:!e.caseSensitive&&t.caseSensitive?1:0}function z(e){if(e.pathless)for(const t of e.pathless)z(t);if(e.static)for(const t of e.static.values())z(t);if(e.staticInsensitive)for(const t of e.staticInsensitive.values())z(t);if(e.dynamic?.length){e.dynamic.sort(H);for(const t of e.dynamic)z(t)}if(e.optional?.length){e.optional.sort(H);for(const t of e.optional)z(t)}if(e.wildcard?.length){e.wildcard.sort(H);for(const t of e.wildcard)z(t)}}function V(e){return{kind:0,depth:0,pathless:null,index:null,static:null,staticInsensitive:null,dynamic:null,optional:null,wildcard:null,route:null,fullPath:e,parent:null,parse:null,priority:0}}function W(e,t,n,r,o){return{kind:e,depth:0,pathless:null,index:null,static:null,staticInsensitive:null,dynamic:null,optional:null,wildcard:null,route:null,fullPath:t,parent:null,parse:null,priority:0,caseSensitive:n,prefix:r,suffix:o}}function U(e,t,n=!1){const r=e.split("/"),o=function(e,t,n,r){if("/"===e&&n.index)return{node:n.index,skipped:0};const o=!v(t),s=o&&"/"!==e,a=t.length-(o?1:0),i=[{node:n,index:1,skipped:0,depth:1,statics:0,dynamics:0,optionals:0}];let l=null,c=null;for(;i.length;){const n=i.pop(),{node:o,index:u,skipped:d,depth:h,statics:p,dynamics:f,optionals:g}=n;let{extract:m,rawParams:y}=n;if(2===o.kind&&o.route&&!Y(c,n))continue;if(o.parse){if(!X(e,t,n))continue;y=n.rawParams,m=n.extract}r&&o.route&&4!==o.kind&&Y(l,n)&&(l=n);const v=u===a;if(v&&(!o.route||s&&4!==o.kind&&2!==o.kind||!Y(c,n)||(c=n),!(o.optional||o.wildcard||o.index||o.pathless)))continue;const b=v?void 0:t[u];let k;if(v&&o.index){const n={node:o.index,index:u,skipped:d,depth:h+1,statics:p,dynamics:f,optionals:g,extract:m,rawParams:y};let r=!0;if(o.index.parse&&(X(e,t,n)||(r=!1)),r){if(!f&&!g&&!d&&J(p,a))return n;Y(c,n)&&(c=n)}}if(o.wildcard)for(let e=o.wildcard.length-1;e>=0;e--){const n=o.wildcard[e],{prefix:r,suffix:s}=n;if(r){if(v)continue;if(!(n.caseSensitive?b:k??(k=b.toLowerCase())).startsWith(r))continue}if(s){if(v)continue;const e=t.slice(u).join("/").slice(-s.length);if((n.caseSensitive?e:e.toLowerCase())!==s)continue}i.push({node:n,index:a,skipped:d,depth:h+1,statics:p,dynamics:f,optionals:g,extract:m,rawParams:y})}if(o.optional){const e=d|1<<h,t=h+1;for(let n=o.optional.length-1;n>=0;n--){const r=o.optional[n];i.push({node:r,index:u,skipped:e,depth:t,statics:p,dynamics:f,optionals:g,extract:m,rawParams:y})}if(!v)for(let n=o.optional.length-1;n>=0;n--){const e=o.optional[n],{prefix:r,suffix:s}=e;if(r||s){const t=e.caseSensitive?b:k??(k=b.toLowerCase());if(r&&!t.startsWith(r))continue;if(s&&!t.endsWith(s))continue}i.push({node:e,index:u+1,skipped:d,depth:t,statics:p,dynamics:f,optionals:g+K(a,u),extract:m,rawParams:y})}}if(!v&&o.dynamic&&b)for(let e=o.dynamic.length-1;e>=0;e--){const t=o.dynamic[e],{prefix:n,suffix:r}=t;if(n||r){const e=t.caseSensitive?b:k??(k=b.toLowerCase());if(n&&!e.startsWith(n))continue;if(r&&!e.endsWith(r))continue}i.push({node:t,index:u+1,skipped:d,depth:h+1,statics:p,dynamics:f+K(a,u),optionals:g,extract:m,rawParams:y})}if(!v&&o.staticInsensitive){const e=o.staticInsensitive.get(k??(k=b.toLowerCase()));e&&i.push({node:e,index:u+1,skipped:d,depth:h+1,statics:p+K(a,u),dynamics:f,optionals:g,extract:m,rawParams:y})}if(!v&&o.static){const e=o.static.get(b);e&&i.push({node:e,index:u+1,skipped:d,depth:h+1,statics:p+K(a,u),dynamics:f,optionals:g,extract:m,rawParams:y})}if(o.pathless){const e=h+1;for(let t=o.pathless.length-1;t>=0;t--){const n=o.pathless[t];i.push({node:n,index:u,skipped:d,depth:e,statics:p,dynamics:f,optionals:g,extract:m,rawParams:y})}}}if(c)return c;if(r&&l){var u;let n=l.index;for(let e=0;e<l.index;e++)n+=t[e].length;const r=n===e.length?"/":e.slice(n);return(u=l).rawParams??(u.rawParams=Object.create(null)),l.rawParams["**"]=decodeURIComponent(r),l}return null}(e,r,t,n);if(!o)return null;const[s]=q(e,r,o);return{route:o.node.route,rawParams:s}}function q(e,t,n){const r=function(e){const t=Array(e.depth+1);do{t[e.depth]=e,e=e.parent}while(e);return t}(n.node);let o=null;const s=Object.create(null);let a=n.extract?.part??0,i=n.extract?.node??0,l=n.extract?.path??0,c=n.extract?.segment??0;for(;i<r.length;a++,i++,l++,c++){const u=r[i];if(4===u.kind)break;if(5===u.kind){c--,a--,l--;continue}const d=t[a],h=l;if(d&&(l+=d.length),1===u.kind){o??(o=n.node.fullPath.split("/"));const e=o[c],t=u.prefix?.length??0;if(123===e.charCodeAt(t)){const n=u.suffix?.length??0,r=e.substring(t+2,e.length-n-1),o=d.substring(t,d.length-n);s[r]=decodeURIComponent(o)}else s[e.substring(1)]=decodeURIComponent(d)}else if(3===u.kind){if(n.skipped&1<<i){a--,l=h-1;continue}o??(o=n.node.fullPath.split("/"));const e=o[c],t=u.prefix?.length??0,r=u.suffix?.length??0,p=e.substring(t+3,e.length-r-1),f=u.suffix||u.prefix?d.substring(t,d.length-r):d;f&&(s[p]=decodeURIComponent(f))}else if(2===u.kind){const t=u,n=e.substring(h+(t.prefix?.length??0),e.length-(t.suffix?.length??0)),r=decodeURIComponent(n);s["*"]=r,s._splat=r;break}}return n.rawParams&&Object.assign(s,n.rawParams),[s,{part:a,node:i,path:l,segment:c}]}function G(e){const t=[e];for(;e.parentRoute;)e=e.parentRoute,t.push(e);return t.reverse(),t}function K(e,t){return 2**(e-t-1)}function J(e,t){return e===2**(t-1)-1}function X(e,t,n){let r,o;try{[r,o]=q(e,t,n)}catch{return null}if(n.rawParams=r,n.extract=o,!n.node.parse)return!0;try{if(!1===n.node.parse(r))return null}catch{}return!0}function Y(e,t){return!e||t.statics>e.statics||t.statics===e.statics&&(t.dynamics>e.dynamics||t.dynamics===e.dynamics&&(t.optionals>e.optionals||t.optionals===e.optionals&&((4===t.node.kind)>(4===e.node.kind)||4===t.node.kind==(4===e.node.kind)&&t.depth>e.depth)))}function Z(e){return Q(e.filter(e=>void 0!==e).join("/"))}function Q(e){return e.replace(/\/{2,}/g,"/")}function ee(e){return"/"===e?e:e.replace(/^\/{1,}/,"")}function te(e){const t=e.length;return t>1&&"/"===e[t-1]?e.replace(/\/{1,}$/,""):e}function ne(e){return te(ee(e))}function re(e,t){return e?.endsWith("/")&&"/"!==e&&e!==`${t}/`?e.slice(0,-1):e}function oe(e,t,n){const r=t[e];return"string"!=typeof r?r:"_splat"===e?/^[a-zA-Z0-9\-._~!/]*$/.test(r)?r:r.split("/").map(e=>ae(e,n)).join("/"):ae(r,n)}function se({path:e,params:t,decoder:n,...r}){let o=!1;const s=Object.create(null);if(!e||"/"===e)return{interpolatedPath:"/",usedParams:s,isMissingParams:o};if(!e.includes("$"))return{interpolatedPath:e,usedParams:s,isMissingParams:o};if(-1===e.indexOf("{")){const r=e.length;let a=0,i="";for(;a<r;){for(;a<r&&47===e.charCodeAt(a);)a++;if(a>=r)break;const l=a;let c=e.indexOf("/",a);-1===c&&(c=r),a=c;const u=e.substring(l,c);if(u)if(36===u.charCodeAt(0))if(1===u.length){const e=t._splat;if(s._splat=e,s["*"]=e,!e){o=!0;continue}i+="/"+oe("_splat",t,n)}else{const e=u.substring(1);o||e in t||(o=!0),s[e]=t[e],i+="/"+(oe(e,t,n)??"undefined")}else i+="/"+u}return e.endsWith("/")&&(i+="/"),{usedParams:s,interpolatedPath:i||"/",isMissingParams:o}}const a=e.length;let i,l=0,c="";for(;l<a;){const r=l;i=$(e,r,i);const a=i[5];if(l=a+1,r===a)continue;const u=i[0];if(0!==u){if(2===u){const l=t._splat;s._splat=l,s["*"]=l;const u=e.substring(r,i[1]),d=e.substring(i[4],a);if(!l){o=!0,(u||d)&&(c+="/"+u+d);continue}c+="/"+u+oe("_splat",t,n)+d;continue}if(1===u){const l=e.substring(i[2],i[3]);o||l in t||(o=!0),s[l]=t[l];const u=e.substring(r,i[1]),d=e.substring(i[4],a);c+="/"+u+(oe(l,t,n)??"undefined")+d;continue}if(3===u){const o=e.substring(i[2],i[3]),l=t[o];if(null==l)continue;s[o]=l;const u=e.substring(r,i[1]),d=e.substring(i[4],a);c+="/"+u+(oe(o,t,n)??"")+d;continue}}else c+="/"+e.substring(r,a)}return e.endsWith("/")&&(c+="/"),{usedParams:s,interpolatedPath:c||"/",isMissingParams:o}}function ae(e,t){const n=encodeURIComponent(e);return t?.(n)??n}function ie(e){return!0===e?.isNotFound}var le="__root__";function ce(e){if(e.statusCode=e.statusCode||e.code||307,!e._builtLocation&&!e.reloadDocument&&"string"==typeof e.href)try{new URL(e.href),e.reloadDocument=!0}catch{}const t=new Headers(e.headers);e.href&&null===t.get("Location")&&t.set("Location",e.href);const n=new Response(null,{status:e.statusCode,headers:t});if(n.options=e,e.throw)throw n;return n}function ue(e){return e instanceof Response&&!!e.options}function de(e){return ue(e)&&!!e.options.href}function he(e,t){const n=e?.input?.({url:t});if(n){if("string"==typeof n)return new URL(n);if(n instanceof URL)return n}return t}function pe(e,t){const n=e?.output?.({url:t});if(n){if("string"==typeof n)return new URL(n);if(n instanceof URL)return n}return t}function fe(e){let t=e;return{get:()=>t,set(e){t=b(e,t)}}}function ge(e){return{get:()=>e()}}function me(e,t){const n=[];for(const r of t){const t=e.get(r);t&&n.push(t.get())}return n}function ye(e,t,n,r,o){const s=e.map(e=>e.id),a=new Set(s);o(()=>{for(const e of t.keys())a.has(e)||t.delete(e);for(const n of e){const e=t.get(n.id);if(!e){const e=r(n);e.routeId=n.routeId,t.set(n.id,e);continue}e.routeId=n.routeId,e.get()!==n&&e.set(n)}(function(e,t){if(e===t)return!0;if(e.length!==t.length)return!1;for(let n=0;n<e.length;n++)if(e[n]!==t[n])return!1;return!0})(n.get(),s)||n.set(s)})}var ve="tsr-scroll-restoration-v1_3";!function(){try{return sessionStorage}catch{return}}();function be(e){return e?"false"!==e&&("true"===e||(0*+e==0&&+e+""===e?+e:e)):""}var ke,Se=(ke=JSON.parse,e=>{"?"===e[0]&&(e=e.substring(1));const t=function(e){const t=new URLSearchParams(e),n=Object.create(null);for(const[r,o]of t.entries()){const e=n[r];null==e?n[r]=be(o):Array.isArray(e)?e.push(be(o)):n[r]=[e,be(o)]}return n}(e);for(const r in t){const e=t[r];if("string"==typeof e)try{t[r]=ke(e)}catch(n){}}return t}),we=function(e,t){const n="function"==typeof t;function r(r){if("object"==typeof r&&null!==r)try{return e(r)}catch(o){}else if(n&&"string"==typeof r)try{return t(r),e(r)}catch(o){}return r}return e=>{const t=function(e,t=String){const n=new URLSearchParams;for(const r in e){const o=e[r];void 0!==o&&n.set(r,t(o))}return n.toString()}(e,r);return t?`?${t}`:""}}(JSON.stringify,JSON.parse),xe=(e,t)=>!(!e.preload||e.router.stores.matchStores.has(t)),Pe=(e,t,n=!0)=>{const r={...e.router.options.context??{}},o=n?t:t-1;for(let s=0;s<=o;s++){const t=e.matches[s];if(!t)continue;const n=e.router.getMatch(t.id);n&&Object.assign(r,n.__routeContext,n.__beforeLoadContext)}return r},Re=(e,t)=>{if(!e.matches.length)return;const n=t.routeId,r=e.matches.findIndex(t=>t.routeId===e.router.routeTree.id),o=r>=0?r:0;let s=n?e.matches.findIndex(e=>e.routeId===n):e.firstBadMatchIndex??e.matches.length-1;s<0&&(s=o);for(let a=s;a>=0;a--){const t=e.matches[a];if(e.router.looseRoutesById[t.routeId].options.notFoundComponent)return a}return n?s:o},Ce=(e,t,n)=>{if(ue(n)||ie(n)){if(ue(n)&&n.redirectHandled&&!n.options.reloadDocument)throw n;throw t&&(t._nonReactive.beforeLoadPromise?.resolve(),t._nonReactive.loaderPromise?.resolve(),t._nonReactive.beforeLoadPromise=void 0,t._nonReactive.loaderPromise=void 0,t._nonReactive.error=n,e.updateMatch(t.id,r=>({...r,status:ue(n)?"redirected":ie(n)?"notFound":"pending"===r.status?"success":r.status,context:Pe(e,t.index),isFetching:!1,error:n})),ie(n)&&!n.routeId&&(n.routeId=t.routeId),t._nonReactive.loadPromise?.resolve()),ue(n)&&(e.rendered=!0,n.options._fromLocation=e.location,n.redirectHandled=!0,n=e.router.resolveRedirect(n)),n}},Te=(e,t)=>{const n=e.router.getMatch(t);return!n||!1===n.ssr},_e=(e,t,n)=>{const r=Pe(e,n);e.updateMatch(t,e=>({...e,context:r}))},Ee=(e,t,n)=>{const{id:r,routeId:o}=e.matches[t],s=e.router.looseRoutesById[o];if(n instanceof Promise)throw n;e.firstBadMatchIndex??(e.firstBadMatchIndex=t),Ce(e,e.router.getMatch(r),n);try{s.options.onError?.(n)}catch(a){n=a,Ce(e,e.router.getMatch(r),n)}e.updateMatch(r,e=>(e._nonReactive.beforeLoadPromise?.resolve(),e._nonReactive.beforeLoadPromise=void 0,e._nonReactive.loadPromise?.resolve(),{...e,error:n,status:"error",isFetching:!1,updatedAt:Date.now(),abortController:new AbortController})),e.preload||ue(n)||ie(n)||(e.serialError??(e.serialError=n))},Ie=(e,t,n,r)=>{void 0===r._nonReactive.pendingTimeout&&(n.options.pendingMs??e.router.options.defaultPendingMs,e.onReady)},Me=(e,t)=>{const{id:n,routeId:r}=e.matches[t],o=e.router.looseRoutesById[r],s=()=>((e,t,n,r)=>{const o=e.router.getMatch(t);let s=o._nonReactive.loadPromise;o._nonReactive.loadPromise=_(()=>{s?.resolve(),s=void 0});const{paramsError:a,searchError:i}=o;a&&Ee(e,n,a),i&&Ee(e,n,i),Ie(e,0,r,o);const l=new AbortController;let c=!1;const u=()=>{c||(c=!0,e.updateMatch(t,e=>({...e,isFetching:"beforeLoad",fetchCount:e.fetchCount+1,abortController:l})))},d=()=>{o._nonReactive.beforeLoadPromise?.resolve(),o._nonReactive.beforeLoadPromise=void 0,e.updateMatch(t,e=>({...e,isFetching:!1}))};if(!r.options.beforeLoad)return void e.router.batch(()=>{u(),d()});o._nonReactive.beforeLoadPromise=_();const h={...Pe(e,n,!1),...o.__routeContext},{search:p,params:f,cause:g}=o,m=xe(e,t),y={search:p,abortController:l,params:f,preload:m,context:h,location:e.location,navigate:t=>e.router.navigate({...t,_fromLocation:e.location}),buildLocation:e.router.buildLocation,cause:m?"preload":g,matches:e.matches,routeId:r.id,...e.router.options.additionalContext},v=r=>{void 0!==r?((ue(r)||ie(r))&&(u(),Ee(e,n,r)),e.router.batch(()=>{u(),e.updateMatch(t,e=>({...e,__beforeLoadContext:r})),d()})):e.router.batch(()=>{u(),d()})};let b;try{if(b=r.options.beforeLoad(y),E(b))return u(),b.catch(t=>{Ee(e,n,t)}).then(v)}catch(k){u(),Ee(e,n,k)}v(b)})(e,n,t,o),a=()=>{if(Te(e,n))return;const t=((e,t,n)=>{const r=e.router.getMatch(t);if(!r._nonReactive.beforeLoadPromise&&!r._nonReactive.loaderPromise)return;Ie(e,0,n,r);const o=()=>{const n=e.router.getMatch(t);!n.preload||"redirected"!==n.status&&"notFound"!==n.status||Ce(e,n,n.error)};return r._nonReactive.beforeLoadPromise?r._nonReactive.beforeLoadPromise.then(o):o()})(e,n,o);return E(t)?t.then(s):s()};return(()=>{{const r=((e,t,n,r)=>{const o=e.router.getMatch(t),s=e.matches[n-1]?.id,a=s?e.router.getMatch(s):void 0;if(e.router.isShell())return void(o.ssr=r.id===le);if(!1===a?.ssr)return void(o.ssr=!1);const i=e=>!0===e&&"data-only"===a?.ssr?"data-only":e,l=e.router.options.defaultSsr??!0;if(void 0===r.options.ssr)return void(o.ssr=i(l));if("function"!=typeof r.options.ssr)return void(o.ssr=i(r.options.ssr));const{search:c,params:u}=o,d={search:$e(c,o.searchError),params:$e(u,o.paramsError),location:e.location,matches:e.matches.map(e=>({index:e.index,pathname:e.pathname,fullPath:e.fullPath,staticData:e.staticData,id:e.id,routeId:e.routeId,search:$e(e.search,e.searchError),params:$e(e.params,e.paramsError),ssr:e.ssr}))},h=r.options.ssr(d);if(E(h))return h.then(e=>{o.ssr=i(e??l)});o.ssr=i(h??l)})(e,n,t,o);if(E(r))return r.then(a)}return a()})()},Fe=(e,t,n)=>{const r=e.router.getMatch(t);if(!r)return;if(!n.options.head&&!n.options.scripts&&!n.options.headers)return;const o={ssr:e.router.options.ssr,matches:e.matches,match:r,params:r.params,loaderData:r.loaderData};return Promise.all([n.options.head?.(o),n.options.scripts?.(o),n.options.headers?.(o)]).then(([e,t,n])=>({meta:e?.meta,links:e?.links,headScripts:e?.scripts,headers:n,scripts:t,styles:e?.styles}))},Le=(e,t,n,r,o)=>{const s=t[r-1],{params:a,loaderDeps:i,abortController:l,cause:c}=e.router.getMatch(n),u=Pe(e,r),d=xe(e,n);return{params:a,deps:i,preload:!!d,parentMatchPromise:s,abortController:l,context:u,location:e.location,navigate:t=>e.router.navigate({...t,_fromLocation:e.location}),cause:d?"preload":c,route:o,...e.router.options.additionalContext}},Oe=async(e,t,n,r,o)=>{try{const i=e.router.getMatch(n);try{!0===i.ssr&&Be(o);const s=o.options.loader,a="function"==typeof s?s:s?.handler,l=a?.(Le(e,t,n,r,o)),c=!!a&&E(l);if((c||o._lazyPromise||o._componentsPromise||o.options.head||o.options.scripts||o.options.headers||i._nonReactive.minPendingPromise)&&e.updateMatch(n,e=>({...e,isFetching:"loader"})),a){const t=c?await l:l;Ce(e,e.router.getMatch(n),t),void 0!==t&&e.updateMatch(n,e=>({...e,loaderData:t}))}o._lazyPromise&&await o._lazyPromise;const u=i._nonReactive.minPendingPromise;u&&await u,o._componentsPromise&&await o._componentsPromise,e.updateMatch(n,t=>({...t,error:void 0,context:Pe(e,r),status:"success",isFetching:!1,updatedAt:Date.now()}))}catch(s){let t=s;if("AbortError"===t?.name)return i.abortController.signal.aborted?(i._nonReactive.loaderPromise?.resolve(),void(i._nonReactive.loaderPromise=void 0)):void e.updateMatch(n,t=>({...t,status:"pending"===t.status?"success":t.status,isFetching:!1,context:Pe(e,r)}));const l=i._nonReactive.minPendingPromise;l&&await l,ie(s)&&await(o.options.notFoundComponent?.preload?.()),Ce(e,e.router.getMatch(n),s);try{o.options.onError?.(s)}catch(a){t=a,Ce(e,e.router.getMatch(n),a)}ue(t)||ie(t)||await Be(o,["errorComponent"]),e.updateMatch(n,n=>({...n,error:t,context:Pe(e,r),status:"error",isFetching:!1}))}}catch(i){const t=e.router.getMatch(n);t&&(t._nonReactive.loaderPromise=void 0),Ce(e,t,i)}},Ae=async(e,t,n)=>{async function r(r,s,l,c,d){const h=Date.now()-s.updatedAt,p=r?d.options.preloadStaleTime??e.router.options.defaultPreloadStaleTime??3e4:d.options.staleTime??e.router.options.defaultStaleTime??0,f=d.options.shouldReload,g="function"==typeof f?f(Le(e,t,o,n,d)):f,{status:m,invalid:y}=c,v=h>=p&&(!!e.forceStaleReload||"enter"===c.cause||void 0!==l&&l!==c.id);a="success"===m&&(y||(g??v)),r&&!1===d.options.preload||(a&&!e.sync&&u?(i=!0,(async()=>{try{await Oe(e,t,o,n,d);const r=e.router.getMatch(o);r._nonReactive.loaderPromise?.resolve(),r._nonReactive.loadPromise?.resolve(),r._nonReactive.loaderPromise=void 0,r._nonReactive.loadPromise=void 0}catch(r){ue(r)&&await e.router.navigate(r.options)}})()):"success"!==m||a?await Oe(e,t,o,n,d):_e(e,o,n))}const{id:o,routeId:s}=e.matches[n];let a=!1,i=!1;const l=e.router.looseRoutesById[s],c=l.options.loader,u="blocking"!==(("function"==typeof c?void 0:c?.staleReloadMode)??e.router.options.defaultStaleReloadMode);if(Te(e,o))return e.router.getMatch(o)?(_e(e,o,n),e.router.getMatch(o)):e.matches[n];{const t=e.router.getMatch(o),a=e.router.stores.matchesId.get()[n],i=(a&&e.router.stores.matchStores.get(a)||null)?.routeId===s?a:e.router.stores.matches.get().find(e=>e.routeId===s)?.id,c=xe(e,o);if(t._nonReactive.loaderPromise){if("success"===t.status&&!e.sync&&!t.preload&&u)return t;await t._nonReactive.loaderPromise;const n=e.router.getMatch(o),s=n._nonReactive.error||n.error;s&&Ce(e,n,s),"pending"===n.status&&await r(c,t,i,n,l)}else{const n=c&&!e.router.stores.matchStores.has(o),s=e.router.getMatch(o);s._nonReactive.loaderPromise=_(),n!==s.preload&&e.updateMatch(o,e=>({...e,preload:n})),await r(c,t,i,s,l)}}const d=e.router.getMatch(o);i||(d._nonReactive.loaderPromise?.resolve(),d._nonReactive.loadPromise?.resolve(),d._nonReactive.loadPromise=void 0),clearTimeout(d._nonReactive.pendingTimeout),d._nonReactive.pendingTimeout=void 0,i||(d._nonReactive.loaderPromise=void 0),d._nonReactive.dehydrated=void 0;const h=!!i&&d.isFetching;return h!==d.isFetching||!1!==d.invalid?(e.updateMatch(o,e=>({...e,isFetching:h,invalid:!1})),e.router.getMatch(o)):d};async function je(e){const t=e,n=[];let r;for(let p=0;p<t.matches.length;p++){try{const e=Me(t,p);E(e)&&await e}catch(h){if(ue(h))throw h;if(ie(h))r=h;else if(!t.preload)throw h;break}if(t.serialError||null!=t.firstBadMatchIndex)break}const o=t.firstBadMatchIndex??t.matches.length,s=r&&!t.preload?Re(t,r):void 0,a=r&&t.preload?0:void 0!==s?Math.min(s+1,o):o;let i,l;for(let p=0;p<a;p++)n.push(Ae(t,n,p));try{await Promise.all(n)}catch{const e=await Promise.allSettled(n);for(const t of e){if("rejected"!==t.status)continue;const e=t.reason;if(ue(e))throw e;ie(e)?i??(i=e):l??(l=e)}if(void 0!==l)throw l}const c=i??(r&&!t.preload?r:void 0);let u=void 0!==t.firstBadMatchIndex?t.firstBadMatchIndex:t.matches.length-1;if(!c&&r&&t.preload)return t.matches;if(c){const e=Re(t,c);void 0===e&&D();const n=t.matches[e],r=t.router.looseRoutesById[n.routeId],o=t.router.options?.defaultNotFoundComponent;!r.options.notFoundComponent&&o&&(r.options.notFoundComponent=o),c.routeId=n.routeId;const s=n.routeId===t.router.routeTree.id;t.updateMatch(n.id,e=>({...e,...s?{status:"success",globalNotFound:!0,error:void 0}:{status:"notFound",error:c},isFetching:!1})),u=e,await Be(r,["notFoundComponent"])}else if(!t.preload){const e=t.matches[0];e.globalNotFound||t.router.getMatch(e.id)?.globalNotFound&&t.updateMatch(e.id,e=>({...e,globalNotFound:!1,error:void 0}))}if(t.serialError&&void 0!==t.firstBadMatchIndex){const e=t.router.looseRoutesById[t.matches[t.firstBadMatchIndex].routeId];await Be(e,["errorComponent"])}for(let p=0;p<=u;p++){const{id:e,routeId:n}=t.matches[p],r=t.router.looseRoutesById[n];try{const n=Fe(t,e,r);if(n){const r=await n;t.updateMatch(e,e=>({...e,...r}))}}catch(h){}}const d=(e=>{if(!e.rendered)return e.rendered=!0,e.onReady?.()})(t);if(E(d)&&await d,c)throw c;if(t.serialError&&!t.preload&&!t.onReady)throw t.serialError;return t.matches}function De(e,t){const n=t.map(t=>e.options[t]?.preload?.()).filter(Boolean);if(0!==n.length)return Promise.all(n)}function Be(e,t=He){e._lazyLoaded||void 0!==e._lazyPromise||(e.lazyFn?e._lazyPromise=e.lazyFn().then(t=>{const{id:n,...r}=t.options;Object.assign(e.options,r),e._lazyLoaded=!0,e._lazyPromise=void 0}):e._lazyLoaded=!0);const n=()=>e._componentsLoaded?void 0:t===He?(()=>{if(void 0===e._componentsPromise){const t=De(e,He);t?e._componentsPromise=t.then(()=>{e._componentsLoaded=!0,e._componentsPromise=void 0}):e._componentsLoaded=!0}return e._componentsPromise})():De(e,t);return e._lazyPromise?e._lazyPromise.then(n):n()}function $e(e,t){return t?{status:"error",error:t}:{status:"success",value:e}}function Ne(e){for(const t of He)if(e.options[t]?.preload)return!0;return!1}var He=["component","errorComponent","pendingComponent","notFoundComponent"];function ze(e,t){const n=t,r=e;return{fromLocation:n,toLocation:r,pathChanged:n?.pathname!==r.pathname,hrefChanged:n?.href!==r.href,hashChanged:n?.hash!==r.hash}}var Ve=new WeakMap,We=class{constructor(e,t){this.tempLocationKey=`${Math.round(1e7*Math.random())}`,this._scroll={next:!0},this.shouldViewTransition=void 0,this.isViewTransitionTypesSupported=void 0,this.subscribers=new Set,this.routeBranchCache=new WeakMap,this.startTransition=e=>e(),this.update=e=>{const t=this.options,n=this.basepath??t?.basepath??"/",r=void 0===this.basepath,o=t?.rewrite;if(this.options={...t,...e},this.isServer=this.options.isServer??"undefined"==typeof document,this.protocolAllowlist=new Set(this.options.protocolAllowlist),this.options.pathParamsAllowedCharacters&&(this.pathParamsDecoder=function(e){const t=new Map(e.map(e=>[encodeURIComponent(e),e])),n=Array.from(t.keys()).map(e=>e.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")).join("|"),r=new RegExp(n,"g");return e=>e.replace(r,e=>t.get(e)??e)}(this.options.pathParamsAllowedCharacters)),(!this.history||this.options.history&&this.options.history!==this.history)&&this.options.history&&(this.history=this.options.history),this.origin=this.options.origin,this.origin||(this.origin="http://localhost"),this.history&&this.updateLatestLocation(),this.options.routeTree!==this.routeTree){let e;if(this.routeTree=this.options.routeTree,globalThis.__TSR_CACHE__&&globalThis.__TSR_CACHE__.routeTree===this.routeTree){const t=globalThis.__TSR_CACHE__;this.resolvePathCache=t.resolvePathCache,e=t.processRouteTreeResult}else this.resolvePathCache=B(1e3),e=this.buildRouteTree(),void 0===globalThis.__TSR_CACHE__&&(globalThis.__TSR_CACHE__={routeTree:this.routeTree,processRouteTreeResult:e,resolvePathCache:this.resolvePathCache});this.setRoutes(e)}if(!this.stores&&this.latestLocation){const e=this.getStoreConfig(this);this.batch=e.batch,this.stores=function(e,t){const{createMutableStore:n,createReadonlyStore:r,batch:o,init:s}=t,a=new Map,i=new Map,l=new Map,c=n(e.status),u=n(e.loadedAt),d=n(e.isLoading),h=n(e.isTransitioning),p=n(e.location),f=n(e.resolvedLocation),g=n(e.statusCode),m=n(e.redirect),y=n([]),v=n([]),b=n([]),k=r(()=>me(a,y.get())),S=r(()=>me(i,v.get())),w=r(()=>me(l,b.get())),x=r(()=>y.get()[0]),P=r(()=>y.get().some(e=>"pending"===a.get(e)?.get().status)),R=r(()=>({locationHref:p.get().href,resolvedLocationHref:f.get()?.href,status:c.get()})),C=r(()=>({status:c.get(),loadedAt:u.get(),isLoading:d.get(),isTransitioning:h.get(),matches:k.get(),location:p.get(),resolvedLocation:f.get(),statusCode:g.get(),redirect:m.get()})),T=B(64),_={status:c,loadedAt:u,isLoading:d,isTransitioning:h,location:p,resolvedLocation:f,statusCode:g,redirect:m,matchesId:y,pendingIds:v,cachedIds:b,matches:k,pendingMatches:S,cachedMatches:w,firstId:x,hasPending:P,matchRouteDeps:R,matchStores:a,pendingMatchStores:i,cachedMatchStores:l,__store:C,getRouteMatchStore:function(e){let t=T.get(e);return t||(t=r(()=>{const t=y.get();for(const n of t){const t=a.get(n);if(t&&t.routeId===e)return t.get()}}),T.set(e,t)),t},setMatches:E,setPending:function(e){ye(e,i,v,n,o)},setCached:function(e){ye(e,l,b,n,o)}};function E(e){ye(e,a,y,n,o)}return E(e.matches),s?.(_),_}({loadedAt:0,isLoading:!1,isTransitioning:!1,status:"idle",resolvedLocation:void 0,location:this.latestLocation,matches:[],statusCode:200},e)}let s=!1;const a=this.options.basepath??"/",i=this.options.rewrite;if(r||n!==a||o!==i){this.basepath=a;const e=[],t=ne(a);t&&"/"!==t&&e.push(function(e){const t=ne(e.basepath),n=`/${t}`,r=e.caseSensitive?n:n.toLowerCase(),o=`${r}/`;return{input:({url:t})=>{const s=e.caseSensitive?t.pathname:t.pathname.toLowerCase();return s===r?t.pathname="/":s.startsWith(o)&&(t.pathname=t.pathname.slice(n.length)),t},output:({url:e})=>(e.pathname=Z(["/",t,e.pathname]),e)}}({basepath:a})),i&&e.push(i),this.rewrite=0===e.length?void 0:1===e.length?e[0]:function(e){return{input:({url:t})=>{for(const n of e)t=he(n,t);return t},output:({url:t})=>{for(let n=e.length-1;n>=0;n--)t=pe(e[n],t);return t}}}(e),this.history&&this.updateLatestLocation(),s=!0}s&&this.stores&&this.stores.location.set(this.latestLocation),"undefined"!=typeof window&&"CSS"in window&&"function"==typeof window.CSS?.supports&&(this.isViewTransitionTypesSupported=window.CSS.supports("selector(:active-view-transition-type(a))"))},this.updateLatestLocation=()=>{this.latestLocation=this.parseLocation(this.history.location,this.latestLocation)},this.buildRouteTree=()=>{const e=function(e,t=!1,n){const r=V(e.fullPath),o={},s={};let a=0;return N(t,new Uint16Array(6),e,1,r,0,e=>{if(n?.(e,a),e.id in o&&D(),o[e.id]=e,0!==a&&e.path){const n="/"===(t=e.fullPath)?t:t.replace(/\/{1,}$/,"");s[n]&&!e.fullPath.endsWith("/")||(s[n]=e)}var t;a++}),z(r),{processedTree:{segmentTree:r,singleCache:B(1e3),matchCache:B(1e3),flatCache:null,masksTree:null},routesById:o,routesByPath:s}}(this.routeTree,this.options.caseSensitive,(e,t)=>{e.init({originalIndex:t})});return this.options.routeMasks&&function(e,t){const n=V("/"),r=new Uint16Array(6);for(const o of e)N(!1,r,o,1,n,0);z(n),t.masksTree=n,t.flatCache=B(1e3)}(this.options.routeMasks,e.processedTree),e},this.subscribe=(e,t)=>{const n={eventType:e,fn:t};return this.subscribers.add(n),()=>{this.subscribers.delete(n)}},this.emit=e=>{this.subscribers.forEach(t=>{t.eventType===e.type&&t.fn(e)})},this.parseLocation=(e,t)=>{const n=({pathname:e,search:t,hash:n,href:r,state:o})=>{if(!this.rewrite&&!/[ \x00-\x1f\x7f\u0080-\uffff]/.test(e)){const r=this.options.parseSearch(t),s=this.options.stringifySearch(r);return{href:e+s+n,publicHref:e+s+n,pathname:j(e).path,external:!1,searchStr:s,search:x(0,r),hash:j(n.slice(1)).path,state:P(0,o)}}const s=new URL(r,this.origin),a=he(this.rewrite,s),i=this.options.parseSearch(a.search),l=this.options.stringifySearch(i);return a.search=l,{href:a.href.replace(a.origin,""),publicHref:r,pathname:j(a.pathname).path,external:!!this.rewrite&&a.origin!==this.origin,searchStr:l,search:x(0,i),hash:j(a.hash.slice(1)).path,state:P(0,o)}},r=n(e),{__tempLocation:o,__tempKey:s}=r.state;if(o&&(!s||s===this.tempLocationKey)){const e=n(o);return e.state.key=r.state.key,e.state.__TSR_key=r.state.__TSR_key,delete e.state.__tempLocation,{...e,maskedLocation:r}}return r},this.resolvePathWithBase=(e,t)=>function({base:e,to:t,trailingSlash:n="never",cache:r}){const o=t.startsWith("/"),s=!o&&"."===t;let a,i;if(r){a=o?t:s?e:e+"\0"+t;const n=r.get(a);if(n)return n}if(s)i=e.split("/");else if(o)i=t.split("/");else{for(i=e.split("/");i.length>1&&""===v(i);)i.pop();const n=t.split("/");for(let e=0,t=n.length;e<t;e++){const r=n[e];""===r?e?e===t-1&&i.push(r):i=[r]:".."===r?i.pop():"."===r||i.push(r)}}i.length>1&&(""===v(i)?"never"===n&&i.pop():"always"===n&&i.push(""));const l=Q(i.join("/"))||"/";return a&&r&&r.set(a,l),l}({base:e,to:t.includes("//")?Q(t):t,trailingSlash:this.options.trailingSlash,cache:this.resolvePathCache}),this.matchRoutes=(e,t,n)=>"string"==typeof e?this.matchRoutesInternal({pathname:e,search:t},n):this.matchRoutesInternal(e,t),this.getMatchedRoutes=e=>function({pathname:e,routesById:t,processedTree:n}){const r=Object.create(null);let o;const s=function(e,t,n=!1){const r=n?e:`nofuzz\0${e}`,o=t.matchCache.get(r);if(void 0!==o)return o;let s;e||(e="/");try{s=U(e,t.segmentTree,n)}catch(a){if(!(a instanceof URIError))throw a;s=null}return s&&(s.branch=G(s.route)),t.matchCache.set(r,s),s}(te(e),n,!0);return s&&(o=s.route,Object.assign(r,s.rawParams)),{matchedRoutes:s?.branch||[t.__root__],routeParams:r,foundRoute:o}}({pathname:e,routesById:this.routesById,processedTree:this.processedTree}),this.cancelMatch=e=>{const t=this.getMatch(e);t&&(t.abortController.abort(),clearTimeout(t._nonReactive.pendingTimeout),t._nonReactive.pendingTimeout=void 0)},this.cancelMatches=()=>{this.stores.pendingIds.get().forEach(e=>{this.cancelMatch(e)}),this.stores.matchesId.get().forEach(e=>{if(this.stores.pendingMatchStores.has(e))return;const t=this.stores.matchStores.get(e)?.get();t&&("pending"!==t.status&&"loader"!==t.isFetching||this.cancelMatch(e))})},this.buildLocation=e=>{const t=(t={})=>{const n=t._fromLocation||this.pendingBuiltLocation||this.latestLocation,r=this.matchRoutesLightweight(n);t.from;const o="path"===t.unsafeRelative?n.pathname:t.from??r.fullPath,s=t.to?`${t.to}`:void 0,a=r.search,i=Object.assign(Object.create(null),r.params),l=47===s?.charCodeAt(0)?"/":this.resolvePathWithBase(o,"."),c=s?this.resolvePathWithBase(l,s):l,u=!1===t.params||null===t.params?Object.create(null):!0===(t.params??!0)?i:Object.assign(i,b(t.params,i)),d=this.routesByPath[te(c)];let h;if(d)h=this.getRouteBranch(d);else if(c.includes("$"))h=[];else{const e=this.getMatchedRoutes(c);h=e.matchedRoutes,this.options.notFoundRoute&&(!e.foundRoute||"/"!==e.foundRoute.path&&e.routeParams["**"])&&(h=[...h,this.options.notFoundRoute])}if(h.length&&S(u))for(const e of h){const t=e.options.params?.stringify??e.options.stringifyParams;if(t)try{Object.assign(u,t(u))}catch{}}const p=e.leaveParams?c:j(se({path:c,params:u,decoder:this.pathParamsDecoder,server:this.isServer}).interpolatedPath).path;let f=a;if(e._includeValidateSearch&&this.options.search?.strict){const e={};h.forEach(t=>{if(t.options.validateSearch)try{Object.assign(e,Ge(t.options.validateSearch,{...e,...f}))}catch{}}),f=e}f=function({search:e,dest:t,destRoutes:n,_includeValidateSearch:r}){return function(e){let t,n;const r=[];for(const s of e){const e=s.options;if("search"in e)e.search?.middlewares&&r.push(...e.search.middlewares);else if(e.preSearchFilters||e.postSearchFilters){const t=({search:t,next:n})=>{const r=n(e.preSearchFilters?e.preSearchFilters.reduce((e,t)=>t(e),t):t);return e.postSearchFilters?e.postSearchFilters.reduce((e,t)=>t(e),r):r};r.push(t)}const t=e.validateSearch;if(t){const e=({search:e,next:r,meta:o})=>{const s=r(e);if(n)try{const e=Ge(t,s);if(o&&e)for(const t in e)t in s||(o.defaulted||(o.defaulted=new Map)).set(t,e[t]);return{...s,...e}}catch{}return s};r.push(e)}}const o=(e,n,s)=>{if(e>=r.length){if(!t.search)return{};if(!0===t.search)return n;const e=b(t.search,n);return s&&(s.explicit=e),e}return r[e]({search:n,next:(t,n)=>{if(n){const n=s||{};return{search:o(e+1,t,n),meta:n}}return o(e+1,t,s)},meta:s})};return function(e,r,s){return t=r,n=s,o(0,e)}}(n)(e,t,r??!1)}({search:f,dest:t,destRoutes:h,_includeValidateSearch:e._includeValidateSearch}),f=x(0,f);const g=this.options.stringifySearch(f),m=!0===t.hash?n.hash:t.hash?b(t.hash,n.hash):void 0,y=m?`#${m}`:"";let v=!0===t.state?n.state:t.state?b(t.state,n.state):{};v=P(n.state,v);const k=`${p}${g}${y}`;let w,R,C=!1;if(this.rewrite){const e=new URL(k,this.origin),t=pe(this.rewrite,e);w=e.href.replace(e.origin,""),t.origin!==this.origin?(R=t.href,C=!0):R=t.pathname+t.search+t.hash}else w=/\s|[^\u0000-\u007F]/.test(T=k)?T.replace(/\s|[^\u0000-\u007F]/gu,encodeURIComponent):T,R=w;var T;return{publicHref:R,href:w,pathname:p,search:f,searchStr:g,state:v,hash:m??"",external:C,unmaskOnReload:t.unmaskOnReload}},n=(n={},r)=>{const o=t(n);let s=r?t(r):void 0;if(!s){const n=Object.create(null);if(this.options.routeMasks){const a=function(e,t){e||(e="/");const n=t.flatCache.get(e);if(n)return n;const r=U(e,t.masksTree);return t.flatCache.set(e,r),r}(o.pathname,this.processedTree);if(a){Object.assign(n,a.rawParams);const{from:o,params:i,...l}=a.route,c=!1===i||null===i?Object.create(null):!0===(i??!0)?n:Object.assign(n,b(i,n));r={from:e.from,...l,params:c},s=t(r)}}}return s&&(o.maskedLocation=s),o};return e.mask?n(e,{from:e.from,...e.mask}):n(e)},this.commitLocation=async({viewTransition:e,ignoreBlocker:t,...n})=>{let r;const o=te(this.latestLocation.href)===te(n.href);let s=this.commitLocationPromise;if(this.commitLocationPromise=_(()=>{s?.resolve(),s=void 0}),o&&(()=>{const e=["key","__TSR_key","__TSR_index","__hashScrollIntoViewOptions"];e.forEach(e=>{n.state[e]=this.latestLocation.state[e]});const t=T(n.state,this.latestLocation.state);return e.forEach(e=>{delete n.state[e]}),t})())this.load();else{let{maskedLocation:o,hashScrollIntoView:s,...a}=n;o&&(a={...o,state:{...o.state,__tempKey:void 0,__tempLocation:{...a,search:a.searchStr,state:{...a.state,__tempKey:void 0,__tempLocation:void 0,__TSR_key:void 0,key:void 0}}}},(a.unmaskOnReload??this.options.unmaskOnReload)&&(a.state.__tempKey=this.tempLocationKey)),a.state.__hashScrollIntoViewOptions=s??this.options.defaultHashScrollIntoView??!0,this.shouldViewTransition=e,r=n.replace?"REPLACE":"PUSH",this.history["REPLACE"===r?"replace":"push"](a.publicHref,a.state,{ignoreBlocker:t})}return this._scroll.next=n.resetScroll??!0,this.history.subscribers.size||this.load(r?{action:{type:r}}:void 0),this.commitLocationPromise},this.buildAndCommitLocation=({replace:e,resetScroll:t,hashScrollIntoView:n,viewTransition:r,ignoreBlocker:o,href:a,...i}={})=>{if(a){const t=this.history.location.state.__TSR_index,n=s(a,{__TSR_index:e?t:t+1}),r=new URL(n.pathname,this.origin);i.to=he(this.rewrite,r).pathname,i.search=this.options.parseSearch(n.search),i.hash=n.hash.slice(1)}const l=this.buildLocation({...i,_includeValidateSearch:!0});this.pendingBuiltLocation=l;const c=this.commitLocation({...l,viewTransition:r,replace:e,resetScroll:t,hashScrollIntoView:n,ignoreBlocker:o});return Promise.resolve().then(()=>{this.pendingBuiltLocation===l&&(this.pendingBuiltLocation=void 0)}),c},this.navigate=async({to:e,reloadDocument:t,href:n,publicHref:r,...o})=>{let s=!1;if(n)try{new URL(`${n}`),s=!0}catch{}if(s&&!t&&(t=!0),t){if(void 0!==e||!n){const t=this.buildLocation({to:e,...o});n=n??t.publicHref,r=r??t.publicHref}const t=!s&&r?r:n;if(F(t,this.protocolAllowlist))return Promise.resolve();if(!o.ignoreBlocker){const e=this.history.getBlockers?.()??[];for(const t of e)if(t?.blockerFn&&await t.blockerFn({currentLocation:this.latestLocation,nextLocation:this.latestLocation,action:"PUSH"}))return Promise.resolve()}return o.replace?window.location.replace(t):window.location.href=t,Promise.resolve()}return this.buildAndCommitLocation({...o,href:n,to:e,_isNavigate:!0})},this.beforeLoad=()=>{this.cancelMatches(),this.updateLatestLocation();{const e=this.buildLocation({to:this.latestLocation.pathname,search:!0,params:!0,hash:!0,state:!0,_includeValidateSearch:!0});if(this.latestLocation.publicHref!==e.publicHref){const t=this.getParsedLocationHref(e);throw e.external?ce({href:t}):ce({href:t,_builtLocation:e})}}const e=this.matchRoutes(this.latestLocation),t=this.stores.cachedMatches.get().filter(t=>!e.some(e=>e.id===t.id));this.batch(()=>{this.stores.status.set("pending"),this.stores.statusCode.set(200),this.stores.isLoading.set(!0),this.stores.location.set(this.latestLocation),this.stores.setPending(e),this.stores.setCached(t)})},this.load=async e=>{const t=e?.action?.type;let n,r,o;const s=this.stores.resolvedLocation.get()??this.stores.location.get();for(o=new Promise(a=>{this.startTransition(async()=>{try{this.beforeLoad(),t?Ve.set(this.latestLocation,t):Ve.delete(this.latestLocation);const n=this.latestLocation,r=ze(n,this.stores.resolvedLocation.get());this.stores.redirect.get()||this.emit({type:"onBeforeNavigate",...r}),this.emit({type:"onBeforeLoad",...r}),await je({router:this,sync:e?.sync,forceStaleReload:s.href===n.href,matches:this.stores.pendingMatches.get(),location:n,updateMatch:this.updateMatch,onReady:async()=>{this.startTransition(()=>{this.startViewTransition(async()=>{let e=null,t=null,n=null,r=null;this.batch(()=>{const o=this.stores.pendingMatches.get(),s=o.length,a=this.stores.matches.get();e=s?a.filter(e=>!this.stores.pendingMatchStores.has(e.id)):null;const i=new Set;for(const e of this.stores.pendingMatchStores.values())e.routeId&&i.add(e.routeId);const l=new Set;for(const e of this.stores.matchStores.values())e.routeId&&l.add(e.routeId);t=s?a.filter(e=>!i.has(e.routeId)):null,n=s?o.filter(e=>!l.has(e.routeId)):null,r=s?o.filter(e=>l.has(e.routeId)):a,this.stores.isLoading.set(!1),this.stores.loadedAt.set(Date.now()),s&&(this.stores.setMatches(o),this.stores.setPending([]),this.stores.setCached([...this.stores.cachedMatches.get(),...e.filter(e=>"error"!==e.status&&"notFound"!==e.status&&"redirected"!==e.status)]),this.clearExpiredCache())});for(const[o,s]of[[t,"onLeave"],[n,"onEnter"],[r,"onStay"]])if(o)for(const e of o)this.looseRoutesById[e.routeId].options[s]?.(e)})})}})}catch(i){ue(i)?n=i:ie(i)&&(r=i);const e=n?n.status:r?404:this.stores.matches.get().some(e=>"error"===e.status)?500:200;this.batch(()=>{this.stores.statusCode.set(e),this.stores.redirect.set(n)})}this.latestLoadPromise===o&&(this.commitLocationPromise?.resolve(),this.latestLoadPromise=void 0,this.commitLocationPromise=void 0),a()})}),this.latestLoadPromise=o,await o;this.latestLoadPromise&&o!==this.latestLoadPromise;)await this.latestLoadPromise;let a;this.hasNotFoundMatch()?a=404:this.stores.matches.get().some(e=>"error"===e.status)&&(a=500),void 0!==a&&this.stores.statusCode.set(a)},this.startViewTransition=e=>{const t=this.shouldViewTransition??this.options.defaultViewTransition;if(this.shouldViewTransition=void 0,t&&"undefined"!=typeof document&&"startViewTransition"in document&&"function"==typeof document.startViewTransition){let n;if("object"==typeof t&&this.isViewTransitionTypesSupported){const r=this.latestLocation,o=this.stores.resolvedLocation.get(),s="function"==typeof t.types?t.types(ze(r,o)):t.types;if(!1===s)return void e();n={update:e,types:s}}else n=e;document.startViewTransition(n)}else e()},this.updateMatch=(e,t)=>{this.startTransition(()=>{const n=this.stores.pendingMatchStores.get(e);if(n)return void n.set(t);const r=this.stores.matchStores.get(e);if(r)return void r.set(t);const o=this.stores.cachedMatchStores.get(e);if(o){const n=t(o.get());"redirected"===n.status?this.stores.cachedMatchStores.delete(e)&&this.stores.cachedIds.set(t=>t.filter(t=>t!==e)):o.set(n)}})},this.getMatch=e=>this.stores.cachedMatchStores.get(e)?.get()??this.stores.pendingMatchStores.get(e)?.get()??this.stores.matchStores.get(e)?.get(),this.invalidate=e=>{const t=t=>e?.filter?.(t)??1?{...t,invalid:!0,...e?.forcePending||"error"===t.status||"notFound"===t.status?{status:"pending",error:void 0}:void 0}:t;return this.batch(()=>{this.stores.setMatches(this.stores.matches.get().map(t)),this.stores.setCached(this.stores.cachedMatches.get().map(t)),this.stores.setPending(this.stores.pendingMatches.get().map(t))}),this.shouldViewTransition=!1,this.load({sync:e?.sync})},this.getParsedLocationHref=e=>e.publicHref||"/",this.resolveRedirect=e=>{const t=e.headers.get("Location");if(!e.options.href||e.options._builtLocation){const t=e.options._builtLocation??this.buildLocation(e.options),n=this.getParsedLocationHref(t);e.options.href=n,e.headers.set("Location",n)}else if(t)try{const n=new URL(t);if(this.origin&&n.origin===this.origin){const t=n.pathname+n.search+n.hash;e.options.href=t,e.headers.set("Location",t)}}catch{}if(e.options.href&&!e.options._builtLocation&&F(e.options.href,this.protocolAllowlist))throw new Error("Redirect blocked: unsafe protocol");return e.headers.get("Location")||e.headers.set("Location",e.options.href),e},this.clearCache=e=>{const t=e?.filter;void 0!==t?this.stores.setCached(this.stores.cachedMatches.get().filter(e=>!t(e))):this.stores.setCached([])},this.clearExpiredCache=()=>{const e=Date.now();this.clearCache({filter:t=>{const n=this.looseRoutesById[t.routeId];if(!n.options.loader)return!0;const r=(t.preload?n.options.preloadGcTime??this.options.defaultPreloadGcTime:n.options.gcTime??this.options.defaultGcTime)??3e5;return"error"===t.status||e-t.updatedAt>=r}})},this.loadRouteChunk=Be,this.preloadRoute=async e=>{const t=e._builtLocation??this.buildLocation(e);let n=this.matchRoutes(t,{throwOnError:!0,preload:!0,dest:e});const r=new Set([...this.stores.matchesId.get(),...this.stores.pendingIds.get()]),o=new Set([...r,...this.stores.cachedIds.get()]),s=n.filter(e=>!o.has(e.id));if(s.length){const e=this.stores.cachedMatches.get();this.stores.setCached([...e,...s])}try{return n=await je({router:this,matches:n,location:t,preload:!0,updateMatch:(e,t)=>{r.has(e)?n=n.map(n=>n.id===e?t(n):n):this.updateMatch(e,t)}}),n}catch(a){if(ue(a)){if(a.options.reloadDocument)return;return await this.preloadRoute({...a.options,_fromLocation:t})}return void ie(a)}},this.matchRoute=(e,t)=>{const n={...e,to:e.to?this.resolvePathWithBase(e.from||"",e.to):void 0,params:e.params||{},leaveParams:!0},r=this.buildLocation(n);if(t?.pending&&"pending"!==this.stores.status.get())return!1;const o=(void 0===t?.pending?!this.stores.isLoading.get():t.pending)?this.latestLocation:this.stores.resolvedLocation.get()||this.stores.location.get(),s=function(e,t,n,r,o){e||(e="/"),r||(r="/");const s=t?`case\0${e}`:e;let a=o.singleCache.get(s);return a||(a=V("/"),N(t,new Uint16Array(6),{from:e},1,a,0),o.singleCache.set(s,a)),U(r,a,n)}(r.pathname,t?.caseSensitive??!1,t?.fuzzy??!1,o.pathname,this.processedTree);return!!s&&!(e.params&&!T(s.rawParams,e.params,{partial:!0}))&&(t?.includeSearch??1?!!T(o.search,r.search,{partial:!0})&&s.rawParams:s.rawParams)},this.hasNotFoundMatch=()=>this.stores.matches.get().some(e=>"notFound"===e.status||e.globalNotFound),this.getStoreConfig=t,this.update({defaultPreloadDelay:50,defaultPendingMs:1e3,defaultPendingMinMs:500,context:void 0,...e,caseSensitive:e.caseSensitive??!1,notFoundMode:e.notFoundMode??"fuzzy",stringifySearch:e.stringifySearch??we,parseSearch:e.parseSearch??Se,protocolAllowlist:e.protocolAllowlist??M}),"undefined"!=typeof document&&(self.__TSR_ROUTER__=this)}isShell(){return!!this.options.isShell}isPrerendering(){return!!this.options.isPrerendering}get state(){return this.stores.__store.get()}setRoutes({routesById:e,routesByPath:t,processedTree:n}){this.routesById=e,this.routesByPath=t,this.processedTree=n;const r=this.options.notFoundRoute;r&&(r.init({originalIndex:99999999999}),this.routesById[r.id]=r)}getRouteBranch(e){let t=this.routeBranchCache.get(e);return t||(t=G(e),this.routeBranchCache.set(e,t)),t}get looseRoutesById(){return this.routesById}getParentContext(e){return e?.id?e.context??this.options.context??void 0:this.options.context??void 0}matchRoutesInternal(e,t){const n=this.getMatchedRoutes(e.pathname),{foundRoute:r,routeParams:o}=n;let{matchedRoutes:s}=n,a=!1;(r?"/"!==r.path&&o["**"]:te(e.pathname))&&(this.options.notFoundRoute?s=[...s,this.options.notFoundRoute]:a=!0);const i=a?function(e,t){if("root"!==e)for(let n=t.length-1;n>=0;n--){const e=t[n];if(e.children)return e.id}return le}(this.options.notFoundMode,s):void 0,l=new Array(s.length),c=new Map;for(const d of this.stores.matchStores.values())d.routeId&&c.set(d.routeId,d.get());for(let d=0;d<s.length;d++){const n=s[d],r=l[d-1];let a,h,p;{const o=r?.search??e.search,s=r?._strictSearch??void 0;try{const e=Ge(n.options.validateSearch,{...o})??void 0;a={...o,...e},h={...s,...e},p=void 0}catch(u){let e=u;if(u instanceof Ue||(e=new Ue(u.message,{cause:u})),t?.throwOnError)throw e;a=o,h={},p=e}}const f=n.options.loaderDeps?.({search:a})??"",g=f?JSON.stringify(f):"",{interpolatedPath:m,usedParams:y}=se({path:n.fullPath,params:o,decoder:this.pathParamsDecoder,server:this.isServer}),v=n.id+m+g,b=this.getMatch(v),k=c.get(n.id),S=b?._strictParams??y;let w;if(!b)try{Ke(n,S)}catch(u){if(w=ie(u)||ue(u)?u:new qe(u.message,{cause:u}),t?.throwOnError)throw w}Object.assign(o,S);const R=k?"stay":"enter";let C;if(b)C={...b,cause:R,params:k?.params??o,_strictParams:S,search:x(k?k.search:b.search,a),_strictSearch:h};else{const e=n.options.loader||n.options.beforeLoad||n.lazyFn||Ne(n)?"pending":"success";C={id:v,ssr:void 0,index:d,routeId:n.id,params:k?.params??o,_strictParams:S,pathname:m,updatedAt:Date.now(),search:k?x(k.search,a):a,_strictSearch:h,searchError:void 0,status:e,isFetching:!1,error:void 0,paramsError:w,__routeContext:void 0,_nonReactive:{loadPromise:_()},__beforeLoadContext:void 0,context:{},abortController:new AbortController,fetchCount:0,cause:R,loaderDeps:k?P(k.loaderDeps,f):f,invalid:!1,preload:!1,links:void 0,scripts:void 0,headScripts:void 0,meta:void 0,staticData:n.options.staticData||{},fullPath:n.fullPath}}t?.preload||(C.globalNotFound=i===n.id),C.searchError=p;const T=this.getParentContext(r);C.context={...T,...C.__routeContext,...C.__beforeLoadContext},l[d]=C}for(let d=0;d<l.length;d++){const t=l[d],n=this.looseRoutesById[t.routeId],r=this.getMatch(t.id),s=c.get(t.routeId);if(t.params=s?x(s.params,o):o,!r){const r=l[d-1],o=this.getParentContext(r);if(n.options.context){const r={deps:t.loaderDeps,params:t.params,context:o??{},location:e,navigate:t=>this.navigate({...t,_fromLocation:e}),buildLocation:this.buildLocation,cause:t.cause,abortController:t.abortController,preload:!!t.preload,matches:l,routeId:n.id};t.__routeContext=n.options.context(r)??void 0}t.context={...o,...t.__routeContext,...t.__beforeLoadContext}}}return l}matchRoutesLightweight(e){const{matchedRoutes:t,routeParams:n}=this.getMatchedRoutes(e.pathname),r=v(t),o={...e.search};for(const l of t)try{Object.assign(o,Ge(l.options.validateSearch,o))}catch{}const s=v(this.stores.matchesId.get()),a=s&&this.stores.matchStores.get(s)?.get();let i;if(a&&a.routeId===r.id&&a.pathname===e.pathname)i=a.params;else{const e=Object.assign(Object.create(null),n);for(const n of t)try{Ke(n,e)}catch{}i=e}return{matchedRoutes:t,fullPath:r.fullPath,search:o,params:i}}},Ue=class extends Error{},qe=class extends Error{};function Ge(e,t){if(null==e)return{};if("~standard"in e){const n=e["~standard"].validate(t);if(n instanceof Promise)throw new Ue("Async validation not supported");if(n.issues)throw new Ue(JSON.stringify(n.issues,void 0,2),{cause:n});return n.value}return"parse"in e?e.parse(t):"function"==typeof e?e(t):{}}function Ke(e,t){const n=e.options.params?.parse??e.options.parseParams;if(n){const e=n(t);if(!1===e)throw new Error("Route params.parse returned false for a matched route");Object.assign(t,e)}}function Je(e,t){if(e)return"string"==typeof e?e:e[t]}function Xe(e){return e?.scriptFormat??"module"}function Ye(e,t,n){const r=Ze(t),o=Je(n,"script")??r.crossOrigin;return{..."iife"===Xe(e)?{rel:"preload",as:"script"}:{rel:"modulepreload"},href:r.href,...o?{crossOrigin:o}:{}}}function Ze(e){return"string"==typeof e?{href:e,crossOrigin:void 0}:e}function Qe(e,t){if(0===t.length)return;if(1===t.length)return void e.push(t[0]);const n=new Set;for(const r of t){const t=JSON.stringify(r);n.has(t)||(n.add(t),e.push(r))}}function et(e){return tt(e).href}function tt(e){return"string"==typeof e?{href:e,crossOrigin:void 0}:e}function nt(e){return{attrs:{suppressHydrationWarning:!0},children:e}}function rt(){return{attrs:{suppressHydrationWarning:!0}}}var ot=class{get to(){return this._to}get id(){return this._id}get path(){return this._path}get fullPath(){return this._fullPath}constructor(e){if(this.init=e=>{this.originalIndex=e.originalIndex;const t=this.options,n=!t?.path&&!t?.id;this.parentRoute=this.options.getParentRoute?.(),n?this._path=le:this.parentRoute||D();let r=n?le:t?.path;r&&"/"!==r&&(r=ee(r));const o=t?.id||r;let s=n?le:Z(["__root__"===this.parentRoute.id?"":this.parentRoute.id,o]);"__root__"===r&&(r="/"),"__root__"!==s&&(s=Z(["/",s]));const a="__root__"===s?"/":Z([this.parentRoute.fullPath,r]);this._path=r,this._id=s,this._fullPath=a,this._to=te(a)},this.addChildren=e=>this._addFileChildren(e),this._addFileChildren=e=>(Array.isArray(e)&&(this.children=e),"object"==typeof e&&null!==e&&(this.children=Object.values(e)),this),this._addFileTypes=()=>this,this.updateLoader=e=>(Object.assign(this.options,e),this),this.update=e=>(Object.assign(this.options,e),this),this.lazy=e=>(this.lazyFn=e,this),this.redirect=e=>ce({from:this.fullPath,...e}),this.options=e||{},this.isRoot=!e?.getParentRoute,e?.id&&e?.path)throw new Error("Route cannot have both an 'id' and a 'path' option.")}},st=class extends ot{constructor(e){super(e)}},at="$_TSR",it="$tsr-stream-barrier",lt=(e=>(e[e.None=0]="None",e[e.Mutable=1]="Mutable",e[e.Watching=2]="Watching",e[e.RecursedCheck=4]="RecursedCheck",e[e.Recursed=8]="Recursed",e[e.Dirty=16]="Dirty",e[e.Pending=32]="Pending",e))(lt||{}),ct=[],{link:ut,unlink:dt,propagate:ht,checkDirty:pt,shallowPropagate:ft}=function({update:e,notify:t,unwatched:n}){return{link:function(e,t,n){const r=t.depsTail;if(void 0!==r&&r.dep===e)return;const o=void 0!==r?r.nextDep:t.deps;if(void 0!==o&&o.dep===e)return o.version=n,void(t.depsTail=o);const s=e.subsTail;if(void 0!==s&&s.version===n&&s.sub===t)return;const a=t.depsTail=e.subsTail={version:n,dep:e,sub:t,prevDep:r,nextDep:o,prevSub:s,nextSub:void 0};void 0!==o&&(o.prevDep=a),void 0!==r?r.nextDep=a:t.deps=a,void 0!==s?s.nextSub=a:e.subs=a},unlink:function(e,t=e.sub){const r=e.dep,o=e.prevDep,s=e.nextDep,a=e.nextSub,i=e.prevSub;return void 0!==s?s.prevDep=o:t.depsTail=o,void 0!==o?o.nextDep=s:t.deps=s,void 0!==a?a.prevSub=i:r.subsTail=i,void 0!==i?i.nextSub=a:void 0===(r.subs=a)&&n(r),s},propagate:function(e){let n,r=e.nextSub;e:for(;;){const s=e.sub;let a=s.flags;if(60&a?12&a?4&a?48&a||!o(e,s)?a=0:(s.flags=40|a,a&=1):s.flags=-9&a|32:a=0:s.flags=32|a,2&a&&t(s),1&a){const t=s.subs;if(void 0!==t){const o=(e=t).nextSub;void 0!==o&&(n={value:r,prev:n},r=o);continue}}if(void 0===(e=r)){for(;void 0!==n;)if(e=n.value,n=n.prev,void 0!==e){r=e.nextSub;continue e}break}r=e.nextSub}},checkDirty:function(t,n){let o,s=0,a=!1;e:for(;;){const i=t.dep,l=i.flags;if(16&n.flags)a=!0;else if(17&~l){if(!(33&~l)){void 0===t.nextSub&&void 0===t.prevSub||(o={value:t,prev:o}),t=i.deps,n=i,++s;continue}}else if(e(i)){const e=i.subs;void 0!==e.nextSub&&r(e),a=!0}if(!a){const e=t.nextDep;if(void 0!==e){t=e;continue}}for(;s--;){const s=n.subs,i=void 0!==s.nextSub;if(i?(t=o.value,o=o.prev):t=s,a){if(e(n)){i&&r(s),n=t.sub;continue}a=!1}else n.flags&=-33;n=t.sub;const l=t.nextDep;if(void 0!==l){t=l;continue e}}return a}},shallowPropagate:r};function r(e){do{const n=e.sub,r=n.flags;32==(48&r)&&(n.flags=16|r,2==(6&r)&&t(n))}while(void 0!==(e=e.nextSub))}function o(e,t){let n=t.depsTail;for(;void 0!==n;){if(n===e)return!0;n=n.prevDep}return!1}}({update:e=>e._update(),notify(e){ct[gt++]=e,e.flags&=~lt.Watching},unwatched(e){void 0!==e.depsTail&&(e.depsTail=void 0,e.flags=lt.Mutable|lt.Dirty,function(e){const t=e.depsTail;let n=void 0!==t?t.nextDep:e.deps;for(;void 0!==n;)n=dt(n,e)}(e))}}),gt=0;var mt=n(e=>{var t=o(),n="function"==typeof Object.is?Object.is:function(e,t){return e===t&&(0!==e||1/e==1/t)||e!=e&&t!=t},r=t.useState,s=t.useEffect,a=t.useLayoutEffect,i=t.useDebugValue;function l(e){var t=e.getSnapshot;e=e.value;try{var r=t();return!n(e,r)}catch(o){return!0}}var c="undefined"==typeof window||void 0===window.document||void 0===window.document.createElement?function(e,t){return t()}:function(e,t){var n=t(),o=r({inst:{value:n,getSnapshot:t}}),c=o[0].inst,u=o[1];return a(function(){c.value=n,c.getSnapshot=t,l(c)&&u({inst:c})},[e,n,t]),s(function(){return l(c)&&u({inst:c}),e(function(){l(c)&&u({inst:c})})},[e]),i(n),n};e.useSyncExternalStore=void 0!==t.useSyncExternalStore?t.useSyncExternalStore:c}),yt=n((e,t)=>{t.exports=mt()}),vt=n(e=>{var t=o(),n=yt(),r="function"==typeof Object.is?Object.is:function(e,t){return e===t&&(0!==e||1/e==1/t)||e!=e&&t!=t},s=n.useSyncExternalStore,a=t.useRef,i=t.useEffect,l=t.useMemo,c=t.useDebugValue;e.useSyncExternalStoreWithSelector=function(e,t,n,o,u){var d=a(null);if(null===d.current){var h={hasValue:!1,value:null};d.current=h}else h=d.current;d=l(function(){function e(e){if(!i){if(i=!0,s=e,e=o(e),void 0!==u&&h.hasValue){var t=h.value;if(u(t,e))return a=t}return a=e}if(t=a,r(s,e))return t;var n=o(e);return void 0!==u&&u(t,n)?(s=e,t):(s=e,a=n)}var s,a,i=!1,l=void 0===n?null:n;return[function(){return e(t())},null===l?void 0:function(){return e(l())}]},[t,n,o,u]);var p=s(e,d[0],d[1]);return i(function(){h.hasValue=!0,h.value=p},[p]),c(p),p}});n((e,t)=>{t.exports=vt()})();var bt=n(e=>{var t=o();function n(e){var t="https://react.dev/errors/"+e;if(1<arguments.length){t+="?args[]="+encodeURIComponent(arguments[1]);for(var n=2;n<arguments.length;n++)t+="&args[]="+encodeURIComponent(arguments[n])}return"Minified React error #"+e+"; visit "+t+" for the full message or use the non-minified dev environment for full errors and additional helpful warnings."}function r(){}var s={d:{f:r,r:function(){throw Error(n(522))},D:r,C:r,L:r,m:r,X:r,S:r,M:r},p:0,findDOMNode:null},a=Symbol.for("react.portal"),i=t.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE;function l(e,t){return"font"===e?"":"string"==typeof t?"use-credentials"===t?t:"":void 0}e.__DOM_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE=s,e.createPortal=function(e,t){var r=2<arguments.length&&void 0!==arguments[2]?arguments[2]:null;if(!t||1!==t.nodeType&&9!==t.nodeType&&11!==t.nodeType)throw Error(n(299));return function(e,t,n){var r=3<arguments.length&&void 0!==arguments[3]?arguments[3]:null;return{$$typeof:a,key:null==r?null:""+r,children:e,containerInfo:t,implementation:n}}(e,t,null,r)},e.flushSync=function(e){var t=i.T,n=s.p;try{if(i.T=null,s.p=2,e)return e()}finally{i.T=t,s.p=n,s.d.f()}},e.preconnect=function(e,t){"string"==typeof e&&(t=t?"string"==typeof(t=t.crossOrigin)?"use-credentials"===t?t:"":void 0:null,s.d.C(e,t))},e.prefetchDNS=function(e){"string"==typeof e&&s.d.D(e)},e.preinit=function(e,t){if("string"==typeof e&&t&&"string"==typeof t.as){var n=t.as,r=l(n,t.crossOrigin),o="string"==typeof t.integrity?t.integrity:void 0,a="string"==typeof t.fetchPriority?t.fetchPriority:void 0;"style"===n?s.d.S(e,"string"==typeof t.precedence?t.precedence:void 0,{crossOrigin:r,integrity:o,fetchPriority:a}):"script"===n&&s.d.X(e,{crossOrigin:r,integrity:o,fetchPriority:a,nonce:"string"==typeof t.nonce?t.nonce:void 0})}},e.preinitModule=function(e,t){if("string"==typeof e)if("object"==typeof t&&null!==t){if(null==t.as||"script"===t.as){var n=l(t.as,t.crossOrigin);s.d.M(e,{crossOrigin:n,integrity:"string"==typeof t.integrity?t.integrity:void 0,nonce:"string"==typeof t.nonce?t.nonce:void 0})}}else t??s.d.M(e)},e.preload=function(e,t){if("string"==typeof e&&"object"==typeof t&&null!==t&&"string"==typeof t.as){var n=t.as,r=l(n,t.crossOrigin);s.d.L(e,n,{crossOrigin:r,integrity:"string"==typeof t.integrity?t.integrity:void 0,nonce:"string"==typeof t.nonce?t.nonce:void 0,type:"string"==typeof t.type?t.type:void 0,fetchPriority:"string"==typeof t.fetchPriority?t.fetchPriority:void 0,referrerPolicy:"string"==typeof t.referrerPolicy?t.referrerPolicy:void 0,imageSrcSet:"string"==typeof t.imageSrcSet?t.imageSrcSet:void 0,imageSizes:"string"==typeof t.imageSizes?t.imageSizes:void 0,media:"string"==typeof t.media?t.media:void 0})}},e.preloadModule=function(e,t){if("string"==typeof e)if(t){var n=l(t.as,t.crossOrigin);s.d.m(e,{as:"string"==typeof t.as&&"script"!==t.as?t.as:void 0,crossOrigin:n,integrity:"string"==typeof t.integrity?t.integrity:void 0})}else s.d.m(e)},e.requestFormReset=function(e){s.d.r(e)},e.unstable_batchedUpdates=function(e,t){return e(t)},e.useFormState=function(e,t,n){return i.H.useFormState(e,t,n)},e.useFormStatus=function(){return i.H.useHostTransitionStatus()},e.version="19.2.7"}),kt=n((e,t)=>{!function e(){if("undefined"!=typeof __REACT_DEVTOOLS_GLOBAL_HOOK__&&"function"==typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.checkDCE)try{__REACT_DEVTOOLS_GLOBAL_HOOK__.checkDCE(e)}catch(t){}}(),t.exports=bt()});function St(e,t){const n=h(),r=function(e){const t=u.useRef(null);return u.useImperativeHandle(e,()=>t.current,[]),t}(t),{activeProps:o,inactiveProps:s,activeOptions:a,to:i,preload:l,preloadDelay:c,preloadIntentProximity:d,hashScrollIntoView:p,replace:f,startTransition:g,resetScroll:m,viewTransition:y,children:v,target:k,disabled:w,style:x,className:P,onClick:R,onBlur:C,onFocus:_,onMouseEnter:E,onMouseLeave:I,onTouchStart:M,ignoreBlocker:L,params:O,search:A,hash:j,state:D,mask:B,reloadDocument:$,unsafeRelative:N,from:H,_fromLocation:z,...V}=e;{const t=function(e){if("string"!=typeof e)return!1;const t=e.charCodeAt(0);return 47===t?47!==e.charCodeAt(1):46===t}(i);if("string"==typeof i&&!t&&i.indexOf(":")>-1)try{return new URL(i),F(i,n.protocolAllowlist)?{...V,ref:r,href:void 0,...v&&{children:v},...k&&{target:k},...w&&{disabled:w},...x&&{style:x},...P&&{className:P}}:{...V,ref:r,href:i,...v&&{children:v},...k&&{target:k},...w&&{disabled:w},...x&&{style:x},...P&&{className:P}}}catch{}const l=n.buildLocation({...e,from:e.from}),c=function(e,t,n,r){if(!r)return t?{href:e,external:!0}:{href:n.createHref(e)||"/",external:!1}}(l.maskedLocation?l.maskedLocation.publicHref:l.publicHref,l.maskedLocation?l.maskedLocation.external:l.external,n.history,w),u=(()=>{if(c?.external){if(F(c.href,n.protocolAllowlist))return;return c.href}if(!t&&"string"==typeof i&&i.indexOf(":")>-1)try{if(new URL(i),F(i,n.protocolAllowlist))return;return i}catch{}})(),d=(()=>{if(u)return!1;const e=n.stores.location.get(),t=a?.exact??!1;if(t){if(r=e.pathname,o=l.pathname,s=n.basepath,re(r,s)!==re(o,s))return!1}else{const t=re(e.pathname,n.basepath),r=re(l.pathname,n.basepath);if(!t.startsWith(r)||t.length!==r.length&&"/"!==t[r.length])return!1}var r,o,s;if((a?.includeSearch??1)&&e.search!==l.search){const n=!e.search||"object"==typeof e.search&&!S(e.search),r=!l.search||"object"==typeof l.search&&!S(l.search);if(!(n&&r||T(e.search,l.search,{partial:!t,ignoreUndefined:!a?.explicitUndefined})))return!1}return!a?.includeHash})();if(u)return{...V,ref:r,href:u,...v&&{children:v},...k&&{target:k},...w&&{disabled:w},...x&&{style:x},...P&&{className:P}};const h=d?b(o,{})??xt:wt,p=d?wt:b(s,{})??wt,f=(()=>{const e=x,t=h.style,n=p.style;if(e||t||n)return!e||t||n?e||!t||n?e||t||!n?{...e,...t,...n}:n:t:e})(),g=(()=>{const e=P,t=h.className,n=p.className;if(!e&&!t&&!n)return"";let r="";return e&&(r=e),t&&(r=r?`${r} ${t}`:t),n&&(r=r?`${r} ${n}`:n),r})();return{...V,...h,...p,href:c?.href,ref:r,disabled:!!w,target:k,...f&&{style:f},...g&&{className:g},...w&&Pt,...d&&Rt}}}kt();var wt={},xt={className:"active"},Pt={role:"link","aria-disabled":!0},Rt={"data-status":"active","aria-current":"page"};var Ct=u.forwardRef((e,t)=>{const{_asChild:n,...r}=e,{type:o,...s}=St(r,t),a="function"==typeof r.children?r.children({isActive:"active"===s["data-status"]}):r.children;if(!n){const{disabled:e,...t}=s;return u.createElement("a",t,a)}return u.createElement(n,s,a)}),Tt=u.createContext(void 0),_t=u.createContext(void 0);function Et(e){const t=h(),n=u.useContext(e.from?_t:Tt),r=e.from?t.stores.getRouteMatchStore(e.from):t.stores.matchStores.get(n);{const t=r?.get();return t?e.select?e.select(t):t:void((e.shouldThrow??1)&&D())}}function It(e){return Et({from:e.from,strict:e.strict,structuralSharing:e.structuralSharing,select:t=>e.select?e.select(t.loaderData):t.loaderData})}function Mt(e){const{select:t,...n}=e;return Et({...n,select:e=>t?t(e.loaderDeps):e.loaderDeps})}function Ft(e){return Et({from:e.from,shouldThrow:e.shouldThrow,structuralSharing:e.structuralSharing,strict:e.strict,select:t=>{const n=!1===e.strict?t.params:t._strictParams;return e.select?e.select(n):n}})}function Lt(e){return Et({from:e.from,strict:e.strict,shouldThrow:e.shouldThrow,structuralSharing:e.structuralSharing,select:t=>e.select?e.select(t.search):t.search})}function Ot(e){const t=h();return u.useCallback(n=>t.navigate({...n,from:n.from??e?.from}),[e?.from,t])}function At(e){return Et({...e,select:t=>e.select?e.select(t.context):t.context})}var jt=class extends ot{constructor(e){super(e),this.useMatch=e=>Et({select:e?.select,from:this.id,structuralSharing:e?.structuralSharing}),this.useRouteContext=e=>At({...e,from:this.id}),this.useSearch=e=>Lt({select:e?.select,structuralSharing:e?.structuralSharing,from:this.id}),this.useParams=e=>Ft({select:e?.select,structuralSharing:e?.structuralSharing,from:this.id}),this.useLoaderDeps=e=>Mt({...e,from:this.id}),this.useLoaderData=e=>It({...e,from:this.id}),this.useNavigate=()=>Ot({from:this.fullPath}),this.Link=u.forwardRef((e,t)=>(0,f.jsx)(Ct,{ref:t,from:this.fullPath,...e}))}};function Dt(){return e=>function(e){return new Bt(e)}(e)}var Bt=class extends st{constructor(e){super(e),this.useMatch=e=>Et({select:e?.select,from:this.id,structuralSharing:e?.structuralSharing}),this.useRouteContext=e=>At({...e,from:this.id}),this.useSearch=e=>Lt({select:e?.select,structuralSharing:e?.structuralSharing,from:this.id}),this.useParams=e=>Ft({select:e?.select,structuralSharing:e?.structuralSharing,from:this.id}),this.useLoaderDeps=e=>Mt({...e,from:this.id}),this.useLoaderData=e=>It({...e,from:this.id}),this.useNavigate=()=>Ot({from:this.fullPath}),this.Link=u.forwardRef((e,t)=>(0,f.jsx)(Ct,{ref:t,from:this.fullPath,...e}))}};function $t(e){return new Nt(e,{silent:!0}).createRoute}var Nt=class{constructor(e,t){this.path=e,this.createRoute=e=>{const t=function(e){return new jt(e)}(e);return t.isRoot=!1,t},this.silent=t?.silent}};function Ht(e,t){let n,r,o,s;const a=()=>(n||(n=e().then(e=>{n=void 0,r=e[t??"default"]}).catch(e=>{if(o=e,function(e){return"string"==typeof e?.message&&(e.message.startsWith("Failed to fetch dynamically imported module")||e.message.startsWith("error loading dynamically imported module")||e.message.startsWith("Importing a module script failed"))}(o)&&o instanceof Error&&"undefined"!=typeof window&&"undefined"!=typeof sessionStorage){const e=`tanstack_router_reload:${o.message}`;sessionStorage.getItem(e)||(sessionStorage.setItem(e,"1"),s=!0)}})),n),i=function(e){if(s)throw window.location.reload(),new Promise(()=>{});if(o)throw o;if(!r){if(!p)throw a();p(a())}return u.createElement(r,e)};return i.preload=a,i}function zt(e){const t=e.errorComponent??Wt;return(0,f.jsx)(Vt,{getResetKey:e.getResetKey,onCatch:e.onCatch,children:({error:n,reset:r})=>n?u.createElement(t,{error:n,reset:r}):e.children})}var Vt=class extends u.Component{constructor(...e){super(...e),this.state={error:null}}static getDerivedStateFromProps(e,t){const n=e.getResetKey();return t.error&&t.resetKey!==n?{resetKey:n,error:null}:{resetKey:n}}static getDerivedStateFromError(e){return{error:e}}reset(){this.setState({error:null})}componentDidCatch(e,t){this.props.onCatch&&this.props.onCatch(e,t)}render(){return this.props.children({error:this.state.error,reset:()=>{this.reset()}})}};function Wt({error:e}){const[t,n]=u.useState(!1);return(0,f.jsxs)("div",{style:{padding:".5rem",maxWidth:"100%"},children:[(0,f.jsxs)("div",{style:{display:"flex",alignItems:"center",gap:".5rem"},children:[(0,f.jsx)("strong",{style:{fontSize:"1rem"},children:"Something went wrong!"}),(0,f.jsx)("button",{style:{appearance:"none",fontSize:".6em",border:"1px solid currentColor",padding:".1rem .2rem",fontWeight:"bold",borderRadius:".25rem"},onClick:()=>n(e=>!e),children:t?"Hide Error":"Show Error"})]}),(0,f.jsx)("div",{style:{height:".25rem"}}),t?(0,f.jsx)("div",{children:(0,f.jsx)("pre",{style:{fontSize:".7em",border:"1px solid red",borderRadius:".25rem",padding:".3rem",color:"red",overflow:"auto"},children:e.message?(0,f.jsx)("code",{children:e.message}):null})}):null]})}function Ut(e){const t=h();{const n=`not-found-${t.stores.location.get().pathname}-${t.stores.status.get()}`;return(0,f.jsx)(zt,{getResetKey:()=>n,onCatch:(t,n)=>{if(!ie(t))throw t;e.onCatch?.(t,n)},errorComponent:({error:t})=>{if(ie(t))return e.fallback?.(t);throw t},children:e.children})}}function qt(){return(0,f.jsx)("p",{children:"Not Found"})}function Gt(e){return(0,f.jsx)(f.Fragment,{children:e.children})}function Kt(e,t,n){return t.options.notFoundComponent?(0,f.jsx)(t.options.notFoundComponent,{...n}):e.options.defaultNotFoundComponent?(0,f.jsx)(e.options.defaultNotFoundComponent,{...n}):(0,f.jsx)(qt,{})}function Jt({children:e}){const t=h();return(0,f.jsx)("script",{nonce:t.options.ssr?.nonce,dangerouslySetInnerHTML:{__html:e+";document.currentScript.remove()"}})}var Xt='function(a,f){let l;try{l=JSON.parse(sessionStorage.getItem(a)||"{}")}catch{return}const n=l?.[f||history.state?.__TSR_key];let c=!1;for(const t in n){const e=n[t],o=e?.scrollX,s=e?.scrollY;if(Number.isFinite(o)&&Number.isFinite(s)){if(t==="window")scrollTo(o,s),c=!0;else if(t)try{const r=document.querySelector(t);r&&(r.scrollLeft=o,r.scrollTop=s)}catch{}}}if(c)return;const i=location.hash.slice(1);if(i){const t=history.state?.__hashScrollIntoViewOptions??!0;if(t){const e=document.getElementById(i);e&&e.scrollIntoView(t)}return}scrollTo(0,0)}',Yt=`(${Xt})(${A(JSON.stringify(ve))})`;function Zt(){const e=function(e){if("function"==typeof e.options.scrollRestoration&&!e.options.scrollRestoration({location:e.latestLocation}))return null;const t=e.options.getScrollRestorationKey;if(!t)return Yt;const n=e.latestLocation,r=t(n);return r===(e=>e.state.__TSR_key||e.href)(n)||void 0===(o=r)?Yt:`(${Xt})(${A(JSON.stringify(ve))},${A(JSON.stringify(o))})`;var o}(h());return e?(0,f.jsx)(Jt,{children:e}):null}var Qt=u.memo(function({matchId:e}){const t=h();{const n=t.stores.matchStores.get(e)?.get();n||D();const r=n.routeId,o=t.routesById[r].parentRoute?.id;return(0,f.jsx)(en,{router:t,matchId:e,resetKey:t.stores.loadedAt.get(),matchState:{routeId:r,ssr:n.ssr,_displayPending:n._displayPending,parentRouteId:o}})}});function en({router:e,matchId:t,resetKey:n,matchState:r}){const o=e.routesById[r.routeId],s=o.options.pendingComponent??e.options.defaultPendingComponent,a=s?(0,f.jsx)(s,{}):null,i=o.options.errorComponent??e.options.defaultErrorComponent,l=o.options.onCatch??e.options.defaultOnCatch,c=o.isRoot?o.options.notFoundComponent??e.options.notFoundRoute?.options.component:o.options.notFoundComponent,d=!1===r.ssr||"data-only"===r.ssr,h=(!o.isRoot||o.options.wrapInSuspense||d)&&(o.options.wrapInSuspense??s??(o.options.errorComponent?.preload||d))?u.Suspense:Gt,p=i?zt:Gt,m=c?Ut:Gt;return(0,f.jsxs)(o.isRoot?o.options.shellComponent??Gt:Gt,{children:[(0,f.jsx)(Tt.Provider,{value:t,children:(0,f.jsx)(h,{fallback:a,children:(0,f.jsx)(p,{getResetKey:()=>n,errorComponent:i||Wt,onCatch:(e,t)=>{if(ie(e))throw e.routeId??(e.routeId=r.routeId),e;l?.(e,t)},children:(0,f.jsx)(m,{fallback:e=>{if(e.routeId??(e.routeId=r.routeId),!c||e.routeId&&e.routeId!==r.routeId||!e.routeId&&!o.isRoot)throw e;return u.createElement(c,e)},children:d||r._displayPending?(0,f.jsx)(g,{fallback:a,children:(0,f.jsx)(nn,{matchId:t})}):(0,f.jsx)(nn,{matchId:t})})})})}),"__root__"===r.parentRouteId?(0,f.jsxs)(f.Fragment,{children:[(0,f.jsx)(tn,{}),e.options.scrollRestoration?(0,f.jsx)(Zt,{}):null]}):null]})}function tn(){return h(),null}var nn=u.memo(function({matchId:e}){const t=h(),n=(e,n)=>t.getMatch(e.id)?._nonReactive[n]??e._nonReactive[n];{const r=t.stores.matchStores.get(e)?.get();r||D();const o=r.routeId,s=t.routesById[o],a=(t.routesById[o].options.remountDeps??t.options.defaultRemountDeps)?.({routeId:o,loaderDeps:r.loaderDeps,params:r._strictParams,search:r._strictSearch}),i=a?JSON.stringify(a):void 0,l=s.options.component??t.options.defaultComponent,c=l?(0,f.jsx)(l,{},i):(0,f.jsx)(rn,{});if(r._displayPending)throw n(r,"displayPendingPromise");if(r._forcePending)throw n(r,"minPendingPromise");if("pending"===r.status)throw n(r,"loadPromise");if("notFound"===r.status)return ie(r.error)||D(),Kt(t,s,r.error);if("redirected"===r.status)throw ue(r.error)||D(),n(r,"loadPromise");return"error"===r.status?(0,f.jsx)((s.options.errorComponent??t.options.defaultErrorComponent)||Wt,{error:r.error,reset:void 0,info:{componentStack:""}}):c}}),rn=u.memo(function(){const e=h(),t=u.useContext(Tt);let n,r,o=!1;{const s=e.stores.matches.get(),a=t?s.findIndex(e=>e.id===t):-1,i=a>=0?s[a]:void 0;n=i?.routeId,o=i?.globalNotFound??!1,r=a>=0?s[a+1]?.id:void 0}const s=n?e.routesById[n]:void 0,a=e.options.defaultPendingComponent?(0,f.jsx)(e.options.defaultPendingComponent,{}):null;if(o)return s||D(),Kt(e,s,void 0);if(!r)return null;const i=(0,f.jsx)(Qt,{matchId:r});return"__root__"===n?(0,f.jsx)(u.Suspense,{fallback:a,children:i}):i}),on=e=>({createMutableStore:fe,createReadonlyStore:ge,batch:e=>e()}),sn=e=>new an(e),an=class extends We{constructor(e){super(e,on)}};function ln(){const e=h(),t=e.routesById.__root__.options.pendingComponent??e.options.defaultPendingComponent,n=t?(0,f.jsx)(t,{}):null,r=(0,f.jsxs)(Gt,{fallback:n,children:[!1,(0,f.jsx)(cn,{})]});return e.options.InnerWrap?(0,f.jsx)(e.options.InnerWrap,{children:r}):r}function cn(){const e=h(),t=e.stores.firstId.get(),n=e.stores.loadedAt.get(),r=t?(0,f.jsx)(Qt,{matchId:t}):null;return(0,f.jsx)(Tt.Provider,{value:t,children:e.options.disableGlobalCatchBoundary?r:(0,f.jsx)(zt,{getResetKey:()=>n,errorComponent:Wt,onCatch:void 0,children:r})})}function un({router:e,children:t,...n}){S(n)&&e.update({...e.options,...n,context:{...e.options.context,...n.context}});const r=(0,f.jsx)(d.Provider,{value:e,children:t});return e.options.Wrap?(0,f.jsx)(e.options.Wrap,{children:r}):r}function dn({router:e,...t}){return(0,f.jsx)(un,{router:e,...t,children:(0,f.jsx)(ln,{})})}var hn=()=>{};function pn(e,t){if(t)for(const[n,r]of Object.entries(t))"suppressHydrationWarning"!==n&&void 0!==r&&!1!==r&&e.setAttribute(n,"boolean"==typeof r?"":String(r))}function fn(e){const{attrs:t,children:n,nonce:r,preventScriptHoist:o}=e;switch(e.tag){case"title":return(0,f.jsx)("title",{...t,suppressHydrationWarning:!0,children:n});case"meta":return(0,f.jsx)("meta",{...t,suppressHydrationWarning:!0});case"link":return(0,f.jsx)("link",{...t,precedence:t?.precedence??("stylesheet"===t?.rel?"default":void 0),nonce:r,suppressHydrationWarning:!0});case"style":return e.inlineCss,(0,f.jsx)("style",{...t,dangerouslySetInnerHTML:{__html:n},nonce:r});case"script":return(0,f.jsx)(gn,{attrs:t,preventScriptHoist:o,children:n});default:return null}}function gn({attrs:e,children:t,preventScriptHoist:n}){h(),m();const r="string"==typeof e?.type&&""!==e.type&&"text/javascript"!==e.type&&"module"!==e.type;return u.useEffect(()=>{if(!r){if(e?.src){const t=(()=>{try{const t=document.baseURI||window.location.href;return new URL(e.src,t).href}catch{return e.src}})();for(const e of document.querySelectorAll("script[src]"))if(e.src===t)return;const n=document.createElement("script");return pn(n,e),document.head.appendChild(n),()=>n.remove()}if("string"==typeof t){const n="string"==typeof e?.type?e.type:"text/javascript",r="string"==typeof e?.nonce?e.nonce:void 0;for(const e of document.querySelectorAll("script:not([src])")){if(!(e instanceof HTMLScriptElement))continue;const o=e.getAttribute("type")??"text/javascript",s=e.getAttribute("nonce")??void 0;if(e.textContent===t&&o===n&&s===r)return}const o=document.createElement("script");return o.textContent=t,pn(o,e),document.head.appendChild(o),()=>o.remove()}}},[e,t,r]),e?.src?n?(0,f.jsx)("script",{...e,onLoad:hn,suppressHydrationWarning:!0}):(0,f.jsx)("script",{...e,suppressHydrationWarning:!0}):"string"==typeof t?(0,f.jsx)("script",{...e,dangerouslySetInnerHTML:{__html:t},suppressHydrationWarning:!0}):null}function mn(e){const t=(e=>{const t=h(),n=t.options.ssr?.nonce;return function(e,t,n,r){const o=n.map(e=>e.meta).filter(e=>void 0!==e),s=[],a={};let i;for(let g=o.length-1;g>=0;g--){const e=o[g];for(let n=e.length-1;n>=0;n--){const r=e[n];if(r)if(r.title)i||(i={tag:"title",children:r.title});else if("script:ld+json"in r)try{const e=JSON.stringify(r["script:ld+json"]);s.push({tag:"script",attrs:{type:"application/ld+json"},children:A(e)})}catch{}else{const e=r.name??r.property;if(e){if(a[e])continue;a[e]=!0}s.push({tag:"meta",attrs:{...r,nonce:t}})}}}i&&s.push(i),t&&s.push({tag:"meta",attrs:{property:"csp-nonce",content:t}}),s.reverse();const l=n.flatMap(e=>e.links??[]).filter(e=>void 0!==e).map(e=>({tag:"link",attrs:{...e,nonce:t}})),c=e.ssr?.manifest,u=[];c&&(n.forEach(e=>{(c.routes[e.routeId]?.css)?.forEach(e=>{const n=tt(e);u.push({tag:"link",attrs:{rel:"stylesheet",...n,crossOrigin:Je(r,"stylesheet")??n.crossOrigin,suppressHydrationWarning:!0,nonce:t}})})}),c.inlineStyle&&u.push({tag:"style",attrs:{...c.inlineStyle.attrs,nonce:t},children:c.inlineStyle.children,inlineCss:!0}));const d=[];c&&n.forEach(e=>{c.routes[e.routeId]?.preloads?.forEach(e=>{d.push({tag:"link",attrs:{...Ye(c,e,r),nonce:t}})})});const h=n.flatMap(e=>e.styles??[]).filter(e=>void 0!==e).map(({children:e,...n})=>({tag:"style",attrs:{...n,nonce:t},children:e})),p=n.flatMap(e=>e.headScripts??[]).filter(e=>void 0!==e).map(({children:e,...n})=>({tag:"script",attrs:{...n,nonce:t},children:e})),f=[];return Qe(f,s),f.push(...d),Qe(f,l),f.push(...u),Qe(f,h),Qe(f,p),f}(t,n,t.stores.matches.get(),e)})(e.assetCrossOrigin),n=h().options.ssr?.nonce;return(0,f.jsx)(f.Fragment,{children:t.map(e=>(0,u.createElement)(fn,{...e,key:`tsr-meta-${JSON.stringify(e)}`,nonce:n}))})}var yn=()=>{const e=h(),t=e.options.ssr?.nonce;{const n=e.stores.matches.get(),r=(n=>{const r=[],o=e.ssr?.manifest;if(!o)return[];for(const e of n){const n=o.routes[e.routeId]?.scripts;if(n)for(const e of n)r.push({tag:"script",attrs:{...e.attrs,nonce:t},children:e.children,..."string"==typeof e.attrs?.src?{preventScriptHoist:!0}:{}})}return r})(n);return function(e,t,n){const r=[...t,...n];if(e.serverSsr){const t=e.serverSsr.takeBufferedScripts();t&&r.unshift(t)}return(0,f.jsx)(f.Fragment,{children:r.map((e,t)=>(0,u.createElement)(fn,{...e,key:`tsr-scripts-${e.tag}-${t}`}))})}(e,n.map(e=>e.scripts).flat(1).filter(Boolean).map(({children:e,...n})=>({tag:"script",attrs:{...n,suppressHydrationWarning:!0,nonce:t},children:e})),r)}};function vn(e){return"object"==typeof e&&null!==e&&"response"in e&&"serverSsrCleanup"in e}function bn(e){return vn(e)?e:{response:e,serverSsrCleanup:"none"}}function kn(e,t){if(!t.body)throw new Error("Invariant failed: SSR stream response requires a body");let n=!1;return{response:t,serverSsrCleanup:"stream",async dispose(r){if(!n){n=!0;try{await t.body.cancel(r)}catch{}e.serverSsr?.cleanup()}}}}async function Sn(e,t,n){const r=bn(e);return"stream"===r.serverSsrCleanup&&await r.dispose(n),{response:t,serverSsrCleanup:"none"}}async function wn(e,t){const n=bn(e);return"stream"===n.serverSsrCleanup&&await n.dispose(t),{response:new Response(null,n.response),serverSsrCleanup:"none"}}function xn(e){return e}var Pn=6e4,Rn=2048,Cn=0,Tn=1,_n=2,En=3,In=4,Mn=new TextEncoder,Fn=()=>{},Ln=Promise.resolve();function On(e){let t=-1,n=e.length-4;for(;n>=0;){const r=e.lastIndexOf("</",n);if(-1===r)break;if(98==(32|e.charCodeAt(r+2))&&111==(32|e.charCodeAt(r+3))&&100==(32|e.charCodeAt(r+4))&&121==(32|e.charCodeAt(r+5))&&62===e.charCodeAt(r+6))return-r-2;if(-1===t){let n=r+2;const o=e.charCodeAt(n);if(o>=97&&o<=122||o>=65&&o<=90){for(n++;n<e.length;){const t=e.charCodeAt(n);if(!(t>=97&&t<=122||t>=65&&t<=90||t>=48&&t<=57||95===t||58===t||46===t||45===t))break;n++}62===e.charCodeAt(n)&&(t=n+1)}}n=r-1}return t}function An(e){try{return e.releaseLock(),!0}catch{return!1}}function jn(e){const t=e.getReader();let n=!1;return{reader:t,cancel:e=>n?Ln:(n=!0,function(e,t){let n;try{n=e.cancel(t)}catch{}return!An(e)&&n?n.then(Fn,Fn).then(()=>{An(e)}):n?n.then(Fn,Fn):Ln}(t,e)),release:()=>{n||(n=!0,An(t))}}}function Dn(e){let t=!1;return n=>{if(!t){t=!0;try{e?.onAbort?.(n)}catch{}}}}function Bn(e,t,n){const r=e.serverSsr;if(!r)throw new Error("Invariant failed: router.serverSsr is required");return r.reserveStreamFastPath()?function(e,t,n){let r,o,s,a=!1,i=Cn;const l=jn(e),u=Dn(t),d=()=>i===In;let h=!1;const p=(e,t=!0)=>{if(a)return Ln;a=!0,void 0!==o&&(clearTimeout(o),o=void 0);try{s?.()}catch{}s=void 0,t&&u(e);const r=t?l.cancel(e):(l.release(),Ln);if(n)try{n.cleanup()}catch(i){}return r},f=e=>{if(!d()){i=In;try{r?.error(e)}catch{}}};n&&(s=n.onInjectedHtml(()=>{const e=new Error("SSR router HTML injected during fast path");f(e),p(e)}));return o=setTimeout(()=>{if(!a&&!d()){const e=new Error("Stream lifetime exceeded");f(e),p(e)}},t?.lifetimeMs??12e4),new c({start(e){r=e},async pull(e){if(!a&&!d())try{const{done:t,value:o}=await l.reader.read();if(!t)return void(a||d()||e.enqueue(o));if(a||d())return;if(!(()=>{if(!n||h)return!0;h=!0;try{return n.setRenderFinished(),!0}catch(e){return f(e),p(e),!1}})())return;return(()=>{if(!d()){i=In;try{r?.close()}catch{}}})(),p(void 0,!1)}catch(t){if(a)return;if(i<_n)try{n?.setRenderFinished()}catch{}return f(t),p(t)}finally{(a||d())&&l.release()}},cancel:e=>(i=In,p(e))})}(t,n,r):function(e,t,n){let r,o,s,a,i,l=!1,u=!1,d=Cn;const h=jn(t),p=Dn(n),f=[];let g=0,m=0;let y=null;const v=()=>new Promise(e=>{y=e}),b=()=>{if(y){const e=y;y=null,e()}},k=()=>d===In;function S(){if(i&&!k()){for(;g<f.length;){const t=i.desiredSize;if(null!==t&&t<=0)return;const n=f[g];f[g]="",g++,m-=n.length;try{i.enqueue(Mn.encode(n))}catch(e){return x(e),void P(e)}}g>=f.length&&(f.length=0,g=0),u&&g>=f.length&&(u=!1,function(){if(!k()){d=In;try{i?.close()}catch{}}}(),P(void 0,!1))}}function w(e){if(!l&&!k()&&e.length){if(m+e.length>16777216){const e=new Error("SSR stream pending output exceeded maximum buffer");return x(e),void P(e)}f.push(e),m+=e.length,S()}}function x(e){if(!k()){d=In;try{i?.error(e)}catch{}}}function P(t,n=!0){if(l)return Ln;l=!0;try{r?.(),o?.()}catch{}r=void 0,o=void 0,void 0!==s&&(clearTimeout(s),s=void 0),void 0!==a&&(clearTimeout(a),a=void 0),B(),_="",E="",f.length=0,g=0,m=0,n&&p(t);const i=n?h.cancel(t):(h.release(),Ln);b();try{e.cleanup()}catch(c){}return i}const R=new TextDecoder,C=[];let T=0,_="",E="",I=!1,M=!1,F=!1;function L(e){M||e.includes("$tsr-stream-barrier")&&(M=!0)}function O(){I||M&&(I=!0,e.liftScriptBarrier())}const A=new c({start(e){i=e,S()},pull(){S(),b()},cancel:e=>(d=In,P(e))});function j(){if(l||k())return;let t;try{t=e.takeBufferedHtml()}catch(n){return x(n),void P(n)}if(t){if(d>=En){const e=new Error("SSR router HTML injected after stream finalization");return x(e),void P(e)}if(d===Tn)D(),w(t);else{if(T+t.length>16777216){const e=new Error("SSR router HTML exceeded maximum buffer");return x(e),void P(e)}C.push(t),T+=t.length}}}function D(){if(C.length){for(const e of C)w(e);B()}}function B(){C.length=0,T=0}function $(e){if(E+=e,E.length>65536)throw new Error("SSR stream tail exceeded maximum buffer")}function N(){return!!(i&&null!==i.desiredSize&&i.desiredSize<=0)}function H(){if(d!==_n||!F)return;if(l||k())return;if(void 0!==s&&(clearTimeout(s),s=void 0),j(),l||k())return;const e=R.decode();_&&w(_),l||k()||(e&&w(e),l||k()||(D(),l||k()||(E&&w(E),l||k()||(_="",E="",d=En,u=!0,S()))))}function z(){if(!(d>=_n)){d=_n;try{e.setRenderFinished()}catch(t){return x(t),void P(t)}j(),l||k()||(F=F||e.isSerializationFinished(),F?H():l||k()||void 0===s&&(s=setTimeout(()=>{if(!l&&!k()){const e=new Error("Serialization timeout after app render finished");x(e),P(e)}},n?.timeoutMs??Pn)))}}const V=n?.timeoutMs??Pn;return a=setTimeout(()=>{if(!l&&!k()){const e=new Error("Stream lifetime exceeded");x(e),P(e)}},n?.lifetimeMs??2*V),r=e.onInjectedHtml(()=>{j()}),o=e.onSerializationFinished(()=>{F=!0,j(),H()}),j(),l||k()?A:(F=F||e.isSerializationFinished(),F&&(j(),l||k())||(async()=>{try{for(;;){if(N()&&(await v(),l||k()))return;const{done:e,value:t}=await h.reader.read();if(e)break;if(l||k())return;const n="string"==typeof t?t:R.decode(t,{stream:!0}),r=_?_+n:n;if(d>=Tn){$(r),_="";continue}const o=On(r);if(o<-1){const e=-o-2;d=Tn,$(r.slice(e));const t=r.slice(0,e);if(w(t),l||k())return;if(L(t),O(),l||k())return;D(),_="";continue}const s=o;if(s>0){const e=r.slice(0,s);if(w(e),l||k())return;if(L(e),O(),l||k())return;D(),_=r.slice(s),_.length>Rn&&(L(_),w(_.slice(0,_.length-Rn)),_=_.slice(-2048))}else{const e=r;if(e.length>Rn){L(e);const t=e.length-Rn;w(e.slice(0,t)),_=e.slice(t)}else _=e}}if(l||k())return;z()}catch(t){if(l)return;if(d<_n)try{e.setRenderFinished()}catch{}x(t),P(t)}finally{h.release()}})().catch(e=>{l||(x(e),P(e))}),A)}(r,t,n)}var $n,Nn=n(e=>{var t=o(),n=kt(),r=Symbol.for("react.transitional.element"),s=Symbol.for("react.portal"),a=Symbol.for("react.fragment"),i=Symbol.for("react.strict_mode"),l=Symbol.for("react.profiler"),c=Symbol.for("react.consumer"),u=Symbol.for("react.context"),d=Symbol.for("react.forward_ref"),h=Symbol.for("react.suspense"),p=Symbol.for("react.suspense_list"),f=Symbol.for("react.memo"),g=Symbol.for("react.lazy"),m=Symbol.for("react.scope"),y=Symbol.for("react.activity"),v=Symbol.for("react.legacy_hidden"),b=Symbol.for("react.memo_cache_sentinel"),k=Symbol.for("react.view_transition"),S=Symbol.iterator;function w(e){return null===e||"object"!=typeof e?null:"function"==typeof(e=S&&e[S]||e["@@iterator"])?e:null}var x=Array.isArray;function P(e,t){var n=3&e.length,r=e.length-n,o=t;for(t=0;t<r;){var s=255&e.charCodeAt(t)|(255&e.charCodeAt(++t))<<8|(255&e.charCodeAt(++t))<<16|(255&e.charCodeAt(++t))<<24;++t,o=27492+(65535&(o=5*(65535&(o=(o^=s=461845907*(65535&(s=(s=3432918353*(65535&s)+((3432918353*(s>>>16)&65535)<<16)&4294967295)<<15|s>>>17))+((461845907*(s>>>16)&65535)<<16)&4294967295)<<13|o>>>19))+((5*(o>>>16)&65535)<<16)&4294967295))+(((o>>>16)+58964&65535)<<16)}switch(s=0,n){case 3:s^=(255&e.charCodeAt(t+2))<<16;case 2:s^=(255&e.charCodeAt(t+1))<<8;case 1:o^=461845907*(65535&(s=(s=3432918353*(65535&(s^=255&e.charCodeAt(t)))+((3432918353*(s>>>16)&65535)<<16)&4294967295)<<15|s>>>17))+((461845907*(s>>>16)&65535)<<16)&4294967295}return o^=e.length,o=2246822507*(65535&(o^=o>>>16))+((2246822507*(o>>>16)&65535)<<16)&4294967295,((o=3266489909*(65535&(o^=o>>>13))+((3266489909*(o>>>16)&65535)<<16)&4294967295)^o>>>16)>>>0}var R=Object.assign,C=Object.prototype.hasOwnProperty,T=RegExp("^[:A-Z_a-z\\u00C0-\\u00D6\\u00D8-\\u00F6\\u00F8-\\u02FF\\u0370-\\u037D\\u037F-\\u1FFF\\u200C-\\u200D\\u2070-\\u218F\\u2C00-\\u2FEF\\u3001-\\uD7FF\\uF900-\\uFDCF\\uFDF0-\\uFFFD][:A-Z_a-z\\u00C0-\\u00D6\\u00D8-\\u00F6\\u00F8-\\u02FF\\u0370-\\u037D\\u037F-\\u1FFF\\u200C-\\u200D\\u2070-\\u218F\\u2C00-\\u2FEF\\u3001-\\uD7FF\\uF900-\\uFDCF\\uFDF0-\\uFFFD\\-.0-9\\u00B7\\u0300-\\u036F\\u203F-\\u2040]*$"),_={},E={};function I(e){return!!C.call(E,e)||!C.call(_,e)&&(T.test(e)?E[e]=!0:(_[e]=!0,!1))}var M=new Set("animationIterationCount aspectRatio borderImageOutset borderImageSlice borderImageWidth boxFlex boxFlexGroup boxOrdinalGroup columnCount columns flex flexGrow flexPositive flexShrink flexNegative flexOrder gridArea gridRow gridRowEnd gridRowSpan gridRowStart gridColumn gridColumnEnd gridColumnSpan gridColumnStart fontWeight lineClamp lineHeight opacity order orphans scale tabSize widows zIndex zoom fillOpacity floodOpacity stopOpacity strokeDasharray strokeDashoffset strokeMiterlimit strokeOpacity strokeWidth MozAnimationIterationCount MozBoxFlex MozBoxFlexGroup MozLineClamp msAnimationIterationCount msFlex msZoom msFlexGrow msFlexNegative msFlexOrder msFlexPositive msFlexShrink msGridColumn msGridColumnSpan msGridRow msGridRowSpan WebkitAnimationIterationCount WebkitBoxFlex WebKitBoxFlexGroup WebkitBoxOrdinalGroup WebkitColumnCount WebkitColumns WebkitFlex WebkitFlexGrow WebkitFlexPositive WebkitFlexShrink WebkitLineClamp".split(" ")),F=new Map([["acceptCharset","accept-charset"],["htmlFor","for"],["httpEquiv","http-equiv"],["crossOrigin","crossorigin"],["accentHeight","accent-height"],["alignmentBaseline","alignment-baseline"],["arabicForm","arabic-form"],["baselineShift","baseline-shift"],["capHeight","cap-height"],["clipPath","clip-path"],["clipRule","clip-rule"],["colorInterpolation","color-interpolation"],["colorInterpolationFilters","color-interpolation-filters"],["colorProfile","color-profile"],["colorRendering","color-rendering"],["dominantBaseline","dominant-baseline"],["enableBackground","enable-background"],["fillOpacity","fill-opacity"],["fillRule","fill-rule"],["floodColor","flood-color"],["floodOpacity","flood-opacity"],["fontFamily","font-family"],["fontSize","font-size"],["fontSizeAdjust","font-size-adjust"],["fontStretch","font-stretch"],["fontStyle","font-style"],["fontVariant","font-variant"],["fontWeight","font-weight"],["glyphName","glyph-name"],["glyphOrientationHorizontal","glyph-orientation-horizontal"],["glyphOrientationVertical","glyph-orientation-vertical"],["horizAdvX","horiz-adv-x"],["horizOriginX","horiz-origin-x"],["imageRendering","image-rendering"],["letterSpacing","letter-spacing"],["lightingColor","lighting-color"],["markerEnd","marker-end"],["markerMid","marker-mid"],["markerStart","marker-start"],["overlinePosition","overline-position"],["overlineThickness","overline-thickness"],["paintOrder","paint-order"],["panose-1","panose-1"],["pointerEvents","pointer-events"],["renderingIntent","rendering-intent"],["shapeRendering","shape-rendering"],["stopColor","stop-color"],["stopOpacity","stop-opacity"],["strikethroughPosition","strikethrough-position"],["strikethroughThickness","strikethrough-thickness"],["strokeDasharray","stroke-dasharray"],["strokeDashoffset","stroke-dashoffset"],["strokeLinecap","stroke-linecap"],["strokeLinejoin","stroke-linejoin"],["strokeMiterlimit","stroke-miterlimit"],["strokeOpacity","stroke-opacity"],["strokeWidth","stroke-width"],["textAnchor","text-anchor"],["textDecoration","text-decoration"],["textRendering","text-rendering"],["transformOrigin","transform-origin"],["underlinePosition","underline-position"],["underlineThickness","underline-thickness"],["unicodeBidi","unicode-bidi"],["unicodeRange","unicode-range"],["unitsPerEm","units-per-em"],["vAlphabetic","v-alphabetic"],["vHanging","v-hanging"],["vIdeographic","v-ideographic"],["vMathematical","v-mathematical"],["vectorEffect","vector-effect"],["vertAdvY","vert-adv-y"],["vertOriginX","vert-origin-x"],["vertOriginY","vert-origin-y"],["wordSpacing","word-spacing"],["writingMode","writing-mode"],["xmlnsXlink","xmlns:xlink"],["xHeight","x-height"]]),L=/["'&<>]/;function O(e){if("boolean"==typeof e||"number"==typeof e||"bigint"==typeof e)return""+e;e=""+e;var t=L.exec(e);if(t){var n,r="",o=0;for(n=t.index;n<e.length;n++){switch(e.charCodeAt(n)){case 34:t="&quot;";break;case 38:t="&amp;";break;case 39:t="&#x27;";break;case 60:t="&lt;";break;case 62:t="&gt;";break;default:continue}o!==n&&(r+=e.slice(o,n)),o=n+1,r+=t}e=o!==n?r+e.slice(o,n):r}return e}var A=/([A-Z])/g,j=/^ms-/,D=/^[\u0000-\u001F ]*j[\r\n\t]*a[\r\n\t]*v[\r\n\t]*a[\r\n\t]*s[\r\n\t]*c[\r\n\t]*r[\r\n\t]*i[\r\n\t]*p[\r\n\t]*t[\r\n\t]*:/i;function B(e){return D.test(""+e)?"javascript:throw new Error('React has blocked a javascript: URL as a security precaution.')":e}var $=t.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE,N=n.__DOM_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE,H={pending:!1,data:null,method:null,action:null},z=N.d;N.d={f:z.f,r:z.r,D:function(e){var t=pn||null;if(t){var n,r,o=t.resumableState,s=t.renderState;if("string"==typeof e&&e)o.dnsResources.hasOwnProperty(e)||(o.dnsResources[e]=null,(r=(o=s.headers)&&0<o.remainingCapacity)&&(n="<"+(""+e).replace(qe,Ge)+">; rel=dns-prefetch",r=0<=(o.remainingCapacity-=n.length+2)),r?(s.resets.dns[e]=null,o.preconnects&&(o.preconnects+=", "),o.preconnects+=n):(ue(n=[],{href:e,rel:"dns-prefetch"}),s.preconnects.add(n))),lr(t)}else z.D(e)},C:function(e,t){var n=pn||null;if(n){var r=n.resumableState,o=n.renderState;if("string"==typeof e&&e){var s,a,i="use-credentials"===t?"credentials":"string"==typeof t?"anonymous":"default";if(!r.connectResources[i].hasOwnProperty(e))r.connectResources[i][e]=null,(a=(r=o.headers)&&0<r.remainingCapacity)&&(a="<"+(""+e).replace(qe,Ge)+">; rel=preconnect","string"==typeof t&&(a+='; crossorigin="'+(""+t).replace(Ke,Je)+'"'),s=a,a=0<=(r.remainingCapacity-=s.length+2)),a?(o.resets.connect[i][e]=null,r.preconnects&&(r.preconnects+=", "),r.preconnects+=s):(ue(i=[],{rel:"preconnect",href:e,crossOrigin:t}),o.preconnects.add(i));lr(n)}}else z.C(e,t)},L:function(e,t,n){var r=pn||null;if(r){var o=r.resumableState,s=r.renderState;if(t&&e){switch(t){case"image":if(n)var a=n.imageSrcSet,i=n.imageSizes,l=n.fetchPriority;var c,u=a?a+"\n"+(i||""):e;if(o.imageResources.hasOwnProperty(u))return;o.imageResources[u]=V,(o=s.headers)&&0<o.remainingCapacity&&"string"!=typeof a&&"high"===l&&(c=Ue(e,t,n),0<=(o.remainingCapacity-=c.length+2))?(s.resets.image[u]=V,o.highImagePreloads&&(o.highImagePreloads+=", "),o.highImagePreloads+=c):(ue(o=[],R({rel:"preload",href:a?void 0:e,as:t},n)),"high"===l?s.highImagePreloads.add(o):(s.bulkPreloads.add(o),s.preloads.images.set(u,o)));break;case"style":if(o.styleResources.hasOwnProperty(e))return;ue(a=[],R({rel:"preload",href:e,as:t},n)),o.styleResources[e]=!n||"string"!=typeof n.crossOrigin&&"string"!=typeof n.integrity?V:[n.crossOrigin,n.integrity],s.preloads.stylesheets.set(e,a),s.bulkPreloads.add(a);break;case"script":if(o.scriptResources.hasOwnProperty(e))return;a=[],s.preloads.scripts.set(e,a),s.bulkPreloads.add(a),ue(a,R({rel:"preload",href:e,as:t},n)),o.scriptResources[e]=!n||"string"!=typeof n.crossOrigin&&"string"!=typeof n.integrity?V:[n.crossOrigin,n.integrity];break;default:if(o.unknownResources.hasOwnProperty(t)){if((a=o.unknownResources[t]).hasOwnProperty(e))return}else a={},o.unknownResources[t]=a;a[e]=V,(o=s.headers)&&0<o.remainingCapacity&&"font"===t&&(u=Ue(e,t,n),0<=(o.remainingCapacity-=u.length+2))?(s.resets.font[e]=V,o.fontPreloads&&(o.fontPreloads+=", "),o.fontPreloads+=u):"font"===(ue(o=[],e=R({rel:"preload",href:e,as:t},n)),t)?s.fontPreloads.add(o):s.bulkPreloads.add(o)}lr(r)}}else z.L(e,t,n)},m:function(e,t){var n=pn||null;if(n){var r=n.resumableState,o=n.renderState;if(e){var s=t&&"string"==typeof t.as?t.as:"script";if("script"===s){if(r.moduleScriptResources.hasOwnProperty(e))return;s=[],r.moduleScriptResources[e]=!t||"string"!=typeof t.crossOrigin&&"string"!=typeof t.integrity?V:[t.crossOrigin,t.integrity],o.preloads.moduleScripts.set(e,s)}else{if(r.moduleUnknownResources.hasOwnProperty(s)){var a=r.unknownResources[s];if(a.hasOwnProperty(e))return}else a={},r.moduleUnknownResources[s]=a;s=[],a[e]=V}ue(s,R({rel:"modulepreload",href:e},t)),o.bulkPreloads.add(s),lr(n)}}else z.m(e,t)},X:function(e,t){var n=pn||null;if(n){var r=n.resumableState,o=n.renderState;if(e){var s=r.scriptResources.hasOwnProperty(e)?r.scriptResources[e]:void 0;null!==s&&(r.scriptResources[e]=null,t=R({src:e,async:!0},t),s&&(2===s.length&&We(t,s),e=o.preloads.scripts.get(e))&&(e.length=0),e=[],o.scripts.add(e),ge(e,t),lr(n))}}else z.X(e,t)},S:function(e,t,n){var r=pn||null;if(r){var o=r.resumableState,s=r.renderState;if(e){t=t||"default";var a=s.styles.get(t),i=o.styleResources.hasOwnProperty(e)?o.styleResources[e]:void 0;null!==i&&(o.styleResources[e]=null,a||(a={precedence:O(t),rules:[],hrefs:[],sheets:new Map},s.styles.set(t,a)),t={state:0,props:R({rel:"stylesheet",href:e,"data-precedence":t},n)},i&&(2===i.length&&We(t.props,i),(s=s.preloads.stylesheets.get(e))&&0<s.length?s.length=0:t.state=1),a.sheets.set(e,t),lr(r))}}else z.S(e,t,n)},M:function(e,t){var n=pn||null;if(n){var r=n.resumableState,o=n.renderState;if(e){var s=r.moduleScriptResources.hasOwnProperty(e)?r.moduleScriptResources[e]:void 0;null!==s&&(r.moduleScriptResources[e]=null,t=R({src:e,type:"module",async:!0},t),s&&(2===s.length&&We(t,s),e=o.preloads.moduleScripts.get(e))&&(e.length=0),e=[],o.scripts.add(e),ge(e,t),lr(n))}}else z.M(e,t)}};var V=[],W=null,U=/(<\/|<)(s)(cript)/gi;function q(e,t,n,r){return t+("s"===n?"\\u0073":"\\u0053")+r}function G(e,t,n,r){return{insertionMode:e,selectedValue:t,tagScope:n,viewTransition:r}}function K(e,t,n){var r=-25&e.tagScope;switch(t){case"noscript":return G(2,null,1|r,null);case"select":return G(2,null!=n.value?n.value:n.defaultValue,r,null);case"svg":return G(4,null,r,null);case"picture":return G(2,null,2|r,null);case"math":return G(5,null,r,null);case"foreignObject":return G(2,null,r,null);case"table":return G(6,null,r,null);case"thead":case"tbody":case"tfoot":return G(7,null,r,null);case"colgroup":return G(9,null,r,null);case"tr":return G(8,null,r,null);case"head":if(2>e.insertionMode)return G(3,null,r,null);break;case"html":if(0===e.insertionMode)return G(1,null,r,null)}return 6<=e.insertionMode||2>e.insertionMode?G(2,null,r,null):e.tagScope!==r?G(e.insertionMode,e.selectedValue,r,null):e}function J(e){return null===e?null:{update:e.update,enter:"none",exit:"none",share:e.update,name:e.autoName,autoName:e.autoName,nameIdx:0}}function X(e,t){return 32&t.tagScope&&(e.instructions|=128),G(t.insertionMode,t.selectedValue,12|t.tagScope,J(t.viewTransition))}function Y(e,t){e=J(t.viewTransition);var n=16|t.tagScope;return null!==e&&"none"!==e.share&&(n|=64),G(t.insertionMode,t.selectedValue,n,e)}var Z=new Map;function Q(e,t){if("object"!=typeof t)throw Error("The `style` prop expects a mapping from style properties to values, not a string. For example, style={{marginRight: spacing + 'em'}} when using JSX.");var n,r=!0;for(n in t)if(C.call(t,n)){var o=t[n];if(null!=o&&"boolean"!=typeof o&&""!==o){if(0===n.indexOf("--")){var s=O(n);o=O((""+o).trim())}else void 0===(s=Z.get(n))&&(s=O(n.replace(A,"-$1").toLowerCase().replace(j,"-ms-")),Z.set(n,s)),o="number"==typeof o?0===o||M.has(n)?""+o:o+"px":O((""+o).trim());r?(r=!1,e.push(' style="',s,":",o)):e.push(";",s,":",o)}}r||e.push('"')}function ee(e,t,n){n&&"function"!=typeof n&&"symbol"!=typeof n&&e.push(" ",t,'=""')}function te(e,t,n){"function"!=typeof n&&"symbol"!=typeof n&&"boolean"!=typeof n&&e.push(" ",t,'="',O(n),'"')}var ne=O("javascript:throw new Error('React form unexpectedly submitted.')");function re(e,t){this.push('<input type="hidden"'),oe(e),te(this,"name",t),te(this,"value",e),this.push("/>")}function oe(e){if("string"!=typeof e)throw Error("File/Blob fields are not yet supported in progressive forms. Will fallback to client hydration.")}function se(e,t){if("function"==typeof t.$$FORM_ACTION){var n=e.nextFormID++;e=e.idPrefix+n;try{var r=t.$$FORM_ACTION(e);return r&&r.data?.forEach(oe),r}catch(o){if("object"==typeof o&&null!==o&&"function"==typeof o.then)throw o}}return null}function ae(e,t,n,r,o,s,a,i){var l=null;if("function"==typeof r){var c=se(t,r);null!==c?(i=c.name,r=c.action||"",o=c.encType,s=c.method,a=c.target,l=c.data):(e.push(" ","formAction",'="',ne,'"'),a=s=o=r=i=null,ce(t,n))}return null!=i&&ie(e,"name",i),null!=r&&ie(e,"formAction",r),null!=o&&ie(e,"formEncType",o),null!=s&&ie(e,"formMethod",s),null!=a&&ie(e,"formTarget",a),l}function ie(e,t,n){switch(t){case"className":te(e,"class",n);break;case"tabIndex":te(e,"tabindex",n);break;case"dir":case"role":case"viewBox":case"width":case"height":te(e,t,n);break;case"style":Q(e,n);break;case"src":case"href":if(""===n)break;case"action":case"formAction":if(null==n||"function"==typeof n||"symbol"==typeof n||"boolean"==typeof n)break;n=B(""+n),e.push(" ",t,'="',O(n),'"');break;case"defaultValue":case"defaultChecked":case"innerHTML":case"suppressContentEditableWarning":case"suppressHydrationWarning":case"ref":break;case"autoFocus":case"multiple":case"muted":ee(e,t.toLowerCase(),n);break;case"xlinkHref":if("function"==typeof n||"symbol"==typeof n||"boolean"==typeof n)break;n=B(""+n),e.push(" ","xlink:href",'="',O(n),'"');break;case"contentEditable":case"spellCheck":case"draggable":case"value":case"autoReverse":case"externalResourcesRequired":case"focusable":case"preserveAlpha":"function"!=typeof n&&"symbol"!=typeof n&&e.push(" ",t,'="',O(n),'"');break;case"inert":case"allowFullScreen":case"async":case"autoPlay":case"controls":case"default":case"defer":case"disabled":case"disablePictureInPicture":case"disableRemotePlayback":case"formNoValidate":case"hidden":case"loop":case"noModule":case"noValidate":case"open":case"playsInline":case"readOnly":case"required":case"reversed":case"scoped":case"seamless":case"itemScope":n&&"function"!=typeof n&&"symbol"!=typeof n&&e.push(" ",t,'=""');break;case"capture":case"download":!0===n?e.push(" ",t,'=""'):!1!==n&&"function"!=typeof n&&"symbol"!=typeof n&&e.push(" ",t,'="',O(n),'"');break;case"cols":case"rows":case"size":case"span":"function"!=typeof n&&"symbol"!=typeof n&&!isNaN(n)&&1<=n&&e.push(" ",t,'="',O(n),'"');break;case"rowSpan":case"start":"function"==typeof n||"symbol"==typeof n||isNaN(n)||e.push(" ",t,'="',O(n),'"');break;case"xlinkActuate":te(e,"xlink:actuate",n);break;case"xlinkArcrole":te(e,"xlink:arcrole",n);break;case"xlinkRole":te(e,"xlink:role",n);break;case"xlinkShow":te(e,"xlink:show",n);break;case"xlinkTitle":te(e,"xlink:title",n);break;case"xlinkType":te(e,"xlink:type",n);break;case"xmlBase":te(e,"xml:base",n);break;case"xmlLang":te(e,"xml:lang",n);break;case"xmlSpace":te(e,"xml:space",n);break;default:if((!(2<t.length)||"o"!==t[0]&&"O"!==t[0]||"n"!==t[1]&&"N"!==t[1])&&I(t=F.get(t)||t)){switch(typeof n){case"function":case"symbol":return;case"boolean":var r=t.toLowerCase().slice(0,5);if("data-"!==r&&"aria-"!==r)return}e.push(" ",t,'="',O(n),'"')}}}function le(e,t,n){if(null!=t){if(null!=n)throw Error("Can only set one of `children` or `props.dangerouslySetInnerHTML`.");if("object"!=typeof t||!("__html"in t))throw Error("`props.dangerouslySetInnerHTML` must be in the form `{__html: ...}`. Please visit https://react.dev/link/dangerously-set-inner-html for more information.");null!=(t=t.__html)&&e.push(""+t)}}function ce(e,t){if(!(16&e.instructions)){e.instructions|=16;var n=t.preamble,r=t.bootstrapChunks;(n.htmlChunks||n.headChunks)&&0===r.length?(r.push(t.startInlineScript),He(r,e),r.push(">",'addEventListener("submit",function(a){if(!a.defaultPrevented){var c=a.target,d=a.submitter,e=c.action,b=d;if(d){var f=d.getAttribute("formAction");null!=f&&(e=f,b=null)}"javascript:throw new Error(\'React form unexpectedly submitted.\')"===e&&(a.preventDefault(),b?(a=document.createElement("input"),a.name=b.name,a.value=b.value,b.parentNode.insertBefore(a,b),b=new FormData(c),a.parentNode.removeChild(a)):b=new FormData(c),a=c.ownerDocument||c,(a.$$reactFormReplay=a.$$reactFormReplay||[]).push(c,d,b))}});',"<\/script>")):r.unshift(t.startInlineScript,">",'addEventListener("submit",function(a){if(!a.defaultPrevented){var c=a.target,d=a.submitter,e=c.action,b=d;if(d){var f=d.getAttribute("formAction");null!=f&&(e=f,b=null)}"javascript:throw new Error(\'React form unexpectedly submitted.\')"===e&&(a.preventDefault(),b?(a=document.createElement("input"),a.name=b.name,a.value=b.value,b.parentNode.insertBefore(a,b),b=new FormData(c),a.parentNode.removeChild(a)):b=new FormData(c),a=c.ownerDocument||c,(a.$$reactFormReplay=a.$$reactFormReplay||[]).push(c,d,b))}});',"<\/script>")}}function ue(e,t){for(var n in e.push(ke("link")),t)if(C.call(t,n)){var r=t[n];if(null!=r)switch(n){case"children":case"dangerouslySetInnerHTML":throw Error("link is a self-closing tag and must neither have `children` nor use `dangerouslySetInnerHTML`.");default:ie(e,n,r)}}return e.push("/>"),null}var de=/(<\/|<)(s)(tyle)/gi;function he(e,t,n,r){return t+("s"===n?"\\73 ":"\\53 ")+r}function pe(e,t,n){for(var r in e.push(ke(n)),t)if(C.call(t,r)){var o=t[r];if(null!=o)switch(r){case"children":case"dangerouslySetInnerHTML":throw Error(n+" is a self-closing tag and must neither have `children` nor use `dangerouslySetInnerHTML`.");default:ie(e,r,o)}}return e.push("/>"),null}function fe(e,t){e.push(ke("title"));var n,r=null,o=null;for(n in t)if(C.call(t,n)){var s=t[n];if(null!=s)switch(n){case"children":r=s;break;case"dangerouslySetInnerHTML":o=s;break;default:ie(e,n,s)}}return e.push(">"),"function"!=typeof(t=Array.isArray(r)?2>r.length?r[0]:null:r)&&"symbol"!=typeof t&&null!=t&&e.push(O(""+t)),le(e,o,r),e.push(we("title")),null}function ge(e,t){e.push(ke("script"));var n,r=null,o=null;for(n in t)if(C.call(t,n)){var s=t[n];if(null!=s)switch(n){case"children":r=s;break;case"dangerouslySetInnerHTML":o=s;break;default:ie(e,n,s)}}return e.push(">"),le(e,o,r),"string"==typeof r&&e.push((""+r).replace(U,q)),e.push(we("script")),null}function me(e,t,n){e.push(ke(n));var r,o=n=null;for(r in t)if(C.call(t,r)){var s=t[r];if(null!=s)switch(r){case"children":n=s;break;case"dangerouslySetInnerHTML":o=s;break;default:ie(e,r,s)}}return e.push(">"),le(e,o,n),n}function ye(e,t,n){e.push(ke(n));var r,o=n=null;for(r in t)if(C.call(t,r)){var s=t[r];if(null!=s)switch(r){case"children":n=s;break;case"dangerouslySetInnerHTML":o=s;break;default:ie(e,r,s)}}return e.push(">"),le(e,o,n),"string"==typeof n?(e.push(O(n)),null):n}var ve=/^[a-zA-Z][a-zA-Z:_\.\-\d]*$/,be=new Map;function ke(e){var t=be.get(e);if(void 0===t){if(!ve.test(e))throw Error("Invalid tag: "+e);t="<"+e,be.set(e,t)}return t}var Se=new Map;function we(e){var t=Se.get(e);return void 0===t&&(t="</"+e+">",Se.set(e,t)),t}function xe(e,t){null===(e=e.preamble).htmlChunks&&t.htmlChunks&&(e.htmlChunks=t.htmlChunks),null===e.headChunks&&t.headChunks&&(e.headChunks=t.headChunks),null===e.bodyChunks&&t.bodyChunks&&(e.bodyChunks=t.bodyChunks)}function Pe(e,t){t=t.bootstrapChunks;for(var n=0;n<t.length-1;n++)e.push(t[n]);return!(n<t.length)||(n=t[n],t.length=0,e.push(n))}function Re(e,t,n){if(e.push('\x3c!--$?--\x3e<template id="'),null===n)throw Error("An ID must have been assigned before we can complete the boundary.");return e.push(t.boundaryPrefix),t=n.toString(16),e.push(t),e.push('"></template>')}var Ce=/[<\u2028\u2029]/g;function Te(e){return JSON.stringify(e).replace(Ce,function(e){switch(e){case"<":return"\\u003c";case"\u2028":return"\\u2028";case"\u2029":return"\\u2029";default:throw Error("escapeJSStringsForInstructionScripts encountered a match it does not know how to replace. this means the match regex and the replacement characters are no longer in sync. This is a bug in React")}})}var _e=/[&><\u2028\u2029]/g;function Ee(e){return JSON.stringify(e).replace(_e,function(e){switch(e){case"&":return"\\u0026";case">":return"\\u003e";case"<":return"\\u003c";case"\u2028":return"\\u2028";case"\u2029":return"\\u2029";default:throw Error("escapeJSObjectForInstructionScripts encountered a match it does not know how to replace. this means the match regex and the replacement characters are no longer in sync. This is a bug in React")}})}var Ie=!1,Me=!0;function Fe(e){var t=e.rules,n=e.hrefs,r=0;if(n.length){for(this.push(W.startInlineStyle),this.push(' media="not all" data-precedence="'),this.push(e.precedence),this.push('" data-href="');r<n.length-1;r++)this.push(n[r]),this.push(" ");for(this.push(n[r]),this.push('">'),r=0;r<t.length;r++)this.push(t[r]);Me=this.push("</style>"),Ie=!0,t.length=0,n.length=0}}function Le(e){return 2!==e.state&&(Ie=!0)}function Oe(e,t,n){return Ie=!1,Me=!0,W=n,t.styles.forEach(Fe,e),W=null,t.stylesheets.forEach(Le),Ie&&(n.stylesToHoist=!0),Me}function Ae(e){for(var t=0;t<e.length;t++)this.push(e[t]);e.length=0}var je=[];function De(e){ue(je,e.props);for(var t=0;t<je.length;t++)this.push(je[t]);je.length=0,e.state=2}function Be(e){var t=0<e.sheets.size;e.sheets.forEach(De,this),e.sheets.clear();var n=e.rules,r=e.hrefs;if(!t||r.length){if(this.push(W.startInlineStyle),this.push(' data-precedence="'),this.push(e.precedence),e=0,r.length){for(this.push('" data-href="');e<r.length-1;e++)this.push(r[e]),this.push(" ");this.push(r[e])}for(this.push('">'),e=0;e<n.length;e++)this.push(n[e]);this.push("</style>"),n.length=0,r.length=0}}function $e(e){if(0===e.state){e.state=1;var t=e.props;for(ue(je,{rel:"preload",as:"style",href:e.props.href,crossOrigin:t.crossOrigin,fetchPriority:t.fetchPriority,integrity:t.integrity,media:t.media,hrefLang:t.hrefLang,referrerPolicy:t.referrerPolicy}),e=0;e<je.length;e++)this.push(je[e]);je.length=0}}function Ne(e){e.sheets.forEach($e,this),e.sheets.clear()}function He(e,t){!(32&t.instructions)&&(t.instructions|=32,e.push(' id="',O("_"+t.idPrefix+"R_"),'"'))}function ze(e,t,n){var r=t.toLowerCase();switch(typeof n){case"function":case"symbol":return}switch(t){case"innerHTML":case"dangerouslySetInnerHTML":case"suppressContentEditableWarning":case"suppressHydrationWarning":case"style":case"ref":return;case"className":r="class",t=""+n;break;case"hidden":if(!1===n)return;t="";break;case"src":case"href":t=""+(n=B(n));break;default:if(2<t.length&&("o"===t[0]||"O"===t[0])&&("n"===t[1]||"N"===t[1])||!I(t))return;t=""+n}e.push(","),r=Ee(r),e.push(r),e.push(","),r=Ee(t),e.push(r)}function Ve(){return{styles:new Set,stylesheets:new Set,suspenseyImages:!1}}function We(e,t){e.crossOrigin??(e.crossOrigin=t[0]),e.integrity??(e.integrity=t[1])}function Ue(e,t,n){for(var r in t="<"+(e=(""+e).replace(qe,Ge))+'>; rel=preload; as="'+(t=(""+t).replace(Ke,Je))+'"',n)C.call(n,r)&&"string"==typeof(e=n[r])&&(t+="; "+r.toLowerCase()+'="'+(""+e).replace(Ke,Je)+'"');return t}var qe=/[<>\r\n]/g;function Ge(e){switch(e){case"<":return"%3C";case">":return"%3E";case"\n":return"%0A";case"\r":return"%0D";default:throw Error("escapeLinkHrefForHeaderContextReplacer encountered a match it does not know how to replace. this means the match regex and the replacement characters are no longer in sync. This is a bug in React")}}var Ke=/["';,\r\n]/g;function Je(e){switch(e){case'"':return"%22";case"'":return"%27";case";":return"%3B";case",":return"%2C";case"\n":return"%0A";case"\r":return"%0D";default:throw Error("escapeStringForLinkHeaderQuotedParamValueContextReplacer encountered a match it does not know how to replace. this means the match regex and the replacement characters are no longer in sync. This is a bug in React")}}function Xe(e){this.styles.add(e)}function Ye(e){this.stylesheets.add(e)}function Ze(e,t){t.styles.forEach(Xe,e),t.stylesheets.forEach(Ye,e),t.suspenseyImages&&(e.suspenseyImages=!0)}function Qe(e,t,n,r){return n.generateStaticMarkup?(e.push(O(t)),!1):(""===t?e=r:(r&&e.push("\x3c!-- --\x3e"),e.push(O(t)),e=!0),e)}function et(e,t,n,r){t.generateStaticMarkup||n&&r&&e.push("\x3c!-- --\x3e")}var tt=Function.prototype.bind,nt=Symbol.for("react.client.reference");function rt(e){if(null==e)return null;if("function"==typeof e)return e.$$typeof===nt?null:e.displayName||e.name||null;if("string"==typeof e)return e;switch(e){case a:return"Fragment";case l:return"Profiler";case i:return"StrictMode";case h:return"Suspense";case p:return"SuspenseList";case y:return"Activity"}if("object"==typeof e)switch(e.$$typeof){case s:return"Portal";case u:return e.displayName||"Context";case c:return(e._context.displayName||"Context")+".Consumer";case d:var t=e.render;return(e=e.displayName)||(e=""!==(e=t.displayName||t.name||"")?"ForwardRef("+e+")":"ForwardRef"),e;case f:return null!==(t=e.displayName||null)?t:rt(e.type)||"Memo";case g:t=e._payload,e=e._init;try{return rt(e(t))}catch(n){}}return null}var ot={},st=null;function at(e,t){if(e!==t){e.context._currentValue2=e.parentValue,e=e.parent;var n=t.parent;if(null===e){if(null!==n)throw Error("The stacks must reach the root at the same time. This is a bug in React.")}else{if(null===n)throw Error("The stacks must reach the root at the same time. This is a bug in React.");at(e,n)}t.context._currentValue2=t.value}}function it(e){e.context._currentValue2=e.parentValue,null!==(e=e.parent)&&it(e)}function lt(e){var t=e.parent;null!==t&&lt(t),e.context._currentValue2=e.value}function ct(e,t){if(e.context._currentValue2=e.parentValue,null===(e=e.parent))throw Error("The depth must equal at least at zero before reaching the root. This is a bug in React.");e.depth===t.depth?at(e,t):ct(e,t)}function ut(e,t){var n=t.parent;if(null===n)throw Error("The depth must equal at least at zero before reaching the root. This is a bug in React.");e.depth===n.depth?at(e,n):ut(e,n),t.context._currentValue2=t.value}function dt(e){var t=st;t!==e&&(null===t?lt(e):null===e?it(t):t.depth===e.depth?at(t,e):t.depth>e.depth?ct(t,e):ut(t,e),st=e)}var ht={enqueueSetState:function(e,t){null!==(e=e._reactInternals).queue&&e.queue.push(t)},enqueueReplaceState:function(e,t){(e=e._reactInternals).replace=!0,e.queue=[t]},enqueueForceUpdate:function(){}},pt={id:1,overflow:""};function ft(e,t,n){var r=e.id;e=e.overflow;var o=32-gt(r)-1;r&=~(1<<o),n+=1;var s=32-gt(t)+o;if(30<s){var a=o-o%5;return s=(r&(1<<a)-1).toString(32),r>>=a,o-=a,{id:1<<32-gt(t)+o|n<<o|r,overflow:s+e}}return{id:1<<s|n<<o|r,overflow:e}}var gt=Math.clz32?Math.clz32:function(e){return 0==(e>>>=0)?32:31-(mt(e)/yt|0)|0},mt=Math.log,yt=Math.LN2;function vt(){}var bt=Error("Suspense Exception: This is not a real error! It's an implementation detail of `use` to interrupt the current render. You must either rethrow it immediately, or move the `use` call outside of the `try/catch` block. Capturing without rethrowing will lead to unexpected behavior.\n\nTo handle async errors, wrap your component in an error boundary, or call the promise's `.catch` method and pass the result to `use`."),St=null;function wt(){if(null===St)throw Error("Expected a suspended thenable. This is a bug in React. Please file an issue.");var e=St;return St=null,e}var xt="function"==typeof Object.is?Object.is:function(e,t){return e===t&&(0!==e||1/e==1/t)||e!=e&&t!=t},Pt=null,Rt=null,Ct=null,Tt=null,_t=null,Et=null,It=!1,Mt=!1,Ft=0,Lt=0,Ot=-1,At=0,jt=null,Dt=null,Bt=0;function $t(){if(null===Pt)throw Error("Invalid hook call. Hooks can only be called inside of the body of a function component. This could happen for one of the following reasons:\n1. You might have mismatching versions of React and the renderer (such as React DOM)\n2. You might be breaking the Rules of Hooks\n3. You might have more than one copy of React in the same app\nSee https://react.dev/link/invalid-hook-call for tips about how to debug and fix this problem.");return Pt}function Nt(){if(0<Bt)throw Error("Rendered more hooks than during the previous render");return{memoizedState:null,queue:null,next:null}}function Ht(){return null===Et?null===_t?(It=!1,_t=Et=Nt()):(It=!0,Et=_t):null===Et.next?(It=!1,Et=Et.next=Nt()):(It=!0,Et=Et.next),Et}function zt(){var e=jt;return jt=null,e}function Vt(){Tt=Ct=Rt=Pt=null,Mt=!1,_t=null,Bt=0,Et=Dt=null}function Wt(e,t){return"function"==typeof t?t(e):t}function Ut(e,t,n){if(Pt=$t(),Et=Ht(),It){var r=Et.queue;if(t=r.dispatch,null!==Dt&&void 0!==(n=Dt.get(r))){Dt.delete(r),r=Et.memoizedState;do{r=e(r,n.action),n=n.next}while(null!==n);return Et.memoizedState=r,[r,t]}return[Et.memoizedState,t]}return e=e===Wt?"function"==typeof t?t():t:void 0!==n?n(t):t,Et.memoizedState=e,e=(e=Et.queue={last:null,dispatch:null}).dispatch=Gt.bind(null,Pt,e),[Et.memoizedState,e]}function qt(e,t){if(Pt=$t(),t=void 0===t?null:t,null!==(Et=Ht())){var n=Et.memoizedState;if(null!==n&&null!==t){var r=n[1];e:if(null===r)r=!1;else{for(var o=0;o<r.length&&o<t.length;o++)if(!xt(t[o],r[o])){r=!1;break e}r=!0}if(r)return n[0]}}return e=e(),Et.memoizedState=[e,t],e}function Gt(e,t,n){if(25<=Bt)throw Error("Too many re-renders. React limits the number of renders to prevent an infinite loop.");if(e===Pt)if(Mt=!0,e={action:n,next:null},null===Dt&&(Dt=new Map),void 0===(n=Dt.get(t)))Dt.set(t,e);else{for(t=n;null!==t.next;)t=t.next;t.next=e}}function Kt(){throw Error("A function wrapped in useEffectEvent can't be called during rendering.")}function Jt(){throw Error("startTransition cannot be called during server rendering.")}function Xt(){throw Error("Cannot update optimistic state while rendering.")}function Yt(e,t,n){$t();var r=Lt++,o=Ct;if("function"==typeof e.$$FORM_ACTION){var s=null,a=Tt;o=o.formState;var i=e.$$IS_SIGNATURE_EQUAL;if(null!==o&&"function"==typeof i){var l=o[1];i.call(e,o[2],o[3])&&l===(s=void 0!==n?"p"+n:"k"+P(JSON.stringify([a,null,r]),0))&&(Ot=r,t=o[0])}var c=e.bind(null,t);return e=function(e){c(e)},"function"==typeof c.$$FORM_ACTION&&(e.$$FORM_ACTION=function(e){e=c.$$FORM_ACTION(e),void 0!==n&&(n+="",e.action=n);var t=e.data;return t&&(null===s&&(s=void 0!==n?"p"+n:"k"+P(JSON.stringify([a,null,r]),0)),t.append("$ACTION_KEY",s)),e}),[t,e,!1]}var u=e.bind(null,t);return[t,function(e){u(e)},!1]}function Zt(e){var t=At;return At+=1,null===jt&&(jt=[]),function(e,t,n){switch(void 0===(n=e[n])?e.push(t):n!==t&&(t.then(vt,vt),t=n),t.status){case"fulfilled":return t.value;case"rejected":throw t.reason;default:switch("string"==typeof t.status?t.then(vt,vt):((e=t).status="pending",e.then(function(e){if("pending"===t.status){var n=t;n.status="fulfilled",n.value=e}},function(e){if("pending"===t.status){var n=t;n.status="rejected",n.reason=e}})),t.status){case"fulfilled":return t.value;case"rejected":throw t.reason}throw St=t,bt}}(jt,e,t)}function Qt(){throw Error("Cache cannot be refreshed during server rendering.")}var en,tn,nn={readContext:function(e){return e._currentValue2},use:function(e){if(null!==e&&"object"==typeof e){if("function"==typeof e.then)return Zt(e);if(e.$$typeof===u)return e._currentValue2}throw Error("An unsupported type was passed to use(): "+String(e))},useContext:function(e){return $t(),e._currentValue2},useMemo:qt,useReducer:Ut,useRef:function(e){Pt=$t();var t=(Et=Ht()).memoizedState;return null===t?(e={current:e},Et.memoizedState=e):t},useState:function(e){return Ut(Wt,e)},useInsertionEffect:vt,useLayoutEffect:vt,useCallback:function(e,t){return qt(function(){return e},t)},useImperativeHandle:vt,useEffect:vt,useDebugValue:vt,useDeferredValue:function(e,t){return $t(),void 0!==t?t:e},useTransition:function(){return $t(),[!1,Jt]},useId:function(){var e=Rt.treeContext,t=e.overflow;e=((e=e.id)&~(1<<32-gt(e)-1)).toString(32)+t;var n=rn;if(null===n)throw Error("Invalid hook call. Hooks can only be called inside of the body of a function component.");return t=Ft++,e="_"+n.idPrefix+"R_"+e,0<t&&(e+="H"+t.toString(32)),e+"_"},useSyncExternalStore:function(e,t,n){if(void 0===n)throw Error("Missing getServerSnapshot, which is required for server-rendered content. Will revert to client rendering.");return n()},useOptimistic:function(e){return $t(),[e,Xt]},useActionState:Yt,useFormState:Yt,useHostTransitionStatus:function(){return $t(),H},useMemoCache:function(e){for(var t=Array(e),n=0;n<e;n++)t[n]=b;return t},useCacheRefresh:function(){return Qt},useEffectEvent:function(){return Kt}},rn=null,on={getCacheForType:function(){throw Error("Not implemented.")},cacheSignal:function(){throw Error("Not implemented.")}};function sn(e){if(void 0===en)try{throw Error()}catch(n){var t=n.stack.trim().match(/\n( *(at )?)/);en=t&&t[1]||"",tn=-1<n.stack.indexOf("\n    at")?" (<anonymous>)":-1<n.stack.indexOf("@")?"@unknown:0:0":""}return"\n"+en+e+tn}var an=!1;function ln(e,t){if(!e||an)return"";an=!0;var n=Error.prepareStackTrace;Error.prepareStackTrace=void 0;try{var r={DetermineComponentFrameRoot:function(){try{if(t){var n=function(){throw Error()};if(Object.defineProperty(n.prototype,"props",{set:function(){throw Error()}}),"object"==typeof Reflect&&Reflect.construct){try{Reflect.construct(n,[])}catch(o){var r=o}Reflect.construct(e,[],n)}else{try{n.call()}catch(s){r=s}e.call(n.prototype)}}else{try{throw Error()}catch(a){r=a}(n=e())&&"function"==typeof n.catch&&n.catch(function(){})}}catch(i){if(i&&r&&"string"==typeof i.stack)return[i.stack,r.stack]}return[null,null]}};r.DetermineComponentFrameRoot.displayName="DetermineComponentFrameRoot";var o=Object.getOwnPropertyDescriptor(r.DetermineComponentFrameRoot,"name");o&&o.configurable&&Object.defineProperty(r.DetermineComponentFrameRoot,"name",{value:"DetermineComponentFrameRoot"});var s=r.DetermineComponentFrameRoot(),a=s[0],i=s[1];if(a&&i){var l=a.split("\n"),c=i.split("\n");for(o=r=0;r<l.length&&!l[r].includes("DetermineComponentFrameRoot");)r++;for(;o<c.length&&!c[o].includes("DetermineComponentFrameRoot");)o++;if(r===l.length||o===c.length)for(r=l.length-1,o=c.length-1;1<=r&&0<=o&&l[r]!==c[o];)o--;for(;1<=r&&0<=o;r--,o--)if(l[r]!==c[o]){if(1!==r||1!==o)do{if(r--,0>--o||l[r]!==c[o]){var u="\n"+l[r].replace(" at new "," at ");return e.displayName&&u.includes("<anonymous>")&&(u=u.replace("<anonymous>",e.displayName)),u}}while(1<=r&&0<=o);break}}}finally{an=!1,Error.prepareStackTrace=n}return(n=e?e.displayName||e.name:"")?sn(n):""}function cn(e){if("string"==typeof e)return sn(e);if("function"==typeof e)return e.prototype&&e.prototype.isReactComponent?ln(e,!0):ln(e,!1);if("object"==typeof e&&null!==e){switch(e.$$typeof){case d:return ln(e.render,!1);case f:return ln(e.type,!1);case g:var t=e,n=t._payload;t=t._init;try{e=t(n)}catch(o){return sn("Lazy")}return cn(e)}if("string"==typeof e.name){n=e.name,t=e.env;var r=e.debugLocation;return null==r||(e=Error.prepareStackTrace,Error.prepareStackTrace=void 0,r=r.stack,Error.prepareStackTrace=e,r.startsWith("Error: react-stack-top-frame\n")&&(r=r.slice(29)),-1!==(e=r.indexOf("\n"))&&(r=r.slice(e+1)),-1!==(e=r.indexOf("react_stack_bottom_frame"))&&(e=r.lastIndexOf("\n",e)),e=-1!==e?r=r.slice(0,e):"",r=e.lastIndexOf("\n"),-1===(e=-1===r?e:e.slice(r+1)).indexOf(n))?sn(n+(t?" ["+t+"]":"")):"\n"+e}}switch(e){case p:return sn("SuspenseList");case h:return sn("Suspense")}return""}function un(e,t){return 500<t.byteSize&&null===t.contentPreamble}function dn(e){if("object"==typeof e&&null!==e&&"string"==typeof e.environmentName){var t=e.environmentName;"string"==typeof(e=[e].slice(0))[0]?e.splice(0,1,"[%s] "+e[0]," "+t+" "):e.splice(0,0,"[%s]"," "+t+" "),e.unshift(console),(t=tt.apply(console.error,e))()}return null}function hn(e,t,n,r,o,s,a,i,l,c,u){var d=new Set;this.destination=null,this.flushScheduled=!1,this.resumableState=e,this.renderState=t,this.rootFormatContext=n,this.progressiveChunkSize=void 0===r?12800:r,this.status=10,this.fatalError=null,this.pendingRootTasks=this.allPendingTasks=this.nextSegmentId=0,this.completedPreambleSegments=this.completedRootSegment=null,this.byteSize=0,this.abortableTasks=d,this.pingedTasks=[],this.clientRenderedBoundaries=[],this.completedBoundaries=[],this.partialBoundaries=[],this.trackedPostpones=null,this.onError=void 0===o?dn:o,this.onPostpone=void 0===c?vt:c,this.onAllReady=void 0===s?vt:s,this.onShellReady=void 0===a?vt:a,this.onShellError=void 0===i?vt:i,this.onFatalError=void 0===l?vt:l,this.formState=void 0===u?null:u}var pn=null;function fn(e,t){e.pingedTasks.push(t),1===e.pingedTasks.length&&(e.flushScheduled=null!==e.destination,Xn(e))}function gn(e,t,n,r,o){return n={status:0,rootSegmentID:-1,parentFlushed:!1,pendingTasks:0,row:t,completedSegments:[],byteSize:0,fallbackAbortableTasks:n,errorDigest:null,contentState:Ve(),fallbackState:Ve(),contentPreamble:r,fallbackPreamble:o,trackedContentKeyPath:null,trackedFallbackNode:null},null!==t&&(t.pendingTasks++,null!==(r=t.boundaries)&&(e.allPendingTasks++,n.pendingTasks++,r.push(n)),null!==(e=t.inheritedHoistables)&&Ze(n.contentState,e)),n}function mn(e,t,n,r,o,s,a,i,l,c,u,d,h,p,f){e.allPendingTasks++,null===o?e.pendingRootTasks++:o.pendingTasks++,null!==p&&p.pendingTasks++;var g={replay:null,node:n,childIndex:r,ping:function(){return fn(e,g)},blockedBoundary:o,blockedSegment:s,blockedPreamble:a,hoistableState:i,abortSet:l,keyPath:c,formatContext:u,context:d,treeContext:h,row:p,componentStack:f,thenableState:t};return l.add(g),g}function yn(e,t,n,r,o,s,a,i,l,c,u,d,h,p){e.allPendingTasks++,null===s?e.pendingRootTasks++:s.pendingTasks++,null!==h&&h.pendingTasks++,n.pendingTasks++;var f={replay:n,node:r,childIndex:o,ping:function(){return fn(e,f)},blockedBoundary:s,blockedSegment:null,blockedPreamble:null,hoistableState:a,abortSet:i,keyPath:l,formatContext:c,context:u,treeContext:d,row:h,componentStack:p,thenableState:t};return i.add(f),f}function vn(e,t,n,r,o,s){return{status:0,parentFlushed:!1,id:-1,index:t,chunks:[],children:[],preambleChildren:[],parentFormatContext:r,boundary:n,lastPushedText:o,textEmbedded:s}}function bn(e){var t=e.node;"object"==typeof t&&null!==t&&t.$$typeof===r&&(e.componentStack={parent:e.componentStack,type:t.type})}function kn(e){return null===e?null:{parent:e.parent,type:"Suspense Fallback"}}function Sn(e){var t={};return e&&Object.defineProperty(t,"componentStack",{configurable:!0,enumerable:!0,get:function(){try{var n="",r=e;do{n+=cn(r.type),r=r.parent}while(r);var o=n}catch(s){o="\nError generating stack: "+s.message+"\n"+s.stack}return Object.defineProperty(t,"componentStack",{value:o}),o}}),t}function wn(e,t,n){if(null==(t=(e=e.onError)(t,n))||"string"==typeof t)return t}function xn(e,t){var n=e.onShellError,r=e.onFatalError;n(t),r(t),null!==e.destination?(e.status=14,e.destination.destroy(t)):(e.status=13,e.fatalError=t)}function Pn(e,t){Rn(e,t.next,t.hoistables)}function Rn(e,t,n){for(;null!==t;){null!==n&&(Ze(t.hoistables,n),t.inheritedHoistables=n);var r=t.boundaries;if(null!==r){t.boundaries=null;for(var o=0;o<r.length;o++){var s=r[o];null!==n&&Ze(s.contentState,n),Jn(e,s,null,null)}}if(t.pendingTasks--,0<t.pendingTasks)break;n=t.hoistables,t=t.next}}function Cn(e,t){var n=t.boundaries;if(null!==n&&t.pendingTasks===n.length){for(var r=!0,o=0;o<n.length;o++){var s=n[o];if(1!==s.pendingTasks||s.parentFlushed||un(0,s)){r=!1;break}}r&&Rn(e,t,t.hoistables)}}function Tn(e){var t={pendingTasks:1,boundaries:null,hoistables:Ve(),inheritedHoistables:null,together:!1,next:null};return null!==e&&0<e.pendingTasks&&(t.pendingTasks++,t.boundaries=[],e.next=t),t}function _n(e,t,n,r,o){var s=t.keyPath,a=t.treeContext,i=t.row;t.keyPath=n,n=r.length;var l=null;if(null!==t.replay){var c=t.replay.slots;if(null!==c&&"object"==typeof c)for(var u=0;u<n;u++){var d="backwards"!==o&&"unstable_legacy-backwards"!==o?u:n-1-u,h=r[d];t.row=l=Tn(l),t.treeContext=ft(a,n,d);var p=c[d];"number"==typeof p?(Fn(e,t,p,h,d),delete c[d]):Hn(e,t,h,d),0===--l.pendingTasks&&Pn(e,l)}else for(c=0;c<n;c++)d=r[u="backwards"!==o&&"unstable_legacy-backwards"!==o?c:n-1-c],t.row=l=Tn(l),t.treeContext=ft(a,n,u),Hn(e,t,d,u),0===--l.pendingTasks&&Pn(e,l)}else if("backwards"!==o&&"unstable_legacy-backwards"!==o)for(o=0;o<n;o++)c=r[o],t.row=l=Tn(l),t.treeContext=ft(a,n,o),Hn(e,t,c,o),0===--l.pendingTasks&&Pn(e,l);else{for(c=(o=t.blockedSegment).children.length,u=o.chunks.length,d=n-1;0<=d;d--){h=r[d],t.row=l=Tn(l),t.treeContext=ft(a,n,d),p=vn(0,u,null,t.formatContext,0!==d||o.lastPushedText,!0),o.children.splice(c,0,p),t.blockedSegment=p;try{Hn(e,t,h,d),et(p.chunks,e.renderState,p.lastPushedText,p.textEmbedded),p.status=1,0===--l.pendingTasks&&Pn(e,l)}catch(f){throw p.status=12===e.status?3:4,f}}t.blockedSegment=o,o.lastPushedText=!1}null!==i&&null!==l&&0<l.pendingTasks&&(i.pendingTasks++,l.next=i),t.treeContext=a,t.row=i,t.keyPath=s}function En(e,t,n,r,o,s){var a=t.thenableState;for(t.thenableState=null,Pt={},Rt=t,Ct=e,Tt=n,Lt=Ft=0,Ot=-1,At=0,jt=a,e=r(o,s);Mt;)Mt=!1,Lt=Ft=0,Ot=-1,At=0,Bt+=1,Et=null,e=r(o,s);return Vt(),e}function In(e,t,n,r,o,s,a){var i=!1;if(0!==s&&null!==e.formState){var l=t.blockedSegment;if(null!==l){i=!0,l=l.chunks;for(var c=0;c<s;c++)c===a?l.push("\x3c!--F!--\x3e"):l.push("\x3c!--F--\x3e")}}s=t.keyPath,t.keyPath=n,o?(n=t.treeContext,t.treeContext=ft(n,1,0),Hn(e,t,r,-1),t.treeContext=n):i?Hn(e,t,r,-1):Ln(e,t,r,-1),t.keyPath=s}function Mn(e,n,r,o,s,b){if("function"==typeof o)if(o.prototype&&o.prototype.isReactComponent){var S=s;if("ref"in s)for(var P in S={},s)"ref"!==P&&(S[P]=s[P]);var T=o.defaultProps;if(T)for(var _ in S===s&&(S=R({},S,s)),T)void 0===S[_]&&(S[_]=T[_]);s=S,S=ot,"object"==typeof(T=o.contextType)&&null!==T&&(S=T._currentValue2);var E=void 0!==(S=new o(s,S)).state?S.state:null;if(S.updater=ht,S.props=s,S.state=E,T={queue:[],replace:!1},S._reactInternals=T,b=o.contextType,S.context="object"==typeof b&&null!==b?b._currentValue2:ot,"function"==typeof(b=o.getDerivedStateFromProps)&&(E=null==(b=b(s,E))?E:R({},E,b),S.state=E),"function"!=typeof o.getDerivedStateFromProps&&"function"!=typeof S.getSnapshotBeforeUpdate&&("function"==typeof S.UNSAFE_componentWillMount||"function"==typeof S.componentWillMount))if(o=S.state,"function"==typeof S.componentWillMount&&S.componentWillMount(),"function"==typeof S.UNSAFE_componentWillMount&&S.UNSAFE_componentWillMount(),o!==S.state&&ht.enqueueReplaceState(S,S.state,null),null!==T.queue&&0<T.queue.length)if(o=T.queue,b=T.replace,T.queue=null,T.replace=!1,b&&1===o.length)S.state=o[0];else{for(T=b?o[0]:S.state,E=!0,b=b?1:0;b<o.length;b++)null!=(_="function"==typeof(_=o[b])?_.call(S,T,s,void 0):_)&&(E?(E=!1,T=R({},T,_)):R(T,_));S.state=T}else T.queue=null;if(o=S.render(),12===e.status)throw null;s=n.keyPath,n.keyPath=r,Ln(e,n,o,-1),n.keyPath=s}else{if(o=En(e,n,r,o,s,void 0),12===e.status)throw null;In(e,n,r,o,0!==Ft,Lt,Ot)}else{if("string"!=typeof o){switch(o){case v:case i:case l:case a:return o=n.keyPath,n.keyPath=r,Ln(e,n,s.children,-1),void(n.keyPath=o);case y:return void(null===(o=n.blockedSegment)?"hidden"!==s.mode&&(o=n.keyPath,n.keyPath=r,Hn(e,n,s.children,-1),n.keyPath=o):"hidden"!==s.mode&&(e.renderState.generateStaticMarkup||o.chunks.push("\x3c!--&--\x3e"),o.lastPushedText=!1,S=n.keyPath,n.keyPath=r,Hn(e,n,s.children,-1),n.keyPath=S,e.renderState.generateStaticMarkup||o.chunks.push("\x3c!--/&--\x3e"),o.lastPushedText=!1));case p:e:{if(o=s.children,"forwards"===(s=s.revealOrder)||"backwards"===s||"unstable_legacy-backwards"===s){if(x(o)){_n(e,n,r,o,s);break e}if((S=w(o))&&(S=S.call(o))){if(!(T=S.next()).done){do{T=S.next()}while(!T.done);_n(e,n,r,o,s)}break e}}"together"===s?(s=n.keyPath,S=n.row,(T=n.row=Tn(null)).boundaries=[],T.together=!0,n.keyPath=r,Ln(e,n,o,-1),0===--T.pendingTasks&&Pn(e,T),n.keyPath=s,n.row=S,null!==S&&0<T.pendingTasks&&(S.pendingTasks++,T.next=S)):(s=n.keyPath,n.keyPath=r,Ln(e,n,o,-1),n.keyPath=s)}return;case k:case m:throw Error("ReactDOMServer does not yet support scope components.");case h:e:if(null!==n.replay){o=n.keyPath,S=n.formatContext,T=n.row,n.keyPath=r,n.formatContext=Y(e.resumableState,S),n.row=null,r=s.children;try{Hn(e,n,r,-1)}finally{n.keyPath=o,n.formatContext=S,n.row=T}}else{o=n.keyPath,b=n.formatContext;var M=n.row,F=n.blockedBoundary;_=n.blockedPreamble;var L=n.hoistableState;P=n.blockedSegment;var A=s.fallback;s=s.children;var j=new Set,D=gn(e,n.row,j,null,null);null!==e.trackedPostpones&&(D.trackedContentKeyPath=r);var $=vn(0,P.chunks.length,D,n.formatContext,!1,!1);P.children.push($),P.lastPushedText=!1;var N=vn(0,0,null,n.formatContext,!1,!1);if(N.parentFlushed=!0,null!==e.trackedPostpones){S=n.componentStack,E=[(T=[r[0],"Suspense Fallback",r[2]])[1],T[2],[],null],e.trackedPostpones.workingMap.set(T,E),D.trackedFallbackNode=E,n.blockedSegment=$,n.blockedPreamble=D.fallbackPreamble,n.keyPath=T,n.formatContext=X(e.resumableState,b),n.componentStack=kn(S),$.status=6;try{Hn(e,n,A,-1),et($.chunks,e.renderState,$.lastPushedText,$.textEmbedded),$.status=1}catch(H){throw $.status=12===e.status?3:4,H}finally{n.blockedSegment=P,n.blockedPreamble=_,n.keyPath=o,n.formatContext=b}bn(n=mn(e,null,s,-1,D,N,D.contentPreamble,D.contentState,n.abortSet,r,Y(e.resumableState,n.formatContext),n.context,n.treeContext,null,S)),e.pingedTasks.push(n)}else{n.blockedBoundary=D,n.blockedPreamble=D.contentPreamble,n.hoistableState=D.contentState,n.blockedSegment=N,n.keyPath=r,n.formatContext=Y(e.resumableState,b),n.row=null,N.status=6;try{if(Hn(e,n,s,-1),et(N.chunks,e.renderState,N.lastPushedText,N.textEmbedded),N.status=1,Kn(D,N),0===D.pendingTasks&&0===D.status){if(D.status=1,!un(0,D)){null!==M&&0===--M.pendingTasks&&Pn(e,M),0===e.pendingRootTasks&&n.blockedPreamble&&Qn(e);break e}}else null!==M&&M.together&&Cn(e,M)}catch(z){D.status=4,12===e.status?(N.status=3,S=e.fatalError):(N.status=4,S=z),E=wn(e,S,T=Sn(n.componentStack)),D.errorDigest=E,Bn(e,D)}finally{n.blockedBoundary=F,n.blockedPreamble=_,n.hoistableState=L,n.blockedSegment=P,n.keyPath=o,n.formatContext=b,n.row=M}bn(n=mn(e,null,A,-1,F,$,D.fallbackPreamble,D.fallbackState,j,[r[0],"Suspense Fallback",r[2]],X(e.resumableState,n.formatContext),n.context,n.treeContext,n.row,kn(n.componentStack))),e.pingedTasks.push(n)}}return}if("object"==typeof o&&null!==o)switch(o.$$typeof){case d:if("ref"in s)for(A in S={},s)"ref"!==A&&(S[A]=s[A]);else S=s;return void In(e,n,r,o=En(e,n,r,o.render,S,b),0!==Ft,Lt,Ot);case f:return void Mn(e,n,r,o.type,s,b);case u:if(T=s.children,S=n.keyPath,s=s.value,E=o._currentValue2,o._currentValue2=s,st=o={parent:b=st,depth:null===b?0:b.depth+1,context:o,parentValue:E,value:s},n.context=o,n.keyPath=r,Ln(e,n,T,-1),null===(e=st))throw Error("Tried to pop a Context at the root of the app. This is a bug in React.");return e.context._currentValue2=e.parentValue,e=st=e.parent,n.context=e,void(n.keyPath=S);case c:return o=(s=s.children)(o._context._currentValue2),s=n.keyPath,n.keyPath=r,Ln(e,n,o,-1),void(n.keyPath=s);case g:if(o=(S=o._init)(o._payload),12===e.status)throw null;return void Mn(e,n,r,o,s,b)}throw Error("Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: "+(null==o?o:typeof o)+".")}if(null===(S=n.blockedSegment))S=s.children,T=n.formatContext,E=n.keyPath,n.formatContext=K(T,o,s),n.keyPath=r,Hn(e,n,S,-1),n.formatContext=T,n.keyPath=E;else{if(E=function(e,n,r,o,s,a,i,l,c){switch(n){case"div":case"span":case"svg":case"path":case"g":case"p":case"li":case"annotation-xml":case"color-profile":case"font-face":case"font-face-src":case"font-face-uri":case"font-face-format":case"font-face-name":case"missing-glyph":break;case"a":e.push(ke("a"));var u,d=null,h=null;for(u in r)if(C.call(r,u)){var p=r[u];if(null!=p)switch(u){case"children":d=p;break;case"dangerouslySetInnerHTML":h=p;break;case"href":""===p?te(e,"href",""):ie(e,u,p);break;default:ie(e,u,p)}}if(e.push(">"),le(e,h,d),"string"==typeof d){e.push(O(d));var f=null}else f=d;return f;case"select":e.push(ke("select"));var g,m=null,y=null;for(g in r)if(C.call(r,g)){var v=r[g];if(null!=v)switch(g){case"children":m=v;break;case"dangerouslySetInnerHTML":y=v;break;case"defaultValue":case"value":break;default:ie(e,g,v)}}return e.push(">"),le(e,y,m),m;case"option":var b=l.selectedValue;e.push(ke("option"));var k,S=null,w=null,P=null,T=null;for(k in r)if(C.call(r,k)){var _=r[k];if(null!=_)switch(k){case"children":S=_;break;case"selected":P=_;break;case"dangerouslySetInnerHTML":T=_;break;case"value":w=_;default:ie(e,k,_)}}if(null!=b){var E=null!==w?""+w:function(e){var n="";return t.Children.forEach(e,function(e){null!=e&&(n+=e)}),n}(S);if(x(b)){for(var M=0;M<b.length;M++)if(""+b[M]===E){e.push(' selected=""');break}}else""+b===E&&e.push(' selected=""')}else P&&e.push(' selected=""');return e.push(">"),le(e,T,S),S;case"textarea":e.push(ke("textarea"));var F,L=null,A=null,j=null;for(F in r)if(C.call(r,F)){var D=r[F];if(null!=D)switch(F){case"children":j=D;break;case"value":L=D;break;case"defaultValue":A=D;break;case"dangerouslySetInnerHTML":throw Error("`dangerouslySetInnerHTML` does not make sense on <textarea>.");default:ie(e,F,D)}}if(null===L&&null!==A&&(L=A),e.push(">"),null!=j){if(null!=L)throw Error("If you supply `defaultValue` on a <textarea>, do not pass children.");if(x(j)){if(1<j.length)throw Error("<textarea> can only have at most one child.");L=""+j[0]}L=""+j}return"string"==typeof L&&"\n"===L[0]&&e.push("\n"),null!==L&&e.push(O(""+L)),null;case"input":e.push(ke("input"));var $,N=null,H=null,z=null,W=null,U=null,q=null,G=null,K=null,J=null;for($ in r)if(C.call(r,$)){var X=r[$];if(null!=X)switch($){case"children":case"dangerouslySetInnerHTML":throw Error("input is a self-closing tag and must neither have `children` nor use `dangerouslySetInnerHTML`.");case"name":N=X;break;case"formAction":H=X;break;case"formEncType":z=X;break;case"formMethod":W=X;break;case"formTarget":U=X;break;case"defaultChecked":J=X;break;case"defaultValue":G=X;break;case"checked":K=X;break;case"value":q=X;break;default:ie(e,$,X)}}var Y=ae(e,o,s,H,z,W,U,N);return null!==K?ee(e,"checked",K):null!==J&&ee(e,"checked",J),null!==q?ie(e,"value",q):null!==G&&ie(e,"value",G),e.push("/>"),Y?.forEach(re,e),null;case"button":e.push(ke("button"));var Z,oe=null,ve=null,be=null,Se=null,xe=null,Pe=null,Re=null;for(Z in r)if(C.call(r,Z)){var Ce=r[Z];if(null!=Ce)switch(Z){case"children":oe=Ce;break;case"dangerouslySetInnerHTML":ve=Ce;break;case"name":be=Ce;break;case"formAction":Se=Ce;break;case"formEncType":xe=Ce;break;case"formMethod":Pe=Ce;break;case"formTarget":Re=Ce;break;default:ie(e,Z,Ce)}}var Te=ae(e,o,s,Se,xe,Pe,Re,be);if(e.push(">"),Te?.forEach(re,e),le(e,ve,oe),"string"==typeof oe){e.push(O(oe));var _e=null}else _e=oe;return _e;case"form":e.push(ke("form"));var Ee,Ie=null,Me=null,Fe=null,Le=null,Oe=null,Ae=null;for(Ee in r)if(C.call(r,Ee)){var je=r[Ee];if(null!=je)switch(Ee){case"children":Ie=je;break;case"dangerouslySetInnerHTML":Me=je;break;case"action":Fe=je;break;case"encType":Le=je;break;case"method":Oe=je;break;case"target":Ae=je;break;default:ie(e,Ee,je)}}var De=null,Be=null;if("function"==typeof Fe){var $e=se(o,Fe);null!==$e?(Fe=$e.action||"",Le=$e.encType,Oe=$e.method,Ae=$e.target,De=$e.data,Be=$e.name):(e.push(" ","action",'="',ne,'"'),Ae=Oe=Le=Fe=null,ce(o,s))}if(null!=Fe&&ie(e,"action",Fe),null!=Le&&ie(e,"encType",Le),null!=Oe&&ie(e,"method",Oe),null!=Ae&&ie(e,"target",Ae),e.push(">"),null!==Be&&(e.push('<input type="hidden"'),te(e,"name",Be),e.push("/>"),De?.forEach(re,e)),le(e,Me,Ie),"string"==typeof Ie){e.push(O(Ie));var Ne=null}else Ne=Ie;return Ne;case"menuitem":for(var He in e.push(ke("menuitem")),r)if(C.call(r,He)){var ze=r[He];if(null!=ze)switch(He){case"children":case"dangerouslySetInnerHTML":throw Error("menuitems cannot have `children` nor `dangerouslySetInnerHTML`.");default:ie(e,He,ze)}}return e.push(">"),null;case"object":e.push(ke("object"));var Ve,qe=null,Ge=null;for(Ve in r)if(C.call(r,Ve)){var Ke=r[Ve];if(null!=Ke)switch(Ve){case"children":qe=Ke;break;case"dangerouslySetInnerHTML":Ge=Ke;break;case"data":var Je=B(""+Ke);if(""===Je)break;e.push(" ","data",'="',O(Je),'"');break;default:ie(e,Ve,Ke)}}if(e.push(">"),le(e,Ge,qe),"string"==typeof qe){e.push(O(qe));var Xe=null}else Xe=qe;return Xe;case"title":var Ye=1&l.tagScope,Ze=4&l.tagScope;if(4===l.insertionMode||Ye||null!=r.itemProp)var Qe=fe(e,r);else Ze?Qe=null:(fe(s.hoistableChunks,r),Qe=void 0);return Qe;case"link":var et=1&l.tagScope,tt=4&l.tagScope,nt=r.rel,rt=r.href,ot=r.precedence;if(4===l.insertionMode||et||null!=r.itemProp||"string"!=typeof nt||"string"!=typeof rt||""===rt){ue(e,r);var st=null}else if("stylesheet"===r.rel)if("string"!=typeof ot||null!=r.disabled||r.onLoad||r.onError)st=ue(e,r);else{var at=s.styles.get(ot),it=o.styleResources.hasOwnProperty(rt)?o.styleResources[rt]:void 0;if(null!==it){o.styleResources[rt]=null,at||(at={precedence:O(ot),rules:[],hrefs:[],sheets:new Map},s.styles.set(ot,at));var lt={state:0,props:R({},r,{"data-precedence":r.precedence,precedence:null})};if(it){2===it.length&&We(lt.props,it);var ct=s.preloads.stylesheets.get(rt);ct&&0<ct.length?ct.length=0:lt.state=1}at.sheets.set(rt,lt),i&&i.stylesheets.add(lt)}else if(at){var ut=at.sheets.get(rt);ut&&i&&i.stylesheets.add(ut)}c&&e.push("\x3c!-- --\x3e"),st=null}else r.onLoad||r.onError?st=ue(e,r):(c&&e.push("\x3c!-- --\x3e"),st=tt?null:ue(s.hoistableChunks,r));return st;case"script":var dt=1&l.tagScope,ht=r.async;if("string"!=typeof r.src||!r.src||!ht||"function"==typeof ht||"symbol"==typeof ht||r.onLoad||r.onError||4===l.insertionMode||dt||null!=r.itemProp)var pt=ge(e,r);else{var ft=r.src;if("module"===r.type)var gt=o.moduleScriptResources,mt=s.preloads.moduleScripts;else gt=o.scriptResources,mt=s.preloads.scripts;var yt=gt.hasOwnProperty(ft)?gt[ft]:void 0;if(null!==yt){gt[ft]=null;var vt=r;if(yt){2===yt.length&&We(vt=R({},r),yt);var bt=mt.get(ft);bt&&(bt.length=0)}var kt=[];s.scripts.add(kt),ge(kt,vt)}c&&e.push("\x3c!-- --\x3e"),pt=null}return pt;case"style":var St=1&l.tagScope,wt=r.precedence,xt=r.href,Pt=r.nonce;if(4===l.insertionMode||St||null!=r.itemProp||"string"!=typeof wt||"string"!=typeof xt||""===xt){e.push(ke("style"));var Rt,Ct=null,Tt=null;for(Rt in r)if(C.call(r,Rt)){var _t=r[Rt];if(null!=_t)switch(Rt){case"children":Ct=_t;break;case"dangerouslySetInnerHTML":Tt=_t;break;default:ie(e,Rt,_t)}}e.push(">");var Et=Array.isArray(Ct)?2>Ct.length?Ct[0]:null:Ct;"function"!=typeof Et&&"symbol"!=typeof Et&&null!=Et&&e.push((""+Et).replace(de,he)),le(e,Tt,Ct),e.push(we("style"));var It=null}else{var Mt=s.styles.get(wt);if(null!==(o.styleResources.hasOwnProperty(xt)?o.styleResources[xt]:void 0)){o.styleResources[xt]=null,Mt||(Mt={precedence:O(wt),rules:[],hrefs:[],sheets:new Map},s.styles.set(wt,Mt));var Ft=s.nonce.style;if(!Ft||Ft===Pt){Mt.hrefs.push(O(xt));var Lt,Ot=Mt.rules,At=null,jt=null;for(Lt in r)if(C.call(r,Lt)){var Dt=r[Lt];if(null!=Dt)switch(Lt){case"children":At=Dt;break;case"dangerouslySetInnerHTML":jt=Dt}}var Bt=Array.isArray(At)?2>At.length?At[0]:null:At;"function"!=typeof Bt&&"symbol"!=typeof Bt&&null!=Bt&&Ot.push((""+Bt).replace(de,he)),le(Ot,jt,At)}}Mt&&i&&i.styles.add(Mt),c&&e.push("\x3c!-- --\x3e"),It=void 0}return It;case"meta":var $t=1&l.tagScope,Nt=4&l.tagScope;if(4===l.insertionMode||$t||null!=r.itemProp)var Ht=pe(e,r,"meta");else c&&e.push("\x3c!-- --\x3e"),Ht=Nt?null:"string"==typeof r.charSet?pe(s.charsetChunks,r,"meta"):"viewport"===r.name?pe(s.viewportChunks,r,"meta"):pe(s.hoistableChunks,r,"meta");return Ht;case"listing":case"pre":e.push(ke(n));var zt,Vt=null,Wt=null;for(zt in r)if(C.call(r,zt)){var Ut=r[zt];if(null!=Ut)switch(zt){case"children":Vt=Ut;break;case"dangerouslySetInnerHTML":Wt=Ut;break;default:ie(e,zt,Ut)}}if(e.push(">"),null!=Wt){if(null!=Vt)throw Error("Can only set one of `children` or `props.dangerouslySetInnerHTML`.");if("object"!=typeof Wt||!("__html"in Wt))throw Error("`props.dangerouslySetInnerHTML` must be in the form `{__html: ...}`. Please visit https://react.dev/link/dangerously-set-inner-html for more information.");var qt=Wt.__html;null!=qt&&("string"==typeof qt&&0<qt.length&&"\n"===qt[0]?e.push("\n",qt):e.push(""+qt))}return"string"==typeof Vt&&"\n"===Vt[0]&&e.push("\n"),Vt;case"img":var Gt=3&l.tagScope,Kt=r.src,Jt=r.srcSet;if(!("lazy"===r.loading||!Kt&&!Jt||"string"!=typeof Kt&&null!=Kt||"string"!=typeof Jt&&null!=Jt||"low"===r.fetchPriority||Gt)&&("string"!=typeof Kt||":"!==Kt[4]||"d"!==Kt[0]&&"D"!==Kt[0]||"a"!==Kt[1]&&"A"!==Kt[1]||"t"!==Kt[2]&&"T"!==Kt[2]||"a"!==Kt[3]&&"A"!==Kt[3])&&("string"!=typeof Jt||":"!==Jt[4]||"d"!==Jt[0]&&"D"!==Jt[0]||"a"!==Jt[1]&&"A"!==Jt[1]||"t"!==Jt[2]&&"T"!==Jt[2]||"a"!==Jt[3]&&"A"!==Jt[3])){null!==i&&64&l.tagScope&&(i.suspenseyImages=!0);var Xt="string"==typeof r.sizes?r.sizes:void 0,Yt=Jt?Jt+"\n"+(Xt||""):Kt,Zt=s.preloads.images,Qt=Zt.get(Yt);if(Qt)("high"===r.fetchPriority||10>s.highImagePreloads.size)&&(Zt.delete(Yt),s.highImagePreloads.add(Qt));else if(!o.imageResources.hasOwnProperty(Yt)){o.imageResources[Yt]=V;var en,tn=r.crossOrigin,nn="string"==typeof tn?"use-credentials"===tn?tn:"":void 0,rn=s.headers;rn&&0<rn.remainingCapacity&&"string"!=typeof r.srcSet&&("high"===r.fetchPriority||500>rn.highImagePreloads.length)&&(en=Ue(Kt,"image",{imageSrcSet:r.srcSet,imageSizes:r.sizes,crossOrigin:nn,integrity:r.integrity,nonce:r.nonce,type:r.type,fetchPriority:r.fetchPriority,referrerPolicy:r.refererPolicy}),0<=(rn.remainingCapacity-=en.length+2))?(s.resets.image[Yt]=V,rn.highImagePreloads&&(rn.highImagePreloads+=", "),rn.highImagePreloads+=en):(ue(Qt=[],{rel:"preload",as:"image",href:Jt?void 0:Kt,imageSrcSet:Jt,imageSizes:Xt,crossOrigin:nn,integrity:r.integrity,type:r.type,fetchPriority:r.fetchPriority,referrerPolicy:r.referrerPolicy}),"high"===r.fetchPriority||10>s.highImagePreloads.size?s.highImagePreloads.add(Qt):(s.bulkPreloads.add(Qt),Zt.set(Yt,Qt)))}}return pe(e,r,"img");case"base":case"area":case"br":case"col":case"embed":case"hr":case"keygen":case"param":case"source":case"track":case"wbr":return pe(e,r,n);case"head":if(2>l.insertionMode){var on=a||s.preamble;if(on.headChunks)throw Error("The `<head>` tag may only be rendered once.");null!==a&&e.push("\x3c!--head--\x3e"),on.headChunks=[];var sn=me(on.headChunks,r,"head")}else sn=ye(e,r,"head");return sn;case"body":if(2>l.insertionMode){var an=a||s.preamble;if(an.bodyChunks)throw Error("The `<body>` tag may only be rendered once.");null!==a&&e.push("\x3c!--body--\x3e"),an.bodyChunks=[];var ln=me(an.bodyChunks,r,"body")}else ln=ye(e,r,"body");return ln;case"html":if(0===l.insertionMode){var cn=a||s.preamble;if(cn.htmlChunks)throw Error("The `<html>` tag may only be rendered once.");null!==a&&e.push("\x3c!--html--\x3e"),cn.htmlChunks=[""];var un=me(cn.htmlChunks,r,"html")}else un=ye(e,r,"html");return un;default:if(-1!==n.indexOf("-")){e.push(ke(n));var dn,hn=null,pn=null;for(dn in r)if(C.call(r,dn)){var fn=r[dn];if(null!=fn){var gn=dn;switch(dn){case"children":hn=fn;break;case"dangerouslySetInnerHTML":pn=fn;break;case"style":Q(e,fn);break;case"suppressContentEditableWarning":case"suppressHydrationWarning":case"ref":break;case"className":gn="class";default:if(I(dn)&&"function"!=typeof fn&&"symbol"!=typeof fn&&!1!==fn){if(!0===fn)fn="";else if("object"==typeof fn)continue;e.push(" ",gn,'="',O(fn),'"')}}}}return e.push(">"),le(e,pn,hn),hn}}return ye(e,r,n)}(S.chunks,o,s,e.resumableState,e.renderState,n.blockedPreamble,n.hoistableState,n.formatContext,S.lastPushedText),S.lastPushedText=!1,T=n.formatContext,b=n.keyPath,n.keyPath=r,3===(n.formatContext=K(T,o,s)).insertionMode){r=vn(0,0,null,n.formatContext,!1,!1),S.preambleChildren.push(r),n.blockedSegment=r;try{r.status=6,Hn(e,n,E,-1),et(r.chunks,e.renderState,r.lastPushedText,r.textEmbedded),r.status=1}finally{n.blockedSegment=S}}else Hn(e,n,E,-1);n.formatContext=T,n.keyPath=b;e:{switch(n=S.chunks,e=e.resumableState,o){case"title":case"style":case"script":case"area":case"base":case"br":case"col":case"embed":case"hr":case"img":case"input":case"keygen":case"link":case"meta":case"param":case"source":case"track":case"wbr":break e;case"body":if(1>=T.insertionMode){e.hasBody=!0;break e}break;case"html":if(0===T.insertionMode){e.hasHtml=!0;break e}break;case"head":if(1>=T.insertionMode)break e}n.push(we(o))}S.lastPushedText=!1}}}function Fn(e,t,n,r,o){var s=t.replay,a=t.blockedBoundary,i=vn(0,0,null,t.formatContext,!1,!1);i.id=n,i.parentFlushed=!0;try{t.replay=null,t.blockedSegment=i,Hn(e,t,r,o),i.status=1,null===a?e.completedRootSegment=i:(Kn(a,i),a.parentFlushed&&e.partialBoundaries.push(a))}finally{t.replay=s,t.blockedSegment=null}}function Ln(e,t,n,r){null!==t.replay&&"number"==typeof t.replay.slots?Fn(e,t,t.replay.slots,n,r):(t.node=n,t.childIndex=r,n=t.componentStack,bn(t),On(e,t),t.componentStack=n)}function On(e,t){var n=t.node,o=t.childIndex;if(null!==n){if("object"==typeof n){switch(n.$$typeof){case r:var a=n.type,i=n.key,l=n.props,c=void 0!==(n=l.ref)?n:null,d=rt(a),p=null==i?-1===o?0:o:i;if(i=[t.keyPath,d,p],null!==t.replay)e:{var f=t.replay;for(o=f.nodes,n=0;n<o.length;n++){var m=o[n];if(p===m[1]){if(4===m.length){if(null!==d&&d!==m[0])throw Error("Expected the resume to render <"+m[0]+"> in this slot but instead it rendered <"+d+">. The tree doesn't match so React will fallback to client rendering.");var y=m[2];d=m[3],p=t.node,t.replay={nodes:y,slots:d,pendingTasks:1};try{if(Mn(e,t,i,a,l,c),1===t.replay.pendingTasks&&0<t.replay.nodes.length)throw Error("Couldn't find all resumable slots by key/index during replaying. The tree doesn't match so React will fallback to client rendering.");t.replay.pendingTasks--}catch(E){if("object"==typeof E&&null!==E&&(E===bt||"function"==typeof E.then))throw t.node===p?t.replay=f:o.splice(n,1),E;t.replay.pendingTasks--,l=Sn(t.componentStack),Vn(i=e,e=t.blockedBoundary,y,d,a=E,l=wn(i,a,l))}t.replay=f}else{if(a!==h)throw Error("Expected the resume to render <Suspense> in this slot but instead it rendered <"+(rt(a)||"Unknown")+">. The tree doesn't match so React will fallback to client rendering.");t:{f=void 0,a=m[5],c=m[2],d=m[3],p=null===m[4]?[]:m[4][2],m=null===m[4]?null:m[4][3];var v=t.keyPath,b=t.formatContext,k=t.row,S=t.replay,P=t.blockedBoundary,R=t.hoistableState,C=l.children,T=l.fallback,_=new Set;(l=gn(e,t.row,_,null,null)).parentFlushed=!0,l.rootSegmentID=a,t.blockedBoundary=l,t.hoistableState=l.contentState,t.keyPath=i,t.formatContext=Y(e.resumableState,b),t.row=null,t.replay={nodes:c,slots:d,pendingTasks:1};try{if(Hn(e,t,C,-1),1===t.replay.pendingTasks&&0<t.replay.nodes.length)throw Error("Couldn't find all resumable slots by key/index during replaying. The tree doesn't match so React will fallback to client rendering.");if(t.replay.pendingTasks--,0===l.pendingTasks&&0===l.status){l.status=1,e.completedBoundaries.push(l);break t}}catch(I){l.status=4,f=wn(e,I,y=Sn(t.componentStack)),l.errorDigest=f,t.replay.pendingTasks--,e.clientRenderedBoundaries.push(l)}finally{t.blockedBoundary=P,t.hoistableState=R,t.replay=S,t.keyPath=v,t.formatContext=b,t.row=k}bn(y=yn(e,null,{nodes:p,slots:m,pendingTasks:0},T,-1,P,l.fallbackState,_,[i[0],"Suspense Fallback",i[2]],X(e.resumableState,t.formatContext),t.context,t.treeContext,t.row,kn(t.componentStack))),e.pingedTasks.push(y)}}o.splice(n,1);break e}}}else Mn(e,t,i,a,l,c);return;case s:throw Error("Portals are not currently supported by the server renderer. Render them conditionally so that they only appear on the client render.");case g:if(n=(y=n._init)(n._payload),12===e.status)throw null;return void Ln(e,t,n,o)}if(x(n))return void An(e,t,n,o);if((y=w(n))&&(y=y.call(n))){if(!(n=y.next()).done){l=[];do{l.push(n.value),n=y.next()}while(!n.done);An(e,t,l,o)}return}if("function"==typeof n.then)return t.thenableState=null,Ln(e,t,Zt(n),o);if(n.$$typeof===u)return Ln(e,t,n._currentValue2,o);throw o=Object.prototype.toString.call(n),Error("Objects are not valid as a React child (found: "+("[object Object]"===o?"object with keys {"+Object.keys(n).join(", ")+"}":o)+"). If you meant to render a collection of children, use an array instead.")}"string"==typeof n?null!==(o=t.blockedSegment)&&(o.lastPushedText=Qe(o.chunks,n,e.renderState,o.lastPushedText)):"number"!=typeof n&&"bigint"!=typeof n||null!==(o=t.blockedSegment)&&(o.lastPushedText=Qe(o.chunks,""+n,e.renderState,o.lastPushedText))}}function An(e,t,n,r){var o=t.keyPath;if(-1===r||(t.keyPath=[t.keyPath,"Fragment",r],null===t.replay)){if(s=t.treeContext,a=n.length,null!==t.replay&&null!==(i=t.replay.slots)&&"object"==typeof i){for(r=0;r<a;r++)l=n[r],t.treeContext=ft(s,a,r),"number"==typeof(c=i[r])?(Fn(e,t,c,l,r),delete i[r]):Hn(e,t,l,r);return t.treeContext=s,void(t.keyPath=o)}for(i=0;i<a;i++)r=n[i],t.treeContext=ft(s,a,i),Hn(e,t,r,i);t.treeContext=s,t.keyPath=o}else{for(var s=t.replay,a=s.nodes,i=0;i<a.length;i++){var l=a[i];if(l[1]===r){r=l[2],l=l[3],t.replay={nodes:r,slots:l,pendingTasks:1};try{if(An(e,t,n,-1),1===t.replay.pendingTasks&&0<t.replay.nodes.length)throw Error("Couldn't find all resumable slots by key/index during replaying. The tree doesn't match so React will fallback to client rendering.");t.replay.pendingTasks--}catch(u){if("object"==typeof u&&null!==u&&(u===bt||"function"==typeof u.then))throw u;t.replay.pendingTasks--,n=Sn(t.componentStack);var c=t.blockedBoundary;Vn(e,c,r,l,u,n=wn(e,u,n))}t.replay=s,a.splice(i,1);break}}t.keyPath=o}}function jn(e,t,n){if(n.status=5,n.rootSegmentID=e.nextSegmentId++,null===(e=n.trackedContentKeyPath))throw Error("It should not be possible to postpone at the root. This is a bug in React.");var r=n.trackedFallbackNode,o=t.workingMap.get(e);return void 0===o?(n=[e[1],e[2],[],null,r,n.rootSegmentID],t.workingMap.set(e,n),dr(n,e[0],t),n):(o[4]=r,o[5]=n.rootSegmentID,o)}function Dn(e,t,n,r){r.status=5;var o=n.keyPath,s=n.blockedBoundary;if(null===s)r.id=e.nextSegmentId++,t.rootSlots=r.id,null!==e.completedRootSegment&&(e.completedRootSegment.status=5);else{if(null!==s&&0===s.status){var a=jn(e,t,s);if(s.trackedContentKeyPath===o&&-1===n.childIndex)return-1===r.id&&(r.id=r.parentFlushed?s.rootSegmentID:e.nextSegmentId++),void(a[3]=r.id)}if(-1===r.id&&(r.id=r.parentFlushed&&null!==s?s.rootSegmentID:e.nextSegmentId++),-1===n.childIndex)null===o?t.rootSlots=r.id:void 0===(n=t.workingMap.get(o))?dr(n=[o[1],o[2],[],r.id],o[0],t):n[3]=r.id;else{if(null===o){if(null===(e=t.rootSlots))e=t.rootSlots={};else if("number"==typeof e)throw Error("It should not be possible to postpone both at the root of an element as well as a slot below. This is a bug in React.")}else if(void 0===(a=(s=t.workingMap).get(o)))e={},a=[o[1],o[2],[],e],s.set(o,a),dr(a,o[0],t);else if(null===(e=a[3]))e=a[3]={};else if("number"==typeof e)throw Error("It should not be possible to postpone both at the root of an element as well as a slot below. This is a bug in React.");e[n.childIndex]=r.id}}}function Bn(e,t){null!==(e=e.trackedPostpones)&&null!==(t=t.trackedContentKeyPath)&&void 0!==(t=e.workingMap.get(t))&&(t.length=4,t[2]=[],t[3]=null)}function $n(e,t,n){return yn(e,n,t.replay,t.node,t.childIndex,t.blockedBoundary,t.hoistableState,t.abortSet,t.keyPath,t.formatContext,t.context,t.treeContext,t.row,t.componentStack)}function Nn(e,t,n){var r=t.blockedSegment,o=vn(0,r.chunks.length,null,t.formatContext,r.lastPushedText,!0);return r.children.push(o),r.lastPushedText=!1,mn(e,n,t.node,t.childIndex,t.blockedBoundary,o,t.blockedPreamble,t.hoistableState,t.abortSet,t.keyPath,t.formatContext,t.context,t.treeContext,t.row,t.componentStack)}function Hn(e,t,n,r){var o=t.formatContext,s=t.context,a=t.keyPath,i=t.treeContext,l=t.componentStack,c=t.blockedSegment;if(null===c){c=t.replay;try{return Ln(e,t,n,r)}catch(h){if(Vt(),n=h===bt?wt():h,12!==e.status&&"object"==typeof n&&null!==n){if("function"==typeof n.then)return e=$n(e,t,r=h===bt?zt():null).ping,n.then(e,e),t.formatContext=o,t.context=s,t.keyPath=a,t.treeContext=i,t.componentStack=l,t.replay=c,void dt(s);if("Maximum call stack size exceeded"===n.message)return n=$n(e,t,n=h===bt?zt():null),e.pingedTasks.push(n),t.formatContext=o,t.context=s,t.keyPath=a,t.treeContext=i,t.componentStack=l,t.replay=c,void dt(s)}}}else{var u=c.children.length,d=c.chunks.length;try{return Ln(e,t,n,r)}catch(p){if(Vt(),c.children.length=u,c.chunks.length=d,n=p===bt?wt():p,12!==e.status&&"object"==typeof n&&null!==n){if("function"==typeof n.then)return c=n,e=Nn(e,t,n=p===bt?zt():null).ping,c.then(e,e),t.formatContext=o,t.context=s,t.keyPath=a,t.treeContext=i,t.componentStack=l,void dt(s);if("Maximum call stack size exceeded"===n.message)return c=Nn(e,t,c=p===bt?zt():null),e.pingedTasks.push(c),t.formatContext=o,t.context=s,t.keyPath=a,t.treeContext=i,t.componentStack=l,void dt(s)}}}throw t.formatContext=o,t.context=s,t.keyPath=a,t.treeContext=i,dt(s),n}function zn(e){var t=e.blockedBoundary,n=e.blockedSegment;null!==n&&(n.status=3,Jn(this,t,e.row,n))}function Vn(e,t,n,r,o,s){for(var a=0;a<n.length;a++){var i=n[a];if(4===i.length)Vn(e,t,i[2],i[3],o,s);else{i=i[5];var l=e,c=s,u=gn(l,null,new Set,null,null);u.parentFlushed=!0,u.rootSegmentID=i,u.status=4,u.errorDigest=c,u.parentFlushed&&l.clientRenderedBoundaries.push(u)}}if(n.length=0,null!==r){if(null===t)throw Error("We should not have any resumable nodes in the shell. This is a bug in React.");if(4!==t.status&&(t.status=4,t.errorDigest=s,t.parentFlushed&&e.clientRenderedBoundaries.push(t)),"object"==typeof r)for(var d in r)delete r[d]}}function Wn(e,t,n){var r=e.blockedBoundary,o=e.blockedSegment;if(null!==o){if(6===o.status)return;o.status=3}var s=Sn(e.componentStack);if(null===r){if(13!==t.status&&14!==t.status){if(null===(r=e.replay))return void(null!==t.trackedPostpones&&null!==o?(r=t.trackedPostpones,wn(t,n,s),Dn(t,r,e,o),Jn(t,null,e.row,o)):(wn(t,n,s),xn(t,n)));r.pendingTasks--,0===r.pendingTasks&&0<r.nodes.length&&(o=wn(t,n,s),Vn(t,null,r.nodes,r.slots,n,o)),t.pendingRootTasks--,0===t.pendingRootTasks&&qn(t)}}else{var a=t.trackedPostpones;if(4!==r.status){if(null!==a&&null!==o)return wn(t,n,s),Dn(t,a,e,o),r.fallbackAbortableTasks.forEach(function(e){return Wn(e,t,n)}),r.fallbackAbortableTasks.clear(),Jn(t,r,e.row,o);r.status=4,o=wn(t,n,s),r.status=4,r.errorDigest=o,Bn(t,r),r.parentFlushed&&t.clientRenderedBoundaries.push(r)}r.pendingTasks--,null!==(o=r.row)&&0===--o.pendingTasks&&Pn(t,o),r.fallbackAbortableTasks.forEach(function(e){return Wn(e,t,n)}),r.fallbackAbortableTasks.clear()}null!==(e=e.row)&&0===--e.pendingTasks&&Pn(t,e),t.allPendingTasks--,0===t.allPendingTasks&&Gn(t)}function Un(e,t){try{var n=e.renderState,r=n.onHeaders;if(r){var o=n.headers;if(o){n.headers=null;var s=o.preconnects;if(o.fontPreloads&&(s&&(s+=", "),s+=o.fontPreloads),o.highImagePreloads&&(s&&(s+=", "),s+=o.highImagePreloads),!t){var a=n.styles.values(),i=a.next();e:for(;0<o.remainingCapacity&&!i.done;i=a.next())for(var l=i.value.sheets.values(),c=l.next();0<o.remainingCapacity&&!c.done;c=l.next()){var u=c.value,d=u.props,h=d.href,p=u.props,f=Ue(p.href,"style",{crossOrigin:p.crossOrigin,integrity:p.integrity,nonce:p.nonce,type:p.type,fetchPriority:p.fetchPriority,referrerPolicy:p.referrerPolicy,media:p.media});if(!(0<=(o.remainingCapacity-=f.length+2)))break e;n.resets.style[h]=V,s&&(s+=", "),s+=f,n.resets.style[h]="string"==typeof d.crossOrigin||"string"==typeof d.integrity?[d.crossOrigin,d.integrity]:V}}r(s?{Link:s}:{})}}}catch(g){wn(e,g,{})}}function qn(e){null===e.trackedPostpones&&Un(e,!0),null===e.trackedPostpones&&Qn(e),e.onShellError=vt,(e=e.onShellReady)()}function Gn(e){Un(e,null===e.trackedPostpones||null===e.completedRootSegment||5!==e.completedRootSegment.status),Qn(e),(e=e.onAllReady)()}function Kn(e,t){if(0===t.chunks.length&&1===t.children.length&&null===t.children[0].boundary&&-1===t.children[0].id){var n=t.children[0];n.id=t.id,n.parentFlushed=!0,1!==n.status&&3!==n.status&&4!==n.status||Kn(e,n)}else e.completedSegments.push(t)}function Jn(e,t,n,r){if(null!==n&&(0===--n.pendingTasks?Pn(e,n):n.together&&Cn(e,n)),e.allPendingTasks--,null===t){if(null!==r&&r.parentFlushed){if(null!==e.completedRootSegment)throw Error("There can only be one root segment. This is a bug in React.");e.completedRootSegment=r}e.pendingRootTasks--,0===e.pendingRootTasks&&qn(e)}else if(t.pendingTasks--,4!==t.status)if(0===t.pendingTasks){if(0===t.status&&(t.status=1),null!==r&&r.parentFlushed&&(1===r.status||3===r.status)&&Kn(t,r),t.parentFlushed&&e.completedBoundaries.push(t),1===t.status)null!==(n=t.row)&&Ze(n.hoistables,t.contentState),un(0,t)||(t.fallbackAbortableTasks.forEach(zn,e),t.fallbackAbortableTasks.clear(),null!==n&&0===--n.pendingTasks&&Pn(e,n)),0===e.pendingRootTasks&&null===e.trackedPostpones&&null!==t.contentPreamble&&Qn(e);else if(5===t.status&&null!==(t=t.row)){if(null!==e.trackedPostpones){n=e.trackedPostpones;var o=t.next;if(null!==o&&null!==(r=o.boundaries))for(o.boundaries=null,o=0;o<r.length;o++){var s=r[o];jn(e,n,s),Jn(e,s,null,null)}}0===--t.pendingTasks&&Pn(e,t)}}else null===r||!r.parentFlushed||1!==r.status&&3!==r.status||(Kn(t,r),1===t.completedSegments.length&&t.parentFlushed&&e.partialBoundaries.push(t)),null!==(t=t.row)&&t.together&&Cn(e,t);0===e.allPendingTasks&&Gn(e)}function Xn(e){if(14!==e.status&&13!==e.status){var t=st,n=$.H;$.H=nn;var r=$.A;$.A=on;var o=pn;pn=e;var s=rn;rn=e.resumableState;try{var a,i=e.pingedTasks;for(a=0;a<i.length;a++){var l=i[a],c=e,u=l.blockedSegment;if(null===u){var d=c;if(0!==l.replay.pendingTasks){dt(l.context);try{if("number"==typeof l.replay.slots?Fn(d,l,l.replay.slots,l.node,l.childIndex):On(d,l),1===l.replay.pendingTasks&&0<l.replay.nodes.length)throw Error("Couldn't find all resumable slots by key/index during replaying. The tree doesn't match so React will fallback to client rendering.");l.replay.pendingTasks--,l.abortSet.delete(l),Jn(d,l.blockedBoundary,l.row,null)}catch(_){Vt();var h=_===bt?wt():_;if("object"==typeof h&&null!==h&&"function"==typeof h.then){var p=l.ping;h.then(p,p),l.thenableState=_===bt?zt():null}else{l.replay.pendingTasks--,l.abortSet.delete(l);var f=Sn(l.componentStack);c=void 0;var g=d,m=l.blockedBoundary,y=12===d.status?d.fatalError:h;Vn(g,m,l.replay.nodes,l.replay.slots,y,c=wn(g,y,f)),d.pendingRootTasks--,0===d.pendingRootTasks&&qn(d),d.allPendingTasks--,0===d.allPendingTasks&&Gn(d)}}}}else if(d=void 0,0===(g=u).status){g.status=6,dt(l.context);var v=g.children.length,b=g.chunks.length;try{On(c,l),et(g.chunks,c.renderState,g.lastPushedText,g.textEmbedded),l.abortSet.delete(l),g.status=1,Jn(c,l.blockedBoundary,l.row,g)}catch(_){Vt(),g.children.length=v,g.chunks.length=b;var k=_===bt?wt():12===c.status?c.fatalError:_;if(12===c.status&&null!==c.trackedPostpones){var S=c.trackedPostpones,w=Sn(l.componentStack);l.abortSet.delete(l),wn(c,k,w),Dn(c,S,l,g),Jn(c,l.blockedBoundary,l.row,g)}else if("object"==typeof k&&null!==k&&"function"==typeof k.then){g.status=0,l.thenableState=_===bt?zt():null;var x=l.ping;k.then(x,x)}else{var P=Sn(l.componentStack);l.abortSet.delete(l),g.status=4;var R=l.blockedBoundary,C=l.row;if(null!==C&&0===--C.pendingTasks&&Pn(c,C),c.allPendingTasks--,d=wn(c,k,P),null===R)xn(c,k);else if(R.pendingTasks--,4!==R.status){R.status=4,R.errorDigest=d,Bn(c,R);var T=R.row;null!==T&&0===--T.pendingTasks&&Pn(c,T),R.parentFlushed&&c.clientRenderedBoundaries.push(R),0===c.pendingRootTasks&&null===c.trackedPostpones&&null!==R.contentPreamble&&Qn(c)}0===c.allPendingTasks&&Gn(c)}}}}i.splice(0,a),null!==e.destination&&ir(e,e.destination)}catch(E){wn(e,E,{}),xn(e,E)}finally{rn=s,$.H=n,$.A=r,n===nn&&dt(t),pn=o}}}function Yn(e,t,n){t.preambleChildren.length&&n.push(t.preambleChildren);for(var r=!1,o=0;o<t.children.length;o++)r=Zn(e,t.children[o],n)||r;return r}function Zn(e,t,n){var r=t.boundary;if(null===r)return Yn(e,t,n);var o=r.contentPreamble,s=r.fallbackPreamble;if(null===o||null===s)return!1;switch(r.status){case 1:if(xe(e.renderState,o),e.byteSize+=r.byteSize,!(t=r.completedSegments[0]))throw Error("A previously unvisited boundary must have exactly one root segment. This is a bug in React.");return Yn(e,t,n);case 5:if(null!==e.trackedPostpones)return!0;case 4:if(1===t.status)return xe(e.renderState,s),Yn(e,t,n);default:return!0}}function Qn(e){if(e.completedRootSegment&&null===e.completedPreambleSegments){var t=[],n=e.byteSize,r=Zn(e,e.completedRootSegment,t),o=e.renderState.preamble;!1===r||o.headChunks&&o.bodyChunks?e.completedPreambleSegments=t:e.byteSize=n}}function er(e,t,n,r){switch(n.parentFlushed=!0,n.status){case 0:n.id=e.nextSegmentId++;case 5:return r=n.id,n.lastPushedText=!1,n.textEmbedded=!1,e=e.renderState,t.push('<template id="'),t.push(e.placeholderPrefix),e=r.toString(16),t.push(e),t.push('"></template>');case 1:n.status=2;var o=!0,s=n.chunks,a=0;n=n.children;for(var i=0;i<n.length;i++){for(o=n[i];a<o.index;a++)t.push(s[a]);o=nr(e,t,o,r)}for(;a<s.length-1;a++)t.push(s[a]);return a<s.length&&(o=t.push(s[a])),o;case 3:return!0;default:throw Error("Aborted, errored or already flushed boundaries should not be flushed again. This is a bug in React.")}}var tr=0;function nr(e,t,n,r){var o=n.boundary;if(null===o)return er(e,t,n,r);if(o.parentFlushed=!0,4===o.status){var s=o.row;return null!==s&&0===--s.pendingTasks&&Pn(e,s),e.renderState.generateStaticMarkup||(o=o.errorDigest,t.push("\x3c!--$!--\x3e"),t.push("<template"),o&&(t.push(' data-dgst="'),o=O(o),t.push(o),t.push('"')),t.push("></template>")),er(e,t,n,r),!!e.renderState.generateStaticMarkup||t.push("\x3c!--/$--\x3e")}if(1!==o.status)return 0===o.status&&(o.rootSegmentID=e.nextSegmentId++),0<o.completedSegments.length&&e.partialBoundaries.push(o),Re(t,e.renderState,o.rootSegmentID),r&&Ze(r,o.fallbackState),er(e,t,n,r),t.push("\x3c!--/$--\x3e");if(!ar&&un(0,o)&&tr+o.byteSize>e.progressiveChunkSize)return o.rootSegmentID=e.nextSegmentId++,e.completedBoundaries.push(o),Re(t,e.renderState,o.rootSegmentID),er(e,t,n,r),t.push("\x3c!--/$--\x3e");if(tr+=o.byteSize,r&&Ze(r,o.contentState),null!==(n=o.row)&&un(0,o)&&0===--n.pendingTasks&&Pn(e,n),e.renderState.generateStaticMarkup||t.push("\x3c!--$--\x3e"),1!==(n=o.completedSegments).length)throw Error("A previously unvisited boundary must have exactly one root segment. This is a bug in React.");return nr(e,t,n[0],r),!!e.renderState.generateStaticMarkup||t.push("\x3c!--/$--\x3e")}function rr(e,t,n,r){return function(e,t,n,r){switch(n.insertionMode){case 0:case 1:case 3:case 2:return e.push('<div hidden id="'),e.push(t.segmentPrefix),t=r.toString(16),e.push(t),e.push('">');case 4:return e.push('<svg aria-hidden="true" style="display:none" id="'),e.push(t.segmentPrefix),t=r.toString(16),e.push(t),e.push('">');case 5:return e.push('<math aria-hidden="true" style="display:none" id="'),e.push(t.segmentPrefix),t=r.toString(16),e.push(t),e.push('">');case 6:return e.push('<table hidden id="'),e.push(t.segmentPrefix),t=r.toString(16),e.push(t),e.push('">');case 7:return e.push('<table hidden><tbody id="'),e.push(t.segmentPrefix),t=r.toString(16),e.push(t),e.push('">');case 8:return e.push('<table hidden><tr id="'),e.push(t.segmentPrefix),t=r.toString(16),e.push(t),e.push('">');case 9:return e.push('<table hidden><colgroup id="'),e.push(t.segmentPrefix),t=r.toString(16),e.push(t),e.push('">');default:throw Error("Unknown insertion mode. This is a bug in React.")}}(t,e.renderState,n.parentFormatContext,n.id),nr(e,t,n,r),function(e,t){switch(t.insertionMode){case 0:case 1:case 3:case 2:return e.push("</div>");case 4:return e.push("</svg>");case 5:return e.push("</math>");case 6:return e.push("</table>");case 7:return e.push("</tbody></table>");case 8:return e.push("</tr></table>");case 9:return e.push("</colgroup></table>");default:throw Error("Unknown insertion mode. This is a bug in React.")}}(t,n.parentFormatContext)}function or(e,t,n){tr=n.byteSize;for(var r=n.completedSegments,o=0;o<r.length;o++)sr(e,t,n,r[o]);r.length=0,null!==(r=n.row)&&un(0,n)&&0===--r.pendingTasks&&Pn(e,r),Oe(t,n.contentState,e.renderState),r=e.resumableState,e=e.renderState,o=n.rootSegmentID,n=n.contentState;var s=e.stylesToHoist;return e.stylesToHoist=!1,t.push(e.startInlineScript),t.push(">"),s?(!(4&r.instructions)&&(r.instructions|=4,t.push('$RX=function(b,c,d,e,f){var a=document.getElementById(b);a&&(b=a.previousSibling,b.data="$!",a=a.dataset,c&&(a.dgst=c),d&&(a.msg=d),e&&(a.stck=e),f&&(a.cstck=f),b._reactRetry&&b._reactRetry())};')),!(2&r.instructions)&&(r.instructions|=2,t.push('$RB=[];$RV=function(a){$RT=performance.now();for(var b=0;b<a.length;b+=2){var c=a[b],e=a[b+1];null!==e.parentNode&&e.parentNode.removeChild(e);var f=c.parentNode;if(f){var g=c.previousSibling,h=0;do{if(c&&8===c.nodeType){var d=c.data;if("/$"===d||"/&"===d)if(0===h)break;else h--;else"$"!==d&&"$?"!==d&&"$~"!==d&&"$!"!==d&&"&"!==d||h++}d=c.nextSibling;f.removeChild(c);c=d}while(c);for(;e.firstChild;)f.insertBefore(e.firstChild,c);g.data="$";g._reactRetry&&requestAnimationFrame(g._reactRetry)}}a.length=0};\n$RC=function(a,b){if(b=document.getElementById(b))(a=document.getElementById(a))?(a.previousSibling.data="$~",$RB.push(a,b),2===$RB.length&&("number"!==typeof $RT?requestAnimationFrame($RV.bind(null,$RB)):(a=performance.now(),setTimeout($RV.bind(null,$RB),2300>a&&2E3<a?2300-a:$RT+300-a)))):b.parentNode.removeChild(b)};')),8&r.instructions?t.push('$RR("'):(r.instructions|=8,t.push('$RM=new Map;$RR=function(n,w,p){function u(q){this._p=null;q()}for(var r=new Map,t=document,h,b,e=t.querySelectorAll("link[data-precedence],style[data-precedence]"),v=[],k=0;b=e[k++];)"not all"===b.getAttribute("media")?v.push(b):("LINK"===b.tagName&&$RM.set(b.getAttribute("href"),b),r.set(b.dataset.precedence,h=b));e=0;b=[];var l,a;for(k=!0;;){if(k){var f=p[e++];if(!f){k=!1;e=0;continue}var c=!1,m=0;var d=f[m++];if(a=$RM.get(d)){var g=a._p;c=!0}else{a=t.createElement("link");a.href=d;a.rel=\n"stylesheet";for(a.dataset.precedence=l=f[m++];g=f[m++];)a.setAttribute(g,f[m++]);g=a._p=new Promise(function(q,x){a.onload=u.bind(a,q);a.onerror=u.bind(a,x)});$RM.set(d,a)}d=a.getAttribute("media");!g||d&&!matchMedia(d).matches||b.push(g);if(c)continue}else{a=v[e++];if(!a)break;l=a.getAttribute("data-precedence");a.removeAttribute("media")}c=r.get(l)||h;c===h&&(h=a);r.set(l,a);c?c.parentNode.insertBefore(a,c.nextSibling):(c=t.head,c.insertBefore(a,c.firstChild))}if(p=document.getElementById(n))p.previousSibling.data=\n"$~";Promise.all(b).then($RC.bind(null,n,w),$RX.bind(null,n,"CSS failed to load"))};$RR("'))):(!(2&r.instructions)&&(r.instructions|=2,t.push('$RB=[];$RV=function(a){$RT=performance.now();for(var b=0;b<a.length;b+=2){var c=a[b],e=a[b+1];null!==e.parentNode&&e.parentNode.removeChild(e);var f=c.parentNode;if(f){var g=c.previousSibling,h=0;do{if(c&&8===c.nodeType){var d=c.data;if("/$"===d||"/&"===d)if(0===h)break;else h--;else"$"!==d&&"$?"!==d&&"$~"!==d&&"$!"!==d&&"&"!==d||h++}d=c.nextSibling;f.removeChild(c);c=d}while(c);for(;e.firstChild;)f.insertBefore(e.firstChild,c);g.data="$";g._reactRetry&&requestAnimationFrame(g._reactRetry)}}a.length=0};\n$RC=function(a,b){if(b=document.getElementById(b))(a=document.getElementById(a))?(a.previousSibling.data="$~",$RB.push(a,b),2===$RB.length&&("number"!==typeof $RT?requestAnimationFrame($RV.bind(null,$RB)):(a=performance.now(),setTimeout($RV.bind(null,$RB),2300>a&&2E3<a?2300-a:$RT+300-a)))):b.parentNode.removeChild(b)};')),t.push('$RC("')),r=o.toString(16),t.push(e.boundaryPrefix),t.push(r),t.push('","'),t.push(e.segmentPrefix),t.push(r),s?(t.push('",'),function(e,t){e.push("[");var n="[";t.stylesheets.forEach(function(t){if(2!==t.state)if(3===t.state)e.push(n),t=Ee(""+t.props.href),e.push(t),e.push("]"),n=",[";else{e.push(n);var r=t.props["data-precedence"],o=t.props,s=B(""+t.props.href);for(var a in s=Ee(s),e.push(s),r=""+r,e.push(","),r=Ee(r),e.push(r),o)if(C.call(o,a)&&null!=(r=o[a]))switch(a){case"href":case"rel":case"precedence":case"data-precedence":break;case"children":case"dangerouslySetInnerHTML":throw Error("link is a self-closing tag and must neither have `children` nor use `dangerouslySetInnerHTML`.");default:ze(e,a,r)}e.push("]"),n=",[",t.state=3}}),e.push("]")}(t,n)):t.push('"'),n=t.push(")<\/script>"),Pe(t,e)&&n}function sr(e,t,n,r){if(2===r.status)return!0;var o=n.contentState,s=r.id;if(-1===s){if(-1===(r.id=n.rootSegmentID))throw Error("A root segment ID must have been assigned by now. This is a bug in React.");return rr(e,t,r,o)}return s===n.rootSegmentID?rr(e,t,r,o):(rr(e,t,r,o),n=e.resumableState,e=e.renderState,t.push(e.startInlineScript),t.push(">"),1&n.instructions?t.push('$RS("'):(n.instructions|=1,t.push('$RS=function(a,b){a=document.getElementById(a);b=document.getElementById(b);for(a.parentNode.removeChild(a);a.firstChild;)b.parentNode.insertBefore(a.firstChild,b);b.parentNode.removeChild(b)};$RS("')),t.push(e.segmentPrefix),s=s.toString(16),t.push(s),t.push('","'),t.push(e.placeholderPrefix),t.push(s),t=t.push('")<\/script>'))}var ar=!1;function ir(e,t){try{if(!(0<e.pendingRootTasks)){var n,r=e.completedRootSegment;if(null!==r){if(5===r.status)return;var o=e.completedPreambleSegments;if(null===o)return;tr=e.byteSize;var s,a=e.resumableState,i=e.renderState,l=i.preamble,c=l.htmlChunks,u=l.headChunks;if(c){for(s=0;s<c.length;s++)t.push(c[s]);if(u)for(s=0;s<u.length;s++)t.push(u[s]);else{var d=ke("head");t.push(d),t.push(">")}}else if(u)for(s=0;s<u.length;s++)t.push(u[s]);var h=i.charsetChunks;for(s=0;s<h.length;s++)t.push(h[s]);h.length=0,i.preconnects.forEach(Ae,t),i.preconnects.clear();var p=i.viewportChunks;for(s=0;s<p.length;s++)t.push(p[s]);p.length=0,i.fontPreloads.forEach(Ae,t),i.fontPreloads.clear(),i.highImagePreloads.forEach(Ae,t),i.highImagePreloads.clear(),W=i,i.styles.forEach(Be,t),W=null;var f=i.importMapChunks;for(s=0;s<f.length;s++)t.push(f[s]);f.length=0,i.bootstrapScripts.forEach(Ae,t),i.scripts.forEach(Ae,t),i.scripts.clear(),i.bulkPreloads.forEach(Ae,t),i.bulkPreloads.clear(),a.instructions|=32;var g=i.hoistableChunks;for(s=0;s<g.length;s++)t.push(g[s]);for(a=g.length=0;a<o.length;a++){var m=o[a];for(i=0;i<m.length;i++)nr(e,t,m[i],null)}var y=e.renderState.preamble,v=y.headChunks;if(y.htmlChunks||v){var b=we("head");t.push(b)}var k=y.bodyChunks;if(k)for(o=0;o<k.length;o++)t.push(k[o]);nr(e,t,r,null),e.completedRootSegment=null;var S=e.renderState;if(0!==e.allPendingTasks||0!==e.clientRenderedBoundaries.length||0!==e.completedBoundaries.length||null!==e.trackedPostpones&&(0!==e.trackedPostpones.rootNodes.length||null!==e.trackedPostpones.rootSlots)){var w=e.resumableState;if(!(64&w.instructions)){if(w.instructions|=64,t.push(S.startInlineScript),!(32&w.instructions)){w.instructions|=32;var x="_"+w.idPrefix+"R_";t.push(' id="');var P=O(x);t.push(P),t.push('"')}t.push(">"),t.push("requestAnimationFrame(function(){$RT=performance.now()});"),t.push("<\/script>")}}Pe(t,S)}var R=e.renderState;r=0;var C=R.viewportChunks;for(r=0;r<C.length;r++)t.push(C[r]);C.length=0,R.preconnects.forEach(Ae,t),R.preconnects.clear(),R.fontPreloads.forEach(Ae,t),R.fontPreloads.clear(),R.highImagePreloads.forEach(Ae,t),R.highImagePreloads.clear(),R.styles.forEach(Ne,t),R.scripts.forEach(Ae,t),R.scripts.clear(),R.bulkPreloads.forEach(Ae,t),R.bulkPreloads.clear();var T=R.hoistableChunks;for(r=0;r<T.length;r++)t.push(T[r]);T.length=0;var _=e.clientRenderedBoundaries;for(n=0;n<_.length;n++){var E=_[n];R=t;var I=e.resumableState,M=e.renderState,F=E.rootSegmentID,L=E.errorDigest;R.push(M.startInlineScript),R.push(">"),4&I.instructions?R.push('$RX("'):(I.instructions|=4,R.push('$RX=function(b,c,d,e,f){var a=document.getElementById(b);a&&(b=a.previousSibling,b.data="$!",a=a.dataset,c&&(a.dgst=c),d&&(a.msg=d),e&&(a.stck=e),f&&(a.cstck=f),b._reactRetry&&b._reactRetry())};;$RX("')),R.push(M.boundaryPrefix);var A=F.toString(16);if(R.push(A),R.push('"'),L){R.push(",");var j=Te(L||"");R.push(j)}var D=R.push(")<\/script>");if(!D)return e.destination=null,n++,void _.splice(0,n)}_.splice(0,n);var B=e.completedBoundaries;for(n=0;n<B.length;n++)if(!or(e,t,B[n]))return e.destination=null,n++,void B.splice(0,n);B.splice(0,n),ar=!0;var $=e.partialBoundaries;for(n=0;n<$.length;n++){var N=$[n];e:{_=e,E=t,tr=N.byteSize;var H=N.completedSegments;for(D=0;D<H.length;D++)if(!sr(_,E,N,H[D])){D++,H.splice(0,D);var z=!1;break e}H.splice(0,D);var V=N.row;null!==V&&V.together&&1===N.pendingTasks&&(1===V.pendingTasks?Rn(_,V,V.hoistables):V.pendingTasks--),z=Oe(E,N.contentState,_.renderState)}if(!z)return e.destination=null,n++,void $.splice(0,n)}$.splice(0,n),ar=!1;var U=e.completedBoundaries;for(n=0;n<U.length;n++)if(!or(e,t,U[n]))return e.destination=null,n++,void U.splice(0,n);U.splice(0,n)}}finally{ar=!1,0===e.allPendingTasks&&0===e.clientRenderedBoundaries.length&&0===e.completedBoundaries.length&&(e.flushScheduled=!1,(n=e.resumableState).hasBody&&($=we("body"),t.push($)),n.hasHtml&&(n=we("html"),t.push(n)),e.status=14,t.push(null),e.destination=null)}}function lr(e){if(!1===e.flushScheduled&&0===e.pingedTasks.length&&null!==e.destination){e.flushScheduled=!0;var t=e.destination;t?ir(e,t):e.flushScheduled=!1}}function cr(e,t){if(13===e.status)e.status=14,t.destroy(e.fatalError);else if(14!==e.status&&null===e.destination){e.destination=t;try{ir(e,t)}catch(n){wn(e,n,{}),xn(e,n)}}}function ur(e,t){11!==e.status&&10!==e.status||(e.status=12);try{var n=e.abortableTasks;if(0<n.size){var r=void 0===t?Error("The render was aborted by the server without a reason."):"object"==typeof t&&null!==t&&"function"==typeof t.then?Error("The render was aborted by the server with a promise."):t;e.fatalError=r,n.forEach(function(t){return Wn(t,e,r)}),n.clear()}null!==e.destination&&ir(e,e.destination)}catch(o){wn(e,o,{}),xn(e,o)}}function dr(e,t,n){if(null===t)n.rootNodes.push(e);else{var r=n.workingMap,o=r.get(t);void 0===o&&(o=[t[1],t[2],[],null],r.set(t,o),dr(o,t[0],n)),o[2].push(e)}}function hr(){}function pr(e,t,n,r){var o,s=!1,a=null,i="",l=!1;if(e=function(e,t,n,r,o,s){return(n=vn(t=new hn(t,n,r,1/0,s,void 0,function(){l=!0},void 0,void 0,void 0,void 0),0,null,r,!1,!1)).parentFlushed=!0,bn(e=mn(t,null,e,-1,null,n,null,null,t.abortableTasks,null,r,null,pt,null,null)),t.pingedTasks.push(e),t}(e,t={idPrefix:void 0===(o=t?t.identifierPrefix:void 0)?"":o,nextFormID:0,streamingFormat:0,bootstrapScriptContent:void 0,bootstrapScripts:void 0,bootstrapModules:void 0,instructions:0,hasBody:!1,hasHtml:!1,unknownResources:{},dnsResources:{},connectResources:{default:{},anonymous:{},credentials:{}},imageResources:{},styleResources:{},scriptResources:{},moduleUnknownResources:{},moduleScriptResources:{}},function(e,t){var n=e.idPrefix,r=[],o=e.bootstrapScriptContent,s=e.bootstrapScripts,a=e.bootstrapModules;void 0!==o&&(r.push("<script"),He(r,e),r.push(">",(""+o).replace(U,q),"<\/script>")),o=n+"P:";var i=n+"S:";n+="B:";var l=new Set,c=new Set,u=new Set,d=new Map,h=new Set,p=new Set,f=new Set,g={images:new Map,stylesheets:new Map,scripts:new Map,moduleScripts:new Map};if(void 0!==s)for(var m=0;m<s.length;m++){var y,v=s[m],b=void 0,k=void 0,S={rel:"preload",as:"script",fetchPriority:"low",nonce:void 0};"string"==typeof v?S.href=y=v:(S.href=y=v.src,S.integrity=k="string"==typeof v.integrity?v.integrity:void 0,S.crossOrigin=b="string"==typeof v||null==v.crossOrigin?void 0:"use-credentials"===v.crossOrigin?"use-credentials":"");var w=y;(v=e).scriptResources[w]=null,v.moduleScriptResources[w]=null,ue(v=[],S),h.add(v),r.push('<script src="',O(y),'"'),"string"==typeof k&&r.push(' integrity="',O(k),'"'),"string"==typeof b&&r.push(' crossorigin="',O(b),'"'),He(r,e),r.push(' async=""><\/script>')}if(void 0!==a)for(s=0;s<a.length;s++)b=y=void 0,k={rel:"modulepreload",fetchPriority:"low",nonce:void 0},"string"==typeof(S=a[s])?k.href=m=S:(k.href=m=S.src,k.integrity=b="string"==typeof S.integrity?S.integrity:void 0,k.crossOrigin=y="string"==typeof S||null==S.crossOrigin?void 0:"use-credentials"===S.crossOrigin?"use-credentials":""),v=m,(S=e).scriptResources[v]=null,S.moduleScriptResources[v]=null,ue(S=[],k),h.add(S),r.push('<script type="module" src="',O(m),'"'),"string"==typeof b&&r.push(' integrity="',O(b),'"'),"string"==typeof y&&r.push(' crossorigin="',O(y),'"'),He(r,e),r.push(' async=""><\/script>');return{placeholderPrefix:o,segmentPrefix:i,boundaryPrefix:n,startInlineScript:"<script",startInlineStyle:"<style",preamble:{htmlChunks:null,headChunks:null,bodyChunks:null},externalRuntimeScript:null,bootstrapChunks:r,importMapChunks:[],onHeaders:void 0,headers:null,resets:{font:{},dns:{},connect:{default:{},anonymous:{},credentials:{}},image:{},style:{}},charsetChunks:[],viewportChunks:[],hoistableChunks:[],preconnects:l,fontPreloads:c,highImagePreloads:u,styles:d,bootstrapScripts:h,scripts:p,bulkPreloads:f,preloads:g,nonce:{script:void 0,style:void 0},stylesToHoist:!1,generateStaticMarkup:t}}(t,n),G(0,null,0,null),0,hr),e.flushScheduled=null!==e.destination,Xn(e),10===e.status&&(e.status=11),null===e.trackedPostpones&&Un(e,0===e.pendingRootTasks),ur(e,r),cr(e,{push:function(e){return null!==e&&(i+=e),!0},destroy:function(e){s=!0,a=e}}),s&&a!==r)throw a;if(!l)throw Error("A component suspended while responding to synchronous input. This will cause the UI to be replaced with a loading indicator. To fix, updates that suspend should be wrapped with startTransition.");return i}e.renderToStaticMarkup=function(e,t){return pr(e,t,!0,'The server used "renderToStaticMarkup" which does not support Suspense. If you intended to have the server wait for the suspended component please switch to "renderToPipeableStream" which supports Suspense on the server')},e.renderToString=function(e,t){return pr(e,t,!1,'The server used "renderToString" which does not support Suspense. If you intended for this Suspense boundary to render the fallback content on the server consider throwing an Error somewhere within the Suspense boundary. If you intended to have the server wait for the suspended component please switch to "renderToPipeableStream" which supports Suspense on the server')},e.version="19.2.7"}),Hn=n(t=>{var n=e("util"),r=e("crypto"),s=e("async_hooks"),a=o(),i=kt(),l=e("stream"),c=Symbol.for("react.transitional.element"),u=Symbol.for("react.portal"),d=Symbol.for("react.fragment"),h=Symbol.for("react.strict_mode"),p=Symbol.for("react.profiler"),f=Symbol.for("react.consumer"),g=Symbol.for("react.context"),m=Symbol.for("react.forward_ref"),y=Symbol.for("react.suspense"),v=Symbol.for("react.suspense_list"),b=Symbol.for("react.memo"),k=Symbol.for("react.lazy"),S=Symbol.for("react.scope"),w=Symbol.for("react.activity"),x=Symbol.for("react.legacy_hidden"),P=Symbol.for("react.memo_cache_sentinel"),R=Symbol.for("react.view_transition"),C=Symbol.iterator;function T(e){return null===e||"object"!=typeof e?null:"function"==typeof(e=C&&e[C]||e["@@iterator"])?e:null}var _=Array.isArray,E=queueMicrotask;function I(e){"function"==typeof e.flush&&e.flush()}var M=null,F=0,L=!0;function O(e,t){if("string"==typeof t){if(0!==t.length)if(2048<3*t.length)0<F&&(A(e,M.subarray(0,F)),M=new Uint8Array(2048),F=0),A(e,t);else{var n=M;0<F&&(n=M.subarray(F));var r=(n=B.encodeInto(t,n)).read;F+=n.written,r<t.length&&(A(e,M.subarray(0,F)),M=new Uint8Array(2048),F=B.encodeInto(t.slice(r),M).written),2048===F&&(A(e,M),M=new Uint8Array(2048),F=0)}}else 0!==t.byteLength&&(2048<t.byteLength?(0<F&&(A(e,M.subarray(0,F)),M=new Uint8Array(2048),F=0),A(e,t)):((n=M.length-F)<t.byteLength&&(0===n?A(e,M):(M.set(t.subarray(0,n),F),F+=n,A(e,M),t=t.subarray(n)),M=new Uint8Array(2048),F=0),M.set(t,F),2048===(F+=t.byteLength)&&(A(e,M),M=new Uint8Array(2048),F=0)))}function A(e,t){e=e.write(t),L=L&&e}function j(e,t){return O(e,t),L}function D(e){M&&0<F&&e.write(M.subarray(0,F)),M=null,F=0,L=!0}var B=new n.TextEncoder;function $(e){return B.encode(e)}function N(e){return"string"==typeof e?Buffer.byteLength(e,"utf8"):e.byteLength}var H=Object.assign,z=Object.prototype.hasOwnProperty,V=RegExp("^[:A-Z_a-z\\u00C0-\\u00D6\\u00D8-\\u00F6\\u00F8-\\u02FF\\u0370-\\u037D\\u037F-\\u1FFF\\u200C-\\u200D\\u2070-\\u218F\\u2C00-\\u2FEF\\u3001-\\uD7FF\\uF900-\\uFDCF\\uFDF0-\\uFFFD][:A-Z_a-z\\u00C0-\\u00D6\\u00D8-\\u00F6\\u00F8-\\u02FF\\u0370-\\u037D\\u037F-\\u1FFF\\u200C-\\u200D\\u2070-\\u218F\\u2C00-\\u2FEF\\u3001-\\uD7FF\\uF900-\\uFDCF\\uFDF0-\\uFFFD\\-.0-9\\u00B7\\u0300-\\u036F\\u203F-\\u2040]*$"),W={},U={};function q(e){return!!z.call(U,e)||!z.call(W,e)&&(V.test(e)?U[e]=!0:(W[e]=!0,!1))}var G=new Set("animationIterationCount aspectRatio borderImageOutset borderImageSlice borderImageWidth boxFlex boxFlexGroup boxOrdinalGroup columnCount columns flex flexGrow flexPositive flexShrink flexNegative flexOrder gridArea gridRow gridRowEnd gridRowSpan gridRowStart gridColumn gridColumnEnd gridColumnSpan gridColumnStart fontWeight lineClamp lineHeight opacity order orphans scale tabSize widows zIndex zoom fillOpacity floodOpacity stopOpacity strokeDasharray strokeDashoffset strokeMiterlimit strokeOpacity strokeWidth MozAnimationIterationCount MozBoxFlex MozBoxFlexGroup MozLineClamp msAnimationIterationCount msFlex msZoom msFlexGrow msFlexNegative msFlexOrder msFlexPositive msFlexShrink msGridColumn msGridColumnSpan msGridRow msGridRowSpan WebkitAnimationIterationCount WebkitBoxFlex WebKitBoxFlexGroup WebkitBoxOrdinalGroup WebkitColumnCount WebkitColumns WebkitFlex WebkitFlexGrow WebkitFlexPositive WebkitFlexShrink WebkitLineClamp".split(" ")),K=new Map([["acceptCharset","accept-charset"],["htmlFor","for"],["httpEquiv","http-equiv"],["crossOrigin","crossorigin"],["accentHeight","accent-height"],["alignmentBaseline","alignment-baseline"],["arabicForm","arabic-form"],["baselineShift","baseline-shift"],["capHeight","cap-height"],["clipPath","clip-path"],["clipRule","clip-rule"],["colorInterpolation","color-interpolation"],["colorInterpolationFilters","color-interpolation-filters"],["colorProfile","color-profile"],["colorRendering","color-rendering"],["dominantBaseline","dominant-baseline"],["enableBackground","enable-background"],["fillOpacity","fill-opacity"],["fillRule","fill-rule"],["floodColor","flood-color"],["floodOpacity","flood-opacity"],["fontFamily","font-family"],["fontSize","font-size"],["fontSizeAdjust","font-size-adjust"],["fontStretch","font-stretch"],["fontStyle","font-style"],["fontVariant","font-variant"],["fontWeight","font-weight"],["glyphName","glyph-name"],["glyphOrientationHorizontal","glyph-orientation-horizontal"],["glyphOrientationVertical","glyph-orientation-vertical"],["horizAdvX","horiz-adv-x"],["horizOriginX","horiz-origin-x"],["imageRendering","image-rendering"],["letterSpacing","letter-spacing"],["lightingColor","lighting-color"],["markerEnd","marker-end"],["markerMid","marker-mid"],["markerStart","marker-start"],["overlinePosition","overline-position"],["overlineThickness","overline-thickness"],["paintOrder","paint-order"],["panose-1","panose-1"],["pointerEvents","pointer-events"],["renderingIntent","rendering-intent"],["shapeRendering","shape-rendering"],["stopColor","stop-color"],["stopOpacity","stop-opacity"],["strikethroughPosition","strikethrough-position"],["strikethroughThickness","strikethrough-thickness"],["strokeDasharray","stroke-dasharray"],["strokeDashoffset","stroke-dashoffset"],["strokeLinecap","stroke-linecap"],["strokeLinejoin","stroke-linejoin"],["strokeMiterlimit","stroke-miterlimit"],["strokeOpacity","stroke-opacity"],["strokeWidth","stroke-width"],["textAnchor","text-anchor"],["textDecoration","text-decoration"],["textRendering","text-rendering"],["transformOrigin","transform-origin"],["underlinePosition","underline-position"],["underlineThickness","underline-thickness"],["unicodeBidi","unicode-bidi"],["unicodeRange","unicode-range"],["unitsPerEm","units-per-em"],["vAlphabetic","v-alphabetic"],["vHanging","v-hanging"],["vIdeographic","v-ideographic"],["vMathematical","v-mathematical"],["vectorEffect","vector-effect"],["vertAdvY","vert-adv-y"],["vertOriginX","vert-origin-x"],["vertOriginY","vert-origin-y"],["wordSpacing","word-spacing"],["writingMode","writing-mode"],["xmlnsXlink","xmlns:xlink"],["xHeight","x-height"]]),J=/["'&<>]/;function X(e){if("boolean"==typeof e||"number"==typeof e||"bigint"==typeof e)return""+e;e=""+e;var t=J.exec(e);if(t){var n,r="",o=0;for(n=t.index;n<e.length;n++){switch(e.charCodeAt(n)){case 34:t="&quot;";break;case 38:t="&amp;";break;case 39:t="&#x27;";break;case 60:t="&lt;";break;case 62:t="&gt;";break;default:continue}o!==n&&(r+=e.slice(o,n)),o=n+1,r+=t}e=o!==n?r+e.slice(o,n):r}return e}var Y=/([A-Z])/g,Z=/^ms-/,Q=/^[\u0000-\u001F ]*j[\r\n\t]*a[\r\n\t]*v[\r\n\t]*a[\r\n\t]*s[\r\n\t]*c[\r\n\t]*r[\r\n\t]*i[\r\n\t]*p[\r\n\t]*t[\r\n\t]*:/i;function ee(e){return Q.test(""+e)?"javascript:throw new Error('React has blocked a javascript: URL as a security precaution.')":e}var te=a.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE,ne=i.__DOM_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE,re={pending:!1,data:null,method:null,action:null},oe=ne.d;ne.d={f:oe.f,r:oe.r,D:function(e){var t=Fo();if(t){var n,r,o=t.resumableState,s=t.renderState;if("string"==typeof e&&e)o.dnsResources.hasOwnProperty(e)||(o.dnsResources[e]=null,(r=(o=s.headers)&&0<o.remainingCapacity)&&(n="<"+(""+e).replace(sr,ar)+">; rel=dns-prefetch",r=0<=(o.remainingCapacity-=n.length+2)),r?(s.resets.dns[e]=null,o.preconnects&&(o.preconnects+=", "),o.preconnects+=n):(rt(n=[],{href:e,rel:"dns-prefetch"}),s.preconnects.add(n))),Is(t)}else oe.D(e)},C:function(e,t){var n=Fo();if(n){var r=n.resumableState,o=n.renderState;if("string"==typeof e&&e){var s,a,i="use-credentials"===t?"credentials":"string"==typeof t?"anonymous":"default";if(!r.connectResources[i].hasOwnProperty(e))r.connectResources[i][e]=null,(a=(r=o.headers)&&0<r.remainingCapacity)&&(a="<"+(""+e).replace(sr,ar)+">; rel=preconnect","string"==typeof t&&(a+='; crossorigin="'+(""+t).replace(ir,lr)+'"'),s=a,a=0<=(r.remainingCapacity-=s.length+2)),a?(o.resets.connect[i][e]=null,r.preconnects&&(r.preconnects+=", "),r.preconnects+=s):(rt(i=[],{rel:"preconnect",href:e,crossOrigin:t}),o.preconnects.add(i));Is(n)}}else oe.C(e,t)},L:function(e,t,n){var r=Fo();if(r){var o=r.resumableState,s=r.renderState;if(t&&e){switch(t){case"image":if(n)var a=n.imageSrcSet,i=n.imageSizes,l=n.fetchPriority;var c,u=a?a+"\n"+(i||""):e;if(o.imageResources.hasOwnProperty(u))return;o.imageResources[u]=se,(o=s.headers)&&0<o.remainingCapacity&&"string"!=typeof a&&"high"===l&&(c=or(e,t,n),0<=(o.remainingCapacity-=c.length+2))?(s.resets.image[u]=se,o.highImagePreloads&&(o.highImagePreloads+=", "),o.highImagePreloads+=c):(rt(o=[],H({rel:"preload",href:a?void 0:e,as:t},n)),"high"===l?s.highImagePreloads.add(o):(s.bulkPreloads.add(o),s.preloads.images.set(u,o)));break;case"style":if(o.styleResources.hasOwnProperty(e))return;rt(a=[],H({rel:"preload",href:e,as:t},n)),o.styleResources[e]=!n||"string"!=typeof n.crossOrigin&&"string"!=typeof n.integrity?se:[n.crossOrigin,n.integrity],s.preloads.stylesheets.set(e,a),s.bulkPreloads.add(a);break;case"script":if(o.scriptResources.hasOwnProperty(e))return;a=[],s.preloads.scripts.set(e,a),s.bulkPreloads.add(a),rt(a,H({rel:"preload",href:e,as:t},n)),o.scriptResources[e]=!n||"string"!=typeof n.crossOrigin&&"string"!=typeof n.integrity?se:[n.crossOrigin,n.integrity];break;default:if(o.unknownResources.hasOwnProperty(t)){if((a=o.unknownResources[t]).hasOwnProperty(e))return}else a={},o.unknownResources[t]=a;a[e]=se,(o=s.headers)&&0<o.remainingCapacity&&"font"===t&&(u=or(e,t,n),0<=(o.remainingCapacity-=u.length+2))?(s.resets.font[e]=se,o.fontPreloads&&(o.fontPreloads+=", "),o.fontPreloads+=u):"font"===(rt(o=[],e=H({rel:"preload",href:e,as:t},n)),t)?s.fontPreloads.add(o):s.bulkPreloads.add(o)}Is(r)}}else oe.L(e,t,n)},m:function(e,t){var n=Fo();if(n){var r=n.resumableState,o=n.renderState;if(e){var s=t&&"string"==typeof t.as?t.as:"script";if("script"===s){if(r.moduleScriptResources.hasOwnProperty(e))return;s=[],r.moduleScriptResources[e]=!t||"string"!=typeof t.crossOrigin&&"string"!=typeof t.integrity?se:[t.crossOrigin,t.integrity],o.preloads.moduleScripts.set(e,s)}else{if(r.moduleUnknownResources.hasOwnProperty(s)){var a=r.unknownResources[s];if(a.hasOwnProperty(e))return}else a={},r.moduleUnknownResources[s]=a;s=[],a[e]=se}rt(s,H({rel:"modulepreload",href:e},t)),o.bulkPreloads.add(s),Is(n)}}else oe.m(e,t)},X:function(e,t){var n=Fo();if(n){var r=n.resumableState,o=n.renderState;if(e){var s=r.scriptResources.hasOwnProperty(e)?r.scriptResources[e]:void 0;null!==s&&(r.scriptResources[e]=null,t=H({src:e,async:!0},t),s&&(2===s.length&&rr(t,s),e=o.preloads.scripts.get(e))&&(e.length=0),e=[],o.scripts.add(e),dt(e,t),Is(n))}}else oe.X(e,t)},S:function(e,t,n){var r=Fo();if(r){var o=r.resumableState,s=r.renderState;if(e){t=t||"default";var a=s.styles.get(t),i=o.styleResources.hasOwnProperty(e)?o.styleResources[e]:void 0;null!==i&&(o.styleResources[e]=null,a||(a={precedence:X(t),rules:[],hrefs:[],sheets:new Map},s.styles.set(t,a)),t={state:0,props:H({rel:"stylesheet",href:e,"data-precedence":t},n)},i&&(2===i.length&&rr(t.props,i),(s=s.preloads.stylesheets.get(e))&&0<s.length?s.length=0:t.state=1),a.sheets.set(e,t),Is(r))}}else oe.S(e,t,n)},M:function(e,t){var n=Fo();if(n){var r=n.resumableState,o=n.renderState;if(e){var s=r.moduleScriptResources.hasOwnProperty(e)?r.moduleScriptResources[e]:void 0;null!==s&&(r.moduleScriptResources[e]=null,t=H({src:e,type:"module",async:!0},t),s&&(2===s.length&&rr(t,s),e=o.preloads.moduleScripts.get(e))&&(e.length=0),e=[],o.scripts.add(e),dt(e,t),Is(n))}}else oe.M(e,t)}};var se=[],ae=null;$('"></template>');var ie=$("<script"),le=$("<\/script>"),ce=$('<script src="'),ue=$('<script type="module" src="'),de=$(' nonce="'),he=$(' integrity="'),pe=$(' crossorigin="'),fe=$(' async=""><\/script>'),ge=$("<style"),me=/(<\/|<)(s)(cript)/gi;function ye(e,t,n,r){return t+("s"===n?"\\u0073":"\\u0053")+r}var ve=$('<script type="importmap">'),be=$("<\/script>");function ke(e,t,n,r,o,s){var a=void 0===(n="string"==typeof t?t:t&&t.script)?ie:$('<script nonce="'+X(n)+'"'),i="string"==typeof t?void 0:t&&t.style,l=void 0===i?ge:$('<style nonce="'+X(i)+'"'),c=e.idPrefix,u=[],d=e.bootstrapScriptContent,h=e.bootstrapScripts,p=e.bootstrapModules;if(void 0!==d&&(u.push(a),Xn(u,e),u.push(Je,(""+d).replace(me,ye),le)),d=[],void 0!==r&&(d.push(ve),d.push((""+JSON.stringify(r)).replace(me,ye)),d.push(be)),r=o?{preconnects:"",fontPreloads:"",highImagePreloads:"",remainingCapacity:2+("number"==typeof s?s:2e3)}:null,o={placeholderPrefix:$(c+"P:"),segmentPrefix:$(c+"S:"),boundaryPrefix:$(c+"B:"),startInlineScript:a,startInlineStyle:l,preamble:{htmlChunks:null,headChunks:null,bodyChunks:null},externalRuntimeScript:null,bootstrapChunks:u,importMapChunks:d,onHeaders:o,headers:r,resets:{font:{},dns:{},connect:{default:{},anonymous:{},credentials:{}},image:{},style:{}},charsetChunks:[],viewportChunks:[],hoistableChunks:[],preconnects:new Set,fontPreloads:new Set,highImagePreloads:new Set,styles:new Map,bootstrapScripts:new Set,scripts:new Set,bulkPreloads:new Set,preloads:{images:new Map,stylesheets:new Map,scripts:new Map,moduleScripts:new Map},nonce:{script:n,style:i},hoistableState:null,stylesToHoist:!1},void 0!==h)for(r=0;r<h.length;r++)i=a=void 0,l={rel:"preload",as:"script",fetchPriority:"low",nonce:t},"string"==typeof(c=h[r])?l.href=s=c:(l.href=s=c.src,l.integrity=i="string"==typeof c.integrity?c.integrity:void 0,l.crossOrigin=a="string"==typeof c||null==c.crossOrigin?void 0:"use-credentials"===c.crossOrigin?"use-credentials":""),d=s,(c=e).scriptResources[d]=null,c.moduleScriptResources[d]=null,rt(c=[],l),o.bootstrapScripts.add(c),u.push(ce,X(s),Be),n&&u.push(de,X(n),Be),"string"==typeof i&&u.push(he,X(i),Be),"string"==typeof a&&u.push(pe,X(a),Be),Xn(u,e),u.push(fe);if(void 0!==p)for(t=0;t<p.length;t++)s=r=void 0,a={rel:"modulepreload",fetchPriority:"low",nonce:n},"string"==typeof(i=p[t])?a.href=h=i:(a.href=h=i.src,a.integrity=s="string"==typeof i.integrity?i.integrity:void 0,a.crossOrigin=r="string"==typeof i||null==i.crossOrigin?void 0:"use-credentials"===i.crossOrigin?"use-credentials":""),l=h,(i=e).scriptResources[l]=null,i.moduleScriptResources[l]=null,rt(i=[],a),o.bootstrapScripts.add(i),u.push(ue,X(h),Be),n&&u.push(de,X(n),Be),"string"==typeof s&&u.push(he,X(s),Be),"string"==typeof r&&u.push(pe,X(r),Be),Xn(u,e),u.push(fe);return o}function Se(e,t,n,r,o){return{idPrefix:void 0===e?"":e,nextFormID:0,streamingFormat:0,bootstrapScriptContent:n,bootstrapScripts:r,bootstrapModules:o,instructions:0,hasBody:!1,hasHtml:!1,unknownResources:{},dnsResources:{},connectResources:{default:{},anonymous:{},credentials:{}},imageResources:{},styleResources:{},scriptResources:{},moduleUnknownResources:{},moduleScriptResources:{}}}function we(){return{htmlChunks:null,headChunks:null,bodyChunks:null}}function xe(e,t,n,r){return{insertionMode:e,selectedValue:t,tagScope:n,viewTransition:r}}function Pe(e){return xe("http://www.w3.org/2000/svg"===e?4:"http://www.w3.org/1998/Math/MathML"===e?5:0,null,0,null)}function Re(e,t,n){var r=-25&e.tagScope;switch(t){case"noscript":return xe(2,null,1|r,null);case"select":return xe(2,null!=n.value?n.value:n.defaultValue,r,null);case"svg":return xe(4,null,r,null);case"picture":return xe(2,null,2|r,null);case"math":return xe(5,null,r,null);case"foreignObject":return xe(2,null,r,null);case"table":return xe(6,null,r,null);case"thead":case"tbody":case"tfoot":return xe(7,null,r,null);case"colgroup":return xe(9,null,r,null);case"tr":return xe(8,null,r,null);case"head":if(2>e.insertionMode)return xe(3,null,r,null);break;case"html":if(0===e.insertionMode)return xe(1,null,r,null)}return 6<=e.insertionMode||2>e.insertionMode?xe(2,null,r,null):e.tagScope!==r?xe(e.insertionMode,e.selectedValue,r,null):e}function Ce(e){return null===e?null:{update:e.update,enter:"none",exit:"none",share:e.update,name:e.autoName,autoName:e.autoName,nameIdx:0}}function Te(e,t){return 32&t.tagScope&&(e.instructions|=128),xe(t.insertionMode,t.selectedValue,12|t.tagScope,Ce(t.viewTransition))}function _e(e,t){e=Ce(t.viewTransition);var n=16|t.tagScope;return null!==e&&"none"!==e.share&&(n|=64),xe(t.insertionMode,t.selectedValue,n,e)}var Ee=$("\x3c!-- --\x3e");function Ie(e,t,n,r){return""===t?r:(r&&e.push(Ee),e.push(X(t)),!0)}var Me=new Map,Fe=$(' style="'),Le=$(":"),Oe=$(";");function Ae(e,t){if("object"!=typeof t)throw Error("The `style` prop expects a mapping from style properties to values, not a string. For example, style={{marginRight: spacing + 'em'}} when using JSX.");var n,r=!0;for(n in t)if(z.call(t,n)){var o=t[n];if(null!=o&&"boolean"!=typeof o&&""!==o){if(0===n.indexOf("--")){var s=X(n);o=X((""+o).trim())}else void 0===(s=Me.get(n))&&(s=$(X(n.replace(Y,"-$1").toLowerCase().replace(Z,"-ms-"))),Me.set(n,s)),o="number"==typeof o?0===o||G.has(n)?""+o:o+"px":X((""+o).trim());r?(r=!1,e.push(Fe,s,Le,o)):e.push(Oe,s,Le,o)}}r||e.push(Be)}var je=$(" "),De=$('="'),Be=$('"'),$e=$('=""');function Ne(e,t,n){n&&"function"!=typeof n&&"symbol"!=typeof n&&e.push(je,t,$e)}function He(e,t,n){"function"!=typeof n&&"symbol"!=typeof n&&"boolean"!=typeof n&&e.push(je,t,De,X(n),Be)}var ze=$(X("javascript:throw new Error('React form unexpectedly submitted.')")),Ve=$('<input type="hidden"');function We(e,t){this.push(Ve),Ue(e),He(this,"name",t),He(this,"value",e),this.push(Xe)}function Ue(e){if("string"!=typeof e)throw Error("File/Blob fields are not yet supported in progressive forms. Will fallback to client hydration.")}function qe(e,t){if("function"==typeof t.$$FORM_ACTION){var n=e.nextFormID++;e=e.idPrefix+n;try{var r=t.$$FORM_ACTION(e);return r&&r.data?.forEach(Ue),r}catch(o){if("object"==typeof o&&null!==o&&"function"==typeof o.then)throw o}}return null}function Ge(e,t,n,r,o,s,a,i){var l=null;if("function"==typeof r){var c=qe(t,r);null!==c?(i=c.name,r=c.action||"",o=c.encType,s=c.method,a=c.target,l=c.data):(e.push(je,"formAction",De,ze,Be),a=s=o=r=i=null,et(t,n))}return null!=i&&Ke(e,"name",i),null!=r&&Ke(e,"formAction",r),null!=o&&Ke(e,"formEncType",o),null!=s&&Ke(e,"formMethod",s),null!=a&&Ke(e,"formTarget",a),l}function Ke(e,t,n){switch(t){case"className":He(e,"class",n);break;case"tabIndex":He(e,"tabindex",n);break;case"dir":case"role":case"viewBox":case"width":case"height":He(e,t,n);break;case"style":Ae(e,n);break;case"src":case"href":if(""===n)break;case"action":case"formAction":if(null==n||"function"==typeof n||"symbol"==typeof n||"boolean"==typeof n)break;n=ee(""+n),e.push(je,t,De,X(n),Be);break;case"defaultValue":case"defaultChecked":case"innerHTML":case"suppressContentEditableWarning":case"suppressHydrationWarning":case"ref":break;case"autoFocus":case"multiple":case"muted":Ne(e,t.toLowerCase(),n);break;case"xlinkHref":if("function"==typeof n||"symbol"==typeof n||"boolean"==typeof n)break;n=ee(""+n),e.push(je,"xlink:href",De,X(n),Be);break;case"contentEditable":case"spellCheck":case"draggable":case"value":case"autoReverse":case"externalResourcesRequired":case"focusable":case"preserveAlpha":"function"!=typeof n&&"symbol"!=typeof n&&e.push(je,t,De,X(n),Be);break;case"inert":case"allowFullScreen":case"async":case"autoPlay":case"controls":case"default":case"defer":case"disabled":case"disablePictureInPicture":case"disableRemotePlayback":case"formNoValidate":case"hidden":case"loop":case"noModule":case"noValidate":case"open":case"playsInline":case"readOnly":case"required":case"reversed":case"scoped":case"seamless":case"itemScope":n&&"function"!=typeof n&&"symbol"!=typeof n&&e.push(je,t,$e);break;case"capture":case"download":!0===n?e.push(je,t,$e):!1!==n&&"function"!=typeof n&&"symbol"!=typeof n&&e.push(je,t,De,X(n),Be);break;case"cols":case"rows":case"size":case"span":"function"!=typeof n&&"symbol"!=typeof n&&!isNaN(n)&&1<=n&&e.push(je,t,De,X(n),Be);break;case"rowSpan":case"start":"function"==typeof n||"symbol"==typeof n||isNaN(n)||e.push(je,t,De,X(n),Be);break;case"xlinkActuate":He(e,"xlink:actuate",n);break;case"xlinkArcrole":He(e,"xlink:arcrole",n);break;case"xlinkRole":He(e,"xlink:role",n);break;case"xlinkShow":He(e,"xlink:show",n);break;case"xlinkTitle":He(e,"xlink:title",n);break;case"xlinkType":He(e,"xlink:type",n);break;case"xmlBase":He(e,"xml:base",n);break;case"xmlLang":He(e,"xml:lang",n);break;case"xmlSpace":He(e,"xml:space",n);break;default:if((!(2<t.length)||"o"!==t[0]&&"O"!==t[0]||"n"!==t[1]&&"N"!==t[1])&&q(t=K.get(t)||t)){switch(typeof n){case"function":case"symbol":return;case"boolean":var r=t.toLowerCase().slice(0,5);if("data-"!==r&&"aria-"!==r)return}e.push(je,t,De,X(n),Be)}}}var Je=$(">"),Xe=$("/>");function Ye(e,t,n){if(null!=t){if(null!=n)throw Error("Can only set one of `children` or `props.dangerouslySetInnerHTML`.");if("object"!=typeof t||!("__html"in t))throw Error("`props.dangerouslySetInnerHTML` must be in the form `{__html: ...}`. Please visit https://react.dev/link/dangerously-set-inner-html for more information.");null!=(t=t.__html)&&e.push(""+t)}}var Ze=$(' selected=""'),Qe=$('addEventListener("submit",function(a){if(!a.defaultPrevented){var c=a.target,d=a.submitter,e=c.action,b=d;if(d){var f=d.getAttribute("formAction");null!=f&&(e=f,b=null)}"javascript:throw new Error(\'React form unexpectedly submitted.\')"===e&&(a.preventDefault(),b?(a=document.createElement("input"),a.name=b.name,a.value=b.value,b.parentNode.insertBefore(a,b),b=new FormData(c),a.parentNode.removeChild(a)):b=new FormData(c),a=c.ownerDocument||c,(a.$$reactFormReplay=a.$$reactFormReplay||[]).push(c,d,b))}});');function et(e,t){if(!(16&e.instructions)){e.instructions|=16;var n=t.preamble,r=t.bootstrapChunks;(n.htmlChunks||n.headChunks)&&0===r.length?(r.push(t.startInlineScript),Xn(r,e),r.push(Je,Qe,le)):r.unshift(t.startInlineScript,Je,Qe,le)}}var tt=$("\x3c!--F!--\x3e"),nt=$("\x3c!--F--\x3e");function rt(e,t){for(var n in e.push(yt("link")),t)if(z.call(t,n)){var r=t[n];if(null!=r)switch(n){case"children":case"dangerouslySetInnerHTML":throw Error("link is a self-closing tag and must neither have `children` nor use `dangerouslySetInnerHTML`.");default:Ke(e,n,r)}}return e.push(Xe),null}var ot=/(<\/|<)(s)(tyle)/gi;function st(e,t,n,r){return t+("s"===n?"\\73 ":"\\53 ")+r}function at(e,t,n){for(var r in e.push(yt(n)),t)if(z.call(t,r)){var o=t[r];if(null!=o)switch(r){case"children":case"dangerouslySetInnerHTML":throw Error(n+" is a self-closing tag and must neither have `children` nor use `dangerouslySetInnerHTML`.");default:Ke(e,r,o)}}return e.push(Xe),null}function it(e,t){e.push(yt("title"));var n,r=null,o=null;for(n in t)if(z.call(t,n)){var s=t[n];if(null!=s)switch(n){case"children":r=s;break;case"dangerouslySetInnerHTML":o=s;break;default:Ke(e,n,s)}}return e.push(Je),"function"!=typeof(t=Array.isArray(r)?2>r.length?r[0]:null:r)&&"symbol"!=typeof t&&null!=t&&e.push(X(""+t)),Ye(e,o,r),e.push(St("title")),null}var lt=$("\x3c!--head--\x3e"),ct=$("\x3c!--body--\x3e"),ut=$("\x3c!--html--\x3e");function dt(e,t){e.push(yt("script"));var n,r=null,o=null;for(n in t)if(z.call(t,n)){var s=t[n];if(null!=s)switch(n){case"children":r=s;break;case"dangerouslySetInnerHTML":o=s;break;default:Ke(e,n,s)}}return e.push(Je),Ye(e,o,r),"string"==typeof r&&e.push((""+r).replace(me,ye)),e.push(St("script")),null}function ht(e,t,n){e.push(yt(n));var r,o=n=null;for(r in t)if(z.call(t,r)){var s=t[r];if(null!=s)switch(r){case"children":n=s;break;case"dangerouslySetInnerHTML":o=s;break;default:Ke(e,r,s)}}return e.push(Je),Ye(e,o,n),n}function pt(e,t,n){e.push(yt(n));var r,o=n=null;for(r in t)if(z.call(t,r)){var s=t[r];if(null!=s)switch(r){case"children":n=s;break;case"dangerouslySetInnerHTML":o=s;break;default:Ke(e,r,s)}}return e.push(Je),Ye(e,o,n),"string"==typeof n?(e.push(X(n)),null):n}var ft=$("\n"),gt=/^[a-zA-Z][a-zA-Z:_\.\-\d]*$/,mt=new Map;function yt(e){var t=mt.get(e);if(void 0===t){if(!gt.test(e))throw Error("Invalid tag: "+e);t=$("<"+e),mt.set(e,t)}return t}var vt=$("<!DOCTYPE html>");var bt=new Map;function St(e){var t=bt.get(e);return void 0===t&&(t=$("</"+e+">"),bt.set(e,t)),t}function wt(e,t){null===(e=e.preamble).htmlChunks&&t.htmlChunks&&(e.htmlChunks=t.htmlChunks),null===e.headChunks&&t.headChunks&&(e.headChunks=t.headChunks),null===e.bodyChunks&&t.bodyChunks&&(e.bodyChunks=t.bodyChunks)}function xt(e,t){t=t.bootstrapChunks;for(var n=0;n<t.length-1;n++)O(e,t[n]);return!(n<t.length)||(n=t[n],t.length=0,j(e,n))}var Pt=$("requestAnimationFrame(function(){$RT=performance.now()});"),Rt=$('<template id="'),Ct=$('"></template>'),Tt=$("\x3c!--&--\x3e"),_t=$("\x3c!--/&--\x3e"),Et=$("\x3c!--$--\x3e"),It=$('\x3c!--$?--\x3e<template id="'),Mt=$('"></template>'),Ft=$("\x3c!--$!--\x3e"),Lt=$("\x3c!--/$--\x3e"),Ot=$("<template"),At=$('"'),jt=$(' data-dgst="');$(' data-msg="'),$(' data-stck="'),$(' data-cstck="');var Dt=$("></template>");function Bt(e,t,n){if(O(e,It),null===n)throw Error("An ID must have been assigned before we can complete the boundary.");return O(e,t.boundaryPrefix),O(e,n.toString(16)),j(e,Mt)}var $t=$('<div hidden id="'),Nt=$('">'),Ht=$("</div>"),zt=$('<svg aria-hidden="true" style="display:none" id="'),Vt=$('">'),Wt=$("</svg>"),Ut=$('<math aria-hidden="true" style="display:none" id="'),qt=$('">'),Gt=$("</math>"),Kt=$('<table hidden id="'),Jt=$('">'),Xt=$("</table>"),Yt=$('<table hidden><tbody id="'),Zt=$('">'),Qt=$("</tbody></table>"),en=$('<table hidden><tr id="'),tn=$('">'),nn=$("</tr></table>"),rn=$('<table hidden><colgroup id="'),on=$('">'),sn=$("</colgroup></table>"),an=$('$RS=function(a,b){a=document.getElementById(a);b=document.getElementById(b);for(a.parentNode.removeChild(a);a.firstChild;)b.parentNode.insertBefore(a.firstChild,b);b.parentNode.removeChild(b)};$RS("'),ln=$('$RS("'),cn=$('","'),un=$('")<\/script>');$('<template data-rsi="" data-sid="'),$('" data-pid="');var dn=$('$RB=[];$RV=function(a){$RT=performance.now();for(var b=0;b<a.length;b+=2){var c=a[b],e=a[b+1];null!==e.parentNode&&e.parentNode.removeChild(e);var f=c.parentNode;if(f){var g=c.previousSibling,h=0;do{if(c&&8===c.nodeType){var d=c.data;if("/$"===d||"/&"===d)if(0===h)break;else h--;else"$"!==d&&"$?"!==d&&"$~"!==d&&"$!"!==d&&"&"!==d||h++}d=c.nextSibling;f.removeChild(c);c=d}while(c);for(;e.firstChild;)f.insertBefore(e.firstChild,c);g.data="$";g._reactRetry&&requestAnimationFrame(g._reactRetry)}}a.length=0};\n$RC=function(a,b){if(b=document.getElementById(b))(a=document.getElementById(a))?(a.previousSibling.data="$~",$RB.push(a,b),2===$RB.length&&("number"!==typeof $RT?requestAnimationFrame($RV.bind(null,$RB)):(a=performance.now(),setTimeout($RV.bind(null,$RB),2300>a&&2E3<a?2300-a:$RT+300-a)))):b.parentNode.removeChild(b)};'),hn=$('$RC("'),pn=$('$RM=new Map;$RR=function(n,w,p){function u(q){this._p=null;q()}for(var r=new Map,t=document,h,b,e=t.querySelectorAll("link[data-precedence],style[data-precedence]"),v=[],k=0;b=e[k++];)"not all"===b.getAttribute("media")?v.push(b):("LINK"===b.tagName&&$RM.set(b.getAttribute("href"),b),r.set(b.dataset.precedence,h=b));e=0;b=[];var l,a;for(k=!0;;){if(k){var f=p[e++];if(!f){k=!1;e=0;continue}var c=!1,m=0;var d=f[m++];if(a=$RM.get(d)){var g=a._p;c=!0}else{a=t.createElement("link");a.href=d;a.rel=\n"stylesheet";for(a.dataset.precedence=l=f[m++];g=f[m++];)a.setAttribute(g,f[m++]);g=a._p=new Promise(function(q,x){a.onload=u.bind(a,q);a.onerror=u.bind(a,x)});$RM.set(d,a)}d=a.getAttribute("media");!g||d&&!matchMedia(d).matches||b.push(g);if(c)continue}else{a=v[e++];if(!a)break;l=a.getAttribute("data-precedence");a.removeAttribute("media")}c=r.get(l)||h;c===h&&(h=a);r.set(l,a);c?c.parentNode.insertBefore(a,c.nextSibling):(c=t.head,c.insertBefore(a,c.firstChild))}if(p=document.getElementById(n))p.previousSibling.data=\n"$~";Promise.all(b).then($RC.bind(null,n,w),$RX.bind(null,n,"CSS failed to load"))};$RR("'),fn=$('$RR("'),gn=$('","'),mn=$('",'),yn=$('"'),vn=$(")<\/script>");$('<template data-rci="" data-bid="'),$('<template data-rri="" data-bid="'),$('" data-sid="'),$('" data-sty="');var bn=$('$RX=function(b,c,d,e,f){var a=document.getElementById(b);a&&(b=a.previousSibling,b.data="$!",a=a.dataset,c&&(a.dgst=c),d&&(a.msg=d),e&&(a.stck=e),f&&(a.cstck=f),b._reactRetry&&b._reactRetry())};'),kn=$('$RX=function(b,c,d,e,f){var a=document.getElementById(b);a&&(b=a.previousSibling,b.data="$!",a=a.dataset,c&&(a.dgst=c),d&&(a.msg=d),e&&(a.stck=e),f&&(a.cstck=f),b._reactRetry&&b._reactRetry())};;$RX("'),Sn=$('$RX("'),wn=$('"'),xn=$(","),Pn=$(")<\/script>");$('<template data-rxi="" data-bid="'),$('" data-dgst="'),$('" data-msg="'),$('" data-stck="'),$('" data-cstck="');var Rn=/[<\u2028\u2029]/g;function Cn(e){return JSON.stringify(e).replace(Rn,function(e){switch(e){case"<":return"\\u003c";case"\u2028":return"\\u2028";case"\u2029":return"\\u2029";default:throw Error("escapeJSStringsForInstructionScripts encountered a match it does not know how to replace. this means the match regex and the replacement characters are no longer in sync. This is a bug in React")}})}var Tn=/[&><\u2028\u2029]/g;function _n(e){return JSON.stringify(e).replace(Tn,function(e){switch(e){case"&":return"\\u0026";case">":return"\\u003e";case"<":return"\\u003c";case"\u2028":return"\\u2028";case"\u2029":return"\\u2029";default:throw Error("escapeJSObjectForInstructionScripts encountered a match it does not know how to replace. this means the match regex and the replacement characters are no longer in sync. This is a bug in React")}})}var En=$(' media="not all" data-precedence="'),In=$('" data-href="'),Mn=$('">'),Fn=$("</style>"),Ln=!1,On=!0;function An(e){var t=e.rules,n=e.hrefs,r=0;if(n.length){for(O(this,ae.startInlineStyle),O(this,En),O(this,e.precedence),O(this,In);r<n.length-1;r++)O(this,n[r]),O(this,Vn);for(O(this,n[r]),O(this,Mn),r=0;r<t.length;r++)O(this,t[r]);On=j(this,Fn),Ln=!0,t.length=0,n.length=0}}function jn(e){return 2!==e.state&&(Ln=!0)}function Dn(e,t,n){return Ln=!1,On=!0,ae=n,t.styles.forEach(An,e),ae=null,t.stylesheets.forEach(jn),Ln&&(n.stylesToHoist=!0),On}function Bn(e){for(var t=0;t<e.length;t++)O(this,e[t]);e.length=0}var $n=[];function Nn(e){rt($n,e.props);for(var t=0;t<$n.length;t++)O(this,$n[t]);$n.length=0,e.state=2}var Hn=$(' data-precedence="'),zn=$('" data-href="'),Vn=$(" "),Wn=$('">'),Un=$("</style>");function qn(e){var t=0<e.sheets.size;e.sheets.forEach(Nn,this),e.sheets.clear();var n=e.rules,r=e.hrefs;if(!t||r.length){if(O(this,ae.startInlineStyle),O(this,Hn),O(this,e.precedence),e=0,r.length){for(O(this,zn);e<r.length-1;e++)O(this,r[e]),O(this,Vn);O(this,r[e])}for(O(this,Wn),e=0;e<n.length;e++)O(this,n[e]);O(this,Un),n.length=0,r.length=0}}function Gn(e){if(0===e.state){e.state=1;var t=e.props;for(rt($n,{rel:"preload",as:"style",href:e.props.href,crossOrigin:t.crossOrigin,fetchPriority:t.fetchPriority,integrity:t.integrity,media:t.media,hrefLang:t.hrefLang,referrerPolicy:t.referrerPolicy}),e=0;e<$n.length;e++)O(this,$n[e]);$n.length=0}}function Kn(e){e.sheets.forEach(Gn,this),e.sheets.clear()}$('<link rel="expect" href="#'),$('" blocking="render"/>');var Jn=$(' id="');function Xn(e,t){!(32&t.instructions)&&(t.instructions|=32,e.push(Jn,X("_"+t.idPrefix+"R_"),Be))}var Yn=$("["),Zn=$(",["),Qn=$(","),er=$("]");function tr(e,t,n){var r=t.toLowerCase();switch(typeof n){case"function":case"symbol":return}switch(t){case"innerHTML":case"dangerouslySetInnerHTML":case"suppressContentEditableWarning":case"suppressHydrationWarning":case"style":case"ref":return;case"className":r="class",t=""+n;break;case"hidden":if(!1===n)return;t="";break;case"src":case"href":t=""+(n=ee(n));break;default:if(2<t.length&&("o"===t[0]||"O"===t[0])&&("n"===t[1]||"N"===t[1])||!q(t))return;t=""+n}O(e,Qn),O(e,_n(r)),O(e,Qn),O(e,_n(t))}function nr(){return{styles:new Set,stylesheets:new Set,suspenseyImages:!1}}function rr(e,t){e.crossOrigin??(e.crossOrigin=t[0]),e.integrity??(e.integrity=t[1])}function or(e,t,n){for(var r in t="<"+(e=(""+e).replace(sr,ar))+'>; rel=preload; as="'+(t=(""+t).replace(ir,lr))+'"',n)z.call(n,r)&&"string"==typeof(e=n[r])&&(t+="; "+r.toLowerCase()+'="'+(""+e).replace(ir,lr)+'"');return t}var sr=/[<>\r\n]/g;function ar(e){switch(e){case"<":return"%3C";case">":return"%3E";case"\n":return"%0A";case"\r":return"%0D";default:throw Error("escapeLinkHrefForHeaderContextReplacer encountered a match it does not know how to replace. this means the match regex and the replacement characters are no longer in sync. This is a bug in React")}}var ir=/["';,\r\n]/g;function lr(e){switch(e){case'"':return"%22";case"'":return"%27";case";":return"%3B";case",":return"%2C";case"\n":return"%0A";case"\r":return"%0D";default:throw Error("escapeStringForLinkHeaderQuotedParamValueContextReplacer encountered a match it does not know how to replace. this means the match regex and the replacement characters are no longer in sync. This is a bug in React")}}function cr(e){this.styles.add(e)}function ur(e){this.stylesheets.add(e)}function dr(e,t){t.styles.forEach(cr,e),t.stylesheets.forEach(ur,e),t.suspenseyImages&&(e.suspenseyImages=!0)}function hr(e){return 0<e.stylesheets.size||e.suspenseyImages}var pr=Function.prototype.bind,fr=new s.AsyncLocalStorage,gr=Symbol.for("react.client.reference");function mr(e){if(null==e)return null;if("function"==typeof e)return e.$$typeof===gr?null:e.displayName||e.name||null;if("string"==typeof e)return e;switch(e){case d:return"Fragment";case p:return"Profiler";case h:return"StrictMode";case y:return"Suspense";case v:return"SuspenseList";case w:return"Activity"}if("object"==typeof e)switch(e.$$typeof){case u:return"Portal";case g:return e.displayName||"Context";case f:return(e._context.displayName||"Context")+".Consumer";case m:var t=e.render;return(e=e.displayName)||(e=""!==(e=t.displayName||t.name||"")?"ForwardRef("+e+")":"ForwardRef"),e;case b:return null!==(t=e.displayName||null)?t:mr(e.type)||"Memo";case k:t=e._payload,e=e._init;try{return mr(e(t))}catch(n){}}return null}var yr={},vr=null;function br(e,t){if(e!==t){e.context._currentValue=e.parentValue,e=e.parent;var n=t.parent;if(null===e){if(null!==n)throw Error("The stacks must reach the root at the same time. This is a bug in React.")}else{if(null===n)throw Error("The stacks must reach the root at the same time. This is a bug in React.");br(e,n)}t.context._currentValue=t.value}}function kr(e){e.context._currentValue=e.parentValue,null!==(e=e.parent)&&kr(e)}function Sr(e){var t=e.parent;null!==t&&Sr(t),e.context._currentValue=e.value}function wr(e,t){if(e.context._currentValue=e.parentValue,null===(e=e.parent))throw Error("The depth must equal at least at zero before reaching the root. This is a bug in React.");e.depth===t.depth?br(e,t):wr(e,t)}function xr(e,t){var n=t.parent;if(null===n)throw Error("The depth must equal at least at zero before reaching the root. This is a bug in React.");e.depth===n.depth?br(e,n):xr(e,n),t.context._currentValue=t.value}function Pr(e){var t=vr;t!==e&&(null===t?Sr(e):null===e?kr(t):t.depth===e.depth?br(t,e):t.depth>e.depth?wr(t,e):xr(t,e),vr=e)}var Rr={enqueueSetState:function(e,t){null!==(e=e._reactInternals).queue&&e.queue.push(t)},enqueueReplaceState:function(e,t){(e=e._reactInternals).replace=!0,e.queue=[t]},enqueueForceUpdate:function(){}},Cr={id:1,overflow:""};function Tr(e,t,n){var r=e.id;e=e.overflow;var o=32-_r(r)-1;r&=~(1<<o),n+=1;var s=32-_r(t)+o;if(30<s){var a=o-o%5;return s=(r&(1<<a)-1).toString(32),r>>=a,o-=a,{id:1<<32-_r(t)+o|n<<o|r,overflow:s+e}}return{id:1<<s|n<<o|r,overflow:e}}var _r=Math.clz32?Math.clz32:function(e){return 0==(e>>>=0)?32:31-(Er(e)/Ir|0)|0},Er=Math.log,Ir=Math.LN2;function Mr(){}var Fr=Error("Suspense Exception: This is not a real error! It's an implementation detail of `use` to interrupt the current render. You must either rethrow it immediately, or move the `use` call outside of the `try/catch` block. Capturing without rethrowing will lead to unexpected behavior.\n\nTo handle async errors, wrap your component in an error boundary, or call the promise's `.catch` method and pass the result to `use`."),Lr=null;function Or(){if(null===Lr)throw Error("Expected a suspended thenable. This is a bug in React. Please file an issue.");var e=Lr;return Lr=null,e}var Ar="function"==typeof Object.is?Object.is:function(e,t){return e===t&&(0!==e||1/e==1/t)||e!=e&&t!=t},jr=null,Dr=null,Br=null,$r=null,Nr=null,Hr=null,zr=!1,Vr=!1,Wr=0,Ur=0,qr=-1,Gr=0,Kr=null,Jr=null,Xr=0;function Yr(){if(null===jr)throw Error("Invalid hook call. Hooks can only be called inside of the body of a function component. This could happen for one of the following reasons:\n1. You might have mismatching versions of React and the renderer (such as React DOM)\n2. You might be breaking the Rules of Hooks\n3. You might have more than one copy of React in the same app\nSee https://react.dev/link/invalid-hook-call for tips about how to debug and fix this problem.");return jr}function Zr(){if(0<Xr)throw Error("Rendered more hooks than during the previous render");return{memoizedState:null,queue:null,next:null}}function Qr(){return null===Hr?null===Nr?(zr=!1,Nr=Hr=Zr()):(zr=!0,Hr=Nr):null===Hr.next?(zr=!1,Hr=Hr.next=Zr()):(zr=!0,Hr=Hr.next),Hr}function eo(){var e=Kr;return Kr=null,e}function to(){$r=Br=Dr=jr=null,Vr=!1,Nr=null,Xr=0,Hr=Jr=null}function no(e,t){return"function"==typeof t?t(e):t}function ro(e,t,n){if(jr=Yr(),Hr=Qr(),zr){var r=Hr.queue;if(t=r.dispatch,null!==Jr&&void 0!==(n=Jr.get(r))){Jr.delete(r),r=Hr.memoizedState;do{r=e(r,n.action),n=n.next}while(null!==n);return Hr.memoizedState=r,[r,t]}return[Hr.memoizedState,t]}return e=e===no?"function"==typeof t?t():t:void 0!==n?n(t):t,Hr.memoizedState=e,e=(e=Hr.queue={last:null,dispatch:null}).dispatch=so.bind(null,jr,e),[Hr.memoizedState,e]}function oo(e,t){if(jr=Yr(),t=void 0===t?null:t,null!==(Hr=Qr())){var n=Hr.memoizedState;if(null!==n&&null!==t){var r=n[1];e:if(null===r)r=!1;else{for(var o=0;o<r.length&&o<t.length;o++)if(!Ar(t[o],r[o])){r=!1;break e}r=!0}if(r)return n[0]}}return e=e(),Hr.memoizedState=[e,t],e}function so(e,t,n){if(25<=Xr)throw Error("Too many re-renders. React limits the number of renders to prevent an infinite loop.");if(e===jr)if(Vr=!0,e={action:n,next:null},null===Jr&&(Jr=new Map),void 0===(n=Jr.get(t)))Jr.set(t,e);else{for(t=n;null!==t.next;)t=t.next;t.next=e}}function ao(){throw Error("A function wrapped in useEffectEvent can't be called during rendering.")}function io(){throw Error("startTransition cannot be called during server rendering.")}function lo(){throw Error("Cannot update optimistic state while rendering.")}function co(e,t,n){return void 0!==e?"p"+e:(e=JSON.stringify([t,null,n]),(t=r.createHash("md5")).update(e),"k"+t.digest("hex"))}function uo(e,t,n){Yr();var r=Ur++,o=Br;if("function"==typeof e.$$FORM_ACTION){var s=null,a=$r;o=o.formState;var i=e.$$IS_SIGNATURE_EQUAL;if(null!==o&&"function"==typeof i){var l=o[1];i.call(e,o[2],o[3])&&l===(s=co(n,a,r))&&(qr=r,t=o[0])}var c=e.bind(null,t);return e=function(e){c(e)},"function"==typeof c.$$FORM_ACTION&&(e.$$FORM_ACTION=function(e){e=c.$$FORM_ACTION(e),void 0!==n&&(n+="",e.action=n);var t=e.data;return t&&(null===s&&(s=co(n,a,r)),t.append("$ACTION_KEY",s)),e}),[t,e,!1]}var u=e.bind(null,t);return[t,function(e){u(e)},!1]}function ho(e){var t=Gr;return Gr+=1,null===Kr&&(Kr=[]),function(e,t,n){switch(void 0===(n=e[n])?e.push(t):n!==t&&(t.then(Mr,Mr),t=n),t.status){case"fulfilled":return t.value;case"rejected":throw t.reason;default:switch("string"==typeof t.status?t.then(Mr,Mr):((e=t).status="pending",e.then(function(e){if("pending"===t.status){var n=t;n.status="fulfilled",n.value=e}},function(e){if("pending"===t.status){var n=t;n.status="rejected",n.reason=e}})),t.status){case"fulfilled":return t.value;case"rejected":throw t.reason}throw Lr=t,Fr}}(Kr,e,t)}function po(){throw Error("Cache cannot be refreshed during server rendering.")}var fo,go,mo={readContext:function(e){return e._currentValue},use:function(e){if(null!==e&&"object"==typeof e){if("function"==typeof e.then)return ho(e);if(e.$$typeof===g)return e._currentValue}throw Error("An unsupported type was passed to use(): "+String(e))},useContext:function(e){return Yr(),e._currentValue},useMemo:oo,useReducer:ro,useRef:function(e){jr=Yr();var t=(Hr=Qr()).memoizedState;return null===t?(e={current:e},Hr.memoizedState=e):t},useState:function(e){return ro(no,e)},useInsertionEffect:Mr,useLayoutEffect:Mr,useCallback:function(e,t){return oo(function(){return e},t)},useImperativeHandle:Mr,useEffect:Mr,useDebugValue:Mr,useDeferredValue:function(e,t){return Yr(),void 0!==t?t:e},useTransition:function(){return Yr(),[!1,io]},useId:function(){var e=Dr.treeContext,t=e.overflow;e=((e=e.id)&~(1<<32-_r(e)-1)).toString(32)+t;var n=yo;if(null===n)throw Error("Invalid hook call. Hooks can only be called inside of the body of a function component.");return t=Wr++,e="_"+n.idPrefix+"R_"+e,0<t&&(e+="H"+t.toString(32)),e+"_"},useSyncExternalStore:function(e,t,n){if(void 0===n)throw Error("Missing getServerSnapshot, which is required for server-rendered content. Will revert to client rendering.");return n()},useOptimistic:function(e){return Yr(),[e,lo]},useActionState:uo,useFormState:uo,useHostTransitionStatus:function(){return Yr(),re},useMemoCache:function(e){for(var t=Array(e),n=0;n<e;n++)t[n]=P;return t},useCacheRefresh:function(){return po},useEffectEvent:function(){return ao}},yo=null,vo={getCacheForType:function(){throw Error("Not implemented.")},cacheSignal:function(){throw Error("Not implemented.")}};function bo(e,t){e=(e.name||"Error")+": "+(e.message||"");for(var n=0;n<t.length;n++)e+="\n    at "+t[n].toString();return e}function ko(e){if(void 0===fo)try{throw Error()}catch(n){var t=n.stack.trim().match(/\n( *(at )?)/);fo=t&&t[1]||"",go=-1<n.stack.indexOf("\n    at")?" (<anonymous>)":-1<n.stack.indexOf("@")?"@unknown:0:0":""}return"\n"+fo+e+go}var So=!1;function wo(e,t){if(!e||So)return"";So=!0;var n=Error.prepareStackTrace;Error.prepareStackTrace=bo;try{var r={DetermineComponentFrameRoot:function(){try{if(t){var n=function(){throw Error()};if(Object.defineProperty(n.prototype,"props",{set:function(){throw Error()}}),"object"==typeof Reflect&&Reflect.construct){try{Reflect.construct(n,[])}catch(o){var r=o}Reflect.construct(e,[],n)}else{try{n.call()}catch(s){r=s}e.call(n.prototype)}}else{try{throw Error()}catch(a){r=a}(n=e())&&"function"==typeof n.catch&&n.catch(function(){})}}catch(i){if(i&&r&&"string"==typeof i.stack)return[i.stack,r.stack]}return[null,null]}};r.DetermineComponentFrameRoot.displayName="DetermineComponentFrameRoot";var o=Object.getOwnPropertyDescriptor(r.DetermineComponentFrameRoot,"name");o&&o.configurable&&Object.defineProperty(r.DetermineComponentFrameRoot,"name",{value:"DetermineComponentFrameRoot"});var s=r.DetermineComponentFrameRoot(),a=s[0],i=s[1];if(a&&i){var l=a.split("\n"),c=i.split("\n");for(o=r=0;r<l.length&&!l[r].includes("DetermineComponentFrameRoot");)r++;for(;o<c.length&&!c[o].includes("DetermineComponentFrameRoot");)o++;if(r===l.length||o===c.length)for(r=l.length-1,o=c.length-1;1<=r&&0<=o&&l[r]!==c[o];)o--;for(;1<=r&&0<=o;r--,o--)if(l[r]!==c[o]){if(1!==r||1!==o)do{if(r--,0>--o||l[r]!==c[o]){var u="\n"+l[r].replace(" at new "," at ");return e.displayName&&u.includes("<anonymous>")&&(u=u.replace("<anonymous>",e.displayName)),u}}while(1<=r&&0<=o);break}}}finally{So=!1,Error.prepareStackTrace=n}return(n=e?e.displayName||e.name:"")?ko(n):""}function xo(e){if("string"==typeof e)return ko(e);if("function"==typeof e)return e.prototype&&e.prototype.isReactComponent?wo(e,!0):wo(e,!1);if("object"==typeof e&&null!==e){switch(e.$$typeof){case m:return wo(e.render,!1);case b:return wo(e.type,!1);case k:var t=e,n=t._payload;t=t._init;try{e=t(n)}catch(o){return ko("Lazy")}return xo(e)}if("string"==typeof e.name){n=e.name,t=e.env;var r=e.debugLocation;return null==r||(e=Error.prepareStackTrace,Error.prepareStackTrace=bo,r=r.stack,Error.prepareStackTrace=e,r.startsWith("Error: react-stack-top-frame\n")&&(r=r.slice(29)),-1!==(e=r.indexOf("\n"))&&(r=r.slice(e+1)),-1!==(e=r.indexOf("react_stack_bottom_frame"))&&(e=r.lastIndexOf("\n",e)),e=-1!==e?r=r.slice(0,e):"",r=e.lastIndexOf("\n"),-1===(e=-1===r?e:e.slice(r+1)).indexOf(n))?ko(n+(t?" ["+t+"]":"")):"\n"+e}}switch(e){case v:return ko("SuspenseList");case y:return ko("Suspense")}return""}function Po(e,t){return(500<t.byteSize||hr(t.contentState))&&null===t.contentPreamble}function Ro(e){if("object"==typeof e&&null!==e&&"string"==typeof e.environmentName){var t=e.environmentName;"string"==typeof(e=[e].slice(0))[0]?e.splice(0,1,"[0m[7m%c%s[0m%c "+e[0],"background: #e6e6e6;background: light-dark(rgba(0,0,0,0.1), rgba(255,255,255,0.25));color: #000000;color: light-dark(#000000, #ffffff);border-radius: 2px"," "+t+" ",""):e.splice(0,0,"[0m[7m%c%s[0m%c","background: #e6e6e6;background: light-dark(rgba(0,0,0,0.1), rgba(255,255,255,0.25));color: #000000;color: light-dark(#000000, #ffffff);border-radius: 2px"," "+t+" ",""),e.unshift(console),(t=pr.apply(console.error,e))()}return null}function Co(e,t,n,r,o,s,a,i,l,c,u){var d=new Set;this.destination=null,this.flushScheduled=!1,this.resumableState=e,this.renderState=t,this.rootFormatContext=n,this.progressiveChunkSize=void 0===r?12800:r,this.status=10,this.fatalError=null,this.pendingRootTasks=this.allPendingTasks=this.nextSegmentId=0,this.completedPreambleSegments=this.completedRootSegment=null,this.byteSize=0,this.abortableTasks=d,this.pingedTasks=[],this.clientRenderedBoundaries=[],this.completedBoundaries=[],this.partialBoundaries=[],this.trackedPostpones=null,this.onError=void 0===o?Ro:o,this.onPostpone=void 0===c?Mr:c,this.onAllReady=void 0===s?Mr:s,this.onShellReady=void 0===a?Mr:a,this.onShellError=void 0===i?Mr:i,this.onFatalError=void 0===l?Mr:l,this.formState=void 0===u?null:u}function To(e,t,n,r,o,s,a,i,l,c,u,d){return(n=Do(t=new Co(t,n,r,o,s,a,i,l,c,u,d),0,null,r,!1,!1)).parentFlushed=!0,Bo(e=Ao(t,null,e,-1,null,n,null,null,t.abortableTasks,null,r,null,Cr,null,null)),t.pingedTasks.push(e),t}function _o(e,t,n,r,o,s,a,i,l,c,u){return(e=To(e,t,n,r,o,s,a,i,l,c,u,void 0)).trackedPostpones={workingMap:new Map,rootNodes:[],rootSlots:null},e}function Eo(e,t,n,r,o,s,a,i,l){return(n=new Co(t.resumableState,n,t.rootFormatContext,t.progressiveChunkSize,r,o,s,a,i,l,null)).nextSegmentId=t.nextSegmentId,"number"==typeof t.replaySlots?((r=Do(0,0,null,t.rootFormatContext,!1,!1)).parentFlushed=!0,Bo(e=Ao(n,null,e,-1,null,r,null,null,n.abortableTasks,null,t.rootFormatContext,null,Cr,null,null)),n.pingedTasks.push(e),n):(Bo(e=jo(n,null,{nodes:t.replayNodes,slots:t.replaySlots,pendingTasks:0},e,-1,null,null,n.abortableTasks,null,t.rootFormatContext,null,Cr,null,null)),n.pingedTasks.push(e),n)}function Io(e,t,n,r,o,s,a,i,l){return(e=Eo(e,t,n,r,o,s,a,i,l)).trackedPostpones={workingMap:new Map,rootNodes:[],rootSlots:null},e}var Mo=null;function Fo(){return Mo||(fr.getStore()||null)}function Lo(e,t){e.pingedTasks.push(t),1===e.pingedTasks.length&&(e.flushScheduled=null!==e.destination,null!==e.trackedPostpones||10===e.status?E(function(){return ms(e)}):setImmediate(function(){return ms(e)}))}function Oo(e,t,n,r,o){return n={status:0,rootSegmentID:-1,parentFlushed:!1,pendingTasks:0,row:t,completedSegments:[],byteSize:0,fallbackAbortableTasks:n,errorDigest:null,contentState:nr(),fallbackState:nr(),contentPreamble:r,fallbackPreamble:o,trackedContentKeyPath:null,trackedFallbackNode:null},null!==t&&(t.pendingTasks++,null!==(r=t.boundaries)&&(e.allPendingTasks++,n.pendingTasks++,r.push(n)),null!==(e=t.inheritedHoistables)&&dr(n.contentState,e)),n}function Ao(e,t,n,r,o,s,a,i,l,c,u,d,h,p,f){e.allPendingTasks++,null===o?e.pendingRootTasks++:o.pendingTasks++,null!==p&&p.pendingTasks++;var g={replay:null,node:n,childIndex:r,ping:function(){return Lo(e,g)},blockedBoundary:o,blockedSegment:s,blockedPreamble:a,hoistableState:i,abortSet:l,keyPath:c,formatContext:u,context:d,treeContext:h,row:p,componentStack:f,thenableState:t};return l.add(g),g}function jo(e,t,n,r,o,s,a,i,l,c,u,d,h,p){e.allPendingTasks++,null===s?e.pendingRootTasks++:s.pendingTasks++,null!==h&&h.pendingTasks++,n.pendingTasks++;var f={replay:n,node:r,childIndex:o,ping:function(){return Lo(e,f)},blockedBoundary:s,blockedSegment:null,blockedPreamble:null,hoistableState:a,abortSet:i,keyPath:l,formatContext:c,context:u,treeContext:d,row:h,componentStack:p,thenableState:t};return i.add(f),f}function Do(e,t,n,r,o,s){return{status:0,parentFlushed:!1,id:-1,index:t,chunks:[],children:[],preambleChildren:[],parentFormatContext:r,boundary:n,lastPushedText:o,textEmbedded:s}}function Bo(e){var t=e.node;"object"==typeof t&&null!==t&&t.$$typeof===c&&(e.componentStack={parent:e.componentStack,type:t.type})}function $o(e){return null===e?null:{parent:e.parent,type:"Suspense Fallback"}}function No(e){var t={};return e&&Object.defineProperty(t,"componentStack",{configurable:!0,enumerable:!0,get:function(){try{var n="",r=e;do{n+=xo(r.type),r=r.parent}while(r);var o=n}catch(s){o="\nError generating stack: "+s.message+"\n"+s.stack}return Object.defineProperty(t,"componentStack",{value:o}),o}}),t}function Ho(e,t,n){if(null==(t=(e=e.onError)(t,n))||"string"==typeof t)return t}function zo(e,t){var n=e.onShellError,r=e.onFatalError;n(t),r(t),null!==e.destination?(e.status=14,e.destination.destroy(t)):(e.status=13,e.fatalError=t)}function Vo(e,t){Wo(e,t.next,t.hoistables)}function Wo(e,t,n){for(;null!==t;){null!==n&&(dr(t.hoistables,n),t.inheritedHoistables=n);var r=t.boundaries;if(null!==r){t.boundaries=null;for(var o=0;o<r.length;o++){var s=r[o];null!==n&&dr(s.contentState,n),gs(e,s,null,null)}}if(t.pendingTasks--,0<t.pendingTasks)break;n=t.hoistables,t=t.next}}function Uo(e,t){var n=t.boundaries;if(null!==n&&t.pendingTasks===n.length){for(var r=!0,o=0;o<n.length;o++){var s=n[o];if(1!==s.pendingTasks||s.parentFlushed||Po(0,s)){r=!1;break}}r&&Wo(e,t,t.hoistables)}}function qo(e){var t={pendingTasks:1,boundaries:null,hoistables:nr(),inheritedHoistables:null,together:!1,next:null};return null!==e&&0<e.pendingTasks&&(t.pendingTasks++,t.boundaries=[],e.next=t),t}function Go(e,t,n,r,o){var s=t.keyPath,a=t.treeContext,i=t.row;t.keyPath=n,n=r.length;var l=null;if(null!==t.replay){var c=t.replay.slots;if(null!==c&&"object"==typeof c)for(var u=0;u<n;u++){var d="backwards"!==o&&"unstable_legacy-backwards"!==o?u:n-1-u,h=r[d];t.row=l=qo(l),t.treeContext=Tr(a,n,d);var p=c[d];"number"==typeof p?(Yo(e,t,p,h,d),delete c[d]):as(e,t,h,d),0===--l.pendingTasks&&Vo(e,l)}else for(c=0;c<n;c++)d=r[u="backwards"!==o&&"unstable_legacy-backwards"!==o?c:n-1-c],t.row=l=qo(l),t.treeContext=Tr(a,n,u),as(e,t,d,u),0===--l.pendingTasks&&Vo(e,l)}else if("backwards"!==o&&"unstable_legacy-backwards"!==o)for(o=0;o<n;o++)c=r[o],t.row=l=qo(l),t.treeContext=Tr(a,n,o),as(e,t,c,o),0===--l.pendingTasks&&Vo(e,l);else{for(c=(o=t.blockedSegment).children.length,u=o.chunks.length,d=n-1;0<=d;d--){h=r[d],t.row=l=qo(l),t.treeContext=Tr(a,n,d),p=Do(0,u,null,t.formatContext,0!==d||o.lastPushedText,!0),o.children.splice(c,0,p),t.blockedSegment=p;try{as(e,t,h,d),p.lastPushedText&&p.textEmbedded&&p.chunks.push(Ee),p.status=1,fs(e,t.blockedBoundary,p),0===--l.pendingTasks&&Vo(e,l)}catch(f){throw p.status=12===e.status?3:4,f}}t.blockedSegment=o,o.lastPushedText=!1}null!==i&&null!==l&&0<l.pendingTasks&&(i.pendingTasks++,l.next=i),t.treeContext=a,t.row=i,t.keyPath=s}function Ko(e,t,n,r,o,s){var a=t.thenableState;for(t.thenableState=null,jr={},Dr=t,Br=e,$r=n,Ur=Wr=0,qr=-1,Gr=0,Kr=a,e=r(o,s);Vr;)Vr=!1,Ur=Wr=0,qr=-1,Gr=0,Xr+=1,Hr=null,e=r(o,s);return to(),e}function Jo(e,t,n,r,o,s,a){var i=!1;if(0!==s&&null!==e.formState){var l=t.blockedSegment;if(null!==l){i=!0,l=l.chunks;for(var c=0;c<s;c++)c===a?l.push(tt):l.push(nt)}}s=t.keyPath,t.keyPath=n,o?(n=t.treeContext,t.treeContext=Tr(n,1,0),as(e,t,r,-1),t.treeContext=n):i?as(e,t,r,-1):Zo(e,t,r,-1),t.keyPath=s}function Xo(e,t,n,r,o,s){if("function"==typeof r)if(r.prototype&&r.prototype.isReactComponent){var i=o;if("ref"in o)for(var l in i={},o)"ref"!==l&&(i[l]=o[l]);var c=r.defaultProps;if(c)for(var u in i===o&&(i=H({},i,o)),c)void 0===i[u]&&(i[u]=c[u]);o=i,i=yr,"object"==typeof(c=r.contextType)&&null!==c&&(i=c._currentValue);var P=void 0!==(i=new r(o,i)).state?i.state:null;if(i.updater=Rr,i.props=o,i.state=P,c={queue:[],replace:!1},i._reactInternals=c,s=r.contextType,i.context="object"==typeof s&&null!==s?s._currentValue:yr,"function"==typeof(s=r.getDerivedStateFromProps)&&(P=null==(s=s(o,P))?P:H({},P,s),i.state=P),"function"!=typeof r.getDerivedStateFromProps&&"function"!=typeof i.getSnapshotBeforeUpdate&&("function"==typeof i.UNSAFE_componentWillMount||"function"==typeof i.componentWillMount))if(r=i.state,"function"==typeof i.componentWillMount&&i.componentWillMount(),"function"==typeof i.UNSAFE_componentWillMount&&i.UNSAFE_componentWillMount(),r!==i.state&&Rr.enqueueReplaceState(i,i.state,null),null!==c.queue&&0<c.queue.length)if(r=c.queue,s=c.replace,c.queue=null,c.replace=!1,s&&1===r.length)i.state=r[0];else{for(c=s?r[0]:i.state,P=!0,s=s?1:0;s<r.length;s++)null!=(u="function"==typeof(u=r[s])?u.call(i,c,o,void 0):u)&&(P?(P=!1,c=H({},c,u)):H(c,u));i.state=c}else c.queue=null;if(r=i.render(),12===e.status)throw null;o=t.keyPath,t.keyPath=n,Zo(e,t,r,-1),t.keyPath=o}else{if(r=Ko(e,t,n,r,o,void 0),12===e.status)throw null;Jo(e,t,n,r,0!==Wr,Ur,qr)}else{if("string"!=typeof r){switch(r){case x:case h:case p:case d:return r=t.keyPath,t.keyPath=n,Zo(e,t,o.children,-1),void(t.keyPath=r);case w:return void(null===(r=t.blockedSegment)?"hidden"!==o.mode&&(r=t.keyPath,t.keyPath=n,as(e,t,o.children,-1),t.keyPath=r):"hidden"!==o.mode&&(r.chunks.push(Tt),r.lastPushedText=!1,i=t.keyPath,t.keyPath=n,as(e,t,o.children,-1),t.keyPath=i,r.chunks.push(_t),r.lastPushedText=!1));case v:e:{if(r=o.children,"forwards"===(o=o.revealOrder)||"backwards"===o||"unstable_legacy-backwards"===o){if(_(r)){Go(e,t,n,r,o);break e}if((i=T(r))&&(i=i.call(r))){if(!(c=i.next()).done){do{c=i.next()}while(!c.done);Go(e,t,n,r,o)}break e}}"together"===o?(o=t.keyPath,i=t.row,(c=t.row=qo(null)).boundaries=[],c.together=!0,t.keyPath=n,Zo(e,t,r,-1),0===--c.pendingTasks&&Vo(e,c),t.keyPath=o,t.row=i,null!==i&&0<c.pendingTasks&&(i.pendingTasks++,c.next=i)):(o=t.keyPath,t.keyPath=n,Zo(e,t,r,-1),t.keyPath=o)}return;case R:case S:throw Error("ReactDOMServer does not yet support scope components.");case y:e:if(null!==t.replay){r=t.keyPath,i=t.formatContext,c=t.row,t.keyPath=n,t.formatContext=_e(e.resumableState,i),t.row=null,n=o.children;try{as(e,t,n,-1)}finally{t.keyPath=r,t.formatContext=i,t.row=c}}else{r=t.keyPath,s=t.formatContext;var C=t.row;u=t.blockedBoundary,l=t.blockedPreamble;var E=t.hoistableState,I=t.blockedSegment,M=o.fallback;o=o.children;var F=new Set,L=2>t.formatContext.insertionMode?Oo(e,t.row,F,{htmlChunks:null,headChunks:null,bodyChunks:null},{htmlChunks:null,headChunks:null,bodyChunks:null}):Oo(e,t.row,F,null,null);null!==e.trackedPostpones&&(L.trackedContentKeyPath=n);var O=Do(0,I.chunks.length,L,t.formatContext,!1,!1);I.children.push(O),I.lastPushedText=!1;var A=Do(0,0,null,t.formatContext,!1,!1);if(A.parentFlushed=!0,null!==e.trackedPostpones){i=t.componentStack,P=[(c=[n[0],"Suspense Fallback",n[2]])[1],c[2],[],null],e.trackedPostpones.workingMap.set(c,P),L.trackedFallbackNode=P,t.blockedSegment=O,t.blockedPreamble=L.fallbackPreamble,t.keyPath=c,t.formatContext=Te(e.resumableState,s),t.componentStack=$o(i),O.status=6;try{as(e,t,M,-1),O.lastPushedText&&O.textEmbedded&&O.chunks.push(Ee),O.status=1,fs(e,u,O)}catch(j){throw O.status=12===e.status?3:4,j}finally{t.blockedSegment=I,t.blockedPreamble=l,t.keyPath=r,t.formatContext=s}Bo(t=Ao(e,null,o,-1,L,A,L.contentPreamble,L.contentState,t.abortSet,n,_e(e.resumableState,t.formatContext),t.context,t.treeContext,null,i)),e.pingedTasks.push(t)}else{t.blockedBoundary=L,t.blockedPreamble=L.contentPreamble,t.hoistableState=L.contentState,t.blockedSegment=A,t.keyPath=n,t.formatContext=_e(e.resumableState,s),t.row=null,A.status=6;try{if(as(e,t,o,-1),A.lastPushedText&&A.textEmbedded&&A.chunks.push(Ee),A.status=1,fs(e,L,A),ps(L,A),0===L.pendingTasks&&0===L.status){if(L.status=1,!Po(0,L)){null!==C&&0===--C.pendingTasks&&Vo(e,C),0===e.pendingRootTasks&&t.blockedPreamble&&bs(e);break e}}else null!==C&&C.together&&Uo(e,C)}catch(D){L.status=4,12===e.status?(A.status=3,i=e.fatalError):(A.status=4,i=D),P=Ho(e,i,c=No(t.componentStack)),L.errorDigest=P,rs(e,L)}finally{t.blockedBoundary=u,t.blockedPreamble=l,t.hoistableState=E,t.blockedSegment=I,t.keyPath=r,t.formatContext=s,t.row=C}Bo(t=Ao(e,null,M,-1,u,O,L.fallbackPreamble,L.fallbackState,F,[n[0],"Suspense Fallback",n[2]],Te(e.resumableState,t.formatContext),t.context,t.treeContext,t.row,$o(t.componentStack))),e.pingedTasks.push(t)}}return}if("object"==typeof r&&null!==r)switch(r.$$typeof){case m:if("ref"in o)for(I in i={},o)"ref"!==I&&(i[I]=o[I]);else i=o;return void Jo(e,t,n,r=Ko(e,t,n,r.render,i,s),0!==Wr,Ur,qr);case b:return void Xo(e,t,n,r.type,o,s);case g:if(c=o.children,i=t.keyPath,o=o.value,P=r._currentValue,r._currentValue=o,vr=r={parent:s=vr,depth:null===s?0:s.depth+1,context:r,parentValue:P,value:o},t.context=r,t.keyPath=n,Zo(e,t,c,-1),null===(e=vr))throw Error("Tried to pop a Context at the root of the app. This is a bug in React.");return e.context._currentValue=e.parentValue,e=vr=e.parent,t.context=e,void(t.keyPath=i);case f:return r=(o=o.children)(r._context._currentValue),o=t.keyPath,t.keyPath=n,Zo(e,t,r,-1),void(t.keyPath=o);case k:if(r=(i=r._init)(r._payload),12===e.status)throw null;return void Xo(e,t,n,r,o,s)}throw Error("Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: "+(null==r?r:typeof r)+".")}if(null===(i=t.blockedSegment))i=o.children,c=t.formatContext,P=t.keyPath,t.formatContext=Re(c,r,o),t.keyPath=n,as(e,t,i,-1),t.formatContext=c,t.keyPath=P;else{if(P=function(e,t,n,r,o,s,i,l,c){switch(t){case"div":case"span":case"svg":case"path":case"g":case"p":case"li":case"annotation-xml":case"color-profile":case"font-face":case"font-face-src":case"font-face-uri":case"font-face-format":case"font-face-name":case"missing-glyph":break;case"a":e.push(yt("a"));var u,d=null,h=null;for(u in n)if(z.call(n,u)){var p=n[u];if(null!=p)switch(u){case"children":d=p;break;case"dangerouslySetInnerHTML":h=p;break;case"href":""===p?He(e,"href",""):Ke(e,u,p);break;default:Ke(e,u,p)}}if(e.push(Je),Ye(e,h,d),"string"==typeof d){e.push(X(d));var f=null}else f=d;return f;case"select":e.push(yt("select"));var g,m=null,y=null;for(g in n)if(z.call(n,g)){var v=n[g];if(null!=v)switch(g){case"children":m=v;break;case"dangerouslySetInnerHTML":y=v;break;case"defaultValue":case"value":break;default:Ke(e,g,v)}}return e.push(Je),Ye(e,y,m),m;case"option":var b=l.selectedValue;e.push(yt("option"));var k,S=null,w=null,x=null,P=null;for(k in n)if(z.call(n,k)){var R=n[k];if(null!=R)switch(k){case"children":S=R;break;case"selected":x=R;break;case"dangerouslySetInnerHTML":P=R;break;case"value":w=R;default:Ke(e,k,R)}}if(null!=b){var C=null!==w?""+w:function(e){var t="";return a.Children.forEach(e,function(e){null!=e&&(t+=e)}),t}(S);if(_(b)){for(var T=0;T<b.length;T++)if(""+b[T]===C){e.push(Ze);break}}else""+b===C&&e.push(Ze)}else x&&e.push(Ze);return e.push(Je),Ye(e,P,S),S;case"textarea":e.push(yt("textarea"));var E,I=null,M=null,F=null;for(E in n)if(z.call(n,E)){var L=n[E];if(null!=L)switch(E){case"children":F=L;break;case"value":I=L;break;case"defaultValue":M=L;break;case"dangerouslySetInnerHTML":throw Error("`dangerouslySetInnerHTML` does not make sense on <textarea>.");default:Ke(e,E,L)}}if(null===I&&null!==M&&(I=M),e.push(Je),null!=F){if(null!=I)throw Error("If you supply `defaultValue` on a <textarea>, do not pass children.");if(_(F)){if(1<F.length)throw Error("<textarea> can only have at most one child.");I=""+F[0]}I=""+F}return"string"==typeof I&&"\n"===I[0]&&e.push(ft),null!==I&&e.push(X(""+I)),null;case"input":e.push(yt("input"));var O,A=null,j=null,D=null,B=null,$=null,N=null,V=null,W=null,U=null;for(O in n)if(z.call(n,O)){var G=n[O];if(null!=G)switch(O){case"children":case"dangerouslySetInnerHTML":throw Error("input is a self-closing tag and must neither have `children` nor use `dangerouslySetInnerHTML`.");case"name":A=G;break;case"formAction":j=G;break;case"formEncType":D=G;break;case"formMethod":B=G;break;case"formTarget":$=G;break;case"defaultChecked":U=G;break;case"defaultValue":V=G;break;case"checked":W=G;break;case"value":N=G;break;default:Ke(e,O,G)}}var K=Ge(e,r,o,j,D,B,$,A);return null!==W?Ne(e,"checked",W):null!==U&&Ne(e,"checked",U),null!==N?Ke(e,"value",N):null!==V&&Ke(e,"value",V),e.push(Xe),K?.forEach(We,e),null;case"button":e.push(yt("button"));var J,Y=null,Z=null,Q=null,te=null,ne=null,re=null,oe=null;for(J in n)if(z.call(n,J)){var ae=n[J];if(null!=ae)switch(J){case"children":Y=ae;break;case"dangerouslySetInnerHTML":Z=ae;break;case"name":Q=ae;break;case"formAction":te=ae;break;case"formEncType":ne=ae;break;case"formMethod":re=ae;break;case"formTarget":oe=ae;break;default:Ke(e,J,ae)}}var ie=Ge(e,r,o,te,ne,re,oe,Q);if(e.push(Je),ie?.forEach(We,e),Ye(e,Z,Y),"string"==typeof Y){e.push(X(Y));var le=null}else le=Y;return le;case"form":e.push(yt("form"));var ce,ue=null,de=null,he=null,pe=null,fe=null,ge=null;for(ce in n)if(z.call(n,ce)){var me=n[ce];if(null!=me)switch(ce){case"children":ue=me;break;case"dangerouslySetInnerHTML":de=me;break;case"action":he=me;break;case"encType":pe=me;break;case"method":fe=me;break;case"target":ge=me;break;default:Ke(e,ce,me)}}var ye=null,ve=null;if("function"==typeof he){var be=qe(r,he);null!==be?(he=be.action||"",pe=be.encType,fe=be.method,ge=be.target,ye=be.data,ve=be.name):(e.push(je,"action",De,ze,Be),ge=fe=pe=he=null,et(r,o))}if(null!=he&&Ke(e,"action",he),null!=pe&&Ke(e,"encType",pe),null!=fe&&Ke(e,"method",fe),null!=ge&&Ke(e,"target",ge),e.push(Je),null!==ve&&(e.push(Ve),He(e,"name",ve),e.push(Xe),ye?.forEach(We,e)),Ye(e,de,ue),"string"==typeof ue){e.push(X(ue));var ke=null}else ke=ue;return ke;case"menuitem":for(var Se in e.push(yt("menuitem")),n)if(z.call(n,Se)){var we=n[Se];if(null!=we)switch(Se){case"children":case"dangerouslySetInnerHTML":throw Error("menuitems cannot have `children` nor `dangerouslySetInnerHTML`.");default:Ke(e,Se,we)}}return e.push(Je),null;case"object":e.push(yt("object"));var xe,Pe=null,Re=null;for(xe in n)if(z.call(n,xe)){var Ce=n[xe];if(null!=Ce)switch(xe){case"children":Pe=Ce;break;case"dangerouslySetInnerHTML":Re=Ce;break;case"data":var Te=ee(""+Ce);if(""===Te)break;e.push(je,"data",De,X(Te),Be);break;default:Ke(e,xe,Ce)}}if(e.push(Je),Ye(e,Re,Pe),"string"==typeof Pe){e.push(X(Pe));var _e=null}else _e=Pe;return _e;case"title":var Ie=1&l.tagScope,Me=4&l.tagScope;if(4===l.insertionMode||Ie||null!=n.itemProp)var Fe=it(e,n);else Me?Fe=null:(it(o.hoistableChunks,n),Fe=void 0);return Fe;case"link":var Le=1&l.tagScope,Oe=4&l.tagScope,$e=n.rel,Ue=n.href,Qe=n.precedence;if(4===l.insertionMode||Le||null!=n.itemProp||"string"!=typeof $e||"string"!=typeof Ue||""===Ue){rt(e,n);var tt=null}else if("stylesheet"===n.rel)if("string"!=typeof Qe||null!=n.disabled||n.onLoad||n.onError)tt=rt(e,n);else{var nt=o.styles.get(Qe),gt=r.styleResources.hasOwnProperty(Ue)?r.styleResources[Ue]:void 0;if(null!==gt){r.styleResources[Ue]=null,nt||(nt={precedence:X(Qe),rules:[],hrefs:[],sheets:new Map},o.styles.set(Qe,nt));var mt={state:0,props:H({},n,{"data-precedence":n.precedence,precedence:null})};if(gt){2===gt.length&&rr(mt.props,gt);var bt=o.preloads.stylesheets.get(Ue);bt&&0<bt.length?bt.length=0:mt.state=1}nt.sheets.set(Ue,mt),i&&i.stylesheets.add(mt)}else if(nt){var kt=nt.sheets.get(Ue);kt&&i&&i.stylesheets.add(kt)}c&&e.push(Ee),tt=null}else n.onLoad||n.onError?tt=rt(e,n):(c&&e.push(Ee),tt=Oe?null:rt(o.hoistableChunks,n));return tt;case"script":var wt=1&l.tagScope,xt=n.async;if("string"!=typeof n.src||!n.src||!xt||"function"==typeof xt||"symbol"==typeof xt||n.onLoad||n.onError||4===l.insertionMode||wt||null!=n.itemProp)var Pt=dt(e,n);else{var Rt=n.src;if("module"===n.type)var Ct=r.moduleScriptResources,Tt=o.preloads.moduleScripts;else Ct=r.scriptResources,Tt=o.preloads.scripts;var _t=Ct.hasOwnProperty(Rt)?Ct[Rt]:void 0;if(null!==_t){Ct[Rt]=null;var Et=n;if(_t){2===_t.length&&rr(Et=H({},n),_t);var It=Tt.get(Rt);It&&(It.length=0)}var Mt=[];o.scripts.add(Mt),dt(Mt,Et)}c&&e.push(Ee),Pt=null}return Pt;case"style":var Ft=1&l.tagScope,Lt=n.precedence,Ot=n.href,At=n.nonce;if(4===l.insertionMode||Ft||null!=n.itemProp||"string"!=typeof Lt||"string"!=typeof Ot||""===Ot){e.push(yt("style"));var jt,Dt=null,Bt=null;for(jt in n)if(z.call(n,jt)){var $t=n[jt];if(null!=$t)switch(jt){case"children":Dt=$t;break;case"dangerouslySetInnerHTML":Bt=$t;break;default:Ke(e,jt,$t)}}e.push(Je);var Nt=Array.isArray(Dt)?2>Dt.length?Dt[0]:null:Dt;"function"!=typeof Nt&&"symbol"!=typeof Nt&&null!=Nt&&e.push((""+Nt).replace(ot,st)),Ye(e,Bt,Dt),e.push(St("style"));var Ht=null}else{var zt=o.styles.get(Lt);if(null!==(r.styleResources.hasOwnProperty(Ot)?r.styleResources[Ot]:void 0)){r.styleResources[Ot]=null,zt||(zt={precedence:X(Lt),rules:[],hrefs:[],sheets:new Map},o.styles.set(Lt,zt));var Vt=o.nonce.style;if(!Vt||Vt===At){zt.hrefs.push(X(Ot));var Wt,Ut=zt.rules,qt=null,Gt=null;for(Wt in n)if(z.call(n,Wt)){var Kt=n[Wt];if(null!=Kt)switch(Wt){case"children":qt=Kt;break;case"dangerouslySetInnerHTML":Gt=Kt}}var Jt=Array.isArray(qt)?2>qt.length?qt[0]:null:qt;"function"!=typeof Jt&&"symbol"!=typeof Jt&&null!=Jt&&Ut.push((""+Jt).replace(ot,st)),Ye(Ut,Gt,qt)}}zt&&i&&i.styles.add(zt),c&&e.push(Ee),Ht=void 0}return Ht;case"meta":var Xt=1&l.tagScope,Yt=4&l.tagScope;if(4===l.insertionMode||Xt||null!=n.itemProp)var Zt=at(e,n,"meta");else c&&e.push(Ee),Zt=Yt?null:"string"==typeof n.charSet?at(o.charsetChunks,n,"meta"):"viewport"===n.name?at(o.viewportChunks,n,"meta"):at(o.hoistableChunks,n,"meta");return Zt;case"listing":case"pre":e.push(yt(t));var Qt,en=null,tn=null;for(Qt in n)if(z.call(n,Qt)){var nn=n[Qt];if(null!=nn)switch(Qt){case"children":en=nn;break;case"dangerouslySetInnerHTML":tn=nn;break;default:Ke(e,Qt,nn)}}if(e.push(Je),null!=tn){if(null!=en)throw Error("Can only set one of `children` or `props.dangerouslySetInnerHTML`.");if("object"!=typeof tn||!("__html"in tn))throw Error("`props.dangerouslySetInnerHTML` must be in the form `{__html: ...}`. Please visit https://react.dev/link/dangerously-set-inner-html for more information.");var rn=tn.__html;null!=rn&&("string"==typeof rn&&0<rn.length&&"\n"===rn[0]?e.push(ft,rn):e.push(""+rn))}return"string"==typeof en&&"\n"===en[0]&&e.push(ft),en;case"img":var on=3&l.tagScope,sn=n.src,an=n.srcSet;if(!("lazy"===n.loading||!sn&&!an||"string"!=typeof sn&&null!=sn||"string"!=typeof an&&null!=an||"low"===n.fetchPriority||on)&&("string"!=typeof sn||":"!==sn[4]||"d"!==sn[0]&&"D"!==sn[0]||"a"!==sn[1]&&"A"!==sn[1]||"t"!==sn[2]&&"T"!==sn[2]||"a"!==sn[3]&&"A"!==sn[3])&&("string"!=typeof an||":"!==an[4]||"d"!==an[0]&&"D"!==an[0]||"a"!==an[1]&&"A"!==an[1]||"t"!==an[2]&&"T"!==an[2]||"a"!==an[3]&&"A"!==an[3])){null!==i&&64&l.tagScope&&(i.suspenseyImages=!0);var ln="string"==typeof n.sizes?n.sizes:void 0,cn=an?an+"\n"+(ln||""):sn,un=o.preloads.images,dn=un.get(cn);if(dn)("high"===n.fetchPriority||10>o.highImagePreloads.size)&&(un.delete(cn),o.highImagePreloads.add(dn));else if(!r.imageResources.hasOwnProperty(cn)){r.imageResources[cn]=se;var hn,pn=n.crossOrigin,fn="string"==typeof pn?"use-credentials"===pn?pn:"":void 0,gn=o.headers;gn&&0<gn.remainingCapacity&&"string"!=typeof n.srcSet&&("high"===n.fetchPriority||500>gn.highImagePreloads.length)&&(hn=or(sn,"image",{imageSrcSet:n.srcSet,imageSizes:n.sizes,crossOrigin:fn,integrity:n.integrity,nonce:n.nonce,type:n.type,fetchPriority:n.fetchPriority,referrerPolicy:n.refererPolicy}),0<=(gn.remainingCapacity-=hn.length+2))?(o.resets.image[cn]=se,gn.highImagePreloads&&(gn.highImagePreloads+=", "),gn.highImagePreloads+=hn):(rt(dn=[],{rel:"preload",as:"image",href:an?void 0:sn,imageSrcSet:an,imageSizes:ln,crossOrigin:fn,integrity:n.integrity,type:n.type,fetchPriority:n.fetchPriority,referrerPolicy:n.referrerPolicy}),"high"===n.fetchPriority||10>o.highImagePreloads.size?o.highImagePreloads.add(dn):(o.bulkPreloads.add(dn),un.set(cn,dn)))}}return at(e,n,"img");case"base":case"area":case"br":case"col":case"embed":case"hr":case"keygen":case"param":case"source":case"track":case"wbr":return at(e,n,t);case"head":if(2>l.insertionMode){var mn=s||o.preamble;if(mn.headChunks)throw Error("The `<head>` tag may only be rendered once.");null!==s&&e.push(lt),mn.headChunks=[];var yn=ht(mn.headChunks,n,"head")}else yn=pt(e,n,"head");return yn;case"body":if(2>l.insertionMode){var vn=s||o.preamble;if(vn.bodyChunks)throw Error("The `<body>` tag may only be rendered once.");null!==s&&e.push(ct),vn.bodyChunks=[];var bn=ht(vn.bodyChunks,n,"body")}else bn=pt(e,n,"body");return bn;case"html":if(0===l.insertionMode){var kn=s||o.preamble;if(kn.htmlChunks)throw Error("The `<html>` tag may only be rendered once.");null!==s&&e.push(ut),kn.htmlChunks=[vt];var Sn=ht(kn.htmlChunks,n,"html")}else Sn=pt(e,n,"html");return Sn;default:if(-1!==t.indexOf("-")){e.push(yt(t));var wn,xn=null,Pn=null;for(wn in n)if(z.call(n,wn)){var Rn=n[wn];if(null!=Rn){var Cn=wn;switch(wn){case"children":xn=Rn;break;case"dangerouslySetInnerHTML":Pn=Rn;break;case"style":Ae(e,Rn);break;case"suppressContentEditableWarning":case"suppressHydrationWarning":case"ref":break;case"className":Cn="class";default:if(q(wn)&&"function"!=typeof Rn&&"symbol"!=typeof Rn&&!1!==Rn){if(!0===Rn)Rn="";else if("object"==typeof Rn)continue;e.push(je,Cn,De,X(Rn),Be)}}}}return e.push(Je),Ye(e,Pn,xn),xn}}return pt(e,n,t)}(i.chunks,r,o,e.resumableState,e.renderState,t.blockedPreamble,t.hoistableState,t.formatContext,i.lastPushedText),i.lastPushedText=!1,c=t.formatContext,s=t.keyPath,t.keyPath=n,3===(t.formatContext=Re(c,r,o)).insertionMode){n=Do(0,0,null,t.formatContext,!1,!1),i.preambleChildren.push(n),t.blockedSegment=n;try{n.status=6,as(e,t,P,-1),n.lastPushedText&&n.textEmbedded&&n.chunks.push(Ee),n.status=1,fs(e,t.blockedBoundary,n)}finally{t.blockedSegment=i}}else as(e,t,P,-1);t.formatContext=c,t.keyPath=s;e:{switch(t=i.chunks,e=e.resumableState,r){case"title":case"style":case"script":case"area":case"base":case"br":case"col":case"embed":case"hr":case"img":case"input":case"keygen":case"link":case"meta":case"param":case"source":case"track":case"wbr":break e;case"body":if(1>=c.insertionMode){e.hasBody=!0;break e}break;case"html":if(0===c.insertionMode){e.hasHtml=!0;break e}break;case"head":if(1>=c.insertionMode)break e}t.push(St(r))}i.lastPushedText=!1}}}function Yo(e,t,n,r,o){var s=t.replay,a=t.blockedBoundary,i=Do(0,0,null,t.formatContext,!1,!1);i.id=n,i.parentFlushed=!0;try{t.replay=null,t.blockedSegment=i,as(e,t,r,o),i.status=1,fs(e,a,i),null===a?e.completedRootSegment=i:(ps(a,i),a.parentFlushed&&e.partialBoundaries.push(a))}finally{t.replay=s,t.blockedSegment=null}}function Zo(e,t,n,r){null!==t.replay&&"number"==typeof t.replay.slots?Yo(e,t,t.replay.slots,n,r):(t.node=n,t.childIndex=r,n=t.componentStack,Bo(t),Qo(e,t),t.componentStack=n)}function Qo(e,t){var n=t.node,r=t.childIndex;if(null!==n){if("object"==typeof n){switch(n.$$typeof){case c:var o=n.type,s=n.key,a=n.props,i=void 0!==(n=a.ref)?n:null,l=mr(o),d=null==s?-1===r?0:r:s;if(s=[t.keyPath,l,d],null!==t.replay)e:{var h=t.replay;for(r=h.nodes,n=0;n<r.length;n++){var p=r[n];if(d===p[1]){if(4===p.length){if(null!==l&&l!==p[0])throw Error("Expected the resume to render <"+p[0]+"> in this slot but instead it rendered <"+l+">. The tree doesn't match so React will fallback to client rendering.");var f=p[2];l=p[3],d=t.node,t.replay={nodes:f,slots:l,pendingTasks:1};try{if(Xo(e,t,s,o,a,i),1===t.replay.pendingTasks&&0<t.replay.nodes.length)throw Error("Couldn't find all resumable slots by key/index during replaying. The tree doesn't match so React will fallback to client rendering.");t.replay.pendingTasks--}catch(E){if("object"==typeof E&&null!==E&&(E===Fr||"function"==typeof E.then))throw t.node===d?t.replay=h:r.splice(n,1),E;t.replay.pendingTasks--,a=No(t.componentStack),ls(s=e,e=t.blockedBoundary,f,l,o=E,a=Ho(s,o,a))}t.replay=h}else{if(o!==y)throw Error("Expected the resume to render <Suspense> in this slot but instead it rendered <"+(mr(o)||"Unknown")+">. The tree doesn't match so React will fallback to client rendering.");t:{h=void 0,o=p[5],i=p[2],l=p[3],d=null===p[4]?[]:p[4][2],p=null===p[4]?null:p[4][3];var m=t.keyPath,v=t.formatContext,b=t.row,S=t.replay,w=t.blockedBoundary,x=t.hoistableState,P=a.children,R=a.fallback,C=new Set;(a=2>t.formatContext.insertionMode?Oo(e,t.row,C,we(),we()):Oo(e,t.row,C,null,null)).parentFlushed=!0,a.rootSegmentID=o,t.blockedBoundary=a,t.hoistableState=a.contentState,t.keyPath=s,t.formatContext=_e(e.resumableState,v),t.row=null,t.replay={nodes:i,slots:l,pendingTasks:1};try{if(as(e,t,P,-1),1===t.replay.pendingTasks&&0<t.replay.nodes.length)throw Error("Couldn't find all resumable slots by key/index during replaying. The tree doesn't match so React will fallback to client rendering.");if(t.replay.pendingTasks--,0===a.pendingTasks&&0===a.status){a.status=1,e.completedBoundaries.push(a);break t}}catch(I){a.status=4,h=Ho(e,I,f=No(t.componentStack)),a.errorDigest=h,t.replay.pendingTasks--,e.clientRenderedBoundaries.push(a)}finally{t.blockedBoundary=w,t.hoistableState=x,t.replay=S,t.keyPath=m,t.formatContext=v,t.row=b}Bo(f=jo(e,null,{nodes:d,slots:p,pendingTasks:0},R,-1,w,a.fallbackState,C,[s[0],"Suspense Fallback",s[2]],Te(e.resumableState,t.formatContext),t.context,t.treeContext,t.row,$o(t.componentStack))),e.pingedTasks.push(f)}}r.splice(n,1);break e}}}else Xo(e,t,s,o,a,i);return;case u:throw Error("Portals are not currently supported by the server renderer. Render them conditionally so that they only appear on the client render.");case k:if(n=(f=n._init)(n._payload),12===e.status)throw null;return void Zo(e,t,n,r)}if(_(n))return void es(e,t,n,r);if((f=T(n))&&(f=f.call(n))){if(!(n=f.next()).done){a=[];do{a.push(n.value),n=f.next()}while(!n.done);es(e,t,a,r)}return}if("function"==typeof n.then)return t.thenableState=null,Zo(e,t,ho(n),r);if(n.$$typeof===g)return Zo(e,t,n._currentValue,r);throw r=Object.prototype.toString.call(n),Error("Objects are not valid as a React child (found: "+("[object Object]"===r?"object with keys {"+Object.keys(n).join(", ")+"}":r)+"). If you meant to render a collection of children, use an array instead.")}"string"==typeof n?null!==(r=t.blockedSegment)&&(r.lastPushedText=Ie(r.chunks,n,e.renderState,r.lastPushedText)):"number"!=typeof n&&"bigint"!=typeof n||null!==(r=t.blockedSegment)&&(r.lastPushedText=Ie(r.chunks,""+n,e.renderState,r.lastPushedText))}}function es(e,t,n,r){var o=t.keyPath;if(-1===r||(t.keyPath=[t.keyPath,"Fragment",r],null===t.replay)){if(s=t.treeContext,a=n.length,null!==t.replay&&null!==(i=t.replay.slots)&&"object"==typeof i){for(r=0;r<a;r++)l=n[r],t.treeContext=Tr(s,a,r),"number"==typeof(c=i[r])?(Yo(e,t,c,l,r),delete i[r]):as(e,t,l,r);return t.treeContext=s,void(t.keyPath=o)}for(i=0;i<a;i++)r=n[i],t.treeContext=Tr(s,a,i),as(e,t,r,i);t.treeContext=s,t.keyPath=o}else{for(var s=t.replay,a=s.nodes,i=0;i<a.length;i++){var l=a[i];if(l[1]===r){r=l[2],l=l[3],t.replay={nodes:r,slots:l,pendingTasks:1};try{if(es(e,t,n,-1),1===t.replay.pendingTasks&&0<t.replay.nodes.length)throw Error("Couldn't find all resumable slots by key/index during replaying. The tree doesn't match so React will fallback to client rendering.");t.replay.pendingTasks--}catch(u){if("object"==typeof u&&null!==u&&(u===Fr||"function"==typeof u.then))throw u;t.replay.pendingTasks--,n=No(t.componentStack);var c=t.blockedBoundary;ls(e,c,r,l,u,n=Ho(e,u,n))}t.replay=s,a.splice(i,1);break}}t.keyPath=o}}function ts(e,t,n){if(n.status=5,n.rootSegmentID=e.nextSegmentId++,null===(e=n.trackedContentKeyPath))throw Error("It should not be possible to postpone at the root. This is a bug in React.");var r=n.trackedFallbackNode,o=t.workingMap.get(e);return void 0===o?(n=[e[1],e[2],[],null,r,n.rootSegmentID],t.workingMap.set(e,n),Ls(n,e[0],t),n):(o[4]=r,o[5]=n.rootSegmentID,o)}function ns(e,t,n,r){r.status=5;var o=n.keyPath,s=n.blockedBoundary;if(null===s)r.id=e.nextSegmentId++,t.rootSlots=r.id,null!==e.completedRootSegment&&(e.completedRootSegment.status=5);else{if(null!==s&&0===s.status){var a=ts(e,t,s);if(s.trackedContentKeyPath===o&&-1===n.childIndex)return-1===r.id&&(r.id=r.parentFlushed?s.rootSegmentID:e.nextSegmentId++),void(a[3]=r.id)}if(-1===r.id&&(r.id=r.parentFlushed&&null!==s?s.rootSegmentID:e.nextSegmentId++),-1===n.childIndex)null===o?t.rootSlots=r.id:void 0===(n=t.workingMap.get(o))?Ls(n=[o[1],o[2],[],r.id],o[0],t):n[3]=r.id;else{if(null===o){if(null===(e=t.rootSlots))e=t.rootSlots={};else if("number"==typeof e)throw Error("It should not be possible to postpone both at the root of an element as well as a slot below. This is a bug in React.")}else if(void 0===(a=(s=t.workingMap).get(o)))e={},a=[o[1],o[2],[],e],s.set(o,a),Ls(a,o[0],t);else if(null===(e=a[3]))e=a[3]={};else if("number"==typeof e)throw Error("It should not be possible to postpone both at the root of an element as well as a slot below. This is a bug in React.");e[n.childIndex]=r.id}}}function rs(e,t){null!==(e=e.trackedPostpones)&&null!==(t=t.trackedContentKeyPath)&&void 0!==(t=e.workingMap.get(t))&&(t.length=4,t[2]=[],t[3]=null)}function os(e,t,n){return jo(e,n,t.replay,t.node,t.childIndex,t.blockedBoundary,t.hoistableState,t.abortSet,t.keyPath,t.formatContext,t.context,t.treeContext,t.row,t.componentStack)}function ss(e,t,n){var r=t.blockedSegment,o=Do(0,r.chunks.length,null,t.formatContext,r.lastPushedText,!0);return r.children.push(o),r.lastPushedText=!1,Ao(e,n,t.node,t.childIndex,t.blockedBoundary,o,t.blockedPreamble,t.hoistableState,t.abortSet,t.keyPath,t.formatContext,t.context,t.treeContext,t.row,t.componentStack)}function as(e,t,n,r){var o=t.formatContext,s=t.context,a=t.keyPath,i=t.treeContext,l=t.componentStack,c=t.blockedSegment;if(null===c){c=t.replay;try{return Zo(e,t,n,r)}catch(h){if(to(),n=h===Fr?Or():h,12!==e.status&&"object"==typeof n&&null!==n){if("function"==typeof n.then)return e=os(e,t,r=h===Fr?eo():null).ping,n.then(e,e),t.formatContext=o,t.context=s,t.keyPath=a,t.treeContext=i,t.componentStack=l,t.replay=c,void Pr(s);if("Maximum call stack size exceeded"===n.message)return n=os(e,t,n=h===Fr?eo():null),e.pingedTasks.push(n),t.formatContext=o,t.context=s,t.keyPath=a,t.treeContext=i,t.componentStack=l,t.replay=c,void Pr(s)}}}else{var u=c.children.length,d=c.chunks.length;try{return Zo(e,t,n,r)}catch(p){if(to(),c.children.length=u,c.chunks.length=d,n=p===Fr?Or():p,12!==e.status&&"object"==typeof n&&null!==n){if("function"==typeof n.then)return c=n,e=ss(e,t,n=p===Fr?eo():null).ping,c.then(e,e),t.formatContext=o,t.context=s,t.keyPath=a,t.treeContext=i,t.componentStack=l,void Pr(s);if("Maximum call stack size exceeded"===n.message)return c=ss(e,t,c=p===Fr?eo():null),e.pingedTasks.push(c),t.formatContext=o,t.context=s,t.keyPath=a,t.treeContext=i,t.componentStack=l,void Pr(s)}}}throw t.formatContext=o,t.context=s,t.keyPath=a,t.treeContext=i,Pr(s),n}function is(e){var t=e.blockedBoundary,n=e.blockedSegment;null!==n&&(n.status=3,gs(this,t,e.row,n))}function ls(e,t,n,r,o,s){for(var a=0;a<n.length;a++){var i=n[a];if(4===i.length)ls(e,t,i[2],i[3],o,s);else{i=i[5];var l=e,c=s,u=Oo(l,null,new Set,null,null);u.parentFlushed=!0,u.rootSegmentID=i,u.status=4,u.errorDigest=c,u.parentFlushed&&l.clientRenderedBoundaries.push(u)}}if(n.length=0,null!==r){if(null===t)throw Error("We should not have any resumable nodes in the shell. This is a bug in React.");if(4!==t.status&&(t.status=4,t.errorDigest=s,t.parentFlushed&&e.clientRenderedBoundaries.push(t)),"object"==typeof r)for(var d in r)delete r[d]}}function cs(e,t,n){var r=e.blockedBoundary,o=e.blockedSegment;if(null!==o){if(6===o.status)return;o.status=3}var s=No(e.componentStack);if(null===r){if(13!==t.status&&14!==t.status){if(null===(r=e.replay))return void(null!==t.trackedPostpones&&null!==o?(r=t.trackedPostpones,Ho(t,n,s),ns(t,r,e,o),gs(t,null,e.row,o)):(Ho(t,n,s),zo(t,n)));r.pendingTasks--,0===r.pendingTasks&&0<r.nodes.length&&(o=Ho(t,n,s),ls(t,null,r.nodes,r.slots,n,o)),t.pendingRootTasks--,0===t.pendingRootTasks&&ds(t)}}else{var a=t.trackedPostpones;if(4!==r.status){if(null!==a&&null!==o)return Ho(t,n,s),ns(t,a,e,o),r.fallbackAbortableTasks.forEach(function(e){return cs(e,t,n)}),r.fallbackAbortableTasks.clear(),gs(t,r,e.row,o);r.status=4,o=Ho(t,n,s),r.status=4,r.errorDigest=o,rs(t,r),r.parentFlushed&&t.clientRenderedBoundaries.push(r)}r.pendingTasks--,null!==(o=r.row)&&0===--o.pendingTasks&&Vo(t,o),r.fallbackAbortableTasks.forEach(function(e){return cs(e,t,n)}),r.fallbackAbortableTasks.clear()}null!==(e=e.row)&&0===--e.pendingTasks&&Vo(t,e),t.allPendingTasks--,0===t.allPendingTasks&&hs(t)}function us(e,t){try{var n=e.renderState,r=n.onHeaders;if(r){var o=n.headers;if(o){n.headers=null;var s=o.preconnects;if(o.fontPreloads&&(s&&(s+=", "),s+=o.fontPreloads),o.highImagePreloads&&(s&&(s+=", "),s+=o.highImagePreloads),!t){var a=n.styles.values(),i=a.next();e:for(;0<o.remainingCapacity&&!i.done;i=a.next())for(var l=i.value.sheets.values(),c=l.next();0<o.remainingCapacity&&!c.done;c=l.next()){var u=c.value,d=u.props,h=d.href,p=u.props,f=or(p.href,"style",{crossOrigin:p.crossOrigin,integrity:p.integrity,nonce:p.nonce,type:p.type,fetchPriority:p.fetchPriority,referrerPolicy:p.referrerPolicy,media:p.media});if(!(0<=(o.remainingCapacity-=f.length+2)))break e;n.resets.style[h]=se,s&&(s+=", "),s+=f,n.resets.style[h]="string"==typeof d.crossOrigin||"string"==typeof d.integrity?[d.crossOrigin,d.integrity]:se}}r(s?{Link:s}:{})}}}catch(g){Ho(e,g,{})}}function ds(e){null===e.trackedPostpones&&us(e,!0),null===e.trackedPostpones&&bs(e),e.onShellError=Mr,(e=e.onShellReady)()}function hs(e){us(e,null===e.trackedPostpones||null===e.completedRootSegment||5!==e.completedRootSegment.status),bs(e),(e=e.onAllReady)()}function ps(e,t){if(0===t.chunks.length&&1===t.children.length&&null===t.children[0].boundary&&-1===t.children[0].id){var n=t.children[0];n.id=t.id,n.parentFlushed=!0,1!==n.status&&3!==n.status&&4!==n.status||ps(e,n)}else e.completedSegments.push(t)}function fs(e,t,n){if(null!==N){n=n.chunks;for(var r=0,o=0;o<n.length;o++)r+=N(n[o]);null===t?e.byteSize+=r:t.byteSize+=r}}function gs(e,t,n,r){if(null!==n&&(0===--n.pendingTasks?Vo(e,n):n.together&&Uo(e,n)),e.allPendingTasks--,null===t){if(null!==r&&r.parentFlushed){if(null!==e.completedRootSegment)throw Error("There can only be one root segment. This is a bug in React.");e.completedRootSegment=r}e.pendingRootTasks--,0===e.pendingRootTasks&&ds(e)}else if(t.pendingTasks--,4!==t.status)if(0===t.pendingTasks){if(0===t.status&&(t.status=1),null!==r&&r.parentFlushed&&(1===r.status||3===r.status)&&ps(t,r),t.parentFlushed&&e.completedBoundaries.push(t),1===t.status)null!==(n=t.row)&&dr(n.hoistables,t.contentState),Po(0,t)||(t.fallbackAbortableTasks.forEach(is,e),t.fallbackAbortableTasks.clear(),null!==n&&0===--n.pendingTasks&&Vo(e,n)),0===e.pendingRootTasks&&null===e.trackedPostpones&&null!==t.contentPreamble&&bs(e);else if(5===t.status&&null!==(t=t.row)){if(null!==e.trackedPostpones){n=e.trackedPostpones;var o=t.next;if(null!==o&&null!==(r=o.boundaries))for(o.boundaries=null,o=0;o<r.length;o++){var s=r[o];ts(e,n,s),gs(e,s,null,null)}}0===--t.pendingTasks&&Vo(e,t)}}else null===r||!r.parentFlushed||1!==r.status&&3!==r.status||(ps(t,r),1===t.completedSegments.length&&t.parentFlushed&&e.partialBoundaries.push(t)),null!==(t=t.row)&&t.together&&Uo(e,t);0===e.allPendingTasks&&hs(e)}function ms(e){if(14!==e.status&&13!==e.status){var t=vr,n=te.H;te.H=mo;var r=te.A;te.A=vo;var o=Mo;Mo=e;var s=yo;yo=e.resumableState;try{var a,i=e.pingedTasks;for(a=0;a<i.length;a++){var l=i[a],c=e,u=l.blockedSegment;if(null===u){var d=c;if(0!==l.replay.pendingTasks){Pr(l.context);try{if("number"==typeof l.replay.slots?Yo(d,l,l.replay.slots,l.node,l.childIndex):Qo(d,l),1===l.replay.pendingTasks&&0<l.replay.nodes.length)throw Error("Couldn't find all resumable slots by key/index during replaying. The tree doesn't match so React will fallback to client rendering.");l.replay.pendingTasks--,l.abortSet.delete(l),gs(d,l.blockedBoundary,l.row,null)}catch(_){to();var h=_===Fr?Or():_;if("object"==typeof h&&null!==h&&"function"==typeof h.then){var p=l.ping;h.then(p,p),l.thenableState=_===Fr?eo():null}else{l.replay.pendingTasks--,l.abortSet.delete(l);var f=No(l.componentStack);c=void 0;var g=d,m=l.blockedBoundary,y=12===d.status?d.fatalError:h;ls(g,m,l.replay.nodes,l.replay.slots,y,c=Ho(g,y,f)),d.pendingRootTasks--,0===d.pendingRootTasks&&ds(d),d.allPendingTasks--,0===d.allPendingTasks&&hs(d)}}}}else if(d=void 0,0===(g=u).status){g.status=6,Pr(l.context);var v=g.children.length,b=g.chunks.length;try{Qo(c,l),g.lastPushedText&&g.textEmbedded&&g.chunks.push(Ee),l.abortSet.delete(l),g.status=1,fs(c,l.blockedBoundary,g),gs(c,l.blockedBoundary,l.row,g)}catch(_){to(),g.children.length=v,g.chunks.length=b;var k=_===Fr?Or():12===c.status?c.fatalError:_;if(12===c.status&&null!==c.trackedPostpones){var S=c.trackedPostpones,w=No(l.componentStack);l.abortSet.delete(l),Ho(c,k,w),ns(c,S,l,g),gs(c,l.blockedBoundary,l.row,g)}else if("object"==typeof k&&null!==k&&"function"==typeof k.then){g.status=0,l.thenableState=_===Fr?eo():null;var x=l.ping;k.then(x,x)}else{var P=No(l.componentStack);l.abortSet.delete(l),g.status=4;var R=l.blockedBoundary,C=l.row;if(null!==C&&0===--C.pendingTasks&&Vo(c,C),c.allPendingTasks--,d=Ho(c,k,P),null===R)zo(c,k);else if(R.pendingTasks--,4!==R.status){R.status=4,R.errorDigest=d,rs(c,R);var T=R.row;null!==T&&0===--T.pendingTasks&&Vo(c,T),R.parentFlushed&&c.clientRenderedBoundaries.push(R),0===c.pendingRootTasks&&null===c.trackedPostpones&&null!==R.contentPreamble&&bs(c)}0===c.allPendingTasks&&hs(c)}}}}i.splice(0,a),null!==e.destination&&Ts(e,e.destination)}catch(E){Ho(e,E,{}),zo(e,E)}finally{yo=s,te.H=n,te.A=r,n===mo&&Pr(t),Mo=o}}}function ys(e,t,n){t.preambleChildren.length&&n.push(t.preambleChildren);for(var r=!1,o=0;o<t.children.length;o++)r=vs(e,t.children[o],n)||r;return r}function vs(e,t,n){var r=t.boundary;if(null===r)return ys(e,t,n);var o=r.contentPreamble,s=r.fallbackPreamble;if(null===o||null===s)return!1;switch(r.status){case 1:if(wt(e.renderState,o),e.byteSize+=r.byteSize,!(t=r.completedSegments[0]))throw Error("A previously unvisited boundary must have exactly one root segment. This is a bug in React.");return ys(e,t,n);case 5:if(null!==e.trackedPostpones)return!0;case 4:if(1===t.status)return wt(e.renderState,s),ys(e,t,n);default:return!0}}function bs(e){if(e.completedRootSegment&&null===e.completedPreambleSegments){var t=[],n=e.byteSize,r=vs(e,e.completedRootSegment,t),o=e.renderState.preamble;!1===r||o.headChunks&&o.bodyChunks?e.completedPreambleSegments=t:e.byteSize=n}}function ks(e,t,n,r){switch(n.parentFlushed=!0,n.status){case 0:n.id=e.nextSegmentId++;case 5:return r=n.id,n.lastPushedText=!1,n.textEmbedded=!1,e=e.renderState,O(t,Rt),O(t,e.placeholderPrefix),O(t,e=r.toString(16)),j(t,Ct);case 1:n.status=2;var o=!0,s=n.chunks,a=0;n=n.children;for(var i=0;i<n.length;i++){for(o=n[i];a<o.index;a++)O(t,s[a]);o=ws(e,t,o,r)}for(;a<s.length-1;a++)O(t,s[a]);return a<s.length&&(o=j(t,s[a])),o;case 3:return!0;default:throw Error("Aborted, errored or already flushed boundaries should not be flushed again. This is a bug in React.")}}var Ss=0;function ws(e,t,n,r){var o=n.boundary;if(null===o)return ks(e,t,n,r);if(o.parentFlushed=!0,4===o.status){var s=o.row;null!==s&&0===--s.pendingTasks&&Vo(e,s),o=o.errorDigest,j(t,Ft),O(t,Ot),o&&(O(t,jt),O(t,X(o)),O(t,At)),j(t,Dt),ks(e,t,n,r)}else if(1!==o.status)0===o.status&&(o.rootSegmentID=e.nextSegmentId++),0<o.completedSegments.length&&e.partialBoundaries.push(o),Bt(t,e.renderState,o.rootSegmentID),r&&dr(r,o.fallbackState),ks(e,t,n,r);else if(!Cs&&Po(0,o)&&(Ss+o.byteSize>e.progressiveChunkSize||hr(o.contentState)))o.rootSegmentID=e.nextSegmentId++,e.completedBoundaries.push(o),Bt(t,e.renderState,o.rootSegmentID),ks(e,t,n,r);else{if(Ss+=o.byteSize,r&&dr(r,o.contentState),null!==(n=o.row)&&Po(0,o)&&0===--n.pendingTasks&&Vo(e,n),j(t,Et),1!==(n=o.completedSegments).length)throw Error("A previously unvisited boundary must have exactly one root segment. This is a bug in React.");ws(e,t,n[0],r)}return j(t,Lt)}function xs(e,t,n,r){return function(e,t,n,r){switch(n.insertionMode){case 0:case 1:case 3:case 2:return O(e,$t),O(e,t.segmentPrefix),O(e,r.toString(16)),j(e,Nt);case 4:return O(e,zt),O(e,t.segmentPrefix),O(e,r.toString(16)),j(e,Vt);case 5:return O(e,Ut),O(e,t.segmentPrefix),O(e,r.toString(16)),j(e,qt);case 6:return O(e,Kt),O(e,t.segmentPrefix),O(e,r.toString(16)),j(e,Jt);case 7:return O(e,Yt),O(e,t.segmentPrefix),O(e,r.toString(16)),j(e,Zt);case 8:return O(e,en),O(e,t.segmentPrefix),O(e,r.toString(16)),j(e,tn);case 9:return O(e,rn),O(e,t.segmentPrefix),O(e,r.toString(16)),j(e,on);default:throw Error("Unknown insertion mode. This is a bug in React.")}}(t,e.renderState,n.parentFormatContext,n.id),ws(e,t,n,r),function(e,t){switch(t.insertionMode){case 0:case 1:case 3:case 2:return j(e,Ht);case 4:return j(e,Wt);case 5:return j(e,Gt);case 6:return j(e,Xt);case 7:return j(e,Qt);case 8:return j(e,nn);case 9:return j(e,sn);default:throw Error("Unknown insertion mode. This is a bug in React.")}}(t,n.parentFormatContext)}function Ps(e,t,n){Ss=n.byteSize;for(var r=n.completedSegments,o=0;o<r.length;o++)Rs(e,t,n,r[o]);r.length=0,null!==(r=n.row)&&Po(0,n)&&0===--r.pendingTasks&&Vo(e,r),Dn(t,n.contentState,e.renderState),r=e.resumableState,e=e.renderState,o=n.rootSegmentID,n=n.contentState;var s=e.stylesToHoist;return e.stylesToHoist=!1,O(t,e.startInlineScript),O(t,Je),s?(!(4&r.instructions)&&(r.instructions|=4,O(t,bn)),!(2&r.instructions)&&(r.instructions|=2,O(t,dn)),8&r.instructions?O(t,fn):(r.instructions|=8,O(t,pn))):(!(2&r.instructions)&&(r.instructions|=2,O(t,dn)),O(t,hn)),r=o.toString(16),O(t,e.boundaryPrefix),O(t,r),O(t,gn),O(t,e.segmentPrefix),O(t,r),s?(O(t,mn),function(e,t){O(e,Yn);var n=Yn;t.stylesheets.forEach(function(t){if(2!==t.state)if(3===t.state)O(e,n),O(e,_n(""+t.props.href)),O(e,er),n=Zn;else{O(e,n);var r=t.props["data-precedence"],o=t.props;for(var s in O(e,_n(ee(""+t.props.href))),r=""+r,O(e,Qn),O(e,_n(r)),o)if(z.call(o,s)&&null!=(r=o[s]))switch(s){case"href":case"rel":case"precedence":case"data-precedence":break;case"children":case"dangerouslySetInnerHTML":throw Error("link is a self-closing tag and must neither have `children` nor use `dangerouslySetInnerHTML`.");default:tr(e,s,r)}O(e,er),n=Zn,t.state=3}}),O(e,er)}(t,n)):O(t,yn),n=j(t,vn),xt(t,e)&&n}function Rs(e,t,n,r){if(2===r.status)return!0;var o=n.contentState,s=r.id;if(-1===s){if(-1===(r.id=n.rootSegmentID))throw Error("A root segment ID must have been assigned by now. This is a bug in React.");return xs(e,t,r,o)}return s===n.rootSegmentID?xs(e,t,r,o):(xs(e,t,r,o),n=e.resumableState,O(t,(e=e.renderState).startInlineScript),O(t,Je),1&n.instructions?O(t,ln):(n.instructions|=1,O(t,an)),O(t,e.segmentPrefix),O(t,s=s.toString(16)),O(t,cn),O(t,e.placeholderPrefix),O(t,s),t=j(t,un))}var Cs=!1;function Ts(e,t){M=new Uint8Array(2048),F=0,L=!0;try{if(!(0<e.pendingRootTasks)){var n,r=e.completedRootSegment;if(null!==r){if(5===r.status)return;var o=e.completedPreambleSegments;if(null===o)return;Ss=e.byteSize;var s,a=e.resumableState,i=e.renderState,l=i.preamble,c=l.htmlChunks,u=l.headChunks;if(c){for(s=0;s<c.length;s++)O(t,c[s]);if(u)for(s=0;s<u.length;s++)O(t,u[s]);else O(t,yt("head")),O(t,Je)}else if(u)for(s=0;s<u.length;s++)O(t,u[s]);var d=i.charsetChunks;for(s=0;s<d.length;s++)O(t,d[s]);d.length=0,i.preconnects.forEach(Bn,t),i.preconnects.clear();var h=i.viewportChunks;for(s=0;s<h.length;s++)O(t,h[s]);h.length=0,i.fontPreloads.forEach(Bn,t),i.fontPreloads.clear(),i.highImagePreloads.forEach(Bn,t),i.highImagePreloads.clear(),ae=i,i.styles.forEach(qn,t),ae=null;var p=i.importMapChunks;for(s=0;s<p.length;s++)O(t,p[s]);p.length=0,i.bootstrapScripts.forEach(Bn,t),i.scripts.forEach(Bn,t),i.scripts.clear(),i.bulkPreloads.forEach(Bn,t),i.bulkPreloads.clear(),c||u||(a.instructions|=32);var f=i.hoistableChunks;for(s=0;s<f.length;s++)O(t,f[s]);for(a=f.length=0;a<o.length;a++){var g=o[a];for(i=0;i<g.length;i++)ws(e,t,g[i],null)}var m=e.renderState.preamble,y=m.headChunks;(m.htmlChunks||y)&&O(t,St("head"));var v=m.bodyChunks;if(v)for(o=0;o<v.length;o++)O(t,v[o]);ws(e,t,r,null),e.completedRootSegment=null;var b=e.renderState;if(0!==e.allPendingTasks||0!==e.clientRenderedBoundaries.length||0!==e.completedBoundaries.length||null!==e.trackedPostpones&&(0!==e.trackedPostpones.rootNodes.length||null!==e.trackedPostpones.rootSlots)){var k=e.resumableState;if(!(64&k.instructions)){if(k.instructions|=64,O(t,b.startInlineScript),!(32&k.instructions)){k.instructions|=32;var S="_"+k.idPrefix+"R_";O(t,Jn),O(t,X(S)),O(t,Be)}O(t,Je),O(t,Pt),j(t,le)}}xt(t,b)}var w=e.renderState;r=0;var x=w.viewportChunks;for(r=0;r<x.length;r++)O(t,x[r]);x.length=0,w.preconnects.forEach(Bn,t),w.preconnects.clear(),w.fontPreloads.forEach(Bn,t),w.fontPreloads.clear(),w.highImagePreloads.forEach(Bn,t),w.highImagePreloads.clear(),w.styles.forEach(Kn,t),w.scripts.forEach(Bn,t),w.scripts.clear(),w.bulkPreloads.forEach(Bn,t),w.bulkPreloads.clear();var P=w.hoistableChunks;for(r=0;r<P.length;r++)O(t,P[r]);P.length=0;var R=e.clientRenderedBoundaries;for(n=0;n<R.length;n++){var C=R[n];w=t;var T=e.resumableState,_=e.renderState,E=C.rootSegmentID,A=C.errorDigest;O(w,_.startInlineScript),O(w,Je),4&T.instructions?O(w,Sn):(T.instructions|=4,O(w,kn)),O(w,_.boundaryPrefix),O(w,E.toString(16)),O(w,wn),A&&(O(w,xn),O(w,Cn(A||"")));var B=j(w,Pn);if(!B)return e.destination=null,n++,void R.splice(0,n)}R.splice(0,n);var $=e.completedBoundaries;for(n=0;n<$.length;n++)if(!Ps(e,t,$[n]))return e.destination=null,n++,void $.splice(0,n);$.splice(0,n),D(t),M=new Uint8Array(2048),F=0,Cs=L=!0;var N=e.partialBoundaries;for(n=0;n<N.length;n++){var H=N[n];e:{R=e,C=t,Ss=H.byteSize;var z=H.completedSegments;for(B=0;B<z.length;B++)if(!Rs(R,C,H,z[B])){B++,z.splice(0,B);var V=!1;break e}z.splice(0,B);var W=H.row;null!==W&&W.together&&1===H.pendingTasks&&(1===W.pendingTasks?Wo(R,W,W.hoistables):W.pendingTasks--),V=Dn(C,H.contentState,R.renderState)}if(!V)return e.destination=null,n++,void N.splice(0,n)}N.splice(0,n),Cs=!1;var U=e.completedBoundaries;for(n=0;n<U.length;n++)if(!Ps(e,t,U[n]))return e.destination=null,n++,void U.splice(0,n);U.splice(0,n)}}finally{Cs=!1,0===e.allPendingTasks&&0===e.clientRenderedBoundaries.length&&0===e.completedBoundaries.length?(e.flushScheduled=!1,(n=e.resumableState).hasBody&&O(t,St("body")),n.hasHtml&&O(t,St("html")),D(t),I(t),e.status=14,t.end(),e.destination=null):(D(t),I(t))}}function _s(e){e.flushScheduled=null!==e.destination,E(function(){return fr.run(e,ms,e)}),setImmediate(function(){10===e.status&&(e.status=11),null===e.trackedPostpones&&fr.run(e,Es,e)})}function Es(e){us(e,0===e.pendingRootTasks)}function Is(e){!1===e.flushScheduled&&0===e.pingedTasks.length&&null!==e.destination&&(e.flushScheduled=!0,setImmediate(function(){var t=e.destination;t?Ts(e,t):e.flushScheduled=!1}))}function Ms(e,t){if(13===e.status)e.status=14,t.destroy(e.fatalError);else if(14!==e.status&&null===e.destination){e.destination=t;try{Ts(e,t)}catch(n){Ho(e,n,{}),zo(e,n)}}}function Fs(e,t){11!==e.status&&10!==e.status||(e.status=12);try{var n=e.abortableTasks;if(0<n.size){var r=void 0===t?Error("The render was aborted by the server without a reason."):"object"==typeof t&&null!==t&&"function"==typeof t.then?Error("The render was aborted by the server with a promise."):t;e.fatalError=r,n.forEach(function(t){return cs(t,e,r)}),n.clear()}null!==e.destination&&Ts(e,e.destination)}catch(o){Ho(e,o,{}),zo(e,o)}}function Ls(e,t,n){if(null===t)n.rootNodes.push(e);else{var r=n.workingMap,o=r.get(t);void 0===o&&(o=[t[1],t[2],[],null],r.set(t,o),Ls(o,t[0],n)),o[2].push(e)}}function Os(e){var t=e.trackedPostpones;if(null===t||0===t.rootNodes.length&&null===t.rootSlots)return e.trackedPostpones=null;if(null===e.completedRootSegment||5!==e.completedRootSegment.status&&null!==e.completedPreambleSegments){var n=e.nextSegmentId,r=t.rootSlots,o=e.resumableState;o.bootstrapScriptContent=void 0,o.bootstrapScripts=void 0,o.bootstrapModules=void 0}else{n=0,r=-1,o=e.resumableState;var s=e.renderState;o.nextFormID=0,o.hasBody=!1,o.hasHtml=!1,o.unknownResources={font:s.resets.font},o.dnsResources=s.resets.dns,o.connectResources=s.resets.connect,o.imageResources=s.resets.image,o.styleResources=s.resets.style,o.scriptResources={},o.moduleUnknownResources={},o.moduleScriptResources={},o.instructions=0}return{nextSegmentId:n,rootFormatContext:e.rootFormatContext,progressiveChunkSize:e.progressiveChunkSize,resumableState:e.resumableState,replayNodes:t.rootNodes,replaySlots:r}}function As(){var e=a.version;if("19.2.7"!==e)throw Error('Incompatible React versions: The "react" and "react-dom" packages must have the exact same version. Instead got:\n  - react:      '+e+"\n  - react-dom:  19.2.7\nLearn more: https://react.dev/warnings/version-mismatch")}function js(e,t){return function(){return Ms(t,e)}}function Ds(e,t){return function(){e.destination=null,Fs(e,Error(t))}}function Bs(e){return{write:function(t){return"string"==typeof t&&(t=B.encode(t)),e.enqueue(t),!0},end:function(){e.close()},destroy:function(t){"function"==typeof e.error?e.error(t):e.close()}}}function $s(e){return{write:function(t){return"string"==typeof t&&(t=B.encode(t)),e.enqueue(t),!0},end:function(){e.close()},destroy:function(t){"function"==typeof e.error?e.error(t):e.close()}}}function Ns(e){return{write:function(t){return e.push(t)},end:function(){e.push(null)},destroy:function(t){e.destroy(t)}}}As(),As(),t.prerender=function(e,t){return new Promise(function(n,r){var o,s=t?t.onHeaders:void 0;s&&(o=function(e){s(new Headers(e))});var a=Se(t?t.identifierPrefix:void 0,t&&t.unstable_externalRuntimeSrc,t?t.bootstrapScriptContent:void 0,t?t.bootstrapScripts:void 0,t?t.bootstrapModules:void 0),i=_o(e,a,ke(a,void 0,t?t.unstable_externalRuntimeSrc:void 0,t?t.importMap:void 0,o,t?t.maxHeadersLength:void 0),Pe(t?t.namespaceURI:void 0),t?t.progressiveChunkSize:void 0,t?t.onError:void 0,function(){var e,t=new ReadableStream({type:"bytes",start:function(t){e=$s(t)},pull:function(){Ms(i,e)},cancel:function(e){i.destination=null,Fs(i,e)}},{highWaterMark:0});t={postponed:Os(i),prelude:t},n(t)},void 0,void 0,r,t?t.onPostpone:void 0);if(t&&t.signal){var l=t.signal;if(l.aborted)Fs(i,l.reason);else{var c=function(){Fs(i,l.reason),l.removeEventListener("abort",c)};l.addEventListener("abort",c)}}_s(i)})},t.prerenderToNodeStream=function(e,t){return new Promise(function(n,r){var o=Se(t?t.identifierPrefix:void 0,t&&t.unstable_externalRuntimeSrc,t?t.bootstrapScriptContent:void 0,t?t.bootstrapScripts:void 0,t?t.bootstrapModules:void 0),s=_o(e,o,ke(o,void 0,t?t.unstable_externalRuntimeSrc:void 0,t?t.importMap:void 0,t?t.onHeaders:void 0,t?t.maxHeadersLength:void 0),Pe(t?t.namespaceURI:void 0),t?t.progressiveChunkSize:void 0,t?t.onError:void 0,function(){var e=new l.Readable({read:function(){Ms(s,t)}}),t=Ns(e);e={postponed:Os(s),prelude:e},n(e)},void 0,void 0,r,t?t.onPostpone:void 0);if(t&&t.signal){var a=t.signal;if(a.aborted)Fs(s,a.reason);else{var i=function(){Fs(s,a.reason),a.removeEventListener("abort",i)};a.addEventListener("abort",i)}}_s(s)})},t.renderToPipeableStream=function(e,t){var n=function(e,t){var n=Se(t?t.identifierPrefix:void 0,t&&t.unstable_externalRuntimeSrc,t?t.bootstrapScriptContent:void 0,t?t.bootstrapScripts:void 0,t?t.bootstrapModules:void 0);return To(e,n,ke(n,t?t.nonce:void 0,t?t.unstable_externalRuntimeSrc:void 0,t?t.importMap:void 0,t?t.onHeaders:void 0,t?t.maxHeadersLength:void 0),Pe(t?t.namespaceURI:void 0),t?t.progressiveChunkSize:void 0,t?t.onError:void 0,t?t.onAllReady:void 0,t?t.onShellReady:void 0,t?t.onShellError:void 0,void 0,t?t.onPostpone:void 0,t?t.formState:void 0)}(e,t),r=!1;return _s(n),{pipe:function(e){if(r)throw Error("React currently only supports piping to one writable stream.");return r=!0,us(n,null===n.trackedPostpones||null===n.completedRootSegment?0===n.pendingRootTasks:5!==n.completedRootSegment.status),Ms(n,e),e.on("drain",js(e,n)),e.on("error",Ds(n,"The destination stream errored while writing data.")),e.on("close",Ds(n,"The destination stream closed early.")),e},abort:function(e){Fs(n,e)}}},t.renderToReadableStream=function(e,t){return new Promise(function(n,r){var o,s,a,i=new Promise(function(e,t){s=e,o=t}),l=t?t.onHeaders:void 0;l&&(a=function(e){l(new Headers(e))});var c=Se(t?t.identifierPrefix:void 0,t&&t.unstable_externalRuntimeSrc,t?t.bootstrapScriptContent:void 0,t?t.bootstrapScripts:void 0,t?t.bootstrapModules:void 0),u=To(e,c,ke(c,t?t.nonce:void 0,t?t.unstable_externalRuntimeSrc:void 0,t?t.importMap:void 0,a,t?t.maxHeadersLength:void 0),Pe(t?t.namespaceURI:void 0),t?t.progressiveChunkSize:void 0,t?t.onError:void 0,s,function(){var e,t=new ReadableStream({type:"bytes",start:function(t){e=Bs(t)},pull:function(){Ms(u,e)},cancel:function(e){u.destination=null,Fs(u,e)}},{highWaterMark:0});t.allReady=i,n(t)},function(e){i.catch(function(){}),r(e)},o,t?t.onPostpone:void 0,t?t.formState:void 0);if(t&&t.signal){var d=t.signal;if(d.aborted)Fs(u,d.reason);else{var h=function(){Fs(u,d.reason),d.removeEventListener("abort",h)};d.addEventListener("abort",h)}}_s(u)})},t.resume=function(e,t,n){return new Promise(function(r,o){var s,a,i=new Promise(function(e,t){a=e,s=t}),l=Eo(e,t,ke(t.resumableState,n?n.nonce:void 0,void 0,void 0,void 0,void 0),n?n.onError:void 0,a,function(){var e,t=new ReadableStream({type:"bytes",start:function(t){e=Bs(t)},pull:function(){Ms(l,e)},cancel:function(e){l.destination=null,Fs(l,e)}},{highWaterMark:0});t.allReady=i,r(t)},function(e){i.catch(function(){}),o(e)},s,n?n.onPostpone:void 0);if(n&&n.signal){var c=n.signal;if(c.aborted)Fs(l,c.reason);else{var u=function(){Fs(l,c.reason),c.removeEventListener("abort",u)};c.addEventListener("abort",u)}}_s(l)})},t.resumeAndPrerender=function(e,t,n){return new Promise(function(r,o){var s=Io(e,t,ke(t.resumableState,void 0,void 0,void 0,void 0,void 0),n?n.onError:void 0,function(){var e,t=new ReadableStream({type:"bytes",start:function(t){e=$s(t)},pull:function(){Ms(s,e)},cancel:function(e){s.destination=null,Fs(s,e)}},{highWaterMark:0});t={postponed:Os(s),prelude:t},r(t)},void 0,void 0,o,n?n.onPostpone:void 0);if(n&&n.signal){var a=n.signal;if(a.aborted)Fs(s,a.reason);else{var i=function(){Fs(s,a.reason),a.removeEventListener("abort",i)};a.addEventListener("abort",i)}}_s(s)})},t.resumeAndPrerenderToNodeStream=function(e,t,n){return new Promise(function(r,o){var s=Io(e,t,ke(t.resumableState,void 0,void 0,void 0,void 0,void 0),n?n.onError:void 0,function(){var e=new l.Readable({read:function(){Ms(s,t)}}),t=Ns(e);e={postponed:Os(s),prelude:e},r(e)},void 0,void 0,o,n?n.onPostpone:void 0);if(n&&n.signal){var a=n.signal;if(a.aborted)Fs(s,a.reason);else{var i=function(){Fs(s,a.reason),a.removeEventListener("abort",i)};a.addEventListener("abort",i)}}_s(s)})},t.resumeToPipeableStream=function(e,t,n){var r=function(e,t,n){return Eo(e,t,ke(t.resumableState,n?n.nonce:void 0,void 0,void 0,void 0,void 0),n?n.onError:void 0,n?n.onAllReady:void 0,n?n.onShellReady:void 0,n?n.onShellError:void 0,void 0,n?n.onPostpone:void 0)}(e,t,n),o=!1;return _s(r),{pipe:function(e){if(o)throw Error("React currently only supports piping to one writable stream.");return o=!0,Ms(r,e),e.on("drain",js(e,r)),e.on("error",Ds(r,"The destination stream errored while writing data.")),e.on("close",Ds(r,"The destination stream closed early.")),e},abort:function(e){Fs(r,e)}}},t.version="19.2.7"}),zn=t(n(e=>{var t=Nn(),n=Hn();e.version=t.version,e.renderToString=t.renderToString,e.renderToStaticMarkup=t.renderToStaticMarkup,e.renderToPipeableStream=n.renderToPipeableStream,e.renderToReadableStream=n.renderToReadableStream,e.resumeToPipeableStream=n.resumeToPipeableStream,e.resume=n.resume})(),1),Vn=/bot|crawl|http|lighthouse|scan|search|spider/i;function Wn(e){return"string"==typeof(t=e)&&""!==t&&function(){if($n instanceof RegExp)return $n;try{$n=new RegExp(" daum[ /]| deusu/|(?:^|[^g])news(?!sapphire)|(?<! (?:channel/|google/))google(?!(wv|app|/google| pixel))|(?<! cu)bots?(?:\\b|_)|(?<!(?:lib))http|(?<!cam)scan|24x7|;\\s\\w+;$|@[a-z][\\w-]+\\.|\\(\\)|\\.com\\b|\\b\\w+\\.ai|\\bbw/|\\bdlc\\b|\\bort/|\\bperl\\b|\\btime/|\\||^[\\w \\.\\-\\(?:\\):%]+(?:/v?\\d+(?:\\.\\d+)?(?:\\.\\d{1,10})*?)?(?:,|$)|^[\\w\\-]+/[\\w]+$|^[^ ]{50,}$|^\\d+\\b|^\\W|^\\w*search\\b|^\\w+/[\\w\\(\\)]*$|^\\w+/\\d\\.\\d\\s\\([\\w@]+\\)$|^active|^ad muncher|^amaya|^apache/|^avsdevicesdk/|^azure|^biglotron|^blackbox exporter|^bot|^clamav[ /]|^claude-code/|^client/|^cobweb/|^custom|^ddg[_-]android|^discourse|^dispatch/\\d|^downcast/|^duckduckgo|^email|^exodusmovement|^facebook|^getright/|^gozilla/|^hobbit|^hotzonu|^hwcdn/|^igetter/|^jeode/|^jetty/|^jigsaw|^microsoft bits|^movabletype|^mozilla/\\d\\.\\d\\s[\\w\\.-]+$|^mozilla/\\d\\.\\d\\s\\((?:compatible;)?(?:\\s?[\\w\\d-.]+\\/\\d+\\.\\d+)?\\)$|^navermailapp|^netsurf|^offline|^openai/|^owler|^php|^postman|^ps_daily/|^python|^rank|^read|^reed|^remove\\.bg/|^rest|^rss|^snapchat|^sora |^space bison|^stape/|^svn|^swcd |^taringa|^thumbor/|^track|^w3c|^webbandit/|^webcopier|^wget|^whatsapp|^wordpress|^xenu link sleuth|^yahoo|^yandex|^zdm/\\d|^zoom marketplace/|abuse|advisor|agent\\b|analyzer|archive|ask jeeves/teoma|attracta|audit|bluecoat drtr|browsex|burpcollaborator|capture|catch|check\\b|checker|chrome-lighthouse|chromeframe|classifier|cloudflare|collapsify\\b|convertify|cookiehubverify/|crawl|cursor/|cypress/|dareboost|datanyze|dejaclick|detect|dmbrowser|download|exaleadcloudview|feed|fetcher|firephp|foregenix|functionize|grab|productfinder|hardenize\\b|headless|hotjar|httrack|hubspot marketing grader|ibisbrowser|infrawatch|insight|inspect|iplabel|java(?!;)|library|linkcheck|linktiger|mail\\.ru/|manager|manus-user/|marketgoo/|measure|monitor\\b|neustar wpm|node\\b|nutch|offbyone|openvas|optimize|pageburst|pagespeed|parser|phantomjs|pingdom|playwright|powermarks|preview|proxy|ptst[ /]\\d|readable/|retriever|rexx;|rigor|rss\\b|scrape|securityheaders|selenium|server|silktide|sindup/|sogou|sparkler/|speedcurve|spider|splash|statuscake|supercleaner|synapse|synthetic|testlocally|tools|torrent|transcoder|upday/|url|validator|virtuoso|wappalyzer|watchtowr|webglance|webkit2png|whatcms/|xtate/","i")}catch(e){$n=Vn}return $n}().test(e);var t}var Un=()=>{},qn=(e,t)=>e.signal.aborted&&t===e.signal.reason||t instanceof Error&&"AbortError"===t.name,Gn=async({request:e,router:t,responseHeaders:n,children:r})=>{if("function"==typeof zn.renderToReadableStream){const o=await zn.renderToReadableStream(r,{signal:e.signal,nonce:t.options.ssr?.nonce,progressiveChunkSize:Number.POSITIVE_INFINITY,onError:(t,n)=>{qn(e,t)}});Wn(e.headers.get("User-Agent"))&&await async function(e,t){let n=Un;try{await Promise.race([e,new Promise(e=>{const r=()=>e();n=()=>t.removeEventListener("abort",r),t.addEventListener("abort",r,{once:!0}),t.aborted&&e()})])}finally{n()}}(o.allReady,e.signal);const s=function(e,t,n){return Bn(e,t,n)}(t,o,{onAbort:()=>o.cancel().catch(()=>{})});return kn(t,new Response(s,{status:t.stores.statusCode.get(),headers:n}))}if("function"==typeof zn.renderToPipeableStream){const s=new i;let a,c,u=!1,d=!1,h=!1;const p=e=>e instanceof Error?e:new Error(String(e??"SSR aborted")),f=e=>void 0===e?void 0:p(e),g=()=>void 0===c?p(c):f(c),m=(e,t)=>{s.destroyed||(u?s.destroy(t?.defaultError?p(e):f(e)):h=!0)},y=(e,t)=>{if(d)return;d=!0,c=e;const n=p(e);try{a?.abort(n)}catch{}m(e,t)};if(e.signal.aborted)y(e.signal.reason);else{const n=()=>y(e.signal.reason);e.signal.addEventListener("abort",n,{once:!0}),t.serverSsr?.onCleanup(()=>{e.signal.removeEventListener("abort",n)})}try{a=zn.renderToPipeableStream(r,{nonce:t.options.ssr?.nonce,progressiveChunkSize:Number.POSITIVE_INFINITY,...Wn(e.headers.get("User-Agent"))?{onAllReady(){a.pipe(s)}}:{onShellReady(){a.pipe(s)}},onError:(t,n)=>{qn(e,t),y(t,{defaultError:!0})}})}catch(o){throw t.serverSsr?.cleanup(),o}const v=function(e,t,n){return l.fromWeb(Bn(e,l.toWeb(t),n))}(t,s,{onAbort:y});if(u=!0,h&&s.destroy(g()),d&&a)try{a.abort(p(c))}catch{}return kn(t,new Response(v,{status:t.stores.statusCode.get(),headers:n}))}throw new Error("No renderToReadableStream or renderToPipeableStream found in react-dom/server. Ensure you are using a version of react-dom that supports streaming.")};export{D as A,tt as C,le as D,de as E,h as M,ie as O,Ze as S,ue as T,it as _,Sn as a,Ye as b,mn as c,rn as d,Ht as f,at as g,Ct as h,bn as i,j,B as k,dn as l,Dt as m,xn as n,wn as o,$t as p,vn as r,yn as s,Gn as t,sn as u,rt as v,he as w,et as x,nt as y};
+import { i as __require, o as __toESM, t as __commonJSMin } from "../../_runtime.mjs";
+import { n as require_jsx_runtime, r as require_react } from "../react+tanstack__react-query.mjs";
+import { r as parseHref } from "../tanstack__history.mjs";
+import { PassThrough, Readable } from "node:stream";
+import { ReadableStream as ReadableStream$1 } from "node:stream/web";
+//#region node_modules/@tanstack/react-router/dist/esm/routerContext.js
+var import_react = /* @__PURE__ */ __toESM(require_react(), 1);
+var routerContext = import_react.createContext(null);
+//#endregion
+//#region node_modules/@tanstack/react-router/dist/esm/useRouter.js
+/**
+* Access the current TanStack Router instance from React context.
+* Must be used within a `RouterProvider`.
+*
+* Options:
+* - `warn`: Log a warning if no router context is found (default: true).
+*
+* @returns The registered router instance.
+* @link https://tanstack.com/router/latest/docs/framework/react/api/router/useRouterHook
+*/
+function useRouter(opts) {
+	return import_react.useContext(routerContext);
+}
+//#endregion
+//#region node_modules/@tanstack/react-router/dist/esm/utils.js
+/**
+* React.use if available (React 19+), undefined otherwise.
+* Use dynamic lookup to avoid Webpack compilation errors with React 18.
+*/
+var reactUse = import_react.use;
+typeof window !== "undefined" ? import_react.useLayoutEffect : import_react.useEffect;
+/**
+* React hook to wrap `IntersectionObserver`.
+*
+* This hook will create an `IntersectionObserver` and observe the ref passed to it.
+*
+* When the intersection changes, the callback will be called with the `IntersectionObserverEntry`.
+*
+* @param ref - The ref to observe
+* @param intersectionObserverOptions - The options to pass to the IntersectionObserver
+* @param options - The options to pass to the hook
+* @param callback - The callback to call when the intersection changes
+* @returns The IntersectionObserver instance
+* @example
+* ```tsx
+* const MyComponent = () => {
+* const ref = React.useRef<HTMLDivElement>(null)
+* useIntersectionObserver(
+*  ref,
+*  (entry) => { doSomething(entry) },
+*  { rootMargin: '10px' },
+*  { disabled: false }
+* )
+* return <div ref={ref} />
+* ```
+*/
+function useIntersectionObserver(ref, callback, intersectionObserverOptions = {}, options = {}) {
+	import_react.useEffect(() => {
+		if (!ref.current || options.disabled || typeof IntersectionObserver !== "function") return;
+		const observer = new IntersectionObserver(([entry]) => {
+			callback(entry);
+		}, intersectionObserverOptions);
+		observer.observe(ref.current);
+		return () => {
+			observer.disconnect();
+		};
+	}, [
+		callback,
+		intersectionObserverOptions,
+		options.disabled,
+		ref
+	]);
+}
+/**
+* React hook to take a `React.ForwardedRef` and returns a `ref` that can be used on a DOM element.
+*
+* @param ref - The forwarded ref
+* @returns The inner ref returned by `useRef`
+* @example
+* ```tsx
+* const MyComponent = React.forwardRef((props, ref) => {
+*  const innerRef = useForwardedRef(ref)
+*  return <div ref={innerRef} />
+* })
+* ```
+*/
+function useForwardedRef(ref) {
+	const innerRef = import_react.useRef(null);
+	import_react.useImperativeHandle(ref, () => innerRef.current, []);
+	return innerRef;
+}
+//#endregion
+//#region node_modules/@tanstack/react-router/dist/esm/ClientOnly.js
+var import_jsx_runtime = require_jsx_runtime();
+/**
+* Render the children only after the JS has loaded client-side. Use an optional
+* fallback component if the JS is not yet loaded.
+*
+* @example
+* Render a Chart component if JS loads, renders a simple FakeChart
+* component server-side or if there is no JS. The FakeChart can have only the
+* UI without the behavior or be a loading spinner or skeleton.
+*
+* ```tsx
+* return (
+*   <ClientOnly fallback={<FakeChart />}>
+*     <Chart />
+*   </ClientOnly>
+* )
+* ```
+*/
+function ClientOnly({ children, fallback = null }) {
+	return useHydrated() ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_react.Fragment, { children }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_react.Fragment, { children: fallback });
+}
+/**
+* Return a boolean indicating if the JS has been hydrated already.
+* When doing Server-Side Rendering, the result will always be false.
+* When doing Client-Side Rendering, the result will always be false on the
+* first render and true from then on. Even if a new component renders it will
+* always start with true.
+*
+* @example
+* ```tsx
+* // Disable a button that needs JS to work.
+* let hydrated = useHydrated()
+* return (
+*   <button type="button" disabled={!hydrated} onClick={doSomethingCustom}>
+*     Click me
+*   </button>
+* )
+* ```
+* @returns True if the JS has been hydrated already, false otherwise.
+*/
+function useHydrated() {
+	return import_react.useSyncExternalStore(subscribe, () => true, () => false);
+}
+function subscribe() {
+	return () => {};
+}
+//#endregion
+//#region node_modules/@tanstack/router-core/dist/esm/utils.js
+/**
+* Return the last element of an array.
+* Intended for non-empty arrays used within router internals.
+*/
+function last(arr) {
+	return arr[arr.length - 1];
+}
+function isFunction(d) {
+	return typeof d === "function";
+}
+/**
+* Apply a value-or-updater to a previous value.
+* Accepts either a literal value or a function of the previous value.
+*/
+function functionalUpdate(updater, previous) {
+	if (isFunction(updater)) return updater(previous);
+	return updater;
+}
+var hasOwn = Object.prototype.hasOwnProperty;
+function hasKeys(obj) {
+	for (const key in obj) if (hasOwn.call(obj, key)) return true;
+	return false;
+}
+var createNull = () => Object.create(null);
+var nullReplaceEqualDeep = (prev, next) => replaceEqualDeep(prev, next, createNull);
+/**
+* This function returns `prev` if `_next` is deeply equal.
+* If not, it will replace any deeply equal children of `b` with those of `a`.
+* This can be used for structural sharing between immutable JSON values for example.
+* Do not use this with signals
+*/
+function replaceEqualDeep(prev, _next, _makeObj = () => ({}), _depth = 0) {
+	return _next;
+}
+function isPlainObject(o) {
+	if (!hasObjectPrototype(o)) return false;
+	const ctor = o.constructor;
+	if (typeof ctor === "undefined") return true;
+	const prot = ctor.prototype;
+	if (!hasObjectPrototype(prot)) return false;
+	if (!prot.hasOwnProperty("isPrototypeOf")) return false;
+	return true;
+}
+function hasObjectPrototype(o) {
+	return Object.prototype.toString.call(o) === "[object Object]";
+}
+/**
+* Perform a deep equality check with options for partial comparison and
+* ignoring `undefined` values. Optimized for router state comparisons.
+*/
+function deepEqual(a, b, opts) {
+	if (a === b) return true;
+	if (typeof a !== typeof b) return false;
+	if (Array.isArray(a) && Array.isArray(b)) {
+		if (a.length !== b.length) return false;
+		for (let i = 0, l = a.length; i < l; i++) if (!deepEqual(a[i], b[i], opts)) return false;
+		return true;
+	}
+	if (isPlainObject(a) && isPlainObject(b)) {
+		const ignoreUndefined = opts?.ignoreUndefined ?? true;
+		if (opts?.partial) {
+			for (const k in b) if (!ignoreUndefined || b[k] !== void 0) {
+				if (!deepEqual(a[k], b[k], opts)) return false;
+			}
+			return true;
+		}
+		let aCount = 0;
+		if (!ignoreUndefined) aCount = Object.keys(a).length;
+		else for (const k in a) if (a[k] !== void 0) aCount++;
+		let bCount = 0;
+		for (const k in b) if (!ignoreUndefined || b[k] !== void 0) {
+			bCount++;
+			if (bCount > aCount || !deepEqual(a[k], b[k], opts)) return false;
+		}
+		return aCount === bCount;
+	}
+	return false;
+}
+/**
+* Create a promise with exposed resolve/reject and status fields.
+* Useful for coordinating async router lifecycle operations.
+*/
+function createControlledPromise(onResolve) {
+	let resolveLoadPromise;
+	let rejectLoadPromise;
+	const controlledPromise = new Promise((resolve, reject) => {
+		resolveLoadPromise = resolve;
+		rejectLoadPromise = reject;
+	});
+	controlledPromise.status = "pending";
+	controlledPromise.resolve = (value) => {
+		controlledPromise.status = "resolved";
+		controlledPromise.value = value;
+		resolveLoadPromise(value);
+		onResolve?.(value);
+	};
+	controlledPromise.reject = (e) => {
+		controlledPromise.status = "rejected";
+		rejectLoadPromise(e);
+	};
+	return controlledPromise;
+}
+/**
+* Heuristically detect dynamic import "module not found" errors
+* across major browsers for lazy route component handling.
+*/
+function isModuleNotFoundError(error) {
+	if (typeof error?.message !== "string") return false;
+	return error.message.startsWith("Failed to fetch dynamically imported module") || error.message.startsWith("error loading dynamically imported module") || error.message.startsWith("Importing a module script failed");
+}
+function isPromise(value) {
+	return Boolean(value && typeof value === "object" && typeof value.then === "function");
+}
+/**
+* Remove control characters that can cause open redirect vulnerabilities.
+* Characters like \r (CR) and \n (LF) can trick URL parsers into interpreting
+* paths like "/\r/evil.com" as "http://evil.com".
+*/
+function sanitizePathSegment(segment) {
+	return segment.replace(/[\x00-\x1f\x7f]/g, "");
+}
+function decodeSegment(segment) {
+	let decoded;
+	try {
+		decoded = decodeURI(segment);
+	} catch {
+		decoded = segment.replaceAll(/%[0-9A-F]{2}/gi, (match) => {
+			try {
+				return decodeURI(match);
+			} catch {
+				return match;
+			}
+		});
+	}
+	return sanitizePathSegment(decoded);
+}
+/**
+* Default list of URL protocols to allow in links, redirects, and navigation.
+* Any absolute URL protocol not in this list is treated as dangerous by default.
+*/
+var DEFAULT_PROTOCOL_ALLOWLIST = [
+	"http:",
+	"https:",
+	"mailto:",
+	"tel:"
+];
+/**
+* Check if a URL string uses a protocol that is not in the allowlist.
+* Returns true for blocked protocols like javascript:, blob:, data:, etc.
+*
+* The URL constructor correctly normalizes:
+* - Mixed case (JavaScript: → javascript:)
+* - Whitespace/control characters (java\nscript: → javascript:)
+* - Leading whitespace
+*
+* For relative URLs (no protocol), returns false (safe).
+*
+* @param url - The URL string to check
+* @param allowlist - Set of protocols to allow
+* @returns true if the URL uses a protocol that is not allowed
+*/
+function isDangerousProtocol(url, allowlist) {
+	if (!url) return false;
+	try {
+		const parsed = new URL(url);
+		return !allowlist.has(parsed.protocol);
+	} catch {
+		return false;
+	}
+}
+var HTML_ESCAPE_LOOKUP = {
+	"&": "\\u0026",
+	">": "\\u003e",
+	"<": "\\u003c",
+	"\u2028": "\\u2028",
+	"\u2029": "\\u2029"
+};
+var HTML_ESCAPE_REGEX = /[&><\u2028\u2029]/g;
+/**
+* Escape HTML special characters in a string to prevent XSS attacks
+* when embedding strings in script tags during SSR.
+*
+* This is essential for preventing XSS vulnerabilities when user-controlled
+* content is embedded in inline scripts.
+*/
+function escapeHtml(str) {
+	return str.replace(HTML_ESCAPE_REGEX, (match) => HTML_ESCAPE_LOOKUP[match]);
+}
+function decodePath(path) {
+	if (!path) return {
+		path,
+		handledProtocolRelativeURL: false
+	};
+	if (!/[%\\\x00-\x1f\x7f]/.test(path) && !path.startsWith("//")) return {
+		path,
+		handledProtocolRelativeURL: false
+	};
+	const re = /%25|%5C/gi;
+	let cursor = 0;
+	let result = "";
+	let match;
+	while (null !== (match = re.exec(path))) {
+		result += decodeSegment(path.slice(cursor, match.index)) + match[0];
+		cursor = re.lastIndex;
+	}
+	result = result + decodeSegment(cursor ? path.slice(cursor) : path);
+	let handledProtocolRelativeURL = false;
+	if (result.startsWith("//")) {
+		handledProtocolRelativeURL = true;
+		result = "/" + result.replace(/^\/+/, "");
+	}
+	return {
+		path: result,
+		handledProtocolRelativeURL
+	};
+}
+/**
+* Encodes a path the same way `new URL()` would, but without the overhead of full URL parsing.
+*
+* This function encodes:
+* - Whitespace characters (spaces → %20, tabs → %09, etc.)
+* - Non-ASCII/Unicode characters (emojis, accented characters, etc.)
+*
+* It preserves:
+* - Already percent-encoded sequences (won't double-encode %2F, %25, etc.)
+* - ASCII special characters valid in URL paths (@, $, &, +, etc.)
+* - Forward slashes as path separators
+*
+* Used to generate proper href values for SSR without constructing URL objects.
+*
+* @example
+* encodePathLikeUrl('/path/file name.pdf') // '/path/file%20name.pdf'
+* encodePathLikeUrl('/path/日本語') // '/path/%E6%97%A5%E6%9C%AC%E8%AA%9E'
+* encodePathLikeUrl('/path/already%20encoded') // '/path/already%20encoded' (preserved)
+*/
+function encodePathLikeUrl(path) {
+	if (!/\s|[^\u0000-\u007F]/.test(path)) return path;
+	return path.replace(/\s|[^\u0000-\u007F]/gu, encodeURIComponent);
+}
+function arraysEqual(a, b) {
+	if (a === b) return true;
+	if (a.length !== b.length) return false;
+	for (let i = 0; i < a.length; i++) if (a[i] !== b[i]) return false;
+	return true;
+}
+//#endregion
+//#region node_modules/@tanstack/router-core/dist/esm/invariant.js
+function invariant() {
+	throw new Error("Invariant failed");
+}
+//#endregion
+//#region node_modules/@tanstack/router-core/dist/esm/lru-cache.js
+function createLRUCache(max) {
+	const cache = /* @__PURE__ */ new Map();
+	let oldest;
+	let newest;
+	const touch = (entry) => {
+		if (!entry.next) return;
+		if (!entry.prev) {
+			entry.next.prev = void 0;
+			oldest = entry.next;
+			entry.next = void 0;
+			if (newest) {
+				entry.prev = newest;
+				newest.next = entry;
+			}
+		} else {
+			entry.prev.next = entry.next;
+			entry.next.prev = entry.prev;
+			entry.next = void 0;
+			if (newest) {
+				newest.next = entry;
+				entry.prev = newest;
+			}
+		}
+		newest = entry;
+	};
+	return {
+		get(key) {
+			const entry = cache.get(key);
+			if (!entry) return void 0;
+			touch(entry);
+			return entry.value;
+		},
+		set(key, value) {
+			if (cache.size >= max && oldest) {
+				const toDelete = oldest;
+				cache.delete(toDelete.key);
+				if (toDelete.next) {
+					oldest = toDelete.next;
+					toDelete.next.prev = void 0;
+				}
+				if (toDelete === newest) newest = void 0;
+			}
+			const existing = cache.get(key);
+			if (existing) {
+				existing.value = value;
+				touch(existing);
+			} else {
+				const entry = {
+					key,
+					value,
+					prev: newest
+				};
+				if (newest) newest.next = entry;
+				newest = entry;
+				if (!oldest) oldest = entry;
+				cache.set(key, entry);
+			}
+		},
+		clear() {
+			cache.clear();
+			oldest = void 0;
+			newest = void 0;
+		}
+	};
+}
+//#endregion
+//#region node_modules/@tanstack/router-core/dist/esm/new-process-route-tree.js
+var SEGMENT_TYPE_INDEX = 4;
+var SEGMENT_TYPE_PATHLESS = 5;
+function getOpenAndCloseBraces(part) {
+	const openBrace = part.indexOf("{");
+	if (openBrace === -1) return null;
+	const closeBrace = part.indexOf("}", openBrace);
+	if (closeBrace === -1) return null;
+	if (openBrace + 1 >= part.length) return null;
+	return [openBrace, closeBrace];
+}
+/**
+* Populates the `output` array with the parsed representation of the given `segment` string.
+*
+* Usage:
+* ```ts
+* let output
+* let cursor = 0
+* while (cursor < path.length) {
+*   output = parseSegment(path, cursor, output)
+*   const end = output[5]
+*   cursor = end + 1
+* ```
+*
+* `output` is stored outside to avoid allocations during repeated calls. It doesn't need to be typed
+* or initialized, it will be done automatically.
+*/
+function parseSegment(path, start, output = /* @__PURE__ */ new Uint16Array(6)) {
+	const next = path.indexOf("/", start);
+	const end = next === -1 ? path.length : next;
+	const part = path.substring(start, end);
+	if (!part || !part.includes("$")) {
+		output[0] = 0;
+		output[1] = start;
+		output[2] = start;
+		output[3] = end;
+		output[4] = end;
+		output[5] = end;
+		return output;
+	}
+	if (part === "$") {
+		const total = path.length;
+		output[0] = 2;
+		output[1] = start;
+		output[2] = start;
+		output[3] = total;
+		output[4] = total;
+		output[5] = total;
+		return output;
+	}
+	if (part.charCodeAt(0) === 36) {
+		output[0] = 1;
+		output[1] = start;
+		output[2] = start + 1;
+		output[3] = end;
+		output[4] = end;
+		output[5] = end;
+		return output;
+	}
+	const braces = getOpenAndCloseBraces(part);
+	if (braces) {
+		const [openBrace, closeBrace] = braces;
+		const firstChar = part.charCodeAt(openBrace + 1);
+		if (firstChar === 45) {
+			if (openBrace + 2 < part.length && part.charCodeAt(openBrace + 2) === 36) {
+				const paramStart = openBrace + 3;
+				const paramEnd = closeBrace;
+				if (paramStart < paramEnd) {
+					output[0] = 3;
+					output[1] = start + openBrace;
+					output[2] = start + paramStart;
+					output[3] = start + paramEnd;
+					output[4] = start + closeBrace + 1;
+					output[5] = end;
+					return output;
+				}
+			}
+		} else if (firstChar === 36) {
+			const dollarPos = openBrace + 1;
+			const afterDollar = openBrace + 2;
+			if (afterDollar === closeBrace) {
+				output[0] = 2;
+				output[1] = start + openBrace;
+				output[2] = start + dollarPos;
+				output[3] = start + afterDollar;
+				output[4] = start + closeBrace + 1;
+				output[5] = path.length;
+				return output;
+			}
+			output[0] = 1;
+			output[1] = start + openBrace;
+			output[2] = start + afterDollar;
+			output[3] = start + closeBrace;
+			output[4] = start + closeBrace + 1;
+			output[5] = end;
+			return output;
+		}
+	}
+	output[0] = 0;
+	output[1] = start;
+	output[2] = start;
+	output[3] = end;
+	output[4] = end;
+	output[5] = end;
+	return output;
+}
+/**
+* Recursively parses the segments of the given route tree and populates a segment trie.
+*
+* @param data A reusable Uint16Array for parsing segments. (non important, we're just avoiding allocations)
+* @param route The current route to parse.
+* @param start The starting index for parsing within the route's full path.
+* @param node The current segment node in the trie to populate.
+* @param onRoute Callback invoked for each route processed.
+*/
+function parseSegments(defaultCaseSensitive, data, route, start, node, depth, onRoute) {
+	onRoute?.(route);
+	let cursor = start;
+	{
+		const path = route.fullPath ?? route.from;
+		const length = path.length;
+		const caseSensitive = route.options?.caseSensitive ?? defaultCaseSensitive;
+		const parseParams = route.options?.params?.parse ?? route.options?.parseParams;
+		while (cursor < length) {
+			const segment = parseSegment(path, cursor, data);
+			let nextNode;
+			const start = cursor;
+			const end = segment[5];
+			cursor = end + 1;
+			depth++;
+			switch (segment[0]) {
+				case 0: {
+					const value = path.substring(segment[2], segment[3]);
+					if (caseSensitive) {
+						const existingNode = node.static?.get(value);
+						if (existingNode) nextNode = existingNode;
+						else {
+							var _node;
+							(_node = node).static ?? (_node.static = /* @__PURE__ */ new Map());
+							const next = createStaticNode(route.fullPath ?? route.from);
+							next.parent = node;
+							next.depth = depth;
+							nextNode = next;
+							node.static.set(value, next);
+						}
+					} else {
+						const name = value.toLowerCase();
+						const existingNode = node.staticInsensitive?.get(name);
+						if (existingNode) nextNode = existingNode;
+						else {
+							var _node2;
+							(_node2 = node).staticInsensitive ?? (_node2.staticInsensitive = /* @__PURE__ */ new Map());
+							const next = createStaticNode(route.fullPath ?? route.from);
+							next.parent = node;
+							next.depth = depth;
+							nextNode = next;
+							node.staticInsensitive.set(name, next);
+						}
+					}
+					break;
+				}
+				case 1: {
+					const prefix_raw = path.substring(start, segment[1]);
+					const suffix_raw = path.substring(segment[4], end);
+					const actuallyCaseSensitive = caseSensitive && !!(prefix_raw || suffix_raw);
+					const prefix = !prefix_raw ? void 0 : actuallyCaseSensitive ? prefix_raw : prefix_raw.toLowerCase();
+					const suffix = !suffix_raw ? void 0 : actuallyCaseSensitive ? suffix_raw : suffix_raw.toLowerCase();
+					const existingNode = !parseParams && node.dynamic?.find((s) => !s.parse && s.caseSensitive === actuallyCaseSensitive && s.prefix === prefix && s.suffix === suffix);
+					if (existingNode) nextNode = existingNode;
+					else {
+						var _node3;
+						const next = createDynamicNode(1, route.fullPath ?? route.from, actuallyCaseSensitive, prefix, suffix);
+						nextNode = next;
+						next.depth = depth;
+						next.parent = node;
+						(_node3 = node).dynamic ?? (_node3.dynamic = []);
+						node.dynamic.push(next);
+					}
+					break;
+				}
+				case 3: {
+					const prefix_raw = path.substring(start, segment[1]);
+					const suffix_raw = path.substring(segment[4], end);
+					const actuallyCaseSensitive = caseSensitive && !!(prefix_raw || suffix_raw);
+					const prefix = !prefix_raw ? void 0 : actuallyCaseSensitive ? prefix_raw : prefix_raw.toLowerCase();
+					const suffix = !suffix_raw ? void 0 : actuallyCaseSensitive ? suffix_raw : suffix_raw.toLowerCase();
+					const existingNode = !parseParams && node.optional?.find((s) => !s.parse && s.caseSensitive === actuallyCaseSensitive && s.prefix === prefix && s.suffix === suffix);
+					if (existingNode) nextNode = existingNode;
+					else {
+						var _node4;
+						const next = createDynamicNode(3, route.fullPath ?? route.from, actuallyCaseSensitive, prefix, suffix);
+						nextNode = next;
+						next.parent = node;
+						next.depth = depth;
+						(_node4 = node).optional ?? (_node4.optional = []);
+						node.optional.push(next);
+					}
+					break;
+				}
+				case 2: {
+					var _node5;
+					const prefix_raw = path.substring(start, segment[1]);
+					const suffix_raw = path.substring(segment[4], end);
+					const actuallyCaseSensitive = caseSensitive && !!(prefix_raw || suffix_raw);
+					const prefix = !prefix_raw ? void 0 : actuallyCaseSensitive ? prefix_raw : prefix_raw.toLowerCase();
+					const suffix = !suffix_raw ? void 0 : actuallyCaseSensitive ? suffix_raw : suffix_raw.toLowerCase();
+					const next = createDynamicNode(2, route.fullPath ?? route.from, actuallyCaseSensitive, prefix, suffix);
+					nextNode = next;
+					next.parent = node;
+					next.depth = depth;
+					(_node5 = node).wildcard ?? (_node5.wildcard = []);
+					node.wildcard.push(next);
+				}
+			}
+			node = nextNode;
+		}
+		if (parseParams && route.children && !route.isRoot && route.id && route.id.charCodeAt(route.id.lastIndexOf("/") + 1) === 95) {
+			var _node6;
+			const pathlessNode = createStaticNode(route.fullPath ?? route.from);
+			pathlessNode.kind = SEGMENT_TYPE_PATHLESS;
+			pathlessNode.parent = node;
+			depth++;
+			pathlessNode.depth = depth;
+			(_node6 = node).pathless ?? (_node6.pathless = []);
+			node.pathless.push(pathlessNode);
+			node = pathlessNode;
+		}
+		const isLeaf = (route.path || !route.children) && !route.isRoot;
+		if (isLeaf && path.endsWith("/")) {
+			const indexNode = createStaticNode(route.fullPath ?? route.from);
+			indexNode.kind = SEGMENT_TYPE_INDEX;
+			indexNode.parent = node;
+			depth++;
+			indexNode.depth = depth;
+			node.index = indexNode;
+			node = indexNode;
+		}
+		node.parse = parseParams ?? null;
+		node.priority = route.options?.params?.priority ?? 0;
+		if (isLeaf && !node.route) {
+			node.route = route;
+			node.fullPath = route.fullPath ?? route.from;
+		}
+	}
+	if (route.children) for (const child of route.children) parseSegments(defaultCaseSensitive, data, child, cursor, node, depth, onRoute);
+}
+function sortDynamic(a, b) {
+	if (a.parse && !b.parse) return -1;
+	if (!a.parse && b.parse) return 1;
+	if (a.parse && b.parse && (a.priority || b.priority)) return b.priority - a.priority;
+	if (a.prefix && b.prefix && a.prefix !== b.prefix) {
+		if (a.prefix.startsWith(b.prefix)) return -1;
+		if (b.prefix.startsWith(a.prefix)) return 1;
+	}
+	if (a.suffix && b.suffix && a.suffix !== b.suffix) {
+		if (a.suffix.endsWith(b.suffix)) return -1;
+		if (b.suffix.endsWith(a.suffix)) return 1;
+	}
+	if (a.prefix && !b.prefix) return -1;
+	if (!a.prefix && b.prefix) return 1;
+	if (a.suffix && !b.suffix) return -1;
+	if (!a.suffix && b.suffix) return 1;
+	if (a.caseSensitive && !b.caseSensitive) return -1;
+	if (!a.caseSensitive && b.caseSensitive) return 1;
+	return 0;
+}
+function sortTreeNodes(node) {
+	if (node.pathless) for (const child of node.pathless) sortTreeNodes(child);
+	if (node.static) for (const child of node.static.values()) sortTreeNodes(child);
+	if (node.staticInsensitive) for (const child of node.staticInsensitive.values()) sortTreeNodes(child);
+	if (node.dynamic?.length) {
+		node.dynamic.sort(sortDynamic);
+		for (const child of node.dynamic) sortTreeNodes(child);
+	}
+	if (node.optional?.length) {
+		node.optional.sort(sortDynamic);
+		for (const child of node.optional) sortTreeNodes(child);
+	}
+	if (node.wildcard?.length) {
+		node.wildcard.sort(sortDynamic);
+		for (const child of node.wildcard) sortTreeNodes(child);
+	}
+}
+function createStaticNode(fullPath) {
+	return {
+		kind: 0,
+		depth: 0,
+		pathless: null,
+		index: null,
+		static: null,
+		staticInsensitive: null,
+		dynamic: null,
+		optional: null,
+		wildcard: null,
+		route: null,
+		fullPath,
+		parent: null,
+		parse: null,
+		priority: 0
+	};
+}
+/**
+* Keys must be declared in the same order as in `SegmentNode` type,
+* to ensure they are represented as the same object class in the engine.
+*/
+function createDynamicNode(kind, fullPath, caseSensitive, prefix, suffix) {
+	return {
+		kind,
+		depth: 0,
+		pathless: null,
+		index: null,
+		static: null,
+		staticInsensitive: null,
+		dynamic: null,
+		optional: null,
+		wildcard: null,
+		route: null,
+		fullPath,
+		parent: null,
+		parse: null,
+		priority: 0,
+		caseSensitive,
+		prefix,
+		suffix
+	};
+}
+function processRouteMasks(routeList, processedTree) {
+	const segmentTree = createStaticNode("/");
+	const data = /* @__PURE__ */ new Uint16Array(6);
+	for (const route of routeList) parseSegments(false, data, route, 1, segmentTree, 0);
+	sortTreeNodes(segmentTree);
+	processedTree.masksTree = segmentTree;
+	processedTree.flatCache = createLRUCache(1e3);
+}
+/**
+* Take an arbitrary list of routes, create a tree from them (if it hasn't been created already), and match a path against it.
+*/
+function findFlatMatch(path, processedTree) {
+	path || (path = "/");
+	const cached = processedTree.flatCache.get(path);
+	if (cached) return cached;
+	const result = findMatch(path, processedTree.masksTree);
+	processedTree.flatCache.set(path, result);
+	return result;
+}
+/**
+* @deprecated keep until v2 so that `router.matchRoute` can keep not caring about the actual route tree
+*/
+function findSingleMatch(from, caseSensitive, fuzzy, path, processedTree) {
+	from || (from = "/");
+	path || (path = "/");
+	const key = caseSensitive ? `case\0${from}` : from;
+	let tree = processedTree.singleCache.get(key);
+	if (!tree) {
+		tree = createStaticNode("/");
+		parseSegments(caseSensitive, /* @__PURE__ */ new Uint16Array(6), { from }, 1, tree, 0);
+		processedTree.singleCache.set(key, tree);
+	}
+	return findMatch(path, tree, fuzzy);
+}
+function findRouteMatch(path, processedTree, fuzzy = false) {
+	const key = fuzzy ? path : `nofuzz\0${path}`;
+	const cached = processedTree.matchCache.get(key);
+	if (cached !== void 0) return cached;
+	path || (path = "/");
+	let result;
+	try {
+		result = findMatch(path, processedTree.segmentTree, fuzzy);
+	} catch (err) {
+		if (err instanceof URIError) result = null;
+		else throw err;
+	}
+	if (result) result.branch = buildRouteBranch(result.route);
+	processedTree.matchCache.set(key, result);
+	return result;
+}
+/** Trim trailing slashes (except preserving root '/'). */
+function trimPathRight$1(path) {
+	return path === "/" ? path : path.replace(/\/{1,}$/, "");
+}
+/**
+* Processes a route tree into a segment trie for efficient path matching.
+* Also builds lookup maps for routes by ID and by trimmed full path.
+*/
+function processRouteTree(routeTree, caseSensitive = false, initRoute) {
+	const segmentTree = createStaticNode(routeTree.fullPath);
+	const data = /* @__PURE__ */ new Uint16Array(6);
+	const routesById = {};
+	const routesByPath = {};
+	let index = 0;
+	parseSegments(caseSensitive, data, routeTree, 1, segmentTree, 0, (route) => {
+		initRoute?.(route, index);
+		if (route.id in routesById) invariant();
+		routesById[route.id] = route;
+		if (index !== 0 && route.path) {
+			const trimmedFullPath = trimPathRight$1(route.fullPath);
+			if (!routesByPath[trimmedFullPath] || route.fullPath.endsWith("/")) routesByPath[trimmedFullPath] = route;
+		}
+		index++;
+	});
+	sortTreeNodes(segmentTree);
+	return {
+		processedTree: {
+			segmentTree,
+			singleCache: createLRUCache(1e3),
+			matchCache: createLRUCache(1e3),
+			flatCache: null,
+			masksTree: null
+		},
+		routesById,
+		routesByPath
+	};
+}
+function findMatch(path, segmentTree, fuzzy = false) {
+	const parts = path.split("/");
+	const leaf = getNodeMatch(path, parts, segmentTree, fuzzy);
+	if (!leaf) return null;
+	const [rawParams] = extractParams(path, parts, leaf);
+	return {
+		route: leaf.node.route,
+		rawParams
+	};
+}
+/**
+* This function is "resumable":
+* - the `leaf` input can contain `extract` and `rawParams` properties from a previous `extractParams` call
+* - the returned `state` can be passed back as `extract` in a future call to continue extracting params from where we left off
+*
+* Inputs are *not* mutated.
+*/
+function extractParams(path, parts, leaf) {
+	const list = buildBranch(leaf.node);
+	let nodeParts = null;
+	const rawParams = Object.create(null);
+	/** which segment of the path we're currently processing */
+	let partIndex = leaf.extract?.part ?? 0;
+	/** which node of the route tree branch we're currently processing */
+	let nodeIndex = leaf.extract?.node ?? 0;
+	/** index of the 1st character of the segment we're processing in the path string */
+	let pathIndex = leaf.extract?.path ?? 0;
+	/** which fullPath segment we're currently processing */
+	let segmentCount = leaf.extract?.segment ?? 0;
+	for (; nodeIndex < list.length; partIndex++, nodeIndex++, pathIndex++, segmentCount++) {
+		const node = list[nodeIndex];
+		if (node.kind === SEGMENT_TYPE_INDEX) break;
+		if (node.kind === SEGMENT_TYPE_PATHLESS) {
+			segmentCount--;
+			partIndex--;
+			pathIndex--;
+			continue;
+		}
+		const part = parts[partIndex];
+		const currentPathIndex = pathIndex;
+		if (part) pathIndex += part.length;
+		if (node.kind === 1) {
+			nodeParts ?? (nodeParts = leaf.node.fullPath.split("/"));
+			const nodePart = nodeParts[segmentCount];
+			const preLength = node.prefix?.length ?? 0;
+			if (nodePart.charCodeAt(preLength) === 123) {
+				const sufLength = node.suffix?.length ?? 0;
+				const name = nodePart.substring(preLength + 2, nodePart.length - sufLength - 1);
+				const value = part.substring(preLength, part.length - sufLength);
+				rawParams[name] = decodeURIComponent(value);
+			} else {
+				const name = nodePart.substring(1);
+				rawParams[name] = decodeURIComponent(part);
+			}
+		} else if (node.kind === 3) {
+			if (leaf.skipped & 1 << nodeIndex) {
+				partIndex--;
+				pathIndex = currentPathIndex - 1;
+				continue;
+			}
+			nodeParts ?? (nodeParts = leaf.node.fullPath.split("/"));
+			const nodePart = nodeParts[segmentCount];
+			const preLength = node.prefix?.length ?? 0;
+			const sufLength = node.suffix?.length ?? 0;
+			const name = nodePart.substring(preLength + 3, nodePart.length - sufLength - 1);
+			const value = node.suffix || node.prefix ? part.substring(preLength, part.length - sufLength) : part;
+			if (value) rawParams[name] = decodeURIComponent(value);
+		} else if (node.kind === 2) {
+			const n = node;
+			const value = path.substring(currentPathIndex + (n.prefix?.length ?? 0), path.length - (n.suffix?.length ?? 0));
+			const splat = decodeURIComponent(value);
+			rawParams["*"] = splat;
+			rawParams._splat = splat;
+			break;
+		}
+	}
+	if (leaf.rawParams) Object.assign(rawParams, leaf.rawParams);
+	return [rawParams, {
+		part: partIndex,
+		node: nodeIndex,
+		path: pathIndex,
+		segment: segmentCount
+	}];
+}
+function buildRouteBranch(route) {
+	const list = [route];
+	while (route.parentRoute) {
+		route = route.parentRoute;
+		list.push(route);
+	}
+	list.reverse();
+	return list;
+}
+function buildBranch(node) {
+	const list = Array(node.depth + 1);
+	do {
+		list[node.depth] = node;
+		node = node.parent;
+	} while (node);
+	return list;
+}
+function getNodeMatch(path, parts, segmentTree, fuzzy) {
+	if (path === "/" && segmentTree.index) return {
+		node: segmentTree.index,
+		skipped: 0
+	};
+	const trailingSlash = !last(parts);
+	const pathIsIndex = trailingSlash && path !== "/";
+	const partsLength = parts.length - (trailingSlash ? 1 : 0);
+	const stack = [{
+		node: segmentTree,
+		index: 1,
+		skipped: 0,
+		depth: 1,
+		statics: 0,
+		dynamics: 0,
+		optionals: 0
+	}];
+	let bestFuzzy = null;
+	let bestMatch = null;
+	while (stack.length) {
+		const frame = stack.pop();
+		const { node, index, skipped, depth, statics, dynamics, optionals } = frame;
+		let { extract, rawParams } = frame;
+		if (node.kind === 2 && node.route && !isFrameMoreSpecific(bestMatch, frame)) continue;
+		if (node.parse) {
+			if (!validateParseParams(path, parts, frame)) continue;
+			rawParams = frame.rawParams;
+			extract = frame.extract;
+		}
+		if (fuzzy && node.route && node.kind !== SEGMENT_TYPE_INDEX && isFrameMoreSpecific(bestFuzzy, frame)) bestFuzzy = frame;
+		const isBeyondPath = index === partsLength;
+		if (isBeyondPath) {
+			if (node.route && (!pathIsIndex || node.kind === SEGMENT_TYPE_INDEX || node.kind === 2) && isFrameMoreSpecific(bestMatch, frame)) bestMatch = frame;
+			if (!node.optional && !node.wildcard && !node.index && !node.pathless) continue;
+		}
+		const part = isBeyondPath ? void 0 : parts[index];
+		let lowerPart;
+		if (isBeyondPath && node.index) {
+			const indexFrame = {
+				node: node.index,
+				index,
+				skipped,
+				depth: depth + 1,
+				statics,
+				dynamics,
+				optionals,
+				extract,
+				rawParams
+			};
+			let indexValid = true;
+			if (node.index.parse) {
+				if (!validateParseParams(path, parts, indexFrame)) indexValid = false;
+			}
+			if (indexValid) {
+				if (!dynamics && !optionals && !skipped && isPerfectStaticMatch(statics, partsLength)) return indexFrame;
+				if (isFrameMoreSpecific(bestMatch, indexFrame)) bestMatch = indexFrame;
+			}
+		}
+		if (node.wildcard) for (let i = node.wildcard.length - 1; i >= 0; i--) {
+			const segment = node.wildcard[i];
+			const { prefix, suffix } = segment;
+			if (prefix) {
+				if (isBeyondPath) continue;
+				if (!(segment.caseSensitive ? part : lowerPart ?? (lowerPart = part.toLowerCase())).startsWith(prefix)) continue;
+			}
+			if (suffix) {
+				if (isBeyondPath) continue;
+				const end = parts.slice(index).join("/").slice(-suffix.length);
+				if ((segment.caseSensitive ? end : end.toLowerCase()) !== suffix) continue;
+			}
+			stack.push({
+				node: segment,
+				index: partsLength,
+				skipped,
+				depth: depth + 1,
+				statics,
+				dynamics,
+				optionals,
+				extract,
+				rawParams
+			});
+		}
+		if (node.optional) {
+			const nextSkipped = skipped | 1 << depth;
+			const nextDepth = depth + 1;
+			for (let i = node.optional.length - 1; i >= 0; i--) {
+				const segment = node.optional[i];
+				stack.push({
+					node: segment,
+					index,
+					skipped: nextSkipped,
+					depth: nextDepth,
+					statics,
+					dynamics,
+					optionals,
+					extract,
+					rawParams
+				});
+			}
+			if (!isBeyondPath) for (let i = node.optional.length - 1; i >= 0; i--) {
+				const segment = node.optional[i];
+				const { prefix, suffix } = segment;
+				if (prefix || suffix) {
+					const casePart = segment.caseSensitive ? part : lowerPart ?? (lowerPart = part.toLowerCase());
+					if (prefix && !casePart.startsWith(prefix)) continue;
+					if (suffix && !casePart.endsWith(suffix)) continue;
+				}
+				stack.push({
+					node: segment,
+					index: index + 1,
+					skipped,
+					depth: nextDepth,
+					statics,
+					dynamics,
+					optionals: optionals + segmentScore(partsLength, index),
+					extract,
+					rawParams
+				});
+			}
+		}
+		if (!isBeyondPath && node.dynamic && part) for (let i = node.dynamic.length - 1; i >= 0; i--) {
+			const segment = node.dynamic[i];
+			const { prefix, suffix } = segment;
+			if (prefix || suffix) {
+				const casePart = segment.caseSensitive ? part : lowerPart ?? (lowerPart = part.toLowerCase());
+				if (prefix && !casePart.startsWith(prefix)) continue;
+				if (suffix && !casePart.endsWith(suffix)) continue;
+			}
+			stack.push({
+				node: segment,
+				index: index + 1,
+				skipped,
+				depth: depth + 1,
+				statics,
+				dynamics: dynamics + segmentScore(partsLength, index),
+				optionals,
+				extract,
+				rawParams
+			});
+		}
+		if (!isBeyondPath && node.staticInsensitive) {
+			const match = node.staticInsensitive.get(lowerPart ?? (lowerPart = part.toLowerCase()));
+			if (match) stack.push({
+				node: match,
+				index: index + 1,
+				skipped,
+				depth: depth + 1,
+				statics: statics + segmentScore(partsLength, index),
+				dynamics,
+				optionals,
+				extract,
+				rawParams
+			});
+		}
+		if (!isBeyondPath && node.static) {
+			const match = node.static.get(part);
+			if (match) stack.push({
+				node: match,
+				index: index + 1,
+				skipped,
+				depth: depth + 1,
+				statics: statics + segmentScore(partsLength, index),
+				dynamics,
+				optionals,
+				extract,
+				rawParams
+			});
+		}
+		if (node.pathless) {
+			const nextDepth = depth + 1;
+			for (let i = node.pathless.length - 1; i >= 0; i--) {
+				const segment = node.pathless[i];
+				stack.push({
+					node: segment,
+					index,
+					skipped,
+					depth: nextDepth,
+					statics,
+					dynamics,
+					optionals,
+					extract,
+					rawParams
+				});
+			}
+		}
+	}
+	if (bestMatch) return bestMatch;
+	if (fuzzy && bestFuzzy) {
+		var _bestFuzzy;
+		let sliceIndex = bestFuzzy.index;
+		for (let i = 0; i < bestFuzzy.index; i++) sliceIndex += parts[i].length;
+		const splat = sliceIndex === path.length ? "/" : path.slice(sliceIndex);
+		(_bestFuzzy = bestFuzzy).rawParams ?? (_bestFuzzy.rawParams = Object.create(null));
+		bestFuzzy.rawParams["**"] = decodeURIComponent(splat);
+		return bestFuzzy;
+	}
+	return null;
+}
+function segmentScore(partsLength, index) {
+	return 2 ** (partsLength - index - 1);
+}
+function isPerfectStaticMatch(statics, partsLength) {
+	return statics === 2 ** (partsLength - 1) - 1;
+}
+function validateParseParams(path, parts, frame) {
+	let rawParams;
+	let state;
+	try {
+		[rawParams, state] = extractParams(path, parts, frame);
+	} catch {
+		return null;
+	}
+	frame.rawParams = rawParams;
+	frame.extract = state;
+	if (!frame.node.parse) return true;
+	try {
+		if (frame.node.parse(rawParams) === false) return null;
+	} catch {}
+	return true;
+}
+function isFrameMoreSpecific(prev, next) {
+	if (!prev) return true;
+	return next.statics > prev.statics || next.statics === prev.statics && (next.dynamics > prev.dynamics || next.dynamics === prev.dynamics && (next.optionals > prev.optionals || next.optionals === prev.optionals && ((next.node.kind === SEGMENT_TYPE_INDEX) > (prev.node.kind === SEGMENT_TYPE_INDEX) || next.node.kind === SEGMENT_TYPE_INDEX === (prev.node.kind === SEGMENT_TYPE_INDEX) && next.depth > prev.depth)));
+}
+//#endregion
+//#region node_modules/@tanstack/router-core/dist/esm/path.js
+/** Join path segments, cleaning duplicate slashes between parts. */
+function joinPaths(paths) {
+	return cleanPath(paths.filter((val) => {
+		return val !== void 0;
+	}).join("/"));
+}
+/** Remove repeated slashes from a path string. */
+function cleanPath(path) {
+	return path.replace(/\/{2,}/g, "/");
+}
+/** Trim leading slashes (except preserving root '/'). */
+function trimPathLeft(path) {
+	return path === "/" ? path : path.replace(/^\/{1,}/, "");
+}
+/** Trim trailing slashes (except preserving root '/'). */
+function trimPathRight(path) {
+	const len = path.length;
+	return len > 1 && path[len - 1] === "/" ? path.replace(/\/{1,}$/, "") : path;
+}
+/** Trim both leading and trailing slashes. */
+function trimPath(path) {
+	return trimPathRight(trimPathLeft(path));
+}
+/** Remove a trailing slash from value when appropriate for comparisons. */
+function removeTrailingSlash(value, basepath) {
+	if (value?.endsWith("/") && value !== "/" && value !== `${basepath}/`) return value.slice(0, -1);
+	return value;
+}
+/**
+* Compare two pathnames for exact equality after normalizing trailing slashes
+* relative to the provided `basepath`.
+*/
+function exactPathTest(pathName1, pathName2, basepath) {
+	return removeTrailingSlash(pathName1, basepath) === removeTrailingSlash(pathName2, basepath);
+}
+/**
+* Resolve a destination path against a base, honoring trailing-slash policy
+* and supporting relative segments (`.`/`..`) and absolute `to` values.
+*/
+function resolvePath({ base, to, trailingSlash = "never", cache }) {
+	const isAbsolute = to.startsWith("/");
+	const isBase = !isAbsolute && to === ".";
+	let key;
+	if (cache) {
+		key = isAbsolute ? to : isBase ? base : base + "\0" + to;
+		const cached = cache.get(key);
+		if (cached) return cached;
+	}
+	let baseSegments;
+	if (isBase) baseSegments = base.split("/");
+	else if (isAbsolute) baseSegments = to.split("/");
+	else {
+		baseSegments = base.split("/");
+		while (baseSegments.length > 1 && last(baseSegments) === "") baseSegments.pop();
+		const toSegments = to.split("/");
+		for (let index = 0, length = toSegments.length; index < length; index++) {
+			const value = toSegments[index];
+			if (value === "") {
+				if (!index) baseSegments = [value];
+				else if (index === length - 1) baseSegments.push(value);
+			} else if (value === "..") baseSegments.pop();
+			else if (value === ".") {} else baseSegments.push(value);
+		}
+	}
+	if (baseSegments.length > 1) {
+		if (last(baseSegments) === "") {
+			if (trailingSlash === "never") baseSegments.pop();
+		} else if (trailingSlash === "always") baseSegments.push("");
+	}
+	const result = cleanPath(baseSegments.join("/")) || "/";
+	if (key && cache) cache.set(key, result);
+	return result;
+}
+/**
+* Create a pre-compiled decode config from allowed characters.
+* This should be called once at router initialization.
+*/
+function compileDecodeCharMap(pathParamsAllowedCharacters) {
+	const charMap = new Map(pathParamsAllowedCharacters.map((char) => [encodeURIComponent(char), char]));
+	const pattern = Array.from(charMap.keys()).map((key) => key.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("|");
+	const regex = new RegExp(pattern, "g");
+	return (encoded) => encoded.replace(regex, (match) => charMap.get(match) ?? match);
+}
+function encodeParam(key, params, decoder) {
+	const value = params[key];
+	if (typeof value !== "string") return value;
+	if (key === "_splat") {
+		if (/^[a-zA-Z0-9\-._~!/]*$/.test(value)) return value;
+		return value.split("/").map((segment) => encodePathParam(segment, decoder)).join("/");
+	} else return encodePathParam(value, decoder);
+}
+/**
+* Interpolate params and wildcards into a route path template.
+*
+* - Encodes params safely (configurable allowed characters)
+* - Supports `{-$optional}` segments, `{prefix{$id}suffix}` and `{$}` wildcards
+*/
+function interpolatePath({ path, params, decoder, ...rest }) {
+	let isMissingParams = false;
+	const usedParams = Object.create(null);
+	if (!path || path === "/") return {
+		interpolatedPath: "/",
+		usedParams,
+		isMissingParams
+	};
+	if (!path.includes("$")) return {
+		interpolatedPath: path,
+		usedParams,
+		isMissingParams
+	};
+	if (path.indexOf("{") === -1) {
+		const length = path.length;
+		let cursor = 0;
+		let joined = "";
+		while (cursor < length) {
+			while (cursor < length && path.charCodeAt(cursor) === 47) cursor++;
+			if (cursor >= length) break;
+			const start = cursor;
+			let end = path.indexOf("/", cursor);
+			if (end === -1) end = length;
+			cursor = end;
+			const part = path.substring(start, end);
+			if (!part) continue;
+			if (part.charCodeAt(0) === 36) if (part.length === 1) {
+				const splat = params._splat;
+				usedParams._splat = splat;
+				usedParams["*"] = splat;
+				if (!splat) {
+					isMissingParams = true;
+					continue;
+				}
+				const value = encodeParam("_splat", params, decoder);
+				joined += "/" + value;
+			} else {
+				const key = part.substring(1);
+				if (!isMissingParams && !(key in params)) isMissingParams = true;
+				usedParams[key] = params[key];
+				const value = encodeParam(key, params, decoder) ?? "undefined";
+				joined += "/" + value;
+			}
+			else joined += "/" + part;
+		}
+		if (path.endsWith("/")) joined += "/";
+		return {
+			usedParams,
+			interpolatedPath: joined || "/",
+			isMissingParams
+		};
+	}
+	const length = path.length;
+	let cursor = 0;
+	let segment;
+	let joined = "";
+	while (cursor < length) {
+		const start = cursor;
+		segment = parseSegment(path, start, segment);
+		const end = segment[5];
+		cursor = end + 1;
+		if (start === end) continue;
+		const kind = segment[0];
+		if (kind === 0) {
+			joined += "/" + path.substring(start, end);
+			continue;
+		}
+		if (kind === 2) {
+			const splat = params._splat;
+			usedParams._splat = splat;
+			usedParams["*"] = splat;
+			const prefix = path.substring(start, segment[1]);
+			const suffix = path.substring(segment[4], end);
+			if (!splat) {
+				isMissingParams = true;
+				if (prefix || suffix) joined += "/" + prefix + suffix;
+				continue;
+			}
+			const value = encodeParam("_splat", params, decoder);
+			joined += "/" + prefix + value + suffix;
+			continue;
+		}
+		if (kind === 1) {
+			const key = path.substring(segment[2], segment[3]);
+			if (!isMissingParams && !(key in params)) isMissingParams = true;
+			usedParams[key] = params[key];
+			const prefix = path.substring(start, segment[1]);
+			const suffix = path.substring(segment[4], end);
+			const value = encodeParam(key, params, decoder) ?? "undefined";
+			joined += "/" + prefix + value + suffix;
+			continue;
+		}
+		if (kind === 3) {
+			const key = path.substring(segment[2], segment[3]);
+			const valueRaw = params[key];
+			if (valueRaw == null) continue;
+			usedParams[key] = valueRaw;
+			const prefix = path.substring(start, segment[1]);
+			const suffix = path.substring(segment[4], end);
+			const value = encodeParam(key, params, decoder) ?? "";
+			joined += "/" + prefix + value + suffix;
+			continue;
+		}
+	}
+	if (path.endsWith("/")) joined += "/";
+	return {
+		usedParams,
+		interpolatedPath: joined || "/",
+		isMissingParams
+	};
+}
+function encodePathParam(value, decoder) {
+	const encoded = encodeURIComponent(value);
+	return decoder?.(encoded) ?? encoded;
+}
+//#endregion
+//#region node_modules/@tanstack/router-core/dist/esm/not-found.js
+/** Determine if a value is a TanStack Router not-found error. */
+function isNotFound(obj) {
+	return obj?.isNotFound === true;
+}
+//#endregion
+//#region node_modules/@tanstack/router-core/dist/esm/root.js
+/** Stable identifier used for the root route in a route tree. */
+var rootRouteId = "__root__";
+//#endregion
+//#region node_modules/@tanstack/router-core/dist/esm/redirect.js
+/**
+* Create a redirect Response understood by TanStack Router.
+*
+* Use from route `loader`/`beforeLoad` or server functions to trigger a
+* navigation. If `throw: true` is set, the redirect is thrown instead of
+* returned. When an absolute `href` is supplied and `reloadDocument` is not
+* set, a full-document navigation is inferred.
+*
+* @param opts Options for the redirect. Common fields:
+* - `href`: absolute URL for external redirects; infers `reloadDocument`.
+* - `statusCode`: HTTP status code to use (defaults to 307).
+* - `headers`: additional headers to include on the Response.
+* - Standard navigation options like `to`, `params`, `search`, `replace`,
+*   and `reloadDocument` for internal redirects.
+* @returns A Response augmented with router navigation options.
+* @link https://tanstack.com/router/latest/docs/framework/react/api/router/redirectFunction
+*/
+function redirect(opts) {
+	opts.statusCode = opts.statusCode || opts.code || 307;
+	if (!opts._builtLocation && !opts.reloadDocument && typeof opts.href === "string") try {
+		new URL(opts.href);
+		opts.reloadDocument = true;
+	} catch {}
+	const headers = new Headers(opts.headers);
+	if (opts.href && headers.get("Location") === null) headers.set("Location", opts.href);
+	const response = new Response(null, {
+		status: opts.statusCode,
+		headers
+	});
+	response.options = opts;
+	if (opts.throw) throw response;
+	return response;
+}
+/** Check whether a value is a TanStack Router redirect Response. */
+/** Check whether a value is a TanStack Router redirect Response. */
+function isRedirect(obj) {
+	return obj instanceof Response && !!obj.options;
+}
+/** True if value is a redirect with a resolved `href` location. */
+/** True if value is a redirect with a resolved `href` location. */
+function isResolvedRedirect(obj) {
+	return isRedirect(obj) && !!obj.options.href;
+}
+//#endregion
+//#region node_modules/@tanstack/router-core/dist/esm/rewrite.js
+/** Compose multiple rewrite pairs into a single in/out rewrite. */
+function composeRewrites(rewrites) {
+	return {
+		input: ({ url }) => {
+			for (const rewrite of rewrites) url = executeRewriteInput(rewrite, url);
+			return url;
+		},
+		output: ({ url }) => {
+			for (let i = rewrites.length - 1; i >= 0; i--) url = executeRewriteOutput(rewrites[i], url);
+			return url;
+		}
+	};
+}
+/** Create a rewrite pair that strips/adds a basepath on input/output. */
+function rewriteBasepath(opts) {
+	const trimmedBasepath = trimPath(opts.basepath);
+	const normalizedBasepath = `/${trimmedBasepath}`;
+	const checkBasepath = opts.caseSensitive ? normalizedBasepath : normalizedBasepath.toLowerCase();
+	const checkBasepathWithSlash = `${checkBasepath}/`;
+	return {
+		input: ({ url }) => {
+			const pathname = opts.caseSensitive ? url.pathname : url.pathname.toLowerCase();
+			if (pathname === checkBasepath) url.pathname = "/";
+			else if (pathname.startsWith(checkBasepathWithSlash)) url.pathname = url.pathname.slice(normalizedBasepath.length);
+			return url;
+		},
+		output: ({ url }) => {
+			url.pathname = joinPaths([
+				"/",
+				trimmedBasepath,
+				url.pathname
+			]);
+			return url;
+		}
+	};
+}
+/** Execute a location input rewrite if provided. */
+function executeRewriteInput(rewrite, url) {
+	const res = rewrite?.input?.({ url });
+	if (res) {
+		if (typeof res === "string") return new URL(res);
+		else if (res instanceof URL) return res;
+	}
+	return url;
+}
+/** Execute a location output rewrite if provided. */
+function executeRewriteOutput(rewrite, url) {
+	const res = rewrite?.output?.({ url });
+	if (res) {
+		if (typeof res === "string") return new URL(res);
+		else if (res instanceof URL) return res;
+	}
+	return url;
+}
+//#endregion
+//#region node_modules/@tanstack/router-core/dist/esm/stores.js
+/** SSR non-reactive createMutableStore */
+function createNonReactiveMutableStore(initialValue) {
+	let value = initialValue;
+	return {
+		get() {
+			return value;
+		},
+		set(nextOrUpdater) {
+			value = functionalUpdate(nextOrUpdater, value);
+		}
+	};
+}
+/** SSR non-reactive createReadonlyStore */
+function createNonReactiveReadonlyStore(read) {
+	return { get() {
+		return read();
+	} };
+}
+function createRouterStores(initialState, config) {
+	const { createMutableStore, createReadonlyStore, batch, init } = config;
+	const matchStores = /* @__PURE__ */ new Map();
+	const pendingMatchStores = /* @__PURE__ */ new Map();
+	const cachedMatchStores = /* @__PURE__ */ new Map();
+	const status = createMutableStore(initialState.status);
+	const loadedAt = createMutableStore(initialState.loadedAt);
+	const isLoading = createMutableStore(initialState.isLoading);
+	const isTransitioning = createMutableStore(initialState.isTransitioning);
+	const location = createMutableStore(initialState.location);
+	const resolvedLocation = createMutableStore(initialState.resolvedLocation);
+	const statusCode = createMutableStore(initialState.statusCode);
+	const redirect = createMutableStore(initialState.redirect);
+	const matchesId = createMutableStore([]);
+	const pendingIds = createMutableStore([]);
+	const cachedIds = createMutableStore([]);
+	const matches = createReadonlyStore(() => readPoolMatches(matchStores, matchesId.get()));
+	const pendingMatches = createReadonlyStore(() => readPoolMatches(pendingMatchStores, pendingIds.get()));
+	const cachedMatches = createReadonlyStore(() => readPoolMatches(cachedMatchStores, cachedIds.get()));
+	const firstId = createReadonlyStore(() => matchesId.get()[0]);
+	const hasPending = createReadonlyStore(() => matchesId.get().some((matchId) => {
+		return matchStores.get(matchId)?.get().status === "pending";
+	}));
+	const matchRouteDeps = createReadonlyStore(() => ({
+		locationHref: location.get().href,
+		resolvedLocationHref: resolvedLocation.get()?.href,
+		status: status.get()
+	}));
+	const __store = createReadonlyStore(() => ({
+		status: status.get(),
+		loadedAt: loadedAt.get(),
+		isLoading: isLoading.get(),
+		isTransitioning: isTransitioning.get(),
+		matches: matches.get(),
+		location: location.get(),
+		resolvedLocation: resolvedLocation.get(),
+		statusCode: statusCode.get(),
+		redirect: redirect.get()
+	}));
+	const matchStoreByRouteIdCache = createLRUCache(64);
+	function getRouteMatchStore(routeId) {
+		let cached = matchStoreByRouteIdCache.get(routeId);
+		if (!cached) {
+			cached = createReadonlyStore(() => {
+				const ids = matchesId.get();
+				for (const id of ids) {
+					const matchStore = matchStores.get(id);
+					if (matchStore && matchStore.routeId === routeId) return matchStore.get();
+				}
+			});
+			matchStoreByRouteIdCache.set(routeId, cached);
+		}
+		return cached;
+	}
+	const store = {
+		status,
+		loadedAt,
+		isLoading,
+		isTransitioning,
+		location,
+		resolvedLocation,
+		statusCode,
+		redirect,
+		matchesId,
+		pendingIds,
+		cachedIds,
+		matches,
+		pendingMatches,
+		cachedMatches,
+		firstId,
+		hasPending,
+		matchRouteDeps,
+		matchStores,
+		pendingMatchStores,
+		cachedMatchStores,
+		__store,
+		getRouteMatchStore,
+		setMatches,
+		setPending,
+		setCached
+	};
+	setMatches(initialState.matches);
+	init?.(store);
+	function setMatches(nextMatches) {
+		reconcileMatchPool(nextMatches, matchStores, matchesId, createMutableStore, batch);
+	}
+	function setPending(nextMatches) {
+		reconcileMatchPool(nextMatches, pendingMatchStores, pendingIds, createMutableStore, batch);
+	}
+	function setCached(nextMatches) {
+		reconcileMatchPool(nextMatches, cachedMatchStores, cachedIds, createMutableStore, batch);
+	}
+	return store;
+}
+function readPoolMatches(pool, ids) {
+	const matches = [];
+	for (const id of ids) {
+		const matchStore = pool.get(id);
+		if (matchStore) matches.push(matchStore.get());
+	}
+	return matches;
+}
+function reconcileMatchPool(nextMatches, pool, idStore, createMutableStore, batch) {
+	const nextIds = nextMatches.map((d) => d.id);
+	const nextIdSet = new Set(nextIds);
+	batch(() => {
+		for (const id of pool.keys()) if (!nextIdSet.has(id)) pool.delete(id);
+		for (const nextMatch of nextMatches) {
+			const existing = pool.get(nextMatch.id);
+			if (!existing) {
+				const matchStore = createMutableStore(nextMatch);
+				matchStore.routeId = nextMatch.routeId;
+				pool.set(nextMatch.id, matchStore);
+				continue;
+			}
+			existing.routeId = nextMatch.routeId;
+			if (existing.get() !== nextMatch) existing.set(nextMatch);
+		}
+		if (!arraysEqual(idStore.get(), nextIds)) idStore.set(nextIds);
+	});
+}
+//#endregion
+//#region node_modules/@tanstack/router-core/dist/esm/scroll-restoration.js
+function getSafeSessionStorage() {
+	try {
+		return sessionStorage;
+	} catch {
+		return;
+	}
+}
+var storageKey = "tsr-scroll-restoration-v1_3";
+getSafeSessionStorage();
+/**
+* The default `getKey` function for `useScrollRestoration`.
+* It returns the `key` from the location state or the `href` of the location.
+*
+* The `location.href` is used as a fallback to support the use case where the location state is not available like the initial render.
+*/
+var defaultGetScrollRestorationKey = (location) => {
+	return location.state.__TSR_key || location.href;
+};
+//#endregion
+//#region node_modules/@tanstack/router-core/dist/esm/qss.js
+/**
+* Program is a reimplementation of the `qss` package:
+* Copyright (c) Luke Edwards luke.edwards05@gmail.com, MIT License
+* https://github.com/lukeed/qss/blob/master/license.md
+*
+* This reimplementation uses modern browser APIs
+* (namely URLSearchParams) and TypeScript while still
+* maintaining the original functionality and interface.
+*
+* Update: this implementation has also been mangled to
+* fit exactly our use-case (single value per key in encoding).
+*/
+/**
+* Encodes an object into a query string.
+* @param obj - The object to encode into a query string.
+* @param stringify - An optional custom stringify function.
+* @returns The encoded query string.
+* @example
+* ```
+* // Example input: encode({ token: 'foo', key: 'value' })
+* // Expected output: "token=foo&key=value"
+* ```
+*/
+function encode(obj, stringify = String) {
+	const result = new URLSearchParams();
+	for (const key in obj) {
+		const val = obj[key];
+		if (val !== void 0) result.set(key, stringify(val));
+	}
+	return result.toString();
+}
+/**
+* Converts a string value to its appropriate type (string, number, boolean).
+* @param mix - The string value to convert.
+* @returns The converted value.
+* @example
+* // Example input: toValue("123")
+* // Expected output: 123
+*/
+function toValue(str) {
+	if (!str) return "";
+	if (str === "false") return false;
+	if (str === "true") return true;
+	return +str * 0 === 0 && +str + "" === str ? +str : str;
+}
+/**
+* Decodes a query string into an object.
+* @param str - The query string to decode.
+* @returns The decoded key-value pairs in an object format.
+* @example
+* // Example input: decode("token=foo&key=value")
+* // Expected output: { "token": "foo", "key": "value" }
+*/
+function decode(str) {
+	const searchParams = new URLSearchParams(str);
+	const result = Object.create(null);
+	for (const [key, value] of searchParams.entries()) {
+		const previousValue = result[key];
+		if (previousValue == null) result[key] = toValue(value);
+		else if (Array.isArray(previousValue)) previousValue.push(toValue(value));
+		else result[key] = [previousValue, toValue(value)];
+	}
+	return result;
+}
+//#endregion
+//#region node_modules/@tanstack/router-core/dist/esm/searchParams.js
+/** Default `parseSearch` that strips leading '?' and JSON-parses values. */
+var defaultParseSearch = parseSearchWith(JSON.parse);
+/** Default `stringifySearch` using JSON.stringify for complex values. */
+var defaultStringifySearch = stringifySearchWith(JSON.stringify, JSON.parse);
+/**
+* Build a `parseSearch` function using a provided JSON-like parser.
+*
+* The returned function strips a leading `?`, decodes values, and attempts to
+* JSON-parse string values using the given `parser`.
+*
+* @param parser Function to parse a string value (e.g. `JSON.parse`).
+* @returns A `parseSearch` function compatible with `Router` options.
+* @link https://tanstack.com/router/latest/docs/framework/react/guide/custom-search-param-serialization
+*/
+function parseSearchWith(parser) {
+	return (searchStr) => {
+		if (searchStr[0] === "?") searchStr = searchStr.substring(1);
+		const query = decode(searchStr);
+		for (const key in query) {
+			const value = query[key];
+			if (typeof value === "string") try {
+				query[key] = parser(value);
+			} catch (_err) {}
+		}
+		return query;
+	};
+}
+/**
+* Build a `stringifySearch` function using a provided serializer.
+*
+* Non-primitive values are serialized with `stringify`. If a `parser` is
+* supplied, string values that are parseable are re-serialized to ensure
+* symmetry with `parseSearch`.
+*
+* @param stringify Function to serialize a value (e.g. `JSON.stringify`).
+* @param parser Optional parser to detect parseable strings.
+* @returns A `stringifySearch` function compatible with `Router` options.
+* @link https://tanstack.com/router/latest/docs/framework/react/guide/custom-search-param-serialization
+*/
+function stringifySearchWith(stringify, parser) {
+	const hasParser = typeof parser === "function";
+	function stringifyValue(val) {
+		if (typeof val === "object" && val !== null) try {
+			return stringify(val);
+		} catch (_err) {}
+		else if (hasParser && typeof val === "string") try {
+			parser(val);
+			return stringify(val);
+		} catch (_err) {}
+		return val;
+	}
+	return (search) => {
+		const searchStr = encode(search, stringifyValue);
+		return searchStr ? `?${searchStr}` : "";
+	};
+}
+//#endregion
+//#region node_modules/@tanstack/router-core/dist/esm/load-matches.js
+var triggerOnReady = (inner) => {
+	if (!inner.rendered) {
+		inner.rendered = true;
+		return inner.onReady?.();
+	}
+};
+var resolvePreload = (inner, matchId) => {
+	return !!(inner.preload && !inner.router.stores.matchStores.has(matchId));
+};
+/**
+* Builds the accumulated context from router options and all matches up to (and optionally including) the given index.
+* Merges __routeContext and __beforeLoadContext from each match.
+*/
+var buildMatchContext = (inner, index, includeCurrentMatch = true) => {
+	const context = { ...inner.router.options.context ?? {} };
+	const end = includeCurrentMatch ? index : index - 1;
+	for (let i = 0; i <= end; i++) {
+		const innerMatch = inner.matches[i];
+		if (!innerMatch) continue;
+		const m = inner.router.getMatch(innerMatch.id);
+		if (!m) continue;
+		Object.assign(context, m.__routeContext, m.__beforeLoadContext);
+	}
+	return context;
+};
+var getNotFoundBoundaryIndex = (inner, err) => {
+	if (!inner.matches.length) return;
+	const requestedRouteId = err.routeId;
+	const matchedRootIndex = inner.matches.findIndex((m) => m.routeId === inner.router.routeTree.id);
+	const rootIndex = matchedRootIndex >= 0 ? matchedRootIndex : 0;
+	let startIndex = requestedRouteId ? inner.matches.findIndex((match) => match.routeId === requestedRouteId) : inner.firstBadMatchIndex ?? inner.matches.length - 1;
+	if (startIndex < 0) startIndex = rootIndex;
+	for (let i = startIndex; i >= 0; i--) {
+		const match = inner.matches[i];
+		if (inner.router.looseRoutesById[match.routeId].options.notFoundComponent) return i;
+	}
+	return requestedRouteId ? startIndex : rootIndex;
+};
+var handleRedirectAndNotFound = (inner, match, err) => {
+	if (!isRedirect(err) && !isNotFound(err)) return;
+	if (isRedirect(err) && err.redirectHandled && !err.options.reloadDocument) throw err;
+	if (match) {
+		match._nonReactive.beforeLoadPromise?.resolve();
+		match._nonReactive.loaderPromise?.resolve();
+		match._nonReactive.beforeLoadPromise = void 0;
+		match._nonReactive.loaderPromise = void 0;
+		match._nonReactive.error = err;
+		inner.updateMatch(match.id, (prev) => ({
+			...prev,
+			status: isRedirect(err) ? "redirected" : isNotFound(err) ? "notFound" : prev.status === "pending" ? "success" : prev.status,
+			context: buildMatchContext(inner, match.index),
+			isFetching: false,
+			error: err
+		}));
+		if (isNotFound(err) && !err.routeId) err.routeId = match.routeId;
+		match._nonReactive.loadPromise?.resolve();
+	}
+	if (isRedirect(err)) {
+		inner.rendered = true;
+		err.options._fromLocation = inner.location;
+		err.redirectHandled = true;
+		err = inner.router.resolveRedirect(err);
+	}
+	throw err;
+};
+var shouldSkipLoader = (inner, matchId) => {
+	const match = inner.router.getMatch(matchId);
+	if (!match) return true;
+	if (match.ssr === false) return true;
+	return false;
+};
+var syncMatchContext = (inner, matchId, index) => {
+	const nextContext = buildMatchContext(inner, index);
+	inner.updateMatch(matchId, (prev) => {
+		return {
+			...prev,
+			context: nextContext
+		};
+	});
+};
+var handleSerialError = (inner, index, err) => {
+	const { id: matchId, routeId } = inner.matches[index];
+	const route = inner.router.looseRoutesById[routeId];
+	if (err instanceof Promise) throw err;
+	inner.firstBadMatchIndex ?? (inner.firstBadMatchIndex = index);
+	handleRedirectAndNotFound(inner, inner.router.getMatch(matchId), err);
+	try {
+		route.options.onError?.(err);
+	} catch (errorHandlerErr) {
+		err = errorHandlerErr;
+		handleRedirectAndNotFound(inner, inner.router.getMatch(matchId), err);
+	}
+	inner.updateMatch(matchId, (prev) => {
+		prev._nonReactive.beforeLoadPromise?.resolve();
+		prev._nonReactive.beforeLoadPromise = void 0;
+		prev._nonReactive.loadPromise?.resolve();
+		return {
+			...prev,
+			error: err,
+			status: "error",
+			isFetching: false,
+			updatedAt: Date.now(),
+			abortController: new AbortController()
+		};
+	});
+	if (!inner.preload && !isRedirect(err) && !isNotFound(err)) inner.serialError ?? (inner.serialError = err);
+};
+var isBeforeLoadSsr = (inner, matchId, index, route) => {
+	const existingMatch = inner.router.getMatch(matchId);
+	const parentMatchId = inner.matches[index - 1]?.id;
+	const parentMatch = parentMatchId ? inner.router.getMatch(parentMatchId) : void 0;
+	if (inner.router.isShell()) {
+		existingMatch.ssr = route.id === rootRouteId;
+		return;
+	}
+	if (parentMatch?.ssr === false) {
+		existingMatch.ssr = false;
+		return;
+	}
+	const parentOverride = (tempSsr) => {
+		if (tempSsr === true && parentMatch?.ssr === "data-only") return "data-only";
+		return tempSsr;
+	};
+	const defaultSsr = inner.router.options.defaultSsr ?? true;
+	if (route.options.ssr === void 0) {
+		existingMatch.ssr = parentOverride(defaultSsr);
+		return;
+	}
+	if (typeof route.options.ssr !== "function") {
+		existingMatch.ssr = parentOverride(route.options.ssr);
+		return;
+	}
+	const { search, params } = existingMatch;
+	const ssrFnContext = {
+		search: makeMaybe(search, existingMatch.searchError),
+		params: makeMaybe(params, existingMatch.paramsError),
+		location: inner.location,
+		matches: inner.matches.map((match) => ({
+			index: match.index,
+			pathname: match.pathname,
+			fullPath: match.fullPath,
+			staticData: match.staticData,
+			id: match.id,
+			routeId: match.routeId,
+			search: makeMaybe(match.search, match.searchError),
+			params: makeMaybe(match.params, match.paramsError),
+			ssr: match.ssr
+		}))
+	};
+	const tempSsr = route.options.ssr(ssrFnContext);
+	if (isPromise(tempSsr)) return tempSsr.then((ssr) => {
+		existingMatch.ssr = parentOverride(ssr ?? defaultSsr);
+	});
+	existingMatch.ssr = parentOverride(tempSsr ?? defaultSsr);
+};
+var setupPendingTimeout = (inner, matchId, route, match) => {
+	if (match._nonReactive.pendingTimeout !== void 0) return;
+	route.options.pendingMs ?? inner.router.options.defaultPendingMs;
+	if (!!(inner.onReady && false));
+};
+var preBeforeLoadSetup = (inner, matchId, route) => {
+	const existingMatch = inner.router.getMatch(matchId);
+	if (!existingMatch._nonReactive.beforeLoadPromise && !existingMatch._nonReactive.loaderPromise) return;
+	setupPendingTimeout(inner, matchId, route, existingMatch);
+	const then = () => {
+		const match = inner.router.getMatch(matchId);
+		if (match.preload && (match.status === "redirected" || match.status === "notFound")) handleRedirectAndNotFound(inner, match, match.error);
+	};
+	return existingMatch._nonReactive.beforeLoadPromise ? existingMatch._nonReactive.beforeLoadPromise.then(then) : then();
+};
+var executeBeforeLoad = (inner, matchId, index, route) => {
+	const match = inner.router.getMatch(matchId);
+	let prevLoadPromise = match._nonReactive.loadPromise;
+	match._nonReactive.loadPromise = createControlledPromise(() => {
+		prevLoadPromise?.resolve();
+		prevLoadPromise = void 0;
+	});
+	const { paramsError, searchError } = match;
+	if (paramsError) handleSerialError(inner, index, paramsError);
+	if (searchError) handleSerialError(inner, index, searchError);
+	setupPendingTimeout(inner, matchId, route, match);
+	const abortController = new AbortController();
+	let isPending = false;
+	const pending = () => {
+		if (isPending) return;
+		isPending = true;
+		inner.updateMatch(matchId, (prev) => ({
+			...prev,
+			isFetching: "beforeLoad",
+			fetchCount: prev.fetchCount + 1,
+			abortController
+		}));
+	};
+	const resolve = () => {
+		match._nonReactive.beforeLoadPromise?.resolve();
+		match._nonReactive.beforeLoadPromise = void 0;
+		inner.updateMatch(matchId, (prev) => ({
+			...prev,
+			isFetching: false
+		}));
+	};
+	if (!route.options.beforeLoad) {
+		inner.router.batch(() => {
+			pending();
+			resolve();
+		});
+		return;
+	}
+	match._nonReactive.beforeLoadPromise = createControlledPromise();
+	const context = {
+		...buildMatchContext(inner, index, false),
+		...match.__routeContext
+	};
+	const { search, params, cause } = match;
+	const preload = resolvePreload(inner, matchId);
+	const beforeLoadFnContext = {
+		search,
+		abortController,
+		params,
+		preload,
+		context,
+		location: inner.location,
+		navigate: (opts) => inner.router.navigate({
+			...opts,
+			_fromLocation: inner.location
+		}),
+		buildLocation: inner.router.buildLocation,
+		cause: preload ? "preload" : cause,
+		matches: inner.matches,
+		routeId: route.id,
+		...inner.router.options.additionalContext
+	};
+	const updateContext = (beforeLoadContext) => {
+		if (beforeLoadContext === void 0) {
+			inner.router.batch(() => {
+				pending();
+				resolve();
+			});
+			return;
+		}
+		if (isRedirect(beforeLoadContext) || isNotFound(beforeLoadContext)) {
+			pending();
+			handleSerialError(inner, index, beforeLoadContext);
+		}
+		inner.router.batch(() => {
+			pending();
+			inner.updateMatch(matchId, (prev) => ({
+				...prev,
+				__beforeLoadContext: beforeLoadContext
+			}));
+			resolve();
+		});
+	};
+	let beforeLoadContext;
+	try {
+		beforeLoadContext = route.options.beforeLoad(beforeLoadFnContext);
+		if (isPromise(beforeLoadContext)) {
+			pending();
+			return beforeLoadContext.catch((err) => {
+				handleSerialError(inner, index, err);
+			}).then(updateContext);
+		}
+	} catch (err) {
+		pending();
+		handleSerialError(inner, index, err);
+	}
+	updateContext(beforeLoadContext);
+};
+var handleBeforeLoad = (inner, index) => {
+	const { id: matchId, routeId } = inner.matches[index];
+	const route = inner.router.looseRoutesById[routeId];
+	const serverSsr = () => {
+		{
+			const maybePromise = isBeforeLoadSsr(inner, matchId, index, route);
+			if (isPromise(maybePromise)) return maybePromise.then(queueExecution);
+		}
+		return queueExecution();
+	};
+	const execute = () => executeBeforeLoad(inner, matchId, index, route);
+	const queueExecution = () => {
+		if (shouldSkipLoader(inner, matchId)) return;
+		const result = preBeforeLoadSetup(inner, matchId, route);
+		return isPromise(result) ? result.then(execute) : execute();
+	};
+	return serverSsr();
+};
+var executeHead = (inner, matchId, route) => {
+	const match = inner.router.getMatch(matchId);
+	if (!match) return;
+	if (!route.options.head && !route.options.scripts && !route.options.headers) return;
+	const assetContext = {
+		ssr: inner.router.options.ssr,
+		matches: inner.matches,
+		match,
+		params: match.params,
+		loaderData: match.loaderData
+	};
+	return Promise.all([
+		route.options.head?.(assetContext),
+		route.options.scripts?.(assetContext),
+		route.options.headers?.(assetContext)
+	]).then(([headFnContent, scripts, headers]) => {
+		return {
+			meta: headFnContent?.meta,
+			links: headFnContent?.links,
+			headScripts: headFnContent?.scripts,
+			headers,
+			scripts,
+			styles: headFnContent?.styles
+		};
+	});
+};
+var getLoaderContext = (inner, matchPromises, matchId, index, route) => {
+	const parentMatchPromise = matchPromises[index - 1];
+	const { params, loaderDeps, abortController, cause } = inner.router.getMatch(matchId);
+	const context = buildMatchContext(inner, index);
+	const preload = resolvePreload(inner, matchId);
+	return {
+		params,
+		deps: loaderDeps,
+		preload: !!preload,
+		parentMatchPromise,
+		abortController,
+		context,
+		location: inner.location,
+		navigate: (opts) => inner.router.navigate({
+			...opts,
+			_fromLocation: inner.location
+		}),
+		cause: preload ? "preload" : cause,
+		route,
+		...inner.router.options.additionalContext
+	};
+};
+var runLoader = async (inner, matchPromises, matchId, index, route) => {
+	try {
+		const match = inner.router.getMatch(matchId);
+		try {
+			if (match.ssr === true) loadRouteChunk(route);
+			const routeLoader = route.options.loader;
+			const loader = typeof routeLoader === "function" ? routeLoader : routeLoader?.handler;
+			const loaderResult = loader?.(getLoaderContext(inner, matchPromises, matchId, index, route));
+			const loaderResultIsPromise = !!loader && isPromise(loaderResult);
+			if (!!(loaderResultIsPromise || route._lazyPromise || route._componentsPromise || route.options.head || route.options.scripts || route.options.headers || match._nonReactive.minPendingPromise)) inner.updateMatch(matchId, (prev) => ({
+				...prev,
+				isFetching: "loader"
+			}));
+			if (loader) {
+				const loaderData = loaderResultIsPromise ? await loaderResult : loaderResult;
+				handleRedirectAndNotFound(inner, inner.router.getMatch(matchId), loaderData);
+				if (loaderData !== void 0) inner.updateMatch(matchId, (prev) => ({
+					...prev,
+					loaderData
+				}));
+			}
+			if (route._lazyPromise) await route._lazyPromise;
+			const pendingPromise = match._nonReactive.minPendingPromise;
+			if (pendingPromise) await pendingPromise;
+			if (route._componentsPromise) await route._componentsPromise;
+			inner.updateMatch(matchId, (prev) => ({
+				...prev,
+				error: void 0,
+				context: buildMatchContext(inner, index),
+				status: "success",
+				isFetching: false,
+				updatedAt: Date.now()
+			}));
+		} catch (e) {
+			let error = e;
+			if (error?.name === "AbortError") {
+				if (match.abortController.signal.aborted) {
+					match._nonReactive.loaderPromise?.resolve();
+					match._nonReactive.loaderPromise = void 0;
+					return;
+				}
+				inner.updateMatch(matchId, (prev) => ({
+					...prev,
+					status: prev.status === "pending" ? "success" : prev.status,
+					isFetching: false,
+					context: buildMatchContext(inner, index)
+				}));
+				return;
+			}
+			const pendingPromise = match._nonReactive.minPendingPromise;
+			if (pendingPromise) await pendingPromise;
+			if (isNotFound(e)) await route.options.notFoundComponent?.preload?.();
+			handleRedirectAndNotFound(inner, inner.router.getMatch(matchId), e);
+			try {
+				route.options.onError?.(e);
+			} catch (onErrorError) {
+				error = onErrorError;
+				handleRedirectAndNotFound(inner, inner.router.getMatch(matchId), onErrorError);
+			}
+			if (!isRedirect(error) && !isNotFound(error)) await loadRouteChunk(route, ["errorComponent"]);
+			inner.updateMatch(matchId, (prev) => ({
+				...prev,
+				error,
+				context: buildMatchContext(inner, index),
+				status: "error",
+				isFetching: false
+			}));
+		}
+	} catch (err) {
+		const match = inner.router.getMatch(matchId);
+		if (match) match._nonReactive.loaderPromise = void 0;
+		handleRedirectAndNotFound(inner, match, err);
+	}
+};
+var loadRouteMatch = async (inner, matchPromises, index) => {
+	async function handleLoader(preload, prevMatch, previousRouteMatchId, match, route) {
+		const age = Date.now() - prevMatch.updatedAt;
+		const staleAge = preload ? route.options.preloadStaleTime ?? inner.router.options.defaultPreloadStaleTime ?? 3e4 : route.options.staleTime ?? inner.router.options.defaultStaleTime ?? 0;
+		const shouldReloadOption = route.options.shouldReload;
+		const shouldReload = typeof shouldReloadOption === "function" ? shouldReloadOption(getLoaderContext(inner, matchPromises, matchId, index, route)) : shouldReloadOption;
+		const { status, invalid } = match;
+		const staleMatchShouldReload = age >= staleAge && (!!inner.forceStaleReload || match.cause === "enter" || previousRouteMatchId !== void 0 && previousRouteMatchId !== match.id);
+		loaderShouldRunAsync = status === "success" && (invalid || (shouldReload ?? staleMatchShouldReload));
+		if (preload && route.options.preload === false) {} else if (loaderShouldRunAsync && !inner.sync && shouldReloadInBackground) {
+			loaderIsRunningAsync = true;
+			(async () => {
+				try {
+					await runLoader(inner, matchPromises, matchId, index, route);
+					const match = inner.router.getMatch(matchId);
+					match._nonReactive.loaderPromise?.resolve();
+					match._nonReactive.loadPromise?.resolve();
+					match._nonReactive.loaderPromise = void 0;
+					match._nonReactive.loadPromise = void 0;
+				} catch (err) {
+					if (isRedirect(err)) await inner.router.navigate(err.options);
+				}
+			})();
+		} else if (status !== "success" || loaderShouldRunAsync) await runLoader(inner, matchPromises, matchId, index, route);
+		else syncMatchContext(inner, matchId, index);
+	}
+	const { id: matchId, routeId } = inner.matches[index];
+	let loaderShouldRunAsync = false;
+	let loaderIsRunningAsync = false;
+	const route = inner.router.looseRoutesById[routeId];
+	const routeLoader = route.options.loader;
+	const shouldReloadInBackground = ((typeof routeLoader === "function" ? void 0 : routeLoader?.staleReloadMode) ?? inner.router.options.defaultStaleReloadMode) !== "blocking";
+	if (shouldSkipLoader(inner, matchId)) {
+		if (!inner.router.getMatch(matchId)) return inner.matches[index];
+		syncMatchContext(inner, matchId, index);
+		return inner.router.getMatch(matchId);
+	} else {
+		const prevMatch = inner.router.getMatch(matchId);
+		const activeIdAtIndex = inner.router.stores.matchesId.get()[index];
+		const previousRouteMatchId = (activeIdAtIndex && inner.router.stores.matchStores.get(activeIdAtIndex) || null)?.routeId === routeId ? activeIdAtIndex : inner.router.stores.matches.get().find((d) => d.routeId === routeId)?.id;
+		const preload = resolvePreload(inner, matchId);
+		if (prevMatch._nonReactive.loaderPromise) {
+			if (prevMatch.status === "success" && !inner.sync && !prevMatch.preload && shouldReloadInBackground) return prevMatch;
+			await prevMatch._nonReactive.loaderPromise;
+			const match = inner.router.getMatch(matchId);
+			const error = match._nonReactive.error || match.error;
+			if (error) handleRedirectAndNotFound(inner, match, error);
+			if (match.status === "pending") await handleLoader(preload, prevMatch, previousRouteMatchId, match, route);
+		} else {
+			const nextPreload = preload && !inner.router.stores.matchStores.has(matchId);
+			const match = inner.router.getMatch(matchId);
+			match._nonReactive.loaderPromise = createControlledPromise();
+			if (nextPreload !== match.preload) inner.updateMatch(matchId, (prev) => ({
+				...prev,
+				preload: nextPreload
+			}));
+			await handleLoader(preload, prevMatch, previousRouteMatchId, match, route);
+		}
+	}
+	const match = inner.router.getMatch(matchId);
+	if (!loaderIsRunningAsync) {
+		match._nonReactive.loaderPromise?.resolve();
+		match._nonReactive.loadPromise?.resolve();
+		match._nonReactive.loadPromise = void 0;
+	}
+	clearTimeout(match._nonReactive.pendingTimeout);
+	match._nonReactive.pendingTimeout = void 0;
+	if (!loaderIsRunningAsync) match._nonReactive.loaderPromise = void 0;
+	match._nonReactive.dehydrated = void 0;
+	const nextIsFetching = loaderIsRunningAsync ? match.isFetching : false;
+	if (nextIsFetching !== match.isFetching || match.invalid !== false) {
+		inner.updateMatch(matchId, (prev) => ({
+			...prev,
+			isFetching: nextIsFetching,
+			invalid: false
+		}));
+		return inner.router.getMatch(matchId);
+	} else return match;
+};
+async function loadMatches(arg) {
+	const inner = arg;
+	const matchPromises = [];
+	let beforeLoadNotFound;
+	for (let i = 0; i < inner.matches.length; i++) {
+		try {
+			const beforeLoad = handleBeforeLoad(inner, i);
+			if (isPromise(beforeLoad)) await beforeLoad;
+		} catch (err) {
+			if (isRedirect(err)) throw err;
+			if (isNotFound(err)) beforeLoadNotFound = err;
+			else if (!inner.preload) throw err;
+			break;
+		}
+		if (inner.serialError || inner.firstBadMatchIndex != null) break;
+	}
+	const baseMaxIndexExclusive = inner.firstBadMatchIndex ?? inner.matches.length;
+	const boundaryIndex = beforeLoadNotFound && !inner.preload ? getNotFoundBoundaryIndex(inner, beforeLoadNotFound) : void 0;
+	const maxIndexExclusive = beforeLoadNotFound && inner.preload ? 0 : boundaryIndex !== void 0 ? Math.min(boundaryIndex + 1, baseMaxIndexExclusive) : baseMaxIndexExclusive;
+	let firstNotFound;
+	let firstUnhandledRejection;
+	for (let i = 0; i < maxIndexExclusive; i++) matchPromises.push(loadRouteMatch(inner, matchPromises, i));
+	try {
+		await Promise.all(matchPromises);
+	} catch {
+		const settled = await Promise.allSettled(matchPromises);
+		for (const result of settled) {
+			if (result.status !== "rejected") continue;
+			const reason = result.reason;
+			if (isRedirect(reason)) throw reason;
+			if (isNotFound(reason)) firstNotFound ?? (firstNotFound = reason);
+			else firstUnhandledRejection ?? (firstUnhandledRejection = reason);
+		}
+		if (firstUnhandledRejection !== void 0) throw firstUnhandledRejection;
+	}
+	const notFoundToThrow = firstNotFound ?? (beforeLoadNotFound && !inner.preload ? beforeLoadNotFound : void 0);
+	let headMaxIndex = inner.firstBadMatchIndex !== void 0 ? inner.firstBadMatchIndex : inner.matches.length - 1;
+	if (!notFoundToThrow && beforeLoadNotFound && inner.preload) return inner.matches;
+	if (notFoundToThrow) {
+		const renderedBoundaryIndex = getNotFoundBoundaryIndex(inner, notFoundToThrow);
+		if (renderedBoundaryIndex === void 0) invariant();
+		const boundaryMatch = inner.matches[renderedBoundaryIndex];
+		const boundaryRoute = inner.router.looseRoutesById[boundaryMatch.routeId];
+		const defaultNotFoundComponent = inner.router.options?.defaultNotFoundComponent;
+		if (!boundaryRoute.options.notFoundComponent && defaultNotFoundComponent) boundaryRoute.options.notFoundComponent = defaultNotFoundComponent;
+		notFoundToThrow.routeId = boundaryMatch.routeId;
+		const boundaryIsRoot = boundaryMatch.routeId === inner.router.routeTree.id;
+		inner.updateMatch(boundaryMatch.id, (prev) => ({
+			...prev,
+			...boundaryIsRoot ? {
+				status: "success",
+				globalNotFound: true,
+				error: void 0
+			} : {
+				status: "notFound",
+				error: notFoundToThrow
+			},
+			isFetching: false
+		}));
+		headMaxIndex = renderedBoundaryIndex;
+		await loadRouteChunk(boundaryRoute, ["notFoundComponent"]);
+	} else if (!inner.preload) {
+		const rootMatch = inner.matches[0];
+		if (!rootMatch.globalNotFound) {
+			if (inner.router.getMatch(rootMatch.id)?.globalNotFound) inner.updateMatch(rootMatch.id, (prev) => ({
+				...prev,
+				globalNotFound: false,
+				error: void 0
+			}));
+		}
+	}
+	if (inner.serialError && inner.firstBadMatchIndex !== void 0) {
+		const errorRoute = inner.router.looseRoutesById[inner.matches[inner.firstBadMatchIndex].routeId];
+		await loadRouteChunk(errorRoute, ["errorComponent"]);
+	}
+	for (let i = 0; i <= headMaxIndex; i++) {
+		const { id: matchId, routeId } = inner.matches[i];
+		const route = inner.router.looseRoutesById[routeId];
+		try {
+			const headResult = executeHead(inner, matchId, route);
+			if (headResult) {
+				const head = await headResult;
+				inner.updateMatch(matchId, (prev) => ({
+					...prev,
+					...head
+				}));
+			}
+		} catch (err) {
+			console.error(`Error executing head for route ${routeId}:`, err);
+		}
+	}
+	const readyPromise = triggerOnReady(inner);
+	if (isPromise(readyPromise)) await readyPromise;
+	if (notFoundToThrow) throw notFoundToThrow;
+	if (inner.serialError && !inner.preload && !inner.onReady) throw inner.serialError;
+	return inner.matches;
+}
+function preloadRouteComponents(route, componentTypesToLoad) {
+	const preloads = componentTypesToLoad.map((type) => route.options[type]?.preload?.()).filter(Boolean);
+	if (preloads.length === 0) return void 0;
+	return Promise.all(preloads);
+}
+function loadRouteChunk(route, componentTypesToLoad = componentTypes) {
+	if (!route._lazyLoaded && route._lazyPromise === void 0) if (route.lazyFn) route._lazyPromise = route.lazyFn().then((lazyRoute) => {
+		const { id: _id, ...options } = lazyRoute.options;
+		Object.assign(route.options, options);
+		route._lazyLoaded = true;
+		route._lazyPromise = void 0;
+	});
+	else route._lazyLoaded = true;
+	const runAfterLazy = () => route._componentsLoaded ? void 0 : componentTypesToLoad === componentTypes ? (() => {
+		if (route._componentsPromise === void 0) {
+			const componentsPromise = preloadRouteComponents(route, componentTypes);
+			if (componentsPromise) route._componentsPromise = componentsPromise.then(() => {
+				route._componentsLoaded = true;
+				route._componentsPromise = void 0;
+			});
+			else route._componentsLoaded = true;
+		}
+		return route._componentsPromise;
+	})() : preloadRouteComponents(route, componentTypesToLoad);
+	return route._lazyPromise ? route._lazyPromise.then(runAfterLazy) : runAfterLazy();
+}
+function makeMaybe(value, error) {
+	if (error) return {
+		status: "error",
+		error
+	};
+	return {
+		status: "success",
+		value
+	};
+}
+function routeNeedsPreload(route) {
+	for (const componentType of componentTypes) if (route.options[componentType]?.preload) return true;
+	return false;
+}
+var componentTypes = [
+	"component",
+	"errorComponent",
+	"pendingComponent",
+	"notFoundComponent"
+];
+//#endregion
+//#region node_modules/@tanstack/router-core/dist/esm/router.js
+/**
+* Compute whether path, href or hash changed between previous and current
+* resolved locations.
+*/
+function getLocationChangeInfo(location, resolvedLocation) {
+	const fromLocation = resolvedLocation;
+	const toLocation = location;
+	return {
+		fromLocation,
+		toLocation,
+		pathChanged: fromLocation?.pathname !== toLocation.pathname,
+		hrefChanged: fromLocation?.href !== toLocation.href,
+		hashChanged: fromLocation?.hash !== toLocation.hash
+	};
+}
+var locationHistoryActions = /* @__PURE__ */ new WeakMap();
+/**
+* Core, framework-agnostic router engine that powers TanStack Router.
+*
+* Provides navigation, matching, loading, preloading, caching and event APIs
+* used by framework adapters (React/Solid). Prefer framework helpers like
+* `createRouter` in app code.
+*
+* @link https://tanstack.com/router/latest/docs/framework/react/api/router/RouterType
+*/
+var RouterCore = class {
+	/**
+	* @deprecated Use the `createRouter` function instead
+	*/
+	constructor(options, getStoreConfig) {
+		this.tempLocationKey = `${Math.round(Math.random() * 1e7)}`;
+		this._scroll = { next: true };
+		this.shouldViewTransition = void 0;
+		this.isViewTransitionTypesSupported = void 0;
+		this.subscribers = /* @__PURE__ */ new Set();
+		this.routeBranchCache = /* @__PURE__ */ new WeakMap();
+		this.startTransition = (fn) => fn();
+		this.update = (newOptions) => {
+			const prevOptions = this.options;
+			const prevBasepath = this.basepath ?? prevOptions?.basepath ?? "/";
+			const basepathWasUnset = this.basepath === void 0;
+			const prevRewriteOption = prevOptions?.rewrite;
+			this.options = {
+				...prevOptions,
+				...newOptions
+			};
+			this.isServer = this.options.isServer ?? typeof document === "undefined";
+			this.protocolAllowlist = new Set(this.options.protocolAllowlist);
+			if (this.options.pathParamsAllowedCharacters) this.pathParamsDecoder = compileDecodeCharMap(this.options.pathParamsAllowedCharacters);
+			if (!this.history || this.options.history && this.options.history !== this.history) if (!this.options.history) {} else this.history = this.options.history;
+			this.origin = this.options.origin;
+			if (!this.origin) this.origin = "http://localhost";
+			if (this.history) this.updateLatestLocation();
+			if (this.options.routeTree !== this.routeTree) {
+				this.routeTree = this.options.routeTree;
+				let processRouteTreeResult;
+				if (globalThis.__TSR_CACHE__ && globalThis.__TSR_CACHE__.routeTree === this.routeTree) {
+					const cached = globalThis.__TSR_CACHE__;
+					this.resolvePathCache = cached.resolvePathCache;
+					processRouteTreeResult = cached.processRouteTreeResult;
+				} else {
+					this.resolvePathCache = createLRUCache(1e3);
+					processRouteTreeResult = this.buildRouteTree();
+					if (globalThis.__TSR_CACHE__ === void 0) globalThis.__TSR_CACHE__ = {
+						routeTree: this.routeTree,
+						processRouteTreeResult,
+						resolvePathCache: this.resolvePathCache
+					};
+				}
+				this.setRoutes(processRouteTreeResult);
+			}
+			if (!this.stores && this.latestLocation) {
+				const config = this.getStoreConfig(this);
+				this.batch = config.batch;
+				this.stores = createRouterStores(getInitialRouterState(this.latestLocation), config);
+			}
+			let needsLocationUpdate = false;
+			const nextBasepath = this.options.basepath ?? "/";
+			const nextRewriteOption = this.options.rewrite;
+			if (basepathWasUnset || prevBasepath !== nextBasepath || prevRewriteOption !== nextRewriteOption) {
+				this.basepath = nextBasepath;
+				const rewrites = [];
+				const trimmed = trimPath(nextBasepath);
+				if (trimmed && trimmed !== "/") rewrites.push(rewriteBasepath({ basepath: nextBasepath }));
+				if (nextRewriteOption) rewrites.push(nextRewriteOption);
+				this.rewrite = rewrites.length === 0 ? void 0 : rewrites.length === 1 ? rewrites[0] : composeRewrites(rewrites);
+				if (this.history) this.updateLatestLocation();
+				needsLocationUpdate = true;
+			}
+			if (needsLocationUpdate && this.stores) this.stores.location.set(this.latestLocation);
+			if (typeof window !== "undefined" && "CSS" in window && typeof window.CSS?.supports === "function") this.isViewTransitionTypesSupported = window.CSS.supports("selector(:active-view-transition-type(a))");
+		};
+		this.updateLatestLocation = () => {
+			this.latestLocation = this.parseLocation(this.history.location, this.latestLocation);
+		};
+		this.buildRouteTree = () => {
+			const result = processRouteTree(this.routeTree, this.options.caseSensitive, (route, i) => {
+				route.init({ originalIndex: i });
+			});
+			if (this.options.routeMasks) processRouteMasks(this.options.routeMasks, result.processedTree);
+			return result;
+		};
+		this.subscribe = (eventType, fn) => {
+			const listener = {
+				eventType,
+				fn
+			};
+			this.subscribers.add(listener);
+			return () => {
+				this.subscribers.delete(listener);
+			};
+		};
+		this.emit = (routerEvent) => {
+			this.subscribers.forEach((listener) => {
+				if (listener.eventType === routerEvent.type) listener.fn(routerEvent);
+			});
+		};
+		this.parseLocation = (locationToParse, previousLocation) => {
+			const parse = ({ pathname, search, hash, href, state }) => {
+				if (!this.rewrite && !/[ \x00-\x1f\x7f\u0080-\uffff]/.test(pathname)) {
+					const parsedSearch = this.options.parseSearch(search);
+					const searchStr = this.options.stringifySearch(parsedSearch);
+					return {
+						href: pathname + searchStr + hash,
+						publicHref: pathname + searchStr + hash,
+						pathname: decodePath(pathname).path,
+						external: false,
+						searchStr,
+						search: nullReplaceEqualDeep(previousLocation?.search, parsedSearch),
+						hash: decodePath(hash.slice(1)).path,
+						state: replaceEqualDeep(previousLocation?.state, state)
+					};
+				}
+				const fullUrl = new URL(href, this.origin);
+				const url = executeRewriteInput(this.rewrite, fullUrl);
+				const parsedSearch = this.options.parseSearch(url.search);
+				const searchStr = this.options.stringifySearch(parsedSearch);
+				url.search = searchStr;
+				return {
+					href: url.href.replace(url.origin, ""),
+					publicHref: href,
+					pathname: decodePath(url.pathname).path,
+					external: !!this.rewrite && url.origin !== this.origin,
+					searchStr,
+					search: nullReplaceEqualDeep(previousLocation?.search, parsedSearch),
+					hash: decodePath(url.hash.slice(1)).path,
+					state: replaceEqualDeep(previousLocation?.state, state)
+				};
+			};
+			const location = parse(locationToParse);
+			const { __tempLocation, __tempKey } = location.state;
+			if (__tempLocation && (!__tempKey || __tempKey === this.tempLocationKey)) {
+				const parsedTempLocation = parse(__tempLocation);
+				parsedTempLocation.state.key = location.state.key;
+				parsedTempLocation.state.__TSR_key = location.state.__TSR_key;
+				delete parsedTempLocation.state.__tempLocation;
+				return {
+					...parsedTempLocation,
+					maskedLocation: location
+				};
+			}
+			return location;
+		};
+		this.resolvePathWithBase = (from, path) => {
+			return resolvePath({
+				base: from,
+				to: path.includes("//") ? cleanPath(path) : path,
+				trailingSlash: this.options.trailingSlash,
+				cache: this.resolvePathCache
+			});
+		};
+		this.matchRoutes = (pathnameOrNext, locationSearchOrOpts, opts) => {
+			if (typeof pathnameOrNext === "string") return this.matchRoutesInternal({
+				pathname: pathnameOrNext,
+				search: locationSearchOrOpts
+			}, opts);
+			return this.matchRoutesInternal(pathnameOrNext, locationSearchOrOpts);
+		};
+		this.getMatchedRoutes = (pathname) => {
+			return getMatchedRoutes({
+				pathname,
+				routesById: this.routesById,
+				processedTree: this.processedTree
+			});
+		};
+		this.cancelMatch = (id) => {
+			const match = this.getMatch(id);
+			if (!match) return;
+			match.abortController.abort();
+			clearTimeout(match._nonReactive.pendingTimeout);
+			match._nonReactive.pendingTimeout = void 0;
+		};
+		this.cancelMatches = () => {
+			this.stores.pendingIds.get().forEach((matchId) => {
+				this.cancelMatch(matchId);
+			});
+			this.stores.matchesId.get().forEach((matchId) => {
+				if (this.stores.pendingMatchStores.has(matchId)) return;
+				const match = this.stores.matchStores.get(matchId)?.get();
+				if (!match) return;
+				if (match.status === "pending" || match.isFetching === "loader") this.cancelMatch(matchId);
+			});
+		};
+		this.buildLocation = (opts) => {
+			const build = (dest = {}) => {
+				const currentLocation = dest._fromLocation || this.pendingBuiltLocation || this.latestLocation;
+				const lightweightResult = this.matchRoutesLightweight(currentLocation);
+				if (dest.from && false);
+				const defaultedFromPath = dest.unsafeRelative === "path" ? currentLocation.pathname : dest.from ?? lightweightResult.fullPath;
+				const destTo = dest.to ? `${dest.to}` : void 0;
+				const fromSearch = lightweightResult.search;
+				const fromParams = Object.assign(Object.create(null), lightweightResult.params);
+				const sourcePath = destTo?.charCodeAt(0) === 47 ? "/" : this.resolvePathWithBase(defaultedFromPath, ".");
+				const nextTo = destTo ? this.resolvePathWithBase(sourcePath, destTo) : sourcePath;
+				const nextParams = dest.params === false || dest.params === null ? Object.create(null) : (dest.params ?? true) === true ? fromParams : Object.assign(fromParams, functionalUpdate(dest.params, fromParams));
+				const destRoute = this.routesByPath[trimPathRight(nextTo)];
+				let destRoutes;
+				if (destRoute) destRoutes = this.getRouteBranch(destRoute);
+				else if (nextTo.includes("$")) destRoutes = [];
+				else {
+					const destMatchResult = this.getMatchedRoutes(nextTo);
+					destRoutes = destMatchResult.matchedRoutes;
+					if (this.options.notFoundRoute && (!destMatchResult.foundRoute || destMatchResult.foundRoute.path !== "/" && destMatchResult.routeParams["**"])) destRoutes = [...destRoutes, this.options.notFoundRoute];
+				}
+				if (destRoutes.length && hasKeys(nextParams)) for (const route of destRoutes) {
+					const fn = route.options.params?.stringify ?? route.options.stringifyParams;
+					if (fn) try {
+						Object.assign(nextParams, fn(nextParams));
+					} catch {}
+				}
+				const nextPathname = opts.leaveParams ? nextTo : decodePath(interpolatePath({
+					path: nextTo,
+					params: nextParams,
+					decoder: this.pathParamsDecoder,
+					server: this.isServer
+				}).interpolatedPath).path;
+				let nextSearch = fromSearch;
+				if (opts._includeValidateSearch && this.options.search?.strict) {
+					const validatedSearch = {};
+					destRoutes.forEach((route) => {
+						if (route.options.validateSearch) try {
+							Object.assign(validatedSearch, validateSearch(route.options.validateSearch, {
+								...validatedSearch,
+								...nextSearch
+							}));
+						} catch {}
+					});
+					nextSearch = validatedSearch;
+				}
+				nextSearch = applySearchMiddleware({
+					search: nextSearch,
+					dest,
+					destRoutes,
+					_includeValidateSearch: opts._includeValidateSearch
+				});
+				nextSearch = nullReplaceEqualDeep(fromSearch, nextSearch);
+				const searchStr = this.options.stringifySearch(nextSearch);
+				const hash = dest.hash === true ? currentLocation.hash : dest.hash ? functionalUpdate(dest.hash, currentLocation.hash) : void 0;
+				const hashStr = hash ? `#${hash}` : "";
+				let nextState = dest.state === true ? currentLocation.state : dest.state ? functionalUpdate(dest.state, currentLocation.state) : {};
+				nextState = replaceEqualDeep(currentLocation.state, nextState);
+				const fullPath = `${nextPathname}${searchStr}${hashStr}`;
+				let href;
+				let publicHref;
+				let external = false;
+				if (this.rewrite) {
+					const url = new URL(fullPath, this.origin);
+					const rewrittenUrl = executeRewriteOutput(this.rewrite, url);
+					href = url.href.replace(url.origin, "");
+					if (rewrittenUrl.origin !== this.origin) {
+						publicHref = rewrittenUrl.href;
+						external = true;
+					} else publicHref = rewrittenUrl.pathname + rewrittenUrl.search + rewrittenUrl.hash;
+				} else {
+					href = encodePathLikeUrl(fullPath);
+					publicHref = href;
+				}
+				return {
+					publicHref,
+					href,
+					pathname: nextPathname,
+					search: nextSearch,
+					searchStr,
+					state: nextState,
+					hash: hash ?? "",
+					external,
+					unmaskOnReload: dest.unmaskOnReload
+				};
+			};
+			const buildWithMatches = (dest = {}, maskedDest) => {
+				const next = build(dest);
+				let maskedNext = maskedDest ? build(maskedDest) : void 0;
+				if (!maskedNext) {
+					const params = Object.create(null);
+					if (this.options.routeMasks) {
+						const match = findFlatMatch(next.pathname, this.processedTree);
+						if (match) {
+							Object.assign(params, match.rawParams);
+							const { from: _from, params: maskParams, ...maskProps } = match.route;
+							const nextParams = maskParams === false || maskParams === null ? Object.create(null) : (maskParams ?? true) === true ? params : Object.assign(params, functionalUpdate(maskParams, params));
+							maskedDest = {
+								from: opts.from,
+								...maskProps,
+								params: nextParams
+							};
+							maskedNext = build(maskedDest);
+						}
+					}
+				}
+				if (maskedNext) next.maskedLocation = maskedNext;
+				return next;
+			};
+			if (opts.mask) return buildWithMatches(opts, {
+				from: opts.from,
+				...opts.mask
+			});
+			return buildWithMatches(opts);
+		};
+		this.commitLocation = async ({ viewTransition, ignoreBlocker, ...next }) => {
+			let historyAction;
+			const isSameState = () => {
+				const ignoredProps = [
+					"key",
+					"__TSR_key",
+					"__TSR_index",
+					"__hashScrollIntoViewOptions"
+				];
+				ignoredProps.forEach((prop) => {
+					next.state[prop] = this.latestLocation.state[prop];
+				});
+				const isEqual = deepEqual(next.state, this.latestLocation.state);
+				ignoredProps.forEach((prop) => {
+					delete next.state[prop];
+				});
+				return isEqual;
+			};
+			const isSameUrl = trimPathRight(this.latestLocation.href) === trimPathRight(next.href);
+			let previousCommitPromise = this.commitLocationPromise;
+			this.commitLocationPromise = createControlledPromise(() => {
+				previousCommitPromise?.resolve();
+				previousCommitPromise = void 0;
+			});
+			if (isSameUrl && isSameState()) this.load();
+			else {
+				let { maskedLocation, hashScrollIntoView, ...nextHistory } = next;
+				if (maskedLocation) {
+					nextHistory = {
+						...maskedLocation,
+						state: {
+							...maskedLocation.state,
+							__tempKey: void 0,
+							__tempLocation: {
+								...nextHistory,
+								search: nextHistory.searchStr,
+								state: {
+									...nextHistory.state,
+									__tempKey: void 0,
+									__tempLocation: void 0,
+									__TSR_key: void 0,
+									key: void 0
+								}
+							}
+						}
+					};
+					if (nextHistory.unmaskOnReload ?? this.options.unmaskOnReload ?? false) nextHistory.state.__tempKey = this.tempLocationKey;
+				}
+				nextHistory.state.__hashScrollIntoViewOptions = hashScrollIntoView ?? this.options.defaultHashScrollIntoView ?? true;
+				this.shouldViewTransition = viewTransition;
+				historyAction = next.replace ? "REPLACE" : "PUSH";
+				this.history[historyAction === "REPLACE" ? "replace" : "push"](nextHistory.publicHref, nextHistory.state, { ignoreBlocker });
+			}
+			this._scroll.next = next.resetScroll ?? true;
+			if (!this.history.subscribers.size) this.load(historyAction ? { action: { type: historyAction } } : void 0);
+			return this.commitLocationPromise;
+		};
+		this.buildAndCommitLocation = ({ replace, resetScroll, hashScrollIntoView, viewTransition, ignoreBlocker, href, ...rest } = {}) => {
+			if (href) {
+				const currentIndex = this.history.location.state.__TSR_index;
+				const parsed = parseHref(href, { __TSR_index: replace ? currentIndex : currentIndex + 1 });
+				const hrefUrl = new URL(parsed.pathname, this.origin);
+				rest.to = executeRewriteInput(this.rewrite, hrefUrl).pathname;
+				rest.search = this.options.parseSearch(parsed.search);
+				rest.hash = parsed.hash.slice(1);
+			}
+			const location = this.buildLocation({
+				...rest,
+				_includeValidateSearch: true
+			});
+			this.pendingBuiltLocation = location;
+			const commitPromise = this.commitLocation({
+				...location,
+				viewTransition,
+				replace,
+				resetScroll,
+				hashScrollIntoView,
+				ignoreBlocker
+			});
+			Promise.resolve().then(() => {
+				if (this.pendingBuiltLocation === location) this.pendingBuiltLocation = void 0;
+			});
+			return commitPromise;
+		};
+		this.navigate = async ({ to, reloadDocument, href, publicHref, ...rest }) => {
+			let hrefIsUrl = false;
+			if (href) try {
+				new URL(`${href}`);
+				hrefIsUrl = true;
+			} catch {}
+			if (hrefIsUrl && !reloadDocument) reloadDocument = true;
+			if (reloadDocument) {
+				if (to !== void 0 || !href) {
+					const location = this.buildLocation({
+						to,
+						...rest
+					});
+					href = href ?? location.publicHref;
+					publicHref = publicHref ?? location.publicHref;
+				}
+				const reloadHref = !hrefIsUrl && publicHref ? publicHref : href;
+				if (isDangerousProtocol(reloadHref, this.protocolAllowlist)) return Promise.resolve();
+				if (!rest.ignoreBlocker) {
+					const blockers = this.history.getBlockers?.() ?? [];
+					for (const blocker of blockers) if (blocker?.blockerFn) {
+						if (await blocker.blockerFn({
+							currentLocation: this.latestLocation,
+							nextLocation: this.latestLocation,
+							action: "PUSH"
+						})) return Promise.resolve();
+					}
+				}
+				if (rest.replace) window.location.replace(reloadHref);
+				else window.location.href = reloadHref;
+				return Promise.resolve();
+			}
+			return this.buildAndCommitLocation({
+				...rest,
+				href,
+				to,
+				_isNavigate: true
+			});
+		};
+		this.beforeLoad = () => {
+			this.cancelMatches();
+			this.updateLatestLocation();
+			{
+				const nextLocation = this.buildLocation({
+					to: this.latestLocation.pathname,
+					search: true,
+					params: true,
+					hash: true,
+					state: true,
+					_includeValidateSearch: true
+				});
+				if (this.latestLocation.publicHref !== nextLocation.publicHref) {
+					const href = this.getParsedLocationHref(nextLocation);
+					if (nextLocation.external) throw redirect({ href });
+					else throw redirect({
+						href,
+						_builtLocation: nextLocation
+					});
+				}
+			}
+			const pendingMatches = this.matchRoutes(this.latestLocation);
+			const nextCachedMatches = this.stores.cachedMatches.get().filter((d) => !pendingMatches.some((e) => e.id === d.id));
+			this.batch(() => {
+				this.stores.status.set("pending");
+				this.stores.statusCode.set(200);
+				this.stores.isLoading.set(true);
+				this.stores.location.set(this.latestLocation);
+				this.stores.setPending(pendingMatches);
+				this.stores.setCached(nextCachedMatches);
+			});
+		};
+		this.load = async (opts) => {
+			const historyAction = opts?.action?.type;
+			let redirect;
+			let notFound;
+			let loadPromise;
+			const previousLocation = this.stores.resolvedLocation.get() ?? this.stores.location.get();
+			loadPromise = new Promise((resolve) => {
+				this.startTransition(async () => {
+					try {
+						this.beforeLoad();
+						if (historyAction) locationHistoryActions.set(this.latestLocation, historyAction);
+						else locationHistoryActions.delete(this.latestLocation);
+						const next = this.latestLocation;
+						const locationChangeInfo = getLocationChangeInfo(next, this.stores.resolvedLocation.get());
+						if (!this.stores.redirect.get()) this.emit({
+							type: "onBeforeNavigate",
+							...locationChangeInfo
+						});
+						this.emit({
+							type: "onBeforeLoad",
+							...locationChangeInfo
+						});
+						await loadMatches({
+							router: this,
+							sync: opts?.sync,
+							forceStaleReload: previousLocation.href === next.href,
+							matches: this.stores.pendingMatches.get(),
+							location: next,
+							updateMatch: this.updateMatch,
+							onReady: async () => {
+								this.startTransition(() => {
+									this.startViewTransition(async () => {
+										let exitingMatches = null;
+										let hookExitingMatches = null;
+										let hookEnteringMatches = null;
+										let hookStayingMatches = null;
+										this.batch(() => {
+											const pendingMatches = this.stores.pendingMatches.get();
+											const mountPending = pendingMatches.length;
+											const currentMatches = this.stores.matches.get();
+											exitingMatches = mountPending ? currentMatches.filter((match) => !this.stores.pendingMatchStores.has(match.id)) : null;
+											const pendingRouteIds = /* @__PURE__ */ new Set();
+											for (const s of this.stores.pendingMatchStores.values()) if (s.routeId) pendingRouteIds.add(s.routeId);
+											const activeRouteIds = /* @__PURE__ */ new Set();
+											for (const s of this.stores.matchStores.values()) if (s.routeId) activeRouteIds.add(s.routeId);
+											hookExitingMatches = mountPending ? currentMatches.filter((match) => !pendingRouteIds.has(match.routeId)) : null;
+											hookEnteringMatches = mountPending ? pendingMatches.filter((match) => !activeRouteIds.has(match.routeId)) : null;
+											hookStayingMatches = mountPending ? pendingMatches.filter((match) => activeRouteIds.has(match.routeId)) : currentMatches;
+											this.stores.isLoading.set(false);
+											this.stores.loadedAt.set(Date.now());
+											/**
+											* When committing new matches, cache any exiting matches that are still usable.
+											* Routes that resolved with `status: 'error'` or `status: 'notFound'` are
+											* deliberately excluded from `cachedMatches` so that subsequent invalidations
+											* or reloads re-run their loaders instead of reusing the failed/not-found data.
+											*/
+											if (mountPending) {
+												this.stores.setMatches(pendingMatches);
+												this.stores.setPending([]);
+												this.stores.setCached([...this.stores.cachedMatches.get(), ...exitingMatches.filter((d) => d.status !== "error" && d.status !== "notFound" && d.status !== "redirected")]);
+												this.clearExpiredCache();
+											}
+										});
+										for (const [matches, hook] of [
+											[hookExitingMatches, "onLeave"],
+											[hookEnteringMatches, "onEnter"],
+											[hookStayingMatches, "onStay"]
+										]) {
+											if (!matches) continue;
+											for (const match of matches) this.looseRoutesById[match.routeId].options[hook]?.(match);
+										}
+									});
+								});
+							}
+						});
+					} catch (err) {
+						if (isRedirect(err)) redirect = err;
+						else if (isNotFound(err)) notFound = err;
+						const nextStatusCode = redirect ? redirect.status : notFound ? 404 : this.stores.matches.get().some((d) => d.status === "error") ? 500 : 200;
+						this.batch(() => {
+							this.stores.statusCode.set(nextStatusCode);
+							this.stores.redirect.set(redirect);
+						});
+					}
+					if (this.latestLoadPromise === loadPromise) {
+						this.commitLocationPromise?.resolve();
+						this.latestLoadPromise = void 0;
+						this.commitLocationPromise = void 0;
+					}
+					resolve();
+				});
+			});
+			this.latestLoadPromise = loadPromise;
+			await loadPromise;
+			while (this.latestLoadPromise && loadPromise !== this.latestLoadPromise) await this.latestLoadPromise;
+			let newStatusCode = void 0;
+			if (this.hasNotFoundMatch()) newStatusCode = 404;
+			else if (this.stores.matches.get().some((d) => d.status === "error")) newStatusCode = 500;
+			if (newStatusCode !== void 0) this.stores.statusCode.set(newStatusCode);
+		};
+		this.startViewTransition = (fn) => {
+			const shouldViewTransition = this.shouldViewTransition ?? this.options.defaultViewTransition;
+			this.shouldViewTransition = void 0;
+			if (shouldViewTransition && typeof document !== "undefined" && "startViewTransition" in document && typeof document.startViewTransition === "function") {
+				let startViewTransitionParams;
+				if (typeof shouldViewTransition === "object" && this.isViewTransitionTypesSupported) {
+					const next = this.latestLocation;
+					const prevLocation = this.stores.resolvedLocation.get();
+					const resolvedViewTransitionTypes = typeof shouldViewTransition.types === "function" ? shouldViewTransition.types(getLocationChangeInfo(next, prevLocation)) : shouldViewTransition.types;
+					if (resolvedViewTransitionTypes === false) {
+						fn();
+						return;
+					}
+					startViewTransitionParams = {
+						update: fn,
+						types: resolvedViewTransitionTypes
+					};
+				} else startViewTransitionParams = fn;
+				document.startViewTransition(startViewTransitionParams);
+			} else fn();
+		};
+		this.updateMatch = (id, updater) => {
+			this.startTransition(() => {
+				const pendingMatch = this.stores.pendingMatchStores.get(id);
+				if (pendingMatch) {
+					pendingMatch.set(updater);
+					return;
+				}
+				const activeMatch = this.stores.matchStores.get(id);
+				if (activeMatch) {
+					activeMatch.set(updater);
+					return;
+				}
+				const cachedMatch = this.stores.cachedMatchStores.get(id);
+				if (cachedMatch) {
+					const next = updater(cachedMatch.get());
+					if (next.status === "redirected") {
+						if (this.stores.cachedMatchStores.delete(id)) this.stores.cachedIds.set((prev) => prev.filter((matchId) => matchId !== id));
+					} else cachedMatch.set(next);
+				}
+			});
+		};
+		this.getMatch = (matchId) => {
+			return this.stores.cachedMatchStores.get(matchId)?.get() ?? this.stores.pendingMatchStores.get(matchId)?.get() ?? this.stores.matchStores.get(matchId)?.get();
+		};
+		this.invalidate = (opts) => {
+			const invalidate = (d) => {
+				if (opts?.filter?.(d) ?? true) return {
+					...d,
+					invalid: true,
+					...opts?.forcePending || d.status === "error" || d.status === "notFound" ? {
+						status: "pending",
+						error: void 0
+					} : void 0
+				};
+				return d;
+			};
+			this.batch(() => {
+				this.stores.setMatches(this.stores.matches.get().map(invalidate));
+				this.stores.setCached(this.stores.cachedMatches.get().map(invalidate));
+				this.stores.setPending(this.stores.pendingMatches.get().map(invalidate));
+			});
+			this.shouldViewTransition = false;
+			return this.load({ sync: opts?.sync });
+		};
+		this.getParsedLocationHref = (location) => {
+			return location.publicHref || "/";
+		};
+		this.resolveRedirect = (redirect) => {
+			const locationHeader = redirect.headers.get("Location");
+			if (!redirect.options.href || redirect.options._builtLocation) {
+				const location = redirect.options._builtLocation ?? this.buildLocation(redirect.options);
+				const href = this.getParsedLocationHref(location);
+				redirect.options.href = href;
+				redirect.headers.set("Location", href);
+			} else if (locationHeader) try {
+				const url = new URL(locationHeader);
+				if (this.origin && url.origin === this.origin) {
+					const href = url.pathname + url.search + url.hash;
+					redirect.options.href = href;
+					redirect.headers.set("Location", href);
+				}
+			} catch {}
+			if (redirect.options.href && !redirect.options._builtLocation && isDangerousProtocol(redirect.options.href, this.protocolAllowlist)) throw new Error("Redirect blocked: unsafe protocol");
+			if (!redirect.headers.get("Location")) redirect.headers.set("Location", redirect.options.href);
+			return redirect;
+		};
+		this.clearCache = (opts) => {
+			const filter = opts?.filter;
+			if (filter !== void 0) this.stores.setCached(this.stores.cachedMatches.get().filter((m) => !filter(m)));
+			else this.stores.setCached([]);
+		};
+		this.clearExpiredCache = () => {
+			const now = Date.now();
+			const filter = (d) => {
+				const route = this.looseRoutesById[d.routeId];
+				if (!route.options.loader) return true;
+				const gcTime = (d.preload ? route.options.preloadGcTime ?? this.options.defaultPreloadGcTime : route.options.gcTime ?? this.options.defaultGcTime) ?? 300 * 1e3;
+				if (d.status === "error") return true;
+				return now - d.updatedAt >= gcTime;
+			};
+			this.clearCache({ filter });
+		};
+		this.loadRouteChunk = loadRouteChunk;
+		this.preloadRoute = async (opts) => {
+			const next = opts._builtLocation ?? this.buildLocation(opts);
+			let matches = this.matchRoutes(next, {
+				throwOnError: true,
+				preload: true,
+				dest: opts
+			});
+			const activeMatchIds = /* @__PURE__ */ new Set([...this.stores.matchesId.get(), ...this.stores.pendingIds.get()]);
+			const loadedMatchIds = /* @__PURE__ */ new Set([...activeMatchIds, ...this.stores.cachedIds.get()]);
+			const matchesToCache = matches.filter((match) => !loadedMatchIds.has(match.id));
+			if (matchesToCache.length) {
+				const cachedMatches = this.stores.cachedMatches.get();
+				this.stores.setCached([...cachedMatches, ...matchesToCache]);
+			}
+			try {
+				matches = await loadMatches({
+					router: this,
+					matches,
+					location: next,
+					preload: true,
+					updateMatch: (id, updater) => {
+						if (activeMatchIds.has(id)) matches = matches.map((d) => d.id === id ? updater(d) : d);
+						else this.updateMatch(id, updater);
+					}
+				});
+				return matches;
+			} catch (err) {
+				if (isRedirect(err)) {
+					if (err.options.reloadDocument) return;
+					return await this.preloadRoute({
+						...err.options,
+						_fromLocation: next
+					});
+				}
+				if (!isNotFound(err)) console.error(err);
+				return;
+			}
+		};
+		this.matchRoute = (location, opts) => {
+			const matchLocation = {
+				...location,
+				to: location.to ? this.resolvePathWithBase(location.from || "", location.to) : void 0,
+				params: location.params || {},
+				leaveParams: true
+			};
+			const next = this.buildLocation(matchLocation);
+			if (opts?.pending && this.stores.status.get() !== "pending") return false;
+			const baseLocation = (opts?.pending === void 0 ? !this.stores.isLoading.get() : opts.pending) ? this.latestLocation : this.stores.resolvedLocation.get() || this.stores.location.get();
+			const match = findSingleMatch(next.pathname, opts?.caseSensitive ?? false, opts?.fuzzy ?? false, baseLocation.pathname, this.processedTree);
+			if (!match) return false;
+			if (location.params) {
+				if (!deepEqual(match.rawParams, location.params, { partial: true })) return false;
+			}
+			if (opts?.includeSearch ?? true) return deepEqual(baseLocation.search, next.search, { partial: true }) ? match.rawParams : false;
+			return match.rawParams;
+		};
+		this.hasNotFoundMatch = () => {
+			return this.stores.matches.get().some((d) => d.status === "notFound" || d.globalNotFound);
+		};
+		this.getStoreConfig = getStoreConfig;
+		this.update({
+			defaultPreloadDelay: 50,
+			defaultPendingMs: 1e3,
+			defaultPendingMinMs: 500,
+			context: void 0,
+			...options,
+			caseSensitive: options.caseSensitive ?? false,
+			notFoundMode: options.notFoundMode ?? "fuzzy",
+			stringifySearch: options.stringifySearch ?? defaultStringifySearch,
+			parseSearch: options.parseSearch ?? defaultParseSearch,
+			protocolAllowlist: options.protocolAllowlist ?? DEFAULT_PROTOCOL_ALLOWLIST
+		});
+		if (typeof document !== "undefined") self.__TSR_ROUTER__ = this;
+	}
+	isShell() {
+		return !!this.options.isShell;
+	}
+	isPrerendering() {
+		return !!this.options.isPrerendering;
+	}
+	get state() {
+		return this.stores.__store.get();
+	}
+	setRoutes({ routesById, routesByPath, processedTree }) {
+		this.routesById = routesById;
+		this.routesByPath = routesByPath;
+		this.processedTree = processedTree;
+		const notFoundRoute = this.options.notFoundRoute;
+		if (notFoundRoute) {
+			notFoundRoute.init({ originalIndex: 99999999999 });
+			this.routesById[notFoundRoute.id] = notFoundRoute;
+		}
+	}
+	getRouteBranch(route) {
+		let branch = this.routeBranchCache.get(route);
+		if (!branch) {
+			branch = buildRouteBranch(route);
+			this.routeBranchCache.set(route, branch);
+		}
+		return branch;
+	}
+	get looseRoutesById() {
+		return this.routesById;
+	}
+	getParentContext(parentMatch) {
+		return !parentMatch?.id ? this.options.context ?? void 0 : parentMatch.context ?? this.options.context ?? void 0;
+	}
+	matchRoutesInternal(next, opts) {
+		const matchedRoutesResult = this.getMatchedRoutes(next.pathname);
+		const { foundRoute, routeParams } = matchedRoutesResult;
+		let { matchedRoutes } = matchedRoutesResult;
+		let isGlobalNotFound = false;
+		if (foundRoute ? foundRoute.path !== "/" && routeParams["**"] : trimPathRight(next.pathname)) if (this.options.notFoundRoute) matchedRoutes = [...matchedRoutes, this.options.notFoundRoute];
+		else isGlobalNotFound = true;
+		const globalNotFoundRouteId = isGlobalNotFound ? findGlobalNotFoundRouteId(this.options.notFoundMode, matchedRoutes) : void 0;
+		const matches = new Array(matchedRoutes.length);
+		const previousActiveMatchesByRouteId = /* @__PURE__ */ new Map();
+		for (const store of this.stores.matchStores.values()) if (store.routeId) previousActiveMatchesByRouteId.set(store.routeId, store.get());
+		for (let index = 0; index < matchedRoutes.length; index++) {
+			const route = matchedRoutes[index];
+			const parentMatch = matches[index - 1];
+			let preMatchSearch;
+			let strictMatchSearch;
+			let searchError;
+			{
+				const parentSearch = parentMatch?.search ?? next.search;
+				const parentStrictSearch = parentMatch?._strictSearch ?? void 0;
+				try {
+					const strictSearch = validateSearch(route.options.validateSearch, { ...parentSearch }) ?? void 0;
+					preMatchSearch = {
+						...parentSearch,
+						...strictSearch
+					};
+					strictMatchSearch = {
+						...parentStrictSearch,
+						...strictSearch
+					};
+					searchError = void 0;
+				} catch (err) {
+					let searchParamError = err;
+					if (!(err instanceof SearchParamError)) searchParamError = new SearchParamError(err.message, { cause: err });
+					if (opts?.throwOnError) throw searchParamError;
+					preMatchSearch = parentSearch;
+					strictMatchSearch = {};
+					searchError = searchParamError;
+				}
+			}
+			const loaderDeps = route.options.loaderDeps?.({ search: preMatchSearch }) ?? "";
+			const loaderDepsHash = loaderDeps ? JSON.stringify(loaderDeps) : "";
+			const { interpolatedPath, usedParams } = interpolatePath({
+				path: route.fullPath,
+				params: routeParams,
+				decoder: this.pathParamsDecoder,
+				server: this.isServer
+			});
+			const matchId = route.id + interpolatedPath + loaderDepsHash;
+			const existingMatch = this.getMatch(matchId);
+			const previousMatch = previousActiveMatchesByRouteId.get(route.id);
+			const strictParams = existingMatch?._strictParams ?? usedParams;
+			let paramsError = void 0;
+			if (!existingMatch) try {
+				extractStrictParams(route, strictParams);
+			} catch (err) {
+				if (isNotFound(err) || isRedirect(err)) paramsError = err;
+				else paramsError = new PathParamError(err.message, { cause: err });
+				if (opts?.throwOnError) throw paramsError;
+			}
+			Object.assign(routeParams, strictParams);
+			const cause = previousMatch ? "stay" : "enter";
+			let match;
+			if (existingMatch) match = {
+				...existingMatch,
+				cause,
+				params: previousMatch?.params ?? routeParams,
+				_strictParams: strictParams,
+				search: previousMatch ? nullReplaceEqualDeep(previousMatch.search, preMatchSearch) : nullReplaceEqualDeep(existingMatch.search, preMatchSearch),
+				_strictSearch: strictMatchSearch
+			};
+			else {
+				const status = route.options.loader || route.options.beforeLoad || route.lazyFn || routeNeedsPreload(route) ? "pending" : "success";
+				match = {
+					id: matchId,
+					ssr: void 0,
+					index,
+					routeId: route.id,
+					params: previousMatch?.params ?? routeParams,
+					_strictParams: strictParams,
+					pathname: interpolatedPath,
+					updatedAt: Date.now(),
+					search: previousMatch ? nullReplaceEqualDeep(previousMatch.search, preMatchSearch) : preMatchSearch,
+					_strictSearch: strictMatchSearch,
+					searchError: void 0,
+					status,
+					isFetching: false,
+					error: void 0,
+					paramsError,
+					__routeContext: void 0,
+					_nonReactive: { loadPromise: createControlledPromise() },
+					__beforeLoadContext: void 0,
+					context: {},
+					abortController: new AbortController(),
+					fetchCount: 0,
+					cause,
+					loaderDeps: previousMatch ? replaceEqualDeep(previousMatch.loaderDeps, loaderDeps) : loaderDeps,
+					invalid: false,
+					preload: false,
+					links: void 0,
+					scripts: void 0,
+					headScripts: void 0,
+					meta: void 0,
+					staticData: route.options.staticData || {},
+					fullPath: route.fullPath
+				};
+			}
+			if (!opts?.preload) match.globalNotFound = globalNotFoundRouteId === route.id;
+			match.searchError = searchError;
+			const parentContext = this.getParentContext(parentMatch);
+			match.context = {
+				...parentContext,
+				...match.__routeContext,
+				...match.__beforeLoadContext
+			};
+			matches[index] = match;
+		}
+		for (let index = 0; index < matches.length; index++) {
+			const match = matches[index];
+			const route = this.looseRoutesById[match.routeId];
+			const existingMatch = this.getMatch(match.id);
+			const previousMatch = previousActiveMatchesByRouteId.get(match.routeId);
+			match.params = previousMatch ? nullReplaceEqualDeep(previousMatch.params, routeParams) : routeParams;
+			if (!existingMatch) {
+				const parentMatch = matches[index - 1];
+				const parentContext = this.getParentContext(parentMatch);
+				if (route.options.context) {
+					const contextFnContext = {
+						deps: match.loaderDeps,
+						params: match.params,
+						context: parentContext ?? {},
+						location: next,
+						navigate: (opts) => this.navigate({
+							...opts,
+							_fromLocation: next
+						}),
+						buildLocation: this.buildLocation,
+						cause: match.cause,
+						abortController: match.abortController,
+						preload: !!match.preload,
+						matches,
+						routeId: route.id
+					};
+					match.__routeContext = route.options.context(contextFnContext) ?? void 0;
+				}
+				match.context = {
+					...parentContext,
+					...match.__routeContext,
+					...match.__beforeLoadContext
+				};
+			}
+		}
+		return matches;
+	}
+	/**
+	* Lightweight route matching for buildLocation.
+	* Only computes fullPath, accumulated search, and params - skipping expensive
+	* operations like AbortController, ControlledPromise, loaderDeps, and full match objects.
+	*/
+	matchRoutesLightweight(location) {
+		const { matchedRoutes, routeParams } = this.getMatchedRoutes(location.pathname);
+		const lastRoute = last(matchedRoutes);
+		const accumulatedSearch = { ...location.search };
+		for (const route of matchedRoutes) try {
+			Object.assign(accumulatedSearch, validateSearch(route.options.validateSearch, accumulatedSearch));
+		} catch {}
+		const lastStateMatchId = last(this.stores.matchesId.get());
+		const lastStateMatch = lastStateMatchId && this.stores.matchStores.get(lastStateMatchId)?.get();
+		const canReuseParams = lastStateMatch && lastStateMatch.routeId === lastRoute.id && lastStateMatch.pathname === location.pathname;
+		let params;
+		if (canReuseParams) params = lastStateMatch.params;
+		else {
+			const strictParams = Object.assign(Object.create(null), routeParams);
+			for (const route of matchedRoutes) try {
+				extractStrictParams(route, strictParams);
+			} catch {}
+			params = strictParams;
+		}
+		return {
+			matchedRoutes,
+			fullPath: lastRoute.fullPath,
+			search: accumulatedSearch,
+			params
+		};
+	}
+};
+/** Error thrown when search parameter validation fails. */
+var SearchParamError = class extends Error {};
+/** Error thrown when path parameter parsing/validation fails. */
+var PathParamError = class extends Error {};
+/** Create an initial RouterState from a parsed location. */
+function getInitialRouterState(location) {
+	return {
+		loadedAt: 0,
+		isLoading: false,
+		isTransitioning: false,
+		status: "idle",
+		resolvedLocation: void 0,
+		location,
+		matches: [],
+		statusCode: 200
+	};
+}
+function validateSearch(validateSearch, input) {
+	if (validateSearch == null) return {};
+	if ("~standard" in validateSearch) {
+		const result = validateSearch["~standard"].validate(input);
+		if (result instanceof Promise) throw new SearchParamError("Async validation not supported");
+		if (result.issues) throw new SearchParamError(JSON.stringify(result.issues, void 0, 2), { cause: result });
+		return result.value;
+	}
+	if ("parse" in validateSearch) return validateSearch.parse(input);
+	if (typeof validateSearch === "function") return validateSearch(input);
+	return {};
+}
+/**
+* Build the matched route chain and extract params for a pathname.
+* Falls back to the root route if no specific route is found.
+*/
+function getMatchedRoutes({ pathname, routesById, processedTree }) {
+	const routeParams = Object.create(null);
+	const trimmedPath = trimPathRight(pathname);
+	let foundRoute = void 0;
+	const match = findRouteMatch(trimmedPath, processedTree, true);
+	if (match) {
+		foundRoute = match.route;
+		Object.assign(routeParams, match.rawParams);
+	}
+	return {
+		matchedRoutes: match?.branch || [routesById["__root__"]],
+		routeParams,
+		foundRoute
+	};
+}
+/**
+* TODO: once caches are persisted across requests on the server,
+* we can cache the built middleware chain using `last(destRoutes)` as the key
+*/
+function applySearchMiddleware({ search, dest, destRoutes, _includeValidateSearch }) {
+	return buildMiddlewareChain(destRoutes)(search, dest, _includeValidateSearch ?? false);
+}
+function buildMiddlewareChain(destRoutes) {
+	let dest;
+	let includeValidateSearch;
+	const middlewares = [];
+	for (const route of destRoutes) {
+		const routeOptions = route.options;
+		if ("search" in routeOptions) {
+			if (routeOptions.search?.middlewares) middlewares.push(...routeOptions.search.middlewares);
+		} else if (routeOptions.preSearchFilters || routeOptions.postSearchFilters) {
+			const legacyMiddleware = ({ search, next }) => {
+				const result = next(routeOptions.preSearchFilters ? routeOptions.preSearchFilters.reduce((prev, next) => next(prev), search) : search);
+				return routeOptions.postSearchFilters ? routeOptions.postSearchFilters.reduce((prev, next) => next(prev), result) : result;
+			};
+			middlewares.push(legacyMiddleware);
+		}
+		const routeValidateSearch = routeOptions.validateSearch;
+		if (routeValidateSearch) {
+			const validate = ({ search, next, meta }) => {
+				const result = next(search);
+				if (includeValidateSearch) try {
+					const validated = validateSearch(routeValidateSearch, result);
+					if (meta && validated) {
+						for (const key in validated) if (!(key in result)) (meta.defaulted || (meta.defaulted = /* @__PURE__ */ new Map())).set(key, validated[key]);
+					}
+					return {
+						...result,
+						...validated
+					};
+				} catch {}
+				return result;
+			};
+			middlewares.push(validate);
+		}
+	}
+	const applyNext = (index, currentSearch, meta) => {
+		if (index >= middlewares.length) {
+			if (!dest.search) return {};
+			if (dest.search === true) return currentSearch;
+			const result = functionalUpdate(dest.search, currentSearch);
+			if (meta) meta.explicit = result;
+			return result;
+		}
+		const next = (newSearch, collectMeta) => {
+			if (collectMeta) {
+				const nextMeta = meta || {};
+				return {
+					search: applyNext(index + 1, newSearch, nextMeta),
+					meta: nextMeta
+				};
+			}
+			return applyNext(index + 1, newSearch, meta);
+		};
+		return middlewares[index]({
+			search: currentSearch,
+			next,
+			meta
+		});
+	};
+	return function middleware(search, nextDest, _includeValidateSearch) {
+		dest = nextDest;
+		includeValidateSearch = _includeValidateSearch;
+		return applyNext(0, search);
+	};
+}
+function findGlobalNotFoundRouteId(notFoundMode, routes) {
+	if (notFoundMode !== "root") for (let i = routes.length - 1; i >= 0; i--) {
+		const route = routes[i];
+		if (route.children) return route.id;
+	}
+	return rootRouteId;
+}
+function extractStrictParams(route, accumulatedParams) {
+	const parseParams = route.options.params?.parse ?? route.options.parseParams;
+	if (parseParams) {
+		const result = parseParams(accumulatedParams);
+		if (result === false) throw new Error("Route params.parse returned false for a matched route");
+		Object.assign(accumulatedParams, result);
+	}
+}
+//#endregion
+//#region node_modules/@tanstack/router-core/dist/esm/link.js
+var preloadWarning = "Error preloading route! ☝️";
+//#endregion
+//#region node_modules/@tanstack/router-core/dist/esm/manifest.js
+function getAssetCrossOrigin(assetCrossOrigin, kind) {
+	if (!assetCrossOrigin) return;
+	if (typeof assetCrossOrigin === "string") return assetCrossOrigin;
+	return assetCrossOrigin[kind];
+}
+function getManifestScriptFormat(manifest) {
+	return manifest?.scriptFormat ?? "module";
+}
+function getScriptPreloadAttrs(manifest, link, assetCrossOrigin) {
+	const preloadLink = resolveManifestAssetLink(link);
+	const crossOrigin = getAssetCrossOrigin(assetCrossOrigin, "script") ?? preloadLink.crossOrigin;
+	return {
+		...getManifestScriptFormat(manifest) === "iife" ? {
+			rel: "preload",
+			as: "script"
+		} : { rel: "modulepreload" },
+		href: preloadLink.href,
+		...crossOrigin ? { crossOrigin } : {}
+	};
+}
+function resolveManifestAssetLink(link) {
+	if (typeof link === "string") return {
+		href: link,
+		crossOrigin: void 0
+	};
+	return link;
+}
+function appendUniqueUserTags(target, tags) {
+	if (tags.length === 0) return;
+	if (tags.length === 1) {
+		target.push(tags[0]);
+		return;
+	}
+	const seen = /* @__PURE__ */ new Set();
+	for (const tag of tags) {
+		const key = JSON.stringify(tag);
+		if (seen.has(key)) continue;
+		seen.add(key);
+		target.push(tag);
+	}
+}
+function getStylesheetHref(asset) {
+	return resolveManifestCssLink(asset).href;
+}
+function resolveManifestCssLink(link) {
+	if (typeof link === "string") return {
+		href: link,
+		crossOrigin: void 0
+	};
+	return link;
+}
+function createInlineCssStyleAsset(css) {
+	return {
+		attrs: { suppressHydrationWarning: true },
+		children: css
+	};
+}
+function createInlineCssPlaceholderAsset() {
+	return { attrs: { suppressHydrationWarning: true } };
+}
+//#endregion
+//#region node_modules/@tanstack/router-core/dist/esm/route.js
+var BaseRoute = class {
+	get to() {
+		return this._to;
+	}
+	get id() {
+		return this._id;
+	}
+	get path() {
+		return this._path;
+	}
+	get fullPath() {
+		return this._fullPath;
+	}
+	constructor(options) {
+		this.init = (opts) => {
+			this.originalIndex = opts.originalIndex;
+			const options = this.options;
+			const isRoot = !options?.path && !options?.id;
+			this.parentRoute = this.options.getParentRoute?.();
+			if (isRoot) this._path = rootRouteId;
+			else if (!this.parentRoute) invariant();
+			let path = isRoot ? rootRouteId : options?.path;
+			if (path && path !== "/") path = trimPathLeft(path);
+			const customId = options?.id || path;
+			let id = isRoot ? rootRouteId : joinPaths([this.parentRoute.id === "__root__" ? "" : this.parentRoute.id, customId]);
+			if (path === "__root__") path = "/";
+			if (id !== "__root__") id = joinPaths(["/", id]);
+			const fullPath = id === "__root__" ? "/" : joinPaths([this.parentRoute.fullPath, path]);
+			this._path = path;
+			this._id = id;
+			this._fullPath = fullPath;
+			this._to = trimPathRight(fullPath);
+		};
+		this.addChildren = (children) => {
+			return this._addFileChildren(children);
+		};
+		this._addFileChildren = (children) => {
+			if (Array.isArray(children)) this.children = children;
+			if (typeof children === "object" && children !== null) this.children = Object.values(children);
+			return this;
+		};
+		this._addFileTypes = () => {
+			return this;
+		};
+		this.updateLoader = (options) => {
+			Object.assign(this.options, options);
+			return this;
+		};
+		this.update = (options) => {
+			Object.assign(this.options, options);
+			return this;
+		};
+		this.lazy = (lazyFn) => {
+			this.lazyFn = lazyFn;
+			return this;
+		};
+		this.redirect = (opts) => redirect({
+			from: this.fullPath,
+			...opts
+		});
+		this.options = options || {};
+		this.isRoot = !options?.getParentRoute;
+		if (options?.id && options?.path) throw new Error(`Route cannot have both an 'id' and a 'path' option.`);
+	}
+};
+var BaseRootRoute = class extends BaseRoute {
+	constructor(options) {
+		super(options);
+	}
+};
+//#endregion
+//#region node_modules/@tanstack/router-core/dist/esm/ssr/constants.js
+var GLOBAL_TSR = "$_TSR";
+var TSR_SCRIPT_BARRIER_ID = "$tsr-stream-barrier";
+//#endregion
+//#region node_modules/@tanstack/store/dist/esm/alien.js
+var ReactiveFlags = /* @__PURE__ */ ((ReactiveFlags2) => {
+	ReactiveFlags2[ReactiveFlags2["None"] = 0] = "None";
+	ReactiveFlags2[ReactiveFlags2["Mutable"] = 1] = "Mutable";
+	ReactiveFlags2[ReactiveFlags2["Watching"] = 2] = "Watching";
+	ReactiveFlags2[ReactiveFlags2["RecursedCheck"] = 4] = "RecursedCheck";
+	ReactiveFlags2[ReactiveFlags2["Recursed"] = 8] = "Recursed";
+	ReactiveFlags2[ReactiveFlags2["Dirty"] = 16] = "Dirty";
+	ReactiveFlags2[ReactiveFlags2["Pending"] = 32] = "Pending";
+	return ReactiveFlags2;
+})(ReactiveFlags || {});
+// @__NO_SIDE_EFFECTS__
+function createReactiveSystem({ update, notify, unwatched }) {
+	return {
+		link,
+		unlink,
+		propagate,
+		checkDirty,
+		shallowPropagate
+	};
+	function link(dep, sub, version) {
+		const prevDep = sub.depsTail;
+		if (prevDep !== void 0 && prevDep.dep === dep) return;
+		const nextDep = prevDep !== void 0 ? prevDep.nextDep : sub.deps;
+		if (nextDep !== void 0 && nextDep.dep === dep) {
+			nextDep.version = version;
+			sub.depsTail = nextDep;
+			return;
+		}
+		const prevSub = dep.subsTail;
+		if (prevSub !== void 0 && prevSub.version === version && prevSub.sub === sub) return;
+		const newLink = sub.depsTail = dep.subsTail = {
+			version,
+			dep,
+			sub,
+			prevDep,
+			nextDep,
+			prevSub,
+			nextSub: void 0
+		};
+		if (nextDep !== void 0) nextDep.prevDep = newLink;
+		if (prevDep !== void 0) prevDep.nextDep = newLink;
+		else sub.deps = newLink;
+		if (prevSub !== void 0) prevSub.nextSub = newLink;
+		else dep.subs = newLink;
+	}
+	function unlink(link2, sub = link2.sub) {
+		const dep = link2.dep;
+		const prevDep = link2.prevDep;
+		const nextDep = link2.nextDep;
+		const nextSub = link2.nextSub;
+		const prevSub = link2.prevSub;
+		if (nextDep !== void 0) nextDep.prevDep = prevDep;
+		else sub.depsTail = prevDep;
+		if (prevDep !== void 0) prevDep.nextDep = nextDep;
+		else sub.deps = nextDep;
+		if (nextSub !== void 0) nextSub.prevSub = prevSub;
+		else dep.subsTail = prevSub;
+		if (prevSub !== void 0) prevSub.nextSub = nextSub;
+		else if ((dep.subs = nextSub) === void 0) unwatched(dep);
+		return nextDep;
+	}
+	function propagate(link2) {
+		let next = link2.nextSub;
+		let stack;
+		top: do {
+			const sub = link2.sub;
+			let flags = sub.flags;
+			if (!(flags & 60)) sub.flags = flags | 32;
+			else if (!(flags & 12)) flags = 0;
+			else if (!(flags & 4)) sub.flags = flags & -9 | 32;
+			else if (!(flags & 48) && isValidLink(link2, sub)) {
+				sub.flags = flags | 40;
+				flags &= 1;
+			} else flags = 0;
+			if (flags & 2) notify(sub);
+			if (flags & 1) {
+				const subSubs = sub.subs;
+				if (subSubs !== void 0) {
+					const nextSub = (link2 = subSubs).nextSub;
+					if (nextSub !== void 0) {
+						stack = {
+							value: next,
+							prev: stack
+						};
+						next = nextSub;
+					}
+					continue;
+				}
+			}
+			if ((link2 = next) !== void 0) {
+				next = link2.nextSub;
+				continue;
+			}
+			while (stack !== void 0) {
+				link2 = stack.value;
+				stack = stack.prev;
+				if (link2 !== void 0) {
+					next = link2.nextSub;
+					continue top;
+				}
+			}
+			break;
+		} while (true);
+	}
+	function checkDirty(link2, sub) {
+		let stack;
+		let checkDepth = 0;
+		let dirty = false;
+		top: do {
+			const dep = link2.dep;
+			const flags = dep.flags;
+			if (sub.flags & 16) dirty = true;
+			else if ((flags & 17) === 17) {
+				if (update(dep)) {
+					const subs = dep.subs;
+					if (subs.nextSub !== void 0) shallowPropagate(subs);
+					dirty = true;
+				}
+			} else if ((flags & 33) === 33) {
+				if (link2.nextSub !== void 0 || link2.prevSub !== void 0) stack = {
+					value: link2,
+					prev: stack
+				};
+				link2 = dep.deps;
+				sub = dep;
+				++checkDepth;
+				continue;
+			}
+			if (!dirty) {
+				const nextDep = link2.nextDep;
+				if (nextDep !== void 0) {
+					link2 = nextDep;
+					continue;
+				}
+			}
+			while (checkDepth--) {
+				const firstSub = sub.subs;
+				const hasMultipleSubs = firstSub.nextSub !== void 0;
+				if (hasMultipleSubs) {
+					link2 = stack.value;
+					stack = stack.prev;
+				} else link2 = firstSub;
+				if (dirty) {
+					if (update(sub)) {
+						if (hasMultipleSubs) shallowPropagate(firstSub);
+						sub = link2.sub;
+						continue;
+					}
+					dirty = false;
+				} else sub.flags &= -33;
+				sub = link2.sub;
+				const nextDep = link2.nextDep;
+				if (nextDep !== void 0) {
+					link2 = nextDep;
+					continue top;
+				}
+			}
+			return dirty;
+		} while (true);
+	}
+	function shallowPropagate(link2) {
+		do {
+			const sub = link2.sub;
+			const flags = sub.flags;
+			if ((flags & 48) === 32) {
+				sub.flags = flags | 16;
+				if ((flags & 6) === 2) notify(sub);
+			}
+		} while ((link2 = link2.nextSub) !== void 0);
+	}
+	function isValidLink(checkLink, sub) {
+		let link2 = sub.depsTail;
+		while (link2 !== void 0) {
+			if (link2 === checkLink) return true;
+			link2 = link2.prevDep;
+		}
+		return false;
+	}
+}
+var queuedEffects = [];
+var { link, unlink, propagate, checkDirty, shallowPropagate } = /* @__PURE__ */ createReactiveSystem({
+	update(atom) {
+		return atom._update();
+	},
+	notify(effect2) {
+		queuedEffects[queuedEffectsLength++] = effect2;
+		effect2.flags &= ~ReactiveFlags.Watching;
+	},
+	unwatched(atom) {
+		if (atom.depsTail !== void 0) {
+			atom.depsTail = void 0;
+			atom.flags = ReactiveFlags.Mutable | ReactiveFlags.Dirty;
+			purgeDeps(atom);
+		}
+	}
+});
+var queuedEffectsLength = 0;
+function purgeDeps(sub) {
+	const depsTail = sub.depsTail;
+	let dep = depsTail !== void 0 ? depsTail.nextDep : sub.deps;
+	while (dep !== void 0) dep = unlink(dep, sub);
+}
+//#endregion
+//#region node_modules/use-sync-external-store/cjs/use-sync-external-store-shim.production.js
+/**
+* @license React
+* use-sync-external-store-shim.production.js
+*
+* Copyright (c) Meta Platforms, Inc. and affiliates.
+*
+* This source code is licensed under the MIT license found in the
+* LICENSE file in the root directory of this source tree.
+*/
+var require_use_sync_external_store_shim_production = /* @__PURE__ */ __commonJSMin(((exports) => {
+	var React = require_react();
+	function is(x, y) {
+		return x === y && (0 !== x || 1 / x === 1 / y) || x !== x && y !== y;
+	}
+	var objectIs = "function" === typeof Object.is ? Object.is : is, useState = React.useState, useEffect = React.useEffect, useLayoutEffect = React.useLayoutEffect, useDebugValue = React.useDebugValue;
+	function useSyncExternalStore$2(subscribe, getSnapshot) {
+		var value = getSnapshot(), _useState = useState({ inst: {
+			value,
+			getSnapshot
+		} }), inst = _useState[0].inst, forceUpdate = _useState[1];
+		useLayoutEffect(function() {
+			inst.value = value;
+			inst.getSnapshot = getSnapshot;
+			checkIfSnapshotChanged(inst) && forceUpdate({ inst });
+		}, [
+			subscribe,
+			value,
+			getSnapshot
+		]);
+		useEffect(function() {
+			checkIfSnapshotChanged(inst) && forceUpdate({ inst });
+			return subscribe(function() {
+				checkIfSnapshotChanged(inst) && forceUpdate({ inst });
+			});
+		}, [subscribe]);
+		useDebugValue(value);
+		return value;
+	}
+	function checkIfSnapshotChanged(inst) {
+		var latestGetSnapshot = inst.getSnapshot;
+		inst = inst.value;
+		try {
+			var nextValue = latestGetSnapshot();
+			return !objectIs(inst, nextValue);
+		} catch (error) {
+			return !0;
+		}
+	}
+	function useSyncExternalStore$1(subscribe, getSnapshot) {
+		return getSnapshot();
+	}
+	var shim = "undefined" === typeof window || "undefined" === typeof window.document || "undefined" === typeof window.document.createElement ? useSyncExternalStore$1 : useSyncExternalStore$2;
+	exports.useSyncExternalStore = void 0 !== React.useSyncExternalStore ? React.useSyncExternalStore : shim;
+}));
+//#endregion
+//#region node_modules/use-sync-external-store/shim/index.js
+var require_shim = /* @__PURE__ */ __commonJSMin(((exports, module) => {
+	module.exports = require_use_sync_external_store_shim_production();
+}));
+//#endregion
+//#region node_modules/use-sync-external-store/cjs/use-sync-external-store-shim/with-selector.production.js
+/**
+* @license React
+* use-sync-external-store-shim/with-selector.production.js
+*
+* Copyright (c) Meta Platforms, Inc. and affiliates.
+*
+* This source code is licensed under the MIT license found in the
+* LICENSE file in the root directory of this source tree.
+*/
+var require_with_selector_production = /* @__PURE__ */ __commonJSMin(((exports) => {
+	var React = require_react(), shim = require_shim();
+	function is(x, y) {
+		return x === y && (0 !== x || 1 / x === 1 / y) || x !== x && y !== y;
+	}
+	var objectIs = "function" === typeof Object.is ? Object.is : is, useSyncExternalStore = shim.useSyncExternalStore, useRef = React.useRef, useEffect = React.useEffect, useMemo = React.useMemo, useDebugValue = React.useDebugValue;
+	exports.useSyncExternalStoreWithSelector = function(subscribe, getSnapshot, getServerSnapshot, selector, isEqual) {
+		var instRef = useRef(null);
+		if (null === instRef.current) {
+			var inst = {
+				hasValue: !1,
+				value: null
+			};
+			instRef.current = inst;
+		} else inst = instRef.current;
+		instRef = useMemo(function() {
+			function memoizedSelector(nextSnapshot) {
+				if (!hasMemo) {
+					hasMemo = !0;
+					memoizedSnapshot = nextSnapshot;
+					nextSnapshot = selector(nextSnapshot);
+					if (void 0 !== isEqual && inst.hasValue) {
+						var currentSelection = inst.value;
+						if (isEqual(currentSelection, nextSnapshot)) return memoizedSelection = currentSelection;
+					}
+					return memoizedSelection = nextSnapshot;
+				}
+				currentSelection = memoizedSelection;
+				if (objectIs(memoizedSnapshot, nextSnapshot)) return currentSelection;
+				var nextSelection = selector(nextSnapshot);
+				if (void 0 !== isEqual && isEqual(currentSelection, nextSelection)) return memoizedSnapshot = nextSnapshot, currentSelection;
+				memoizedSnapshot = nextSnapshot;
+				return memoizedSelection = nextSelection;
+			}
+			var hasMemo = !1, memoizedSnapshot, memoizedSelection, maybeGetServerSnapshot = void 0 === getServerSnapshot ? null : getServerSnapshot;
+			return [function() {
+				return memoizedSelector(getSnapshot());
+			}, null === maybeGetServerSnapshot ? void 0 : function() {
+				return memoizedSelector(maybeGetServerSnapshot());
+			}];
+		}, [
+			getSnapshot,
+			getServerSnapshot,
+			selector,
+			isEqual
+		]);
+		var value = useSyncExternalStore(subscribe, instRef[0], instRef[1]);
+		useEffect(function() {
+			inst.hasValue = !0;
+			inst.value = value;
+		}, [value]);
+		useDebugValue(value);
+		return value;
+	};
+}));
+//#endregion
+//#region node_modules/@tanstack/react-store/dist/esm/useStore.js
+var import_with_selector = (/* @__PURE__ */ __commonJSMin(((exports, module) => {
+	module.exports = require_with_selector_production();
+})))();
+function defaultCompare(a, b) {
+	return a === b;
+}
+function useStore(atom, selector, compare = defaultCompare) {
+	const subscribe = (0, import_react.useCallback)((handleStoreChange) => {
+		if (!atom) return () => {};
+		const { unsubscribe } = atom.subscribe(handleStoreChange);
+		return unsubscribe;
+	}, [atom]);
+	const boundGetSnapshot = (0, import_react.useCallback)(() => atom?.get(), [atom]);
+	return (0, import_with_selector.useSyncExternalStoreWithSelector)(subscribe, boundGetSnapshot, boundGetSnapshot, selector, compare);
+}
+//#endregion
+//#region node_modules/react-dom/cjs/react-dom.production.js
+/**
+* @license React
+* react-dom.production.js
+*
+* Copyright (c) Meta Platforms, Inc. and affiliates.
+*
+* This source code is licensed under the MIT license found in the
+* LICENSE file in the root directory of this source tree.
+*/
+var require_react_dom_production = /* @__PURE__ */ __commonJSMin(((exports) => {
+	var React = require_react();
+	function formatProdErrorMessage(code) {
+		var url = "https://react.dev/errors/" + code;
+		if (1 < arguments.length) {
+			url += "?args[]=" + encodeURIComponent(arguments[1]);
+			for (var i = 2; i < arguments.length; i++) url += "&args[]=" + encodeURIComponent(arguments[i]);
+		}
+		return "Minified React error #" + code + "; visit " + url + " for the full message or use the non-minified dev environment for full errors and additional helpful warnings.";
+	}
+	function noop() {}
+	var Internals = {
+		d: {
+			f: noop,
+			r: function() {
+				throw Error(formatProdErrorMessage(522));
+			},
+			D: noop,
+			C: noop,
+			L: noop,
+			m: noop,
+			X: noop,
+			S: noop,
+			M: noop
+		},
+		p: 0,
+		findDOMNode: null
+	}, REACT_PORTAL_TYPE = Symbol.for("react.portal");
+	function createPortal$1(children, containerInfo, implementation) {
+		var key = 3 < arguments.length && void 0 !== arguments[3] ? arguments[3] : null;
+		return {
+			$$typeof: REACT_PORTAL_TYPE,
+			key: null == key ? null : "" + key,
+			children,
+			containerInfo,
+			implementation
+		};
+	}
+	var ReactSharedInternals = React.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE;
+	function getCrossOriginStringAs(as, input) {
+		if ("font" === as) return "";
+		if ("string" === typeof input) return "use-credentials" === input ? input : "";
+	}
+	exports.__DOM_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE = Internals;
+	exports.createPortal = function(children, container) {
+		var key = 2 < arguments.length && void 0 !== arguments[2] ? arguments[2] : null;
+		if (!container || 1 !== container.nodeType && 9 !== container.nodeType && 11 !== container.nodeType) throw Error(formatProdErrorMessage(299));
+		return createPortal$1(children, container, null, key);
+	};
+	exports.flushSync = function(fn) {
+		var previousTransition = ReactSharedInternals.T, previousUpdatePriority = Internals.p;
+		try {
+			if (ReactSharedInternals.T = null, Internals.p = 2, fn) return fn();
+		} finally {
+			ReactSharedInternals.T = previousTransition, Internals.p = previousUpdatePriority, Internals.d.f();
+		}
+	};
+	exports.preconnect = function(href, options) {
+		"string" === typeof href && (options ? (options = options.crossOrigin, options = "string" === typeof options ? "use-credentials" === options ? options : "" : void 0) : options = null, Internals.d.C(href, options));
+	};
+	exports.prefetchDNS = function(href) {
+		"string" === typeof href && Internals.d.D(href);
+	};
+	exports.preinit = function(href, options) {
+		if ("string" === typeof href && options && "string" === typeof options.as) {
+			var as = options.as, crossOrigin = getCrossOriginStringAs(as, options.crossOrigin), integrity = "string" === typeof options.integrity ? options.integrity : void 0, fetchPriority = "string" === typeof options.fetchPriority ? options.fetchPriority : void 0;
+			"style" === as ? Internals.d.S(href, "string" === typeof options.precedence ? options.precedence : void 0, {
+				crossOrigin,
+				integrity,
+				fetchPriority
+			}) : "script" === as && Internals.d.X(href, {
+				crossOrigin,
+				integrity,
+				fetchPriority,
+				nonce: "string" === typeof options.nonce ? options.nonce : void 0
+			});
+		}
+	};
+	exports.preinitModule = function(href, options) {
+		if ("string" === typeof href) if ("object" === typeof options && null !== options) {
+			if (null == options.as || "script" === options.as) {
+				var crossOrigin = getCrossOriginStringAs(options.as, options.crossOrigin);
+				Internals.d.M(href, {
+					crossOrigin,
+					integrity: "string" === typeof options.integrity ? options.integrity : void 0,
+					nonce: "string" === typeof options.nonce ? options.nonce : void 0
+				});
+			}
+		} else options ?? Internals.d.M(href);
+	};
+	exports.preload = function(href, options) {
+		if ("string" === typeof href && "object" === typeof options && null !== options && "string" === typeof options.as) {
+			var as = options.as, crossOrigin = getCrossOriginStringAs(as, options.crossOrigin);
+			Internals.d.L(href, as, {
+				crossOrigin,
+				integrity: "string" === typeof options.integrity ? options.integrity : void 0,
+				nonce: "string" === typeof options.nonce ? options.nonce : void 0,
+				type: "string" === typeof options.type ? options.type : void 0,
+				fetchPriority: "string" === typeof options.fetchPriority ? options.fetchPriority : void 0,
+				referrerPolicy: "string" === typeof options.referrerPolicy ? options.referrerPolicy : void 0,
+				imageSrcSet: "string" === typeof options.imageSrcSet ? options.imageSrcSet : void 0,
+				imageSizes: "string" === typeof options.imageSizes ? options.imageSizes : void 0,
+				media: "string" === typeof options.media ? options.media : void 0
+			});
+		}
+	};
+	exports.preloadModule = function(href, options) {
+		if ("string" === typeof href) if (options) {
+			var crossOrigin = getCrossOriginStringAs(options.as, options.crossOrigin);
+			Internals.d.m(href, {
+				as: "string" === typeof options.as && "script" !== options.as ? options.as : void 0,
+				crossOrigin,
+				integrity: "string" === typeof options.integrity ? options.integrity : void 0
+			});
+		} else Internals.d.m(href);
+	};
+	exports.requestFormReset = function(form) {
+		Internals.d.r(form);
+	};
+	exports.unstable_batchedUpdates = function(fn, a) {
+		return fn(a);
+	};
+	exports.useFormState = function(action, initialState, permalink) {
+		return ReactSharedInternals.H.useFormState(action, initialState, permalink);
+	};
+	exports.useFormStatus = function() {
+		return ReactSharedInternals.H.useHostTransitionStatus();
+	};
+	exports.version = "19.2.7";
+}));
+//#endregion
+//#region node_modules/react-dom/index.js
+var require_react_dom = /* @__PURE__ */ __commonJSMin(((exports, module) => {
+	function checkDCE() {
+		if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ === "undefined" || typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.checkDCE !== "function") return;
+		try {
+			__REACT_DEVTOOLS_GLOBAL_HOOK__.checkDCE(checkDCE);
+		} catch (err) {
+			console.error(err);
+		}
+	}
+	checkDCE();
+	module.exports = require_react_dom_production();
+}));
+//#endregion
+//#region node_modules/@tanstack/react-router/dist/esm/link.js
+var import_react_dom = require_react_dom();
+/**
+* Build anchor-like props for declarative navigation and preloading.
+*
+* Returns stable `href`, event handlers and accessibility props derived from
+* router options and active state. Used internally by `Link` and custom links.
+*
+* Options cover `to`, `params`, `search`, `hash`, `state`, `preload`,
+* `activeProps`, `inactiveProps`, and more.
+*
+* @returns React anchor props suitable for `<a>` or custom components.
+* @link https://tanstack.com/router/latest/docs/framework/react/api/router/useLinkPropsHook
+*/
+function useLinkProps(options, forwardedRef) {
+	const router = useRouter();
+	const innerRef = useForwardedRef(forwardedRef);
+	const { activeProps, inactiveProps, activeOptions, to, preload: userPreload, preloadDelay: userPreloadDelay, preloadIntentProximity: _preloadIntentProximity, hashScrollIntoView, replace, startTransition, resetScroll, viewTransition, children, target, disabled, style, className, onClick, onBlur, onFocus, onMouseEnter, onMouseLeave, onTouchStart, ignoreBlocker, params: _params, search: _search, hash: _hash, state: _state, mask: _mask, reloadDocument: _reloadDocument, unsafeRelative: _unsafeRelative, from: _from, _fromLocation, ...propsSafeToSpread } = options;
+	{
+		const safeInternal = isSafeInternal(to);
+		if (typeof to === "string" && !safeInternal && to.indexOf(":") > -1) try {
+			new URL(to);
+			if (isDangerousProtocol(to, router.protocolAllowlist)) return {
+				...propsSafeToSpread,
+				ref: innerRef,
+				href: void 0,
+				...children && { children },
+				...target && { target },
+				...disabled && { disabled },
+				...style && { style },
+				...className && { className }
+			};
+			return {
+				...propsSafeToSpread,
+				ref: innerRef,
+				href: to,
+				...children && { children },
+				...target && { target },
+				...disabled && { disabled },
+				...style && { style },
+				...className && { className }
+			};
+		} catch {}
+		const next = router.buildLocation({
+			...options,
+			from: options.from
+		});
+		const hrefOption = getHrefOption(next.maskedLocation ? next.maskedLocation.publicHref : next.publicHref, next.maskedLocation ? next.maskedLocation.external : next.external, router.history, disabled);
+		const externalLink = (() => {
+			if (hrefOption?.external) {
+				if (isDangerousProtocol(hrefOption.href, router.protocolAllowlist)) return;
+				return hrefOption.href;
+			}
+			if (safeInternal) return void 0;
+			if (typeof to === "string" && to.indexOf(":") > -1) try {
+				new URL(to);
+				if (isDangerousProtocol(to, router.protocolAllowlist)) return;
+				return to;
+			} catch {}
+		})();
+		const isActive = (() => {
+			if (externalLink) return false;
+			const currentLocation = router.stores.location.get();
+			const exact = activeOptions?.exact ?? false;
+			if (exact) {
+				if (!exactPathTest(currentLocation.pathname, next.pathname, router.basepath)) return false;
+			} else {
+				const currentPathSplit = removeTrailingSlash(currentLocation.pathname, router.basepath);
+				const nextPathSplit = removeTrailingSlash(next.pathname, router.basepath);
+				if (!(currentPathSplit.startsWith(nextPathSplit) && (currentPathSplit.length === nextPathSplit.length || currentPathSplit[nextPathSplit.length] === "/"))) return false;
+			}
+			if (activeOptions?.includeSearch ?? true) {
+				if (currentLocation.search !== next.search) {
+					const currentSearchEmpty = !currentLocation.search || typeof currentLocation.search === "object" && !hasKeys(currentLocation.search);
+					const nextSearchEmpty = !next.search || typeof next.search === "object" && !hasKeys(next.search);
+					if (!(currentSearchEmpty && nextSearchEmpty)) {
+						if (!deepEqual(currentLocation.search, next.search, {
+							partial: !exact,
+							ignoreUndefined: !activeOptions?.explicitUndefined
+						})) return false;
+					}
+				}
+			}
+			if (activeOptions?.includeHash) return false;
+			return true;
+		})();
+		if (externalLink) return {
+			...propsSafeToSpread,
+			ref: innerRef,
+			href: externalLink,
+			...children && { children },
+			...target && { target },
+			...disabled && { disabled },
+			...style && { style },
+			...className && { className }
+		};
+		const resolvedActiveProps = isActive ? functionalUpdate(activeProps, {}) ?? STATIC_ACTIVE_OBJECT : STATIC_EMPTY_OBJECT;
+		const resolvedInactiveProps = isActive ? STATIC_EMPTY_OBJECT : functionalUpdate(inactiveProps, {}) ?? STATIC_EMPTY_OBJECT;
+		const resolvedStyle = (() => {
+			const baseStyle = style;
+			const activeStyle = resolvedActiveProps.style;
+			const inactiveStyle = resolvedInactiveProps.style;
+			if (!baseStyle && !activeStyle && !inactiveStyle) return;
+			if (baseStyle && !activeStyle && !inactiveStyle) return baseStyle;
+			if (!baseStyle && activeStyle && !inactiveStyle) return activeStyle;
+			if (!baseStyle && !activeStyle && inactiveStyle) return inactiveStyle;
+			return {
+				...baseStyle,
+				...activeStyle,
+				...inactiveStyle
+			};
+		})();
+		const resolvedClassName = (() => {
+			const baseClassName = className;
+			const activeClassName = resolvedActiveProps.className;
+			const inactiveClassName = resolvedInactiveProps.className;
+			if (!baseClassName && !activeClassName && !inactiveClassName) return "";
+			let out = "";
+			if (baseClassName) out = baseClassName;
+			if (activeClassName) out = out ? `${out} ${activeClassName}` : activeClassName;
+			if (inactiveClassName) out = out ? `${out} ${inactiveClassName}` : inactiveClassName;
+			return out;
+		})();
+		return {
+			...propsSafeToSpread,
+			...resolvedActiveProps,
+			...resolvedInactiveProps,
+			href: hrefOption?.href,
+			ref: innerRef,
+			disabled: !!disabled,
+			target,
+			...resolvedStyle && { style: resolvedStyle },
+			...resolvedClassName && { className: resolvedClassName },
+			...disabled && STATIC_DISABLED_PROPS,
+			...isActive && STATIC_ACTIVE_PROPS
+		};
+	}
+	const isHydrated = useHydrated();
+	const _options = import_react.useMemo(() => options, [
+		router,
+		options.from,
+		options._fromLocation,
+		options.hash,
+		options.to,
+		options.search,
+		options.params,
+		options.state,
+		options.mask,
+		options.unsafeRelative
+	]);
+	const currentLocation = useStore(router.stores.location, (l) => l, (prev, next) => prev.href === next.href);
+	const next = import_react.useMemo(() => {
+		const opts = {
+			_fromLocation: currentLocation,
+			..._options
+		};
+		return router.buildLocation(opts);
+	}, [
+		router,
+		currentLocation,
+		_options
+	]);
+	const hrefOptionPublicHref = next.maskedLocation ? next.maskedLocation.publicHref : next.publicHref;
+	const hrefOptionExternal = next.maskedLocation ? next.maskedLocation.external : next.external;
+	const hrefOption = import_react.useMemo(() => getHrefOption(hrefOptionPublicHref, hrefOptionExternal, router.history, disabled), [
+		disabled,
+		hrefOptionExternal,
+		hrefOptionPublicHref,
+		router.history
+	]);
+	const externalLink = import_react.useMemo(() => {
+		if (hrefOption?.external) {
+			if (isDangerousProtocol(hrefOption.href, router.protocolAllowlist)) return;
+			return hrefOption.href;
+		}
+		if (isSafeInternal(to)) return void 0;
+		if (typeof to !== "string" || to.indexOf(":") === -1) return void 0;
+		try {
+			new URL(to);
+			if (isDangerousProtocol(to, router.protocolAllowlist)) return;
+			return to;
+		} catch {}
+	}, [
+		to,
+		hrefOption,
+		router.protocolAllowlist
+	]);
+	const isActive = import_react.useMemo(() => {
+		if (externalLink) return false;
+		if (activeOptions?.exact) {
+			if (!exactPathTest(currentLocation.pathname, next.pathname, router.basepath)) return false;
+		} else {
+			const currentPathSplit = removeTrailingSlash(currentLocation.pathname, router.basepath);
+			const nextPathSplit = removeTrailingSlash(next.pathname, router.basepath);
+			if (!(currentPathSplit.startsWith(nextPathSplit) && (currentPathSplit.length === nextPathSplit.length || currentPathSplit[nextPathSplit.length] === "/"))) return false;
+		}
+		if (activeOptions?.includeSearch ?? true) {
+			if (!deepEqual(currentLocation.search, next.search, {
+				partial: !activeOptions?.exact,
+				ignoreUndefined: !activeOptions?.explicitUndefined
+			})) return false;
+		}
+		if (activeOptions?.includeHash) return isHydrated && currentLocation.hash === next.hash;
+		return true;
+	}, [
+		activeOptions?.exact,
+		activeOptions?.explicitUndefined,
+		activeOptions?.includeHash,
+		activeOptions?.includeSearch,
+		currentLocation,
+		externalLink,
+		isHydrated,
+		next.hash,
+		next.pathname,
+		next.search,
+		router.basepath
+	]);
+	const resolvedActiveProps = isActive ? functionalUpdate(activeProps, {}) ?? STATIC_ACTIVE_OBJECT : STATIC_EMPTY_OBJECT;
+	const resolvedInactiveProps = isActive ? STATIC_EMPTY_OBJECT : functionalUpdate(inactiveProps, {}) ?? STATIC_EMPTY_OBJECT;
+	const resolvedClassName = [
+		className,
+		resolvedActiveProps.className,
+		resolvedInactiveProps.className
+	].filter(Boolean).join(" ");
+	const resolvedStyle = (style || resolvedActiveProps.style || resolvedInactiveProps.style) && {
+		...style,
+		...resolvedActiveProps.style,
+		...resolvedInactiveProps.style
+	};
+	const [isTransitioning, setIsTransitioning] = import_react.useState(false);
+	const hasRenderFetched = import_react.useRef(false);
+	const preload = options.reloadDocument || externalLink ? false : userPreload ?? router.options.defaultPreload;
+	const preloadDelay = userPreloadDelay ?? router.options.defaultPreloadDelay ?? 0;
+	const doPreload = import_react.useCallback(() => {
+		router.preloadRoute({
+			..._options,
+			_builtLocation: next
+		}).catch((err) => {
+			console.warn(err);
+			console.warn(preloadWarning);
+		});
+	}, [
+		router,
+		_options,
+		next
+	]);
+	useIntersectionObserver(innerRef, import_react.useCallback((entry) => {
+		if (entry?.isIntersecting) doPreload();
+	}, [doPreload]), intersectionObserverOptions, { disabled: !!disabled || !(preload === "viewport") });
+	import_react.useEffect(() => {
+		if (hasRenderFetched.current) return;
+		if (!disabled && preload === "render") {
+			doPreload();
+			hasRenderFetched.current = true;
+		}
+	}, [
+		disabled,
+		doPreload,
+		preload
+	]);
+	const handleClick = (e) => {
+		const elementTarget = e.currentTarget.getAttribute("target");
+		const effectiveTarget = target !== void 0 ? target : elementTarget;
+		if (!disabled && !isCtrlEvent(e) && !e.defaultPrevented && (!effectiveTarget || effectiveTarget === "_self") && e.button === 0) {
+			e.preventDefault();
+			(0, import_react_dom.flushSync)(() => {
+				setIsTransitioning(true);
+			});
+			const unsub = router.subscribe("onResolved", () => {
+				unsub();
+				setIsTransitioning(false);
+			});
+			router.navigate({
+				..._options,
+				replace,
+				resetScroll,
+				hashScrollIntoView,
+				startTransition,
+				viewTransition,
+				ignoreBlocker
+			});
+		}
+	};
+	if (externalLink) return {
+		...propsSafeToSpread,
+		ref: innerRef,
+		href: externalLink,
+		...children && { children },
+		...target && { target },
+		...disabled && { disabled },
+		...style && { style },
+		...className && { className },
+		...onClick && { onClick },
+		...onBlur && { onBlur },
+		...onFocus && { onFocus },
+		...onMouseEnter && { onMouseEnter },
+		...onMouseLeave && { onMouseLeave },
+		...onTouchStart && { onTouchStart }
+	};
+	const enqueueIntentPreload = (e) => {
+		if (disabled || preload !== "intent") return;
+		if (!preloadDelay) {
+			doPreload();
+			return;
+		}
+		const eventTarget = e.currentTarget;
+		if (timeoutMap.has(eventTarget)) return;
+		const id = setTimeout(() => {
+			timeoutMap.delete(eventTarget);
+			doPreload();
+		}, preloadDelay);
+		timeoutMap.set(eventTarget, id);
+	};
+	const handleTouchStart = (_) => {
+		if (disabled || preload !== "intent") return;
+		doPreload();
+	};
+	const handleLeave = (e) => {
+		if (disabled || !preload || !preloadDelay) return;
+		const eventTarget = e.currentTarget;
+		const id = timeoutMap.get(eventTarget);
+		if (id) {
+			clearTimeout(id);
+			timeoutMap.delete(eventTarget);
+		}
+	};
+	return {
+		...propsSafeToSpread,
+		...resolvedActiveProps,
+		...resolvedInactiveProps,
+		href: hrefOption?.href,
+		ref: innerRef,
+		onClick: composeHandlers([onClick, handleClick]),
+		onBlur: composeHandlers([onBlur, handleLeave]),
+		onFocus: composeHandlers([onFocus, enqueueIntentPreload]),
+		onMouseEnter: composeHandlers([onMouseEnter, enqueueIntentPreload]),
+		onMouseLeave: composeHandlers([onMouseLeave, handleLeave]),
+		onTouchStart: composeHandlers([onTouchStart, handleTouchStart]),
+		disabled: !!disabled,
+		target,
+		...resolvedStyle && { style: resolvedStyle },
+		...resolvedClassName && { className: resolvedClassName },
+		...disabled && STATIC_DISABLED_PROPS,
+		...isActive && STATIC_ACTIVE_PROPS,
+		...isHydrated && isTransitioning && STATIC_TRANSITIONING_PROPS
+	};
+}
+var STATIC_EMPTY_OBJECT = {};
+var STATIC_ACTIVE_OBJECT = { className: "active" };
+var STATIC_DISABLED_PROPS = {
+	role: "link",
+	"aria-disabled": true
+};
+var STATIC_ACTIVE_PROPS = {
+	"data-status": "active",
+	"aria-current": "page"
+};
+var STATIC_TRANSITIONING_PROPS = { "data-transitioning": "transitioning" };
+var timeoutMap = /* @__PURE__ */ new WeakMap();
+var intersectionObserverOptions = { rootMargin: "100px" };
+var composeHandlers = (handlers) => (e) => {
+	for (const handler of handlers) {
+		if (!handler) continue;
+		if (e.defaultPrevented) return;
+		handler(e);
+	}
+};
+function getHrefOption(publicHref, external, history, disabled) {
+	if (disabled) return void 0;
+	if (external) return {
+		href: publicHref,
+		external: true
+	};
+	return {
+		href: history.createHref(publicHref) || "/",
+		external: false
+	};
+}
+function isSafeInternal(to) {
+	if (typeof to !== "string") return false;
+	const zero = to.charCodeAt(0);
+	if (zero === 47) return to.charCodeAt(1) !== 47;
+	return zero === 46;
+}
+/**
+* A strongly-typed anchor component for declarative navigation.
+* Handles path, search, hash and state updates with optional route preloading
+* and active-state styling.
+*
+* Props:
+* - `preload`: Controls route preloading (eg. 'intent', 'render', 'viewport', true/false)
+* - `preloadDelay`: Delay in ms before preloading on hover
+* - `activeProps`/`inactiveProps`: Additional props merged when link is active/inactive
+* - `resetScroll`/`hashScrollIntoView`: Control scroll behavior on navigation
+* - `viewTransition`/`startTransition`: Use View Transitions/React transitions for navigation
+* - `ignoreBlocker`: Bypass registered blockers
+*
+* @returns An anchor-like element that navigates without full page reloads.
+* @link https://tanstack.com/router/latest/docs/framework/react/api/router/linkComponent
+*/
+var Link = import_react.forwardRef((props, ref) => {
+	const { _asChild, ...rest } = props;
+	const { type: _type, ...linkProps } = useLinkProps(rest, ref);
+	const children = typeof rest.children === "function" ? rest.children({ isActive: linkProps["data-status"] === "active" }) : rest.children;
+	if (!_asChild) {
+		const { disabled: _, ...rest } = linkProps;
+		return import_react.createElement("a", rest, children);
+	}
+	return import_react.createElement(_asChild, linkProps, children);
+});
+function isCtrlEvent(e) {
+	return !!(e.metaKey || e.altKey || e.ctrlKey || e.shiftKey);
+}
+//#endregion
+//#region node_modules/@tanstack/react-router/dist/esm/matchContext.js
+var matchContext = import_react.createContext(void 0);
+var dummyMatchContext = import_react.createContext(void 0);
+//#endregion
+//#region node_modules/@tanstack/react-router/dist/esm/useMatch.js
+var dummyStore = {
+	get() {},
+	subscribe() {
+		return { unsubscribe() {} };
+	}
+};
+function useStructuralSharing(opts, router) {
+	const previousResult = import_react.useRef();
+	return (slice) => {
+		const selected = opts?.select ? opts.select(slice) : slice;
+		if (opts?.structuralSharing ?? router.options.defaultStructuralSharing) return previousResult.current = replaceEqualDeep(previousResult.current, selected);
+		return selected;
+	};
+}
+/**
+* Read and select the nearest or targeted route match.
+* @link https://tanstack.com/router/latest/docs/framework/react/api/router/useMatchHook
+*/
+function useMatch(opts) {
+	const router = useRouter();
+	const nearestMatchId = import_react.useContext(opts.from ? dummyMatchContext : matchContext);
+	const matchStore = opts.from ? router.stores.getRouteMatchStore(opts.from) : router.stores.matchStores.get(nearestMatchId);
+	{
+		const match = matchStore?.get();
+		if (!match) {
+			if (opts.shouldThrow ?? true) invariant();
+			return;
+		}
+		return opts.select ? opts.select(match) : match;
+	}
+	const selector = useStructuralSharing(opts, router);
+	const matchSelection = useStore(matchStore ?? dummyStore, (match) => match ? selector(match) : dummyStore);
+	if (matchSelection !== dummyStore) return matchSelection;
+	if (opts.shouldThrow ?? true) invariant();
+}
+//#endregion
+//#region node_modules/@tanstack/react-router/dist/esm/useLoaderData.js
+/**
+* Read and select the current route's loader data with type‑safety.
+*
+* Options:
+* - `from`/`strict`: Choose which route's data to read and strictness
+* - `select`: Map the loader data to a derived value
+* - `structuralSharing`: Enable structural sharing for stable references
+*
+* @returns The loader data (or selected value) for the matched route.
+* @link https://tanstack.com/router/latest/docs/framework/react/api/router/useLoaderDataHook
+*/
+function useLoaderData(opts) {
+	return useMatch({
+		from: opts.from,
+		strict: opts.strict,
+		structuralSharing: opts.structuralSharing,
+		select: (match) => {
+			return opts.select ? opts.select(match.loaderData) : match.loaderData;
+		}
+	});
+}
+//#endregion
+//#region node_modules/@tanstack/react-router/dist/esm/useLoaderDeps.js
+/**
+* Read and select the current route's loader dependencies object.
+*
+* Options:
+* - `from`: Choose which route's loader deps to read
+* - `select`: Map the deps to a derived value
+* - `structuralSharing`: Enable structural sharing for stable references
+*
+* @returns The loader deps (or selected value) for the matched route.
+* @link https://tanstack.com/router/latest/docs/framework/react/api/router/useLoaderDepsHook
+*/
+function useLoaderDeps(opts) {
+	const { select, ...rest } = opts;
+	return useMatch({
+		...rest,
+		select: (match) => {
+			return select ? select(match.loaderDeps) : match.loaderDeps;
+		}
+	});
+}
+//#endregion
+//#region node_modules/@tanstack/react-router/dist/esm/useParams.js
+/**
+* Access the current route's path parameters with type-safety.
+*
+* Options:
+* - `from`/`strict`: Specify the matched route and whether to enforce strict typing
+* - `select`: Project the params object to a derived value for memoized renders
+* - `structuralSharing`: Enable structural sharing for stable references
+* - `shouldThrow`: Throw if the route is not found in strict contexts
+*
+* @returns The params object (or selected value) for the matched route.
+* @link https://tanstack.com/router/latest/docs/framework/react/api/router/useParamsHook
+*/
+function useParams(opts) {
+	return useMatch({
+		from: opts.from,
+		shouldThrow: opts.shouldThrow,
+		structuralSharing: opts.structuralSharing,
+		strict: opts.strict,
+		select: (match) => {
+			const params = opts.strict === false ? match.params : match._strictParams;
+			return opts.select ? opts.select(params) : params;
+		}
+	});
+}
+//#endregion
+//#region node_modules/@tanstack/react-router/dist/esm/useSearch.js
+/**
+* Read and select the current route's search parameters with type-safety.
+*
+* Options:
+* - `from`/`strict`: Control which route's search is read and how strictly it's typed
+* - `select`: Map the search object to a derived value for render optimization
+* - `structuralSharing`: Enable structural sharing for stable references
+* - `shouldThrow`: Throw when the route is not found (strict contexts)
+*
+* @returns The search object (or selected value) for the matched route.
+* @link https://tanstack.com/router/latest/docs/framework/react/api/router/useSearchHook
+*/
+function useSearch(opts) {
+	return useMatch({
+		from: opts.from,
+		strict: opts.strict,
+		shouldThrow: opts.shouldThrow,
+		structuralSharing: opts.structuralSharing,
+		select: (match) => {
+			return opts.select ? opts.select(match.search) : match.search;
+		}
+	});
+}
+//#endregion
+//#region node_modules/@tanstack/react-router/dist/esm/useNavigate.js
+/**
+* Imperative navigation hook.
+*
+* Returns a stable `navigate(options)` function to change the current location
+* programmatically. Prefer the `Link` component for user-initiated navigation,
+* and use this hook from effects, callbacks, or handlers where imperative
+* navigation is required.
+*
+* Options:
+* - `from`: Optional route base used to resolve relative `to` paths.
+*
+* @returns A function that accepts `NavigateOptions`.
+* @link https://tanstack.com/router/latest/docs/framework/react/api/router/useNavigateHook
+*/
+function useNavigate(_defaultOpts) {
+	const router = useRouter();
+	return import_react.useCallback((options) => {
+		return router.navigate({
+			...options,
+			from: options.from ?? _defaultOpts?.from
+		});
+	}, [_defaultOpts?.from, router]);
+}
+//#endregion
+//#region node_modules/@tanstack/react-router/dist/esm/useRouteContext.js
+function useRouteContext(opts) {
+	return useMatch({
+		...opts,
+		select: (match) => opts.select ? opts.select(match.context) : match.context
+	});
+}
+//#endregion
+//#region node_modules/@tanstack/react-router/dist/esm/route.js
+var Route = class extends BaseRoute {
+	/**
+	* @deprecated Use the `createRoute` function instead.
+	*/
+	constructor(options) {
+		super(options);
+		this.useMatch = (opts) => {
+			return useMatch({
+				select: opts?.select,
+				from: this.id,
+				structuralSharing: opts?.structuralSharing
+			});
+		};
+		this.useRouteContext = (opts) => {
+			return useRouteContext({
+				...opts,
+				from: this.id
+			});
+		};
+		this.useSearch = (opts) => {
+			return useSearch({
+				select: opts?.select,
+				structuralSharing: opts?.structuralSharing,
+				from: this.id
+			});
+		};
+		this.useParams = (opts) => {
+			return useParams({
+				select: opts?.select,
+				structuralSharing: opts?.structuralSharing,
+				from: this.id
+			});
+		};
+		this.useLoaderDeps = (opts) => {
+			return useLoaderDeps({
+				...opts,
+				from: this.id
+			});
+		};
+		this.useLoaderData = (opts) => {
+			return useLoaderData({
+				...opts,
+				from: this.id
+			});
+		};
+		this.useNavigate = () => {
+			return useNavigate({ from: this.fullPath });
+		};
+		this.Link = import_react.forwardRef((props, ref) => {
+			return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Link, {
+				ref,
+				from: this.fullPath,
+				...props
+			});
+		});
+	}
+};
+/**
+* Creates a non-root Route instance for code-based routing.
+*
+* Use this to define a route that will be composed into a route tree
+* (typically via a parent route's `addChildren`). If you're using file-based
+* routing, prefer `createFileRoute`.
+*
+* @param options Route options (path, component, loader, context, etc.).
+* @returns A Route instance to be attached to the route tree.
+* @link https://tanstack.com/router/latest/docs/framework/react/api/router/createRouteFunction
+*/
+function createRoute(options) {
+	return new Route(options);
+}
+/**
+* Creates a root route factory that requires a router context type.
+*
+* Use when your root route expects `context` to be provided to `createRouter`.
+* The returned function behaves like `createRootRoute` but enforces a context type.
+*
+* @returns A factory function to configure and return a root route.
+* @link https://tanstack.com/router/latest/docs/framework/react/api/router/createRootRouteWithContextFunction
+*/
+function createRootRouteWithContext() {
+	return (options) => {
+		return createRootRoute(options);
+	};
+}
+var RootRoute = class extends BaseRootRoute {
+	/**
+	* @deprecated `RootRoute` is now an internal implementation detail. Use `createRootRoute()` instead.
+	*/
+	constructor(options) {
+		super(options);
+		this.useMatch = (opts) => {
+			return useMatch({
+				select: opts?.select,
+				from: this.id,
+				structuralSharing: opts?.structuralSharing
+			});
+		};
+		this.useRouteContext = (opts) => {
+			return useRouteContext({
+				...opts,
+				from: this.id
+			});
+		};
+		this.useSearch = (opts) => {
+			return useSearch({
+				select: opts?.select,
+				structuralSharing: opts?.structuralSharing,
+				from: this.id
+			});
+		};
+		this.useParams = (opts) => {
+			return useParams({
+				select: opts?.select,
+				structuralSharing: opts?.structuralSharing,
+				from: this.id
+			});
+		};
+		this.useLoaderDeps = (opts) => {
+			return useLoaderDeps({
+				...opts,
+				from: this.id
+			});
+		};
+		this.useLoaderData = (opts) => {
+			return useLoaderData({
+				...opts,
+				from: this.id
+			});
+		};
+		this.useNavigate = () => {
+			return useNavigate({ from: this.fullPath });
+		};
+		this.Link = import_react.forwardRef((props, ref) => {
+			return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Link, {
+				ref,
+				from: this.fullPath,
+				...props
+			});
+		});
+	}
+};
+/**
+* Creates a root Route instance used to build your route tree.
+*
+* Typically paired with `createRouter({ routeTree })`. If you need to require
+* a typed router context, use `createRootRouteWithContext` instead.
+*
+* @param options Root route options (component, error, pending, etc.).
+* @returns A root route instance.
+* @link https://tanstack.com/router/latest/docs/framework/react/api/router/createRootRouteFunction
+*/
+function createRootRoute(options) {
+	return new RootRoute(options);
+}
+//#endregion
+//#region node_modules/@tanstack/react-router/dist/esm/fileRoute.js
+/**
+* Creates a file-based Route factory for a given path.
+*
+* Used by TanStack Router's file-based routing to associate a file with a
+* route. The returned function accepts standard route options. In normal usage
+* the `path` string is inserted and maintained by the `tsr` generator.
+*
+* @param path File path literal for the route (usually auto-generated).
+* @returns A function that accepts Route options and returns a Route instance.
+* @link https://tanstack.com/router/latest/docs/framework/react/api/router/createFileRouteFunction
+*/
+function createFileRoute(path) {
+	return new FileRoute(path, { silent: true }).createRoute;
+}
+/** 
+@deprecated It's no longer recommended to use the `FileRoute` class directly.
+Instead, use `createFileRoute('/path/to/file')(options)` to create a file route.
+*/
+var FileRoute = class {
+	constructor(path, _opts) {
+		this.path = path;
+		this.createRoute = (options) => {
+			const route = createRoute(options);
+			route.isRoot = false;
+			return route;
+		};
+		this.silent = _opts?.silent;
+	}
+};
+//#endregion
+//#region node_modules/@tanstack/react-router/dist/esm/lazyRouteComponent.js
+/**
+* Wrap a dynamic import to create a route component that supports
+* `.preload()` and friendly reload-on-module-missing behavior.
+*
+* @param importer Function returning a module promise
+* @param exportName Named export to use (default: `default`)
+* @returns A lazy route component compatible with TanStack Router
+* @link https://tanstack.com/router/latest/docs/framework/react/api/router/lazyRouteComponentFunction
+*/
+function lazyRouteComponent(importer, exportName) {
+	let loadPromise;
+	let comp;
+	let error;
+	let reload;
+	const load = () => {
+		if (!loadPromise) loadPromise = importer().then((res) => {
+			loadPromise = void 0;
+			comp = res[exportName ?? "default"];
+		}).catch((err) => {
+			error = err;
+			if (isModuleNotFoundError(error)) {
+				if (error instanceof Error && typeof window !== "undefined" && typeof sessionStorage !== "undefined") {
+					const storageKey = `tanstack_router_reload:${error.message}`;
+					if (!sessionStorage.getItem(storageKey)) {
+						sessionStorage.setItem(storageKey, "1");
+						reload = true;
+					}
+				}
+			}
+		});
+		return loadPromise;
+	};
+	const lazyComp = function Lazy(props) {
+		if (reload) {
+			window.location.reload();
+			throw new Promise(() => {});
+		}
+		if (error) throw error;
+		if (!comp) if (reactUse) reactUse(load());
+		else throw load();
+		return import_react.createElement(comp, props);
+	};
+	lazyComp.preload = load;
+	return lazyComp;
+}
+//#endregion
+//#region node_modules/@tanstack/react-router/dist/esm/CatchBoundary.js
+function CatchBoundary(props) {
+	const errorComponent = props.errorComponent ?? ErrorComponent;
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CatchBoundaryImpl, {
+		getResetKey: props.getResetKey,
+		onCatch: props.onCatch,
+		children: ({ error, reset }) => {
+			if (error) return import_react.createElement(errorComponent, {
+				error,
+				reset
+			});
+			return props.children;
+		}
+	});
+}
+var CatchBoundaryImpl = class extends import_react.Component {
+	constructor(..._args) {
+		super(..._args);
+		this.state = { error: null };
+	}
+	static getDerivedStateFromProps(props, state) {
+		const resetKey = props.getResetKey();
+		if (state.error && state.resetKey !== resetKey) return {
+			resetKey,
+			error: null
+		};
+		return { resetKey };
+	}
+	static getDerivedStateFromError(error) {
+		return { error };
+	}
+	reset() {
+		this.setState({ error: null });
+	}
+	componentDidCatch(error, errorInfo) {
+		if (this.props.onCatch) this.props.onCatch(error, errorInfo);
+	}
+	render() {
+		return this.props.children({
+			error: this.state.error,
+			reset: () => {
+				this.reset();
+			}
+		});
+	}
+};
+function ErrorComponent({ error }) {
+	const [show, setShow] = import_react.useState(false);
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+		style: {
+			padding: ".5rem",
+			maxWidth: "100%"
+		},
+		children: [
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				style: {
+					display: "flex",
+					alignItems: "center",
+					gap: ".5rem"
+				},
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", {
+					style: { fontSize: "1rem" },
+					children: "Something went wrong!"
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+					style: {
+						appearance: "none",
+						fontSize: ".6em",
+						border: "1px solid currentColor",
+						padding: ".1rem .2rem",
+						fontWeight: "bold",
+						borderRadius: ".25rem"
+					},
+					onClick: () => setShow((d) => !d),
+					children: show ? "Hide Error" : "Show Error"
+				})]
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { height: ".25rem" } }),
+			show ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("pre", {
+				style: {
+					fontSize: ".7em",
+					border: "1px solid red",
+					borderRadius: ".25rem",
+					padding: ".3rem",
+					color: "red",
+					overflow: "auto"
+				},
+				children: error.message ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("code", { children: error.message }) : null
+			}) }) : null
+		]
+	});
+}
+//#endregion
+//#region node_modules/@tanstack/react-router/dist/esm/not-found.js
+function CatchNotFound(props) {
+	const router = useRouter();
+	{
+		const resetKey = `not-found-${router.stores.location.get().pathname}-${router.stores.status.get()}`;
+		return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CatchBoundary, {
+			getResetKey: () => resetKey,
+			onCatch: (error, errorInfo) => {
+				if (isNotFound(error)) props.onCatch?.(error, errorInfo);
+				else throw error;
+			},
+			errorComponent: ({ error }) => {
+				if (isNotFound(error)) return props.fallback?.(error);
+				else throw error;
+			},
+			children: props.children
+		});
+	}
+	const resetKey = `not-found-${useStore(router.stores.location, (location) => location.pathname)}-${useStore(router.stores.status, (status) => status)}`;
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CatchBoundary, {
+		getResetKey: () => resetKey,
+		onCatch: (error, errorInfo) => {
+			if (isNotFound(error)) props.onCatch?.(error, errorInfo);
+			else throw error;
+		},
+		errorComponent: ({ error }) => {
+			if (isNotFound(error)) return props.fallback?.(error);
+			else throw error;
+		},
+		children: props.children
+	});
+}
+function DefaultGlobalNotFound() {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { children: "Not Found" });
+}
+//#endregion
+//#region node_modules/@tanstack/react-router/dist/esm/SafeFragment.js
+function SafeFragment(props) {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_jsx_runtime.Fragment, { children: props.children });
+}
+//#endregion
+//#region node_modules/@tanstack/react-router/dist/esm/renderRouteNotFound.js
+/**
+* Renders a not found component for a route when no matching route is found.
+*
+* @param router - The router instance containing the route configuration
+* @param route - The route that triggered the not found state
+* @param data - Additional data to pass to the not found component
+* @returns The rendered not found component or a default fallback component
+*/
+function renderRouteNotFound(router, route, data) {
+	if (!route.options.notFoundComponent) {
+		if (router.options.defaultNotFoundComponent) return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(router.options.defaultNotFoundComponent, { ...data });
+		return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(DefaultGlobalNotFound, {});
+	}
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(route.options.notFoundComponent, { ...data });
+}
+//#endregion
+//#region node_modules/@tanstack/react-router/dist/esm/ScriptOnce.js
+/**
+* Server-only helper to emit a script tag exactly once during SSR.
+*/
+function ScriptOnce({ children }) {
+	const router = useRouter();
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("script", {
+		nonce: router.options.ssr?.nonce,
+		dangerouslySetInnerHTML: { __html: children + ";document.currentScript.remove()" }
+	});
+}
+//#endregion
+//#region node_modules/@tanstack/router-core/dist/esm/scroll-restoration-inline.js
+var scroll_restoration_inline_default = "function(a,f){let l;try{l=JSON.parse(sessionStorage.getItem(a)||\"{}\")}catch{return}const n=l?.[f||history.state?.__TSR_key];let c=!1;for(const t in n){const e=n[t],o=e?.scrollX,s=e?.scrollY;if(Number.isFinite(o)&&Number.isFinite(s)){if(t===\"window\")scrollTo(o,s),c=!0;else if(t)try{const r=document.querySelector(t);r&&(r.scrollLeft=o,r.scrollTop=s)}catch{}}}if(c)return;const i=location.hash.slice(1);if(i){const t=history.state?.__hashScrollIntoViewOptions??!0;if(t){const e=document.getElementById(i);e&&e.scrollIntoView(t)}return}scrollTo(0,0)}";
+//#endregion
+//#region node_modules/@tanstack/router-core/dist/esm/scroll-restoration-script/server.js
+var defaultInlineScrollRestorationScript = `(${scroll_restoration_inline_default})(${escapeHtml(JSON.stringify(storageKey))})`;
+function getScrollRestorationScript(key) {
+	if (key === void 0) return defaultInlineScrollRestorationScript;
+	return `(${scroll_restoration_inline_default})(${escapeHtml(JSON.stringify(storageKey))},${escapeHtml(JSON.stringify(key))})`;
+}
+function getScrollRestorationScriptForRouter(router) {
+	if (typeof router.options.scrollRestoration === "function" && !router.options.scrollRestoration({ location: router.latestLocation })) return null;
+	const getKey = router.options.getScrollRestorationKey;
+	if (!getKey) return defaultInlineScrollRestorationScript;
+	const location = router.latestLocation;
+	const userKey = getKey(location);
+	if (userKey === defaultGetScrollRestorationKey(location)) return defaultInlineScrollRestorationScript;
+	return getScrollRestorationScript(userKey);
+}
+//#endregion
+//#region node_modules/@tanstack/react-router/dist/esm/scroll-restoration.js
+function ScrollRestoration() {
+	const script = getScrollRestorationScriptForRouter(useRouter());
+	if (!script) return null;
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ScriptOnce, { children: script });
+}
+//#endregion
+//#region node_modules/@tanstack/react-router/dist/esm/Match.js
+var matchViewFieldsEqual = (a, b) => a.routeId === b.routeId && a._displayPending === b._displayPending;
+var Match = import_react.memo(function MatchImpl({ matchId }) {
+	const router = useRouter();
+	{
+		const match = router.stores.matchStores.get(matchId)?.get();
+		if (!match) invariant();
+		const routeId = match.routeId;
+		const parentRouteId = router.routesById[routeId].parentRoute?.id;
+		return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(MatchView, {
+			router,
+			matchId,
+			resetKey: router.stores.loadedAt.get(),
+			matchState: {
+				routeId,
+				ssr: match.ssr,
+				_displayPending: match._displayPending,
+				parentRouteId
+			}
+		});
+	}
+	const matchStore = router.stores.matchStores.get(matchId);
+	if (!matchStore) invariant();
+	const resetKey = useStore(router.stores.loadedAt, (loadedAt) => loadedAt);
+	const match = useStore(matchStore, (value) => value, matchViewFieldsEqual);
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(MatchView, {
+		router,
+		matchId,
+		resetKey,
+		matchState: import_react.useMemo(() => {
+			const routeId = match.routeId;
+			const parentRouteId = router.routesById[routeId].parentRoute?.id;
+			return {
+				routeId,
+				ssr: match.ssr,
+				_displayPending: match._displayPending,
+				parentRouteId
+			};
+		}, [
+			match._displayPending,
+			match.routeId,
+			match.ssr,
+			router.routesById
+		])
+	});
+});
+function MatchView({ router, matchId, resetKey, matchState }) {
+	const route = router.routesById[matchState.routeId];
+	const PendingComponent = route.options.pendingComponent ?? router.options.defaultPendingComponent;
+	const pendingElement = PendingComponent ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PendingComponent, {}) : null;
+	const routeErrorComponent = route.options.errorComponent ?? router.options.defaultErrorComponent;
+	const routeOnCatch = route.options.onCatch ?? router.options.defaultOnCatch;
+	const routeNotFoundComponent = route.isRoot ? route.options.notFoundComponent ?? router.options.notFoundRoute?.options.component : route.options.notFoundComponent;
+	const resolvedNoSsr = matchState.ssr === false || matchState.ssr === "data-only";
+	const ResolvedSuspenseBoundary = (!route.isRoot || route.options.wrapInSuspense || resolvedNoSsr) && (route.options.wrapInSuspense ?? PendingComponent ?? (route.options.errorComponent?.preload || resolvedNoSsr)) ? import_react.Suspense : SafeFragment;
+	const ResolvedCatchBoundary = routeErrorComponent ? CatchBoundary : SafeFragment;
+	const ResolvedNotFoundBoundary = routeNotFoundComponent ? CatchNotFound : SafeFragment;
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(route.isRoot ? route.options.shellComponent ?? SafeFragment : SafeFragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(matchContext.Provider, {
+		value: matchId,
+		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ResolvedSuspenseBoundary, {
+			fallback: pendingElement,
+			children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ResolvedCatchBoundary, {
+				getResetKey: () => resetKey,
+				errorComponent: routeErrorComponent || ErrorComponent,
+				onCatch: (error, errorInfo) => {
+					if (isNotFound(error)) {
+						error.routeId ?? (error.routeId = matchState.routeId);
+						throw error;
+					}
+					routeOnCatch?.(error, errorInfo);
+				},
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ResolvedNotFoundBoundary, {
+					fallback: (error) => {
+						error.routeId ?? (error.routeId = matchState.routeId);
+						if (!routeNotFoundComponent || error.routeId && error.routeId !== matchState.routeId || !error.routeId && !route.isRoot) throw error;
+						return import_react.createElement(routeNotFoundComponent, error);
+					},
+					children: resolvedNoSsr || matchState._displayPending ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ClientOnly, {
+						fallback: pendingElement,
+						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(MatchInner, { matchId })
+					}) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(MatchInner, { matchId })
+				})
+			})
+		})
+	}), matchState.parentRouteId === "__root__" ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(OnRendered, {}), router.options.scrollRestoration && true ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ScrollRestoration, {}) : null] }) : null] });
+}
+function OnRendered() {
+	useRouter();
+	return null;
+}
+var MatchInner = import_react.memo(function MatchInnerImpl({ matchId }) {
+	const router = useRouter();
+	const getMatchPromise = (match, key) => {
+		return router.getMatch(match.id)?._nonReactive[key] ?? match._nonReactive[key];
+	};
+	{
+		const match = router.stores.matchStores.get(matchId)?.get();
+		if (!match) invariant();
+		const routeId = match.routeId;
+		const route = router.routesById[routeId];
+		const remountDeps = (router.routesById[routeId].options.remountDeps ?? router.options.defaultRemountDeps)?.({
+			routeId,
+			loaderDeps: match.loaderDeps,
+			params: match._strictParams,
+			search: match._strictSearch
+		});
+		const key = remountDeps ? JSON.stringify(remountDeps) : void 0;
+		const Comp = route.options.component ?? router.options.defaultComponent;
+		const out = Comp ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Comp, {}, key) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Outlet, {});
+		if (match._displayPending) throw getMatchPromise(match, "displayPendingPromise");
+		if (match._forcePending) throw getMatchPromise(match, "minPendingPromise");
+		if (match.status === "pending") throw getMatchPromise(match, "loadPromise");
+		if (match.status === "notFound") {
+			if (!isNotFound(match.error)) invariant();
+			return renderRouteNotFound(router, route, match.error);
+		}
+		if (match.status === "redirected") {
+			if (!isRedirect(match.error)) invariant();
+			throw getMatchPromise(match, "loadPromise");
+		}
+		if (match.status === "error") return /* @__PURE__ */ (0, import_jsx_runtime.jsx)((route.options.errorComponent ?? router.options.defaultErrorComponent) || ErrorComponent, {
+			error: match.error,
+			reset: void 0,
+			info: { componentStack: "" }
+		});
+		return out;
+	}
+	const matchStore = router.stores.matchStores.get(matchId);
+	if (!matchStore) invariant();
+	const match = useStore(matchStore, (value) => value);
+	const routeId = match.routeId;
+	const route = router.routesById[routeId];
+	const key = import_react.useMemo(() => {
+		const remountDeps = (router.routesById[routeId].options.remountDeps ?? router.options.defaultRemountDeps)?.({
+			routeId,
+			loaderDeps: match.loaderDeps,
+			params: match._strictParams,
+			search: match._strictSearch
+		});
+		return remountDeps ? JSON.stringify(remountDeps) : void 0;
+	}, [
+		routeId,
+		match.loaderDeps,
+		match._strictParams,
+		match._strictSearch,
+		router.options.defaultRemountDeps,
+		router.routesById
+	]);
+	const out = import_react.useMemo(() => {
+		const Comp = route.options.component ?? router.options.defaultComponent;
+		if (Comp) return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Comp, {}, key);
+		return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Outlet, {});
+	}, [
+		key,
+		route.options.component,
+		router.options.defaultComponent
+	]);
+	if (match._displayPending) throw getMatchPromise(match, "displayPendingPromise");
+	if (match._forcePending) throw getMatchPromise(match, "minPendingPromise");
+	if (match.status === "pending") {
+		if (route.options.pendingMinMs ?? router.options.defaultPendingMinMs) {
+			const routerMatch = router.getMatch(match.id);
+			if (routerMatch && !routerMatch._nonReactive.minPendingPromise) {}
+		}
+		throw getMatchPromise(match, "loadPromise");
+	}
+	if (match.status === "notFound") {
+		if (!isNotFound(match.error)) invariant();
+		return renderRouteNotFound(router, route, match.error);
+	}
+	if (match.status === "redirected") {
+		if (!isRedirect(match.error)) invariant();
+		throw getMatchPromise(match, "loadPromise");
+	}
+	if (match.status === "error") return /* @__PURE__ */ (0, import_jsx_runtime.jsx)((route.options.errorComponent ?? router.options.defaultErrorComponent) || ErrorComponent, {
+		error: match.error,
+		reset: void 0,
+		info: { componentStack: "" }
+	});
+	return out;
+});
+/**
+* Render the next child match in the route tree. Typically used inside
+* a route component to render nested routes.
+*
+* @link https://tanstack.com/router/latest/docs/framework/react/api/router/outletComponent
+*/
+var Outlet = import_react.memo(function OutletImpl() {
+	const router = useRouter();
+	const matchId = import_react.useContext(matchContext);
+	let routeId;
+	let parentGlobalNotFound = false;
+	let childMatchId;
+	{
+		const matches = router.stores.matches.get();
+		const parentIndex = matchId ? matches.findIndex((match) => match.id === matchId) : -1;
+		const parentMatch = parentIndex >= 0 ? matches[parentIndex] : void 0;
+		routeId = parentMatch?.routeId;
+		parentGlobalNotFound = parentMatch?.globalNotFound ?? false;
+		childMatchId = parentIndex >= 0 ? matches[parentIndex + 1]?.id : void 0;
+	}
+	const route = routeId ? router.routesById[routeId] : void 0;
+	const pendingElement = router.options.defaultPendingComponent ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(router.options.defaultPendingComponent, {}) : null;
+	if (parentGlobalNotFound) {
+		if (!route) invariant();
+		return renderRouteNotFound(router, route, void 0);
+	}
+	if (!childMatchId) return null;
+	const nextMatch = /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Match, { matchId: childMatchId });
+	if (routeId === "__root__") return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_react.Suspense, {
+		fallback: pendingElement,
+		children: nextMatch
+	});
+	return nextMatch;
+});
+//#endregion
+//#region node_modules/@tanstack/react-router/dist/esm/routerStores.js
+var getStoreFactory = (opts) => {
+	return {
+		createMutableStore: createNonReactiveMutableStore,
+		createReadonlyStore: createNonReactiveReadonlyStore,
+		batch: (fn) => fn()
+	};
+};
+//#endregion
+//#region node_modules/@tanstack/react-router/dist/esm/router.js
+/**
+* Creates a new Router instance for React.
+*
+* Pass the returned router to `RouterProvider` to enable routing.
+* Notable options: `routeTree` (your route definitions) and `context`
+* (required if the root route was created with `createRootRouteWithContext`).
+*
+* @param options Router options used to configure the router.
+* @returns A Router instance to be provided to `RouterProvider`.
+* @link https://tanstack.com/router/latest/docs/framework/react/api/router/createRouterFunction
+*/
+var createRouter = (options) => {
+	return new Router(options);
+};
+var Router = class extends RouterCore {
+	constructor(options) {
+		super(options, getStoreFactory);
+	}
+};
+//#endregion
+//#region node_modules/@tanstack/react-router/dist/esm/Matches.js
+/**
+* Internal component that renders the router's active match tree with
+* suspense, error, and not-found boundaries. Rendered by `RouterProvider`.
+*/
+function Matches() {
+	const router = useRouter();
+	const PendingComponent = router.routesById["__root__"].options.pendingComponent ?? router.options.defaultPendingComponent;
+	const pendingElement = PendingComponent ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PendingComponent, {}) : null;
+	const inner = /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(SafeFragment, {
+		fallback: pendingElement,
+		children: [false, /* @__PURE__ */ (0, import_jsx_runtime.jsx)(MatchesInner, {})]
+	});
+	return router.options.InnerWrap ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(router.options.InnerWrap, { children: inner }) : inner;
+}
+function MatchesInner() {
+	const router = useRouter();
+	const matchId = router.stores.firstId.get();
+	const resetKey = router.stores.loadedAt.get();
+	const matchComponent = matchId ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Match, { matchId }) : null;
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(matchContext.Provider, {
+		value: matchId,
+		children: router.options.disableGlobalCatchBoundary ? matchComponent : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CatchBoundary, {
+			getResetKey: () => resetKey,
+			errorComponent: ErrorComponent,
+			onCatch: void 0,
+			children: matchComponent
+		})
+	});
+}
+//#endregion
+//#region node_modules/@tanstack/react-router/dist/esm/RouterProvider.js
+/**
+* Low-level provider that places the router into React context and optionally
+* updates router options from props. Most apps should use `RouterProvider`.
+*/
+function RouterContextProvider({ router, children, ...rest }) {
+	if (hasKeys(rest)) router.update({
+		...router.options,
+		...rest,
+		context: {
+			...router.options.context,
+			...rest.context
+		}
+	});
+	const provider = /* @__PURE__ */ (0, import_jsx_runtime.jsx)(routerContext.Provider, {
+		value: router,
+		children
+	});
+	if (router.options.Wrap) return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(router.options.Wrap, { children: provider });
+	return provider;
+}
+/**
+* Top-level component that renders the active route matches and provides the
+* router to the React tree via context.
+*
+* Accepts the same options as `createRouter` via props to update the router
+* instance after creation.
+*
+* @link https://tanstack.com/router/latest/docs/framework/react/api/router/createRouterFunction
+*/
+function RouterProvider({ router, ...rest }) {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(RouterContextProvider, {
+		router,
+		...rest,
+		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Matches, {})
+	});
+}
+//#endregion
+//#region node_modules/@tanstack/react-router/dist/esm/Asset.js
+var noopScriptHandler = () => {};
+function setScriptAttrs(script, attrs) {
+	if (!attrs) return;
+	for (const [key, value] of Object.entries(attrs)) if (key !== "suppressHydrationWarning" && value !== void 0 && value !== false) script.setAttribute(key, typeof value === "boolean" ? "" : String(value));
+}
+function Asset(asset) {
+	const { attrs, children, nonce, preventScriptHoist } = asset;
+	switch (asset.tag) {
+		case "title": return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("title", {
+			...attrs,
+			suppressHydrationWarning: true,
+			children
+		});
+		case "meta": return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("meta", {
+			...attrs,
+			suppressHydrationWarning: true
+		});
+		case "link": return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("link", {
+			...attrs,
+			precedence: attrs?.precedence ?? (attrs?.rel === "stylesheet" ? "default" : void 0),
+			nonce,
+			suppressHydrationWarning: true
+		});
+		case "style":
+			if (asset.inlineCss && false);
+			return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("style", {
+				...attrs,
+				dangerouslySetInnerHTML: { __html: children },
+				nonce
+			});
+		case "script": return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Script, {
+			attrs,
+			preventScriptHoist,
+			children
+		});
+		default: return null;
+	}
+}
+function Script({ attrs, children, preventScriptHoist }) {
+	useRouter();
+	useHydrated();
+	const dataScript = typeof attrs?.type === "string" && attrs.type !== "" && attrs.type !== "text/javascript" && attrs.type !== "module";
+	import_react.useEffect(() => {
+		if (dataScript) return;
+		if (attrs?.src) {
+			const normSrc = (() => {
+				try {
+					const base = document.baseURI || window.location.href;
+					return new URL(attrs.src, base).href;
+				} catch {
+					return attrs.src;
+				}
+			})();
+			for (const el of document.querySelectorAll("script[src]")) if (el.src === normSrc) return;
+			const script = document.createElement("script");
+			setScriptAttrs(script, attrs);
+			document.head.appendChild(script);
+			return () => script.remove();
+		}
+		if (typeof children === "string") {
+			const typeAttr = typeof attrs?.type === "string" ? attrs.type : "text/javascript";
+			const nonceAttr = typeof attrs?.nonce === "string" ? attrs.nonce : void 0;
+			for (const el of document.querySelectorAll("script:not([src])")) {
+				if (!(el instanceof HTMLScriptElement)) continue;
+				const sType = el.getAttribute("type") ?? "text/javascript";
+				const sNonce = el.getAttribute("nonce") ?? void 0;
+				if (el.textContent === children && sType === typeAttr && sNonce === nonceAttr) return;
+			}
+			const script = document.createElement("script");
+			script.textContent = children;
+			setScriptAttrs(script, attrs);
+			document.head.appendChild(script);
+			return () => script.remove();
+		}
+	}, [
+		attrs,
+		children,
+		dataScript
+	]);
+	if (attrs?.src) {
+		if (!preventScriptHoist) return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("script", {
+			...attrs,
+			suppressHydrationWarning: true
+		});
+		return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("script", {
+			...attrs,
+			onLoad: noopScriptHandler,
+			suppressHydrationWarning: true
+		});
+	}
+	if (typeof children === "string") return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("script", {
+		...attrs,
+		dangerouslySetInnerHTML: { __html: children },
+		suppressHydrationWarning: true
+	});
+	return null;
+}
+//#endregion
+//#region node_modules/@tanstack/react-router/dist/esm/headContentUtils.js
+function buildTagsFromMatches(router, nonce, matches, assetCrossOrigin) {
+	const routeMeta = matches.map((match) => match.meta).filter((meta) => meta !== void 0);
+	const resultMeta = [];
+	const metaByAttribute = {};
+	let title;
+	for (let i = routeMeta.length - 1; i >= 0; i--) {
+		const metas = routeMeta[i];
+		for (let j = metas.length - 1; j >= 0; j--) {
+			const m = metas[j];
+			if (!m) continue;
+			if (m.title) {
+				if (!title) title = {
+					tag: "title",
+					children: m.title
+				};
+			} else if ("script:ld+json" in m) try {
+				const json = JSON.stringify(m["script:ld+json"]);
+				resultMeta.push({
+					tag: "script",
+					attrs: { type: "application/ld+json" },
+					children: escapeHtml(json)
+				});
+			} catch {}
+			else {
+				const attribute = m.name ?? m.property;
+				if (attribute) if (metaByAttribute[attribute]) continue;
+				else metaByAttribute[attribute] = true;
+				resultMeta.push({
+					tag: "meta",
+					attrs: {
+						...m,
+						nonce
+					}
+				});
+			}
+		}
+	}
+	if (title) resultMeta.push(title);
+	if (nonce) resultMeta.push({
+		tag: "meta",
+		attrs: {
+			property: "csp-nonce",
+			content: nonce
+		}
+	});
+	resultMeta.reverse();
+	const constructedLinks = matches.flatMap((match) => match.links ?? []).filter((link) => link !== void 0).map((link) => ({
+		tag: "link",
+		attrs: {
+			...link,
+			nonce
+		}
+	}));
+	const manifest = router.ssr?.manifest;
+	const manifestCssTags = [];
+	if (manifest) {
+		matches.forEach((match) => {
+			(manifest.routes[match.routeId]?.css)?.forEach((link) => {
+				const resolvedLink = resolveManifestCssLink(link);
+				manifestCssTags.push({
+					tag: "link",
+					attrs: {
+						rel: "stylesheet",
+						...resolvedLink,
+						crossOrigin: getAssetCrossOrigin(assetCrossOrigin, "stylesheet") ?? resolvedLink.crossOrigin,
+						suppressHydrationWarning: true,
+						nonce
+					}
+				});
+			});
+		});
+		if (manifest.inlineStyle) manifestCssTags.push({
+			tag: "style",
+			attrs: {
+				...manifest.inlineStyle.attrs,
+				nonce
+			},
+			children: manifest.inlineStyle.children,
+			inlineCss: true
+		});
+	}
+	const preloadLinks = [];
+	if (manifest) matches.forEach((match) => {
+		manifest.routes[match.routeId]?.preloads?.forEach((preload) => {
+			preloadLinks.push({
+				tag: "link",
+				attrs: {
+					...getScriptPreloadAttrs(manifest, preload, assetCrossOrigin),
+					nonce
+				}
+			});
+		});
+	});
+	const styles = matches.flatMap((match) => match.styles ?? []).filter((style) => style !== void 0).map(({ children, ...attrs }) => ({
+		tag: "style",
+		attrs: {
+			...attrs,
+			nonce
+		},
+		children
+	}));
+	const headScripts = matches.flatMap((match) => match.headScripts ?? []).filter((script) => script !== void 0).map(({ children, ...script }) => ({
+		tag: "script",
+		attrs: {
+			...script,
+			nonce
+		},
+		children
+	}));
+	const tags = [];
+	appendUniqueUserTags(tags, resultMeta);
+	tags.push(...preloadLinks);
+	appendUniqueUserTags(tags, constructedLinks);
+	tags.push(...manifestCssTags);
+	appendUniqueUserTags(tags, styles);
+	appendUniqueUserTags(tags, headScripts);
+	return tags;
+}
+/**
+* Build the list of head/link/meta/script tags to render for active matches.
+* Used internally by `HeadContent`.
+*/
+var useTags = (assetCrossOrigin) => {
+	const router = useRouter();
+	const nonce = router.options.ssr?.nonce;
+	return buildTagsFromMatches(router, nonce, router.stores.matches.get(), assetCrossOrigin);
+};
+//#endregion
+//#region node_modules/@tanstack/react-router/dist/esm/HeadContent.js
+/**
+* Render route-managed head tags (title, meta, links, styles, head scripts).
+* Place inside the document head of your app shell.
+* @link https://tanstack.com/router/latest/docs/framework/react/guide/document-head-management
+*/
+function HeadContent(props) {
+	const tags = useTags(props.assetCrossOrigin);
+	const nonce = useRouter().options.ssr?.nonce;
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_jsx_runtime.Fragment, { children: tags.map((tag) => /* @__PURE__ */ (0, import_react.createElement)(Asset, {
+		...tag,
+		key: `tsr-meta-${JSON.stringify(tag)}`,
+		nonce
+	})) });
+}
+//#endregion
+//#region node_modules/@tanstack/react-router/dist/esm/Scripts.js
+/**
+* Render body script tags collected from route matches and SSR manifests.
+* Should be placed near the end of the document body.
+*/
+var Scripts = () => {
+	const router = useRouter();
+	const nonce = router.options.ssr?.nonce;
+	const getAssetScripts = (matches) => {
+		const assetScripts = [];
+		const manifest = router.ssr?.manifest;
+		if (!manifest) return [];
+		for (const match of matches) {
+			const scripts = manifest.routes[match.routeId]?.scripts;
+			if (!scripts) continue;
+			for (const asset of scripts) assetScripts.push({
+				tag: "script",
+				attrs: {
+					...asset.attrs,
+					nonce
+				},
+				children: asset.children,
+				...typeof asset.attrs?.src === "string" ? { preventScriptHoist: true } : {}
+			});
+		}
+		return assetScripts;
+	};
+	const getScripts = (matches) => matches.map((match) => match.scripts).flat(1).filter(Boolean).map(({ children, ...script }) => ({
+		tag: "script",
+		attrs: {
+			...script,
+			suppressHydrationWarning: true,
+			nonce
+		},
+		children
+	}));
+	{
+		const activeMatches = router.stores.matches.get();
+		const assetScripts = getAssetScripts(activeMatches);
+		return renderScripts(router, getScripts(activeMatches), assetScripts);
+	}
+	const assetScripts = useStore(router.stores.matches, getAssetScripts, deepEqual);
+	return renderScripts(router, useStore(router.stores.matches, getScripts, deepEqual), assetScripts);
+};
+function renderScripts(router, scripts, assetScripts) {
+	const allScripts = [...scripts, ...assetScripts];
+	if (router.serverSsr) {
+		const serverBufferedScript = router.serverSsr.takeBufferedScripts();
+		if (serverBufferedScript) allScripts.unshift(serverBufferedScript);
+	}
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_jsx_runtime.Fragment, { children: allScripts.map((asset, i) => /* @__PURE__ */ (0, import_react.createElement)(Asset, {
+		...asset,
+		key: `tsr-scripts-${asset.tag}-${i}`
+	})) });
+}
+//#endregion
+//#region node_modules/@tanstack/router-core/dist/esm/ssr/handlerCallback.js
+function isSsrResponse(value) {
+	return typeof value === "object" && value !== null && "response" in value && "serverSsrCleanup" in value;
+}
+function normalizeSsrResponse(result) {
+	return isSsrResponse(result) ? result : {
+		response: result,
+		serverSsrCleanup: "none"
+	};
+}
+function createSsrStreamResponse(router, response) {
+	if (!response.body) throw new Error("Invariant failed: SSR stream response requires a body");
+	let disposed = false;
+	return {
+		response,
+		serverSsrCleanup: "stream",
+		async dispose(reason) {
+			if (disposed) return;
+			disposed = true;
+			try {
+				await response.body.cancel(reason);
+			} catch {}
+			router.serverSsr?.cleanup();
+		}
+	};
+}
+async function replaceSsrResponse(result, response, reason) {
+	const ssrResponse = normalizeSsrResponse(result);
+	if (ssrResponse.serverSsrCleanup === "stream") await ssrResponse.dispose(reason);
+	return {
+		response,
+		serverSsrCleanup: "none"
+	};
+}
+async function stripSsrResponseBody(result, reason) {
+	const ssrResponse = normalizeSsrResponse(result);
+	if (ssrResponse.serverSsrCleanup === "stream") await ssrResponse.dispose(reason);
+	return {
+		response: new Response(null, ssrResponse.response),
+		serverSsrCleanup: "none"
+	};
+}
+function defineHandlerCallback(handler) {
+	return handler;
+}
+//#endregion
+//#region node_modules/@tanstack/router-core/dist/esm/ssr/transformStreamWithRouter.js
+function transformReadableStreamWithRouter(router, routerStream, opts) {
+	return transformStreamWithRouter(router, routerStream, opts);
+}
+function transformPipeableStreamWithRouter(router, routerStream, opts) {
+	return Readable.fromWeb(transformStreamWithRouter(router, Readable.toWeb(routerStream), opts));
+}
+var MIN_CLOSING_TAG_LENGTH = 4;
+var DEFAULT_SERIALIZATION_TIMEOUT_MS = 6e4;
+var DEFAULT_LIFETIME_TIMEOUT_MS = DEFAULT_SERIALIZATION_TIMEOUT_MS * 2;
+var MAX_LEFTOVER_CHARS = 2048;
+var MAX_TAIL_CHARS = 64 * 1024;
+var MAX_ROUTER_HTML_CHARS = 16 * 1024 * 1024;
+var MAX_PENDING_WRITE_CHARS = 16 * 1024 * 1024;
+var MergeState = {
+	ReadingBody: 0,
+	HoldingTail: 1,
+	AppDone: 2,
+	Draining: 3,
+	Done: 4
+};
+var textEncoder = new TextEncoder();
+var noop$1 = () => {};
+var resolvedPromise = Promise.resolve();
+function findHtmlBoundary(str) {
+	let lastClosingTagEnd = -1;
+	let searchFrom = str.length - MIN_CLOSING_TAG_LENGTH;
+	while (searchFrom >= 0) {
+		const openSlash = str.lastIndexOf("</", searchFrom);
+		if (openSlash === -1) break;
+		if ((str.charCodeAt(openSlash + 2) | 32) === 98 && (str.charCodeAt(openSlash + 3) | 32) === 111 && (str.charCodeAt(openSlash + 4) | 32) === 100 && (str.charCodeAt(openSlash + 5) | 32) === 121 && str.charCodeAt(openSlash + 6) === 62) return -openSlash - 2;
+		if (lastClosingTagEnd === -1) {
+			let i = openSlash + 2;
+			const startCode = str.charCodeAt(i);
+			if (startCode >= 97 && startCode <= 122 || startCode >= 65 && startCode <= 90) {
+				i++;
+				while (i < str.length) {
+					const code = str.charCodeAt(i);
+					if (code >= 97 && code <= 122 || code >= 65 && code <= 90 || code >= 48 && code <= 57 || code === 95 || code === 58 || code === 46 || code === 45) i++;
+					else break;
+				}
+				if (str.charCodeAt(i) === 62) lastClosingTagEnd = i + 1;
+			}
+		}
+		searchFrom = openSlash - 1;
+	}
+	return lastClosingTagEnd;
+}
+function safeReleaseReader(reader) {
+	try {
+		reader.releaseLock();
+		return true;
+	} catch {
+		return false;
+	}
+}
+/**
+* Cancel a reader without producing an unhandled rejection. `reader.cancel()`
+* can reject (e.g. when the underlying source's cancel() throws), and
+* downstream cancel() should still wait for upstream teardown when possible.
+*/
+function safeCancelReader(reader, reason) {
+	let cancelPromise;
+	try {
+		cancelPromise = reader.cancel(reason);
+	} catch {}
+	if (!safeReleaseReader(reader) && cancelPromise) return cancelPromise.then(noop$1, noop$1).then(() => {
+		safeReleaseReader(reader);
+	});
+	return cancelPromise ? cancelPromise.then(noop$1, noop$1) : resolvedPromise;
+}
+function createReaderState(appStream) {
+	const reader = appStream.getReader();
+	let released = false;
+	return {
+		reader,
+		cancel: (reason) => {
+			if (released) return resolvedPromise;
+			released = true;
+			return safeCancelReader(reader, reason);
+		},
+		release: () => {
+			if (released) return;
+			released = true;
+			safeReleaseReader(reader);
+		}
+	};
+}
+function createAbortNotifier(opts) {
+	let abortNotified = false;
+	return (reason) => {
+		if (abortNotified) return;
+		abortNotified = true;
+		try {
+			opts?.onAbort?.(reason);
+		} catch {}
+	};
+}
+function transformStreamWithRouter(router, appStream, opts) {
+	const serverSsr = router.serverSsr;
+	if (!serverSsr) throw new Error("Invariant failed: router.serverSsr is required");
+	if (serverSsr.reserveStreamFastPath()) return makeFastPathStream(appStream, opts, serverSsr);
+	return makeMainStream(serverSsr, appStream, opts);
+}
+function makeFastPathStream(appStream, opts, serverSsr) {
+	let cleanedUp = false;
+	let controller;
+	let state = MergeState.ReadingBody;
+	let lifetimeTimeoutHandle;
+	let stopListeningToInjectedHtml;
+	const readerState = createReaderState(appStream);
+	const notifyAbort = createAbortNotifier(opts);
+	const isDone = () => state === MergeState.Done;
+	let renderFinished = false;
+	const finishSsrRendering = () => {
+		if (!serverSsr || renderFinished) return true;
+		renderFinished = true;
+		try {
+			serverSsr.setRenderFinished();
+			return true;
+		} catch (error) {
+			safeError(error);
+			cleanup(error);
+			return false;
+		}
+	};
+	const cleanup = (reason, cancelReader = true) => {
+		if (cleanedUp) return resolvedPromise;
+		cleanedUp = true;
+		if (lifetimeTimeoutHandle !== void 0) {
+			clearTimeout(lifetimeTimeoutHandle);
+			lifetimeTimeoutHandle = void 0;
+		}
+		try {
+			stopListeningToInjectedHtml?.();
+		} catch {}
+		stopListeningToInjectedHtml = void 0;
+		if (cancelReader) notifyAbort(reason);
+		const readerDone = cancelReader ? readerState.cancel(reason) : (readerState.release(), resolvedPromise);
+		if (serverSsr) try {
+			serverSsr.cleanup();
+		} catch (error) {
+			console.error("Error in SSR cleanup:", error);
+		}
+		return readerDone;
+	};
+	const safeClose = () => {
+		if (isDone()) return;
+		state = MergeState.Done;
+		try {
+			controller?.close();
+		} catch {}
+	};
+	const safeError = (error) => {
+		if (isDone()) return;
+		state = MergeState.Done;
+		try {
+			controller?.error(error);
+		} catch {}
+	};
+	if (serverSsr) stopListeningToInjectedHtml = serverSsr.onInjectedHtml(() => {
+		const err = /* @__PURE__ */ new Error("SSR router HTML injected during fast path");
+		safeError(err);
+		cleanup(err);
+	});
+	const lifetimeMs = opts?.lifetimeMs ?? DEFAULT_LIFETIME_TIMEOUT_MS;
+	lifetimeTimeoutHandle = setTimeout(() => {
+		if (!cleanedUp && !isDone()) {
+			const err = /* @__PURE__ */ new Error("Stream lifetime exceeded");
+			console.warn(`SSR stream transform exceeded maximum lifetime (${lifetimeMs}ms), forcing cleanup`);
+			safeError(err);
+			cleanup(err);
+		}
+	}, lifetimeMs);
+	return new ReadableStream$1({
+		start(c) {
+			controller = c;
+		},
+		async pull(c) {
+			if (cleanedUp || isDone()) return;
+			try {
+				const { done, value } = await readerState.reader.read();
+				if (!done) {
+					if (!cleanedUp && !isDone()) c.enqueue(value);
+					return;
+				}
+				if (cleanedUp || isDone()) return;
+				if (!finishSsrRendering()) return;
+				safeClose();
+				return cleanup(void 0, false);
+			} catch (error) {
+				if (cleanedUp) return;
+				console.error("Error reading appStream:", error);
+				if (state < MergeState.AppDone) try {
+					serverSsr?.setRenderFinished();
+				} catch {}
+				safeError(error);
+				return cleanup(error);
+			} finally {
+				if (cleanedUp || isDone()) readerState.release();
+			}
+		},
+		cancel(reason) {
+			state = MergeState.Done;
+			return cleanup(reason);
+		}
+	});
+}
+function makeMainStream(serverSsr, appStream, opts) {
+	let stopListeningToInjectedHtml;
+	let stopListeningToSerializationFinished;
+	let serializationTimeoutHandle;
+	let lifetimeTimeoutHandle;
+	let cleanedUp = false;
+	let controller;
+	let closeWhenDrained = false;
+	let state = MergeState.ReadingBody;
+	const readerState = createReaderState(appStream);
+	const notifyAbort = createAbortNotifier(opts);
+	const pendingWrites = [];
+	let pendingWriteHead = 0;
+	let pendingWriteChars = 0;
+	function clearPending() {
+		pendingWrites.length = 0;
+		pendingWriteHead = 0;
+		pendingWriteChars = 0;
+	}
+	let drainResolve = null;
+	const waitForDrain = () => new Promise((r) => {
+		drainResolve = r;
+	});
+	const signalDrain = () => {
+		if (drainResolve) {
+			const r = drainResolve;
+			drainResolve = null;
+			r();
+		}
+	};
+	const isDone = () => state === MergeState.Done;
+	function drainPending() {
+		if (!controller || isDone()) return;
+		while (pendingWriteHead < pendingWrites.length) {
+			const ds = controller.desiredSize;
+			if (ds !== null && ds <= 0) return;
+			const next = pendingWrites[pendingWriteHead];
+			pendingWrites[pendingWriteHead] = "";
+			pendingWriteHead++;
+			pendingWriteChars -= next.length;
+			try {
+				controller.enqueue(textEncoder.encode(next));
+			} catch (error) {
+				safeError(error);
+				cleanup(error);
+				return;
+			}
+		}
+		if (pendingWriteHead >= pendingWrites.length) {
+			pendingWrites.length = 0;
+			pendingWriteHead = 0;
+		}
+		if (closeWhenDrained && pendingWriteHead >= pendingWrites.length) {
+			closeWhenDrained = false;
+			safeClose();
+			cleanup(void 0, false);
+		}
+	}
+	/**
+	* Enqueue a string chunk through the backpressure queue. Stored as a
+	* string and encoded only when the downstream actually accepts the chunk
+	* — keeps native-memory pressure inside the controller's queue (which
+	* honors desiredSize) rather than ours.
+	*/
+	function writeChunk(chunk) {
+		if (cleanedUp || isDone()) return;
+		if (!chunk.length) return;
+		if (pendingWriteChars + chunk.length > MAX_PENDING_WRITE_CHARS) {
+			const err = /* @__PURE__ */ new Error("SSR stream pending output exceeded maximum buffer");
+			safeError(err);
+			cleanup(err);
+			return;
+		}
+		pendingWrites.push(chunk);
+		pendingWriteChars += chunk.length;
+		drainPending();
+	}
+	function safeClose() {
+		if (isDone()) return;
+		state = MergeState.Done;
+		try {
+			controller?.close();
+		} catch {}
+	}
+	function safeError(error) {
+		if (isDone()) return;
+		state = MergeState.Done;
+		try {
+			controller?.error(error);
+		} catch {}
+	}
+	/**
+	* Cleanup with guards; must be idempotent.
+	*/
+	function cleanup(reason, cancelReader = true) {
+		if (cleanedUp) return resolvedPromise;
+		cleanedUp = true;
+		try {
+			stopListeningToInjectedHtml?.();
+			stopListeningToSerializationFinished?.();
+		} catch {}
+		stopListeningToInjectedHtml = void 0;
+		stopListeningToSerializationFinished = void 0;
+		if (serializationTimeoutHandle !== void 0) {
+			clearTimeout(serializationTimeoutHandle);
+			serializationTimeoutHandle = void 0;
+		}
+		if (lifetimeTimeoutHandle !== void 0) {
+			clearTimeout(lifetimeTimeoutHandle);
+			lifetimeTimeoutHandle = void 0;
+		}
+		clearPendingRouterHtml();
+		leftover = "";
+		pendingTail = "";
+		clearPending();
+		if (cancelReader) notifyAbort(reason);
+		const readerDone = cancelReader ? readerState.cancel(reason) : (readerState.release(), resolvedPromise);
+		signalDrain();
+		try {
+			serverSsr.cleanup();
+		} catch (error) {
+			console.error("Error in SSR cleanup:", error);
+		}
+		return readerDone;
+	}
+	const textDecoder = new TextDecoder();
+	const pendingRouterHtml = [];
+	let pendingRouterHtmlChars = 0;
+	let leftover = "";
+	let pendingTail = "";
+	let streamBarrierLifted = false;
+	let streamBarrierMarkerSeen = false;
+	let serializationFinished = false;
+	function noteBarrierMarker(chunk) {
+		if (streamBarrierMarkerSeen) return;
+		if (chunk.includes("$tsr-stream-barrier")) streamBarrierMarkerSeen = true;
+	}
+	function liftBarrierAfterBoundary() {
+		if (streamBarrierLifted) return;
+		if (!streamBarrierMarkerSeen) return;
+		streamBarrierLifted = true;
+		serverSsr.liftScriptBarrier();
+	}
+	const stream = new ReadableStream$1({
+		start(c) {
+			controller = c;
+			drainPending();
+		},
+		pull() {
+			drainPending();
+			signalDrain();
+		},
+		cancel(reason) {
+			state = MergeState.Done;
+			return cleanup(reason);
+		}
+	});
+	function drainRouterHtml() {
+		if (cleanedUp || isDone()) return;
+		let html;
+		try {
+			html = serverSsr.takeBufferedHtml();
+		} catch (error) {
+			safeError(error);
+			cleanup(error);
+			return;
+		}
+		if (!html) return;
+		if (state >= MergeState.Draining) {
+			const err = /* @__PURE__ */ new Error("SSR router HTML injected after stream finalization");
+			safeError(err);
+			cleanup(err);
+			return;
+		}
+		if (state === MergeState.HoldingTail) {
+			flushPendingRouterHtml();
+			writeChunk(html);
+		} else {
+			if (pendingRouterHtmlChars + html.length > MAX_ROUTER_HTML_CHARS) {
+				const err = /* @__PURE__ */ new Error("SSR router HTML exceeded maximum buffer");
+				safeError(err);
+				cleanup(err);
+				return;
+			}
+			pendingRouterHtml.push(html);
+			pendingRouterHtmlChars += html.length;
+		}
+	}
+	function flushPendingRouterHtml() {
+		if (!pendingRouterHtml.length) return;
+		for (const html of pendingRouterHtml) writeChunk(html);
+		clearPendingRouterHtml();
+	}
+	function clearPendingRouterHtml() {
+		pendingRouterHtml.length = 0;
+		pendingRouterHtmlChars = 0;
+	}
+	function appendTail(chunk) {
+		pendingTail += chunk;
+		if (pendingTail.length > MAX_TAIL_CHARS) throw new Error("SSR stream tail exceeded maximum buffer");
+	}
+	function waitForBackpressure() {
+		return !!(controller && controller.desiredSize !== null && controller.desiredSize <= 0);
+	}
+	function startSerializationTimeout() {
+		if (cleanedUp || isDone()) return;
+		if (serializationTimeoutHandle !== void 0) return;
+		const timeoutMs = opts?.timeoutMs ?? DEFAULT_SERIALIZATION_TIMEOUT_MS;
+		serializationTimeoutHandle = setTimeout(() => {
+			if (!cleanedUp && !isDone()) {
+				const err = /* @__PURE__ */ new Error("Serialization timeout after app render finished");
+				console.error("Serialization timeout after app render finished");
+				safeError(err);
+				cleanup(err);
+			}
+		}, timeoutMs);
+	}
+	/**
+	* Finish only when app done and serialization complete. Queues final
+	* output and requests close-when-drained so we don't close ahead of
+	* pending writes still waiting on downstream capacity.
+	*/
+	function tryFinish() {
+		if (state !== MergeState.AppDone || !serializationFinished) return;
+		if (cleanedUp || isDone()) return;
+		if (serializationTimeoutHandle !== void 0) {
+			clearTimeout(serializationTimeoutHandle);
+			serializationTimeoutHandle = void 0;
+		}
+		drainRouterHtml();
+		if (cleanedUp || isDone()) return;
+		const decoderRemainder = textDecoder.decode();
+		if (leftover) writeChunk(leftover);
+		if (cleanedUp || isDone()) return;
+		if (decoderRemainder) writeChunk(decoderRemainder);
+		if (cleanedUp || isDone()) return;
+		flushPendingRouterHtml();
+		if (cleanedUp || isDone()) return;
+		if (pendingTail) writeChunk(pendingTail);
+		if (cleanedUp || isDone()) return;
+		leftover = "";
+		pendingTail = "";
+		state = MergeState.Draining;
+		closeWhenDrained = true;
+		drainPending();
+	}
+	function finishAppRendering() {
+		if (state >= MergeState.AppDone) return;
+		state = MergeState.AppDone;
+		try {
+			serverSsr.setRenderFinished();
+		} catch (error) {
+			safeError(error);
+			cleanup(error);
+			return;
+		}
+		drainRouterHtml();
+		if (cleanedUp || isDone()) return;
+		serializationFinished = serializationFinished || serverSsr.isSerializationFinished();
+		if (serializationFinished) tryFinish();
+		else startSerializationTimeout();
+	}
+	const timeoutMs = opts?.timeoutMs ?? DEFAULT_SERIALIZATION_TIMEOUT_MS;
+	const lifetimeMs = opts?.lifetimeMs ?? timeoutMs * 2;
+	lifetimeTimeoutHandle = setTimeout(() => {
+		if (!cleanedUp && !isDone()) {
+			const err = /* @__PURE__ */ new Error("Stream lifetime exceeded");
+			console.warn(`SSR stream transform exceeded maximum lifetime (${lifetimeMs}ms), forcing cleanup`);
+			safeError(err);
+			cleanup(err);
+		}
+	}, lifetimeMs);
+	stopListeningToInjectedHtml = serverSsr.onInjectedHtml(() => {
+		drainRouterHtml();
+	});
+	stopListeningToSerializationFinished = serverSsr.onSerializationFinished(() => {
+		serializationFinished = true;
+		drainRouterHtml();
+		tryFinish();
+	});
+	drainRouterHtml();
+	if (cleanedUp || isDone()) return stream;
+	serializationFinished = serializationFinished || serverSsr.isSerializationFinished();
+	if (serializationFinished) {
+		drainRouterHtml();
+		if (cleanedUp || isDone()) return stream;
+	}
+	(async () => {
+		try {
+			while (true) {
+				if (waitForBackpressure()) {
+					await waitForDrain();
+					if (cleanedUp || isDone()) return;
+				}
+				const { done, value } = await readerState.reader.read();
+				if (done) break;
+				if (cleanedUp || isDone()) return;
+				const text = typeof value === "string" ? value : textDecoder.decode(value, { stream: true });
+				const chunkString = leftover ? leftover + text : text;
+				if (state >= MergeState.HoldingTail) {
+					appendTail(chunkString);
+					leftover = "";
+					continue;
+				}
+				const boundary = findHtmlBoundary(chunkString);
+				if (boundary < -1) {
+					const bodyEndIndex = -boundary - 2;
+					state = MergeState.HoldingTail;
+					appendTail(chunkString.slice(bodyEndIndex));
+					const bodyChunk = chunkString.slice(0, bodyEndIndex);
+					writeChunk(bodyChunk);
+					if (cleanedUp || isDone()) return;
+					noteBarrierMarker(bodyChunk);
+					liftBarrierAfterBoundary();
+					if (cleanedUp || isDone()) return;
+					flushPendingRouterHtml();
+					leftover = "";
+					continue;
+				}
+				const lastClosingTagEnd = boundary;
+				if (lastClosingTagEnd > 0) {
+					const safeChunk = chunkString.slice(0, lastClosingTagEnd);
+					writeChunk(safeChunk);
+					if (cleanedUp || isDone()) return;
+					noteBarrierMarker(safeChunk);
+					liftBarrierAfterBoundary();
+					if (cleanedUp || isDone()) return;
+					flushPendingRouterHtml();
+					leftover = chunkString.slice(lastClosingTagEnd);
+					if (leftover.length > MAX_LEFTOVER_CHARS) {
+						noteBarrierMarker(leftover);
+						writeChunk(leftover.slice(0, leftover.length - MAX_LEFTOVER_CHARS));
+						leftover = leftover.slice(-2048);
+					}
+				} else {
+					const combined = chunkString;
+					if (combined.length > MAX_LEFTOVER_CHARS) {
+						noteBarrierMarker(combined);
+						const flushUpto = combined.length - MAX_LEFTOVER_CHARS;
+						writeChunk(combined.slice(0, flushUpto));
+						leftover = combined.slice(flushUpto);
+					} else leftover = combined;
+				}
+			}
+			if (cleanedUp || isDone()) return;
+			finishAppRendering();
+		} catch (error) {
+			if (cleanedUp) return;
+			console.error("Error reading appStream:", error);
+			if (state < MergeState.AppDone) try {
+				serverSsr.setRenderFinished();
+			} catch {}
+			safeError(error);
+			cleanup(error);
+		} finally {
+			readerState.release();
+		}
+	})().catch((error) => {
+		if (cleanedUp) return;
+		console.error("Error in stream transform:", error);
+		safeError(error);
+		cleanup(error);
+	});
+	return stream;
+}
+//#endregion
+//#region node_modules/react-dom/cjs/react-dom-server-legacy.node.production.js
+/**
+* @license React
+* react-dom-server-legacy.node.production.js
+*
+* Copyright (c) Meta Platforms, Inc. and affiliates.
+*
+* This source code is licensed under the MIT license found in the
+* LICENSE file in the root directory of this source tree.
+*/
+var require_react_dom_server_legacy_node_production = /* @__PURE__ */ __commonJSMin(((exports) => {
+	var React = require_react(), ReactDOM = require_react_dom(), REACT_ELEMENT_TYPE = Symbol.for("react.transitional.element"), REACT_PORTAL_TYPE = Symbol.for("react.portal"), REACT_FRAGMENT_TYPE = Symbol.for("react.fragment"), REACT_STRICT_MODE_TYPE = Symbol.for("react.strict_mode"), REACT_PROFILER_TYPE = Symbol.for("react.profiler"), REACT_CONSUMER_TYPE = Symbol.for("react.consumer"), REACT_CONTEXT_TYPE = Symbol.for("react.context"), REACT_FORWARD_REF_TYPE = Symbol.for("react.forward_ref"), REACT_SUSPENSE_TYPE = Symbol.for("react.suspense"), REACT_SUSPENSE_LIST_TYPE = Symbol.for("react.suspense_list"), REACT_MEMO_TYPE = Symbol.for("react.memo"), REACT_LAZY_TYPE = Symbol.for("react.lazy"), REACT_SCOPE_TYPE = Symbol.for("react.scope"), REACT_ACTIVITY_TYPE = Symbol.for("react.activity"), REACT_LEGACY_HIDDEN_TYPE = Symbol.for("react.legacy_hidden"), REACT_MEMO_CACHE_SENTINEL = Symbol.for("react.memo_cache_sentinel"), REACT_VIEW_TRANSITION_TYPE = Symbol.for("react.view_transition"), MAYBE_ITERATOR_SYMBOL = Symbol.iterator;
+	function getIteratorFn(maybeIterable) {
+		if (null === maybeIterable || "object" !== typeof maybeIterable) return null;
+		maybeIterable = MAYBE_ITERATOR_SYMBOL && maybeIterable[MAYBE_ITERATOR_SYMBOL] || maybeIterable["@@iterator"];
+		return "function" === typeof maybeIterable ? maybeIterable : null;
+	}
+	var isArrayImpl = Array.isArray;
+	function murmurhash3_32_gc(key, seed) {
+		var remainder = key.length & 3;
+		var bytes = key.length - remainder;
+		var h1 = seed;
+		for (seed = 0; seed < bytes;) {
+			var k1 = key.charCodeAt(seed) & 255 | (key.charCodeAt(++seed) & 255) << 8 | (key.charCodeAt(++seed) & 255) << 16 | (key.charCodeAt(++seed) & 255) << 24;
+			++seed;
+			k1 = 3432918353 * (k1 & 65535) + ((3432918353 * (k1 >>> 16) & 65535) << 16) & 4294967295;
+			k1 = k1 << 15 | k1 >>> 17;
+			k1 = 461845907 * (k1 & 65535) + ((461845907 * (k1 >>> 16) & 65535) << 16) & 4294967295;
+			h1 ^= k1;
+			h1 = h1 << 13 | h1 >>> 19;
+			h1 = 5 * (h1 & 65535) + ((5 * (h1 >>> 16) & 65535) << 16) & 4294967295;
+			h1 = (h1 & 65535) + 27492 + (((h1 >>> 16) + 58964 & 65535) << 16);
+		}
+		k1 = 0;
+		switch (remainder) {
+			case 3: k1 ^= (key.charCodeAt(seed + 2) & 255) << 16;
+			case 2: k1 ^= (key.charCodeAt(seed + 1) & 255) << 8;
+			case 1: k1 ^= key.charCodeAt(seed) & 255, k1 = 3432918353 * (k1 & 65535) + ((3432918353 * (k1 >>> 16) & 65535) << 16) & 4294967295, k1 = k1 << 15 | k1 >>> 17, h1 ^= 461845907 * (k1 & 65535) + ((461845907 * (k1 >>> 16) & 65535) << 16) & 4294967295;
+		}
+		h1 ^= key.length;
+		h1 ^= h1 >>> 16;
+		h1 = 2246822507 * (h1 & 65535) + ((2246822507 * (h1 >>> 16) & 65535) << 16) & 4294967295;
+		h1 ^= h1 >>> 13;
+		h1 = 3266489909 * (h1 & 65535) + ((3266489909 * (h1 >>> 16) & 65535) << 16) & 4294967295;
+		return (h1 ^ h1 >>> 16) >>> 0;
+	}
+	var assign = Object.assign, hasOwnProperty = Object.prototype.hasOwnProperty, VALID_ATTRIBUTE_NAME_REGEX = RegExp("^[:A-Z_a-z\\u00C0-\\u00D6\\u00D8-\\u00F6\\u00F8-\\u02FF\\u0370-\\u037D\\u037F-\\u1FFF\\u200C-\\u200D\\u2070-\\u218F\\u2C00-\\u2FEF\\u3001-\\uD7FF\\uF900-\\uFDCF\\uFDF0-\\uFFFD][:A-Z_a-z\\u00C0-\\u00D6\\u00D8-\\u00F6\\u00F8-\\u02FF\\u0370-\\u037D\\u037F-\\u1FFF\\u200C-\\u200D\\u2070-\\u218F\\u2C00-\\u2FEF\\u3001-\\uD7FF\\uF900-\\uFDCF\\uFDF0-\\uFFFD\\-.0-9\\u00B7\\u0300-\\u036F\\u203F-\\u2040]*$"), illegalAttributeNameCache = {}, validatedAttributeNameCache = {};
+	function isAttributeNameSafe(attributeName) {
+		if (hasOwnProperty.call(validatedAttributeNameCache, attributeName)) return !0;
+		if (hasOwnProperty.call(illegalAttributeNameCache, attributeName)) return !1;
+		if (VALID_ATTRIBUTE_NAME_REGEX.test(attributeName)) return validatedAttributeNameCache[attributeName] = !0;
+		illegalAttributeNameCache[attributeName] = !0;
+		return !1;
+	}
+	var unitlessNumbers = new Set("animationIterationCount aspectRatio borderImageOutset borderImageSlice borderImageWidth boxFlex boxFlexGroup boxOrdinalGroup columnCount columns flex flexGrow flexPositive flexShrink flexNegative flexOrder gridArea gridRow gridRowEnd gridRowSpan gridRowStart gridColumn gridColumnEnd gridColumnSpan gridColumnStart fontWeight lineClamp lineHeight opacity order orphans scale tabSize widows zIndex zoom fillOpacity floodOpacity stopOpacity strokeDasharray strokeDashoffset strokeMiterlimit strokeOpacity strokeWidth MozAnimationIterationCount MozBoxFlex MozBoxFlexGroup MozLineClamp msAnimationIterationCount msFlex msZoom msFlexGrow msFlexNegative msFlexOrder msFlexPositive msFlexShrink msGridColumn msGridColumnSpan msGridRow msGridRowSpan WebkitAnimationIterationCount WebkitBoxFlex WebKitBoxFlexGroup WebkitBoxOrdinalGroup WebkitColumnCount WebkitColumns WebkitFlex WebkitFlexGrow WebkitFlexPositive WebkitFlexShrink WebkitLineClamp".split(" ")), aliases = /* @__PURE__ */ new Map([
+		["acceptCharset", "accept-charset"],
+		["htmlFor", "for"],
+		["httpEquiv", "http-equiv"],
+		["crossOrigin", "crossorigin"],
+		["accentHeight", "accent-height"],
+		["alignmentBaseline", "alignment-baseline"],
+		["arabicForm", "arabic-form"],
+		["baselineShift", "baseline-shift"],
+		["capHeight", "cap-height"],
+		["clipPath", "clip-path"],
+		["clipRule", "clip-rule"],
+		["colorInterpolation", "color-interpolation"],
+		["colorInterpolationFilters", "color-interpolation-filters"],
+		["colorProfile", "color-profile"],
+		["colorRendering", "color-rendering"],
+		["dominantBaseline", "dominant-baseline"],
+		["enableBackground", "enable-background"],
+		["fillOpacity", "fill-opacity"],
+		["fillRule", "fill-rule"],
+		["floodColor", "flood-color"],
+		["floodOpacity", "flood-opacity"],
+		["fontFamily", "font-family"],
+		["fontSize", "font-size"],
+		["fontSizeAdjust", "font-size-adjust"],
+		["fontStretch", "font-stretch"],
+		["fontStyle", "font-style"],
+		["fontVariant", "font-variant"],
+		["fontWeight", "font-weight"],
+		["glyphName", "glyph-name"],
+		["glyphOrientationHorizontal", "glyph-orientation-horizontal"],
+		["glyphOrientationVertical", "glyph-orientation-vertical"],
+		["horizAdvX", "horiz-adv-x"],
+		["horizOriginX", "horiz-origin-x"],
+		["imageRendering", "image-rendering"],
+		["letterSpacing", "letter-spacing"],
+		["lightingColor", "lighting-color"],
+		["markerEnd", "marker-end"],
+		["markerMid", "marker-mid"],
+		["markerStart", "marker-start"],
+		["overlinePosition", "overline-position"],
+		["overlineThickness", "overline-thickness"],
+		["paintOrder", "paint-order"],
+		["panose-1", "panose-1"],
+		["pointerEvents", "pointer-events"],
+		["renderingIntent", "rendering-intent"],
+		["shapeRendering", "shape-rendering"],
+		["stopColor", "stop-color"],
+		["stopOpacity", "stop-opacity"],
+		["strikethroughPosition", "strikethrough-position"],
+		["strikethroughThickness", "strikethrough-thickness"],
+		["strokeDasharray", "stroke-dasharray"],
+		["strokeDashoffset", "stroke-dashoffset"],
+		["strokeLinecap", "stroke-linecap"],
+		["strokeLinejoin", "stroke-linejoin"],
+		["strokeMiterlimit", "stroke-miterlimit"],
+		["strokeOpacity", "stroke-opacity"],
+		["strokeWidth", "stroke-width"],
+		["textAnchor", "text-anchor"],
+		["textDecoration", "text-decoration"],
+		["textRendering", "text-rendering"],
+		["transformOrigin", "transform-origin"],
+		["underlinePosition", "underline-position"],
+		["underlineThickness", "underline-thickness"],
+		["unicodeBidi", "unicode-bidi"],
+		["unicodeRange", "unicode-range"],
+		["unitsPerEm", "units-per-em"],
+		["vAlphabetic", "v-alphabetic"],
+		["vHanging", "v-hanging"],
+		["vIdeographic", "v-ideographic"],
+		["vMathematical", "v-mathematical"],
+		["vectorEffect", "vector-effect"],
+		["vertAdvY", "vert-adv-y"],
+		["vertOriginX", "vert-origin-x"],
+		["vertOriginY", "vert-origin-y"],
+		["wordSpacing", "word-spacing"],
+		["writingMode", "writing-mode"],
+		["xmlnsXlink", "xmlns:xlink"],
+		["xHeight", "x-height"]
+	]), matchHtmlRegExp = /["'&<>]/;
+	function escapeTextForBrowser(text) {
+		if ("boolean" === typeof text || "number" === typeof text || "bigint" === typeof text) return "" + text;
+		text = "" + text;
+		var match = matchHtmlRegExp.exec(text);
+		if (match) {
+			var html = "", index, lastIndex = 0;
+			for (index = match.index; index < text.length; index++) {
+				switch (text.charCodeAt(index)) {
+					case 34:
+						match = "&quot;";
+						break;
+					case 38:
+						match = "&amp;";
+						break;
+					case 39:
+						match = "&#x27;";
+						break;
+					case 60:
+						match = "&lt;";
+						break;
+					case 62:
+						match = "&gt;";
+						break;
+					default: continue;
+				}
+				lastIndex !== index && (html += text.slice(lastIndex, index));
+				lastIndex = index + 1;
+				html += match;
+			}
+			text = lastIndex !== index ? html + text.slice(lastIndex, index) : html;
+		}
+		return text;
+	}
+	var uppercasePattern = /([A-Z])/g, msPattern = /^ms-/, isJavaScriptProtocol = /^[\u0000-\u001F ]*j[\r\n\t]*a[\r\n\t]*v[\r\n\t]*a[\r\n\t]*s[\r\n\t]*c[\r\n\t]*r[\r\n\t]*i[\r\n\t]*p[\r\n\t]*t[\r\n\t]*:/i;
+	function sanitizeURL(url) {
+		return isJavaScriptProtocol.test("" + url) ? "javascript:throw new Error('React has blocked a javascript: URL as a security precaution.')" : url;
+	}
+	var ReactSharedInternals = React.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE, ReactDOMSharedInternals = ReactDOM.__DOM_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE, sharedNotPendingObject = {
+		pending: !1,
+		data: null,
+		method: null,
+		action: null
+	}, previousDispatcher = ReactDOMSharedInternals.d;
+	ReactDOMSharedInternals.d = {
+		f: previousDispatcher.f,
+		r: previousDispatcher.r,
+		D: prefetchDNS,
+		C: preconnect,
+		L: preload,
+		m: preloadModule,
+		X: preinitScript,
+		S: preinitStyle,
+		M: preinitModuleScript
+	};
+	var PRELOAD_NO_CREDS = [], currentlyFlushingRenderState = null, scriptRegex = /(<\/|<)(s)(cript)/gi;
+	function scriptReplacer(match, prefix, s, suffix) {
+		return "" + prefix + ("s" === s ? "\\u0073" : "\\u0053") + suffix;
+	}
+	function createResumableState(identifierPrefix, externalRuntimeConfig, bootstrapScriptContent, bootstrapScripts, bootstrapModules) {
+		return {
+			idPrefix: void 0 === identifierPrefix ? "" : identifierPrefix,
+			nextFormID: 0,
+			streamingFormat: 0,
+			bootstrapScriptContent,
+			bootstrapScripts,
+			bootstrapModules,
+			instructions: 0,
+			hasBody: !1,
+			hasHtml: !1,
+			unknownResources: {},
+			dnsResources: {},
+			connectResources: {
+				default: {},
+				anonymous: {},
+				credentials: {}
+			},
+			imageResources: {},
+			styleResources: {},
+			scriptResources: {},
+			moduleUnknownResources: {},
+			moduleScriptResources: {}
+		};
+	}
+	function createFormatContext(insertionMode, selectedValue, tagScope, viewTransition) {
+		return {
+			insertionMode,
+			selectedValue,
+			tagScope,
+			viewTransition
+		};
+	}
+	function getChildFormatContext(parentContext, type, props) {
+		var subtreeScope = parentContext.tagScope & -25;
+		switch (type) {
+			case "noscript": return createFormatContext(2, null, subtreeScope | 1, null);
+			case "select": return createFormatContext(2, null != props.value ? props.value : props.defaultValue, subtreeScope, null);
+			case "svg": return createFormatContext(4, null, subtreeScope, null);
+			case "picture": return createFormatContext(2, null, subtreeScope | 2, null);
+			case "math": return createFormatContext(5, null, subtreeScope, null);
+			case "foreignObject": return createFormatContext(2, null, subtreeScope, null);
+			case "table": return createFormatContext(6, null, subtreeScope, null);
+			case "thead":
+			case "tbody":
+			case "tfoot": return createFormatContext(7, null, subtreeScope, null);
+			case "colgroup": return createFormatContext(9, null, subtreeScope, null);
+			case "tr": return createFormatContext(8, null, subtreeScope, null);
+			case "head":
+				if (2 > parentContext.insertionMode) return createFormatContext(3, null, subtreeScope, null);
+				break;
+			case "html": if (0 === parentContext.insertionMode) return createFormatContext(1, null, subtreeScope, null);
+		}
+		return 6 <= parentContext.insertionMode || 2 > parentContext.insertionMode ? createFormatContext(2, null, subtreeScope, null) : parentContext.tagScope !== subtreeScope ? createFormatContext(parentContext.insertionMode, parentContext.selectedValue, subtreeScope, null) : parentContext;
+	}
+	function getSuspenseViewTransition(parentViewTransition) {
+		return null === parentViewTransition ? null : {
+			update: parentViewTransition.update,
+			enter: "none",
+			exit: "none",
+			share: parentViewTransition.update,
+			name: parentViewTransition.autoName,
+			autoName: parentViewTransition.autoName,
+			nameIdx: 0
+		};
+	}
+	function getSuspenseFallbackFormatContext(resumableState, parentContext) {
+		parentContext.tagScope & 32 && (resumableState.instructions |= 128);
+		return createFormatContext(parentContext.insertionMode, parentContext.selectedValue, parentContext.tagScope | 12, getSuspenseViewTransition(parentContext.viewTransition));
+	}
+	function getSuspenseContentFormatContext(resumableState, parentContext) {
+		resumableState = getSuspenseViewTransition(parentContext.viewTransition);
+		var subtreeScope = parentContext.tagScope | 16;
+		null !== resumableState && "none" !== resumableState.share && (subtreeScope |= 64);
+		return createFormatContext(parentContext.insertionMode, parentContext.selectedValue, subtreeScope, resumableState);
+	}
+	var styleNameCache = /* @__PURE__ */ new Map();
+	function pushStyleAttribute(target, style) {
+		if ("object" !== typeof style) throw Error("The `style` prop expects a mapping from style properties to values, not a string. For example, style={{marginRight: spacing + 'em'}} when using JSX.");
+		var isFirst = !0, styleName;
+		for (styleName in style) if (hasOwnProperty.call(style, styleName)) {
+			var styleValue = style[styleName];
+			if (null != styleValue && "boolean" !== typeof styleValue && "" !== styleValue) {
+				if (0 === styleName.indexOf("--")) {
+					var nameChunk = escapeTextForBrowser(styleName);
+					styleValue = escapeTextForBrowser(("" + styleValue).trim());
+				} else nameChunk = styleNameCache.get(styleName), void 0 === nameChunk && (nameChunk = escapeTextForBrowser(styleName.replace(uppercasePattern, "-$1").toLowerCase().replace(msPattern, "-ms-")), styleNameCache.set(styleName, nameChunk)), styleValue = "number" === typeof styleValue ? 0 === styleValue || unitlessNumbers.has(styleName) ? "" + styleValue : styleValue + "px" : escapeTextForBrowser(("" + styleValue).trim());
+				isFirst ? (isFirst = !1, target.push(" style=\"", nameChunk, ":", styleValue)) : target.push(";", nameChunk, ":", styleValue);
+			}
+		}
+		isFirst || target.push("\"");
+	}
+	function pushBooleanAttribute(target, name, value) {
+		value && "function" !== typeof value && "symbol" !== typeof value && target.push(" ", name, "=\"\"");
+	}
+	function pushStringAttribute(target, name, value) {
+		"function" !== typeof value && "symbol" !== typeof value && "boolean" !== typeof value && target.push(" ", name, "=\"", escapeTextForBrowser(value), "\"");
+	}
+	var actionJavaScriptURL = escapeTextForBrowser("javascript:throw new Error('React form unexpectedly submitted.')");
+	function pushAdditionalFormField(value, key) {
+		this.push("<input type=\"hidden\"");
+		validateAdditionalFormField(value);
+		pushStringAttribute(this, "name", key);
+		pushStringAttribute(this, "value", value);
+		this.push("/>");
+	}
+	function validateAdditionalFormField(value) {
+		if ("string" !== typeof value) throw Error("File/Blob fields are not yet supported in progressive forms. Will fallback to client hydration.");
+	}
+	function getCustomFormFields(resumableState, formAction) {
+		if ("function" === typeof formAction.$$FORM_ACTION) {
+			var id = resumableState.nextFormID++;
+			resumableState = resumableState.idPrefix + id;
+			try {
+				var customFields = formAction.$$FORM_ACTION(resumableState);
+				if (customFields) customFields.data?.forEach(validateAdditionalFormField);
+				return customFields;
+			} catch (x) {
+				if ("object" === typeof x && null !== x && "function" === typeof x.then) throw x;
+			}
+		}
+		return null;
+	}
+	function pushFormActionAttribute(target, resumableState, renderState, formAction, formEncType, formMethod, formTarget, name) {
+		var formData = null;
+		if ("function" === typeof formAction) {
+			var customFields = getCustomFormFields(resumableState, formAction);
+			null !== customFields ? (name = customFields.name, formAction = customFields.action || "", formEncType = customFields.encType, formMethod = customFields.method, formTarget = customFields.target, formData = customFields.data) : (target.push(" ", "formAction", "=\"", actionJavaScriptURL, "\""), formTarget = formMethod = formEncType = formAction = name = null, injectFormReplayingRuntime(resumableState, renderState));
+		}
+		null != name && pushAttribute(target, "name", name);
+		null != formAction && pushAttribute(target, "formAction", formAction);
+		null != formEncType && pushAttribute(target, "formEncType", formEncType);
+		null != formMethod && pushAttribute(target, "formMethod", formMethod);
+		null != formTarget && pushAttribute(target, "formTarget", formTarget);
+		return formData;
+	}
+	function pushAttribute(target, name, value) {
+		switch (name) {
+			case "className":
+				pushStringAttribute(target, "class", value);
+				break;
+			case "tabIndex":
+				pushStringAttribute(target, "tabindex", value);
+				break;
+			case "dir":
+			case "role":
+			case "viewBox":
+			case "width":
+			case "height":
+				pushStringAttribute(target, name, value);
+				break;
+			case "style":
+				pushStyleAttribute(target, value);
+				break;
+			case "src":
+			case "href": if ("" === value) break;
+			case "action":
+			case "formAction":
+				if (null == value || "function" === typeof value || "symbol" === typeof value || "boolean" === typeof value) break;
+				value = sanitizeURL("" + value);
+				target.push(" ", name, "=\"", escapeTextForBrowser(value), "\"");
+				break;
+			case "defaultValue":
+			case "defaultChecked":
+			case "innerHTML":
+			case "suppressContentEditableWarning":
+			case "suppressHydrationWarning":
+			case "ref": break;
+			case "autoFocus":
+			case "multiple":
+			case "muted":
+				pushBooleanAttribute(target, name.toLowerCase(), value);
+				break;
+			case "xlinkHref":
+				if ("function" === typeof value || "symbol" === typeof value || "boolean" === typeof value) break;
+				value = sanitizeURL("" + value);
+				target.push(" ", "xlink:href", "=\"", escapeTextForBrowser(value), "\"");
+				break;
+			case "contentEditable":
+			case "spellCheck":
+			case "draggable":
+			case "value":
+			case "autoReverse":
+			case "externalResourcesRequired":
+			case "focusable":
+			case "preserveAlpha":
+				"function" !== typeof value && "symbol" !== typeof value && target.push(" ", name, "=\"", escapeTextForBrowser(value), "\"");
+				break;
+			case "inert":
+			case "allowFullScreen":
+			case "async":
+			case "autoPlay":
+			case "controls":
+			case "default":
+			case "defer":
+			case "disabled":
+			case "disablePictureInPicture":
+			case "disableRemotePlayback":
+			case "formNoValidate":
+			case "hidden":
+			case "loop":
+			case "noModule":
+			case "noValidate":
+			case "open":
+			case "playsInline":
+			case "readOnly":
+			case "required":
+			case "reversed":
+			case "scoped":
+			case "seamless":
+			case "itemScope":
+				value && "function" !== typeof value && "symbol" !== typeof value && target.push(" ", name, "=\"\"");
+				break;
+			case "capture":
+			case "download":
+				!0 === value ? target.push(" ", name, "=\"\"") : !1 !== value && "function" !== typeof value && "symbol" !== typeof value && target.push(" ", name, "=\"", escapeTextForBrowser(value), "\"");
+				break;
+			case "cols":
+			case "rows":
+			case "size":
+			case "span":
+				"function" !== typeof value && "symbol" !== typeof value && !isNaN(value) && 1 <= value && target.push(" ", name, "=\"", escapeTextForBrowser(value), "\"");
+				break;
+			case "rowSpan":
+			case "start":
+				"function" === typeof value || "symbol" === typeof value || isNaN(value) || target.push(" ", name, "=\"", escapeTextForBrowser(value), "\"");
+				break;
+			case "xlinkActuate":
+				pushStringAttribute(target, "xlink:actuate", value);
+				break;
+			case "xlinkArcrole":
+				pushStringAttribute(target, "xlink:arcrole", value);
+				break;
+			case "xlinkRole":
+				pushStringAttribute(target, "xlink:role", value);
+				break;
+			case "xlinkShow":
+				pushStringAttribute(target, "xlink:show", value);
+				break;
+			case "xlinkTitle":
+				pushStringAttribute(target, "xlink:title", value);
+				break;
+			case "xlinkType":
+				pushStringAttribute(target, "xlink:type", value);
+				break;
+			case "xmlBase":
+				pushStringAttribute(target, "xml:base", value);
+				break;
+			case "xmlLang":
+				pushStringAttribute(target, "xml:lang", value);
+				break;
+			case "xmlSpace":
+				pushStringAttribute(target, "xml:space", value);
+				break;
+			default: if (!(2 < name.length) || "o" !== name[0] && "O" !== name[0] || "n" !== name[1] && "N" !== name[1]) {
+				if (name = aliases.get(name) || name, isAttributeNameSafe(name)) {
+					switch (typeof value) {
+						case "function":
+						case "symbol": return;
+						case "boolean":
+							var prefix$8 = name.toLowerCase().slice(0, 5);
+							if ("data-" !== prefix$8 && "aria-" !== prefix$8) return;
+					}
+					target.push(" ", name, "=\"", escapeTextForBrowser(value), "\"");
+				}
+			}
+		}
+	}
+	function pushInnerHTML(target, innerHTML, children) {
+		if (null != innerHTML) {
+			if (null != children) throw Error("Can only set one of `children` or `props.dangerouslySetInnerHTML`.");
+			if ("object" !== typeof innerHTML || !("__html" in innerHTML)) throw Error("`props.dangerouslySetInnerHTML` must be in the form `{__html: ...}`. Please visit https://react.dev/link/dangerously-set-inner-html for more information.");
+			innerHTML = innerHTML.__html;
+			null !== innerHTML && void 0 !== innerHTML && target.push("" + innerHTML);
+		}
+	}
+	function flattenOptionChildren(children) {
+		var content = "";
+		React.Children.forEach(children, function(child) {
+			null != child && (content += child);
+		});
+		return content;
+	}
+	function injectFormReplayingRuntime(resumableState, renderState) {
+		if (0 === (resumableState.instructions & 16)) {
+			resumableState.instructions |= 16;
+			var preamble = renderState.preamble, bootstrapChunks = renderState.bootstrapChunks;
+			(preamble.htmlChunks || preamble.headChunks) && 0 === bootstrapChunks.length ? (bootstrapChunks.push(renderState.startInlineScript), pushCompletedShellIdAttribute(bootstrapChunks, resumableState), bootstrapChunks.push(">", "addEventListener(\"submit\",function(a){if(!a.defaultPrevented){var c=a.target,d=a.submitter,e=c.action,b=d;if(d){var f=d.getAttribute(\"formAction\");null!=f&&(e=f,b=null)}\"javascript:throw new Error('React form unexpectedly submitted.')\"===e&&(a.preventDefault(),b?(a=document.createElement(\"input\"),a.name=b.name,a.value=b.value,b.parentNode.insertBefore(a,b),b=new FormData(c),a.parentNode.removeChild(a)):b=new FormData(c),a=c.ownerDocument||c,(a.$$reactFormReplay=a.$$reactFormReplay||[]).push(c,d,b))}});", "<\/script>")) : bootstrapChunks.unshift(renderState.startInlineScript, ">", "addEventListener(\"submit\",function(a){if(!a.defaultPrevented){var c=a.target,d=a.submitter,e=c.action,b=d;if(d){var f=d.getAttribute(\"formAction\");null!=f&&(e=f,b=null)}\"javascript:throw new Error('React form unexpectedly submitted.')\"===e&&(a.preventDefault(),b?(a=document.createElement(\"input\"),a.name=b.name,a.value=b.value,b.parentNode.insertBefore(a,b),b=new FormData(c),a.parentNode.removeChild(a)):b=new FormData(c),a=c.ownerDocument||c,(a.$$reactFormReplay=a.$$reactFormReplay||[]).push(c,d,b))}});", "<\/script>");
+		}
+	}
+	function pushLinkImpl(target, props) {
+		target.push(startChunkForTag("link"));
+		for (var propKey in props) if (hasOwnProperty.call(props, propKey)) {
+			var propValue = props[propKey];
+			if (null != propValue) switch (propKey) {
+				case "children":
+				case "dangerouslySetInnerHTML": throw Error("link is a self-closing tag and must neither have `children` nor use `dangerouslySetInnerHTML`.");
+				default: pushAttribute(target, propKey, propValue);
+			}
+		}
+		target.push("/>");
+		return null;
+	}
+	var styleRegex = /(<\/|<)(s)(tyle)/gi;
+	function styleReplacer(match, prefix, s, suffix) {
+		return "" + prefix + ("s" === s ? "\\73 " : "\\53 ") + suffix;
+	}
+	function pushSelfClosing(target, props, tag) {
+		target.push(startChunkForTag(tag));
+		for (var propKey in props) if (hasOwnProperty.call(props, propKey)) {
+			var propValue = props[propKey];
+			if (null != propValue) switch (propKey) {
+				case "children":
+				case "dangerouslySetInnerHTML": throw Error(tag + " is a self-closing tag and must neither have `children` nor use `dangerouslySetInnerHTML`.");
+				default: pushAttribute(target, propKey, propValue);
+			}
+		}
+		target.push("/>");
+		return null;
+	}
+	function pushTitleImpl(target, props) {
+		target.push(startChunkForTag("title"));
+		var children = null, innerHTML = null, propKey;
+		for (propKey in props) if (hasOwnProperty.call(props, propKey)) {
+			var propValue = props[propKey];
+			if (null != propValue) switch (propKey) {
+				case "children":
+					children = propValue;
+					break;
+				case "dangerouslySetInnerHTML":
+					innerHTML = propValue;
+					break;
+				default: pushAttribute(target, propKey, propValue);
+			}
+		}
+		target.push(">");
+		props = Array.isArray(children) ? 2 > children.length ? children[0] : null : children;
+		"function" !== typeof props && "symbol" !== typeof props && null !== props && void 0 !== props && target.push(escapeTextForBrowser("" + props));
+		pushInnerHTML(target, innerHTML, children);
+		target.push(endChunkForTag("title"));
+		return null;
+	}
+	function pushScriptImpl(target, props) {
+		target.push(startChunkForTag("script"));
+		var children = null, innerHTML = null, propKey;
+		for (propKey in props) if (hasOwnProperty.call(props, propKey)) {
+			var propValue = props[propKey];
+			if (null != propValue) switch (propKey) {
+				case "children":
+					children = propValue;
+					break;
+				case "dangerouslySetInnerHTML":
+					innerHTML = propValue;
+					break;
+				default: pushAttribute(target, propKey, propValue);
+			}
+		}
+		target.push(">");
+		pushInnerHTML(target, innerHTML, children);
+		"string" === typeof children && target.push(("" + children).replace(scriptRegex, scriptReplacer));
+		target.push(endChunkForTag("script"));
+		return null;
+	}
+	function pushStartSingletonElement(target, props, tag) {
+		target.push(startChunkForTag(tag));
+		var innerHTML = tag = null, propKey;
+		for (propKey in props) if (hasOwnProperty.call(props, propKey)) {
+			var propValue = props[propKey];
+			if (null != propValue) switch (propKey) {
+				case "children":
+					tag = propValue;
+					break;
+				case "dangerouslySetInnerHTML":
+					innerHTML = propValue;
+					break;
+				default: pushAttribute(target, propKey, propValue);
+			}
+		}
+		target.push(">");
+		pushInnerHTML(target, innerHTML, tag);
+		return tag;
+	}
+	function pushStartGenericElement(target, props, tag) {
+		target.push(startChunkForTag(tag));
+		var innerHTML = tag = null, propKey;
+		for (propKey in props) if (hasOwnProperty.call(props, propKey)) {
+			var propValue = props[propKey];
+			if (null != propValue) switch (propKey) {
+				case "children":
+					tag = propValue;
+					break;
+				case "dangerouslySetInnerHTML":
+					innerHTML = propValue;
+					break;
+				default: pushAttribute(target, propKey, propValue);
+			}
+		}
+		target.push(">");
+		pushInnerHTML(target, innerHTML, tag);
+		return "string" === typeof tag ? (target.push(escapeTextForBrowser(tag)), null) : tag;
+	}
+	var VALID_TAG_REGEX = /^[a-zA-Z][a-zA-Z:_\.\-\d]*$/, validatedTagCache = /* @__PURE__ */ new Map();
+	function startChunkForTag(tag) {
+		var tagStartChunk = validatedTagCache.get(tag);
+		if (void 0 === tagStartChunk) {
+			if (!VALID_TAG_REGEX.test(tag)) throw Error("Invalid tag: " + tag);
+			tagStartChunk = "<" + tag;
+			validatedTagCache.set(tag, tagStartChunk);
+		}
+		return tagStartChunk;
+	}
+	function pushStartInstance(target$jscomp$0, type, props, resumableState, renderState, preambleState, hoistableState, formatContext, textEmbedded) {
+		switch (type) {
+			case "div":
+			case "span":
+			case "svg":
+			case "path": break;
+			case "a":
+				target$jscomp$0.push(startChunkForTag("a"));
+				var children = null, innerHTML = null, propKey;
+				for (propKey in props) if (hasOwnProperty.call(props, propKey)) {
+					var propValue = props[propKey];
+					if (null != propValue) switch (propKey) {
+						case "children":
+							children = propValue;
+							break;
+						case "dangerouslySetInnerHTML":
+							innerHTML = propValue;
+							break;
+						case "href":
+							"" === propValue ? pushStringAttribute(target$jscomp$0, "href", "") : pushAttribute(target$jscomp$0, propKey, propValue);
+							break;
+						default: pushAttribute(target$jscomp$0, propKey, propValue);
+					}
+				}
+				target$jscomp$0.push(">");
+				pushInnerHTML(target$jscomp$0, innerHTML, children);
+				if ("string" === typeof children) {
+					target$jscomp$0.push(escapeTextForBrowser(children));
+					var JSCompiler_inline_result = null;
+				} else JSCompiler_inline_result = children;
+				return JSCompiler_inline_result;
+			case "g":
+			case "p":
+			case "li": break;
+			case "select":
+				target$jscomp$0.push(startChunkForTag("select"));
+				var children$jscomp$0 = null, innerHTML$jscomp$0 = null, propKey$jscomp$0;
+				for (propKey$jscomp$0 in props) if (hasOwnProperty.call(props, propKey$jscomp$0)) {
+					var propValue$jscomp$0 = props[propKey$jscomp$0];
+					if (null != propValue$jscomp$0) switch (propKey$jscomp$0) {
+						case "children":
+							children$jscomp$0 = propValue$jscomp$0;
+							break;
+						case "dangerouslySetInnerHTML":
+							innerHTML$jscomp$0 = propValue$jscomp$0;
+							break;
+						case "defaultValue":
+						case "value": break;
+						default: pushAttribute(target$jscomp$0, propKey$jscomp$0, propValue$jscomp$0);
+					}
+				}
+				target$jscomp$0.push(">");
+				pushInnerHTML(target$jscomp$0, innerHTML$jscomp$0, children$jscomp$0);
+				return children$jscomp$0;
+			case "option":
+				var selectedValue = formatContext.selectedValue;
+				target$jscomp$0.push(startChunkForTag("option"));
+				var children$jscomp$1 = null, value = null, selected = null, innerHTML$jscomp$1 = null, propKey$jscomp$1;
+				for (propKey$jscomp$1 in props) if (hasOwnProperty.call(props, propKey$jscomp$1)) {
+					var propValue$jscomp$1 = props[propKey$jscomp$1];
+					if (null != propValue$jscomp$1) switch (propKey$jscomp$1) {
+						case "children":
+							children$jscomp$1 = propValue$jscomp$1;
+							break;
+						case "selected":
+							selected = propValue$jscomp$1;
+							break;
+						case "dangerouslySetInnerHTML":
+							innerHTML$jscomp$1 = propValue$jscomp$1;
+							break;
+						case "value": value = propValue$jscomp$1;
+						default: pushAttribute(target$jscomp$0, propKey$jscomp$1, propValue$jscomp$1);
+					}
+				}
+				if (null != selectedValue) {
+					var stringValue = null !== value ? "" + value : flattenOptionChildren(children$jscomp$1);
+					if (isArrayImpl(selectedValue)) {
+						for (var i = 0; i < selectedValue.length; i++) if ("" + selectedValue[i] === stringValue) {
+							target$jscomp$0.push(" selected=\"\"");
+							break;
+						}
+					} else "" + selectedValue === stringValue && target$jscomp$0.push(" selected=\"\"");
+				} else selected && target$jscomp$0.push(" selected=\"\"");
+				target$jscomp$0.push(">");
+				pushInnerHTML(target$jscomp$0, innerHTML$jscomp$1, children$jscomp$1);
+				return children$jscomp$1;
+			case "textarea":
+				target$jscomp$0.push(startChunkForTag("textarea"));
+				var value$jscomp$0 = null, defaultValue = null, children$jscomp$2 = null, propKey$jscomp$2;
+				for (propKey$jscomp$2 in props) if (hasOwnProperty.call(props, propKey$jscomp$2)) {
+					var propValue$jscomp$2 = props[propKey$jscomp$2];
+					if (null != propValue$jscomp$2) switch (propKey$jscomp$2) {
+						case "children":
+							children$jscomp$2 = propValue$jscomp$2;
+							break;
+						case "value":
+							value$jscomp$0 = propValue$jscomp$2;
+							break;
+						case "defaultValue":
+							defaultValue = propValue$jscomp$2;
+							break;
+						case "dangerouslySetInnerHTML": throw Error("`dangerouslySetInnerHTML` does not make sense on <textarea>.");
+						default: pushAttribute(target$jscomp$0, propKey$jscomp$2, propValue$jscomp$2);
+					}
+				}
+				null === value$jscomp$0 && null !== defaultValue && (value$jscomp$0 = defaultValue);
+				target$jscomp$0.push(">");
+				if (null != children$jscomp$2) {
+					if (null != value$jscomp$0) throw Error("If you supply `defaultValue` on a <textarea>, do not pass children.");
+					if (isArrayImpl(children$jscomp$2)) {
+						if (1 < children$jscomp$2.length) throw Error("<textarea> can only have at most one child.");
+						value$jscomp$0 = "" + children$jscomp$2[0];
+					}
+					value$jscomp$0 = "" + children$jscomp$2;
+				}
+				"string" === typeof value$jscomp$0 && "\n" === value$jscomp$0[0] && target$jscomp$0.push("\n");
+				null !== value$jscomp$0 && target$jscomp$0.push(escapeTextForBrowser("" + value$jscomp$0));
+				return null;
+			case "input":
+				target$jscomp$0.push(startChunkForTag("input"));
+				var name = null, formAction = null, formEncType = null, formMethod = null, formTarget = null, value$jscomp$1 = null, defaultValue$jscomp$0 = null, checked = null, defaultChecked = null, propKey$jscomp$3;
+				for (propKey$jscomp$3 in props) if (hasOwnProperty.call(props, propKey$jscomp$3)) {
+					var propValue$jscomp$3 = props[propKey$jscomp$3];
+					if (null != propValue$jscomp$3) switch (propKey$jscomp$3) {
+						case "children":
+						case "dangerouslySetInnerHTML": throw Error("input is a self-closing tag and must neither have `children` nor use `dangerouslySetInnerHTML`.");
+						case "name":
+							name = propValue$jscomp$3;
+							break;
+						case "formAction":
+							formAction = propValue$jscomp$3;
+							break;
+						case "formEncType":
+							formEncType = propValue$jscomp$3;
+							break;
+						case "formMethod":
+							formMethod = propValue$jscomp$3;
+							break;
+						case "formTarget":
+							formTarget = propValue$jscomp$3;
+							break;
+						case "defaultChecked":
+							defaultChecked = propValue$jscomp$3;
+							break;
+						case "defaultValue":
+							defaultValue$jscomp$0 = propValue$jscomp$3;
+							break;
+						case "checked":
+							checked = propValue$jscomp$3;
+							break;
+						case "value":
+							value$jscomp$1 = propValue$jscomp$3;
+							break;
+						default: pushAttribute(target$jscomp$0, propKey$jscomp$3, propValue$jscomp$3);
+					}
+				}
+				var formData = pushFormActionAttribute(target$jscomp$0, resumableState, renderState, formAction, formEncType, formMethod, formTarget, name);
+				null !== checked ? pushBooleanAttribute(target$jscomp$0, "checked", checked) : null !== defaultChecked && pushBooleanAttribute(target$jscomp$0, "checked", defaultChecked);
+				null !== value$jscomp$1 ? pushAttribute(target$jscomp$0, "value", value$jscomp$1) : null !== defaultValue$jscomp$0 && pushAttribute(target$jscomp$0, "value", defaultValue$jscomp$0);
+				target$jscomp$0.push("/>");
+				formData?.forEach(pushAdditionalFormField, target$jscomp$0);
+				return null;
+			case "button":
+				target$jscomp$0.push(startChunkForTag("button"));
+				var children$jscomp$3 = null, innerHTML$jscomp$2 = null, name$jscomp$0 = null, formAction$jscomp$0 = null, formEncType$jscomp$0 = null, formMethod$jscomp$0 = null, formTarget$jscomp$0 = null, propKey$jscomp$4;
+				for (propKey$jscomp$4 in props) if (hasOwnProperty.call(props, propKey$jscomp$4)) {
+					var propValue$jscomp$4 = props[propKey$jscomp$4];
+					if (null != propValue$jscomp$4) switch (propKey$jscomp$4) {
+						case "children":
+							children$jscomp$3 = propValue$jscomp$4;
+							break;
+						case "dangerouslySetInnerHTML":
+							innerHTML$jscomp$2 = propValue$jscomp$4;
+							break;
+						case "name":
+							name$jscomp$0 = propValue$jscomp$4;
+							break;
+						case "formAction":
+							formAction$jscomp$0 = propValue$jscomp$4;
+							break;
+						case "formEncType":
+							formEncType$jscomp$0 = propValue$jscomp$4;
+							break;
+						case "formMethod":
+							formMethod$jscomp$0 = propValue$jscomp$4;
+							break;
+						case "formTarget":
+							formTarget$jscomp$0 = propValue$jscomp$4;
+							break;
+						default: pushAttribute(target$jscomp$0, propKey$jscomp$4, propValue$jscomp$4);
+					}
+				}
+				var formData$jscomp$0 = pushFormActionAttribute(target$jscomp$0, resumableState, renderState, formAction$jscomp$0, formEncType$jscomp$0, formMethod$jscomp$0, formTarget$jscomp$0, name$jscomp$0);
+				target$jscomp$0.push(">");
+				formData$jscomp$0?.forEach(pushAdditionalFormField, target$jscomp$0);
+				pushInnerHTML(target$jscomp$0, innerHTML$jscomp$2, children$jscomp$3);
+				if ("string" === typeof children$jscomp$3) {
+					target$jscomp$0.push(escapeTextForBrowser(children$jscomp$3));
+					var JSCompiler_inline_result$jscomp$0 = null;
+				} else JSCompiler_inline_result$jscomp$0 = children$jscomp$3;
+				return JSCompiler_inline_result$jscomp$0;
+			case "form":
+				target$jscomp$0.push(startChunkForTag("form"));
+				var children$jscomp$4 = null, innerHTML$jscomp$3 = null, formAction$jscomp$1 = null, formEncType$jscomp$1 = null, formMethod$jscomp$1 = null, formTarget$jscomp$1 = null, propKey$jscomp$5;
+				for (propKey$jscomp$5 in props) if (hasOwnProperty.call(props, propKey$jscomp$5)) {
+					var propValue$jscomp$5 = props[propKey$jscomp$5];
+					if (null != propValue$jscomp$5) switch (propKey$jscomp$5) {
+						case "children":
+							children$jscomp$4 = propValue$jscomp$5;
+							break;
+						case "dangerouslySetInnerHTML":
+							innerHTML$jscomp$3 = propValue$jscomp$5;
+							break;
+						case "action":
+							formAction$jscomp$1 = propValue$jscomp$5;
+							break;
+						case "encType":
+							formEncType$jscomp$1 = propValue$jscomp$5;
+							break;
+						case "method":
+							formMethod$jscomp$1 = propValue$jscomp$5;
+							break;
+						case "target":
+							formTarget$jscomp$1 = propValue$jscomp$5;
+							break;
+						default: pushAttribute(target$jscomp$0, propKey$jscomp$5, propValue$jscomp$5);
+					}
+				}
+				var formData$jscomp$1 = null, formActionName = null;
+				if ("function" === typeof formAction$jscomp$1) {
+					var customFields = getCustomFormFields(resumableState, formAction$jscomp$1);
+					null !== customFields ? (formAction$jscomp$1 = customFields.action || "", formEncType$jscomp$1 = customFields.encType, formMethod$jscomp$1 = customFields.method, formTarget$jscomp$1 = customFields.target, formData$jscomp$1 = customFields.data, formActionName = customFields.name) : (target$jscomp$0.push(" ", "action", "=\"", actionJavaScriptURL, "\""), formTarget$jscomp$1 = formMethod$jscomp$1 = formEncType$jscomp$1 = formAction$jscomp$1 = null, injectFormReplayingRuntime(resumableState, renderState));
+				}
+				null != formAction$jscomp$1 && pushAttribute(target$jscomp$0, "action", formAction$jscomp$1);
+				null != formEncType$jscomp$1 && pushAttribute(target$jscomp$0, "encType", formEncType$jscomp$1);
+				null != formMethod$jscomp$1 && pushAttribute(target$jscomp$0, "method", formMethod$jscomp$1);
+				null != formTarget$jscomp$1 && pushAttribute(target$jscomp$0, "target", formTarget$jscomp$1);
+				target$jscomp$0.push(">");
+				null !== formActionName && (target$jscomp$0.push("<input type=\"hidden\""), pushStringAttribute(target$jscomp$0, "name", formActionName), target$jscomp$0.push("/>"), formData$jscomp$1?.forEach(pushAdditionalFormField, target$jscomp$0));
+				pushInnerHTML(target$jscomp$0, innerHTML$jscomp$3, children$jscomp$4);
+				if ("string" === typeof children$jscomp$4) {
+					target$jscomp$0.push(escapeTextForBrowser(children$jscomp$4));
+					var JSCompiler_inline_result$jscomp$1 = null;
+				} else JSCompiler_inline_result$jscomp$1 = children$jscomp$4;
+				return JSCompiler_inline_result$jscomp$1;
+			case "menuitem":
+				target$jscomp$0.push(startChunkForTag("menuitem"));
+				for (var propKey$jscomp$6 in props) if (hasOwnProperty.call(props, propKey$jscomp$6)) {
+					var propValue$jscomp$6 = props[propKey$jscomp$6];
+					if (null != propValue$jscomp$6) switch (propKey$jscomp$6) {
+						case "children":
+						case "dangerouslySetInnerHTML": throw Error("menuitems cannot have `children` nor `dangerouslySetInnerHTML`.");
+						default: pushAttribute(target$jscomp$0, propKey$jscomp$6, propValue$jscomp$6);
+					}
+				}
+				target$jscomp$0.push(">");
+				return null;
+			case "object":
+				target$jscomp$0.push(startChunkForTag("object"));
+				var children$jscomp$5 = null, innerHTML$jscomp$4 = null, propKey$jscomp$7;
+				for (propKey$jscomp$7 in props) if (hasOwnProperty.call(props, propKey$jscomp$7)) {
+					var propValue$jscomp$7 = props[propKey$jscomp$7];
+					if (null != propValue$jscomp$7) switch (propKey$jscomp$7) {
+						case "children":
+							children$jscomp$5 = propValue$jscomp$7;
+							break;
+						case "dangerouslySetInnerHTML":
+							innerHTML$jscomp$4 = propValue$jscomp$7;
+							break;
+						case "data":
+							var sanitizedValue = sanitizeURL("" + propValue$jscomp$7);
+							if ("" === sanitizedValue) break;
+							target$jscomp$0.push(" ", "data", "=\"", escapeTextForBrowser(sanitizedValue), "\"");
+							break;
+						default: pushAttribute(target$jscomp$0, propKey$jscomp$7, propValue$jscomp$7);
+					}
+				}
+				target$jscomp$0.push(">");
+				pushInnerHTML(target$jscomp$0, innerHTML$jscomp$4, children$jscomp$5);
+				if ("string" === typeof children$jscomp$5) {
+					target$jscomp$0.push(escapeTextForBrowser(children$jscomp$5));
+					var JSCompiler_inline_result$jscomp$2 = null;
+				} else JSCompiler_inline_result$jscomp$2 = children$jscomp$5;
+				return JSCompiler_inline_result$jscomp$2;
+			case "title":
+				var noscriptTagInScope = formatContext.tagScope & 1, isFallback = formatContext.tagScope & 4;
+				if (4 === formatContext.insertionMode || noscriptTagInScope || null != props.itemProp) var JSCompiler_inline_result$jscomp$3 = pushTitleImpl(target$jscomp$0, props);
+				else isFallback ? JSCompiler_inline_result$jscomp$3 = null : (pushTitleImpl(renderState.hoistableChunks, props), JSCompiler_inline_result$jscomp$3 = void 0);
+				return JSCompiler_inline_result$jscomp$3;
+			case "link":
+				var noscriptTagInScope$jscomp$0 = formatContext.tagScope & 1, isFallback$jscomp$0 = formatContext.tagScope & 4, rel = props.rel, href = props.href, precedence = props.precedence;
+				if (4 === formatContext.insertionMode || noscriptTagInScope$jscomp$0 || null != props.itemProp || "string" !== typeof rel || "string" !== typeof href || "" === href) {
+					pushLinkImpl(target$jscomp$0, props);
+					var JSCompiler_inline_result$jscomp$4 = null;
+				} else if ("stylesheet" === props.rel) if ("string" !== typeof precedence || null != props.disabled || props.onLoad || props.onError) JSCompiler_inline_result$jscomp$4 = pushLinkImpl(target$jscomp$0, props);
+				else {
+					var styleQueue = renderState.styles.get(precedence), resourceState = resumableState.styleResources.hasOwnProperty(href) ? resumableState.styleResources[href] : void 0;
+					if (null !== resourceState) {
+						resumableState.styleResources[href] = null;
+						styleQueue || (styleQueue = {
+							precedence: escapeTextForBrowser(precedence),
+							rules: [],
+							hrefs: [],
+							sheets: /* @__PURE__ */ new Map()
+						}, renderState.styles.set(precedence, styleQueue));
+						var resource = {
+							state: 0,
+							props: assign({}, props, {
+								"data-precedence": props.precedence,
+								precedence: null
+							})
+						};
+						if (resourceState) {
+							2 === resourceState.length && adoptPreloadCredentials(resource.props, resourceState);
+							var preloadResource = renderState.preloads.stylesheets.get(href);
+							preloadResource && 0 < preloadResource.length ? preloadResource.length = 0 : resource.state = 1;
+						}
+						styleQueue.sheets.set(href, resource);
+						hoistableState && hoistableState.stylesheets.add(resource);
+					} else if (styleQueue) {
+						var resource$9 = styleQueue.sheets.get(href);
+						resource$9 && hoistableState && hoistableState.stylesheets.add(resource$9);
+					}
+					textEmbedded && target$jscomp$0.push("<!-- -->");
+					JSCompiler_inline_result$jscomp$4 = null;
+				}
+				else props.onLoad || props.onError ? JSCompiler_inline_result$jscomp$4 = pushLinkImpl(target$jscomp$0, props) : (textEmbedded && target$jscomp$0.push("<!-- -->"), JSCompiler_inline_result$jscomp$4 = isFallback$jscomp$0 ? null : pushLinkImpl(renderState.hoistableChunks, props));
+				return JSCompiler_inline_result$jscomp$4;
+			case "script":
+				var noscriptTagInScope$jscomp$1 = formatContext.tagScope & 1, asyncProp = props.async;
+				if ("string" !== typeof props.src || !props.src || !asyncProp || "function" === typeof asyncProp || "symbol" === typeof asyncProp || props.onLoad || props.onError || 4 === formatContext.insertionMode || noscriptTagInScope$jscomp$1 || null != props.itemProp) var JSCompiler_inline_result$jscomp$5 = pushScriptImpl(target$jscomp$0, props);
+				else {
+					var key = props.src;
+					if ("module" === props.type) {
+						var resources = resumableState.moduleScriptResources;
+						var preloads = renderState.preloads.moduleScripts;
+					} else resources = resumableState.scriptResources, preloads = renderState.preloads.scripts;
+					var resourceState$jscomp$0 = resources.hasOwnProperty(key) ? resources[key] : void 0;
+					if (null !== resourceState$jscomp$0) {
+						resources[key] = null;
+						var scriptProps = props;
+						if (resourceState$jscomp$0) {
+							2 === resourceState$jscomp$0.length && (scriptProps = assign({}, props), adoptPreloadCredentials(scriptProps, resourceState$jscomp$0));
+							var preloadResource$jscomp$0 = preloads.get(key);
+							preloadResource$jscomp$0 && (preloadResource$jscomp$0.length = 0);
+						}
+						var resource$jscomp$0 = [];
+						renderState.scripts.add(resource$jscomp$0);
+						pushScriptImpl(resource$jscomp$0, scriptProps);
+					}
+					textEmbedded && target$jscomp$0.push("<!-- -->");
+					JSCompiler_inline_result$jscomp$5 = null;
+				}
+				return JSCompiler_inline_result$jscomp$5;
+			case "style":
+				var noscriptTagInScope$jscomp$2 = formatContext.tagScope & 1, precedence$jscomp$0 = props.precedence, href$jscomp$0 = props.href, nonce = props.nonce;
+				if (4 === formatContext.insertionMode || noscriptTagInScope$jscomp$2 || null != props.itemProp || "string" !== typeof precedence$jscomp$0 || "string" !== typeof href$jscomp$0 || "" === href$jscomp$0) {
+					target$jscomp$0.push(startChunkForTag("style"));
+					var children$jscomp$6 = null, innerHTML$jscomp$5 = null, propKey$jscomp$8;
+					for (propKey$jscomp$8 in props) if (hasOwnProperty.call(props, propKey$jscomp$8)) {
+						var propValue$jscomp$8 = props[propKey$jscomp$8];
+						if (null != propValue$jscomp$8) switch (propKey$jscomp$8) {
+							case "children":
+								children$jscomp$6 = propValue$jscomp$8;
+								break;
+							case "dangerouslySetInnerHTML":
+								innerHTML$jscomp$5 = propValue$jscomp$8;
+								break;
+							default: pushAttribute(target$jscomp$0, propKey$jscomp$8, propValue$jscomp$8);
+						}
+					}
+					target$jscomp$0.push(">");
+					var child = Array.isArray(children$jscomp$6) ? 2 > children$jscomp$6.length ? children$jscomp$6[0] : null : children$jscomp$6;
+					"function" !== typeof child && "symbol" !== typeof child && null !== child && void 0 !== child && target$jscomp$0.push(("" + child).replace(styleRegex, styleReplacer));
+					pushInnerHTML(target$jscomp$0, innerHTML$jscomp$5, children$jscomp$6);
+					target$jscomp$0.push(endChunkForTag("style"));
+					var JSCompiler_inline_result$jscomp$6 = null;
+				} else {
+					var styleQueue$jscomp$0 = renderState.styles.get(precedence$jscomp$0);
+					if (null !== (resumableState.styleResources.hasOwnProperty(href$jscomp$0) ? resumableState.styleResources[href$jscomp$0] : void 0)) {
+						resumableState.styleResources[href$jscomp$0] = null;
+						styleQueue$jscomp$0 || (styleQueue$jscomp$0 = {
+							precedence: escapeTextForBrowser(precedence$jscomp$0),
+							rules: [],
+							hrefs: [],
+							sheets: /* @__PURE__ */ new Map()
+						}, renderState.styles.set(precedence$jscomp$0, styleQueue$jscomp$0));
+						var nonceStyle = renderState.nonce.style;
+						if (!nonceStyle || nonceStyle === nonce) {
+							styleQueue$jscomp$0.hrefs.push(escapeTextForBrowser(href$jscomp$0));
+							var target = styleQueue$jscomp$0.rules, children$jscomp$7 = null, innerHTML$jscomp$6 = null, propKey$jscomp$9;
+							for (propKey$jscomp$9 in props) if (hasOwnProperty.call(props, propKey$jscomp$9)) {
+								var propValue$jscomp$9 = props[propKey$jscomp$9];
+								if (null != propValue$jscomp$9) switch (propKey$jscomp$9) {
+									case "children":
+										children$jscomp$7 = propValue$jscomp$9;
+										break;
+									case "dangerouslySetInnerHTML": innerHTML$jscomp$6 = propValue$jscomp$9;
+								}
+							}
+							var child$jscomp$0 = Array.isArray(children$jscomp$7) ? 2 > children$jscomp$7.length ? children$jscomp$7[0] : null : children$jscomp$7;
+							"function" !== typeof child$jscomp$0 && "symbol" !== typeof child$jscomp$0 && null !== child$jscomp$0 && void 0 !== child$jscomp$0 && target.push(("" + child$jscomp$0).replace(styleRegex, styleReplacer));
+							pushInnerHTML(target, innerHTML$jscomp$6, children$jscomp$7);
+						}
+					}
+					styleQueue$jscomp$0 && hoistableState && hoistableState.styles.add(styleQueue$jscomp$0);
+					textEmbedded && target$jscomp$0.push("<!-- -->");
+					JSCompiler_inline_result$jscomp$6 = void 0;
+				}
+				return JSCompiler_inline_result$jscomp$6;
+			case "meta":
+				var noscriptTagInScope$jscomp$3 = formatContext.tagScope & 1, isFallback$jscomp$1 = formatContext.tagScope & 4;
+				if (4 === formatContext.insertionMode || noscriptTagInScope$jscomp$3 || null != props.itemProp) var JSCompiler_inline_result$jscomp$7 = pushSelfClosing(target$jscomp$0, props, "meta");
+				else textEmbedded && target$jscomp$0.push("<!-- -->"), JSCompiler_inline_result$jscomp$7 = isFallback$jscomp$1 ? null : "string" === typeof props.charSet ? pushSelfClosing(renderState.charsetChunks, props, "meta") : "viewport" === props.name ? pushSelfClosing(renderState.viewportChunks, props, "meta") : pushSelfClosing(renderState.hoistableChunks, props, "meta");
+				return JSCompiler_inline_result$jscomp$7;
+			case "listing":
+			case "pre":
+				target$jscomp$0.push(startChunkForTag(type));
+				var children$jscomp$8 = null, innerHTML$jscomp$7 = null, propKey$jscomp$10;
+				for (propKey$jscomp$10 in props) if (hasOwnProperty.call(props, propKey$jscomp$10)) {
+					var propValue$jscomp$10 = props[propKey$jscomp$10];
+					if (null != propValue$jscomp$10) switch (propKey$jscomp$10) {
+						case "children":
+							children$jscomp$8 = propValue$jscomp$10;
+							break;
+						case "dangerouslySetInnerHTML":
+							innerHTML$jscomp$7 = propValue$jscomp$10;
+							break;
+						default: pushAttribute(target$jscomp$0, propKey$jscomp$10, propValue$jscomp$10);
+					}
+				}
+				target$jscomp$0.push(">");
+				if (null != innerHTML$jscomp$7) {
+					if (null != children$jscomp$8) throw Error("Can only set one of `children` or `props.dangerouslySetInnerHTML`.");
+					if ("object" !== typeof innerHTML$jscomp$7 || !("__html" in innerHTML$jscomp$7)) throw Error("`props.dangerouslySetInnerHTML` must be in the form `{__html: ...}`. Please visit https://react.dev/link/dangerously-set-inner-html for more information.");
+					var html = innerHTML$jscomp$7.__html;
+					null !== html && void 0 !== html && ("string" === typeof html && 0 < html.length && "\n" === html[0] ? target$jscomp$0.push("\n", html) : target$jscomp$0.push("" + html));
+				}
+				"string" === typeof children$jscomp$8 && "\n" === children$jscomp$8[0] && target$jscomp$0.push("\n");
+				return children$jscomp$8;
+			case "img":
+				var pictureOrNoScriptTagInScope = formatContext.tagScope & 3, src = props.src, srcSet = props.srcSet;
+				if (!("lazy" === props.loading || !src && !srcSet || "string" !== typeof src && null != src || "string" !== typeof srcSet && null != srcSet || "low" === props.fetchPriority || pictureOrNoScriptTagInScope) && ("string" !== typeof src || ":" !== src[4] || "d" !== src[0] && "D" !== src[0] || "a" !== src[1] && "A" !== src[1] || "t" !== src[2] && "T" !== src[2] || "a" !== src[3] && "A" !== src[3]) && ("string" !== typeof srcSet || ":" !== srcSet[4] || "d" !== srcSet[0] && "D" !== srcSet[0] || "a" !== srcSet[1] && "A" !== srcSet[1] || "t" !== srcSet[2] && "T" !== srcSet[2] || "a" !== srcSet[3] && "A" !== srcSet[3])) {
+					null !== hoistableState && formatContext.tagScope & 64 && (hoistableState.suspenseyImages = !0);
+					var sizes = "string" === typeof props.sizes ? props.sizes : void 0, key$jscomp$0 = srcSet ? srcSet + "\n" + (sizes || "") : src, promotablePreloads = renderState.preloads.images, resource$jscomp$1 = promotablePreloads.get(key$jscomp$0);
+					if (resource$jscomp$1) {
+						if ("high" === props.fetchPriority || 10 > renderState.highImagePreloads.size) promotablePreloads.delete(key$jscomp$0), renderState.highImagePreloads.add(resource$jscomp$1);
+					} else if (!resumableState.imageResources.hasOwnProperty(key$jscomp$0)) {
+						resumableState.imageResources[key$jscomp$0] = PRELOAD_NO_CREDS;
+						var input = props.crossOrigin;
+						var JSCompiler_inline_result$jscomp$8 = "string" === typeof input ? "use-credentials" === input ? input : "" : void 0;
+						var headers = renderState.headers, header;
+						headers && 0 < headers.remainingCapacity && "string" !== typeof props.srcSet && ("high" === props.fetchPriority || 500 > headers.highImagePreloads.length) && (header = getPreloadAsHeader(src, "image", {
+							imageSrcSet: props.srcSet,
+							imageSizes: props.sizes,
+							crossOrigin: JSCompiler_inline_result$jscomp$8,
+							integrity: props.integrity,
+							nonce: props.nonce,
+							type: props.type,
+							fetchPriority: props.fetchPriority,
+							referrerPolicy: props.refererPolicy
+						}), 0 <= (headers.remainingCapacity -= header.length + 2)) ? (renderState.resets.image[key$jscomp$0] = PRELOAD_NO_CREDS, headers.highImagePreloads && (headers.highImagePreloads += ", "), headers.highImagePreloads += header) : (resource$jscomp$1 = [], pushLinkImpl(resource$jscomp$1, {
+							rel: "preload",
+							as: "image",
+							href: srcSet ? void 0 : src,
+							imageSrcSet: srcSet,
+							imageSizes: sizes,
+							crossOrigin: JSCompiler_inline_result$jscomp$8,
+							integrity: props.integrity,
+							type: props.type,
+							fetchPriority: props.fetchPriority,
+							referrerPolicy: props.referrerPolicy
+						}), "high" === props.fetchPriority || 10 > renderState.highImagePreloads.size ? renderState.highImagePreloads.add(resource$jscomp$1) : (renderState.bulkPreloads.add(resource$jscomp$1), promotablePreloads.set(key$jscomp$0, resource$jscomp$1)));
+					}
+				}
+				return pushSelfClosing(target$jscomp$0, props, "img");
+			case "base":
+			case "area":
+			case "br":
+			case "col":
+			case "embed":
+			case "hr":
+			case "keygen":
+			case "param":
+			case "source":
+			case "track":
+			case "wbr": return pushSelfClosing(target$jscomp$0, props, type);
+			case "annotation-xml":
+			case "color-profile":
+			case "font-face":
+			case "font-face-src":
+			case "font-face-uri":
+			case "font-face-format":
+			case "font-face-name":
+			case "missing-glyph": break;
+			case "head":
+				if (2 > formatContext.insertionMode) {
+					var preamble = preambleState || renderState.preamble;
+					if (preamble.headChunks) throw Error("The `<head>` tag may only be rendered once.");
+					null !== preambleState && target$jscomp$0.push("<!--head-->");
+					preamble.headChunks = [];
+					var JSCompiler_inline_result$jscomp$9 = pushStartSingletonElement(preamble.headChunks, props, "head");
+				} else JSCompiler_inline_result$jscomp$9 = pushStartGenericElement(target$jscomp$0, props, "head");
+				return JSCompiler_inline_result$jscomp$9;
+			case "body":
+				if (2 > formatContext.insertionMode) {
+					var preamble$jscomp$0 = preambleState || renderState.preamble;
+					if (preamble$jscomp$0.bodyChunks) throw Error("The `<body>` tag may only be rendered once.");
+					null !== preambleState && target$jscomp$0.push("<!--body-->");
+					preamble$jscomp$0.bodyChunks = [];
+					var JSCompiler_inline_result$jscomp$10 = pushStartSingletonElement(preamble$jscomp$0.bodyChunks, props, "body");
+				} else JSCompiler_inline_result$jscomp$10 = pushStartGenericElement(target$jscomp$0, props, "body");
+				return JSCompiler_inline_result$jscomp$10;
+			case "html":
+				if (0 === formatContext.insertionMode) {
+					var preamble$jscomp$1 = preambleState || renderState.preamble;
+					if (preamble$jscomp$1.htmlChunks) throw Error("The `<html>` tag may only be rendered once.");
+					null !== preambleState && target$jscomp$0.push("<!--html-->");
+					preamble$jscomp$1.htmlChunks = [""];
+					var JSCompiler_inline_result$jscomp$11 = pushStartSingletonElement(preamble$jscomp$1.htmlChunks, props, "html");
+				} else JSCompiler_inline_result$jscomp$11 = pushStartGenericElement(target$jscomp$0, props, "html");
+				return JSCompiler_inline_result$jscomp$11;
+			default: if (-1 !== type.indexOf("-")) {
+				target$jscomp$0.push(startChunkForTag(type));
+				var children$jscomp$9 = null, innerHTML$jscomp$8 = null, propKey$jscomp$11;
+				for (propKey$jscomp$11 in props) if (hasOwnProperty.call(props, propKey$jscomp$11)) {
+					var propValue$jscomp$11 = props[propKey$jscomp$11];
+					if (null != propValue$jscomp$11) {
+						var attributeName = propKey$jscomp$11;
+						switch (propKey$jscomp$11) {
+							case "children":
+								children$jscomp$9 = propValue$jscomp$11;
+								break;
+							case "dangerouslySetInnerHTML":
+								innerHTML$jscomp$8 = propValue$jscomp$11;
+								break;
+							case "style":
+								pushStyleAttribute(target$jscomp$0, propValue$jscomp$11);
+								break;
+							case "suppressContentEditableWarning":
+							case "suppressHydrationWarning":
+							case "ref": break;
+							case "className": attributeName = "class";
+							default: if (isAttributeNameSafe(propKey$jscomp$11) && "function" !== typeof propValue$jscomp$11 && "symbol" !== typeof propValue$jscomp$11 && !1 !== propValue$jscomp$11) {
+								if (!0 === propValue$jscomp$11) propValue$jscomp$11 = "";
+								else if ("object" === typeof propValue$jscomp$11) continue;
+								target$jscomp$0.push(" ", attributeName, "=\"", escapeTextForBrowser(propValue$jscomp$11), "\"");
+							}
+						}
+					}
+				}
+				target$jscomp$0.push(">");
+				pushInnerHTML(target$jscomp$0, innerHTML$jscomp$8, children$jscomp$9);
+				return children$jscomp$9;
+			}
+		}
+		return pushStartGenericElement(target$jscomp$0, props, type);
+	}
+	var endTagCache = /* @__PURE__ */ new Map();
+	function endChunkForTag(tag) {
+		var chunk = endTagCache.get(tag);
+		void 0 === chunk && (chunk = "</" + tag + ">", endTagCache.set(tag, chunk));
+		return chunk;
+	}
+	function hoistPreambleState(renderState, preambleState) {
+		renderState = renderState.preamble;
+		null === renderState.htmlChunks && preambleState.htmlChunks && (renderState.htmlChunks = preambleState.htmlChunks);
+		null === renderState.headChunks && preambleState.headChunks && (renderState.headChunks = preambleState.headChunks);
+		null === renderState.bodyChunks && preambleState.bodyChunks && (renderState.bodyChunks = preambleState.bodyChunks);
+	}
+	function writeBootstrap(destination, renderState) {
+		renderState = renderState.bootstrapChunks;
+		for (var i = 0; i < renderState.length - 1; i++) destination.push(renderState[i]);
+		return i < renderState.length ? (i = renderState[i], renderState.length = 0, destination.push(i)) : !0;
+	}
+	function writeStartPendingSuspenseBoundary(destination, renderState, id) {
+		destination.push("<!--$?--><template id=\"");
+		if (null === id) throw Error("An ID must have been assigned before we can complete the boundary.");
+		destination.push(renderState.boundaryPrefix);
+		renderState = id.toString(16);
+		destination.push(renderState);
+		return destination.push("\"></template>");
+	}
+	function writeStartSegment(destination, renderState, formatContext, id) {
+		switch (formatContext.insertionMode) {
+			case 0:
+			case 1:
+			case 3:
+			case 2: return destination.push("<div hidden id=\""), destination.push(renderState.segmentPrefix), renderState = id.toString(16), destination.push(renderState), destination.push("\">");
+			case 4: return destination.push("<svg aria-hidden=\"true\" style=\"display:none\" id=\""), destination.push(renderState.segmentPrefix), renderState = id.toString(16), destination.push(renderState), destination.push("\">");
+			case 5: return destination.push("<math aria-hidden=\"true\" style=\"display:none\" id=\""), destination.push(renderState.segmentPrefix), renderState = id.toString(16), destination.push(renderState), destination.push("\">");
+			case 6: return destination.push("<table hidden id=\""), destination.push(renderState.segmentPrefix), renderState = id.toString(16), destination.push(renderState), destination.push("\">");
+			case 7: return destination.push("<table hidden><tbody id=\""), destination.push(renderState.segmentPrefix), renderState = id.toString(16), destination.push(renderState), destination.push("\">");
+			case 8: return destination.push("<table hidden><tr id=\""), destination.push(renderState.segmentPrefix), renderState = id.toString(16), destination.push(renderState), destination.push("\">");
+			case 9: return destination.push("<table hidden><colgroup id=\""), destination.push(renderState.segmentPrefix), renderState = id.toString(16), destination.push(renderState), destination.push("\">");
+			default: throw Error("Unknown insertion mode. This is a bug in React.");
+		}
+	}
+	function writeEndSegment(destination, formatContext) {
+		switch (formatContext.insertionMode) {
+			case 0:
+			case 1:
+			case 3:
+			case 2: return destination.push("</div>");
+			case 4: return destination.push("</svg>");
+			case 5: return destination.push("</math>");
+			case 6: return destination.push("</table>");
+			case 7: return destination.push("</tbody></table>");
+			case 8: return destination.push("</tr></table>");
+			case 9: return destination.push("</colgroup></table>");
+			default: throw Error("Unknown insertion mode. This is a bug in React.");
+		}
+	}
+	var regexForJSStringsInInstructionScripts = /[<\u2028\u2029]/g;
+	function escapeJSStringsForInstructionScripts(input) {
+		return JSON.stringify(input).replace(regexForJSStringsInInstructionScripts, function(match) {
+			switch (match) {
+				case "<": return "\\u003c";
+				case "\u2028": return "\\u2028";
+				case "\u2029": return "\\u2029";
+				default: throw Error("escapeJSStringsForInstructionScripts encountered a match it does not know how to replace. this means the match regex and the replacement characters are no longer in sync. This is a bug in React");
+			}
+		});
+	}
+	var regexForJSStringsInScripts = /[&><\u2028\u2029]/g;
+	function escapeJSObjectForInstructionScripts(input) {
+		return JSON.stringify(input).replace(regexForJSStringsInScripts, function(match) {
+			switch (match) {
+				case "&": return "\\u0026";
+				case ">": return "\\u003e";
+				case "<": return "\\u003c";
+				case "\u2028": return "\\u2028";
+				case "\u2029": return "\\u2029";
+				default: throw Error("escapeJSObjectForInstructionScripts encountered a match it does not know how to replace. this means the match regex and the replacement characters are no longer in sync. This is a bug in React");
+			}
+		});
+	}
+	var currentlyRenderingBoundaryHasStylesToHoist = !1, destinationHasCapacity = !0;
+	function flushStyleTagsLateForBoundary(styleQueue) {
+		var rules = styleQueue.rules, hrefs = styleQueue.hrefs, i = 0;
+		if (hrefs.length) {
+			this.push(currentlyFlushingRenderState.startInlineStyle);
+			this.push(" media=\"not all\" data-precedence=\"");
+			this.push(styleQueue.precedence);
+			for (this.push("\" data-href=\""); i < hrefs.length - 1; i++) this.push(hrefs[i]), this.push(" ");
+			this.push(hrefs[i]);
+			this.push("\">");
+			for (i = 0; i < rules.length; i++) this.push(rules[i]);
+			destinationHasCapacity = this.push("</style>");
+			currentlyRenderingBoundaryHasStylesToHoist = !0;
+			rules.length = 0;
+			hrefs.length = 0;
+		}
+	}
+	function hasStylesToHoist(stylesheet) {
+		return 2 !== stylesheet.state ? currentlyRenderingBoundaryHasStylesToHoist = !0 : !1;
+	}
+	function writeHoistablesForBoundary(destination, hoistableState, renderState) {
+		currentlyRenderingBoundaryHasStylesToHoist = !1;
+		destinationHasCapacity = !0;
+		currentlyFlushingRenderState = renderState;
+		hoistableState.styles.forEach(flushStyleTagsLateForBoundary, destination);
+		currentlyFlushingRenderState = null;
+		hoistableState.stylesheets.forEach(hasStylesToHoist);
+		currentlyRenderingBoundaryHasStylesToHoist && (renderState.stylesToHoist = !0);
+		return destinationHasCapacity;
+	}
+	function flushResource(resource) {
+		for (var i = 0; i < resource.length; i++) this.push(resource[i]);
+		resource.length = 0;
+	}
+	var stylesheetFlushingQueue = [];
+	function flushStyleInPreamble(stylesheet) {
+		pushLinkImpl(stylesheetFlushingQueue, stylesheet.props);
+		for (var i = 0; i < stylesheetFlushingQueue.length; i++) this.push(stylesheetFlushingQueue[i]);
+		stylesheetFlushingQueue.length = 0;
+		stylesheet.state = 2;
+	}
+	function flushStylesInPreamble(styleQueue) {
+		var hasStylesheets = 0 < styleQueue.sheets.size;
+		styleQueue.sheets.forEach(flushStyleInPreamble, this);
+		styleQueue.sheets.clear();
+		var rules = styleQueue.rules, hrefs = styleQueue.hrefs;
+		if (!hasStylesheets || hrefs.length) {
+			this.push(currentlyFlushingRenderState.startInlineStyle);
+			this.push(" data-precedence=\"");
+			this.push(styleQueue.precedence);
+			styleQueue = 0;
+			if (hrefs.length) {
+				for (this.push("\" data-href=\""); styleQueue < hrefs.length - 1; styleQueue++) this.push(hrefs[styleQueue]), this.push(" ");
+				this.push(hrefs[styleQueue]);
+			}
+			this.push("\">");
+			for (styleQueue = 0; styleQueue < rules.length; styleQueue++) this.push(rules[styleQueue]);
+			this.push("</style>");
+			rules.length = 0;
+			hrefs.length = 0;
+		}
+	}
+	function preloadLateStyle(stylesheet) {
+		if (0 === stylesheet.state) {
+			stylesheet.state = 1;
+			var props = stylesheet.props;
+			pushLinkImpl(stylesheetFlushingQueue, {
+				rel: "preload",
+				as: "style",
+				href: stylesheet.props.href,
+				crossOrigin: props.crossOrigin,
+				fetchPriority: props.fetchPriority,
+				integrity: props.integrity,
+				media: props.media,
+				hrefLang: props.hrefLang,
+				referrerPolicy: props.referrerPolicy
+			});
+			for (stylesheet = 0; stylesheet < stylesheetFlushingQueue.length; stylesheet++) this.push(stylesheetFlushingQueue[stylesheet]);
+			stylesheetFlushingQueue.length = 0;
+		}
+	}
+	function preloadLateStyles(styleQueue) {
+		styleQueue.sheets.forEach(preloadLateStyle, this);
+		styleQueue.sheets.clear();
+	}
+	function pushCompletedShellIdAttribute(target, resumableState) {
+		0 === (resumableState.instructions & 32) && (resumableState.instructions |= 32, target.push(" id=\"", escapeTextForBrowser("_" + resumableState.idPrefix + "R_"), "\""));
+	}
+	function writeStyleResourceDependenciesInJS(destination, hoistableState) {
+		destination.push("[");
+		var nextArrayOpenBrackChunk = "[";
+		hoistableState.stylesheets.forEach(function(resource) {
+			if (2 !== resource.state) if (3 === resource.state) destination.push(nextArrayOpenBrackChunk), resource = escapeJSObjectForInstructionScripts("" + resource.props.href), destination.push(resource), destination.push("]"), nextArrayOpenBrackChunk = ",[";
+			else {
+				destination.push(nextArrayOpenBrackChunk);
+				var precedence = resource.props["data-precedence"], props = resource.props, coercedHref = sanitizeURL("" + resource.props.href);
+				coercedHref = escapeJSObjectForInstructionScripts(coercedHref);
+				destination.push(coercedHref);
+				precedence = "" + precedence;
+				destination.push(",");
+				precedence = escapeJSObjectForInstructionScripts(precedence);
+				destination.push(precedence);
+				for (var propKey in props) if (hasOwnProperty.call(props, propKey) && (precedence = props[propKey], null != precedence)) switch (propKey) {
+					case "href":
+					case "rel":
+					case "precedence":
+					case "data-precedence": break;
+					case "children":
+					case "dangerouslySetInnerHTML": throw Error("link is a self-closing tag and must neither have `children` nor use `dangerouslySetInnerHTML`.");
+					default: writeStyleResourceAttributeInJS(destination, propKey, precedence);
+				}
+				destination.push("]");
+				nextArrayOpenBrackChunk = ",[";
+				resource.state = 3;
+			}
+		});
+		destination.push("]");
+	}
+	function writeStyleResourceAttributeInJS(destination, name, value) {
+		var attributeName = name.toLowerCase();
+		switch (typeof value) {
+			case "function":
+			case "symbol": return;
+		}
+		switch (name) {
+			case "innerHTML":
+			case "dangerouslySetInnerHTML":
+			case "suppressContentEditableWarning":
+			case "suppressHydrationWarning":
+			case "style":
+			case "ref": return;
+			case "className":
+				attributeName = "class";
+				name = "" + value;
+				break;
+			case "hidden":
+				if (!1 === value) return;
+				name = "";
+				break;
+			case "src":
+			case "href":
+				value = sanitizeURL(value);
+				name = "" + value;
+				break;
+			default:
+				if (2 < name.length && ("o" === name[0] || "O" === name[0]) && ("n" === name[1] || "N" === name[1]) || !isAttributeNameSafe(name)) return;
+				name = "" + value;
+		}
+		destination.push(",");
+		attributeName = escapeJSObjectForInstructionScripts(attributeName);
+		destination.push(attributeName);
+		destination.push(",");
+		attributeName = escapeJSObjectForInstructionScripts(name);
+		destination.push(attributeName);
+	}
+	function createHoistableState() {
+		return {
+			styles: /* @__PURE__ */ new Set(),
+			stylesheets: /* @__PURE__ */ new Set(),
+			suspenseyImages: !1
+		};
+	}
+	function prefetchDNS(href) {
+		var request = currentRequest ? currentRequest : null;
+		if (request) {
+			var resumableState = request.resumableState, renderState = request.renderState;
+			if ("string" === typeof href && href) {
+				if (!resumableState.dnsResources.hasOwnProperty(href)) {
+					resumableState.dnsResources[href] = null;
+					resumableState = renderState.headers;
+					var header, JSCompiler_temp;
+					if (JSCompiler_temp = resumableState && 0 < resumableState.remainingCapacity) JSCompiler_temp = (header = "<" + ("" + href).replace(regexForHrefInLinkHeaderURLContext, escapeHrefForLinkHeaderURLContextReplacer) + ">; rel=dns-prefetch", 0 <= (resumableState.remainingCapacity -= header.length + 2));
+					JSCompiler_temp ? (renderState.resets.dns[href] = null, resumableState.preconnects && (resumableState.preconnects += ", "), resumableState.preconnects += header) : (header = [], pushLinkImpl(header, {
+						href,
+						rel: "dns-prefetch"
+					}), renderState.preconnects.add(header));
+				}
+				enqueueFlush(request);
+			}
+		} else previousDispatcher.D(href);
+	}
+	function preconnect(href, crossOrigin) {
+		var request = currentRequest ? currentRequest : null;
+		if (request) {
+			var resumableState = request.resumableState, renderState = request.renderState;
+			if ("string" === typeof href && href) {
+				var bucket = "use-credentials" === crossOrigin ? "credentials" : "string" === typeof crossOrigin ? "anonymous" : "default";
+				if (!resumableState.connectResources[bucket].hasOwnProperty(href)) {
+					resumableState.connectResources[bucket][href] = null;
+					resumableState = renderState.headers;
+					var header, JSCompiler_temp;
+					if (JSCompiler_temp = resumableState && 0 < resumableState.remainingCapacity) {
+						JSCompiler_temp = "<" + ("" + href).replace(regexForHrefInLinkHeaderURLContext, escapeHrefForLinkHeaderURLContextReplacer) + ">; rel=preconnect";
+						if ("string" === typeof crossOrigin) {
+							var escapedCrossOrigin = ("" + crossOrigin).replace(regexForLinkHeaderQuotedParamValueContext, escapeStringForLinkHeaderQuotedParamValueContextReplacer);
+							JSCompiler_temp += "; crossorigin=\"" + escapedCrossOrigin + "\"";
+						}
+						JSCompiler_temp = (header = JSCompiler_temp, 0 <= (resumableState.remainingCapacity -= header.length + 2));
+					}
+					JSCompiler_temp ? (renderState.resets.connect[bucket][href] = null, resumableState.preconnects && (resumableState.preconnects += ", "), resumableState.preconnects += header) : (bucket = [], pushLinkImpl(bucket, {
+						rel: "preconnect",
+						href,
+						crossOrigin
+					}), renderState.preconnects.add(bucket));
+				}
+				enqueueFlush(request);
+			}
+		} else previousDispatcher.C(href, crossOrigin);
+	}
+	function preload(href, as, options) {
+		var request = currentRequest ? currentRequest : null;
+		if (request) {
+			var resumableState = request.resumableState, renderState = request.renderState;
+			if (as && href) {
+				switch (as) {
+					case "image":
+						if (options) {
+							var imageSrcSet = options.imageSrcSet;
+							var imageSizes = options.imageSizes;
+							var fetchPriority = options.fetchPriority;
+						}
+						var key = imageSrcSet ? imageSrcSet + "\n" + (imageSizes || "") : href;
+						if (resumableState.imageResources.hasOwnProperty(key)) return;
+						resumableState.imageResources[key] = PRELOAD_NO_CREDS;
+						resumableState = renderState.headers;
+						var header;
+						resumableState && 0 < resumableState.remainingCapacity && "string" !== typeof imageSrcSet && "high" === fetchPriority && (header = getPreloadAsHeader(href, as, options), 0 <= (resumableState.remainingCapacity -= header.length + 2)) ? (renderState.resets.image[key] = PRELOAD_NO_CREDS, resumableState.highImagePreloads && (resumableState.highImagePreloads += ", "), resumableState.highImagePreloads += header) : (resumableState = [], pushLinkImpl(resumableState, assign({
+							rel: "preload",
+							href: imageSrcSet ? void 0 : href,
+							as
+						}, options)), "high" === fetchPriority ? renderState.highImagePreloads.add(resumableState) : (renderState.bulkPreloads.add(resumableState), renderState.preloads.images.set(key, resumableState)));
+						break;
+					case "style":
+						if (resumableState.styleResources.hasOwnProperty(href)) return;
+						imageSrcSet = [];
+						pushLinkImpl(imageSrcSet, assign({
+							rel: "preload",
+							href,
+							as
+						}, options));
+						resumableState.styleResources[href] = !options || "string" !== typeof options.crossOrigin && "string" !== typeof options.integrity ? PRELOAD_NO_CREDS : [options.crossOrigin, options.integrity];
+						renderState.preloads.stylesheets.set(href, imageSrcSet);
+						renderState.bulkPreloads.add(imageSrcSet);
+						break;
+					case "script":
+						if (resumableState.scriptResources.hasOwnProperty(href)) return;
+						imageSrcSet = [];
+						renderState.preloads.scripts.set(href, imageSrcSet);
+						renderState.bulkPreloads.add(imageSrcSet);
+						pushLinkImpl(imageSrcSet, assign({
+							rel: "preload",
+							href,
+							as
+						}, options));
+						resumableState.scriptResources[href] = !options || "string" !== typeof options.crossOrigin && "string" !== typeof options.integrity ? PRELOAD_NO_CREDS : [options.crossOrigin, options.integrity];
+						break;
+					default:
+						if (resumableState.unknownResources.hasOwnProperty(as)) {
+							if (imageSrcSet = resumableState.unknownResources[as], imageSrcSet.hasOwnProperty(href)) return;
+						} else imageSrcSet = {}, resumableState.unknownResources[as] = imageSrcSet;
+						imageSrcSet[href] = PRELOAD_NO_CREDS;
+						if ((resumableState = renderState.headers) && 0 < resumableState.remainingCapacity && "font" === as && (key = getPreloadAsHeader(href, as, options), 0 <= (resumableState.remainingCapacity -= key.length + 2))) renderState.resets.font[href] = PRELOAD_NO_CREDS, resumableState.fontPreloads && (resumableState.fontPreloads += ", "), resumableState.fontPreloads += key;
+						else switch (resumableState = [], href = assign({
+							rel: "preload",
+							href,
+							as
+						}, options), pushLinkImpl(resumableState, href), as) {
+							case "font":
+								renderState.fontPreloads.add(resumableState);
+								break;
+							default: renderState.bulkPreloads.add(resumableState);
+						}
+				}
+				enqueueFlush(request);
+			}
+		} else previousDispatcher.L(href, as, options);
+	}
+	function preloadModule(href, options) {
+		var request = currentRequest ? currentRequest : null;
+		if (request) {
+			var resumableState = request.resumableState, renderState = request.renderState;
+			if (href) {
+				var as = options && "string" === typeof options.as ? options.as : "script";
+				switch (as) {
+					case "script":
+						if (resumableState.moduleScriptResources.hasOwnProperty(href)) return;
+						as = [];
+						resumableState.moduleScriptResources[href] = !options || "string" !== typeof options.crossOrigin && "string" !== typeof options.integrity ? PRELOAD_NO_CREDS : [options.crossOrigin, options.integrity];
+						renderState.preloads.moduleScripts.set(href, as);
+						break;
+					default:
+						if (resumableState.moduleUnknownResources.hasOwnProperty(as)) {
+							var resources = resumableState.unknownResources[as];
+							if (resources.hasOwnProperty(href)) return;
+						} else resources = {}, resumableState.moduleUnknownResources[as] = resources;
+						as = [];
+						resources[href] = PRELOAD_NO_CREDS;
+				}
+				pushLinkImpl(as, assign({
+					rel: "modulepreload",
+					href
+				}, options));
+				renderState.bulkPreloads.add(as);
+				enqueueFlush(request);
+			}
+		} else previousDispatcher.m(href, options);
+	}
+	function preinitStyle(href, precedence, options) {
+		var request = currentRequest ? currentRequest : null;
+		if (request) {
+			var resumableState = request.resumableState, renderState = request.renderState;
+			if (href) {
+				precedence = precedence || "default";
+				var styleQueue = renderState.styles.get(precedence), resourceState = resumableState.styleResources.hasOwnProperty(href) ? resumableState.styleResources[href] : void 0;
+				null !== resourceState && (resumableState.styleResources[href] = null, styleQueue || (styleQueue = {
+					precedence: escapeTextForBrowser(precedence),
+					rules: [],
+					hrefs: [],
+					sheets: /* @__PURE__ */ new Map()
+				}, renderState.styles.set(precedence, styleQueue)), precedence = {
+					state: 0,
+					props: assign({
+						rel: "stylesheet",
+						href,
+						"data-precedence": precedence
+					}, options)
+				}, resourceState && (2 === resourceState.length && adoptPreloadCredentials(precedence.props, resourceState), (renderState = renderState.preloads.stylesheets.get(href)) && 0 < renderState.length ? renderState.length = 0 : precedence.state = 1), styleQueue.sheets.set(href, precedence), enqueueFlush(request));
+			}
+		} else previousDispatcher.S(href, precedence, options);
+	}
+	function preinitScript(src, options) {
+		var request = currentRequest ? currentRequest : null;
+		if (request) {
+			var resumableState = request.resumableState, renderState = request.renderState;
+			if (src) {
+				var resourceState = resumableState.scriptResources.hasOwnProperty(src) ? resumableState.scriptResources[src] : void 0;
+				null !== resourceState && (resumableState.scriptResources[src] = null, options = assign({
+					src,
+					async: !0
+				}, options), resourceState && (2 === resourceState.length && adoptPreloadCredentials(options, resourceState), src = renderState.preloads.scripts.get(src)) && (src.length = 0), src = [], renderState.scripts.add(src), pushScriptImpl(src, options), enqueueFlush(request));
+			}
+		} else previousDispatcher.X(src, options);
+	}
+	function preinitModuleScript(src, options) {
+		var request = currentRequest ? currentRequest : null;
+		if (request) {
+			var resumableState = request.resumableState, renderState = request.renderState;
+			if (src) {
+				var resourceState = resumableState.moduleScriptResources.hasOwnProperty(src) ? resumableState.moduleScriptResources[src] : void 0;
+				null !== resourceState && (resumableState.moduleScriptResources[src] = null, options = assign({
+					src,
+					type: "module",
+					async: !0
+				}, options), resourceState && (2 === resourceState.length && adoptPreloadCredentials(options, resourceState), src = renderState.preloads.moduleScripts.get(src)) && (src.length = 0), src = [], renderState.scripts.add(src), pushScriptImpl(src, options), enqueueFlush(request));
+			}
+		} else previousDispatcher.M(src, options);
+	}
+	function adoptPreloadCredentials(target, preloadState) {
+		target.crossOrigin ?? (target.crossOrigin = preloadState[0]);
+		target.integrity ?? (target.integrity = preloadState[1]);
+	}
+	function getPreloadAsHeader(href, as, params) {
+		href = ("" + href).replace(regexForHrefInLinkHeaderURLContext, escapeHrefForLinkHeaderURLContextReplacer);
+		as = ("" + as).replace(regexForLinkHeaderQuotedParamValueContext, escapeStringForLinkHeaderQuotedParamValueContextReplacer);
+		as = "<" + href + ">; rel=preload; as=\"" + as + "\"";
+		for (var paramName in params) hasOwnProperty.call(params, paramName) && (href = params[paramName], "string" === typeof href && (as += "; " + paramName.toLowerCase() + "=\"" + ("" + href).replace(regexForLinkHeaderQuotedParamValueContext, escapeStringForLinkHeaderQuotedParamValueContextReplacer) + "\""));
+		return as;
+	}
+	var regexForHrefInLinkHeaderURLContext = /[<>\r\n]/g;
+	function escapeHrefForLinkHeaderURLContextReplacer(match) {
+		switch (match) {
+			case "<": return "%3C";
+			case ">": return "%3E";
+			case "\n": return "%0A";
+			case "\r": return "%0D";
+			default: throw Error("escapeLinkHrefForHeaderContextReplacer encountered a match it does not know how to replace. this means the match regex and the replacement characters are no longer in sync. This is a bug in React");
+		}
+	}
+	var regexForLinkHeaderQuotedParamValueContext = /["';,\r\n]/g;
+	function escapeStringForLinkHeaderQuotedParamValueContextReplacer(match) {
+		switch (match) {
+			case "\"": return "%22";
+			case "'": return "%27";
+			case ";": return "%3B";
+			case ",": return "%2C";
+			case "\n": return "%0A";
+			case "\r": return "%0D";
+			default: throw Error("escapeStringForLinkHeaderQuotedParamValueContextReplacer encountered a match it does not know how to replace. this means the match regex and the replacement characters are no longer in sync. This is a bug in React");
+		}
+	}
+	function hoistStyleQueueDependency(styleQueue) {
+		this.styles.add(styleQueue);
+	}
+	function hoistStylesheetDependency(stylesheet) {
+		this.stylesheets.add(stylesheet);
+	}
+	function hoistHoistables(parentState, childState) {
+		childState.styles.forEach(hoistStyleQueueDependency, parentState);
+		childState.stylesheets.forEach(hoistStylesheetDependency, parentState);
+		childState.suspenseyImages && (parentState.suspenseyImages = !0);
+	}
+	function createRenderState(resumableState, generateStaticMarkup) {
+		var idPrefix = resumableState.idPrefix, bootstrapChunks = [], bootstrapScriptContent = resumableState.bootstrapScriptContent, bootstrapScripts = resumableState.bootstrapScripts, bootstrapModules = resumableState.bootstrapModules;
+		void 0 !== bootstrapScriptContent && (bootstrapChunks.push("<script"), pushCompletedShellIdAttribute(bootstrapChunks, resumableState), bootstrapChunks.push(">", ("" + bootstrapScriptContent).replace(scriptRegex, scriptReplacer), "<\/script>"));
+		bootstrapScriptContent = idPrefix + "P:";
+		var JSCompiler_object_inline_segmentPrefix_1673 = idPrefix + "S:";
+		idPrefix += "B:";
+		var JSCompiler_object_inline_preconnects_1687 = /* @__PURE__ */ new Set(), JSCompiler_object_inline_fontPreloads_1688 = /* @__PURE__ */ new Set(), JSCompiler_object_inline_highImagePreloads_1689 = /* @__PURE__ */ new Set(), JSCompiler_object_inline_styles_1690 = /* @__PURE__ */ new Map(), JSCompiler_object_inline_bootstrapScripts_1691 = /* @__PURE__ */ new Set(), JSCompiler_object_inline_scripts_1692 = /* @__PURE__ */ new Set(), JSCompiler_object_inline_bulkPreloads_1693 = /* @__PURE__ */ new Set(), JSCompiler_object_inline_preloads_1694 = {
+			images: /* @__PURE__ */ new Map(),
+			stylesheets: /* @__PURE__ */ new Map(),
+			scripts: /* @__PURE__ */ new Map(),
+			moduleScripts: /* @__PURE__ */ new Map()
+		};
+		if (void 0 !== bootstrapScripts) for (var i = 0; i < bootstrapScripts.length; i++) {
+			var scriptConfig = bootstrapScripts[i], src, crossOrigin = void 0, integrity = void 0, props = {
+				rel: "preload",
+				as: "script",
+				fetchPriority: "low",
+				nonce: void 0
+			};
+			"string" === typeof scriptConfig ? props.href = src = scriptConfig : (props.href = src = scriptConfig.src, props.integrity = integrity = "string" === typeof scriptConfig.integrity ? scriptConfig.integrity : void 0, props.crossOrigin = crossOrigin = "string" === typeof scriptConfig || null == scriptConfig.crossOrigin ? void 0 : "use-credentials" === scriptConfig.crossOrigin ? "use-credentials" : "");
+			scriptConfig = resumableState;
+			var href = src;
+			scriptConfig.scriptResources[href] = null;
+			scriptConfig.moduleScriptResources[href] = null;
+			scriptConfig = [];
+			pushLinkImpl(scriptConfig, props);
+			JSCompiler_object_inline_bootstrapScripts_1691.add(scriptConfig);
+			bootstrapChunks.push("<script src=\"", escapeTextForBrowser(src), "\"");
+			"string" === typeof integrity && bootstrapChunks.push(" integrity=\"", escapeTextForBrowser(integrity), "\"");
+			"string" === typeof crossOrigin && bootstrapChunks.push(" crossorigin=\"", escapeTextForBrowser(crossOrigin), "\"");
+			pushCompletedShellIdAttribute(bootstrapChunks, resumableState);
+			bootstrapChunks.push(" async=\"\"><\/script>");
+		}
+		if (void 0 !== bootstrapModules) for (bootstrapScripts = 0; bootstrapScripts < bootstrapModules.length; bootstrapScripts++) props = bootstrapModules[bootstrapScripts], crossOrigin = src = void 0, integrity = {
+			rel: "modulepreload",
+			fetchPriority: "low",
+			nonce: void 0
+		}, "string" === typeof props ? integrity.href = i = props : (integrity.href = i = props.src, integrity.integrity = crossOrigin = "string" === typeof props.integrity ? props.integrity : void 0, integrity.crossOrigin = src = "string" === typeof props || null == props.crossOrigin ? void 0 : "use-credentials" === props.crossOrigin ? "use-credentials" : ""), props = resumableState, scriptConfig = i, props.scriptResources[scriptConfig] = null, props.moduleScriptResources[scriptConfig] = null, props = [], pushLinkImpl(props, integrity), JSCompiler_object_inline_bootstrapScripts_1691.add(props), bootstrapChunks.push("<script type=\"module\" src=\"", escapeTextForBrowser(i), "\""), "string" === typeof crossOrigin && bootstrapChunks.push(" integrity=\"", escapeTextForBrowser(crossOrigin), "\""), "string" === typeof src && bootstrapChunks.push(" crossorigin=\"", escapeTextForBrowser(src), "\""), pushCompletedShellIdAttribute(bootstrapChunks, resumableState), bootstrapChunks.push(" async=\"\"><\/script>");
+		return {
+			placeholderPrefix: bootstrapScriptContent,
+			segmentPrefix: JSCompiler_object_inline_segmentPrefix_1673,
+			boundaryPrefix: idPrefix,
+			startInlineScript: "<script",
+			startInlineStyle: "<style",
+			preamble: {
+				htmlChunks: null,
+				headChunks: null,
+				bodyChunks: null
+			},
+			externalRuntimeScript: null,
+			bootstrapChunks,
+			importMapChunks: [],
+			onHeaders: void 0,
+			headers: null,
+			resets: {
+				font: {},
+				dns: {},
+				connect: {
+					default: {},
+					anonymous: {},
+					credentials: {}
+				},
+				image: {},
+				style: {}
+			},
+			charsetChunks: [],
+			viewportChunks: [],
+			hoistableChunks: [],
+			preconnects: JSCompiler_object_inline_preconnects_1687,
+			fontPreloads: JSCompiler_object_inline_fontPreloads_1688,
+			highImagePreloads: JSCompiler_object_inline_highImagePreloads_1689,
+			styles: JSCompiler_object_inline_styles_1690,
+			bootstrapScripts: JSCompiler_object_inline_bootstrapScripts_1691,
+			scripts: JSCompiler_object_inline_scripts_1692,
+			bulkPreloads: JSCompiler_object_inline_bulkPreloads_1693,
+			preloads: JSCompiler_object_inline_preloads_1694,
+			nonce: {
+				script: void 0,
+				style: void 0
+			},
+			stylesToHoist: !1,
+			generateStaticMarkup
+		};
+	}
+	function pushTextInstance(target, text, renderState, textEmbedded) {
+		if (renderState.generateStaticMarkup) return target.push(escapeTextForBrowser(text)), !1;
+		"" === text ? target = textEmbedded : (textEmbedded && target.push("<!-- -->"), target.push(escapeTextForBrowser(text)), target = !0);
+		return target;
+	}
+	function pushSegmentFinale(target, renderState, lastPushedText, textEmbedded) {
+		renderState.generateStaticMarkup || lastPushedText && textEmbedded && target.push("<!-- -->");
+	}
+	var bind = Function.prototype.bind, REACT_CLIENT_REFERENCE = Symbol.for("react.client.reference");
+	function getComponentNameFromType(type) {
+		if (null == type) return null;
+		if ("function" === typeof type) return type.$$typeof === REACT_CLIENT_REFERENCE ? null : type.displayName || type.name || null;
+		if ("string" === typeof type) return type;
+		switch (type) {
+			case REACT_FRAGMENT_TYPE: return "Fragment";
+			case REACT_PROFILER_TYPE: return "Profiler";
+			case REACT_STRICT_MODE_TYPE: return "StrictMode";
+			case REACT_SUSPENSE_TYPE: return "Suspense";
+			case REACT_SUSPENSE_LIST_TYPE: return "SuspenseList";
+			case REACT_ACTIVITY_TYPE: return "Activity";
+		}
+		if ("object" === typeof type) switch (type.$$typeof) {
+			case REACT_PORTAL_TYPE: return "Portal";
+			case REACT_CONTEXT_TYPE: return type.displayName || "Context";
+			case REACT_CONSUMER_TYPE: return (type._context.displayName || "Context") + ".Consumer";
+			case REACT_FORWARD_REF_TYPE:
+				var innerType = type.render;
+				type = type.displayName;
+				type || (type = innerType.displayName || innerType.name || "", type = "" !== type ? "ForwardRef(" + type + ")" : "ForwardRef");
+				return type;
+			case REACT_MEMO_TYPE: return innerType = type.displayName || null, null !== innerType ? innerType : getComponentNameFromType(type.type) || "Memo";
+			case REACT_LAZY_TYPE:
+				innerType = type._payload;
+				type = type._init;
+				try {
+					return getComponentNameFromType(type(innerType));
+				} catch (x) {}
+		}
+		return null;
+	}
+	var emptyContextObject = {}, currentActiveSnapshot = null;
+	function popToNearestCommonAncestor(prev, next) {
+		if (prev !== next) {
+			prev.context._currentValue2 = prev.parentValue;
+			prev = prev.parent;
+			var parentNext = next.parent;
+			if (null === prev) {
+				if (null !== parentNext) throw Error("The stacks must reach the root at the same time. This is a bug in React.");
+			} else {
+				if (null === parentNext) throw Error("The stacks must reach the root at the same time. This is a bug in React.");
+				popToNearestCommonAncestor(prev, parentNext);
+			}
+			next.context._currentValue2 = next.value;
+		}
+	}
+	function popAllPrevious(prev) {
+		prev.context._currentValue2 = prev.parentValue;
+		prev = prev.parent;
+		null !== prev && popAllPrevious(prev);
+	}
+	function pushAllNext(next) {
+		var parentNext = next.parent;
+		null !== parentNext && pushAllNext(parentNext);
+		next.context._currentValue2 = next.value;
+	}
+	function popPreviousToCommonLevel(prev, next) {
+		prev.context._currentValue2 = prev.parentValue;
+		prev = prev.parent;
+		if (null === prev) throw Error("The depth must equal at least at zero before reaching the root. This is a bug in React.");
+		prev.depth === next.depth ? popToNearestCommonAncestor(prev, next) : popPreviousToCommonLevel(prev, next);
+	}
+	function popNextToCommonLevel(prev, next) {
+		var parentNext = next.parent;
+		if (null === parentNext) throw Error("The depth must equal at least at zero before reaching the root. This is a bug in React.");
+		prev.depth === parentNext.depth ? popToNearestCommonAncestor(prev, parentNext) : popNextToCommonLevel(prev, parentNext);
+		next.context._currentValue2 = next.value;
+	}
+	function switchContext(newSnapshot) {
+		var prev = currentActiveSnapshot;
+		prev !== newSnapshot && (null === prev ? pushAllNext(newSnapshot) : null === newSnapshot ? popAllPrevious(prev) : prev.depth === newSnapshot.depth ? popToNearestCommonAncestor(prev, newSnapshot) : prev.depth > newSnapshot.depth ? popPreviousToCommonLevel(prev, newSnapshot) : popNextToCommonLevel(prev, newSnapshot), currentActiveSnapshot = newSnapshot);
+	}
+	var classComponentUpdater = {
+		enqueueSetState: function(inst, payload) {
+			inst = inst._reactInternals;
+			null !== inst.queue && inst.queue.push(payload);
+		},
+		enqueueReplaceState: function(inst, payload) {
+			inst = inst._reactInternals;
+			inst.replace = !0;
+			inst.queue = [payload];
+		},
+		enqueueForceUpdate: function() {}
+	}, emptyTreeContext = {
+		id: 1,
+		overflow: ""
+	};
+	function pushTreeContext(baseContext, totalChildren, index) {
+		var baseIdWithLeadingBit = baseContext.id;
+		baseContext = baseContext.overflow;
+		var baseLength = 32 - clz32(baseIdWithLeadingBit) - 1;
+		baseIdWithLeadingBit &= ~(1 << baseLength);
+		index += 1;
+		var length = 32 - clz32(totalChildren) + baseLength;
+		if (30 < length) {
+			var numberOfOverflowBits = baseLength - baseLength % 5;
+			length = (baseIdWithLeadingBit & (1 << numberOfOverflowBits) - 1).toString(32);
+			baseIdWithLeadingBit >>= numberOfOverflowBits;
+			baseLength -= numberOfOverflowBits;
+			return {
+				id: 1 << 32 - clz32(totalChildren) + baseLength | index << baseLength | baseIdWithLeadingBit,
+				overflow: length + baseContext
+			};
+		}
+		return {
+			id: 1 << length | index << baseLength | baseIdWithLeadingBit,
+			overflow: baseContext
+		};
+	}
+	var clz32 = Math.clz32 ? Math.clz32 : clz32Fallback, log = Math.log, LN2 = Math.LN2;
+	function clz32Fallback(x) {
+		x >>>= 0;
+		return 0 === x ? 32 : 31 - (log(x) / LN2 | 0) | 0;
+	}
+	function noop() {}
+	var SuspenseException = Error("Suspense Exception: This is not a real error! It's an implementation detail of `use` to interrupt the current render. You must either rethrow it immediately, or move the `use` call outside of the `try/catch` block. Capturing without rethrowing will lead to unexpected behavior.\n\nTo handle async errors, wrap your component in an error boundary, or call the promise's `.catch` method and pass the result to `use`.");
+	function trackUsedThenable(thenableState, thenable, index) {
+		index = thenableState[index];
+		void 0 === index ? thenableState.push(thenable) : index !== thenable && (thenable.then(noop, noop), thenable = index);
+		switch (thenable.status) {
+			case "fulfilled": return thenable.value;
+			case "rejected": throw thenable.reason;
+			default:
+				"string" === typeof thenable.status ? thenable.then(noop, noop) : (thenableState = thenable, thenableState.status = "pending", thenableState.then(function(fulfilledValue) {
+					if ("pending" === thenable.status) {
+						var fulfilledThenable = thenable;
+						fulfilledThenable.status = "fulfilled";
+						fulfilledThenable.value = fulfilledValue;
+					}
+				}, function(error) {
+					if ("pending" === thenable.status) {
+						var rejectedThenable = thenable;
+						rejectedThenable.status = "rejected";
+						rejectedThenable.reason = error;
+					}
+				}));
+				switch (thenable.status) {
+					case "fulfilled": return thenable.value;
+					case "rejected": throw thenable.reason;
+				}
+				suspendedThenable = thenable;
+				throw SuspenseException;
+		}
+	}
+	var suspendedThenable = null;
+	function getSuspendedThenable() {
+		if (null === suspendedThenable) throw Error("Expected a suspended thenable. This is a bug in React. Please file an issue.");
+		var thenable = suspendedThenable;
+		suspendedThenable = null;
+		return thenable;
+	}
+	function is(x, y) {
+		return x === y && (0 !== x || 1 / x === 1 / y) || x !== x && y !== y;
+	}
+	var objectIs = "function" === typeof Object.is ? Object.is : is, currentlyRenderingComponent = null, currentlyRenderingTask = null, currentlyRenderingRequest = null, currentlyRenderingKeyPath = null, firstWorkInProgressHook = null, workInProgressHook = null, isReRender = !1, didScheduleRenderPhaseUpdate = !1, localIdCounter = 0, actionStateCounter = 0, actionStateMatchingIndex = -1, thenableIndexCounter = 0, thenableState = null, renderPhaseUpdates = null, numberOfReRenders = 0;
+	function resolveCurrentlyRenderingComponent() {
+		if (null === currentlyRenderingComponent) throw Error("Invalid hook call. Hooks can only be called inside of the body of a function component. This could happen for one of the following reasons:\n1. You might have mismatching versions of React and the renderer (such as React DOM)\n2. You might be breaking the Rules of Hooks\n3. You might have more than one copy of React in the same app\nSee https://react.dev/link/invalid-hook-call for tips about how to debug and fix this problem.");
+		return currentlyRenderingComponent;
+	}
+	function createHook() {
+		if (0 < numberOfReRenders) throw Error("Rendered more hooks than during the previous render");
+		return {
+			memoizedState: null,
+			queue: null,
+			next: null
+		};
+	}
+	function createWorkInProgressHook() {
+		null === workInProgressHook ? null === firstWorkInProgressHook ? (isReRender = !1, firstWorkInProgressHook = workInProgressHook = createHook()) : (isReRender = !0, workInProgressHook = firstWorkInProgressHook) : null === workInProgressHook.next ? (isReRender = !1, workInProgressHook = workInProgressHook.next = createHook()) : (isReRender = !0, workInProgressHook = workInProgressHook.next);
+		return workInProgressHook;
+	}
+	function getThenableStateAfterSuspending() {
+		var state = thenableState;
+		thenableState = null;
+		return state;
+	}
+	function resetHooksState() {
+		currentlyRenderingKeyPath = currentlyRenderingRequest = currentlyRenderingTask = currentlyRenderingComponent = null;
+		didScheduleRenderPhaseUpdate = !1;
+		firstWorkInProgressHook = null;
+		numberOfReRenders = 0;
+		workInProgressHook = renderPhaseUpdates = null;
+	}
+	function basicStateReducer(state, action) {
+		return "function" === typeof action ? action(state) : action;
+	}
+	function useReducer(reducer, initialArg, init) {
+		currentlyRenderingComponent = resolveCurrentlyRenderingComponent();
+		workInProgressHook = createWorkInProgressHook();
+		if (isReRender) {
+			var queue = workInProgressHook.queue;
+			initialArg = queue.dispatch;
+			if (null !== renderPhaseUpdates && (init = renderPhaseUpdates.get(queue), void 0 !== init)) {
+				renderPhaseUpdates.delete(queue);
+				queue = workInProgressHook.memoizedState;
+				do
+					queue = reducer(queue, init.action), init = init.next;
+				while (null !== init);
+				workInProgressHook.memoizedState = queue;
+				return [queue, initialArg];
+			}
+			return [workInProgressHook.memoizedState, initialArg];
+		}
+		reducer = reducer === basicStateReducer ? "function" === typeof initialArg ? initialArg() : initialArg : void 0 !== init ? init(initialArg) : initialArg;
+		workInProgressHook.memoizedState = reducer;
+		reducer = workInProgressHook.queue = {
+			last: null,
+			dispatch: null
+		};
+		reducer = reducer.dispatch = dispatchAction.bind(null, currentlyRenderingComponent, reducer);
+		return [workInProgressHook.memoizedState, reducer];
+	}
+	function useMemo(nextCreate, deps) {
+		currentlyRenderingComponent = resolveCurrentlyRenderingComponent();
+		workInProgressHook = createWorkInProgressHook();
+		deps = void 0 === deps ? null : deps;
+		if (null !== workInProgressHook) {
+			var prevState = workInProgressHook.memoizedState;
+			if (null !== prevState && null !== deps) {
+				var prevDeps = prevState[1];
+				a: if (null === prevDeps) prevDeps = !1;
+				else {
+					for (var i = 0; i < prevDeps.length && i < deps.length; i++) if (!objectIs(deps[i], prevDeps[i])) {
+						prevDeps = !1;
+						break a;
+					}
+					prevDeps = !0;
+				}
+				if (prevDeps) return prevState[0];
+			}
+		}
+		nextCreate = nextCreate();
+		workInProgressHook.memoizedState = [nextCreate, deps];
+		return nextCreate;
+	}
+	function dispatchAction(componentIdentity, queue, action) {
+		if (25 <= numberOfReRenders) throw Error("Too many re-renders. React limits the number of renders to prevent an infinite loop.");
+		if (componentIdentity === currentlyRenderingComponent) if (didScheduleRenderPhaseUpdate = !0, componentIdentity = {
+			action,
+			next: null
+		}, null === renderPhaseUpdates && (renderPhaseUpdates = /* @__PURE__ */ new Map()), action = renderPhaseUpdates.get(queue), void 0 === action) renderPhaseUpdates.set(queue, componentIdentity);
+		else {
+			for (queue = action; null !== queue.next;) queue = queue.next;
+			queue.next = componentIdentity;
+		}
+	}
+	function throwOnUseEffectEventCall() {
+		throw Error("A function wrapped in useEffectEvent can't be called during rendering.");
+	}
+	function unsupportedStartTransition() {
+		throw Error("startTransition cannot be called during server rendering.");
+	}
+	function unsupportedSetOptimisticState() {
+		throw Error("Cannot update optimistic state while rendering.");
+	}
+	function useActionState(action, initialState, permalink) {
+		resolveCurrentlyRenderingComponent();
+		var actionStateHookIndex = actionStateCounter++, request = currentlyRenderingRequest;
+		if ("function" === typeof action.$$FORM_ACTION) {
+			var nextPostbackStateKey = null, componentKeyPath = currentlyRenderingKeyPath;
+			request = request.formState;
+			var isSignatureEqual = action.$$IS_SIGNATURE_EQUAL;
+			if (null !== request && "function" === typeof isSignatureEqual) {
+				var postbackKey = request[1];
+				isSignatureEqual.call(action, request[2], request[3]) && (nextPostbackStateKey = void 0 !== permalink ? "p" + permalink : "k" + murmurhash3_32_gc(JSON.stringify([
+					componentKeyPath,
+					null,
+					actionStateHookIndex
+				]), 0), postbackKey === nextPostbackStateKey && (actionStateMatchingIndex = actionStateHookIndex, initialState = request[0]));
+			}
+			var boundAction = action.bind(null, initialState);
+			action = function(payload) {
+				boundAction(payload);
+			};
+			"function" === typeof boundAction.$$FORM_ACTION && (action.$$FORM_ACTION = function(prefix) {
+				prefix = boundAction.$$FORM_ACTION(prefix);
+				void 0 !== permalink && (permalink += "", prefix.action = permalink);
+				var formData = prefix.data;
+				formData && (null === nextPostbackStateKey && (nextPostbackStateKey = void 0 !== permalink ? "p" + permalink : "k" + murmurhash3_32_gc(JSON.stringify([
+					componentKeyPath,
+					null,
+					actionStateHookIndex
+				]), 0)), formData.append("$ACTION_KEY", nextPostbackStateKey));
+				return prefix;
+			});
+			return [
+				initialState,
+				action,
+				!1
+			];
+		}
+		var boundAction$22 = action.bind(null, initialState);
+		return [
+			initialState,
+			function(payload) {
+				boundAction$22(payload);
+			},
+			!1
+		];
+	}
+	function unwrapThenable(thenable) {
+		var index = thenableIndexCounter;
+		thenableIndexCounter += 1;
+		null === thenableState && (thenableState = []);
+		return trackUsedThenable(thenableState, thenable, index);
+	}
+	function unsupportedRefresh() {
+		throw Error("Cache cannot be refreshed during server rendering.");
+	}
+	var HooksDispatcher = {
+		readContext: function(context) {
+			return context._currentValue2;
+		},
+		use: function(usable) {
+			if (null !== usable && "object" === typeof usable) {
+				if ("function" === typeof usable.then) return unwrapThenable(usable);
+				if (usable.$$typeof === REACT_CONTEXT_TYPE) return usable._currentValue2;
+			}
+			throw Error("An unsupported type was passed to use(): " + String(usable));
+		},
+		useContext: function(context) {
+			resolveCurrentlyRenderingComponent();
+			return context._currentValue2;
+		},
+		useMemo,
+		useReducer,
+		useRef: function(initialValue) {
+			currentlyRenderingComponent = resolveCurrentlyRenderingComponent();
+			workInProgressHook = createWorkInProgressHook();
+			var previousRef = workInProgressHook.memoizedState;
+			return null === previousRef ? (initialValue = { current: initialValue }, workInProgressHook.memoizedState = initialValue) : previousRef;
+		},
+		useState: function(initialState) {
+			return useReducer(basicStateReducer, initialState);
+		},
+		useInsertionEffect: noop,
+		useLayoutEffect: noop,
+		useCallback: function(callback, deps) {
+			return useMemo(function() {
+				return callback;
+			}, deps);
+		},
+		useImperativeHandle: noop,
+		useEffect: noop,
+		useDebugValue: noop,
+		useDeferredValue: function(value, initialValue) {
+			resolveCurrentlyRenderingComponent();
+			return void 0 !== initialValue ? initialValue : value;
+		},
+		useTransition: function() {
+			resolveCurrentlyRenderingComponent();
+			return [!1, unsupportedStartTransition];
+		},
+		useId: function() {
+			var JSCompiler_inline_result = currentlyRenderingTask.treeContext;
+			var overflow = JSCompiler_inline_result.overflow;
+			JSCompiler_inline_result = JSCompiler_inline_result.id;
+			JSCompiler_inline_result = (JSCompiler_inline_result & ~(1 << 32 - clz32(JSCompiler_inline_result) - 1)).toString(32) + overflow;
+			var resumableState = currentResumableState;
+			if (null === resumableState) throw Error("Invalid hook call. Hooks can only be called inside of the body of a function component.");
+			overflow = localIdCounter++;
+			JSCompiler_inline_result = "_" + resumableState.idPrefix + "R_" + JSCompiler_inline_result;
+			0 < overflow && (JSCompiler_inline_result += "H" + overflow.toString(32));
+			return JSCompiler_inline_result + "_";
+		},
+		useSyncExternalStore: function(subscribe, getSnapshot, getServerSnapshot) {
+			if (void 0 === getServerSnapshot) throw Error("Missing getServerSnapshot, which is required for server-rendered content. Will revert to client rendering.");
+			return getServerSnapshot();
+		},
+		useOptimistic: function(passthrough) {
+			resolveCurrentlyRenderingComponent();
+			return [passthrough, unsupportedSetOptimisticState];
+		},
+		useActionState,
+		useFormState: useActionState,
+		useHostTransitionStatus: function() {
+			resolveCurrentlyRenderingComponent();
+			return sharedNotPendingObject;
+		},
+		useMemoCache: function(size) {
+			for (var data = Array(size), i = 0; i < size; i++) data[i] = REACT_MEMO_CACHE_SENTINEL;
+			return data;
+		},
+		useCacheRefresh: function() {
+			return unsupportedRefresh;
+		},
+		useEffectEvent: function() {
+			return throwOnUseEffectEventCall;
+		}
+	}, currentResumableState = null, DefaultAsyncDispatcher = {
+		getCacheForType: function() {
+			throw Error("Not implemented.");
+		},
+		cacheSignal: function() {
+			throw Error("Not implemented.");
+		}
+	}, prefix, suffix;
+	function describeBuiltInComponentFrame(name) {
+		if (void 0 === prefix) try {
+			throw Error();
+		} catch (x) {
+			var match = x.stack.trim().match(/\n( *(at )?)/);
+			prefix = match && match[1] || "";
+			suffix = -1 < x.stack.indexOf("\n    at") ? " (<anonymous>)" : -1 < x.stack.indexOf("@") ? "@unknown:0:0" : "";
+		}
+		return "\n" + prefix + name + suffix;
+	}
+	var reentry = !1;
+	function describeNativeComponentFrame(fn, construct) {
+		if (!fn || reentry) return "";
+		reentry = !0;
+		var previousPrepareStackTrace = Error.prepareStackTrace;
+		Error.prepareStackTrace = void 0;
+		try {
+			var RunInRootFrame = { DetermineComponentFrameRoot: function() {
+				try {
+					if (construct) {
+						var Fake = function() {
+							throw Error();
+						};
+						Object.defineProperty(Fake.prototype, "props", { set: function() {
+							throw Error();
+						} });
+						if ("object" === typeof Reflect && Reflect.construct) {
+							try {
+								Reflect.construct(Fake, []);
+							} catch (x) {
+								var control = x;
+							}
+							Reflect.construct(fn, [], Fake);
+						} else {
+							try {
+								Fake.call();
+							} catch (x$24) {
+								control = x$24;
+							}
+							fn.call(Fake.prototype);
+						}
+					} else {
+						try {
+							throw Error();
+						} catch (x$25) {
+							control = x$25;
+						}
+						(Fake = fn()) && "function" === typeof Fake.catch && Fake.catch(function() {});
+					}
+				} catch (sample) {
+					if (sample && control && "string" === typeof sample.stack) return [sample.stack, control.stack];
+				}
+				return [null, null];
+			} };
+			RunInRootFrame.DetermineComponentFrameRoot.displayName = "DetermineComponentFrameRoot";
+			var namePropDescriptor = Object.getOwnPropertyDescriptor(RunInRootFrame.DetermineComponentFrameRoot, "name");
+			namePropDescriptor && namePropDescriptor.configurable && Object.defineProperty(RunInRootFrame.DetermineComponentFrameRoot, "name", { value: "DetermineComponentFrameRoot" });
+			var _RunInRootFrame$Deter = RunInRootFrame.DetermineComponentFrameRoot(), sampleStack = _RunInRootFrame$Deter[0], controlStack = _RunInRootFrame$Deter[1];
+			if (sampleStack && controlStack) {
+				var sampleLines = sampleStack.split("\n"), controlLines = controlStack.split("\n");
+				for (namePropDescriptor = RunInRootFrame = 0; RunInRootFrame < sampleLines.length && !sampleLines[RunInRootFrame].includes("DetermineComponentFrameRoot");) RunInRootFrame++;
+				for (; namePropDescriptor < controlLines.length && !controlLines[namePropDescriptor].includes("DetermineComponentFrameRoot");) namePropDescriptor++;
+				if (RunInRootFrame === sampleLines.length || namePropDescriptor === controlLines.length) for (RunInRootFrame = sampleLines.length - 1, namePropDescriptor = controlLines.length - 1; 1 <= RunInRootFrame && 0 <= namePropDescriptor && sampleLines[RunInRootFrame] !== controlLines[namePropDescriptor];) namePropDescriptor--;
+				for (; 1 <= RunInRootFrame && 0 <= namePropDescriptor; RunInRootFrame--, namePropDescriptor--) if (sampleLines[RunInRootFrame] !== controlLines[namePropDescriptor]) {
+					if (1 !== RunInRootFrame || 1 !== namePropDescriptor) do
+						if (RunInRootFrame--, namePropDescriptor--, 0 > namePropDescriptor || sampleLines[RunInRootFrame] !== controlLines[namePropDescriptor]) {
+							var frame = "\n" + sampleLines[RunInRootFrame].replace(" at new ", " at ");
+							fn.displayName && frame.includes("<anonymous>") && (frame = frame.replace("<anonymous>", fn.displayName));
+							return frame;
+						}
+					while (1 <= RunInRootFrame && 0 <= namePropDescriptor);
+					break;
+				}
+			}
+		} finally {
+			reentry = !1, Error.prepareStackTrace = previousPrepareStackTrace;
+		}
+		return (previousPrepareStackTrace = fn ? fn.displayName || fn.name : "") ? describeBuiltInComponentFrame(previousPrepareStackTrace) : "";
+	}
+	function describeComponentStackByType(type) {
+		if ("string" === typeof type) return describeBuiltInComponentFrame(type);
+		if ("function" === typeof type) return type.prototype && type.prototype.isReactComponent ? describeNativeComponentFrame(type, !0) : describeNativeComponentFrame(type, !1);
+		if ("object" === typeof type && null !== type) {
+			switch (type.$$typeof) {
+				case REACT_FORWARD_REF_TYPE: return describeNativeComponentFrame(type.render, !1);
+				case REACT_MEMO_TYPE: return describeNativeComponentFrame(type.type, !1);
+				case REACT_LAZY_TYPE:
+					var lazyComponent = type, payload = lazyComponent._payload;
+					lazyComponent = lazyComponent._init;
+					try {
+						type = lazyComponent(payload);
+					} catch (x) {
+						return describeBuiltInComponentFrame("Lazy");
+					}
+					return describeComponentStackByType(type);
+			}
+			if ("string" === typeof type.name) {
+				a: {
+					payload = type.name;
+					lazyComponent = type.env;
+					var location = type.debugLocation;
+					if (null != location && (type = Error.prepareStackTrace, Error.prepareStackTrace = void 0, location = location.stack, Error.prepareStackTrace = type, location.startsWith("Error: react-stack-top-frame\n") && (location = location.slice(29)), type = location.indexOf("\n"), -1 !== type && (location = location.slice(type + 1)), type = location.indexOf("react_stack_bottom_frame"), -1 !== type && (type = location.lastIndexOf("\n", type)), type = -1 !== type ? location = location.slice(0, type) : "", location = type.lastIndexOf("\n"), type = -1 === location ? type : type.slice(location + 1), -1 !== type.indexOf(payload))) {
+						payload = "\n" + type;
+						break a;
+					}
+					payload = describeBuiltInComponentFrame(payload + (lazyComponent ? " [" + lazyComponent + "]" : ""));
+				}
+				return payload;
+			}
+		}
+		switch (type) {
+			case REACT_SUSPENSE_LIST_TYPE: return describeBuiltInComponentFrame("SuspenseList");
+			case REACT_SUSPENSE_TYPE: return describeBuiltInComponentFrame("Suspense");
+		}
+		return "";
+	}
+	function isEligibleForOutlining(request, boundary) {
+		return (500 < boundary.byteSize || !1) && null === boundary.contentPreamble;
+	}
+	function defaultErrorHandler(error) {
+		if ("object" === typeof error && null !== error && "string" === typeof error.environmentName) {
+			var JSCompiler_inline_result = error.environmentName;
+			error = [error].slice(0);
+			"string" === typeof error[0] ? error.splice(0, 1, "[%s] " + error[0], " " + JSCompiler_inline_result + " ") : error.splice(0, 0, "[%s]", " " + JSCompiler_inline_result + " ");
+			error.unshift(console);
+			JSCompiler_inline_result = bind.apply(console.error, error);
+			JSCompiler_inline_result();
+		} else console.error(error);
+		return null;
+	}
+	function RequestInstance(resumableState, renderState, rootFormatContext, progressiveChunkSize, onError, onAllReady, onShellReady, onShellError, onFatalError, onPostpone, formState) {
+		var abortSet = /* @__PURE__ */ new Set();
+		this.destination = null;
+		this.flushScheduled = !1;
+		this.resumableState = resumableState;
+		this.renderState = renderState;
+		this.rootFormatContext = rootFormatContext;
+		this.progressiveChunkSize = void 0 === progressiveChunkSize ? 12800 : progressiveChunkSize;
+		this.status = 10;
+		this.fatalError = null;
+		this.pendingRootTasks = this.allPendingTasks = this.nextSegmentId = 0;
+		this.completedPreambleSegments = this.completedRootSegment = null;
+		this.byteSize = 0;
+		this.abortableTasks = abortSet;
+		this.pingedTasks = [];
+		this.clientRenderedBoundaries = [];
+		this.completedBoundaries = [];
+		this.partialBoundaries = [];
+		this.trackedPostpones = null;
+		this.onError = void 0 === onError ? defaultErrorHandler : onError;
+		this.onPostpone = void 0 === onPostpone ? noop : onPostpone;
+		this.onAllReady = void 0 === onAllReady ? noop : onAllReady;
+		this.onShellReady = void 0 === onShellReady ? noop : onShellReady;
+		this.onShellError = void 0 === onShellError ? noop : onShellError;
+		this.onFatalError = void 0 === onFatalError ? noop : onFatalError;
+		this.formState = void 0 === formState ? null : formState;
+	}
+	function createRequest(children, resumableState, renderState, rootFormatContext, progressiveChunkSize, onError, onAllReady, onShellReady, onShellError, onFatalError, onPostpone, formState) {
+		resumableState = new RequestInstance(resumableState, renderState, rootFormatContext, progressiveChunkSize, onError, onAllReady, onShellReady, onShellError, onFatalError, onPostpone, formState);
+		renderState = createPendingSegment(resumableState, 0, null, rootFormatContext, !1, !1);
+		renderState.parentFlushed = !0;
+		children = createRenderTask(resumableState, null, children, -1, null, renderState, null, null, resumableState.abortableTasks, null, rootFormatContext, null, emptyTreeContext, null, null);
+		pushComponentStack(children);
+		resumableState.pingedTasks.push(children);
+		return resumableState;
+	}
+	var currentRequest = null;
+	function pingTask(request, task) {
+		request.pingedTasks.push(task);
+		1 === request.pingedTasks.length && (request.flushScheduled = null !== request.destination, performWork(request));
+	}
+	function createSuspenseBoundary(request, row, fallbackAbortableTasks, contentPreamble, fallbackPreamble) {
+		fallbackAbortableTasks = {
+			status: 0,
+			rootSegmentID: -1,
+			parentFlushed: !1,
+			pendingTasks: 0,
+			row,
+			completedSegments: [],
+			byteSize: 0,
+			fallbackAbortableTasks,
+			errorDigest: null,
+			contentState: createHoistableState(),
+			fallbackState: createHoistableState(),
+			contentPreamble,
+			fallbackPreamble,
+			trackedContentKeyPath: null,
+			trackedFallbackNode: null
+		};
+		null !== row && (row.pendingTasks++, contentPreamble = row.boundaries, null !== contentPreamble && (request.allPendingTasks++, fallbackAbortableTasks.pendingTasks++, contentPreamble.push(fallbackAbortableTasks)), request = row.inheritedHoistables, null !== request && hoistHoistables(fallbackAbortableTasks.contentState, request));
+		return fallbackAbortableTasks;
+	}
+	function createRenderTask(request, thenableState, node, childIndex, blockedBoundary, blockedSegment, blockedPreamble, hoistableState, abortSet, keyPath, formatContext, context, treeContext, row, componentStack) {
+		request.allPendingTasks++;
+		null === blockedBoundary ? request.pendingRootTasks++ : blockedBoundary.pendingTasks++;
+		null !== row && row.pendingTasks++;
+		var task = {
+			replay: null,
+			node,
+			childIndex,
+			ping: function() {
+				return pingTask(request, task);
+			},
+			blockedBoundary,
+			blockedSegment,
+			blockedPreamble,
+			hoistableState,
+			abortSet,
+			keyPath,
+			formatContext,
+			context,
+			treeContext,
+			row,
+			componentStack,
+			thenableState
+		};
+		abortSet.add(task);
+		return task;
+	}
+	function createReplayTask(request, thenableState, replay, node, childIndex, blockedBoundary, hoistableState, abortSet, keyPath, formatContext, context, treeContext, row, componentStack) {
+		request.allPendingTasks++;
+		null === blockedBoundary ? request.pendingRootTasks++ : blockedBoundary.pendingTasks++;
+		null !== row && row.pendingTasks++;
+		replay.pendingTasks++;
+		var task = {
+			replay,
+			node,
+			childIndex,
+			ping: function() {
+				return pingTask(request, task);
+			},
+			blockedBoundary,
+			blockedSegment: null,
+			blockedPreamble: null,
+			hoistableState,
+			abortSet,
+			keyPath,
+			formatContext,
+			context,
+			treeContext,
+			row,
+			componentStack,
+			thenableState
+		};
+		abortSet.add(task);
+		return task;
+	}
+	function createPendingSegment(request, index, boundary, parentFormatContext, lastPushedText, textEmbedded) {
+		return {
+			status: 0,
+			parentFlushed: !1,
+			id: -1,
+			index,
+			chunks: [],
+			children: [],
+			preambleChildren: [],
+			parentFormatContext,
+			boundary,
+			lastPushedText,
+			textEmbedded
+		};
+	}
+	function pushComponentStack(task) {
+		var node = task.node;
+		if ("object" === typeof node && null !== node) switch (node.$$typeof) {
+			case REACT_ELEMENT_TYPE: task.componentStack = {
+				parent: task.componentStack,
+				type: node.type
+			};
+		}
+	}
+	function replaceSuspenseComponentStackWithSuspenseFallbackStack(componentStack) {
+		return null === componentStack ? null : {
+			parent: componentStack.parent,
+			type: "Suspense Fallback"
+		};
+	}
+	function getThrownInfo(node$jscomp$0) {
+		var errorInfo = {};
+		node$jscomp$0 && Object.defineProperty(errorInfo, "componentStack", {
+			configurable: !0,
+			enumerable: !0,
+			get: function() {
+				try {
+					var info = "", node = node$jscomp$0;
+					do
+						info += describeComponentStackByType(node.type), node = node.parent;
+					while (node);
+					var JSCompiler_inline_result = info;
+				} catch (x) {
+					JSCompiler_inline_result = "\nError generating stack: " + x.message + "\n" + x.stack;
+				}
+				Object.defineProperty(errorInfo, "componentStack", { value: JSCompiler_inline_result });
+				return JSCompiler_inline_result;
+			}
+		});
+		return errorInfo;
+	}
+	function logRecoverableError(request, error, errorInfo) {
+		request = request.onError;
+		error = request(error, errorInfo);
+		if (null == error || "string" === typeof error) return error;
+	}
+	function fatalError(request, error) {
+		var onShellError = request.onShellError, onFatalError = request.onFatalError;
+		onShellError(error);
+		onFatalError(error);
+		null !== request.destination ? (request.status = 14, request.destination.destroy(error)) : (request.status = 13, request.fatalError = error);
+	}
+	function finishSuspenseListRow(request, row) {
+		unblockSuspenseListRow(request, row.next, row.hoistables);
+	}
+	function unblockSuspenseListRow(request, unblockedRow, inheritedHoistables) {
+		for (; null !== unblockedRow;) {
+			null !== inheritedHoistables && (hoistHoistables(unblockedRow.hoistables, inheritedHoistables), unblockedRow.inheritedHoistables = inheritedHoistables);
+			var unblockedBoundaries = unblockedRow.boundaries;
+			if (null !== unblockedBoundaries) {
+				unblockedRow.boundaries = null;
+				for (var i = 0; i < unblockedBoundaries.length; i++) {
+					var unblockedBoundary = unblockedBoundaries[i];
+					null !== inheritedHoistables && hoistHoistables(unblockedBoundary.contentState, inheritedHoistables);
+					finishedTask(request, unblockedBoundary, null, null);
+				}
+			}
+			unblockedRow.pendingTasks--;
+			if (0 < unblockedRow.pendingTasks) break;
+			inheritedHoistables = unblockedRow.hoistables;
+			unblockedRow = unblockedRow.next;
+		}
+	}
+	function tryToResolveTogetherRow(request, togetherRow) {
+		var boundaries = togetherRow.boundaries;
+		if (null !== boundaries && togetherRow.pendingTasks === boundaries.length) {
+			for (var allCompleteAndInlinable = !0, i = 0; i < boundaries.length; i++) {
+				var rowBoundary = boundaries[i];
+				if (1 !== rowBoundary.pendingTasks || rowBoundary.parentFlushed || isEligibleForOutlining(request, rowBoundary)) {
+					allCompleteAndInlinable = !1;
+					break;
+				}
+			}
+			allCompleteAndInlinable && unblockSuspenseListRow(request, togetherRow, togetherRow.hoistables);
+		}
+	}
+	function createSuspenseListRow(previousRow) {
+		var newRow = {
+			pendingTasks: 1,
+			boundaries: null,
+			hoistables: createHoistableState(),
+			inheritedHoistables: null,
+			together: !1,
+			next: null
+		};
+		null !== previousRow && 0 < previousRow.pendingTasks && (newRow.pendingTasks++, newRow.boundaries = [], previousRow.next = newRow);
+		return newRow;
+	}
+	function renderSuspenseListRows(request, task, keyPath, rows, revealOrder) {
+		var prevKeyPath = task.keyPath, prevTreeContext = task.treeContext, prevRow = task.row;
+		task.keyPath = keyPath;
+		keyPath = rows.length;
+		var previousSuspenseListRow = null;
+		if (null !== task.replay) {
+			var resumeSlots = task.replay.slots;
+			if (null !== resumeSlots && "object" === typeof resumeSlots) for (var n = 0; n < keyPath; n++) {
+				var i = "backwards" !== revealOrder && "unstable_legacy-backwards" !== revealOrder ? n : keyPath - 1 - n, node = rows[i];
+				task.row = previousSuspenseListRow = createSuspenseListRow(previousSuspenseListRow);
+				task.treeContext = pushTreeContext(prevTreeContext, keyPath, i);
+				var resumeSegmentID = resumeSlots[i];
+				"number" === typeof resumeSegmentID ? (resumeNode(request, task, resumeSegmentID, node, i), delete resumeSlots[i]) : renderNode(request, task, node, i);
+				0 === --previousSuspenseListRow.pendingTasks && finishSuspenseListRow(request, previousSuspenseListRow);
+			}
+			else for (resumeSlots = 0; resumeSlots < keyPath; resumeSlots++) n = "backwards" !== revealOrder && "unstable_legacy-backwards" !== revealOrder ? resumeSlots : keyPath - 1 - resumeSlots, i = rows[n], task.row = previousSuspenseListRow = createSuspenseListRow(previousSuspenseListRow), task.treeContext = pushTreeContext(prevTreeContext, keyPath, n), renderNode(request, task, i, n), 0 === --previousSuspenseListRow.pendingTasks && finishSuspenseListRow(request, previousSuspenseListRow);
+		} else if ("backwards" !== revealOrder && "unstable_legacy-backwards" !== revealOrder) for (revealOrder = 0; revealOrder < keyPath; revealOrder++) resumeSlots = rows[revealOrder], task.row = previousSuspenseListRow = createSuspenseListRow(previousSuspenseListRow), task.treeContext = pushTreeContext(prevTreeContext, keyPath, revealOrder), renderNode(request, task, resumeSlots, revealOrder), 0 === --previousSuspenseListRow.pendingTasks && finishSuspenseListRow(request, previousSuspenseListRow);
+		else {
+			revealOrder = task.blockedSegment;
+			resumeSlots = revealOrder.children.length;
+			n = revealOrder.chunks.length;
+			for (i = keyPath - 1; 0 <= i; i--) {
+				node = rows[i];
+				task.row = previousSuspenseListRow = createSuspenseListRow(previousSuspenseListRow);
+				task.treeContext = pushTreeContext(prevTreeContext, keyPath, i);
+				resumeSegmentID = createPendingSegment(request, n, null, task.formatContext, 0 === i ? revealOrder.lastPushedText : !0, !0);
+				revealOrder.children.splice(resumeSlots, 0, resumeSegmentID);
+				task.blockedSegment = resumeSegmentID;
+				try {
+					renderNode(request, task, node, i), pushSegmentFinale(resumeSegmentID.chunks, request.renderState, resumeSegmentID.lastPushedText, resumeSegmentID.textEmbedded), resumeSegmentID.status = 1, 0 === --previousSuspenseListRow.pendingTasks && finishSuspenseListRow(request, previousSuspenseListRow);
+				} catch (thrownValue) {
+					throw resumeSegmentID.status = 12 === request.status ? 3 : 4, thrownValue;
+				}
+			}
+			task.blockedSegment = revealOrder;
+			revealOrder.lastPushedText = !1;
+		}
+		null !== prevRow && null !== previousSuspenseListRow && 0 < previousSuspenseListRow.pendingTasks && (prevRow.pendingTasks++, previousSuspenseListRow.next = prevRow);
+		task.treeContext = prevTreeContext;
+		task.row = prevRow;
+		task.keyPath = prevKeyPath;
+	}
+	function renderWithHooks(request, task, keyPath, Component, props, secondArg) {
+		var prevThenableState = task.thenableState;
+		task.thenableState = null;
+		currentlyRenderingComponent = {};
+		currentlyRenderingTask = task;
+		currentlyRenderingRequest = request;
+		currentlyRenderingKeyPath = keyPath;
+		actionStateCounter = localIdCounter = 0;
+		actionStateMatchingIndex = -1;
+		thenableIndexCounter = 0;
+		thenableState = prevThenableState;
+		for (request = Component(props, secondArg); didScheduleRenderPhaseUpdate;) didScheduleRenderPhaseUpdate = !1, actionStateCounter = localIdCounter = 0, actionStateMatchingIndex = -1, thenableIndexCounter = 0, numberOfReRenders += 1, workInProgressHook = null, request = Component(props, secondArg);
+		resetHooksState();
+		return request;
+	}
+	function finishFunctionComponent(request, task, keyPath, children, hasId, actionStateCount, actionStateMatchingIndex) {
+		var didEmitActionStateMarkers = !1;
+		if (0 !== actionStateCount && null !== request.formState) {
+			var segment = task.blockedSegment;
+			if (null !== segment) {
+				didEmitActionStateMarkers = !0;
+				segment = segment.chunks;
+				for (var i = 0; i < actionStateCount; i++) i === actionStateMatchingIndex ? segment.push("<!--F!-->") : segment.push("<!--F-->");
+			}
+		}
+		actionStateCount = task.keyPath;
+		task.keyPath = keyPath;
+		hasId ? (keyPath = task.treeContext, task.treeContext = pushTreeContext(keyPath, 1, 0), renderNode(request, task, children, -1), task.treeContext = keyPath) : didEmitActionStateMarkers ? renderNode(request, task, children, -1) : renderNodeDestructive(request, task, children, -1);
+		task.keyPath = actionStateCount;
+	}
+	function renderElement(request, task, keyPath, type, props, ref) {
+		if ("function" === typeof type) if (type.prototype && type.prototype.isReactComponent) {
+			var newProps = props;
+			if ("ref" in props) {
+				newProps = {};
+				for (var propName in props) "ref" !== propName && (newProps[propName] = props[propName]);
+			}
+			var defaultProps = type.defaultProps;
+			if (defaultProps) {
+				newProps === props && (newProps = assign({}, newProps, props));
+				for (var propName$43 in defaultProps) void 0 === newProps[propName$43] && (newProps[propName$43] = defaultProps[propName$43]);
+			}
+			props = newProps;
+			newProps = emptyContextObject;
+			defaultProps = type.contextType;
+			"object" === typeof defaultProps && null !== defaultProps && (newProps = defaultProps._currentValue2);
+			newProps = new type(props, newProps);
+			var initialState = void 0 !== newProps.state ? newProps.state : null;
+			newProps.updater = classComponentUpdater;
+			newProps.props = props;
+			newProps.state = initialState;
+			defaultProps = {
+				queue: [],
+				replace: !1
+			};
+			newProps._reactInternals = defaultProps;
+			ref = type.contextType;
+			newProps.context = "object" === typeof ref && null !== ref ? ref._currentValue2 : emptyContextObject;
+			ref = type.getDerivedStateFromProps;
+			"function" === typeof ref && (ref = ref(props, initialState), initialState = null === ref || void 0 === ref ? initialState : assign({}, initialState, ref), newProps.state = initialState);
+			if ("function" !== typeof type.getDerivedStateFromProps && "function" !== typeof newProps.getSnapshotBeforeUpdate && ("function" === typeof newProps.UNSAFE_componentWillMount || "function" === typeof newProps.componentWillMount)) if (type = newProps.state, "function" === typeof newProps.componentWillMount && newProps.componentWillMount(), "function" === typeof newProps.UNSAFE_componentWillMount && newProps.UNSAFE_componentWillMount(), type !== newProps.state && classComponentUpdater.enqueueReplaceState(newProps, newProps.state, null), null !== defaultProps.queue && 0 < defaultProps.queue.length) if (type = defaultProps.queue, ref = defaultProps.replace, defaultProps.queue = null, defaultProps.replace = !1, ref && 1 === type.length) newProps.state = type[0];
+			else {
+				defaultProps = ref ? type[0] : newProps.state;
+				initialState = !0;
+				for (ref = ref ? 1 : 0; ref < type.length; ref++) propName$43 = type[ref], propName$43 = "function" === typeof propName$43 ? propName$43.call(newProps, defaultProps, props, void 0) : propName$43, null != propName$43 && (initialState ? (initialState = !1, defaultProps = assign({}, defaultProps, propName$43)) : assign(defaultProps, propName$43));
+				newProps.state = defaultProps;
+			}
+			else defaultProps.queue = null;
+			type = newProps.render();
+			if (12 === request.status) throw null;
+			props = task.keyPath;
+			task.keyPath = keyPath;
+			renderNodeDestructive(request, task, type, -1);
+			task.keyPath = props;
+		} else {
+			type = renderWithHooks(request, task, keyPath, type, props, void 0);
+			if (12 === request.status) throw null;
+			finishFunctionComponent(request, task, keyPath, type, 0 !== localIdCounter, actionStateCounter, actionStateMatchingIndex);
+		}
+		else if ("string" === typeof type) if (newProps = task.blockedSegment, null === newProps) newProps = props.children, defaultProps = task.formatContext, initialState = task.keyPath, task.formatContext = getChildFormatContext(defaultProps, type, props), task.keyPath = keyPath, renderNode(request, task, newProps, -1), task.formatContext = defaultProps, task.keyPath = initialState;
+		else {
+			initialState = pushStartInstance(newProps.chunks, type, props, request.resumableState, request.renderState, task.blockedPreamble, task.hoistableState, task.formatContext, newProps.lastPushedText);
+			newProps.lastPushedText = !1;
+			defaultProps = task.formatContext;
+			ref = task.keyPath;
+			task.keyPath = keyPath;
+			if (3 === (task.formatContext = getChildFormatContext(defaultProps, type, props)).insertionMode) {
+				keyPath = createPendingSegment(request, 0, null, task.formatContext, !1, !1);
+				newProps.preambleChildren.push(keyPath);
+				task.blockedSegment = keyPath;
+				try {
+					keyPath.status = 6, renderNode(request, task, initialState, -1), pushSegmentFinale(keyPath.chunks, request.renderState, keyPath.lastPushedText, keyPath.textEmbedded), keyPath.status = 1;
+				} finally {
+					task.blockedSegment = newProps;
+				}
+			} else renderNode(request, task, initialState, -1);
+			task.formatContext = defaultProps;
+			task.keyPath = ref;
+			a: {
+				task = newProps.chunks;
+				request = request.resumableState;
+				switch (type) {
+					case "title":
+					case "style":
+					case "script":
+					case "area":
+					case "base":
+					case "br":
+					case "col":
+					case "embed":
+					case "hr":
+					case "img":
+					case "input":
+					case "keygen":
+					case "link":
+					case "meta":
+					case "param":
+					case "source":
+					case "track":
+					case "wbr": break a;
+					case "body":
+						if (1 >= defaultProps.insertionMode) {
+							request.hasBody = !0;
+							break a;
+						}
+						break;
+					case "html":
+						if (0 === defaultProps.insertionMode) {
+							request.hasHtml = !0;
+							break a;
+						}
+						break;
+					case "head": if (1 >= defaultProps.insertionMode) break a;
+				}
+				task.push(endChunkForTag(type));
+			}
+			newProps.lastPushedText = !1;
+		}
+		else {
+			switch (type) {
+				case REACT_LEGACY_HIDDEN_TYPE:
+				case REACT_STRICT_MODE_TYPE:
+				case REACT_PROFILER_TYPE:
+				case REACT_FRAGMENT_TYPE:
+					type = task.keyPath;
+					task.keyPath = keyPath;
+					renderNodeDestructive(request, task, props.children, -1);
+					task.keyPath = type;
+					return;
+				case REACT_ACTIVITY_TYPE:
+					type = task.blockedSegment;
+					null === type ? "hidden" !== props.mode && (type = task.keyPath, task.keyPath = keyPath, renderNode(request, task, props.children, -1), task.keyPath = type) : "hidden" !== props.mode && (request.renderState.generateStaticMarkup || type.chunks.push("<!--&-->"), type.lastPushedText = !1, newProps = task.keyPath, task.keyPath = keyPath, renderNode(request, task, props.children, -1), task.keyPath = newProps, request.renderState.generateStaticMarkup || type.chunks.push("<!--/&-->"), type.lastPushedText = !1);
+					return;
+				case REACT_SUSPENSE_LIST_TYPE:
+					a: {
+						type = props.children;
+						props = props.revealOrder;
+						if ("forwards" === props || "backwards" === props || "unstable_legacy-backwards" === props) {
+							if (isArrayImpl(type)) {
+								renderSuspenseListRows(request, task, keyPath, type, props);
+								break a;
+							}
+							if (newProps = getIteratorFn(type)) {
+								if (newProps = newProps.call(type)) {
+									defaultProps = newProps.next();
+									if (!defaultProps.done) {
+										do
+											defaultProps = newProps.next();
+										while (!defaultProps.done);
+										renderSuspenseListRows(request, task, keyPath, type, props);
+									}
+									break a;
+								}
+							}
+						}
+						"together" === props ? (props = task.keyPath, newProps = task.row, defaultProps = task.row = createSuspenseListRow(null), defaultProps.boundaries = [], defaultProps.together = !0, task.keyPath = keyPath, renderNodeDestructive(request, task, type, -1), 0 === --defaultProps.pendingTasks && finishSuspenseListRow(request, defaultProps), task.keyPath = props, task.row = newProps, null !== newProps && 0 < defaultProps.pendingTasks && (newProps.pendingTasks++, defaultProps.next = newProps)) : (props = task.keyPath, task.keyPath = keyPath, renderNodeDestructive(request, task, type, -1), task.keyPath = props);
+					}
+					return;
+				case REACT_VIEW_TRANSITION_TYPE:
+				case REACT_SCOPE_TYPE: throw Error("ReactDOMServer does not yet support scope components.");
+				case REACT_SUSPENSE_TYPE:
+					a: if (null !== task.replay) {
+						type = task.keyPath;
+						newProps = task.formatContext;
+						defaultProps = task.row;
+						task.keyPath = keyPath;
+						task.formatContext = getSuspenseContentFormatContext(request.resumableState, newProps);
+						task.row = null;
+						keyPath = props.children;
+						try {
+							renderNode(request, task, keyPath, -1);
+						} finally {
+							task.keyPath = type, task.formatContext = newProps, task.row = defaultProps;
+						}
+					} else {
+						type = task.keyPath;
+						ref = task.formatContext;
+						var prevRow = task.row, parentBoundary = task.blockedBoundary;
+						propName$43 = task.blockedPreamble;
+						var parentHoistableState = task.hoistableState;
+						propName = task.blockedSegment;
+						var fallback = props.fallback;
+						props = props.children;
+						var fallbackAbortSet = /* @__PURE__ */ new Set();
+						var newBoundary = createSuspenseBoundary(request, task.row, fallbackAbortSet, null, null);
+						null !== request.trackedPostpones && (newBoundary.trackedContentKeyPath = keyPath);
+						var boundarySegment = createPendingSegment(request, propName.chunks.length, newBoundary, task.formatContext, !1, !1);
+						propName.children.push(boundarySegment);
+						propName.lastPushedText = !1;
+						var contentRootSegment = createPendingSegment(request, 0, null, task.formatContext, !1, !1);
+						contentRootSegment.parentFlushed = !0;
+						if (null !== request.trackedPostpones) {
+							newProps = task.componentStack;
+							defaultProps = [
+								keyPath[0],
+								"Suspense Fallback",
+								keyPath[2]
+							];
+							initialState = [
+								defaultProps[1],
+								defaultProps[2],
+								[],
+								null
+							];
+							request.trackedPostpones.workingMap.set(defaultProps, initialState);
+							newBoundary.trackedFallbackNode = initialState;
+							task.blockedSegment = boundarySegment;
+							task.blockedPreamble = newBoundary.fallbackPreamble;
+							task.keyPath = defaultProps;
+							task.formatContext = getSuspenseFallbackFormatContext(request.resumableState, ref);
+							task.componentStack = replaceSuspenseComponentStackWithSuspenseFallbackStack(newProps);
+							boundarySegment.status = 6;
+							try {
+								renderNode(request, task, fallback, -1), pushSegmentFinale(boundarySegment.chunks, request.renderState, boundarySegment.lastPushedText, boundarySegment.textEmbedded), boundarySegment.status = 1;
+							} catch (thrownValue) {
+								throw boundarySegment.status = 12 === request.status ? 3 : 4, thrownValue;
+							} finally {
+								task.blockedSegment = propName, task.blockedPreamble = propName$43, task.keyPath = type, task.formatContext = ref;
+							}
+							task = createRenderTask(request, null, props, -1, newBoundary, contentRootSegment, newBoundary.contentPreamble, newBoundary.contentState, task.abortSet, keyPath, getSuspenseContentFormatContext(request.resumableState, task.formatContext), task.context, task.treeContext, null, newProps);
+							pushComponentStack(task);
+							request.pingedTasks.push(task);
+						} else {
+							task.blockedBoundary = newBoundary;
+							task.blockedPreamble = newBoundary.contentPreamble;
+							task.hoistableState = newBoundary.contentState;
+							task.blockedSegment = contentRootSegment;
+							task.keyPath = keyPath;
+							task.formatContext = getSuspenseContentFormatContext(request.resumableState, ref);
+							task.row = null;
+							contentRootSegment.status = 6;
+							try {
+								if (renderNode(request, task, props, -1), pushSegmentFinale(contentRootSegment.chunks, request.renderState, contentRootSegment.lastPushedText, contentRootSegment.textEmbedded), contentRootSegment.status = 1, queueCompletedSegment(newBoundary, contentRootSegment), 0 === newBoundary.pendingTasks && 0 === newBoundary.status) {
+									if (newBoundary.status = 1, !isEligibleForOutlining(request, newBoundary)) {
+										null !== prevRow && 0 === --prevRow.pendingTasks && finishSuspenseListRow(request, prevRow);
+										0 === request.pendingRootTasks && task.blockedPreamble && preparePreamble(request);
+										break a;
+									}
+								} else null !== prevRow && prevRow.together && tryToResolveTogetherRow(request, prevRow);
+							} catch (thrownValue$30) {
+								newBoundary.status = 4, 12 === request.status ? (contentRootSegment.status = 3, newProps = request.fatalError) : (contentRootSegment.status = 4, newProps = thrownValue$30), defaultProps = getThrownInfo(task.componentStack), initialState = logRecoverableError(request, newProps, defaultProps), newBoundary.errorDigest = initialState, untrackBoundary(request, newBoundary);
+							} finally {
+								task.blockedBoundary = parentBoundary, task.blockedPreamble = propName$43, task.hoistableState = parentHoistableState, task.blockedSegment = propName, task.keyPath = type, task.formatContext = ref, task.row = prevRow;
+							}
+							task = createRenderTask(request, null, fallback, -1, parentBoundary, boundarySegment, newBoundary.fallbackPreamble, newBoundary.fallbackState, fallbackAbortSet, [
+								keyPath[0],
+								"Suspense Fallback",
+								keyPath[2]
+							], getSuspenseFallbackFormatContext(request.resumableState, task.formatContext), task.context, task.treeContext, task.row, replaceSuspenseComponentStackWithSuspenseFallbackStack(task.componentStack));
+							pushComponentStack(task);
+							request.pingedTasks.push(task);
+						}
+					}
+					return;
+			}
+			if ("object" === typeof type && null !== type) switch (type.$$typeof) {
+				case REACT_FORWARD_REF_TYPE:
+					if ("ref" in props) for (fallback in newProps = {}, props) "ref" !== fallback && (newProps[fallback] = props[fallback]);
+					else newProps = props;
+					type = renderWithHooks(request, task, keyPath, type.render, newProps, ref);
+					finishFunctionComponent(request, task, keyPath, type, 0 !== localIdCounter, actionStateCounter, actionStateMatchingIndex);
+					return;
+				case REACT_MEMO_TYPE:
+					renderElement(request, task, keyPath, type.type, props, ref);
+					return;
+				case REACT_CONTEXT_TYPE:
+					defaultProps = props.children;
+					newProps = task.keyPath;
+					props = props.value;
+					initialState = type._currentValue2;
+					type._currentValue2 = props;
+					ref = currentActiveSnapshot;
+					currentActiveSnapshot = type = {
+						parent: ref,
+						depth: null === ref ? 0 : ref.depth + 1,
+						context: type,
+						parentValue: initialState,
+						value: props
+					};
+					task.context = type;
+					task.keyPath = keyPath;
+					renderNodeDestructive(request, task, defaultProps, -1);
+					request = currentActiveSnapshot;
+					if (null === request) throw Error("Tried to pop a Context at the root of the app. This is a bug in React.");
+					request.context._currentValue2 = request.parentValue;
+					request = currentActiveSnapshot = request.parent;
+					task.context = request;
+					task.keyPath = newProps;
+					return;
+				case REACT_CONSUMER_TYPE:
+					props = props.children;
+					type = props(type._context._currentValue2);
+					props = task.keyPath;
+					task.keyPath = keyPath;
+					renderNodeDestructive(request, task, type, -1);
+					task.keyPath = props;
+					return;
+				case REACT_LAZY_TYPE:
+					newProps = type._init;
+					type = newProps(type._payload);
+					if (12 === request.status) throw null;
+					renderElement(request, task, keyPath, type, props, ref);
+					return;
+			}
+			throw Error("Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: " + ((null == type ? type : typeof type) + "."));
+		}
+	}
+	function resumeNode(request, task, segmentId, node, childIndex) {
+		var prevReplay = task.replay, blockedBoundary = task.blockedBoundary, resumedSegment = createPendingSegment(request, 0, null, task.formatContext, !1, !1);
+		resumedSegment.id = segmentId;
+		resumedSegment.parentFlushed = !0;
+		try {
+			task.replay = null, task.blockedSegment = resumedSegment, renderNode(request, task, node, childIndex), resumedSegment.status = 1, null === blockedBoundary ? request.completedRootSegment = resumedSegment : (queueCompletedSegment(blockedBoundary, resumedSegment), blockedBoundary.parentFlushed && request.partialBoundaries.push(blockedBoundary));
+		} finally {
+			task.replay = prevReplay, task.blockedSegment = null;
+		}
+	}
+	function renderNodeDestructive(request, task, node, childIndex) {
+		null !== task.replay && "number" === typeof task.replay.slots ? resumeNode(request, task, task.replay.slots, node, childIndex) : (task.node = node, task.childIndex = childIndex, node = task.componentStack, pushComponentStack(task), retryNode(request, task), task.componentStack = node);
+	}
+	function retryNode(request, task) {
+		var node = task.node, childIndex = task.childIndex;
+		if (null !== node) {
+			if ("object" === typeof node) {
+				switch (node.$$typeof) {
+					case REACT_ELEMENT_TYPE:
+						var type = node.type, key = node.key, props = node.props;
+						node = props.ref;
+						var ref = void 0 !== node ? node : null, name = getComponentNameFromType(type), keyOrIndex = null == key ? -1 === childIndex ? 0 : childIndex : key;
+						key = [
+							task.keyPath,
+							name,
+							keyOrIndex
+						];
+						if (null !== task.replay) a: {
+							var replay = task.replay;
+							childIndex = replay.nodes;
+							for (node = 0; node < childIndex.length; node++) {
+								var node$jscomp$0 = childIndex[node];
+								if (keyOrIndex === node$jscomp$0[1]) {
+									if (4 === node$jscomp$0.length) {
+										if (null !== name && name !== node$jscomp$0[0]) throw Error("Expected the resume to render <" + node$jscomp$0[0] + "> in this slot but instead it rendered <" + name + ">. The tree doesn't match so React will fallback to client rendering.");
+										var childNodes = node$jscomp$0[2];
+										name = node$jscomp$0[3];
+										keyOrIndex = task.node;
+										task.replay = {
+											nodes: childNodes,
+											slots: name,
+											pendingTasks: 1
+										};
+										try {
+											renderElement(request, task, key, type, props, ref);
+											if (1 === task.replay.pendingTasks && 0 < task.replay.nodes.length) throw Error("Couldn't find all resumable slots by key/index during replaying. The tree doesn't match so React will fallback to client rendering.");
+											task.replay.pendingTasks--;
+										} catch (x) {
+											if ("object" === typeof x && null !== x && (x === SuspenseException || "function" === typeof x.then)) throw task.node === keyOrIndex ? task.replay = replay : childIndex.splice(node, 1), x;
+											task.replay.pendingTasks--;
+											props = getThrownInfo(task.componentStack);
+											key = request;
+											request = task.blockedBoundary;
+											type = x;
+											props = logRecoverableError(key, type, props);
+											abortRemainingReplayNodes(key, request, childNodes, name, type, props);
+										}
+										task.replay = replay;
+									} else {
+										if (type !== REACT_SUSPENSE_TYPE) throw Error("Expected the resume to render <Suspense> in this slot but instead it rendered <" + (getComponentNameFromType(type) || "Unknown") + ">. The tree doesn't match so React will fallback to client rendering.");
+										b: {
+											replay = void 0;
+											type = node$jscomp$0[5];
+											ref = node$jscomp$0[2];
+											name = node$jscomp$0[3];
+											keyOrIndex = null === node$jscomp$0[4] ? [] : node$jscomp$0[4][2];
+											node$jscomp$0 = null === node$jscomp$0[4] ? null : node$jscomp$0[4][3];
+											var prevKeyPath = task.keyPath, prevContext = task.formatContext, prevRow = task.row, previousReplaySet = task.replay, parentBoundary = task.blockedBoundary, parentHoistableState = task.hoistableState, content = props.children, fallback = props.fallback, fallbackAbortSet = /* @__PURE__ */ new Set();
+											props = createSuspenseBoundary(request, task.row, fallbackAbortSet, null, null);
+											props.parentFlushed = !0;
+											props.rootSegmentID = type;
+											task.blockedBoundary = props;
+											task.hoistableState = props.contentState;
+											task.keyPath = key;
+											task.formatContext = getSuspenseContentFormatContext(request.resumableState, prevContext);
+											task.row = null;
+											task.replay = {
+												nodes: ref,
+												slots: name,
+												pendingTasks: 1
+											};
+											try {
+												renderNode(request, task, content, -1);
+												if (1 === task.replay.pendingTasks && 0 < task.replay.nodes.length) throw Error("Couldn't find all resumable slots by key/index during replaying. The tree doesn't match so React will fallback to client rendering.");
+												task.replay.pendingTasks--;
+												if (0 === props.pendingTasks && 0 === props.status) {
+													props.status = 1;
+													request.completedBoundaries.push(props);
+													break b;
+												}
+											} catch (error) {
+												props.status = 4, childNodes = getThrownInfo(task.componentStack), replay = logRecoverableError(request, error, childNodes), props.errorDigest = replay, task.replay.pendingTasks--, request.clientRenderedBoundaries.push(props);
+											} finally {
+												task.blockedBoundary = parentBoundary, task.hoistableState = parentHoistableState, task.replay = previousReplaySet, task.keyPath = prevKeyPath, task.formatContext = prevContext, task.row = prevRow;
+											}
+											childNodes = createReplayTask(request, null, {
+												nodes: keyOrIndex,
+												slots: node$jscomp$0,
+												pendingTasks: 0
+											}, fallback, -1, parentBoundary, props.fallbackState, fallbackAbortSet, [
+												key[0],
+												"Suspense Fallback",
+												key[2]
+											], getSuspenseFallbackFormatContext(request.resumableState, task.formatContext), task.context, task.treeContext, task.row, replaceSuspenseComponentStackWithSuspenseFallbackStack(task.componentStack));
+											pushComponentStack(childNodes);
+											request.pingedTasks.push(childNodes);
+										}
+									}
+									childIndex.splice(node, 1);
+									break a;
+								}
+							}
+						}
+						else renderElement(request, task, key, type, props, ref);
+						return;
+					case REACT_PORTAL_TYPE: throw Error("Portals are not currently supported by the server renderer. Render them conditionally so that they only appear on the client render.");
+					case REACT_LAZY_TYPE:
+						childNodes = node._init;
+						node = childNodes(node._payload);
+						if (12 === request.status) throw null;
+						renderNodeDestructive(request, task, node, childIndex);
+						return;
+				}
+				if (isArrayImpl(node)) {
+					renderChildrenArray(request, task, node, childIndex);
+					return;
+				}
+				if (childNodes = getIteratorFn(node)) {
+					if (childNodes = childNodes.call(node)) {
+						node = childNodes.next();
+						if (!node.done) {
+							props = [];
+							do
+								props.push(node.value), node = childNodes.next();
+							while (!node.done);
+							renderChildrenArray(request, task, props, childIndex);
+						}
+						return;
+					}
+				}
+				if ("function" === typeof node.then) return task.thenableState = null, renderNodeDestructive(request, task, unwrapThenable(node), childIndex);
+				if (node.$$typeof === REACT_CONTEXT_TYPE) return renderNodeDestructive(request, task, node._currentValue2, childIndex);
+				childIndex = Object.prototype.toString.call(node);
+				throw Error("Objects are not valid as a React child (found: " + ("[object Object]" === childIndex ? "object with keys {" + Object.keys(node).join(", ") + "}" : childIndex) + "). If you meant to render a collection of children, use an array instead.");
+			}
+			if ("string" === typeof node) childIndex = task.blockedSegment, null !== childIndex && (childIndex.lastPushedText = pushTextInstance(childIndex.chunks, node, request.renderState, childIndex.lastPushedText));
+			else if ("number" === typeof node || "bigint" === typeof node) childIndex = task.blockedSegment, null !== childIndex && (childIndex.lastPushedText = pushTextInstance(childIndex.chunks, "" + node, request.renderState, childIndex.lastPushedText));
+		}
+	}
+	function renderChildrenArray(request, task, children, childIndex) {
+		var prevKeyPath = task.keyPath;
+		if (-1 !== childIndex && (task.keyPath = [
+			task.keyPath,
+			"Fragment",
+			childIndex
+		], null !== task.replay)) {
+			for (var replay = task.replay, replayNodes = replay.nodes, j = 0; j < replayNodes.length; j++) {
+				var node = replayNodes[j];
+				if (node[1] === childIndex) {
+					childIndex = node[2];
+					node = node[3];
+					task.replay = {
+						nodes: childIndex,
+						slots: node,
+						pendingTasks: 1
+					};
+					try {
+						renderChildrenArray(request, task, children, -1);
+						if (1 === task.replay.pendingTasks && 0 < task.replay.nodes.length) throw Error("Couldn't find all resumable slots by key/index during replaying. The tree doesn't match so React will fallback to client rendering.");
+						task.replay.pendingTasks--;
+					} catch (x) {
+						if ("object" === typeof x && null !== x && (x === SuspenseException || "function" === typeof x.then)) throw x;
+						task.replay.pendingTasks--;
+						children = getThrownInfo(task.componentStack);
+						var boundary = task.blockedBoundary, error = x;
+						children = logRecoverableError(request, error, children);
+						abortRemainingReplayNodes(request, boundary, childIndex, node, error, children);
+					}
+					task.replay = replay;
+					replayNodes.splice(j, 1);
+					break;
+				}
+			}
+			task.keyPath = prevKeyPath;
+			return;
+		}
+		replay = task.treeContext;
+		replayNodes = children.length;
+		if (null !== task.replay && (j = task.replay.slots, null !== j && "object" === typeof j)) {
+			for (childIndex = 0; childIndex < replayNodes; childIndex++) node = children[childIndex], task.treeContext = pushTreeContext(replay, replayNodes, childIndex), boundary = j[childIndex], "number" === typeof boundary ? (resumeNode(request, task, boundary, node, childIndex), delete j[childIndex]) : renderNode(request, task, node, childIndex);
+			task.treeContext = replay;
+			task.keyPath = prevKeyPath;
+			return;
+		}
+		for (j = 0; j < replayNodes; j++) childIndex = children[j], task.treeContext = pushTreeContext(replay, replayNodes, j), renderNode(request, task, childIndex, j);
+		task.treeContext = replay;
+		task.keyPath = prevKeyPath;
+	}
+	function trackPostponedBoundary(request, trackedPostpones, boundary) {
+		boundary.status = 5;
+		boundary.rootSegmentID = request.nextSegmentId++;
+		request = boundary.trackedContentKeyPath;
+		if (null === request) throw Error("It should not be possible to postpone at the root. This is a bug in React.");
+		var fallbackReplayNode = boundary.trackedFallbackNode, children = [], boundaryNode = trackedPostpones.workingMap.get(request);
+		if (void 0 === boundaryNode) return boundary = [
+			request[1],
+			request[2],
+			children,
+			null,
+			fallbackReplayNode,
+			boundary.rootSegmentID
+		], trackedPostpones.workingMap.set(request, boundary), addToReplayParent(boundary, request[0], trackedPostpones), boundary;
+		boundaryNode[4] = fallbackReplayNode;
+		boundaryNode[5] = boundary.rootSegmentID;
+		return boundaryNode;
+	}
+	function trackPostpone(request, trackedPostpones, task, segment) {
+		segment.status = 5;
+		var keyPath = task.keyPath, boundary = task.blockedBoundary;
+		if (null === boundary) segment.id = request.nextSegmentId++, trackedPostpones.rootSlots = segment.id, null !== request.completedRootSegment && (request.completedRootSegment.status = 5);
+		else {
+			if (null !== boundary && 0 === boundary.status) {
+				var boundaryNode = trackPostponedBoundary(request, trackedPostpones, boundary);
+				if (boundary.trackedContentKeyPath === keyPath && -1 === task.childIndex) {
+					-1 === segment.id && (segment.id = segment.parentFlushed ? boundary.rootSegmentID : request.nextSegmentId++);
+					boundaryNode[3] = segment.id;
+					return;
+				}
+			}
+			-1 === segment.id && (segment.id = segment.parentFlushed && null !== boundary ? boundary.rootSegmentID : request.nextSegmentId++);
+			if (-1 === task.childIndex) null === keyPath ? trackedPostpones.rootSlots = segment.id : (task = trackedPostpones.workingMap.get(keyPath), void 0 === task ? (task = [
+				keyPath[1],
+				keyPath[2],
+				[],
+				segment.id
+			], addToReplayParent(task, keyPath[0], trackedPostpones)) : task[3] = segment.id);
+			else {
+				if (null === keyPath) {
+					if (request = trackedPostpones.rootSlots, null === request) request = trackedPostpones.rootSlots = {};
+					else if ("number" === typeof request) throw Error("It should not be possible to postpone both at the root of an element as well as a slot below. This is a bug in React.");
+				} else if (boundary = trackedPostpones.workingMap, boundaryNode = boundary.get(keyPath), void 0 === boundaryNode) request = {}, boundaryNode = [
+					keyPath[1],
+					keyPath[2],
+					[],
+					request
+				], boundary.set(keyPath, boundaryNode), addToReplayParent(boundaryNode, keyPath[0], trackedPostpones);
+				else if (request = boundaryNode[3], null === request) request = boundaryNode[3] = {};
+				else if ("number" === typeof request) throw Error("It should not be possible to postpone both at the root of an element as well as a slot below. This is a bug in React.");
+				request[task.childIndex] = segment.id;
+			}
+		}
+	}
+	function untrackBoundary(request, boundary) {
+		request = request.trackedPostpones;
+		null !== request && (boundary = boundary.trackedContentKeyPath, null !== boundary && (boundary = request.workingMap.get(boundary), void 0 !== boundary && (boundary.length = 4, boundary[2] = [], boundary[3] = null)));
+	}
+	function spawnNewSuspendedReplayTask(request, task, thenableState) {
+		return createReplayTask(request, thenableState, task.replay, task.node, task.childIndex, task.blockedBoundary, task.hoistableState, task.abortSet, task.keyPath, task.formatContext, task.context, task.treeContext, task.row, task.componentStack);
+	}
+	function spawnNewSuspendedRenderTask(request, task, thenableState) {
+		var segment = task.blockedSegment, newSegment = createPendingSegment(request, segment.chunks.length, null, task.formatContext, segment.lastPushedText, !0);
+		segment.children.push(newSegment);
+		segment.lastPushedText = !1;
+		return createRenderTask(request, thenableState, task.node, task.childIndex, task.blockedBoundary, newSegment, task.blockedPreamble, task.hoistableState, task.abortSet, task.keyPath, task.formatContext, task.context, task.treeContext, task.row, task.componentStack);
+	}
+	function renderNode(request, task, node, childIndex) {
+		var previousFormatContext = task.formatContext, previousContext = task.context, previousKeyPath = task.keyPath, previousTreeContext = task.treeContext, previousComponentStack = task.componentStack, segment = task.blockedSegment;
+		if (null === segment) {
+			segment = task.replay;
+			try {
+				return renderNodeDestructive(request, task, node, childIndex);
+			} catch (thrownValue) {
+				if (resetHooksState(), node = thrownValue === SuspenseException ? getSuspendedThenable() : thrownValue, 12 !== request.status && "object" === typeof node && null !== node) {
+					if ("function" === typeof node.then) {
+						childIndex = thrownValue === SuspenseException ? getThenableStateAfterSuspending() : null;
+						request = spawnNewSuspendedReplayTask(request, task, childIndex).ping;
+						node.then(request, request);
+						task.formatContext = previousFormatContext;
+						task.context = previousContext;
+						task.keyPath = previousKeyPath;
+						task.treeContext = previousTreeContext;
+						task.componentStack = previousComponentStack;
+						task.replay = segment;
+						switchContext(previousContext);
+						return;
+					}
+					if ("Maximum call stack size exceeded" === node.message) {
+						node = thrownValue === SuspenseException ? getThenableStateAfterSuspending() : null;
+						node = spawnNewSuspendedReplayTask(request, task, node);
+						request.pingedTasks.push(node);
+						task.formatContext = previousFormatContext;
+						task.context = previousContext;
+						task.keyPath = previousKeyPath;
+						task.treeContext = previousTreeContext;
+						task.componentStack = previousComponentStack;
+						task.replay = segment;
+						switchContext(previousContext);
+						return;
+					}
+				}
+			}
+		} else {
+			var childrenLength = segment.children.length, chunkLength = segment.chunks.length;
+			try {
+				return renderNodeDestructive(request, task, node, childIndex);
+			} catch (thrownValue$62) {
+				if (resetHooksState(), segment.children.length = childrenLength, segment.chunks.length = chunkLength, node = thrownValue$62 === SuspenseException ? getSuspendedThenable() : thrownValue$62, 12 !== request.status && "object" === typeof node && null !== node) {
+					if ("function" === typeof node.then) {
+						segment = node;
+						node = thrownValue$62 === SuspenseException ? getThenableStateAfterSuspending() : null;
+						request = spawnNewSuspendedRenderTask(request, task, node).ping;
+						segment.then(request, request);
+						task.formatContext = previousFormatContext;
+						task.context = previousContext;
+						task.keyPath = previousKeyPath;
+						task.treeContext = previousTreeContext;
+						task.componentStack = previousComponentStack;
+						switchContext(previousContext);
+						return;
+					}
+					if ("Maximum call stack size exceeded" === node.message) {
+						segment = thrownValue$62 === SuspenseException ? getThenableStateAfterSuspending() : null;
+						segment = spawnNewSuspendedRenderTask(request, task, segment);
+						request.pingedTasks.push(segment);
+						task.formatContext = previousFormatContext;
+						task.context = previousContext;
+						task.keyPath = previousKeyPath;
+						task.treeContext = previousTreeContext;
+						task.componentStack = previousComponentStack;
+						switchContext(previousContext);
+						return;
+					}
+				}
+			}
+		}
+		task.formatContext = previousFormatContext;
+		task.context = previousContext;
+		task.keyPath = previousKeyPath;
+		task.treeContext = previousTreeContext;
+		switchContext(previousContext);
+		throw node;
+	}
+	function abortTaskSoft(task) {
+		var boundary = task.blockedBoundary, segment = task.blockedSegment;
+		null !== segment && (segment.status = 3, finishedTask(this, boundary, task.row, segment));
+	}
+	function abortRemainingReplayNodes(request$jscomp$0, boundary, nodes, slots, error, errorDigest$jscomp$0) {
+		for (var i = 0; i < nodes.length; i++) {
+			var node = nodes[i];
+			if (4 === node.length) abortRemainingReplayNodes(request$jscomp$0, boundary, node[2], node[3], error, errorDigest$jscomp$0);
+			else {
+				node = node[5];
+				var request = request$jscomp$0, errorDigest = errorDigest$jscomp$0, resumedBoundary = createSuspenseBoundary(request, null, /* @__PURE__ */ new Set(), null, null);
+				resumedBoundary.parentFlushed = !0;
+				resumedBoundary.rootSegmentID = node;
+				resumedBoundary.status = 4;
+				resumedBoundary.errorDigest = errorDigest;
+				resumedBoundary.parentFlushed && request.clientRenderedBoundaries.push(resumedBoundary);
+			}
+		}
+		nodes.length = 0;
+		if (null !== slots) {
+			if (null === boundary) throw Error("We should not have any resumable nodes in the shell. This is a bug in React.");
+			4 !== boundary.status && (boundary.status = 4, boundary.errorDigest = errorDigest$jscomp$0, boundary.parentFlushed && request$jscomp$0.clientRenderedBoundaries.push(boundary));
+			if ("object" === typeof slots) for (var index in slots) delete slots[index];
+		}
+	}
+	function abortTask(task, request, error) {
+		var boundary = task.blockedBoundary, segment = task.blockedSegment;
+		if (null !== segment) {
+			if (6 === segment.status) return;
+			segment.status = 3;
+		}
+		var errorInfo = getThrownInfo(task.componentStack);
+		if (null === boundary) {
+			if (13 !== request.status && 14 !== request.status) {
+				boundary = task.replay;
+				if (null === boundary) {
+					null !== request.trackedPostpones && null !== segment ? (boundary = request.trackedPostpones, logRecoverableError(request, error, errorInfo), trackPostpone(request, boundary, task, segment), finishedTask(request, null, task.row, segment)) : (logRecoverableError(request, error, errorInfo), fatalError(request, error));
+					return;
+				}
+				boundary.pendingTasks--;
+				0 === boundary.pendingTasks && 0 < boundary.nodes.length && (segment = logRecoverableError(request, error, errorInfo), abortRemainingReplayNodes(request, null, boundary.nodes, boundary.slots, error, segment));
+				request.pendingRootTasks--;
+				0 === request.pendingRootTasks && completeShell(request);
+			}
+		} else {
+			var trackedPostpones$63 = request.trackedPostpones;
+			if (4 !== boundary.status) {
+				if (null !== trackedPostpones$63 && null !== segment) return logRecoverableError(request, error, errorInfo), trackPostpone(request, trackedPostpones$63, task, segment), boundary.fallbackAbortableTasks.forEach(function(fallbackTask) {
+					return abortTask(fallbackTask, request, error);
+				}), boundary.fallbackAbortableTasks.clear(), finishedTask(request, boundary, task.row, segment);
+				boundary.status = 4;
+				segment = logRecoverableError(request, error, errorInfo);
+				boundary.status = 4;
+				boundary.errorDigest = segment;
+				untrackBoundary(request, boundary);
+				boundary.parentFlushed && request.clientRenderedBoundaries.push(boundary);
+			}
+			boundary.pendingTasks--;
+			segment = boundary.row;
+			null !== segment && 0 === --segment.pendingTasks && finishSuspenseListRow(request, segment);
+			boundary.fallbackAbortableTasks.forEach(function(fallbackTask) {
+				return abortTask(fallbackTask, request, error);
+			});
+			boundary.fallbackAbortableTasks.clear();
+		}
+		task = task.row;
+		null !== task && 0 === --task.pendingTasks && finishSuspenseListRow(request, task);
+		request.allPendingTasks--;
+		0 === request.allPendingTasks && completeAll(request);
+	}
+	function safelyEmitEarlyPreloads(request, shellComplete) {
+		try {
+			var renderState = request.renderState, onHeaders = renderState.onHeaders;
+			if (onHeaders) {
+				var headers = renderState.headers;
+				if (headers) {
+					renderState.headers = null;
+					var linkHeader = headers.preconnects;
+					headers.fontPreloads && (linkHeader && (linkHeader += ", "), linkHeader += headers.fontPreloads);
+					headers.highImagePreloads && (linkHeader && (linkHeader += ", "), linkHeader += headers.highImagePreloads);
+					if (!shellComplete) {
+						var queueIter = renderState.styles.values(), queueStep = queueIter.next();
+						b: for (; 0 < headers.remainingCapacity && !queueStep.done; queueStep = queueIter.next()) for (var sheetIter = queueStep.value.sheets.values(), sheetStep = sheetIter.next(); 0 < headers.remainingCapacity && !sheetStep.done; sheetStep = sheetIter.next()) {
+							var sheet = sheetStep.value, props = sheet.props, key = props.href, props$jscomp$0 = sheet.props, header = getPreloadAsHeader(props$jscomp$0.href, "style", {
+								crossOrigin: props$jscomp$0.crossOrigin,
+								integrity: props$jscomp$0.integrity,
+								nonce: props$jscomp$0.nonce,
+								type: props$jscomp$0.type,
+								fetchPriority: props$jscomp$0.fetchPriority,
+								referrerPolicy: props$jscomp$0.referrerPolicy,
+								media: props$jscomp$0.media
+							});
+							if (0 <= (headers.remainingCapacity -= header.length + 2)) renderState.resets.style[key] = PRELOAD_NO_CREDS, linkHeader && (linkHeader += ", "), linkHeader += header, renderState.resets.style[key] = "string" === typeof props.crossOrigin || "string" === typeof props.integrity ? [props.crossOrigin, props.integrity] : PRELOAD_NO_CREDS;
+							else break b;
+						}
+					}
+					linkHeader ? onHeaders({ Link: linkHeader }) : onHeaders({});
+				}
+			}
+		} catch (error) {
+			logRecoverableError(request, error, {});
+		}
+	}
+	function completeShell(request) {
+		null === request.trackedPostpones && safelyEmitEarlyPreloads(request, !0);
+		null === request.trackedPostpones && preparePreamble(request);
+		request.onShellError = noop;
+		request = request.onShellReady;
+		request();
+	}
+	function completeAll(request) {
+		safelyEmitEarlyPreloads(request, null === request.trackedPostpones ? !0 : null === request.completedRootSegment || 5 !== request.completedRootSegment.status);
+		preparePreamble(request);
+		request = request.onAllReady;
+		request();
+	}
+	function queueCompletedSegment(boundary, segment) {
+		if (0 === segment.chunks.length && 1 === segment.children.length && null === segment.children[0].boundary && -1 === segment.children[0].id) {
+			var childSegment = segment.children[0];
+			childSegment.id = segment.id;
+			childSegment.parentFlushed = !0;
+			1 !== childSegment.status && 3 !== childSegment.status && 4 !== childSegment.status || queueCompletedSegment(boundary, childSegment);
+		} else boundary.completedSegments.push(segment);
+	}
+	function finishedTask(request, boundary, row, segment) {
+		null !== row && (0 === --row.pendingTasks ? finishSuspenseListRow(request, row) : row.together && tryToResolveTogetherRow(request, row));
+		request.allPendingTasks--;
+		if (null === boundary) {
+			if (null !== segment && segment.parentFlushed) {
+				if (null !== request.completedRootSegment) throw Error("There can only be one root segment. This is a bug in React.");
+				request.completedRootSegment = segment;
+			}
+			request.pendingRootTasks--;
+			0 === request.pendingRootTasks && completeShell(request);
+		} else if (boundary.pendingTasks--, 4 !== boundary.status) if (0 === boundary.pendingTasks) {
+			if (0 === boundary.status && (boundary.status = 1), null !== segment && segment.parentFlushed && (1 === segment.status || 3 === segment.status) && queueCompletedSegment(boundary, segment), boundary.parentFlushed && request.completedBoundaries.push(boundary), 1 === boundary.status) row = boundary.row, null !== row && hoistHoistables(row.hoistables, boundary.contentState), isEligibleForOutlining(request, boundary) || (boundary.fallbackAbortableTasks.forEach(abortTaskSoft, request), boundary.fallbackAbortableTasks.clear(), null !== row && 0 === --row.pendingTasks && finishSuspenseListRow(request, row)), 0 === request.pendingRootTasks && null === request.trackedPostpones && null !== boundary.contentPreamble && preparePreamble(request);
+			else if (5 === boundary.status && (boundary = boundary.row, null !== boundary)) {
+				if (null !== request.trackedPostpones) {
+					row = request.trackedPostpones;
+					var postponedRow = boundary.next;
+					if (null !== postponedRow && (segment = postponedRow.boundaries, null !== segment)) for (postponedRow.boundaries = null, postponedRow = 0; postponedRow < segment.length; postponedRow++) {
+						var postponedBoundary = segment[postponedRow];
+						trackPostponedBoundary(request, row, postponedBoundary);
+						finishedTask(request, postponedBoundary, null, null);
+					}
+				}
+				0 === --boundary.pendingTasks && finishSuspenseListRow(request, boundary);
+			}
+		} else null === segment || !segment.parentFlushed || 1 !== segment.status && 3 !== segment.status || (queueCompletedSegment(boundary, segment), 1 === boundary.completedSegments.length && boundary.parentFlushed && request.partialBoundaries.push(boundary)), boundary = boundary.row, null !== boundary && boundary.together && tryToResolveTogetherRow(request, boundary);
+		0 === request.allPendingTasks && completeAll(request);
+	}
+	function performWork(request$jscomp$2) {
+		if (14 !== request$jscomp$2.status && 13 !== request$jscomp$2.status) {
+			var prevContext = currentActiveSnapshot, prevDispatcher = ReactSharedInternals.H;
+			ReactSharedInternals.H = HooksDispatcher;
+			var prevAsyncDispatcher = ReactSharedInternals.A;
+			ReactSharedInternals.A = DefaultAsyncDispatcher;
+			var prevRequest = currentRequest;
+			currentRequest = request$jscomp$2;
+			var prevResumableState = currentResumableState;
+			currentResumableState = request$jscomp$2.resumableState;
+			try {
+				var pingedTasks = request$jscomp$2.pingedTasks, i;
+				for (i = 0; i < pingedTasks.length; i++) {
+					var task = pingedTasks[i], request = request$jscomp$2, segment = task.blockedSegment;
+					if (null === segment) {
+						var request$jscomp$0 = request;
+						if (0 !== task.replay.pendingTasks) {
+							switchContext(task.context);
+							try {
+								"number" === typeof task.replay.slots ? resumeNode(request$jscomp$0, task, task.replay.slots, task.node, task.childIndex) : retryNode(request$jscomp$0, task);
+								if (1 === task.replay.pendingTasks && 0 < task.replay.nodes.length) throw Error("Couldn't find all resumable slots by key/index during replaying. The tree doesn't match so React will fallback to client rendering.");
+								task.replay.pendingTasks--;
+								task.abortSet.delete(task);
+								finishedTask(request$jscomp$0, task.blockedBoundary, task.row, null);
+							} catch (thrownValue) {
+								resetHooksState();
+								var x = thrownValue === SuspenseException ? getSuspendedThenable() : thrownValue;
+								if ("object" === typeof x && null !== x && "function" === typeof x.then) {
+									var ping = task.ping;
+									x.then(ping, ping);
+									task.thenableState = thrownValue === SuspenseException ? getThenableStateAfterSuspending() : null;
+								} else {
+									task.replay.pendingTasks--;
+									task.abortSet.delete(task);
+									var errorInfo = getThrownInfo(task.componentStack);
+									request = void 0;
+									var request$jscomp$1 = request$jscomp$0, boundary = task.blockedBoundary, error$jscomp$0 = 12 === request$jscomp$0.status ? request$jscomp$0.fatalError : x, replayNodes = task.replay.nodes, resumeSlots = task.replay.slots;
+									request = logRecoverableError(request$jscomp$1, error$jscomp$0, errorInfo);
+									abortRemainingReplayNodes(request$jscomp$1, boundary, replayNodes, resumeSlots, error$jscomp$0, request);
+									request$jscomp$0.pendingRootTasks--;
+									0 === request$jscomp$0.pendingRootTasks && completeShell(request$jscomp$0);
+									request$jscomp$0.allPendingTasks--;
+									0 === request$jscomp$0.allPendingTasks && completeAll(request$jscomp$0);
+								}
+							}
+						}
+					} else if (request$jscomp$0 = void 0, request$jscomp$1 = segment, 0 === request$jscomp$1.status) {
+						request$jscomp$1.status = 6;
+						switchContext(task.context);
+						var childrenLength = request$jscomp$1.children.length, chunkLength = request$jscomp$1.chunks.length;
+						try {
+							retryNode(request, task), pushSegmentFinale(request$jscomp$1.chunks, request.renderState, request$jscomp$1.lastPushedText, request$jscomp$1.textEmbedded), task.abortSet.delete(task), request$jscomp$1.status = 1, finishedTask(request, task.blockedBoundary, task.row, request$jscomp$1);
+						} catch (thrownValue) {
+							resetHooksState();
+							request$jscomp$1.children.length = childrenLength;
+							request$jscomp$1.chunks.length = chunkLength;
+							var x$jscomp$0 = thrownValue === SuspenseException ? getSuspendedThenable() : 12 === request.status ? request.fatalError : thrownValue;
+							if (12 === request.status && null !== request.trackedPostpones) {
+								var trackedPostpones = request.trackedPostpones, thrownInfo = getThrownInfo(task.componentStack);
+								task.abortSet.delete(task);
+								logRecoverableError(request, x$jscomp$0, thrownInfo);
+								trackPostpone(request, trackedPostpones, task, request$jscomp$1);
+								finishedTask(request, task.blockedBoundary, task.row, request$jscomp$1);
+							} else if ("object" === typeof x$jscomp$0 && null !== x$jscomp$0 && "function" === typeof x$jscomp$0.then) {
+								request$jscomp$1.status = 0;
+								task.thenableState = thrownValue === SuspenseException ? getThenableStateAfterSuspending() : null;
+								var ping$jscomp$0 = task.ping;
+								x$jscomp$0.then(ping$jscomp$0, ping$jscomp$0);
+							} else {
+								var errorInfo$jscomp$0 = getThrownInfo(task.componentStack);
+								task.abortSet.delete(task);
+								request$jscomp$1.status = 4;
+								var boundary$jscomp$0 = task.blockedBoundary, row = task.row;
+								null !== row && 0 === --row.pendingTasks && finishSuspenseListRow(request, row);
+								request.allPendingTasks--;
+								request$jscomp$0 = logRecoverableError(request, x$jscomp$0, errorInfo$jscomp$0);
+								if (null === boundary$jscomp$0) fatalError(request, x$jscomp$0);
+								else if (boundary$jscomp$0.pendingTasks--, 4 !== boundary$jscomp$0.status) {
+									boundary$jscomp$0.status = 4;
+									boundary$jscomp$0.errorDigest = request$jscomp$0;
+									untrackBoundary(request, boundary$jscomp$0);
+									var boundaryRow = boundary$jscomp$0.row;
+									null !== boundaryRow && 0 === --boundaryRow.pendingTasks && finishSuspenseListRow(request, boundaryRow);
+									boundary$jscomp$0.parentFlushed && request.clientRenderedBoundaries.push(boundary$jscomp$0);
+									0 === request.pendingRootTasks && null === request.trackedPostpones && null !== boundary$jscomp$0.contentPreamble && preparePreamble(request);
+								}
+								0 === request.allPendingTasks && completeAll(request);
+							}
+						}
+					}
+				}
+				pingedTasks.splice(0, i);
+				null !== request$jscomp$2.destination && flushCompletedQueues(request$jscomp$2, request$jscomp$2.destination);
+			} catch (error) {
+				logRecoverableError(request$jscomp$2, error, {}), fatalError(request$jscomp$2, error);
+			} finally {
+				currentResumableState = prevResumableState, ReactSharedInternals.H = prevDispatcher, ReactSharedInternals.A = prevAsyncDispatcher, prevDispatcher === HooksDispatcher && switchContext(prevContext), currentRequest = prevRequest;
+			}
+		}
+	}
+	function preparePreambleFromSubtree(request, segment, collectedPreambleSegments) {
+		segment.preambleChildren.length && collectedPreambleSegments.push(segment.preambleChildren);
+		for (var pendingPreambles = !1, i = 0; i < segment.children.length; i++) pendingPreambles = preparePreambleFromSegment(request, segment.children[i], collectedPreambleSegments) || pendingPreambles;
+		return pendingPreambles;
+	}
+	function preparePreambleFromSegment(request, segment, collectedPreambleSegments) {
+		var boundary = segment.boundary;
+		if (null === boundary) return preparePreambleFromSubtree(request, segment, collectedPreambleSegments);
+		var preamble = boundary.contentPreamble, fallbackPreamble = boundary.fallbackPreamble;
+		if (null === preamble || null === fallbackPreamble) return !1;
+		switch (boundary.status) {
+			case 1:
+				hoistPreambleState(request.renderState, preamble);
+				request.byteSize += boundary.byteSize;
+				segment = boundary.completedSegments[0];
+				if (!segment) throw Error("A previously unvisited boundary must have exactly one root segment. This is a bug in React.");
+				return preparePreambleFromSubtree(request, segment, collectedPreambleSegments);
+			case 5: if (null !== request.trackedPostpones) return !0;
+			case 4: if (1 === segment.status) return hoistPreambleState(request.renderState, fallbackPreamble), preparePreambleFromSubtree(request, segment, collectedPreambleSegments);
+			default: return !0;
+		}
+	}
+	function preparePreamble(request) {
+		if (request.completedRootSegment && null === request.completedPreambleSegments) {
+			var collectedPreambleSegments = [], originalRequestByteSize = request.byteSize, hasPendingPreambles = preparePreambleFromSegment(request, request.completedRootSegment, collectedPreambleSegments), preamble = request.renderState.preamble;
+			!1 === hasPendingPreambles || preamble.headChunks && preamble.bodyChunks ? request.completedPreambleSegments = collectedPreambleSegments : request.byteSize = originalRequestByteSize;
+		}
+	}
+	function flushSubtree(request, destination, segment, hoistableState) {
+		segment.parentFlushed = !0;
+		switch (segment.status) {
+			case 0: segment.id = request.nextSegmentId++;
+			case 5: return hoistableState = segment.id, segment.lastPushedText = !1, segment.textEmbedded = !1, request = request.renderState, destination.push("<template id=\""), destination.push(request.placeholderPrefix), request = hoistableState.toString(16), destination.push(request), destination.push("\"></template>");
+			case 1:
+				segment.status = 2;
+				var r = !0, chunks = segment.chunks, chunkIdx = 0;
+				segment = segment.children;
+				for (var childIdx = 0; childIdx < segment.length; childIdx++) {
+					for (r = segment[childIdx]; chunkIdx < r.index; chunkIdx++) destination.push(chunks[chunkIdx]);
+					r = flushSegment(request, destination, r, hoistableState);
+				}
+				for (; chunkIdx < chunks.length - 1; chunkIdx++) destination.push(chunks[chunkIdx]);
+				chunkIdx < chunks.length && (r = destination.push(chunks[chunkIdx]));
+				return r;
+			case 3: return !0;
+			default: throw Error("Aborted, errored or already flushed boundaries should not be flushed again. This is a bug in React.");
+		}
+	}
+	var flushedByteSize = 0;
+	function flushSegment(request, destination, segment, hoistableState) {
+		var boundary = segment.boundary;
+		if (null === boundary) return flushSubtree(request, destination, segment, hoistableState);
+		boundary.parentFlushed = !0;
+		if (4 === boundary.status) {
+			var row = boundary.row;
+			null !== row && 0 === --row.pendingTasks && finishSuspenseListRow(request, row);
+			request.renderState.generateStaticMarkup || (boundary = boundary.errorDigest, destination.push("<!--$!-->"), destination.push("<template"), boundary && (destination.push(" data-dgst=\""), boundary = escapeTextForBrowser(boundary), destination.push(boundary), destination.push("\"")), destination.push("></template>"));
+			flushSubtree(request, destination, segment, hoistableState);
+			request = request.renderState.generateStaticMarkup ? !0 : destination.push("<!--/$-->");
+			return request;
+		}
+		if (1 !== boundary.status) return 0 === boundary.status && (boundary.rootSegmentID = request.nextSegmentId++), 0 < boundary.completedSegments.length && request.partialBoundaries.push(boundary), writeStartPendingSuspenseBoundary(destination, request.renderState, boundary.rootSegmentID), hoistableState && hoistHoistables(hoistableState, boundary.fallbackState), flushSubtree(request, destination, segment, hoistableState), destination.push("<!--/$-->");
+		if (!flushingPartialBoundaries && isEligibleForOutlining(request, boundary) && flushedByteSize + boundary.byteSize > request.progressiveChunkSize) return boundary.rootSegmentID = request.nextSegmentId++, request.completedBoundaries.push(boundary), writeStartPendingSuspenseBoundary(destination, request.renderState, boundary.rootSegmentID), flushSubtree(request, destination, segment, hoistableState), destination.push("<!--/$-->");
+		flushedByteSize += boundary.byteSize;
+		hoistableState && hoistHoistables(hoistableState, boundary.contentState);
+		segment = boundary.row;
+		null !== segment && isEligibleForOutlining(request, boundary) && 0 === --segment.pendingTasks && finishSuspenseListRow(request, segment);
+		request.renderState.generateStaticMarkup || destination.push("<!--$-->");
+		segment = boundary.completedSegments;
+		if (1 !== segment.length) throw Error("A previously unvisited boundary must have exactly one root segment. This is a bug in React.");
+		flushSegment(request, destination, segment[0], hoistableState);
+		request = request.renderState.generateStaticMarkup ? !0 : destination.push("<!--/$-->");
+		return request;
+	}
+	function flushSegmentContainer(request, destination, segment, hoistableState) {
+		writeStartSegment(destination, request.renderState, segment.parentFormatContext, segment.id);
+		flushSegment(request, destination, segment, hoistableState);
+		return writeEndSegment(destination, segment.parentFormatContext);
+	}
+	function flushCompletedBoundary(request, destination, boundary) {
+		flushedByteSize = boundary.byteSize;
+		for (var completedSegments = boundary.completedSegments, i = 0; i < completedSegments.length; i++) flushPartiallyCompletedSegment(request, destination, boundary, completedSegments[i]);
+		completedSegments.length = 0;
+		completedSegments = boundary.row;
+		null !== completedSegments && isEligibleForOutlining(request, boundary) && 0 === --completedSegments.pendingTasks && finishSuspenseListRow(request, completedSegments);
+		writeHoistablesForBoundary(destination, boundary.contentState, request.renderState);
+		completedSegments = request.resumableState;
+		request = request.renderState;
+		i = boundary.rootSegmentID;
+		boundary = boundary.contentState;
+		var requiresStyleInsertion = request.stylesToHoist;
+		request.stylesToHoist = !1;
+		destination.push(request.startInlineScript);
+		destination.push(">");
+		requiresStyleInsertion ? (0 === (completedSegments.instructions & 4) && (completedSegments.instructions |= 4, destination.push("$RX=function(b,c,d,e,f){var a=document.getElementById(b);a&&(b=a.previousSibling,b.data=\"$!\",a=a.dataset,c&&(a.dgst=c),d&&(a.msg=d),e&&(a.stck=e),f&&(a.cstck=f),b._reactRetry&&b._reactRetry())};")), 0 === (completedSegments.instructions & 2) && (completedSegments.instructions |= 2, destination.push("$RB=[];$RV=function(a){$RT=performance.now();for(var b=0;b<a.length;b+=2){var c=a[b],e=a[b+1];null!==e.parentNode&&e.parentNode.removeChild(e);var f=c.parentNode;if(f){var g=c.previousSibling,h=0;do{if(c&&8===c.nodeType){var d=c.data;if(\"/$\"===d||\"/&\"===d)if(0===h)break;else h--;else\"$\"!==d&&\"$?\"!==d&&\"$~\"!==d&&\"$!\"!==d&&\"&\"!==d||h++}d=c.nextSibling;f.removeChild(c);c=d}while(c);for(;e.firstChild;)f.insertBefore(e.firstChild,c);g.data=\"$\";g._reactRetry&&requestAnimationFrame(g._reactRetry)}}a.length=0};\n$RC=function(a,b){if(b=document.getElementById(b))(a=document.getElementById(a))?(a.previousSibling.data=\"$~\",$RB.push(a,b),2===$RB.length&&(\"number\"!==typeof $RT?requestAnimationFrame($RV.bind(null,$RB)):(a=performance.now(),setTimeout($RV.bind(null,$RB),2300>a&&2E3<a?2300-a:$RT+300-a)))):b.parentNode.removeChild(b)};")), 0 === (completedSegments.instructions & 8) ? (completedSegments.instructions |= 8, destination.push("$RM=new Map;$RR=function(n,w,p){function u(q){this._p=null;q()}for(var r=new Map,t=document,h,b,e=t.querySelectorAll(\"link[data-precedence],style[data-precedence]\"),v=[],k=0;b=e[k++];)\"not all\"===b.getAttribute(\"media\")?v.push(b):(\"LINK\"===b.tagName&&$RM.set(b.getAttribute(\"href\"),b),r.set(b.dataset.precedence,h=b));e=0;b=[];var l,a;for(k=!0;;){if(k){var f=p[e++];if(!f){k=!1;e=0;continue}var c=!1,m=0;var d=f[m++];if(a=$RM.get(d)){var g=a._p;c=!0}else{a=t.createElement(\"link\");a.href=d;a.rel=\n\"stylesheet\";for(a.dataset.precedence=l=f[m++];g=f[m++];)a.setAttribute(g,f[m++]);g=a._p=new Promise(function(q,x){a.onload=u.bind(a,q);a.onerror=u.bind(a,x)});$RM.set(d,a)}d=a.getAttribute(\"media\");!g||d&&!matchMedia(d).matches||b.push(g);if(c)continue}else{a=v[e++];if(!a)break;l=a.getAttribute(\"data-precedence\");a.removeAttribute(\"media\")}c=r.get(l)||h;c===h&&(h=a);r.set(l,a);c?c.parentNode.insertBefore(a,c.nextSibling):(c=t.head,c.insertBefore(a,c.firstChild))}if(p=document.getElementById(n))p.previousSibling.data=\n\"$~\";Promise.all(b).then($RC.bind(null,n,w),$RX.bind(null,n,\"CSS failed to load\"))};$RR(\"")) : destination.push("$RR(\"")) : (0 === (completedSegments.instructions & 2) && (completedSegments.instructions |= 2, destination.push("$RB=[];$RV=function(a){$RT=performance.now();for(var b=0;b<a.length;b+=2){var c=a[b],e=a[b+1];null!==e.parentNode&&e.parentNode.removeChild(e);var f=c.parentNode;if(f){var g=c.previousSibling,h=0;do{if(c&&8===c.nodeType){var d=c.data;if(\"/$\"===d||\"/&\"===d)if(0===h)break;else h--;else\"$\"!==d&&\"$?\"!==d&&\"$~\"!==d&&\"$!\"!==d&&\"&\"!==d||h++}d=c.nextSibling;f.removeChild(c);c=d}while(c);for(;e.firstChild;)f.insertBefore(e.firstChild,c);g.data=\"$\";g._reactRetry&&requestAnimationFrame(g._reactRetry)}}a.length=0};\n$RC=function(a,b){if(b=document.getElementById(b))(a=document.getElementById(a))?(a.previousSibling.data=\"$~\",$RB.push(a,b),2===$RB.length&&(\"number\"!==typeof $RT?requestAnimationFrame($RV.bind(null,$RB)):(a=performance.now(),setTimeout($RV.bind(null,$RB),2300>a&&2E3<a?2300-a:$RT+300-a)))):b.parentNode.removeChild(b)};")), destination.push("$RC(\""));
+		completedSegments = i.toString(16);
+		destination.push(request.boundaryPrefix);
+		destination.push(completedSegments);
+		destination.push("\",\"");
+		destination.push(request.segmentPrefix);
+		destination.push(completedSegments);
+		requiresStyleInsertion ? (destination.push("\","), writeStyleResourceDependenciesInJS(destination, boundary)) : destination.push("\"");
+		boundary = destination.push(")<\/script>");
+		return writeBootstrap(destination, request) && boundary;
+	}
+	function flushPartiallyCompletedSegment(request, destination, boundary, segment) {
+		if (2 === segment.status) return !0;
+		var hoistableState = boundary.contentState, segmentID = segment.id;
+		if (-1 === segmentID) {
+			if (-1 === (segment.id = boundary.rootSegmentID)) throw Error("A root segment ID must have been assigned by now. This is a bug in React.");
+			return flushSegmentContainer(request, destination, segment, hoistableState);
+		}
+		if (segmentID === boundary.rootSegmentID) return flushSegmentContainer(request, destination, segment, hoistableState);
+		flushSegmentContainer(request, destination, segment, hoistableState);
+		boundary = request.resumableState;
+		request = request.renderState;
+		destination.push(request.startInlineScript);
+		destination.push(">");
+		0 === (boundary.instructions & 1) ? (boundary.instructions |= 1, destination.push("$RS=function(a,b){a=document.getElementById(a);b=document.getElementById(b);for(a.parentNode.removeChild(a);a.firstChild;)b.parentNode.insertBefore(a.firstChild,b);b.parentNode.removeChild(b)};$RS(\"")) : destination.push("$RS(\"");
+		destination.push(request.segmentPrefix);
+		segmentID = segmentID.toString(16);
+		destination.push(segmentID);
+		destination.push("\",\"");
+		destination.push(request.placeholderPrefix);
+		destination.push(segmentID);
+		destination = destination.push("\")<\/script>");
+		return destination;
+	}
+	var flushingPartialBoundaries = !1;
+	function flushCompletedQueues(request, destination) {
+		try {
+			if (!(0 < request.pendingRootTasks)) {
+				var i, completedRootSegment = request.completedRootSegment;
+				if (null !== completedRootSegment) {
+					if (5 === completedRootSegment.status) return;
+					var completedPreambleSegments = request.completedPreambleSegments;
+					if (null === completedPreambleSegments) return;
+					flushedByteSize = request.byteSize;
+					var resumableState = request.resumableState, renderState = request.renderState, preamble = renderState.preamble, htmlChunks = preamble.htmlChunks, headChunks = preamble.headChunks, i$jscomp$0;
+					if (htmlChunks) {
+						for (i$jscomp$0 = 0; i$jscomp$0 < htmlChunks.length; i$jscomp$0++) destination.push(htmlChunks[i$jscomp$0]);
+						if (headChunks) for (i$jscomp$0 = 0; i$jscomp$0 < headChunks.length; i$jscomp$0++) destination.push(headChunks[i$jscomp$0]);
+						else {
+							var chunk = startChunkForTag("head");
+							destination.push(chunk);
+							destination.push(">");
+						}
+					} else if (headChunks) for (i$jscomp$0 = 0; i$jscomp$0 < headChunks.length; i$jscomp$0++) destination.push(headChunks[i$jscomp$0]);
+					var charsetChunks = renderState.charsetChunks;
+					for (i$jscomp$0 = 0; i$jscomp$0 < charsetChunks.length; i$jscomp$0++) destination.push(charsetChunks[i$jscomp$0]);
+					charsetChunks.length = 0;
+					renderState.preconnects.forEach(flushResource, destination);
+					renderState.preconnects.clear();
+					var viewportChunks = renderState.viewportChunks;
+					for (i$jscomp$0 = 0; i$jscomp$0 < viewportChunks.length; i$jscomp$0++) destination.push(viewportChunks[i$jscomp$0]);
+					viewportChunks.length = 0;
+					renderState.fontPreloads.forEach(flushResource, destination);
+					renderState.fontPreloads.clear();
+					renderState.highImagePreloads.forEach(flushResource, destination);
+					renderState.highImagePreloads.clear();
+					currentlyFlushingRenderState = renderState;
+					renderState.styles.forEach(flushStylesInPreamble, destination);
+					currentlyFlushingRenderState = null;
+					var importMapChunks = renderState.importMapChunks;
+					for (i$jscomp$0 = 0; i$jscomp$0 < importMapChunks.length; i$jscomp$0++) destination.push(importMapChunks[i$jscomp$0]);
+					importMapChunks.length = 0;
+					renderState.bootstrapScripts.forEach(flushResource, destination);
+					renderState.scripts.forEach(flushResource, destination);
+					renderState.scripts.clear();
+					renderState.bulkPreloads.forEach(flushResource, destination);
+					renderState.bulkPreloads.clear();
+					resumableState.instructions |= 32;
+					var hoistableChunks = renderState.hoistableChunks;
+					for (i$jscomp$0 = 0; i$jscomp$0 < hoistableChunks.length; i$jscomp$0++) destination.push(hoistableChunks[i$jscomp$0]);
+					for (resumableState = hoistableChunks.length = 0; resumableState < completedPreambleSegments.length; resumableState++) {
+						var segments = completedPreambleSegments[resumableState];
+						for (renderState = 0; renderState < segments.length; renderState++) flushSegment(request, destination, segments[renderState], null);
+					}
+					var preamble$jscomp$0 = request.renderState.preamble, headChunks$jscomp$0 = preamble$jscomp$0.headChunks;
+					if (preamble$jscomp$0.htmlChunks || headChunks$jscomp$0) {
+						var chunk$jscomp$0 = endChunkForTag("head");
+						destination.push(chunk$jscomp$0);
+					}
+					var bodyChunks = preamble$jscomp$0.bodyChunks;
+					if (bodyChunks) for (completedPreambleSegments = 0; completedPreambleSegments < bodyChunks.length; completedPreambleSegments++) destination.push(bodyChunks[completedPreambleSegments]);
+					flushSegment(request, destination, completedRootSegment, null);
+					request.completedRootSegment = null;
+					var renderState$jscomp$0 = request.renderState;
+					if (0 !== request.allPendingTasks || 0 !== request.clientRenderedBoundaries.length || 0 !== request.completedBoundaries.length || null !== request.trackedPostpones && (0 !== request.trackedPostpones.rootNodes.length || null !== request.trackedPostpones.rootSlots)) {
+						var resumableState$jscomp$0 = request.resumableState;
+						if (0 === (resumableState$jscomp$0.instructions & 64)) {
+							resumableState$jscomp$0.instructions |= 64;
+							destination.push(renderState$jscomp$0.startInlineScript);
+							if (0 === (resumableState$jscomp$0.instructions & 32)) {
+								resumableState$jscomp$0.instructions |= 32;
+								var shellId = "_" + resumableState$jscomp$0.idPrefix + "R_";
+								destination.push(" id=\"");
+								var chunk$jscomp$1 = escapeTextForBrowser(shellId);
+								destination.push(chunk$jscomp$1);
+								destination.push("\"");
+							}
+							destination.push(">");
+							destination.push("requestAnimationFrame(function(){$RT=performance.now()});");
+							destination.push("<\/script>");
+						}
+					}
+					writeBootstrap(destination, renderState$jscomp$0);
+				}
+				var renderState$jscomp$1 = request.renderState;
+				completedRootSegment = 0;
+				var viewportChunks$jscomp$0 = renderState$jscomp$1.viewportChunks;
+				for (completedRootSegment = 0; completedRootSegment < viewportChunks$jscomp$0.length; completedRootSegment++) destination.push(viewportChunks$jscomp$0[completedRootSegment]);
+				viewportChunks$jscomp$0.length = 0;
+				renderState$jscomp$1.preconnects.forEach(flushResource, destination);
+				renderState$jscomp$1.preconnects.clear();
+				renderState$jscomp$1.fontPreloads.forEach(flushResource, destination);
+				renderState$jscomp$1.fontPreloads.clear();
+				renderState$jscomp$1.highImagePreloads.forEach(flushResource, destination);
+				renderState$jscomp$1.highImagePreloads.clear();
+				renderState$jscomp$1.styles.forEach(preloadLateStyles, destination);
+				renderState$jscomp$1.scripts.forEach(flushResource, destination);
+				renderState$jscomp$1.scripts.clear();
+				renderState$jscomp$1.bulkPreloads.forEach(flushResource, destination);
+				renderState$jscomp$1.bulkPreloads.clear();
+				var hoistableChunks$jscomp$0 = renderState$jscomp$1.hoistableChunks;
+				for (completedRootSegment = 0; completedRootSegment < hoistableChunks$jscomp$0.length; completedRootSegment++) destination.push(hoistableChunks$jscomp$0[completedRootSegment]);
+				hoistableChunks$jscomp$0.length = 0;
+				var clientRenderedBoundaries = request.clientRenderedBoundaries;
+				for (i = 0; i < clientRenderedBoundaries.length; i++) {
+					var boundary = clientRenderedBoundaries[i];
+					renderState$jscomp$1 = destination;
+					var resumableState$jscomp$1 = request.resumableState, renderState$jscomp$2 = request.renderState, id = boundary.rootSegmentID, errorDigest = boundary.errorDigest;
+					renderState$jscomp$1.push(renderState$jscomp$2.startInlineScript);
+					renderState$jscomp$1.push(">");
+					0 === (resumableState$jscomp$1.instructions & 4) ? (resumableState$jscomp$1.instructions |= 4, renderState$jscomp$1.push("$RX=function(b,c,d,e,f){var a=document.getElementById(b);a&&(b=a.previousSibling,b.data=\"$!\",a=a.dataset,c&&(a.dgst=c),d&&(a.msg=d),e&&(a.stck=e),f&&(a.cstck=f),b._reactRetry&&b._reactRetry())};;$RX(\"")) : renderState$jscomp$1.push("$RX(\"");
+					renderState$jscomp$1.push(renderState$jscomp$2.boundaryPrefix);
+					var chunk$jscomp$2 = id.toString(16);
+					renderState$jscomp$1.push(chunk$jscomp$2);
+					renderState$jscomp$1.push("\"");
+					if (errorDigest) {
+						renderState$jscomp$1.push(",");
+						var chunk$jscomp$3 = escapeJSStringsForInstructionScripts(errorDigest || "");
+						renderState$jscomp$1.push(chunk$jscomp$3);
+					}
+					var JSCompiler_inline_result = renderState$jscomp$1.push(")<\/script>");
+					if (!JSCompiler_inline_result) {
+						request.destination = null;
+						i++;
+						clientRenderedBoundaries.splice(0, i);
+						return;
+					}
+				}
+				clientRenderedBoundaries.splice(0, i);
+				var completedBoundaries = request.completedBoundaries;
+				for (i = 0; i < completedBoundaries.length; i++) if (!flushCompletedBoundary(request, destination, completedBoundaries[i])) {
+					request.destination = null;
+					i++;
+					completedBoundaries.splice(0, i);
+					return;
+				}
+				completedBoundaries.splice(0, i);
+				flushingPartialBoundaries = !0;
+				var partialBoundaries = request.partialBoundaries;
+				for (i = 0; i < partialBoundaries.length; i++) {
+					var boundary$69 = partialBoundaries[i];
+					a: {
+						clientRenderedBoundaries = request;
+						boundary = destination;
+						flushedByteSize = boundary$69.byteSize;
+						var completedSegments = boundary$69.completedSegments;
+						for (JSCompiler_inline_result = 0; JSCompiler_inline_result < completedSegments.length; JSCompiler_inline_result++) if (!flushPartiallyCompletedSegment(clientRenderedBoundaries, boundary, boundary$69, completedSegments[JSCompiler_inline_result])) {
+							JSCompiler_inline_result++;
+							completedSegments.splice(0, JSCompiler_inline_result);
+							var JSCompiler_inline_result$jscomp$0 = !1;
+							break a;
+						}
+						completedSegments.splice(0, JSCompiler_inline_result);
+						var row = boundary$69.row;
+						null !== row && row.together && 1 === boundary$69.pendingTasks && (1 === row.pendingTasks ? unblockSuspenseListRow(clientRenderedBoundaries, row, row.hoistables) : row.pendingTasks--);
+						JSCompiler_inline_result$jscomp$0 = writeHoistablesForBoundary(boundary, boundary$69.contentState, clientRenderedBoundaries.renderState);
+					}
+					if (!JSCompiler_inline_result$jscomp$0) {
+						request.destination = null;
+						i++;
+						partialBoundaries.splice(0, i);
+						return;
+					}
+				}
+				partialBoundaries.splice(0, i);
+				flushingPartialBoundaries = !1;
+				var largeBoundaries = request.completedBoundaries;
+				for (i = 0; i < largeBoundaries.length; i++) if (!flushCompletedBoundary(request, destination, largeBoundaries[i])) {
+					request.destination = null;
+					i++;
+					largeBoundaries.splice(0, i);
+					return;
+				}
+				largeBoundaries.splice(0, i);
+			}
+		} finally {
+			flushingPartialBoundaries = !1, 0 === request.allPendingTasks && 0 === request.clientRenderedBoundaries.length && 0 === request.completedBoundaries.length && (request.flushScheduled = !1, i = request.resumableState, i.hasBody && (partialBoundaries = endChunkForTag("body"), destination.push(partialBoundaries)), i.hasHtml && (i = endChunkForTag("html"), destination.push(i)), request.status = 14, destination.push(null), request.destination = null);
+		}
+	}
+	function enqueueFlush(request) {
+		if (!1 === request.flushScheduled && 0 === request.pingedTasks.length && null !== request.destination) {
+			request.flushScheduled = !0;
+			var destination = request.destination;
+			destination ? flushCompletedQueues(request, destination) : request.flushScheduled = !1;
+		}
+	}
+	function startFlowing(request, destination) {
+		if (13 === request.status) request.status = 14, destination.destroy(request.fatalError);
+		else if (14 !== request.status && null === request.destination) {
+			request.destination = destination;
+			try {
+				flushCompletedQueues(request, destination);
+			} catch (error) {
+				logRecoverableError(request, error, {}), fatalError(request, error);
+			}
+		}
+	}
+	function abort(request, reason) {
+		if (11 === request.status || 10 === request.status) request.status = 12;
+		try {
+			var abortableTasks = request.abortableTasks;
+			if (0 < abortableTasks.size) {
+				var error = void 0 === reason ? Error("The render was aborted by the server without a reason.") : "object" === typeof reason && null !== reason && "function" === typeof reason.then ? Error("The render was aborted by the server with a promise.") : reason;
+				request.fatalError = error;
+				abortableTasks.forEach(function(task) {
+					return abortTask(task, request, error);
+				});
+				abortableTasks.clear();
+			}
+			null !== request.destination && flushCompletedQueues(request, request.destination);
+		} catch (error$71) {
+			logRecoverableError(request, error$71, {}), fatalError(request, error$71);
+		}
+	}
+	function addToReplayParent(node, parentKeyPath, trackedPostpones) {
+		if (null === parentKeyPath) trackedPostpones.rootNodes.push(node);
+		else {
+			var workingMap = trackedPostpones.workingMap, parentNode = workingMap.get(parentKeyPath);
+			void 0 === parentNode && (parentNode = [
+				parentKeyPath[1],
+				parentKeyPath[2],
+				[],
+				null
+			], workingMap.set(parentKeyPath, parentNode), addToReplayParent(parentNode, parentKeyPath[0], trackedPostpones));
+			parentNode[2].push(node);
+		}
+	}
+	function onError() {}
+	function renderToStringImpl(children, options, generateStaticMarkup, abortReason) {
+		var didFatal = !1, fatalError = null, result = "", readyToStream = !1;
+		options = createResumableState(options ? options.identifierPrefix : void 0);
+		children = createRequest(children, options, createRenderState(options, generateStaticMarkup), createFormatContext(0, null, 0, null), Infinity, onError, void 0, function() {
+			readyToStream = !0;
+		}, void 0, void 0, void 0);
+		children.flushScheduled = null !== children.destination;
+		performWork(children);
+		10 === children.status && (children.status = 11);
+		null === children.trackedPostpones && safelyEmitEarlyPreloads(children, 0 === children.pendingRootTasks);
+		abort(children, abortReason);
+		startFlowing(children, {
+			push: function(chunk) {
+				null !== chunk && (result += chunk);
+				return !0;
+			},
+			destroy: function(error) {
+				didFatal = !0;
+				fatalError = error;
+			}
+		});
+		if (didFatal && fatalError !== abortReason) throw fatalError;
+		if (!readyToStream) throw Error("A component suspended while responding to synchronous input. This will cause the UI to be replaced with a loading indicator. To fix, updates that suspend should be wrapped with startTransition.");
+		return result;
+	}
+	exports.renderToStaticMarkup = function(children, options) {
+		return renderToStringImpl(children, options, !0, "The server used \"renderToStaticMarkup\" which does not support Suspense. If you intended to have the server wait for the suspended component please switch to \"renderToPipeableStream\" which supports Suspense on the server");
+	};
+	exports.renderToString = function(children, options) {
+		return renderToStringImpl(children, options, !1, "The server used \"renderToString\" which does not support Suspense. If you intended for this Suspense boundary to render the fallback content on the server consider throwing an Error somewhere within the Suspense boundary. If you intended to have the server wait for the suspended component please switch to \"renderToPipeableStream\" which supports Suspense on the server");
+	};
+	exports.version = "19.2.7";
+}));
+//#endregion
+//#region node_modules/react-dom/cjs/react-dom-server.node.production.js
+/**
+* @license React
+* react-dom-server.node.production.js
+*
+* Copyright (c) Meta Platforms, Inc. and affiliates.
+*
+* This source code is licensed under the MIT license found in the
+* LICENSE file in the root directory of this source tree.
+*/
+var require_react_dom_server_node_production = /* @__PURE__ */ __commonJSMin(((exports) => {
+	var util = __require("util"), crypto = __require("crypto"), async_hooks = __require("async_hooks"), React = require_react(), ReactDOM = require_react_dom(), stream = __require("stream"), REACT_ELEMENT_TYPE = Symbol.for("react.transitional.element"), REACT_PORTAL_TYPE = Symbol.for("react.portal"), REACT_FRAGMENT_TYPE = Symbol.for("react.fragment"), REACT_STRICT_MODE_TYPE = Symbol.for("react.strict_mode"), REACT_PROFILER_TYPE = Symbol.for("react.profiler"), REACT_CONSUMER_TYPE = Symbol.for("react.consumer"), REACT_CONTEXT_TYPE = Symbol.for("react.context"), REACT_FORWARD_REF_TYPE = Symbol.for("react.forward_ref"), REACT_SUSPENSE_TYPE = Symbol.for("react.suspense"), REACT_SUSPENSE_LIST_TYPE = Symbol.for("react.suspense_list"), REACT_MEMO_TYPE = Symbol.for("react.memo"), REACT_LAZY_TYPE = Symbol.for("react.lazy"), REACT_SCOPE_TYPE = Symbol.for("react.scope"), REACT_ACTIVITY_TYPE = Symbol.for("react.activity"), REACT_LEGACY_HIDDEN_TYPE = Symbol.for("react.legacy_hidden"), REACT_MEMO_CACHE_SENTINEL = Symbol.for("react.memo_cache_sentinel"), REACT_VIEW_TRANSITION_TYPE = Symbol.for("react.view_transition"), MAYBE_ITERATOR_SYMBOL = Symbol.iterator;
+	function getIteratorFn(maybeIterable) {
+		if (null === maybeIterable || "object" !== typeof maybeIterable) return null;
+		maybeIterable = MAYBE_ITERATOR_SYMBOL && maybeIterable[MAYBE_ITERATOR_SYMBOL] || maybeIterable["@@iterator"];
+		return "function" === typeof maybeIterable ? maybeIterable : null;
+	}
+	var isArrayImpl = Array.isArray, scheduleMicrotask = queueMicrotask;
+	function flushBuffered(destination) {
+		"function" === typeof destination.flush && destination.flush();
+	}
+	var currentView = null, writtenBytes = 0, destinationHasCapacity$1 = !0;
+	function writeChunk(destination, chunk) {
+		if ("string" === typeof chunk) {
+			if (0 !== chunk.length) if (2048 < 3 * chunk.length) 0 < writtenBytes && (writeToDestination(destination, currentView.subarray(0, writtenBytes)), currentView = /* @__PURE__ */ new Uint8Array(2048), writtenBytes = 0), writeToDestination(destination, chunk);
+			else {
+				var target = currentView;
+				0 < writtenBytes && (target = currentView.subarray(writtenBytes));
+				target = textEncoder.encodeInto(chunk, target);
+				var read = target.read;
+				writtenBytes += target.written;
+				read < chunk.length && (writeToDestination(destination, currentView.subarray(0, writtenBytes)), currentView = /* @__PURE__ */ new Uint8Array(2048), writtenBytes = textEncoder.encodeInto(chunk.slice(read), currentView).written);
+				2048 === writtenBytes && (writeToDestination(destination, currentView), currentView = /* @__PURE__ */ new Uint8Array(2048), writtenBytes = 0);
+			}
+		} else 0 !== chunk.byteLength && (2048 < chunk.byteLength ? (0 < writtenBytes && (writeToDestination(destination, currentView.subarray(0, writtenBytes)), currentView = /* @__PURE__ */ new Uint8Array(2048), writtenBytes = 0), writeToDestination(destination, chunk)) : (target = currentView.length - writtenBytes, target < chunk.byteLength && (0 === target ? writeToDestination(destination, currentView) : (currentView.set(chunk.subarray(0, target), writtenBytes), writtenBytes += target, writeToDestination(destination, currentView), chunk = chunk.subarray(target)), currentView = /* @__PURE__ */ new Uint8Array(2048), writtenBytes = 0), currentView.set(chunk, writtenBytes), writtenBytes += chunk.byteLength, 2048 === writtenBytes && (writeToDestination(destination, currentView), currentView = /* @__PURE__ */ new Uint8Array(2048), writtenBytes = 0)));
+	}
+	function writeToDestination(destination, view) {
+		destination = destination.write(view);
+		destinationHasCapacity$1 = destinationHasCapacity$1 && destination;
+	}
+	function writeChunkAndReturn(destination, chunk) {
+		writeChunk(destination, chunk);
+		return destinationHasCapacity$1;
+	}
+	function completeWriting(destination) {
+		currentView && 0 < writtenBytes && destination.write(currentView.subarray(0, writtenBytes));
+		currentView = null;
+		writtenBytes = 0;
+		destinationHasCapacity$1 = !0;
+	}
+	var textEncoder = new util.TextEncoder();
+	function stringToPrecomputedChunk(content) {
+		return textEncoder.encode(content);
+	}
+	function byteLengthOfChunk(chunk) {
+		return "string" === typeof chunk ? Buffer.byteLength(chunk, "utf8") : chunk.byteLength;
+	}
+	var assign = Object.assign, hasOwnProperty = Object.prototype.hasOwnProperty, VALID_ATTRIBUTE_NAME_REGEX = RegExp("^[:A-Z_a-z\\u00C0-\\u00D6\\u00D8-\\u00F6\\u00F8-\\u02FF\\u0370-\\u037D\\u037F-\\u1FFF\\u200C-\\u200D\\u2070-\\u218F\\u2C00-\\u2FEF\\u3001-\\uD7FF\\uF900-\\uFDCF\\uFDF0-\\uFFFD][:A-Z_a-z\\u00C0-\\u00D6\\u00D8-\\u00F6\\u00F8-\\u02FF\\u0370-\\u037D\\u037F-\\u1FFF\\u200C-\\u200D\\u2070-\\u218F\\u2C00-\\u2FEF\\u3001-\\uD7FF\\uF900-\\uFDCF\\uFDF0-\\uFFFD\\-.0-9\\u00B7\\u0300-\\u036F\\u203F-\\u2040]*$"), illegalAttributeNameCache = {}, validatedAttributeNameCache = {};
+	function isAttributeNameSafe(attributeName) {
+		if (hasOwnProperty.call(validatedAttributeNameCache, attributeName)) return !0;
+		if (hasOwnProperty.call(illegalAttributeNameCache, attributeName)) return !1;
+		if (VALID_ATTRIBUTE_NAME_REGEX.test(attributeName)) return validatedAttributeNameCache[attributeName] = !0;
+		illegalAttributeNameCache[attributeName] = !0;
+		return !1;
+	}
+	var unitlessNumbers = new Set("animationIterationCount aspectRatio borderImageOutset borderImageSlice borderImageWidth boxFlex boxFlexGroup boxOrdinalGroup columnCount columns flex flexGrow flexPositive flexShrink flexNegative flexOrder gridArea gridRow gridRowEnd gridRowSpan gridRowStart gridColumn gridColumnEnd gridColumnSpan gridColumnStart fontWeight lineClamp lineHeight opacity order orphans scale tabSize widows zIndex zoom fillOpacity floodOpacity stopOpacity strokeDasharray strokeDashoffset strokeMiterlimit strokeOpacity strokeWidth MozAnimationIterationCount MozBoxFlex MozBoxFlexGroup MozLineClamp msAnimationIterationCount msFlex msZoom msFlexGrow msFlexNegative msFlexOrder msFlexPositive msFlexShrink msGridColumn msGridColumnSpan msGridRow msGridRowSpan WebkitAnimationIterationCount WebkitBoxFlex WebKitBoxFlexGroup WebkitBoxOrdinalGroup WebkitColumnCount WebkitColumns WebkitFlex WebkitFlexGrow WebkitFlexPositive WebkitFlexShrink WebkitLineClamp".split(" ")), aliases = /* @__PURE__ */ new Map([
+		["acceptCharset", "accept-charset"],
+		["htmlFor", "for"],
+		["httpEquiv", "http-equiv"],
+		["crossOrigin", "crossorigin"],
+		["accentHeight", "accent-height"],
+		["alignmentBaseline", "alignment-baseline"],
+		["arabicForm", "arabic-form"],
+		["baselineShift", "baseline-shift"],
+		["capHeight", "cap-height"],
+		["clipPath", "clip-path"],
+		["clipRule", "clip-rule"],
+		["colorInterpolation", "color-interpolation"],
+		["colorInterpolationFilters", "color-interpolation-filters"],
+		["colorProfile", "color-profile"],
+		["colorRendering", "color-rendering"],
+		["dominantBaseline", "dominant-baseline"],
+		["enableBackground", "enable-background"],
+		["fillOpacity", "fill-opacity"],
+		["fillRule", "fill-rule"],
+		["floodColor", "flood-color"],
+		["floodOpacity", "flood-opacity"],
+		["fontFamily", "font-family"],
+		["fontSize", "font-size"],
+		["fontSizeAdjust", "font-size-adjust"],
+		["fontStretch", "font-stretch"],
+		["fontStyle", "font-style"],
+		["fontVariant", "font-variant"],
+		["fontWeight", "font-weight"],
+		["glyphName", "glyph-name"],
+		["glyphOrientationHorizontal", "glyph-orientation-horizontal"],
+		["glyphOrientationVertical", "glyph-orientation-vertical"],
+		["horizAdvX", "horiz-adv-x"],
+		["horizOriginX", "horiz-origin-x"],
+		["imageRendering", "image-rendering"],
+		["letterSpacing", "letter-spacing"],
+		["lightingColor", "lighting-color"],
+		["markerEnd", "marker-end"],
+		["markerMid", "marker-mid"],
+		["markerStart", "marker-start"],
+		["overlinePosition", "overline-position"],
+		["overlineThickness", "overline-thickness"],
+		["paintOrder", "paint-order"],
+		["panose-1", "panose-1"],
+		["pointerEvents", "pointer-events"],
+		["renderingIntent", "rendering-intent"],
+		["shapeRendering", "shape-rendering"],
+		["stopColor", "stop-color"],
+		["stopOpacity", "stop-opacity"],
+		["strikethroughPosition", "strikethrough-position"],
+		["strikethroughThickness", "strikethrough-thickness"],
+		["strokeDasharray", "stroke-dasharray"],
+		["strokeDashoffset", "stroke-dashoffset"],
+		["strokeLinecap", "stroke-linecap"],
+		["strokeLinejoin", "stroke-linejoin"],
+		["strokeMiterlimit", "stroke-miterlimit"],
+		["strokeOpacity", "stroke-opacity"],
+		["strokeWidth", "stroke-width"],
+		["textAnchor", "text-anchor"],
+		["textDecoration", "text-decoration"],
+		["textRendering", "text-rendering"],
+		["transformOrigin", "transform-origin"],
+		["underlinePosition", "underline-position"],
+		["underlineThickness", "underline-thickness"],
+		["unicodeBidi", "unicode-bidi"],
+		["unicodeRange", "unicode-range"],
+		["unitsPerEm", "units-per-em"],
+		["vAlphabetic", "v-alphabetic"],
+		["vHanging", "v-hanging"],
+		["vIdeographic", "v-ideographic"],
+		["vMathematical", "v-mathematical"],
+		["vectorEffect", "vector-effect"],
+		["vertAdvY", "vert-adv-y"],
+		["vertOriginX", "vert-origin-x"],
+		["vertOriginY", "vert-origin-y"],
+		["wordSpacing", "word-spacing"],
+		["writingMode", "writing-mode"],
+		["xmlnsXlink", "xmlns:xlink"],
+		["xHeight", "x-height"]
+	]), matchHtmlRegExp = /["'&<>]/;
+	function escapeTextForBrowser(text) {
+		if ("boolean" === typeof text || "number" === typeof text || "bigint" === typeof text) return "" + text;
+		text = "" + text;
+		var match = matchHtmlRegExp.exec(text);
+		if (match) {
+			var html = "", index, lastIndex = 0;
+			for (index = match.index; index < text.length; index++) {
+				switch (text.charCodeAt(index)) {
+					case 34:
+						match = "&quot;";
+						break;
+					case 38:
+						match = "&amp;";
+						break;
+					case 39:
+						match = "&#x27;";
+						break;
+					case 60:
+						match = "&lt;";
+						break;
+					case 62:
+						match = "&gt;";
+						break;
+					default: continue;
+				}
+				lastIndex !== index && (html += text.slice(lastIndex, index));
+				lastIndex = index + 1;
+				html += match;
+			}
+			text = lastIndex !== index ? html + text.slice(lastIndex, index) : html;
+		}
+		return text;
+	}
+	var uppercasePattern = /([A-Z])/g, msPattern = /^ms-/, isJavaScriptProtocol = /^[\u0000-\u001F ]*j[\r\n\t]*a[\r\n\t]*v[\r\n\t]*a[\r\n\t]*s[\r\n\t]*c[\r\n\t]*r[\r\n\t]*i[\r\n\t]*p[\r\n\t]*t[\r\n\t]*:/i;
+	function sanitizeURL(url) {
+		return isJavaScriptProtocol.test("" + url) ? "javascript:throw new Error('React has blocked a javascript: URL as a security precaution.')" : url;
+	}
+	var ReactSharedInternals = React.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE, ReactDOMSharedInternals = ReactDOM.__DOM_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE, sharedNotPendingObject = {
+		pending: !1,
+		data: null,
+		method: null,
+		action: null
+	}, previousDispatcher = ReactDOMSharedInternals.d;
+	ReactDOMSharedInternals.d = {
+		f: previousDispatcher.f,
+		r: previousDispatcher.r,
+		D: prefetchDNS,
+		C: preconnect,
+		L: preload,
+		m: preloadModule,
+		X: preinitScript,
+		S: preinitStyle,
+		M: preinitModuleScript
+	};
+	var PRELOAD_NO_CREDS = [], currentlyFlushingRenderState = null;
+	stringToPrecomputedChunk("\"></template>");
+	var startInlineScript = stringToPrecomputedChunk("<script"), endInlineScript = stringToPrecomputedChunk("<\/script>"), startScriptSrc = stringToPrecomputedChunk("<script src=\""), startModuleSrc = stringToPrecomputedChunk("<script type=\"module\" src=\""), scriptNonce = stringToPrecomputedChunk(" nonce=\""), scriptIntegirty = stringToPrecomputedChunk(" integrity=\""), scriptCrossOrigin = stringToPrecomputedChunk(" crossorigin=\""), endAsyncScript = stringToPrecomputedChunk(" async=\"\"><\/script>"), startInlineStyle = stringToPrecomputedChunk("<style"), scriptRegex = /(<\/|<)(s)(cript)/gi;
+	function scriptReplacer(match, prefix, s, suffix) {
+		return "" + prefix + ("s" === s ? "\\u0073" : "\\u0053") + suffix;
+	}
+	var importMapScriptStart = stringToPrecomputedChunk("<script type=\"importmap\">"), importMapScriptEnd = stringToPrecomputedChunk("<\/script>");
+	function createRenderState(resumableState, nonce, externalRuntimeConfig, importMap, onHeaders, maxHeadersLength) {
+		externalRuntimeConfig = "string" === typeof nonce ? nonce : nonce && nonce.script;
+		var inlineScriptWithNonce = void 0 === externalRuntimeConfig ? startInlineScript : stringToPrecomputedChunk("<script nonce=\"" + escapeTextForBrowser(externalRuntimeConfig) + "\""), nonceStyle = "string" === typeof nonce ? void 0 : nonce && nonce.style, inlineStyleWithNonce = void 0 === nonceStyle ? startInlineStyle : stringToPrecomputedChunk("<style nonce=\"" + escapeTextForBrowser(nonceStyle) + "\""), idPrefix = resumableState.idPrefix, bootstrapChunks = [], bootstrapScriptContent = resumableState.bootstrapScriptContent, bootstrapScripts = resumableState.bootstrapScripts, bootstrapModules = resumableState.bootstrapModules;
+		void 0 !== bootstrapScriptContent && (bootstrapChunks.push(inlineScriptWithNonce), pushCompletedShellIdAttribute(bootstrapChunks, resumableState), bootstrapChunks.push(endOfStartTag, ("" + bootstrapScriptContent).replace(scriptRegex, scriptReplacer), endInlineScript));
+		bootstrapScriptContent = [];
+		void 0 !== importMap && (bootstrapScriptContent.push(importMapScriptStart), bootstrapScriptContent.push(("" + JSON.stringify(importMap)).replace(scriptRegex, scriptReplacer)), bootstrapScriptContent.push(importMapScriptEnd));
+		importMap = onHeaders ? {
+			preconnects: "",
+			fontPreloads: "",
+			highImagePreloads: "",
+			remainingCapacity: 2 + ("number" === typeof maxHeadersLength ? maxHeadersLength : 2e3)
+		} : null;
+		onHeaders = {
+			placeholderPrefix: stringToPrecomputedChunk(idPrefix + "P:"),
+			segmentPrefix: stringToPrecomputedChunk(idPrefix + "S:"),
+			boundaryPrefix: stringToPrecomputedChunk(idPrefix + "B:"),
+			startInlineScript: inlineScriptWithNonce,
+			startInlineStyle: inlineStyleWithNonce,
+			preamble: createPreambleState(),
+			externalRuntimeScript: null,
+			bootstrapChunks,
+			importMapChunks: bootstrapScriptContent,
+			onHeaders,
+			headers: importMap,
+			resets: {
+				font: {},
+				dns: {},
+				connect: {
+					default: {},
+					anonymous: {},
+					credentials: {}
+				},
+				image: {},
+				style: {}
+			},
+			charsetChunks: [],
+			viewportChunks: [],
+			hoistableChunks: [],
+			preconnects: /* @__PURE__ */ new Set(),
+			fontPreloads: /* @__PURE__ */ new Set(),
+			highImagePreloads: /* @__PURE__ */ new Set(),
+			styles: /* @__PURE__ */ new Map(),
+			bootstrapScripts: /* @__PURE__ */ new Set(),
+			scripts: /* @__PURE__ */ new Set(),
+			bulkPreloads: /* @__PURE__ */ new Set(),
+			preloads: {
+				images: /* @__PURE__ */ new Map(),
+				stylesheets: /* @__PURE__ */ new Map(),
+				scripts: /* @__PURE__ */ new Map(),
+				moduleScripts: /* @__PURE__ */ new Map()
+			},
+			nonce: {
+				script: externalRuntimeConfig,
+				style: nonceStyle
+			},
+			hoistableState: null,
+			stylesToHoist: !1
+		};
+		if (void 0 !== bootstrapScripts) for (importMap = 0; importMap < bootstrapScripts.length; importMap++) idPrefix = bootstrapScripts[importMap], nonceStyle = inlineScriptWithNonce = void 0, inlineStyleWithNonce = {
+			rel: "preload",
+			as: "script",
+			fetchPriority: "low",
+			nonce
+		}, "string" === typeof idPrefix ? inlineStyleWithNonce.href = maxHeadersLength = idPrefix : (inlineStyleWithNonce.href = maxHeadersLength = idPrefix.src, inlineStyleWithNonce.integrity = nonceStyle = "string" === typeof idPrefix.integrity ? idPrefix.integrity : void 0, inlineStyleWithNonce.crossOrigin = inlineScriptWithNonce = "string" === typeof idPrefix || null == idPrefix.crossOrigin ? void 0 : "use-credentials" === idPrefix.crossOrigin ? "use-credentials" : ""), idPrefix = resumableState, bootstrapScriptContent = maxHeadersLength, idPrefix.scriptResources[bootstrapScriptContent] = null, idPrefix.moduleScriptResources[bootstrapScriptContent] = null, idPrefix = [], pushLinkImpl(idPrefix, inlineStyleWithNonce), onHeaders.bootstrapScripts.add(idPrefix), bootstrapChunks.push(startScriptSrc, escapeTextForBrowser(maxHeadersLength), attributeEnd), externalRuntimeConfig && bootstrapChunks.push(scriptNonce, escapeTextForBrowser(externalRuntimeConfig), attributeEnd), "string" === typeof nonceStyle && bootstrapChunks.push(scriptIntegirty, escapeTextForBrowser(nonceStyle), attributeEnd), "string" === typeof inlineScriptWithNonce && bootstrapChunks.push(scriptCrossOrigin, escapeTextForBrowser(inlineScriptWithNonce), attributeEnd), pushCompletedShellIdAttribute(bootstrapChunks, resumableState), bootstrapChunks.push(endAsyncScript);
+		if (void 0 !== bootstrapModules) for (nonce = 0; nonce < bootstrapModules.length; nonce++) nonceStyle = bootstrapModules[nonce], maxHeadersLength = importMap = void 0, inlineScriptWithNonce = {
+			rel: "modulepreload",
+			fetchPriority: "low",
+			nonce: externalRuntimeConfig
+		}, "string" === typeof nonceStyle ? inlineScriptWithNonce.href = bootstrapScripts = nonceStyle : (inlineScriptWithNonce.href = bootstrapScripts = nonceStyle.src, inlineScriptWithNonce.integrity = maxHeadersLength = "string" === typeof nonceStyle.integrity ? nonceStyle.integrity : void 0, inlineScriptWithNonce.crossOrigin = importMap = "string" === typeof nonceStyle || null == nonceStyle.crossOrigin ? void 0 : "use-credentials" === nonceStyle.crossOrigin ? "use-credentials" : ""), nonceStyle = resumableState, inlineStyleWithNonce = bootstrapScripts, nonceStyle.scriptResources[inlineStyleWithNonce] = null, nonceStyle.moduleScriptResources[inlineStyleWithNonce] = null, nonceStyle = [], pushLinkImpl(nonceStyle, inlineScriptWithNonce), onHeaders.bootstrapScripts.add(nonceStyle), bootstrapChunks.push(startModuleSrc, escapeTextForBrowser(bootstrapScripts), attributeEnd), externalRuntimeConfig && bootstrapChunks.push(scriptNonce, escapeTextForBrowser(externalRuntimeConfig), attributeEnd), "string" === typeof maxHeadersLength && bootstrapChunks.push(scriptIntegirty, escapeTextForBrowser(maxHeadersLength), attributeEnd), "string" === typeof importMap && bootstrapChunks.push(scriptCrossOrigin, escapeTextForBrowser(importMap), attributeEnd), pushCompletedShellIdAttribute(bootstrapChunks, resumableState), bootstrapChunks.push(endAsyncScript);
+		return onHeaders;
+	}
+	function createResumableState(identifierPrefix, externalRuntimeConfig, bootstrapScriptContent, bootstrapScripts, bootstrapModules) {
+		return {
+			idPrefix: void 0 === identifierPrefix ? "" : identifierPrefix,
+			nextFormID: 0,
+			streamingFormat: 0,
+			bootstrapScriptContent,
+			bootstrapScripts,
+			bootstrapModules,
+			instructions: 0,
+			hasBody: !1,
+			hasHtml: !1,
+			unknownResources: {},
+			dnsResources: {},
+			connectResources: {
+				default: {},
+				anonymous: {},
+				credentials: {}
+			},
+			imageResources: {},
+			styleResources: {},
+			scriptResources: {},
+			moduleUnknownResources: {},
+			moduleScriptResources: {}
+		};
+	}
+	function createPreambleState() {
+		return {
+			htmlChunks: null,
+			headChunks: null,
+			bodyChunks: null
+		};
+	}
+	function createFormatContext(insertionMode, selectedValue, tagScope, viewTransition) {
+		return {
+			insertionMode,
+			selectedValue,
+			tagScope,
+			viewTransition
+		};
+	}
+	function createRootFormatContext(namespaceURI) {
+		return createFormatContext("http://www.w3.org/2000/svg" === namespaceURI ? 4 : "http://www.w3.org/1998/Math/MathML" === namespaceURI ? 5 : 0, null, 0, null);
+	}
+	function getChildFormatContext(parentContext, type, props) {
+		var subtreeScope = parentContext.tagScope & -25;
+		switch (type) {
+			case "noscript": return createFormatContext(2, null, subtreeScope | 1, null);
+			case "select": return createFormatContext(2, null != props.value ? props.value : props.defaultValue, subtreeScope, null);
+			case "svg": return createFormatContext(4, null, subtreeScope, null);
+			case "picture": return createFormatContext(2, null, subtreeScope | 2, null);
+			case "math": return createFormatContext(5, null, subtreeScope, null);
+			case "foreignObject": return createFormatContext(2, null, subtreeScope, null);
+			case "table": return createFormatContext(6, null, subtreeScope, null);
+			case "thead":
+			case "tbody":
+			case "tfoot": return createFormatContext(7, null, subtreeScope, null);
+			case "colgroup": return createFormatContext(9, null, subtreeScope, null);
+			case "tr": return createFormatContext(8, null, subtreeScope, null);
+			case "head":
+				if (2 > parentContext.insertionMode) return createFormatContext(3, null, subtreeScope, null);
+				break;
+			case "html": if (0 === parentContext.insertionMode) return createFormatContext(1, null, subtreeScope, null);
+		}
+		return 6 <= parentContext.insertionMode || 2 > parentContext.insertionMode ? createFormatContext(2, null, subtreeScope, null) : parentContext.tagScope !== subtreeScope ? createFormatContext(parentContext.insertionMode, parentContext.selectedValue, subtreeScope, null) : parentContext;
+	}
+	function getSuspenseViewTransition(parentViewTransition) {
+		return null === parentViewTransition ? null : {
+			update: parentViewTransition.update,
+			enter: "none",
+			exit: "none",
+			share: parentViewTransition.update,
+			name: parentViewTransition.autoName,
+			autoName: parentViewTransition.autoName,
+			nameIdx: 0
+		};
+	}
+	function getSuspenseFallbackFormatContext(resumableState, parentContext) {
+		parentContext.tagScope & 32 && (resumableState.instructions |= 128);
+		return createFormatContext(parentContext.insertionMode, parentContext.selectedValue, parentContext.tagScope | 12, getSuspenseViewTransition(parentContext.viewTransition));
+	}
+	function getSuspenseContentFormatContext(resumableState, parentContext) {
+		resumableState = getSuspenseViewTransition(parentContext.viewTransition);
+		var subtreeScope = parentContext.tagScope | 16;
+		null !== resumableState && "none" !== resumableState.share && (subtreeScope |= 64);
+		return createFormatContext(parentContext.insertionMode, parentContext.selectedValue, subtreeScope, resumableState);
+	}
+	var textSeparator = stringToPrecomputedChunk("<!-- -->");
+	function pushTextInstance(target, text, renderState, textEmbedded) {
+		if ("" === text) return textEmbedded;
+		textEmbedded && target.push(textSeparator);
+		target.push(escapeTextForBrowser(text));
+		return !0;
+	}
+	var styleNameCache = /* @__PURE__ */ new Map(), styleAttributeStart = stringToPrecomputedChunk(" style=\""), styleAssign = stringToPrecomputedChunk(":"), styleSeparator = stringToPrecomputedChunk(";");
+	function pushStyleAttribute(target, style) {
+		if ("object" !== typeof style) throw Error("The `style` prop expects a mapping from style properties to values, not a string. For example, style={{marginRight: spacing + 'em'}} when using JSX.");
+		var isFirst = !0, styleName;
+		for (styleName in style) if (hasOwnProperty.call(style, styleName)) {
+			var styleValue = style[styleName];
+			if (null != styleValue && "boolean" !== typeof styleValue && "" !== styleValue) {
+				if (0 === styleName.indexOf("--")) {
+					var nameChunk = escapeTextForBrowser(styleName);
+					styleValue = escapeTextForBrowser(("" + styleValue).trim());
+				} else nameChunk = styleNameCache.get(styleName), void 0 === nameChunk && (nameChunk = stringToPrecomputedChunk(escapeTextForBrowser(styleName.replace(uppercasePattern, "-$1").toLowerCase().replace(msPattern, "-ms-"))), styleNameCache.set(styleName, nameChunk)), styleValue = "number" === typeof styleValue ? 0 === styleValue || unitlessNumbers.has(styleName) ? "" + styleValue : styleValue + "px" : escapeTextForBrowser(("" + styleValue).trim());
+				isFirst ? (isFirst = !1, target.push(styleAttributeStart, nameChunk, styleAssign, styleValue)) : target.push(styleSeparator, nameChunk, styleAssign, styleValue);
+			}
+		}
+		isFirst || target.push(attributeEnd);
+	}
+	var attributeSeparator = stringToPrecomputedChunk(" "), attributeAssign = stringToPrecomputedChunk("=\""), attributeEnd = stringToPrecomputedChunk("\""), attributeEmptyString = stringToPrecomputedChunk("=\"\"");
+	function pushBooleanAttribute(target, name, value) {
+		value && "function" !== typeof value && "symbol" !== typeof value && target.push(attributeSeparator, name, attributeEmptyString);
+	}
+	function pushStringAttribute(target, name, value) {
+		"function" !== typeof value && "symbol" !== typeof value && "boolean" !== typeof value && target.push(attributeSeparator, name, attributeAssign, escapeTextForBrowser(value), attributeEnd);
+	}
+	var actionJavaScriptURL = stringToPrecomputedChunk(escapeTextForBrowser("javascript:throw new Error('React form unexpectedly submitted.')")), startHiddenInputChunk = stringToPrecomputedChunk("<input type=\"hidden\"");
+	function pushAdditionalFormField(value, key) {
+		this.push(startHiddenInputChunk);
+		validateAdditionalFormField(value);
+		pushStringAttribute(this, "name", key);
+		pushStringAttribute(this, "value", value);
+		this.push(endOfStartTagSelfClosing);
+	}
+	function validateAdditionalFormField(value) {
+		if ("string" !== typeof value) throw Error("File/Blob fields are not yet supported in progressive forms. Will fallback to client hydration.");
+	}
+	function getCustomFormFields(resumableState, formAction) {
+		if ("function" === typeof formAction.$$FORM_ACTION) {
+			var id = resumableState.nextFormID++;
+			resumableState = resumableState.idPrefix + id;
+			try {
+				var customFields = formAction.$$FORM_ACTION(resumableState);
+				if (customFields) customFields.data?.forEach(validateAdditionalFormField);
+				return customFields;
+			} catch (x) {
+				if ("object" === typeof x && null !== x && "function" === typeof x.then) throw x;
+			}
+		}
+		return null;
+	}
+	function pushFormActionAttribute(target, resumableState, renderState, formAction, formEncType, formMethod, formTarget, name) {
+		var formData = null;
+		if ("function" === typeof formAction) {
+			var customFields = getCustomFormFields(resumableState, formAction);
+			null !== customFields ? (name = customFields.name, formAction = customFields.action || "", formEncType = customFields.encType, formMethod = customFields.method, formTarget = customFields.target, formData = customFields.data) : (target.push(attributeSeparator, "formAction", attributeAssign, actionJavaScriptURL, attributeEnd), formTarget = formMethod = formEncType = formAction = name = null, injectFormReplayingRuntime(resumableState, renderState));
+		}
+		null != name && pushAttribute(target, "name", name);
+		null != formAction && pushAttribute(target, "formAction", formAction);
+		null != formEncType && pushAttribute(target, "formEncType", formEncType);
+		null != formMethod && pushAttribute(target, "formMethod", formMethod);
+		null != formTarget && pushAttribute(target, "formTarget", formTarget);
+		return formData;
+	}
+	function pushAttribute(target, name, value) {
+		switch (name) {
+			case "className":
+				pushStringAttribute(target, "class", value);
+				break;
+			case "tabIndex":
+				pushStringAttribute(target, "tabindex", value);
+				break;
+			case "dir":
+			case "role":
+			case "viewBox":
+			case "width":
+			case "height":
+				pushStringAttribute(target, name, value);
+				break;
+			case "style":
+				pushStyleAttribute(target, value);
+				break;
+			case "src":
+			case "href": if ("" === value) break;
+			case "action":
+			case "formAction":
+				if (null == value || "function" === typeof value || "symbol" === typeof value || "boolean" === typeof value) break;
+				value = sanitizeURL("" + value);
+				target.push(attributeSeparator, name, attributeAssign, escapeTextForBrowser(value), attributeEnd);
+				break;
+			case "defaultValue":
+			case "defaultChecked":
+			case "innerHTML":
+			case "suppressContentEditableWarning":
+			case "suppressHydrationWarning":
+			case "ref": break;
+			case "autoFocus":
+			case "multiple":
+			case "muted":
+				pushBooleanAttribute(target, name.toLowerCase(), value);
+				break;
+			case "xlinkHref":
+				if ("function" === typeof value || "symbol" === typeof value || "boolean" === typeof value) break;
+				value = sanitizeURL("" + value);
+				target.push(attributeSeparator, "xlink:href", attributeAssign, escapeTextForBrowser(value), attributeEnd);
+				break;
+			case "contentEditable":
+			case "spellCheck":
+			case "draggable":
+			case "value":
+			case "autoReverse":
+			case "externalResourcesRequired":
+			case "focusable":
+			case "preserveAlpha":
+				"function" !== typeof value && "symbol" !== typeof value && target.push(attributeSeparator, name, attributeAssign, escapeTextForBrowser(value), attributeEnd);
+				break;
+			case "inert":
+			case "allowFullScreen":
+			case "async":
+			case "autoPlay":
+			case "controls":
+			case "default":
+			case "defer":
+			case "disabled":
+			case "disablePictureInPicture":
+			case "disableRemotePlayback":
+			case "formNoValidate":
+			case "hidden":
+			case "loop":
+			case "noModule":
+			case "noValidate":
+			case "open":
+			case "playsInline":
+			case "readOnly":
+			case "required":
+			case "reversed":
+			case "scoped":
+			case "seamless":
+			case "itemScope":
+				value && "function" !== typeof value && "symbol" !== typeof value && target.push(attributeSeparator, name, attributeEmptyString);
+				break;
+			case "capture":
+			case "download":
+				!0 === value ? target.push(attributeSeparator, name, attributeEmptyString) : !1 !== value && "function" !== typeof value && "symbol" !== typeof value && target.push(attributeSeparator, name, attributeAssign, escapeTextForBrowser(value), attributeEnd);
+				break;
+			case "cols":
+			case "rows":
+			case "size":
+			case "span":
+				"function" !== typeof value && "symbol" !== typeof value && !isNaN(value) && 1 <= value && target.push(attributeSeparator, name, attributeAssign, escapeTextForBrowser(value), attributeEnd);
+				break;
+			case "rowSpan":
+			case "start":
+				"function" === typeof value || "symbol" === typeof value || isNaN(value) || target.push(attributeSeparator, name, attributeAssign, escapeTextForBrowser(value), attributeEnd);
+				break;
+			case "xlinkActuate":
+				pushStringAttribute(target, "xlink:actuate", value);
+				break;
+			case "xlinkArcrole":
+				pushStringAttribute(target, "xlink:arcrole", value);
+				break;
+			case "xlinkRole":
+				pushStringAttribute(target, "xlink:role", value);
+				break;
+			case "xlinkShow":
+				pushStringAttribute(target, "xlink:show", value);
+				break;
+			case "xlinkTitle":
+				pushStringAttribute(target, "xlink:title", value);
+				break;
+			case "xlinkType":
+				pushStringAttribute(target, "xlink:type", value);
+				break;
+			case "xmlBase":
+				pushStringAttribute(target, "xml:base", value);
+				break;
+			case "xmlLang":
+				pushStringAttribute(target, "xml:lang", value);
+				break;
+			case "xmlSpace":
+				pushStringAttribute(target, "xml:space", value);
+				break;
+			default: if (!(2 < name.length) || "o" !== name[0] && "O" !== name[0] || "n" !== name[1] && "N" !== name[1]) {
+				if (name = aliases.get(name) || name, isAttributeNameSafe(name)) {
+					switch (typeof value) {
+						case "function":
+						case "symbol": return;
+						case "boolean":
+							var prefix$8 = name.toLowerCase().slice(0, 5);
+							if ("data-" !== prefix$8 && "aria-" !== prefix$8) return;
+					}
+					target.push(attributeSeparator, name, attributeAssign, escapeTextForBrowser(value), attributeEnd);
+				}
+			}
+		}
+	}
+	var endOfStartTag = stringToPrecomputedChunk(">"), endOfStartTagSelfClosing = stringToPrecomputedChunk("/>");
+	function pushInnerHTML(target, innerHTML, children) {
+		if (null != innerHTML) {
+			if (null != children) throw Error("Can only set one of `children` or `props.dangerouslySetInnerHTML`.");
+			if ("object" !== typeof innerHTML || !("__html" in innerHTML)) throw Error("`props.dangerouslySetInnerHTML` must be in the form `{__html: ...}`. Please visit https://react.dev/link/dangerously-set-inner-html for more information.");
+			innerHTML = innerHTML.__html;
+			null !== innerHTML && void 0 !== innerHTML && target.push("" + innerHTML);
+		}
+	}
+	function flattenOptionChildren(children) {
+		var content = "";
+		React.Children.forEach(children, function(child) {
+			null != child && (content += child);
+		});
+		return content;
+	}
+	var selectedMarkerAttribute = stringToPrecomputedChunk(" selected=\"\""), formReplayingRuntimeScript = stringToPrecomputedChunk("addEventListener(\"submit\",function(a){if(!a.defaultPrevented){var c=a.target,d=a.submitter,e=c.action,b=d;if(d){var f=d.getAttribute(\"formAction\");null!=f&&(e=f,b=null)}\"javascript:throw new Error('React form unexpectedly submitted.')\"===e&&(a.preventDefault(),b?(a=document.createElement(\"input\"),a.name=b.name,a.value=b.value,b.parentNode.insertBefore(a,b),b=new FormData(c),a.parentNode.removeChild(a)):b=new FormData(c),a=c.ownerDocument||c,(a.$$reactFormReplay=a.$$reactFormReplay||[]).push(c,d,b))}});");
+	function injectFormReplayingRuntime(resumableState, renderState) {
+		if (0 === (resumableState.instructions & 16)) {
+			resumableState.instructions |= 16;
+			var preamble = renderState.preamble, bootstrapChunks = renderState.bootstrapChunks;
+			(preamble.htmlChunks || preamble.headChunks) && 0 === bootstrapChunks.length ? (bootstrapChunks.push(renderState.startInlineScript), pushCompletedShellIdAttribute(bootstrapChunks, resumableState), bootstrapChunks.push(endOfStartTag, formReplayingRuntimeScript, endInlineScript)) : bootstrapChunks.unshift(renderState.startInlineScript, endOfStartTag, formReplayingRuntimeScript, endInlineScript);
+		}
+	}
+	var formStateMarkerIsMatching = stringToPrecomputedChunk("<!--F!-->"), formStateMarkerIsNotMatching = stringToPrecomputedChunk("<!--F-->");
+	function pushLinkImpl(target, props) {
+		target.push(startChunkForTag("link"));
+		for (var propKey in props) if (hasOwnProperty.call(props, propKey)) {
+			var propValue = props[propKey];
+			if (null != propValue) switch (propKey) {
+				case "children":
+				case "dangerouslySetInnerHTML": throw Error("link is a self-closing tag and must neither have `children` nor use `dangerouslySetInnerHTML`.");
+				default: pushAttribute(target, propKey, propValue);
+			}
+		}
+		target.push(endOfStartTagSelfClosing);
+		return null;
+	}
+	var styleRegex = /(<\/|<)(s)(tyle)/gi;
+	function styleReplacer(match, prefix, s, suffix) {
+		return "" + prefix + ("s" === s ? "\\73 " : "\\53 ") + suffix;
+	}
+	function pushSelfClosing(target, props, tag) {
+		target.push(startChunkForTag(tag));
+		for (var propKey in props) if (hasOwnProperty.call(props, propKey)) {
+			var propValue = props[propKey];
+			if (null != propValue) switch (propKey) {
+				case "children":
+				case "dangerouslySetInnerHTML": throw Error(tag + " is a self-closing tag and must neither have `children` nor use `dangerouslySetInnerHTML`.");
+				default: pushAttribute(target, propKey, propValue);
+			}
+		}
+		target.push(endOfStartTagSelfClosing);
+		return null;
+	}
+	function pushTitleImpl(target, props) {
+		target.push(startChunkForTag("title"));
+		var children = null, innerHTML = null, propKey;
+		for (propKey in props) if (hasOwnProperty.call(props, propKey)) {
+			var propValue = props[propKey];
+			if (null != propValue) switch (propKey) {
+				case "children":
+					children = propValue;
+					break;
+				case "dangerouslySetInnerHTML":
+					innerHTML = propValue;
+					break;
+				default: pushAttribute(target, propKey, propValue);
+			}
+		}
+		target.push(endOfStartTag);
+		props = Array.isArray(children) ? 2 > children.length ? children[0] : null : children;
+		"function" !== typeof props && "symbol" !== typeof props && null !== props && void 0 !== props && target.push(escapeTextForBrowser("" + props));
+		pushInnerHTML(target, innerHTML, children);
+		target.push(endChunkForTag("title"));
+		return null;
+	}
+	var headPreambleContributionChunk = stringToPrecomputedChunk("<!--head-->"), bodyPreambleContributionChunk = stringToPrecomputedChunk("<!--body-->"), htmlPreambleContributionChunk = stringToPrecomputedChunk("<!--html-->");
+	function pushScriptImpl(target, props) {
+		target.push(startChunkForTag("script"));
+		var children = null, innerHTML = null, propKey;
+		for (propKey in props) if (hasOwnProperty.call(props, propKey)) {
+			var propValue = props[propKey];
+			if (null != propValue) switch (propKey) {
+				case "children":
+					children = propValue;
+					break;
+				case "dangerouslySetInnerHTML":
+					innerHTML = propValue;
+					break;
+				default: pushAttribute(target, propKey, propValue);
+			}
+		}
+		target.push(endOfStartTag);
+		pushInnerHTML(target, innerHTML, children);
+		"string" === typeof children && target.push(("" + children).replace(scriptRegex, scriptReplacer));
+		target.push(endChunkForTag("script"));
+		return null;
+	}
+	function pushStartSingletonElement(target, props, tag) {
+		target.push(startChunkForTag(tag));
+		var innerHTML = tag = null, propKey;
+		for (propKey in props) if (hasOwnProperty.call(props, propKey)) {
+			var propValue = props[propKey];
+			if (null != propValue) switch (propKey) {
+				case "children":
+					tag = propValue;
+					break;
+				case "dangerouslySetInnerHTML":
+					innerHTML = propValue;
+					break;
+				default: pushAttribute(target, propKey, propValue);
+			}
+		}
+		target.push(endOfStartTag);
+		pushInnerHTML(target, innerHTML, tag);
+		return tag;
+	}
+	function pushStartGenericElement(target, props, tag) {
+		target.push(startChunkForTag(tag));
+		var innerHTML = tag = null, propKey;
+		for (propKey in props) if (hasOwnProperty.call(props, propKey)) {
+			var propValue = props[propKey];
+			if (null != propValue) switch (propKey) {
+				case "children":
+					tag = propValue;
+					break;
+				case "dangerouslySetInnerHTML":
+					innerHTML = propValue;
+					break;
+				default: pushAttribute(target, propKey, propValue);
+			}
+		}
+		target.push(endOfStartTag);
+		pushInnerHTML(target, innerHTML, tag);
+		return "string" === typeof tag ? (target.push(escapeTextForBrowser(tag)), null) : tag;
+	}
+	var leadingNewline = stringToPrecomputedChunk("\n"), VALID_TAG_REGEX = /^[a-zA-Z][a-zA-Z:_\.\-\d]*$/, validatedTagCache = /* @__PURE__ */ new Map();
+	function startChunkForTag(tag) {
+		var tagStartChunk = validatedTagCache.get(tag);
+		if (void 0 === tagStartChunk) {
+			if (!VALID_TAG_REGEX.test(tag)) throw Error("Invalid tag: " + tag);
+			tagStartChunk = stringToPrecomputedChunk("<" + tag);
+			validatedTagCache.set(tag, tagStartChunk);
+		}
+		return tagStartChunk;
+	}
+	var doctypeChunk = stringToPrecomputedChunk("<!DOCTYPE html>");
+	function pushStartInstance(target$jscomp$0, type, props, resumableState, renderState, preambleState, hoistableState, formatContext, textEmbedded) {
+		switch (type) {
+			case "div":
+			case "span":
+			case "svg":
+			case "path": break;
+			case "a":
+				target$jscomp$0.push(startChunkForTag("a"));
+				var children = null, innerHTML = null, propKey;
+				for (propKey in props) if (hasOwnProperty.call(props, propKey)) {
+					var propValue = props[propKey];
+					if (null != propValue) switch (propKey) {
+						case "children":
+							children = propValue;
+							break;
+						case "dangerouslySetInnerHTML":
+							innerHTML = propValue;
+							break;
+						case "href":
+							"" === propValue ? pushStringAttribute(target$jscomp$0, "href", "") : pushAttribute(target$jscomp$0, propKey, propValue);
+							break;
+						default: pushAttribute(target$jscomp$0, propKey, propValue);
+					}
+				}
+				target$jscomp$0.push(endOfStartTag);
+				pushInnerHTML(target$jscomp$0, innerHTML, children);
+				if ("string" === typeof children) {
+					target$jscomp$0.push(escapeTextForBrowser(children));
+					var JSCompiler_inline_result = null;
+				} else JSCompiler_inline_result = children;
+				return JSCompiler_inline_result;
+			case "g":
+			case "p":
+			case "li": break;
+			case "select":
+				target$jscomp$0.push(startChunkForTag("select"));
+				var children$jscomp$0 = null, innerHTML$jscomp$0 = null, propKey$jscomp$0;
+				for (propKey$jscomp$0 in props) if (hasOwnProperty.call(props, propKey$jscomp$0)) {
+					var propValue$jscomp$0 = props[propKey$jscomp$0];
+					if (null != propValue$jscomp$0) switch (propKey$jscomp$0) {
+						case "children":
+							children$jscomp$0 = propValue$jscomp$0;
+							break;
+						case "dangerouslySetInnerHTML":
+							innerHTML$jscomp$0 = propValue$jscomp$0;
+							break;
+						case "defaultValue":
+						case "value": break;
+						default: pushAttribute(target$jscomp$0, propKey$jscomp$0, propValue$jscomp$0);
+					}
+				}
+				target$jscomp$0.push(endOfStartTag);
+				pushInnerHTML(target$jscomp$0, innerHTML$jscomp$0, children$jscomp$0);
+				return children$jscomp$0;
+			case "option":
+				var selectedValue = formatContext.selectedValue;
+				target$jscomp$0.push(startChunkForTag("option"));
+				var children$jscomp$1 = null, value = null, selected = null, innerHTML$jscomp$1 = null, propKey$jscomp$1;
+				for (propKey$jscomp$1 in props) if (hasOwnProperty.call(props, propKey$jscomp$1)) {
+					var propValue$jscomp$1 = props[propKey$jscomp$1];
+					if (null != propValue$jscomp$1) switch (propKey$jscomp$1) {
+						case "children":
+							children$jscomp$1 = propValue$jscomp$1;
+							break;
+						case "selected":
+							selected = propValue$jscomp$1;
+							break;
+						case "dangerouslySetInnerHTML":
+							innerHTML$jscomp$1 = propValue$jscomp$1;
+							break;
+						case "value": value = propValue$jscomp$1;
+						default: pushAttribute(target$jscomp$0, propKey$jscomp$1, propValue$jscomp$1);
+					}
+				}
+				if (null != selectedValue) {
+					var stringValue = null !== value ? "" + value : flattenOptionChildren(children$jscomp$1);
+					if (isArrayImpl(selectedValue)) {
+						for (var i = 0; i < selectedValue.length; i++) if ("" + selectedValue[i] === stringValue) {
+							target$jscomp$0.push(selectedMarkerAttribute);
+							break;
+						}
+					} else "" + selectedValue === stringValue && target$jscomp$0.push(selectedMarkerAttribute);
+				} else selected && target$jscomp$0.push(selectedMarkerAttribute);
+				target$jscomp$0.push(endOfStartTag);
+				pushInnerHTML(target$jscomp$0, innerHTML$jscomp$1, children$jscomp$1);
+				return children$jscomp$1;
+			case "textarea":
+				target$jscomp$0.push(startChunkForTag("textarea"));
+				var value$jscomp$0 = null, defaultValue = null, children$jscomp$2 = null, propKey$jscomp$2;
+				for (propKey$jscomp$2 in props) if (hasOwnProperty.call(props, propKey$jscomp$2)) {
+					var propValue$jscomp$2 = props[propKey$jscomp$2];
+					if (null != propValue$jscomp$2) switch (propKey$jscomp$2) {
+						case "children":
+							children$jscomp$2 = propValue$jscomp$2;
+							break;
+						case "value":
+							value$jscomp$0 = propValue$jscomp$2;
+							break;
+						case "defaultValue":
+							defaultValue = propValue$jscomp$2;
+							break;
+						case "dangerouslySetInnerHTML": throw Error("`dangerouslySetInnerHTML` does not make sense on <textarea>.");
+						default: pushAttribute(target$jscomp$0, propKey$jscomp$2, propValue$jscomp$2);
+					}
+				}
+				null === value$jscomp$0 && null !== defaultValue && (value$jscomp$0 = defaultValue);
+				target$jscomp$0.push(endOfStartTag);
+				if (null != children$jscomp$2) {
+					if (null != value$jscomp$0) throw Error("If you supply `defaultValue` on a <textarea>, do not pass children.");
+					if (isArrayImpl(children$jscomp$2)) {
+						if (1 < children$jscomp$2.length) throw Error("<textarea> can only have at most one child.");
+						value$jscomp$0 = "" + children$jscomp$2[0];
+					}
+					value$jscomp$0 = "" + children$jscomp$2;
+				}
+				"string" === typeof value$jscomp$0 && "\n" === value$jscomp$0[0] && target$jscomp$0.push(leadingNewline);
+				null !== value$jscomp$0 && target$jscomp$0.push(escapeTextForBrowser("" + value$jscomp$0));
+				return null;
+			case "input":
+				target$jscomp$0.push(startChunkForTag("input"));
+				var name = null, formAction = null, formEncType = null, formMethod = null, formTarget = null, value$jscomp$1 = null, defaultValue$jscomp$0 = null, checked = null, defaultChecked = null, propKey$jscomp$3;
+				for (propKey$jscomp$3 in props) if (hasOwnProperty.call(props, propKey$jscomp$3)) {
+					var propValue$jscomp$3 = props[propKey$jscomp$3];
+					if (null != propValue$jscomp$3) switch (propKey$jscomp$3) {
+						case "children":
+						case "dangerouslySetInnerHTML": throw Error("input is a self-closing tag and must neither have `children` nor use `dangerouslySetInnerHTML`.");
+						case "name":
+							name = propValue$jscomp$3;
+							break;
+						case "formAction":
+							formAction = propValue$jscomp$3;
+							break;
+						case "formEncType":
+							formEncType = propValue$jscomp$3;
+							break;
+						case "formMethod":
+							formMethod = propValue$jscomp$3;
+							break;
+						case "formTarget":
+							formTarget = propValue$jscomp$3;
+							break;
+						case "defaultChecked":
+							defaultChecked = propValue$jscomp$3;
+							break;
+						case "defaultValue":
+							defaultValue$jscomp$0 = propValue$jscomp$3;
+							break;
+						case "checked":
+							checked = propValue$jscomp$3;
+							break;
+						case "value":
+							value$jscomp$1 = propValue$jscomp$3;
+							break;
+						default: pushAttribute(target$jscomp$0, propKey$jscomp$3, propValue$jscomp$3);
+					}
+				}
+				var formData = pushFormActionAttribute(target$jscomp$0, resumableState, renderState, formAction, formEncType, formMethod, formTarget, name);
+				null !== checked ? pushBooleanAttribute(target$jscomp$0, "checked", checked) : null !== defaultChecked && pushBooleanAttribute(target$jscomp$0, "checked", defaultChecked);
+				null !== value$jscomp$1 ? pushAttribute(target$jscomp$0, "value", value$jscomp$1) : null !== defaultValue$jscomp$0 && pushAttribute(target$jscomp$0, "value", defaultValue$jscomp$0);
+				target$jscomp$0.push(endOfStartTagSelfClosing);
+				formData?.forEach(pushAdditionalFormField, target$jscomp$0);
+				return null;
+			case "button":
+				target$jscomp$0.push(startChunkForTag("button"));
+				var children$jscomp$3 = null, innerHTML$jscomp$2 = null, name$jscomp$0 = null, formAction$jscomp$0 = null, formEncType$jscomp$0 = null, formMethod$jscomp$0 = null, formTarget$jscomp$0 = null, propKey$jscomp$4;
+				for (propKey$jscomp$4 in props) if (hasOwnProperty.call(props, propKey$jscomp$4)) {
+					var propValue$jscomp$4 = props[propKey$jscomp$4];
+					if (null != propValue$jscomp$4) switch (propKey$jscomp$4) {
+						case "children":
+							children$jscomp$3 = propValue$jscomp$4;
+							break;
+						case "dangerouslySetInnerHTML":
+							innerHTML$jscomp$2 = propValue$jscomp$4;
+							break;
+						case "name":
+							name$jscomp$0 = propValue$jscomp$4;
+							break;
+						case "formAction":
+							formAction$jscomp$0 = propValue$jscomp$4;
+							break;
+						case "formEncType":
+							formEncType$jscomp$0 = propValue$jscomp$4;
+							break;
+						case "formMethod":
+							formMethod$jscomp$0 = propValue$jscomp$4;
+							break;
+						case "formTarget":
+							formTarget$jscomp$0 = propValue$jscomp$4;
+							break;
+						default: pushAttribute(target$jscomp$0, propKey$jscomp$4, propValue$jscomp$4);
+					}
+				}
+				var formData$jscomp$0 = pushFormActionAttribute(target$jscomp$0, resumableState, renderState, formAction$jscomp$0, formEncType$jscomp$0, formMethod$jscomp$0, formTarget$jscomp$0, name$jscomp$0);
+				target$jscomp$0.push(endOfStartTag);
+				formData$jscomp$0?.forEach(pushAdditionalFormField, target$jscomp$0);
+				pushInnerHTML(target$jscomp$0, innerHTML$jscomp$2, children$jscomp$3);
+				if ("string" === typeof children$jscomp$3) {
+					target$jscomp$0.push(escapeTextForBrowser(children$jscomp$3));
+					var JSCompiler_inline_result$jscomp$0 = null;
+				} else JSCompiler_inline_result$jscomp$0 = children$jscomp$3;
+				return JSCompiler_inline_result$jscomp$0;
+			case "form":
+				target$jscomp$0.push(startChunkForTag("form"));
+				var children$jscomp$4 = null, innerHTML$jscomp$3 = null, formAction$jscomp$1 = null, formEncType$jscomp$1 = null, formMethod$jscomp$1 = null, formTarget$jscomp$1 = null, propKey$jscomp$5;
+				for (propKey$jscomp$5 in props) if (hasOwnProperty.call(props, propKey$jscomp$5)) {
+					var propValue$jscomp$5 = props[propKey$jscomp$5];
+					if (null != propValue$jscomp$5) switch (propKey$jscomp$5) {
+						case "children":
+							children$jscomp$4 = propValue$jscomp$5;
+							break;
+						case "dangerouslySetInnerHTML":
+							innerHTML$jscomp$3 = propValue$jscomp$5;
+							break;
+						case "action":
+							formAction$jscomp$1 = propValue$jscomp$5;
+							break;
+						case "encType":
+							formEncType$jscomp$1 = propValue$jscomp$5;
+							break;
+						case "method":
+							formMethod$jscomp$1 = propValue$jscomp$5;
+							break;
+						case "target":
+							formTarget$jscomp$1 = propValue$jscomp$5;
+							break;
+						default: pushAttribute(target$jscomp$0, propKey$jscomp$5, propValue$jscomp$5);
+					}
+				}
+				var formData$jscomp$1 = null, formActionName = null;
+				if ("function" === typeof formAction$jscomp$1) {
+					var customFields = getCustomFormFields(resumableState, formAction$jscomp$1);
+					null !== customFields ? (formAction$jscomp$1 = customFields.action || "", formEncType$jscomp$1 = customFields.encType, formMethod$jscomp$1 = customFields.method, formTarget$jscomp$1 = customFields.target, formData$jscomp$1 = customFields.data, formActionName = customFields.name) : (target$jscomp$0.push(attributeSeparator, "action", attributeAssign, actionJavaScriptURL, attributeEnd), formTarget$jscomp$1 = formMethod$jscomp$1 = formEncType$jscomp$1 = formAction$jscomp$1 = null, injectFormReplayingRuntime(resumableState, renderState));
+				}
+				null != formAction$jscomp$1 && pushAttribute(target$jscomp$0, "action", formAction$jscomp$1);
+				null != formEncType$jscomp$1 && pushAttribute(target$jscomp$0, "encType", formEncType$jscomp$1);
+				null != formMethod$jscomp$1 && pushAttribute(target$jscomp$0, "method", formMethod$jscomp$1);
+				null != formTarget$jscomp$1 && pushAttribute(target$jscomp$0, "target", formTarget$jscomp$1);
+				target$jscomp$0.push(endOfStartTag);
+				null !== formActionName && (target$jscomp$0.push(startHiddenInputChunk), pushStringAttribute(target$jscomp$0, "name", formActionName), target$jscomp$0.push(endOfStartTagSelfClosing), formData$jscomp$1?.forEach(pushAdditionalFormField, target$jscomp$0));
+				pushInnerHTML(target$jscomp$0, innerHTML$jscomp$3, children$jscomp$4);
+				if ("string" === typeof children$jscomp$4) {
+					target$jscomp$0.push(escapeTextForBrowser(children$jscomp$4));
+					var JSCompiler_inline_result$jscomp$1 = null;
+				} else JSCompiler_inline_result$jscomp$1 = children$jscomp$4;
+				return JSCompiler_inline_result$jscomp$1;
+			case "menuitem":
+				target$jscomp$0.push(startChunkForTag("menuitem"));
+				for (var propKey$jscomp$6 in props) if (hasOwnProperty.call(props, propKey$jscomp$6)) {
+					var propValue$jscomp$6 = props[propKey$jscomp$6];
+					if (null != propValue$jscomp$6) switch (propKey$jscomp$6) {
+						case "children":
+						case "dangerouslySetInnerHTML": throw Error("menuitems cannot have `children` nor `dangerouslySetInnerHTML`.");
+						default: pushAttribute(target$jscomp$0, propKey$jscomp$6, propValue$jscomp$6);
+					}
+				}
+				target$jscomp$0.push(endOfStartTag);
+				return null;
+			case "object":
+				target$jscomp$0.push(startChunkForTag("object"));
+				var children$jscomp$5 = null, innerHTML$jscomp$4 = null, propKey$jscomp$7;
+				for (propKey$jscomp$7 in props) if (hasOwnProperty.call(props, propKey$jscomp$7)) {
+					var propValue$jscomp$7 = props[propKey$jscomp$7];
+					if (null != propValue$jscomp$7) switch (propKey$jscomp$7) {
+						case "children":
+							children$jscomp$5 = propValue$jscomp$7;
+							break;
+						case "dangerouslySetInnerHTML":
+							innerHTML$jscomp$4 = propValue$jscomp$7;
+							break;
+						case "data":
+							var sanitizedValue = sanitizeURL("" + propValue$jscomp$7);
+							if ("" === sanitizedValue) break;
+							target$jscomp$0.push(attributeSeparator, "data", attributeAssign, escapeTextForBrowser(sanitizedValue), attributeEnd);
+							break;
+						default: pushAttribute(target$jscomp$0, propKey$jscomp$7, propValue$jscomp$7);
+					}
+				}
+				target$jscomp$0.push(endOfStartTag);
+				pushInnerHTML(target$jscomp$0, innerHTML$jscomp$4, children$jscomp$5);
+				if ("string" === typeof children$jscomp$5) {
+					target$jscomp$0.push(escapeTextForBrowser(children$jscomp$5));
+					var JSCompiler_inline_result$jscomp$2 = null;
+				} else JSCompiler_inline_result$jscomp$2 = children$jscomp$5;
+				return JSCompiler_inline_result$jscomp$2;
+			case "title":
+				var noscriptTagInScope = formatContext.tagScope & 1, isFallback = formatContext.tagScope & 4;
+				if (4 === formatContext.insertionMode || noscriptTagInScope || null != props.itemProp) var JSCompiler_inline_result$jscomp$3 = pushTitleImpl(target$jscomp$0, props);
+				else isFallback ? JSCompiler_inline_result$jscomp$3 = null : (pushTitleImpl(renderState.hoistableChunks, props), JSCompiler_inline_result$jscomp$3 = void 0);
+				return JSCompiler_inline_result$jscomp$3;
+			case "link":
+				var noscriptTagInScope$jscomp$0 = formatContext.tagScope & 1, isFallback$jscomp$0 = formatContext.tagScope & 4, rel = props.rel, href = props.href, precedence = props.precedence;
+				if (4 === formatContext.insertionMode || noscriptTagInScope$jscomp$0 || null != props.itemProp || "string" !== typeof rel || "string" !== typeof href || "" === href) {
+					pushLinkImpl(target$jscomp$0, props);
+					var JSCompiler_inline_result$jscomp$4 = null;
+				} else if ("stylesheet" === props.rel) if ("string" !== typeof precedence || null != props.disabled || props.onLoad || props.onError) JSCompiler_inline_result$jscomp$4 = pushLinkImpl(target$jscomp$0, props);
+				else {
+					var styleQueue = renderState.styles.get(precedence), resourceState = resumableState.styleResources.hasOwnProperty(href) ? resumableState.styleResources[href] : void 0;
+					if (null !== resourceState) {
+						resumableState.styleResources[href] = null;
+						styleQueue || (styleQueue = {
+							precedence: escapeTextForBrowser(precedence),
+							rules: [],
+							hrefs: [],
+							sheets: /* @__PURE__ */ new Map()
+						}, renderState.styles.set(precedence, styleQueue));
+						var resource = {
+							state: 0,
+							props: assign({}, props, {
+								"data-precedence": props.precedence,
+								precedence: null
+							})
+						};
+						if (resourceState) {
+							2 === resourceState.length && adoptPreloadCredentials(resource.props, resourceState);
+							var preloadResource = renderState.preloads.stylesheets.get(href);
+							preloadResource && 0 < preloadResource.length ? preloadResource.length = 0 : resource.state = 1;
+						}
+						styleQueue.sheets.set(href, resource);
+						hoistableState && hoistableState.stylesheets.add(resource);
+					} else if (styleQueue) {
+						var resource$9 = styleQueue.sheets.get(href);
+						resource$9 && hoistableState && hoistableState.stylesheets.add(resource$9);
+					}
+					textEmbedded && target$jscomp$0.push(textSeparator);
+					JSCompiler_inline_result$jscomp$4 = null;
+				}
+				else props.onLoad || props.onError ? JSCompiler_inline_result$jscomp$4 = pushLinkImpl(target$jscomp$0, props) : (textEmbedded && target$jscomp$0.push(textSeparator), JSCompiler_inline_result$jscomp$4 = isFallback$jscomp$0 ? null : pushLinkImpl(renderState.hoistableChunks, props));
+				return JSCompiler_inline_result$jscomp$4;
+			case "script":
+				var noscriptTagInScope$jscomp$1 = formatContext.tagScope & 1, asyncProp = props.async;
+				if ("string" !== typeof props.src || !props.src || !asyncProp || "function" === typeof asyncProp || "symbol" === typeof asyncProp || props.onLoad || props.onError || 4 === formatContext.insertionMode || noscriptTagInScope$jscomp$1 || null != props.itemProp) var JSCompiler_inline_result$jscomp$5 = pushScriptImpl(target$jscomp$0, props);
+				else {
+					var key = props.src;
+					if ("module" === props.type) {
+						var resources = resumableState.moduleScriptResources;
+						var preloads = renderState.preloads.moduleScripts;
+					} else resources = resumableState.scriptResources, preloads = renderState.preloads.scripts;
+					var resourceState$jscomp$0 = resources.hasOwnProperty(key) ? resources[key] : void 0;
+					if (null !== resourceState$jscomp$0) {
+						resources[key] = null;
+						var scriptProps = props;
+						if (resourceState$jscomp$0) {
+							2 === resourceState$jscomp$0.length && (scriptProps = assign({}, props), adoptPreloadCredentials(scriptProps, resourceState$jscomp$0));
+							var preloadResource$jscomp$0 = preloads.get(key);
+							preloadResource$jscomp$0 && (preloadResource$jscomp$0.length = 0);
+						}
+						var resource$jscomp$0 = [];
+						renderState.scripts.add(resource$jscomp$0);
+						pushScriptImpl(resource$jscomp$0, scriptProps);
+					}
+					textEmbedded && target$jscomp$0.push(textSeparator);
+					JSCompiler_inline_result$jscomp$5 = null;
+				}
+				return JSCompiler_inline_result$jscomp$5;
+			case "style":
+				var noscriptTagInScope$jscomp$2 = formatContext.tagScope & 1, precedence$jscomp$0 = props.precedence, href$jscomp$0 = props.href, nonce = props.nonce;
+				if (4 === formatContext.insertionMode || noscriptTagInScope$jscomp$2 || null != props.itemProp || "string" !== typeof precedence$jscomp$0 || "string" !== typeof href$jscomp$0 || "" === href$jscomp$0) {
+					target$jscomp$0.push(startChunkForTag("style"));
+					var children$jscomp$6 = null, innerHTML$jscomp$5 = null, propKey$jscomp$8;
+					for (propKey$jscomp$8 in props) if (hasOwnProperty.call(props, propKey$jscomp$8)) {
+						var propValue$jscomp$8 = props[propKey$jscomp$8];
+						if (null != propValue$jscomp$8) switch (propKey$jscomp$8) {
+							case "children":
+								children$jscomp$6 = propValue$jscomp$8;
+								break;
+							case "dangerouslySetInnerHTML":
+								innerHTML$jscomp$5 = propValue$jscomp$8;
+								break;
+							default: pushAttribute(target$jscomp$0, propKey$jscomp$8, propValue$jscomp$8);
+						}
+					}
+					target$jscomp$0.push(endOfStartTag);
+					var child = Array.isArray(children$jscomp$6) ? 2 > children$jscomp$6.length ? children$jscomp$6[0] : null : children$jscomp$6;
+					"function" !== typeof child && "symbol" !== typeof child && null !== child && void 0 !== child && target$jscomp$0.push(("" + child).replace(styleRegex, styleReplacer));
+					pushInnerHTML(target$jscomp$0, innerHTML$jscomp$5, children$jscomp$6);
+					target$jscomp$0.push(endChunkForTag("style"));
+					var JSCompiler_inline_result$jscomp$6 = null;
+				} else {
+					var styleQueue$jscomp$0 = renderState.styles.get(precedence$jscomp$0);
+					if (null !== (resumableState.styleResources.hasOwnProperty(href$jscomp$0) ? resumableState.styleResources[href$jscomp$0] : void 0)) {
+						resumableState.styleResources[href$jscomp$0] = null;
+						styleQueue$jscomp$0 || (styleQueue$jscomp$0 = {
+							precedence: escapeTextForBrowser(precedence$jscomp$0),
+							rules: [],
+							hrefs: [],
+							sheets: /* @__PURE__ */ new Map()
+						}, renderState.styles.set(precedence$jscomp$0, styleQueue$jscomp$0));
+						var nonceStyle = renderState.nonce.style;
+						if (!nonceStyle || nonceStyle === nonce) {
+							styleQueue$jscomp$0.hrefs.push(escapeTextForBrowser(href$jscomp$0));
+							var target = styleQueue$jscomp$0.rules, children$jscomp$7 = null, innerHTML$jscomp$6 = null, propKey$jscomp$9;
+							for (propKey$jscomp$9 in props) if (hasOwnProperty.call(props, propKey$jscomp$9)) {
+								var propValue$jscomp$9 = props[propKey$jscomp$9];
+								if (null != propValue$jscomp$9) switch (propKey$jscomp$9) {
+									case "children":
+										children$jscomp$7 = propValue$jscomp$9;
+										break;
+									case "dangerouslySetInnerHTML": innerHTML$jscomp$6 = propValue$jscomp$9;
+								}
+							}
+							var child$jscomp$0 = Array.isArray(children$jscomp$7) ? 2 > children$jscomp$7.length ? children$jscomp$7[0] : null : children$jscomp$7;
+							"function" !== typeof child$jscomp$0 && "symbol" !== typeof child$jscomp$0 && null !== child$jscomp$0 && void 0 !== child$jscomp$0 && target.push(("" + child$jscomp$0).replace(styleRegex, styleReplacer));
+							pushInnerHTML(target, innerHTML$jscomp$6, children$jscomp$7);
+						}
+					}
+					styleQueue$jscomp$0 && hoistableState && hoistableState.styles.add(styleQueue$jscomp$0);
+					textEmbedded && target$jscomp$0.push(textSeparator);
+					JSCompiler_inline_result$jscomp$6 = void 0;
+				}
+				return JSCompiler_inline_result$jscomp$6;
+			case "meta":
+				var noscriptTagInScope$jscomp$3 = formatContext.tagScope & 1, isFallback$jscomp$1 = formatContext.tagScope & 4;
+				if (4 === formatContext.insertionMode || noscriptTagInScope$jscomp$3 || null != props.itemProp) var JSCompiler_inline_result$jscomp$7 = pushSelfClosing(target$jscomp$0, props, "meta");
+				else textEmbedded && target$jscomp$0.push(textSeparator), JSCompiler_inline_result$jscomp$7 = isFallback$jscomp$1 ? null : "string" === typeof props.charSet ? pushSelfClosing(renderState.charsetChunks, props, "meta") : "viewport" === props.name ? pushSelfClosing(renderState.viewportChunks, props, "meta") : pushSelfClosing(renderState.hoistableChunks, props, "meta");
+				return JSCompiler_inline_result$jscomp$7;
+			case "listing":
+			case "pre":
+				target$jscomp$0.push(startChunkForTag(type));
+				var children$jscomp$8 = null, innerHTML$jscomp$7 = null, propKey$jscomp$10;
+				for (propKey$jscomp$10 in props) if (hasOwnProperty.call(props, propKey$jscomp$10)) {
+					var propValue$jscomp$10 = props[propKey$jscomp$10];
+					if (null != propValue$jscomp$10) switch (propKey$jscomp$10) {
+						case "children":
+							children$jscomp$8 = propValue$jscomp$10;
+							break;
+						case "dangerouslySetInnerHTML":
+							innerHTML$jscomp$7 = propValue$jscomp$10;
+							break;
+						default: pushAttribute(target$jscomp$0, propKey$jscomp$10, propValue$jscomp$10);
+					}
+				}
+				target$jscomp$0.push(endOfStartTag);
+				if (null != innerHTML$jscomp$7) {
+					if (null != children$jscomp$8) throw Error("Can only set one of `children` or `props.dangerouslySetInnerHTML`.");
+					if ("object" !== typeof innerHTML$jscomp$7 || !("__html" in innerHTML$jscomp$7)) throw Error("`props.dangerouslySetInnerHTML` must be in the form `{__html: ...}`. Please visit https://react.dev/link/dangerously-set-inner-html for more information.");
+					var html = innerHTML$jscomp$7.__html;
+					null !== html && void 0 !== html && ("string" === typeof html && 0 < html.length && "\n" === html[0] ? target$jscomp$0.push(leadingNewline, html) : target$jscomp$0.push("" + html));
+				}
+				"string" === typeof children$jscomp$8 && "\n" === children$jscomp$8[0] && target$jscomp$0.push(leadingNewline);
+				return children$jscomp$8;
+			case "img":
+				var pictureOrNoScriptTagInScope = formatContext.tagScope & 3, src = props.src, srcSet = props.srcSet;
+				if (!("lazy" === props.loading || !src && !srcSet || "string" !== typeof src && null != src || "string" !== typeof srcSet && null != srcSet || "low" === props.fetchPriority || pictureOrNoScriptTagInScope) && ("string" !== typeof src || ":" !== src[4] || "d" !== src[0] && "D" !== src[0] || "a" !== src[1] && "A" !== src[1] || "t" !== src[2] && "T" !== src[2] || "a" !== src[3] && "A" !== src[3]) && ("string" !== typeof srcSet || ":" !== srcSet[4] || "d" !== srcSet[0] && "D" !== srcSet[0] || "a" !== srcSet[1] && "A" !== srcSet[1] || "t" !== srcSet[2] && "T" !== srcSet[2] || "a" !== srcSet[3] && "A" !== srcSet[3])) {
+					null !== hoistableState && formatContext.tagScope & 64 && (hoistableState.suspenseyImages = !0);
+					var sizes = "string" === typeof props.sizes ? props.sizes : void 0, key$jscomp$0 = srcSet ? srcSet + "\n" + (sizes || "") : src, promotablePreloads = renderState.preloads.images, resource$jscomp$1 = promotablePreloads.get(key$jscomp$0);
+					if (resource$jscomp$1) {
+						if ("high" === props.fetchPriority || 10 > renderState.highImagePreloads.size) promotablePreloads.delete(key$jscomp$0), renderState.highImagePreloads.add(resource$jscomp$1);
+					} else if (!resumableState.imageResources.hasOwnProperty(key$jscomp$0)) {
+						resumableState.imageResources[key$jscomp$0] = PRELOAD_NO_CREDS;
+						var input = props.crossOrigin;
+						var JSCompiler_inline_result$jscomp$8 = "string" === typeof input ? "use-credentials" === input ? input : "" : void 0;
+						var headers = renderState.headers, header;
+						headers && 0 < headers.remainingCapacity && "string" !== typeof props.srcSet && ("high" === props.fetchPriority || 500 > headers.highImagePreloads.length) && (header = getPreloadAsHeader(src, "image", {
+							imageSrcSet: props.srcSet,
+							imageSizes: props.sizes,
+							crossOrigin: JSCompiler_inline_result$jscomp$8,
+							integrity: props.integrity,
+							nonce: props.nonce,
+							type: props.type,
+							fetchPriority: props.fetchPriority,
+							referrerPolicy: props.refererPolicy
+						}), 0 <= (headers.remainingCapacity -= header.length + 2)) ? (renderState.resets.image[key$jscomp$0] = PRELOAD_NO_CREDS, headers.highImagePreloads && (headers.highImagePreloads += ", "), headers.highImagePreloads += header) : (resource$jscomp$1 = [], pushLinkImpl(resource$jscomp$1, {
+							rel: "preload",
+							as: "image",
+							href: srcSet ? void 0 : src,
+							imageSrcSet: srcSet,
+							imageSizes: sizes,
+							crossOrigin: JSCompiler_inline_result$jscomp$8,
+							integrity: props.integrity,
+							type: props.type,
+							fetchPriority: props.fetchPriority,
+							referrerPolicy: props.referrerPolicy
+						}), "high" === props.fetchPriority || 10 > renderState.highImagePreloads.size ? renderState.highImagePreloads.add(resource$jscomp$1) : (renderState.bulkPreloads.add(resource$jscomp$1), promotablePreloads.set(key$jscomp$0, resource$jscomp$1)));
+					}
+				}
+				return pushSelfClosing(target$jscomp$0, props, "img");
+			case "base":
+			case "area":
+			case "br":
+			case "col":
+			case "embed":
+			case "hr":
+			case "keygen":
+			case "param":
+			case "source":
+			case "track":
+			case "wbr": return pushSelfClosing(target$jscomp$0, props, type);
+			case "annotation-xml":
+			case "color-profile":
+			case "font-face":
+			case "font-face-src":
+			case "font-face-uri":
+			case "font-face-format":
+			case "font-face-name":
+			case "missing-glyph": break;
+			case "head":
+				if (2 > formatContext.insertionMode) {
+					var preamble = preambleState || renderState.preamble;
+					if (preamble.headChunks) throw Error("The `<head>` tag may only be rendered once.");
+					null !== preambleState && target$jscomp$0.push(headPreambleContributionChunk);
+					preamble.headChunks = [];
+					var JSCompiler_inline_result$jscomp$9 = pushStartSingletonElement(preamble.headChunks, props, "head");
+				} else JSCompiler_inline_result$jscomp$9 = pushStartGenericElement(target$jscomp$0, props, "head");
+				return JSCompiler_inline_result$jscomp$9;
+			case "body":
+				if (2 > formatContext.insertionMode) {
+					var preamble$jscomp$0 = preambleState || renderState.preamble;
+					if (preamble$jscomp$0.bodyChunks) throw Error("The `<body>` tag may only be rendered once.");
+					null !== preambleState && target$jscomp$0.push(bodyPreambleContributionChunk);
+					preamble$jscomp$0.bodyChunks = [];
+					var JSCompiler_inline_result$jscomp$10 = pushStartSingletonElement(preamble$jscomp$0.bodyChunks, props, "body");
+				} else JSCompiler_inline_result$jscomp$10 = pushStartGenericElement(target$jscomp$0, props, "body");
+				return JSCompiler_inline_result$jscomp$10;
+			case "html":
+				if (0 === formatContext.insertionMode) {
+					var preamble$jscomp$1 = preambleState || renderState.preamble;
+					if (preamble$jscomp$1.htmlChunks) throw Error("The `<html>` tag may only be rendered once.");
+					null !== preambleState && target$jscomp$0.push(htmlPreambleContributionChunk);
+					preamble$jscomp$1.htmlChunks = [doctypeChunk];
+					var JSCompiler_inline_result$jscomp$11 = pushStartSingletonElement(preamble$jscomp$1.htmlChunks, props, "html");
+				} else JSCompiler_inline_result$jscomp$11 = pushStartGenericElement(target$jscomp$0, props, "html");
+				return JSCompiler_inline_result$jscomp$11;
+			default: if (-1 !== type.indexOf("-")) {
+				target$jscomp$0.push(startChunkForTag(type));
+				var children$jscomp$9 = null, innerHTML$jscomp$8 = null, propKey$jscomp$11;
+				for (propKey$jscomp$11 in props) if (hasOwnProperty.call(props, propKey$jscomp$11)) {
+					var propValue$jscomp$11 = props[propKey$jscomp$11];
+					if (null != propValue$jscomp$11) {
+						var attributeName = propKey$jscomp$11;
+						switch (propKey$jscomp$11) {
+							case "children":
+								children$jscomp$9 = propValue$jscomp$11;
+								break;
+							case "dangerouslySetInnerHTML":
+								innerHTML$jscomp$8 = propValue$jscomp$11;
+								break;
+							case "style":
+								pushStyleAttribute(target$jscomp$0, propValue$jscomp$11);
+								break;
+							case "suppressContentEditableWarning":
+							case "suppressHydrationWarning":
+							case "ref": break;
+							case "className": attributeName = "class";
+							default: if (isAttributeNameSafe(propKey$jscomp$11) && "function" !== typeof propValue$jscomp$11 && "symbol" !== typeof propValue$jscomp$11 && !1 !== propValue$jscomp$11) {
+								if (!0 === propValue$jscomp$11) propValue$jscomp$11 = "";
+								else if ("object" === typeof propValue$jscomp$11) continue;
+								target$jscomp$0.push(attributeSeparator, attributeName, attributeAssign, escapeTextForBrowser(propValue$jscomp$11), attributeEnd);
+							}
+						}
+					}
+				}
+				target$jscomp$0.push(endOfStartTag);
+				pushInnerHTML(target$jscomp$0, innerHTML$jscomp$8, children$jscomp$9);
+				return children$jscomp$9;
+			}
+		}
+		return pushStartGenericElement(target$jscomp$0, props, type);
+	}
+	var endTagCache = /* @__PURE__ */ new Map();
+	function endChunkForTag(tag) {
+		var chunk = endTagCache.get(tag);
+		void 0 === chunk && (chunk = stringToPrecomputedChunk("</" + tag + ">"), endTagCache.set(tag, chunk));
+		return chunk;
+	}
+	function hoistPreambleState(renderState, preambleState) {
+		renderState = renderState.preamble;
+		null === renderState.htmlChunks && preambleState.htmlChunks && (renderState.htmlChunks = preambleState.htmlChunks);
+		null === renderState.headChunks && preambleState.headChunks && (renderState.headChunks = preambleState.headChunks);
+		null === renderState.bodyChunks && preambleState.bodyChunks && (renderState.bodyChunks = preambleState.bodyChunks);
+	}
+	function writeBootstrap(destination, renderState) {
+		renderState = renderState.bootstrapChunks;
+		for (var i = 0; i < renderState.length - 1; i++) writeChunk(destination, renderState[i]);
+		return i < renderState.length ? (i = renderState[i], renderState.length = 0, writeChunkAndReturn(destination, i)) : !0;
+	}
+	var shellTimeRuntimeScript = stringToPrecomputedChunk("requestAnimationFrame(function(){$RT=performance.now()});"), placeholder1 = stringToPrecomputedChunk("<template id=\""), placeholder2 = stringToPrecomputedChunk("\"></template>"), startActivityBoundary = stringToPrecomputedChunk("<!--&-->"), endActivityBoundary = stringToPrecomputedChunk("<!--/&-->"), startCompletedSuspenseBoundary = stringToPrecomputedChunk("<!--$-->"), startPendingSuspenseBoundary1 = stringToPrecomputedChunk("<!--$?--><template id=\""), startPendingSuspenseBoundary2 = stringToPrecomputedChunk("\"></template>"), startClientRenderedSuspenseBoundary = stringToPrecomputedChunk("<!--$!-->"), endSuspenseBoundary = stringToPrecomputedChunk("<!--/$-->"), clientRenderedSuspenseBoundaryError1 = stringToPrecomputedChunk("<template"), clientRenderedSuspenseBoundaryErrorAttrInterstitial = stringToPrecomputedChunk("\""), clientRenderedSuspenseBoundaryError1A = stringToPrecomputedChunk(" data-dgst=\"");
+	stringToPrecomputedChunk(" data-msg=\"");
+	stringToPrecomputedChunk(" data-stck=\"");
+	stringToPrecomputedChunk(" data-cstck=\"");
+	var clientRenderedSuspenseBoundaryError2 = stringToPrecomputedChunk("></template>");
+	function writeStartPendingSuspenseBoundary(destination, renderState, id) {
+		writeChunk(destination, startPendingSuspenseBoundary1);
+		if (null === id) throw Error("An ID must have been assigned before we can complete the boundary.");
+		writeChunk(destination, renderState.boundaryPrefix);
+		writeChunk(destination, id.toString(16));
+		return writeChunkAndReturn(destination, startPendingSuspenseBoundary2);
+	}
+	var startSegmentHTML = stringToPrecomputedChunk("<div hidden id=\""), startSegmentHTML2 = stringToPrecomputedChunk("\">"), endSegmentHTML = stringToPrecomputedChunk("</div>"), startSegmentSVG = stringToPrecomputedChunk("<svg aria-hidden=\"true\" style=\"display:none\" id=\""), startSegmentSVG2 = stringToPrecomputedChunk("\">"), endSegmentSVG = stringToPrecomputedChunk("</svg>"), startSegmentMathML = stringToPrecomputedChunk("<math aria-hidden=\"true\" style=\"display:none\" id=\""), startSegmentMathML2 = stringToPrecomputedChunk("\">"), endSegmentMathML = stringToPrecomputedChunk("</math>"), startSegmentTable = stringToPrecomputedChunk("<table hidden id=\""), startSegmentTable2 = stringToPrecomputedChunk("\">"), endSegmentTable = stringToPrecomputedChunk("</table>"), startSegmentTableBody = stringToPrecomputedChunk("<table hidden><tbody id=\""), startSegmentTableBody2 = stringToPrecomputedChunk("\">"), endSegmentTableBody = stringToPrecomputedChunk("</tbody></table>"), startSegmentTableRow = stringToPrecomputedChunk("<table hidden><tr id=\""), startSegmentTableRow2 = stringToPrecomputedChunk("\">"), endSegmentTableRow = stringToPrecomputedChunk("</tr></table>"), startSegmentColGroup = stringToPrecomputedChunk("<table hidden><colgroup id=\""), startSegmentColGroup2 = stringToPrecomputedChunk("\">"), endSegmentColGroup = stringToPrecomputedChunk("</colgroup></table>");
+	function writeStartSegment(destination, renderState, formatContext, id) {
+		switch (formatContext.insertionMode) {
+			case 0:
+			case 1:
+			case 3:
+			case 2: return writeChunk(destination, startSegmentHTML), writeChunk(destination, renderState.segmentPrefix), writeChunk(destination, id.toString(16)), writeChunkAndReturn(destination, startSegmentHTML2);
+			case 4: return writeChunk(destination, startSegmentSVG), writeChunk(destination, renderState.segmentPrefix), writeChunk(destination, id.toString(16)), writeChunkAndReturn(destination, startSegmentSVG2);
+			case 5: return writeChunk(destination, startSegmentMathML), writeChunk(destination, renderState.segmentPrefix), writeChunk(destination, id.toString(16)), writeChunkAndReturn(destination, startSegmentMathML2);
+			case 6: return writeChunk(destination, startSegmentTable), writeChunk(destination, renderState.segmentPrefix), writeChunk(destination, id.toString(16)), writeChunkAndReturn(destination, startSegmentTable2);
+			case 7: return writeChunk(destination, startSegmentTableBody), writeChunk(destination, renderState.segmentPrefix), writeChunk(destination, id.toString(16)), writeChunkAndReturn(destination, startSegmentTableBody2);
+			case 8: return writeChunk(destination, startSegmentTableRow), writeChunk(destination, renderState.segmentPrefix), writeChunk(destination, id.toString(16)), writeChunkAndReturn(destination, startSegmentTableRow2);
+			case 9: return writeChunk(destination, startSegmentColGroup), writeChunk(destination, renderState.segmentPrefix), writeChunk(destination, id.toString(16)), writeChunkAndReturn(destination, startSegmentColGroup2);
+			default: throw Error("Unknown insertion mode. This is a bug in React.");
+		}
+	}
+	function writeEndSegment(destination, formatContext) {
+		switch (formatContext.insertionMode) {
+			case 0:
+			case 1:
+			case 3:
+			case 2: return writeChunkAndReturn(destination, endSegmentHTML);
+			case 4: return writeChunkAndReturn(destination, endSegmentSVG);
+			case 5: return writeChunkAndReturn(destination, endSegmentMathML);
+			case 6: return writeChunkAndReturn(destination, endSegmentTable);
+			case 7: return writeChunkAndReturn(destination, endSegmentTableBody);
+			case 8: return writeChunkAndReturn(destination, endSegmentTableRow);
+			case 9: return writeChunkAndReturn(destination, endSegmentColGroup);
+			default: throw Error("Unknown insertion mode. This is a bug in React.");
+		}
+	}
+	var completeSegmentScript1Full = stringToPrecomputedChunk("$RS=function(a,b){a=document.getElementById(a);b=document.getElementById(b);for(a.parentNode.removeChild(a);a.firstChild;)b.parentNode.insertBefore(a.firstChild,b);b.parentNode.removeChild(b)};$RS(\""), completeSegmentScript1Partial = stringToPrecomputedChunk("$RS(\""), completeSegmentScript2 = stringToPrecomputedChunk("\",\""), completeSegmentScriptEnd = stringToPrecomputedChunk("\")<\/script>");
+	stringToPrecomputedChunk("<template data-rsi=\"\" data-sid=\"");
+	stringToPrecomputedChunk("\" data-pid=\"");
+	var completeBoundaryScriptFunctionOnly = stringToPrecomputedChunk("$RB=[];$RV=function(a){$RT=performance.now();for(var b=0;b<a.length;b+=2){var c=a[b],e=a[b+1];null!==e.parentNode&&e.parentNode.removeChild(e);var f=c.parentNode;if(f){var g=c.previousSibling,h=0;do{if(c&&8===c.nodeType){var d=c.data;if(\"/$\"===d||\"/&\"===d)if(0===h)break;else h--;else\"$\"!==d&&\"$?\"!==d&&\"$~\"!==d&&\"$!\"!==d&&\"&\"!==d||h++}d=c.nextSibling;f.removeChild(c);c=d}while(c);for(;e.firstChild;)f.insertBefore(e.firstChild,c);g.data=\"$\";g._reactRetry&&requestAnimationFrame(g._reactRetry)}}a.length=0};\n$RC=function(a,b){if(b=document.getElementById(b))(a=document.getElementById(a))?(a.previousSibling.data=\"$~\",$RB.push(a,b),2===$RB.length&&(\"number\"!==typeof $RT?requestAnimationFrame($RV.bind(null,$RB)):(a=performance.now(),setTimeout($RV.bind(null,$RB),2300>a&&2E3<a?2300-a:$RT+300-a)))):b.parentNode.removeChild(b)};"), completeBoundaryScript1Partial = stringToPrecomputedChunk("$RC(\""), completeBoundaryWithStylesScript1FullPartial = stringToPrecomputedChunk("$RM=new Map;$RR=function(n,w,p){function u(q){this._p=null;q()}for(var r=new Map,t=document,h,b,e=t.querySelectorAll(\"link[data-precedence],style[data-precedence]\"),v=[],k=0;b=e[k++];)\"not all\"===b.getAttribute(\"media\")?v.push(b):(\"LINK\"===b.tagName&&$RM.set(b.getAttribute(\"href\"),b),r.set(b.dataset.precedence,h=b));e=0;b=[];var l,a;for(k=!0;;){if(k){var f=p[e++];if(!f){k=!1;e=0;continue}var c=!1,m=0;var d=f[m++];if(a=$RM.get(d)){var g=a._p;c=!0}else{a=t.createElement(\"link\");a.href=d;a.rel=\n\"stylesheet\";for(a.dataset.precedence=l=f[m++];g=f[m++];)a.setAttribute(g,f[m++]);g=a._p=new Promise(function(q,x){a.onload=u.bind(a,q);a.onerror=u.bind(a,x)});$RM.set(d,a)}d=a.getAttribute(\"media\");!g||d&&!matchMedia(d).matches||b.push(g);if(c)continue}else{a=v[e++];if(!a)break;l=a.getAttribute(\"data-precedence\");a.removeAttribute(\"media\")}c=r.get(l)||h;c===h&&(h=a);r.set(l,a);c?c.parentNode.insertBefore(a,c.nextSibling):(c=t.head,c.insertBefore(a,c.firstChild))}if(p=document.getElementById(n))p.previousSibling.data=\n\"$~\";Promise.all(b).then($RC.bind(null,n,w),$RX.bind(null,n,\"CSS failed to load\"))};$RR(\""), completeBoundaryWithStylesScript1Partial = stringToPrecomputedChunk("$RR(\""), completeBoundaryScript2 = stringToPrecomputedChunk("\",\""), completeBoundaryScript3a = stringToPrecomputedChunk("\","), completeBoundaryScript3b = stringToPrecomputedChunk("\""), completeBoundaryScriptEnd = stringToPrecomputedChunk(")<\/script>");
+	stringToPrecomputedChunk("<template data-rci=\"\" data-bid=\"");
+	stringToPrecomputedChunk("<template data-rri=\"\" data-bid=\"");
+	stringToPrecomputedChunk("\" data-sid=\"");
+	stringToPrecomputedChunk("\" data-sty=\"");
+	var clientRenderScriptFunctionOnly = stringToPrecomputedChunk("$RX=function(b,c,d,e,f){var a=document.getElementById(b);a&&(b=a.previousSibling,b.data=\"$!\",a=a.dataset,c&&(a.dgst=c),d&&(a.msg=d),e&&(a.stck=e),f&&(a.cstck=f),b._reactRetry&&b._reactRetry())};"), clientRenderScript1Full = stringToPrecomputedChunk("$RX=function(b,c,d,e,f){var a=document.getElementById(b);a&&(b=a.previousSibling,b.data=\"$!\",a=a.dataset,c&&(a.dgst=c),d&&(a.msg=d),e&&(a.stck=e),f&&(a.cstck=f),b._reactRetry&&b._reactRetry())};;$RX(\""), clientRenderScript1Partial = stringToPrecomputedChunk("$RX(\""), clientRenderScript1A = stringToPrecomputedChunk("\""), clientRenderErrorScriptArgInterstitial = stringToPrecomputedChunk(","), clientRenderScriptEnd = stringToPrecomputedChunk(")<\/script>");
+	stringToPrecomputedChunk("<template data-rxi=\"\" data-bid=\"");
+	stringToPrecomputedChunk("\" data-dgst=\"");
+	stringToPrecomputedChunk("\" data-msg=\"");
+	stringToPrecomputedChunk("\" data-stck=\"");
+	stringToPrecomputedChunk("\" data-cstck=\"");
+	var regexForJSStringsInInstructionScripts = /[<\u2028\u2029]/g;
+	function escapeJSStringsForInstructionScripts(input) {
+		return JSON.stringify(input).replace(regexForJSStringsInInstructionScripts, function(match) {
+			switch (match) {
+				case "<": return "\\u003c";
+				case "\u2028": return "\\u2028";
+				case "\u2029": return "\\u2029";
+				default: throw Error("escapeJSStringsForInstructionScripts encountered a match it does not know how to replace. this means the match regex and the replacement characters are no longer in sync. This is a bug in React");
+			}
+		});
+	}
+	var regexForJSStringsInScripts = /[&><\u2028\u2029]/g;
+	function escapeJSObjectForInstructionScripts(input) {
+		return JSON.stringify(input).replace(regexForJSStringsInScripts, function(match) {
+			switch (match) {
+				case "&": return "\\u0026";
+				case ">": return "\\u003e";
+				case "<": return "\\u003c";
+				case "\u2028": return "\\u2028";
+				case "\u2029": return "\\u2029";
+				default: throw Error("escapeJSObjectForInstructionScripts encountered a match it does not know how to replace. this means the match regex and the replacement characters are no longer in sync. This is a bug in React");
+			}
+		});
+	}
+	var lateStyleTagResourceOpen1 = stringToPrecomputedChunk(" media=\"not all\" data-precedence=\""), lateStyleTagResourceOpen2 = stringToPrecomputedChunk("\" data-href=\""), lateStyleTagResourceOpen3 = stringToPrecomputedChunk("\">"), lateStyleTagTemplateClose = stringToPrecomputedChunk("</style>"), currentlyRenderingBoundaryHasStylesToHoist = !1, destinationHasCapacity = !0;
+	function flushStyleTagsLateForBoundary(styleQueue) {
+		var rules = styleQueue.rules, hrefs = styleQueue.hrefs, i = 0;
+		if (hrefs.length) {
+			writeChunk(this, currentlyFlushingRenderState.startInlineStyle);
+			writeChunk(this, lateStyleTagResourceOpen1);
+			writeChunk(this, styleQueue.precedence);
+			for (writeChunk(this, lateStyleTagResourceOpen2); i < hrefs.length - 1; i++) writeChunk(this, hrefs[i]), writeChunk(this, spaceSeparator);
+			writeChunk(this, hrefs[i]);
+			writeChunk(this, lateStyleTagResourceOpen3);
+			for (i = 0; i < rules.length; i++) writeChunk(this, rules[i]);
+			destinationHasCapacity = writeChunkAndReturn(this, lateStyleTagTemplateClose);
+			currentlyRenderingBoundaryHasStylesToHoist = !0;
+			rules.length = 0;
+			hrefs.length = 0;
+		}
+	}
+	function hasStylesToHoist(stylesheet) {
+		return 2 !== stylesheet.state ? currentlyRenderingBoundaryHasStylesToHoist = !0 : !1;
+	}
+	function writeHoistablesForBoundary(destination, hoistableState, renderState) {
+		currentlyRenderingBoundaryHasStylesToHoist = !1;
+		destinationHasCapacity = !0;
+		currentlyFlushingRenderState = renderState;
+		hoistableState.styles.forEach(flushStyleTagsLateForBoundary, destination);
+		currentlyFlushingRenderState = null;
+		hoistableState.stylesheets.forEach(hasStylesToHoist);
+		currentlyRenderingBoundaryHasStylesToHoist && (renderState.stylesToHoist = !0);
+		return destinationHasCapacity;
+	}
+	function flushResource(resource) {
+		for (var i = 0; i < resource.length; i++) writeChunk(this, resource[i]);
+		resource.length = 0;
+	}
+	var stylesheetFlushingQueue = [];
+	function flushStyleInPreamble(stylesheet) {
+		pushLinkImpl(stylesheetFlushingQueue, stylesheet.props);
+		for (var i = 0; i < stylesheetFlushingQueue.length; i++) writeChunk(this, stylesheetFlushingQueue[i]);
+		stylesheetFlushingQueue.length = 0;
+		stylesheet.state = 2;
+	}
+	var styleTagResourceOpen1 = stringToPrecomputedChunk(" data-precedence=\""), styleTagResourceOpen2 = stringToPrecomputedChunk("\" data-href=\""), spaceSeparator = stringToPrecomputedChunk(" "), styleTagResourceOpen3 = stringToPrecomputedChunk("\">"), styleTagResourceClose = stringToPrecomputedChunk("</style>");
+	function flushStylesInPreamble(styleQueue) {
+		var hasStylesheets = 0 < styleQueue.sheets.size;
+		styleQueue.sheets.forEach(flushStyleInPreamble, this);
+		styleQueue.sheets.clear();
+		var rules = styleQueue.rules, hrefs = styleQueue.hrefs;
+		if (!hasStylesheets || hrefs.length) {
+			writeChunk(this, currentlyFlushingRenderState.startInlineStyle);
+			writeChunk(this, styleTagResourceOpen1);
+			writeChunk(this, styleQueue.precedence);
+			styleQueue = 0;
+			if (hrefs.length) {
+				for (writeChunk(this, styleTagResourceOpen2); styleQueue < hrefs.length - 1; styleQueue++) writeChunk(this, hrefs[styleQueue]), writeChunk(this, spaceSeparator);
+				writeChunk(this, hrefs[styleQueue]);
+			}
+			writeChunk(this, styleTagResourceOpen3);
+			for (styleQueue = 0; styleQueue < rules.length; styleQueue++) writeChunk(this, rules[styleQueue]);
+			writeChunk(this, styleTagResourceClose);
+			rules.length = 0;
+			hrefs.length = 0;
+		}
+	}
+	function preloadLateStyle(stylesheet) {
+		if (0 === stylesheet.state) {
+			stylesheet.state = 1;
+			var props = stylesheet.props;
+			pushLinkImpl(stylesheetFlushingQueue, {
+				rel: "preload",
+				as: "style",
+				href: stylesheet.props.href,
+				crossOrigin: props.crossOrigin,
+				fetchPriority: props.fetchPriority,
+				integrity: props.integrity,
+				media: props.media,
+				hrefLang: props.hrefLang,
+				referrerPolicy: props.referrerPolicy
+			});
+			for (stylesheet = 0; stylesheet < stylesheetFlushingQueue.length; stylesheet++) writeChunk(this, stylesheetFlushingQueue[stylesheet]);
+			stylesheetFlushingQueue.length = 0;
+		}
+	}
+	function preloadLateStyles(styleQueue) {
+		styleQueue.sheets.forEach(preloadLateStyle, this);
+		styleQueue.sheets.clear();
+	}
+	stringToPrecomputedChunk("<link rel=\"expect\" href=\"#");
+	stringToPrecomputedChunk("\" blocking=\"render\"/>");
+	var completedShellIdAttributeStart = stringToPrecomputedChunk(" id=\"");
+	function pushCompletedShellIdAttribute(target, resumableState) {
+		0 === (resumableState.instructions & 32) && (resumableState.instructions |= 32, target.push(completedShellIdAttributeStart, escapeTextForBrowser("_" + resumableState.idPrefix + "R_"), attributeEnd));
+	}
+	var arrayFirstOpenBracket = stringToPrecomputedChunk("["), arraySubsequentOpenBracket = stringToPrecomputedChunk(",["), arrayInterstitial = stringToPrecomputedChunk(","), arrayCloseBracket = stringToPrecomputedChunk("]");
+	function writeStyleResourceDependenciesInJS(destination, hoistableState) {
+		writeChunk(destination, arrayFirstOpenBracket);
+		var nextArrayOpenBrackChunk = arrayFirstOpenBracket;
+		hoistableState.stylesheets.forEach(function(resource) {
+			if (2 !== resource.state) if (3 === resource.state) writeChunk(destination, nextArrayOpenBrackChunk), writeChunk(destination, escapeJSObjectForInstructionScripts("" + resource.props.href)), writeChunk(destination, arrayCloseBracket), nextArrayOpenBrackChunk = arraySubsequentOpenBracket;
+			else {
+				writeChunk(destination, nextArrayOpenBrackChunk);
+				var precedence = resource.props["data-precedence"], props = resource.props;
+				writeChunk(destination, escapeJSObjectForInstructionScripts(sanitizeURL("" + resource.props.href)));
+				precedence = "" + precedence;
+				writeChunk(destination, arrayInterstitial);
+				writeChunk(destination, escapeJSObjectForInstructionScripts(precedence));
+				for (var propKey in props) if (hasOwnProperty.call(props, propKey) && (precedence = props[propKey], null != precedence)) switch (propKey) {
+					case "href":
+					case "rel":
+					case "precedence":
+					case "data-precedence": break;
+					case "children":
+					case "dangerouslySetInnerHTML": throw Error("link is a self-closing tag and must neither have `children` nor use `dangerouslySetInnerHTML`.");
+					default: writeStyleResourceAttributeInJS(destination, propKey, precedence);
+				}
+				writeChunk(destination, arrayCloseBracket);
+				nextArrayOpenBrackChunk = arraySubsequentOpenBracket;
+				resource.state = 3;
+			}
+		});
+		writeChunk(destination, arrayCloseBracket);
+	}
+	function writeStyleResourceAttributeInJS(destination, name, value) {
+		var attributeName = name.toLowerCase();
+		switch (typeof value) {
+			case "function":
+			case "symbol": return;
+		}
+		switch (name) {
+			case "innerHTML":
+			case "dangerouslySetInnerHTML":
+			case "suppressContentEditableWarning":
+			case "suppressHydrationWarning":
+			case "style":
+			case "ref": return;
+			case "className":
+				attributeName = "class";
+				name = "" + value;
+				break;
+			case "hidden":
+				if (!1 === value) return;
+				name = "";
+				break;
+			case "src":
+			case "href":
+				value = sanitizeURL(value);
+				name = "" + value;
+				break;
+			default:
+				if (2 < name.length && ("o" === name[0] || "O" === name[0]) && ("n" === name[1] || "N" === name[1]) || !isAttributeNameSafe(name)) return;
+				name = "" + value;
+		}
+		writeChunk(destination, arrayInterstitial);
+		writeChunk(destination, escapeJSObjectForInstructionScripts(attributeName));
+		writeChunk(destination, arrayInterstitial);
+		writeChunk(destination, escapeJSObjectForInstructionScripts(name));
+	}
+	function createHoistableState() {
+		return {
+			styles: /* @__PURE__ */ new Set(),
+			stylesheets: /* @__PURE__ */ new Set(),
+			suspenseyImages: !1
+		};
+	}
+	function prefetchDNS(href) {
+		var request = resolveRequest();
+		if (request) {
+			var resumableState = request.resumableState, renderState = request.renderState;
+			if ("string" === typeof href && href) {
+				if (!resumableState.dnsResources.hasOwnProperty(href)) {
+					resumableState.dnsResources[href] = null;
+					resumableState = renderState.headers;
+					var header, JSCompiler_temp;
+					if (JSCompiler_temp = resumableState && 0 < resumableState.remainingCapacity) JSCompiler_temp = (header = "<" + ("" + href).replace(regexForHrefInLinkHeaderURLContext, escapeHrefForLinkHeaderURLContextReplacer) + ">; rel=dns-prefetch", 0 <= (resumableState.remainingCapacity -= header.length + 2));
+					JSCompiler_temp ? (renderState.resets.dns[href] = null, resumableState.preconnects && (resumableState.preconnects += ", "), resumableState.preconnects += header) : (header = [], pushLinkImpl(header, {
+						href,
+						rel: "dns-prefetch"
+					}), renderState.preconnects.add(header));
+				}
+				enqueueFlush(request);
+			}
+		} else previousDispatcher.D(href);
+	}
+	function preconnect(href, crossOrigin) {
+		var request = resolveRequest();
+		if (request) {
+			var resumableState = request.resumableState, renderState = request.renderState;
+			if ("string" === typeof href && href) {
+				var bucket = "use-credentials" === crossOrigin ? "credentials" : "string" === typeof crossOrigin ? "anonymous" : "default";
+				if (!resumableState.connectResources[bucket].hasOwnProperty(href)) {
+					resumableState.connectResources[bucket][href] = null;
+					resumableState = renderState.headers;
+					var header, JSCompiler_temp;
+					if (JSCompiler_temp = resumableState && 0 < resumableState.remainingCapacity) {
+						JSCompiler_temp = "<" + ("" + href).replace(regexForHrefInLinkHeaderURLContext, escapeHrefForLinkHeaderURLContextReplacer) + ">; rel=preconnect";
+						if ("string" === typeof crossOrigin) {
+							var escapedCrossOrigin = ("" + crossOrigin).replace(regexForLinkHeaderQuotedParamValueContext, escapeStringForLinkHeaderQuotedParamValueContextReplacer);
+							JSCompiler_temp += "; crossorigin=\"" + escapedCrossOrigin + "\"";
+						}
+						JSCompiler_temp = (header = JSCompiler_temp, 0 <= (resumableState.remainingCapacity -= header.length + 2));
+					}
+					JSCompiler_temp ? (renderState.resets.connect[bucket][href] = null, resumableState.preconnects && (resumableState.preconnects += ", "), resumableState.preconnects += header) : (bucket = [], pushLinkImpl(bucket, {
+						rel: "preconnect",
+						href,
+						crossOrigin
+					}), renderState.preconnects.add(bucket));
+				}
+				enqueueFlush(request);
+			}
+		} else previousDispatcher.C(href, crossOrigin);
+	}
+	function preload(href, as, options) {
+		var request = resolveRequest();
+		if (request) {
+			var resumableState = request.resumableState, renderState = request.renderState;
+			if (as && href) {
+				switch (as) {
+					case "image":
+						if (options) {
+							var imageSrcSet = options.imageSrcSet;
+							var imageSizes = options.imageSizes;
+							var fetchPriority = options.fetchPriority;
+						}
+						var key = imageSrcSet ? imageSrcSet + "\n" + (imageSizes || "") : href;
+						if (resumableState.imageResources.hasOwnProperty(key)) return;
+						resumableState.imageResources[key] = PRELOAD_NO_CREDS;
+						resumableState = renderState.headers;
+						var header;
+						resumableState && 0 < resumableState.remainingCapacity && "string" !== typeof imageSrcSet && "high" === fetchPriority && (header = getPreloadAsHeader(href, as, options), 0 <= (resumableState.remainingCapacity -= header.length + 2)) ? (renderState.resets.image[key] = PRELOAD_NO_CREDS, resumableState.highImagePreloads && (resumableState.highImagePreloads += ", "), resumableState.highImagePreloads += header) : (resumableState = [], pushLinkImpl(resumableState, assign({
+							rel: "preload",
+							href: imageSrcSet ? void 0 : href,
+							as
+						}, options)), "high" === fetchPriority ? renderState.highImagePreloads.add(resumableState) : (renderState.bulkPreloads.add(resumableState), renderState.preloads.images.set(key, resumableState)));
+						break;
+					case "style":
+						if (resumableState.styleResources.hasOwnProperty(href)) return;
+						imageSrcSet = [];
+						pushLinkImpl(imageSrcSet, assign({
+							rel: "preload",
+							href,
+							as
+						}, options));
+						resumableState.styleResources[href] = !options || "string" !== typeof options.crossOrigin && "string" !== typeof options.integrity ? PRELOAD_NO_CREDS : [options.crossOrigin, options.integrity];
+						renderState.preloads.stylesheets.set(href, imageSrcSet);
+						renderState.bulkPreloads.add(imageSrcSet);
+						break;
+					case "script":
+						if (resumableState.scriptResources.hasOwnProperty(href)) return;
+						imageSrcSet = [];
+						renderState.preloads.scripts.set(href, imageSrcSet);
+						renderState.bulkPreloads.add(imageSrcSet);
+						pushLinkImpl(imageSrcSet, assign({
+							rel: "preload",
+							href,
+							as
+						}, options));
+						resumableState.scriptResources[href] = !options || "string" !== typeof options.crossOrigin && "string" !== typeof options.integrity ? PRELOAD_NO_CREDS : [options.crossOrigin, options.integrity];
+						break;
+					default:
+						if (resumableState.unknownResources.hasOwnProperty(as)) {
+							if (imageSrcSet = resumableState.unknownResources[as], imageSrcSet.hasOwnProperty(href)) return;
+						} else imageSrcSet = {}, resumableState.unknownResources[as] = imageSrcSet;
+						imageSrcSet[href] = PRELOAD_NO_CREDS;
+						if ((resumableState = renderState.headers) && 0 < resumableState.remainingCapacity && "font" === as && (key = getPreloadAsHeader(href, as, options), 0 <= (resumableState.remainingCapacity -= key.length + 2))) renderState.resets.font[href] = PRELOAD_NO_CREDS, resumableState.fontPreloads && (resumableState.fontPreloads += ", "), resumableState.fontPreloads += key;
+						else switch (resumableState = [], href = assign({
+							rel: "preload",
+							href,
+							as
+						}, options), pushLinkImpl(resumableState, href), as) {
+							case "font":
+								renderState.fontPreloads.add(resumableState);
+								break;
+							default: renderState.bulkPreloads.add(resumableState);
+						}
+				}
+				enqueueFlush(request);
+			}
+		} else previousDispatcher.L(href, as, options);
+	}
+	function preloadModule(href, options) {
+		var request = resolveRequest();
+		if (request) {
+			var resumableState = request.resumableState, renderState = request.renderState;
+			if (href) {
+				var as = options && "string" === typeof options.as ? options.as : "script";
+				switch (as) {
+					case "script":
+						if (resumableState.moduleScriptResources.hasOwnProperty(href)) return;
+						as = [];
+						resumableState.moduleScriptResources[href] = !options || "string" !== typeof options.crossOrigin && "string" !== typeof options.integrity ? PRELOAD_NO_CREDS : [options.crossOrigin, options.integrity];
+						renderState.preloads.moduleScripts.set(href, as);
+						break;
+					default:
+						if (resumableState.moduleUnknownResources.hasOwnProperty(as)) {
+							var resources = resumableState.unknownResources[as];
+							if (resources.hasOwnProperty(href)) return;
+						} else resources = {}, resumableState.moduleUnknownResources[as] = resources;
+						as = [];
+						resources[href] = PRELOAD_NO_CREDS;
+				}
+				pushLinkImpl(as, assign({
+					rel: "modulepreload",
+					href
+				}, options));
+				renderState.bulkPreloads.add(as);
+				enqueueFlush(request);
+			}
+		} else previousDispatcher.m(href, options);
+	}
+	function preinitStyle(href, precedence, options) {
+		var request = resolveRequest();
+		if (request) {
+			var resumableState = request.resumableState, renderState = request.renderState;
+			if (href) {
+				precedence = precedence || "default";
+				var styleQueue = renderState.styles.get(precedence), resourceState = resumableState.styleResources.hasOwnProperty(href) ? resumableState.styleResources[href] : void 0;
+				null !== resourceState && (resumableState.styleResources[href] = null, styleQueue || (styleQueue = {
+					precedence: escapeTextForBrowser(precedence),
+					rules: [],
+					hrefs: [],
+					sheets: /* @__PURE__ */ new Map()
+				}, renderState.styles.set(precedence, styleQueue)), precedence = {
+					state: 0,
+					props: assign({
+						rel: "stylesheet",
+						href,
+						"data-precedence": precedence
+					}, options)
+				}, resourceState && (2 === resourceState.length && adoptPreloadCredentials(precedence.props, resourceState), (renderState = renderState.preloads.stylesheets.get(href)) && 0 < renderState.length ? renderState.length = 0 : precedence.state = 1), styleQueue.sheets.set(href, precedence), enqueueFlush(request));
+			}
+		} else previousDispatcher.S(href, precedence, options);
+	}
+	function preinitScript(src, options) {
+		var request = resolveRequest();
+		if (request) {
+			var resumableState = request.resumableState, renderState = request.renderState;
+			if (src) {
+				var resourceState = resumableState.scriptResources.hasOwnProperty(src) ? resumableState.scriptResources[src] : void 0;
+				null !== resourceState && (resumableState.scriptResources[src] = null, options = assign({
+					src,
+					async: !0
+				}, options), resourceState && (2 === resourceState.length && adoptPreloadCredentials(options, resourceState), src = renderState.preloads.scripts.get(src)) && (src.length = 0), src = [], renderState.scripts.add(src), pushScriptImpl(src, options), enqueueFlush(request));
+			}
+		} else previousDispatcher.X(src, options);
+	}
+	function preinitModuleScript(src, options) {
+		var request = resolveRequest();
+		if (request) {
+			var resumableState = request.resumableState, renderState = request.renderState;
+			if (src) {
+				var resourceState = resumableState.moduleScriptResources.hasOwnProperty(src) ? resumableState.moduleScriptResources[src] : void 0;
+				null !== resourceState && (resumableState.moduleScriptResources[src] = null, options = assign({
+					src,
+					type: "module",
+					async: !0
+				}, options), resourceState && (2 === resourceState.length && adoptPreloadCredentials(options, resourceState), src = renderState.preloads.moduleScripts.get(src)) && (src.length = 0), src = [], renderState.scripts.add(src), pushScriptImpl(src, options), enqueueFlush(request));
+			}
+		} else previousDispatcher.M(src, options);
+	}
+	function adoptPreloadCredentials(target, preloadState) {
+		target.crossOrigin ?? (target.crossOrigin = preloadState[0]);
+		target.integrity ?? (target.integrity = preloadState[1]);
+	}
+	function getPreloadAsHeader(href, as, params) {
+		href = ("" + href).replace(regexForHrefInLinkHeaderURLContext, escapeHrefForLinkHeaderURLContextReplacer);
+		as = ("" + as).replace(regexForLinkHeaderQuotedParamValueContext, escapeStringForLinkHeaderQuotedParamValueContextReplacer);
+		as = "<" + href + ">; rel=preload; as=\"" + as + "\"";
+		for (var paramName in params) hasOwnProperty.call(params, paramName) && (href = params[paramName], "string" === typeof href && (as += "; " + paramName.toLowerCase() + "=\"" + ("" + href).replace(regexForLinkHeaderQuotedParamValueContext, escapeStringForLinkHeaderQuotedParamValueContextReplacer) + "\""));
+		return as;
+	}
+	var regexForHrefInLinkHeaderURLContext = /[<>\r\n]/g;
+	function escapeHrefForLinkHeaderURLContextReplacer(match) {
+		switch (match) {
+			case "<": return "%3C";
+			case ">": return "%3E";
+			case "\n": return "%0A";
+			case "\r": return "%0D";
+			default: throw Error("escapeLinkHrefForHeaderContextReplacer encountered a match it does not know how to replace. this means the match regex and the replacement characters are no longer in sync. This is a bug in React");
+		}
+	}
+	var regexForLinkHeaderQuotedParamValueContext = /["';,\r\n]/g;
+	function escapeStringForLinkHeaderQuotedParamValueContextReplacer(match) {
+		switch (match) {
+			case "\"": return "%22";
+			case "'": return "%27";
+			case ";": return "%3B";
+			case ",": return "%2C";
+			case "\n": return "%0A";
+			case "\r": return "%0D";
+			default: throw Error("escapeStringForLinkHeaderQuotedParamValueContextReplacer encountered a match it does not know how to replace. this means the match regex and the replacement characters are no longer in sync. This is a bug in React");
+		}
+	}
+	function hoistStyleQueueDependency(styleQueue) {
+		this.styles.add(styleQueue);
+	}
+	function hoistStylesheetDependency(stylesheet) {
+		this.stylesheets.add(stylesheet);
+	}
+	function hoistHoistables(parentState, childState) {
+		childState.styles.forEach(hoistStyleQueueDependency, parentState);
+		childState.stylesheets.forEach(hoistStylesheetDependency, parentState);
+		childState.suspenseyImages && (parentState.suspenseyImages = !0);
+	}
+	function hasSuspenseyContent(hoistableState) {
+		return 0 < hoistableState.stylesheets.size || hoistableState.suspenseyImages;
+	}
+	var bind = Function.prototype.bind, requestStorage = new async_hooks.AsyncLocalStorage(), REACT_CLIENT_REFERENCE = Symbol.for("react.client.reference");
+	function getComponentNameFromType(type) {
+		if (null == type) return null;
+		if ("function" === typeof type) return type.$$typeof === REACT_CLIENT_REFERENCE ? null : type.displayName || type.name || null;
+		if ("string" === typeof type) return type;
+		switch (type) {
+			case REACT_FRAGMENT_TYPE: return "Fragment";
+			case REACT_PROFILER_TYPE: return "Profiler";
+			case REACT_STRICT_MODE_TYPE: return "StrictMode";
+			case REACT_SUSPENSE_TYPE: return "Suspense";
+			case REACT_SUSPENSE_LIST_TYPE: return "SuspenseList";
+			case REACT_ACTIVITY_TYPE: return "Activity";
+		}
+		if ("object" === typeof type) switch (type.$$typeof) {
+			case REACT_PORTAL_TYPE: return "Portal";
+			case REACT_CONTEXT_TYPE: return type.displayName || "Context";
+			case REACT_CONSUMER_TYPE: return (type._context.displayName || "Context") + ".Consumer";
+			case REACT_FORWARD_REF_TYPE:
+				var innerType = type.render;
+				type = type.displayName;
+				type || (type = innerType.displayName || innerType.name || "", type = "" !== type ? "ForwardRef(" + type + ")" : "ForwardRef");
+				return type;
+			case REACT_MEMO_TYPE: return innerType = type.displayName || null, null !== innerType ? innerType : getComponentNameFromType(type.type) || "Memo";
+			case REACT_LAZY_TYPE:
+				innerType = type._payload;
+				type = type._init;
+				try {
+					return getComponentNameFromType(type(innerType));
+				} catch (x) {}
+		}
+		return null;
+	}
+	var emptyContextObject = {}, currentActiveSnapshot = null;
+	function popToNearestCommonAncestor(prev, next) {
+		if (prev !== next) {
+			prev.context._currentValue = prev.parentValue;
+			prev = prev.parent;
+			var parentNext = next.parent;
+			if (null === prev) {
+				if (null !== parentNext) throw Error("The stacks must reach the root at the same time. This is a bug in React.");
+			} else {
+				if (null === parentNext) throw Error("The stacks must reach the root at the same time. This is a bug in React.");
+				popToNearestCommonAncestor(prev, parentNext);
+			}
+			next.context._currentValue = next.value;
+		}
+	}
+	function popAllPrevious(prev) {
+		prev.context._currentValue = prev.parentValue;
+		prev = prev.parent;
+		null !== prev && popAllPrevious(prev);
+	}
+	function pushAllNext(next) {
+		var parentNext = next.parent;
+		null !== parentNext && pushAllNext(parentNext);
+		next.context._currentValue = next.value;
+	}
+	function popPreviousToCommonLevel(prev, next) {
+		prev.context._currentValue = prev.parentValue;
+		prev = prev.parent;
+		if (null === prev) throw Error("The depth must equal at least at zero before reaching the root. This is a bug in React.");
+		prev.depth === next.depth ? popToNearestCommonAncestor(prev, next) : popPreviousToCommonLevel(prev, next);
+	}
+	function popNextToCommonLevel(prev, next) {
+		var parentNext = next.parent;
+		if (null === parentNext) throw Error("The depth must equal at least at zero before reaching the root. This is a bug in React.");
+		prev.depth === parentNext.depth ? popToNearestCommonAncestor(prev, parentNext) : popNextToCommonLevel(prev, parentNext);
+		next.context._currentValue = next.value;
+	}
+	function switchContext(newSnapshot) {
+		var prev = currentActiveSnapshot;
+		prev !== newSnapshot && (null === prev ? pushAllNext(newSnapshot) : null === newSnapshot ? popAllPrevious(prev) : prev.depth === newSnapshot.depth ? popToNearestCommonAncestor(prev, newSnapshot) : prev.depth > newSnapshot.depth ? popPreviousToCommonLevel(prev, newSnapshot) : popNextToCommonLevel(prev, newSnapshot), currentActiveSnapshot = newSnapshot);
+	}
+	var classComponentUpdater = {
+		enqueueSetState: function(inst, payload) {
+			inst = inst._reactInternals;
+			null !== inst.queue && inst.queue.push(payload);
+		},
+		enqueueReplaceState: function(inst, payload) {
+			inst = inst._reactInternals;
+			inst.replace = !0;
+			inst.queue = [payload];
+		},
+		enqueueForceUpdate: function() {}
+	}, emptyTreeContext = {
+		id: 1,
+		overflow: ""
+	};
+	function pushTreeContext(baseContext, totalChildren, index) {
+		var baseIdWithLeadingBit = baseContext.id;
+		baseContext = baseContext.overflow;
+		var baseLength = 32 - clz32(baseIdWithLeadingBit) - 1;
+		baseIdWithLeadingBit &= ~(1 << baseLength);
+		index += 1;
+		var length = 32 - clz32(totalChildren) + baseLength;
+		if (30 < length) {
+			var numberOfOverflowBits = baseLength - baseLength % 5;
+			length = (baseIdWithLeadingBit & (1 << numberOfOverflowBits) - 1).toString(32);
+			baseIdWithLeadingBit >>= numberOfOverflowBits;
+			baseLength -= numberOfOverflowBits;
+			return {
+				id: 1 << 32 - clz32(totalChildren) + baseLength | index << baseLength | baseIdWithLeadingBit,
+				overflow: length + baseContext
+			};
+		}
+		return {
+			id: 1 << length | index << baseLength | baseIdWithLeadingBit,
+			overflow: baseContext
+		};
+	}
+	var clz32 = Math.clz32 ? Math.clz32 : clz32Fallback, log = Math.log, LN2 = Math.LN2;
+	function clz32Fallback(x) {
+		x >>>= 0;
+		return 0 === x ? 32 : 31 - (log(x) / LN2 | 0) | 0;
+	}
+	function noop() {}
+	var SuspenseException = Error("Suspense Exception: This is not a real error! It's an implementation detail of `use` to interrupt the current render. You must either rethrow it immediately, or move the `use` call outside of the `try/catch` block. Capturing without rethrowing will lead to unexpected behavior.\n\nTo handle async errors, wrap your component in an error boundary, or call the promise's `.catch` method and pass the result to `use`.");
+	function trackUsedThenable(thenableState, thenable, index) {
+		index = thenableState[index];
+		void 0 === index ? thenableState.push(thenable) : index !== thenable && (thenable.then(noop, noop), thenable = index);
+		switch (thenable.status) {
+			case "fulfilled": return thenable.value;
+			case "rejected": throw thenable.reason;
+			default:
+				"string" === typeof thenable.status ? thenable.then(noop, noop) : (thenableState = thenable, thenableState.status = "pending", thenableState.then(function(fulfilledValue) {
+					if ("pending" === thenable.status) {
+						var fulfilledThenable = thenable;
+						fulfilledThenable.status = "fulfilled";
+						fulfilledThenable.value = fulfilledValue;
+					}
+				}, function(error) {
+					if ("pending" === thenable.status) {
+						var rejectedThenable = thenable;
+						rejectedThenable.status = "rejected";
+						rejectedThenable.reason = error;
+					}
+				}));
+				switch (thenable.status) {
+					case "fulfilled": return thenable.value;
+					case "rejected": throw thenable.reason;
+				}
+				suspendedThenable = thenable;
+				throw SuspenseException;
+		}
+	}
+	var suspendedThenable = null;
+	function getSuspendedThenable() {
+		if (null === suspendedThenable) throw Error("Expected a suspended thenable. This is a bug in React. Please file an issue.");
+		var thenable = suspendedThenable;
+		suspendedThenable = null;
+		return thenable;
+	}
+	function is(x, y) {
+		return x === y && (0 !== x || 1 / x === 1 / y) || x !== x && y !== y;
+	}
+	var objectIs = "function" === typeof Object.is ? Object.is : is, currentlyRenderingComponent = null, currentlyRenderingTask = null, currentlyRenderingRequest = null, currentlyRenderingKeyPath = null, firstWorkInProgressHook = null, workInProgressHook = null, isReRender = !1, didScheduleRenderPhaseUpdate = !1, localIdCounter = 0, actionStateCounter = 0, actionStateMatchingIndex = -1, thenableIndexCounter = 0, thenableState = null, renderPhaseUpdates = null, numberOfReRenders = 0;
+	function resolveCurrentlyRenderingComponent() {
+		if (null === currentlyRenderingComponent) throw Error("Invalid hook call. Hooks can only be called inside of the body of a function component. This could happen for one of the following reasons:\n1. You might have mismatching versions of React and the renderer (such as React DOM)\n2. You might be breaking the Rules of Hooks\n3. You might have more than one copy of React in the same app\nSee https://react.dev/link/invalid-hook-call for tips about how to debug and fix this problem.");
+		return currentlyRenderingComponent;
+	}
+	function createHook() {
+		if (0 < numberOfReRenders) throw Error("Rendered more hooks than during the previous render");
+		return {
+			memoizedState: null,
+			queue: null,
+			next: null
+		};
+	}
+	function createWorkInProgressHook() {
+		null === workInProgressHook ? null === firstWorkInProgressHook ? (isReRender = !1, firstWorkInProgressHook = workInProgressHook = createHook()) : (isReRender = !0, workInProgressHook = firstWorkInProgressHook) : null === workInProgressHook.next ? (isReRender = !1, workInProgressHook = workInProgressHook.next = createHook()) : (isReRender = !0, workInProgressHook = workInProgressHook.next);
+		return workInProgressHook;
+	}
+	function getThenableStateAfterSuspending() {
+		var state = thenableState;
+		thenableState = null;
+		return state;
+	}
+	function resetHooksState() {
+		currentlyRenderingKeyPath = currentlyRenderingRequest = currentlyRenderingTask = currentlyRenderingComponent = null;
+		didScheduleRenderPhaseUpdate = !1;
+		firstWorkInProgressHook = null;
+		numberOfReRenders = 0;
+		workInProgressHook = renderPhaseUpdates = null;
+	}
+	function basicStateReducer(state, action) {
+		return "function" === typeof action ? action(state) : action;
+	}
+	function useReducer(reducer, initialArg, init) {
+		currentlyRenderingComponent = resolveCurrentlyRenderingComponent();
+		workInProgressHook = createWorkInProgressHook();
+		if (isReRender) {
+			var queue = workInProgressHook.queue;
+			initialArg = queue.dispatch;
+			if (null !== renderPhaseUpdates && (init = renderPhaseUpdates.get(queue), void 0 !== init)) {
+				renderPhaseUpdates.delete(queue);
+				queue = workInProgressHook.memoizedState;
+				do
+					queue = reducer(queue, init.action), init = init.next;
+				while (null !== init);
+				workInProgressHook.memoizedState = queue;
+				return [queue, initialArg];
+			}
+			return [workInProgressHook.memoizedState, initialArg];
+		}
+		reducer = reducer === basicStateReducer ? "function" === typeof initialArg ? initialArg() : initialArg : void 0 !== init ? init(initialArg) : initialArg;
+		workInProgressHook.memoizedState = reducer;
+		reducer = workInProgressHook.queue = {
+			last: null,
+			dispatch: null
+		};
+		reducer = reducer.dispatch = dispatchAction.bind(null, currentlyRenderingComponent, reducer);
+		return [workInProgressHook.memoizedState, reducer];
+	}
+	function useMemo(nextCreate, deps) {
+		currentlyRenderingComponent = resolveCurrentlyRenderingComponent();
+		workInProgressHook = createWorkInProgressHook();
+		deps = void 0 === deps ? null : deps;
+		if (null !== workInProgressHook) {
+			var prevState = workInProgressHook.memoizedState;
+			if (null !== prevState && null !== deps) {
+				var prevDeps = prevState[1];
+				a: if (null === prevDeps) prevDeps = !1;
+				else {
+					for (var i = 0; i < prevDeps.length && i < deps.length; i++) if (!objectIs(deps[i], prevDeps[i])) {
+						prevDeps = !1;
+						break a;
+					}
+					prevDeps = !0;
+				}
+				if (prevDeps) return prevState[0];
+			}
+		}
+		nextCreate = nextCreate();
+		workInProgressHook.memoizedState = [nextCreate, deps];
+		return nextCreate;
+	}
+	function dispatchAction(componentIdentity, queue, action) {
+		if (25 <= numberOfReRenders) throw Error("Too many re-renders. React limits the number of renders to prevent an infinite loop.");
+		if (componentIdentity === currentlyRenderingComponent) if (didScheduleRenderPhaseUpdate = !0, componentIdentity = {
+			action,
+			next: null
+		}, null === renderPhaseUpdates && (renderPhaseUpdates = /* @__PURE__ */ new Map()), action = renderPhaseUpdates.get(queue), void 0 === action) renderPhaseUpdates.set(queue, componentIdentity);
+		else {
+			for (queue = action; null !== queue.next;) queue = queue.next;
+			queue.next = componentIdentity;
+		}
+	}
+	function throwOnUseEffectEventCall() {
+		throw Error("A function wrapped in useEffectEvent can't be called during rendering.");
+	}
+	function unsupportedStartTransition() {
+		throw Error("startTransition cannot be called during server rendering.");
+	}
+	function unsupportedSetOptimisticState() {
+		throw Error("Cannot update optimistic state while rendering.");
+	}
+	function createPostbackActionStateKey(permalink, componentKeyPath, hookIndex) {
+		if (void 0 !== permalink) return "p" + permalink;
+		permalink = JSON.stringify([
+			componentKeyPath,
+			null,
+			hookIndex
+		]);
+		componentKeyPath = crypto.createHash("md5");
+		componentKeyPath.update(permalink);
+		return "k" + componentKeyPath.digest("hex");
+	}
+	function useActionState(action, initialState, permalink) {
+		resolveCurrentlyRenderingComponent();
+		var actionStateHookIndex = actionStateCounter++, request = currentlyRenderingRequest;
+		if ("function" === typeof action.$$FORM_ACTION) {
+			var nextPostbackStateKey = null, componentKeyPath = currentlyRenderingKeyPath;
+			request = request.formState;
+			var isSignatureEqual = action.$$IS_SIGNATURE_EQUAL;
+			if (null !== request && "function" === typeof isSignatureEqual) {
+				var postbackKey = request[1];
+				isSignatureEqual.call(action, request[2], request[3]) && (nextPostbackStateKey = createPostbackActionStateKey(permalink, componentKeyPath, actionStateHookIndex), postbackKey === nextPostbackStateKey && (actionStateMatchingIndex = actionStateHookIndex, initialState = request[0]));
+			}
+			var boundAction = action.bind(null, initialState);
+			action = function(payload) {
+				boundAction(payload);
+			};
+			"function" === typeof boundAction.$$FORM_ACTION && (action.$$FORM_ACTION = function(prefix) {
+				prefix = boundAction.$$FORM_ACTION(prefix);
+				void 0 !== permalink && (permalink += "", prefix.action = permalink);
+				var formData = prefix.data;
+				formData && (null === nextPostbackStateKey && (nextPostbackStateKey = createPostbackActionStateKey(permalink, componentKeyPath, actionStateHookIndex)), formData.append("$ACTION_KEY", nextPostbackStateKey));
+				return prefix;
+			});
+			return [
+				initialState,
+				action,
+				!1
+			];
+		}
+		var boundAction$22 = action.bind(null, initialState);
+		return [
+			initialState,
+			function(payload) {
+				boundAction$22(payload);
+			},
+			!1
+		];
+	}
+	function unwrapThenable(thenable) {
+		var index = thenableIndexCounter;
+		thenableIndexCounter += 1;
+		null === thenableState && (thenableState = []);
+		return trackUsedThenable(thenableState, thenable, index);
+	}
+	function unsupportedRefresh() {
+		throw Error("Cache cannot be refreshed during server rendering.");
+	}
+	var HooksDispatcher = {
+		readContext: function(context) {
+			return context._currentValue;
+		},
+		use: function(usable) {
+			if (null !== usable && "object" === typeof usable) {
+				if ("function" === typeof usable.then) return unwrapThenable(usable);
+				if (usable.$$typeof === REACT_CONTEXT_TYPE) return usable._currentValue;
+			}
+			throw Error("An unsupported type was passed to use(): " + String(usable));
+		},
+		useContext: function(context) {
+			resolveCurrentlyRenderingComponent();
+			return context._currentValue;
+		},
+		useMemo,
+		useReducer,
+		useRef: function(initialValue) {
+			currentlyRenderingComponent = resolveCurrentlyRenderingComponent();
+			workInProgressHook = createWorkInProgressHook();
+			var previousRef = workInProgressHook.memoizedState;
+			return null === previousRef ? (initialValue = { current: initialValue }, workInProgressHook.memoizedState = initialValue) : previousRef;
+		},
+		useState: function(initialState) {
+			return useReducer(basicStateReducer, initialState);
+		},
+		useInsertionEffect: noop,
+		useLayoutEffect: noop,
+		useCallback: function(callback, deps) {
+			return useMemo(function() {
+				return callback;
+			}, deps);
+		},
+		useImperativeHandle: noop,
+		useEffect: noop,
+		useDebugValue: noop,
+		useDeferredValue: function(value, initialValue) {
+			resolveCurrentlyRenderingComponent();
+			return void 0 !== initialValue ? initialValue : value;
+		},
+		useTransition: function() {
+			resolveCurrentlyRenderingComponent();
+			return [!1, unsupportedStartTransition];
+		},
+		useId: function() {
+			var JSCompiler_inline_result = currentlyRenderingTask.treeContext;
+			var overflow = JSCompiler_inline_result.overflow;
+			JSCompiler_inline_result = JSCompiler_inline_result.id;
+			JSCompiler_inline_result = (JSCompiler_inline_result & ~(1 << 32 - clz32(JSCompiler_inline_result) - 1)).toString(32) + overflow;
+			var resumableState = currentResumableState;
+			if (null === resumableState) throw Error("Invalid hook call. Hooks can only be called inside of the body of a function component.");
+			overflow = localIdCounter++;
+			JSCompiler_inline_result = "_" + resumableState.idPrefix + "R_" + JSCompiler_inline_result;
+			0 < overflow && (JSCompiler_inline_result += "H" + overflow.toString(32));
+			return JSCompiler_inline_result + "_";
+		},
+		useSyncExternalStore: function(subscribe, getSnapshot, getServerSnapshot) {
+			if (void 0 === getServerSnapshot) throw Error("Missing getServerSnapshot, which is required for server-rendered content. Will revert to client rendering.");
+			return getServerSnapshot();
+		},
+		useOptimistic: function(passthrough) {
+			resolveCurrentlyRenderingComponent();
+			return [passthrough, unsupportedSetOptimisticState];
+		},
+		useActionState,
+		useFormState: useActionState,
+		useHostTransitionStatus: function() {
+			resolveCurrentlyRenderingComponent();
+			return sharedNotPendingObject;
+		},
+		useMemoCache: function(size) {
+			for (var data = Array(size), i = 0; i < size; i++) data[i] = REACT_MEMO_CACHE_SENTINEL;
+			return data;
+		},
+		useCacheRefresh: function() {
+			return unsupportedRefresh;
+		},
+		useEffectEvent: function() {
+			return throwOnUseEffectEventCall;
+		}
+	}, currentResumableState = null, DefaultAsyncDispatcher = {
+		getCacheForType: function() {
+			throw Error("Not implemented.");
+		},
+		cacheSignal: function() {
+			throw Error("Not implemented.");
+		}
+	};
+	function prepareStackTrace(error, structuredStackTrace) {
+		error = (error.name || "Error") + ": " + (error.message || "");
+		for (var i = 0; i < structuredStackTrace.length; i++) error += "\n    at " + structuredStackTrace[i].toString();
+		return error;
+	}
+	var prefix, suffix;
+	function describeBuiltInComponentFrame(name) {
+		if (void 0 === prefix) try {
+			throw Error();
+		} catch (x) {
+			var match = x.stack.trim().match(/\n( *(at )?)/);
+			prefix = match && match[1] || "";
+			suffix = -1 < x.stack.indexOf("\n    at") ? " (<anonymous>)" : -1 < x.stack.indexOf("@") ? "@unknown:0:0" : "";
+		}
+		return "\n" + prefix + name + suffix;
+	}
+	var reentry = !1;
+	function describeNativeComponentFrame(fn, construct) {
+		if (!fn || reentry) return "";
+		reentry = !0;
+		var previousPrepareStackTrace = Error.prepareStackTrace;
+		Error.prepareStackTrace = prepareStackTrace;
+		try {
+			var RunInRootFrame = { DetermineComponentFrameRoot: function() {
+				try {
+					if (construct) {
+						var Fake = function() {
+							throw Error();
+						};
+						Object.defineProperty(Fake.prototype, "props", { set: function() {
+							throw Error();
+						} });
+						if ("object" === typeof Reflect && Reflect.construct) {
+							try {
+								Reflect.construct(Fake, []);
+							} catch (x) {
+								var control = x;
+							}
+							Reflect.construct(fn, [], Fake);
+						} else {
+							try {
+								Fake.call();
+							} catch (x$24) {
+								control = x$24;
+							}
+							fn.call(Fake.prototype);
+						}
+					} else {
+						try {
+							throw Error();
+						} catch (x$25) {
+							control = x$25;
+						}
+						(Fake = fn()) && "function" === typeof Fake.catch && Fake.catch(function() {});
+					}
+				} catch (sample) {
+					if (sample && control && "string" === typeof sample.stack) return [sample.stack, control.stack];
+				}
+				return [null, null];
+			} };
+			RunInRootFrame.DetermineComponentFrameRoot.displayName = "DetermineComponentFrameRoot";
+			var namePropDescriptor = Object.getOwnPropertyDescriptor(RunInRootFrame.DetermineComponentFrameRoot, "name");
+			namePropDescriptor && namePropDescriptor.configurable && Object.defineProperty(RunInRootFrame.DetermineComponentFrameRoot, "name", { value: "DetermineComponentFrameRoot" });
+			var _RunInRootFrame$Deter = RunInRootFrame.DetermineComponentFrameRoot(), sampleStack = _RunInRootFrame$Deter[0], controlStack = _RunInRootFrame$Deter[1];
+			if (sampleStack && controlStack) {
+				var sampleLines = sampleStack.split("\n"), controlLines = controlStack.split("\n");
+				for (namePropDescriptor = RunInRootFrame = 0; RunInRootFrame < sampleLines.length && !sampleLines[RunInRootFrame].includes("DetermineComponentFrameRoot");) RunInRootFrame++;
+				for (; namePropDescriptor < controlLines.length && !controlLines[namePropDescriptor].includes("DetermineComponentFrameRoot");) namePropDescriptor++;
+				if (RunInRootFrame === sampleLines.length || namePropDescriptor === controlLines.length) for (RunInRootFrame = sampleLines.length - 1, namePropDescriptor = controlLines.length - 1; 1 <= RunInRootFrame && 0 <= namePropDescriptor && sampleLines[RunInRootFrame] !== controlLines[namePropDescriptor];) namePropDescriptor--;
+				for (; 1 <= RunInRootFrame && 0 <= namePropDescriptor; RunInRootFrame--, namePropDescriptor--) if (sampleLines[RunInRootFrame] !== controlLines[namePropDescriptor]) {
+					if (1 !== RunInRootFrame || 1 !== namePropDescriptor) do
+						if (RunInRootFrame--, namePropDescriptor--, 0 > namePropDescriptor || sampleLines[RunInRootFrame] !== controlLines[namePropDescriptor]) {
+							var frame = "\n" + sampleLines[RunInRootFrame].replace(" at new ", " at ");
+							fn.displayName && frame.includes("<anonymous>") && (frame = frame.replace("<anonymous>", fn.displayName));
+							return frame;
+						}
+					while (1 <= RunInRootFrame && 0 <= namePropDescriptor);
+					break;
+				}
+			}
+		} finally {
+			reentry = !1, Error.prepareStackTrace = previousPrepareStackTrace;
+		}
+		return (previousPrepareStackTrace = fn ? fn.displayName || fn.name : "") ? describeBuiltInComponentFrame(previousPrepareStackTrace) : "";
+	}
+	function describeComponentStackByType(type) {
+		if ("string" === typeof type) return describeBuiltInComponentFrame(type);
+		if ("function" === typeof type) return type.prototype && type.prototype.isReactComponent ? describeNativeComponentFrame(type, !0) : describeNativeComponentFrame(type, !1);
+		if ("object" === typeof type && null !== type) {
+			switch (type.$$typeof) {
+				case REACT_FORWARD_REF_TYPE: return describeNativeComponentFrame(type.render, !1);
+				case REACT_MEMO_TYPE: return describeNativeComponentFrame(type.type, !1);
+				case REACT_LAZY_TYPE:
+					var lazyComponent = type, payload = lazyComponent._payload;
+					lazyComponent = lazyComponent._init;
+					try {
+						type = lazyComponent(payload);
+					} catch (x) {
+						return describeBuiltInComponentFrame("Lazy");
+					}
+					return describeComponentStackByType(type);
+			}
+			if ("string" === typeof type.name) {
+				a: {
+					payload = type.name;
+					lazyComponent = type.env;
+					var location = type.debugLocation;
+					if (null != location && (type = Error.prepareStackTrace, Error.prepareStackTrace = prepareStackTrace, location = location.stack, Error.prepareStackTrace = type, location.startsWith("Error: react-stack-top-frame\n") && (location = location.slice(29)), type = location.indexOf("\n"), -1 !== type && (location = location.slice(type + 1)), type = location.indexOf("react_stack_bottom_frame"), -1 !== type && (type = location.lastIndexOf("\n", type)), type = -1 !== type ? location = location.slice(0, type) : "", location = type.lastIndexOf("\n"), type = -1 === location ? type : type.slice(location + 1), -1 !== type.indexOf(payload))) {
+						payload = "\n" + type;
+						break a;
+					}
+					payload = describeBuiltInComponentFrame(payload + (lazyComponent ? " [" + lazyComponent + "]" : ""));
+				}
+				return payload;
+			}
+		}
+		switch (type) {
+			case REACT_SUSPENSE_LIST_TYPE: return describeBuiltInComponentFrame("SuspenseList");
+			case REACT_SUSPENSE_TYPE: return describeBuiltInComponentFrame("Suspense");
+		}
+		return "";
+	}
+	function isEligibleForOutlining(request, boundary) {
+		return (500 < boundary.byteSize || hasSuspenseyContent(boundary.contentState)) && null === boundary.contentPreamble;
+	}
+	function defaultErrorHandler(error) {
+		if ("object" === typeof error && null !== error && "string" === typeof error.environmentName) {
+			var JSCompiler_inline_result = error.environmentName;
+			error = [error].slice(0);
+			"string" === typeof error[0] ? error.splice(0, 1, "\x1B[0m\x1B[7m%c%s\x1B[0m%c " + error[0], "background: #e6e6e6;background: light-dark(rgba(0,0,0,0.1), rgba(255,255,255,0.25));color: #000000;color: light-dark(#000000, #ffffff);border-radius: 2px", " " + JSCompiler_inline_result + " ", "") : error.splice(0, 0, "\x1B[0m\x1B[7m%c%s\x1B[0m%c", "background: #e6e6e6;background: light-dark(rgba(0,0,0,0.1), rgba(255,255,255,0.25));color: #000000;color: light-dark(#000000, #ffffff);border-radius: 2px", " " + JSCompiler_inline_result + " ", "");
+			error.unshift(console);
+			JSCompiler_inline_result = bind.apply(console.error, error);
+			JSCompiler_inline_result();
+		} else console.error(error);
+		return null;
+	}
+	function RequestInstance(resumableState, renderState, rootFormatContext, progressiveChunkSize, onError, onAllReady, onShellReady, onShellError, onFatalError, onPostpone, formState) {
+		var abortSet = /* @__PURE__ */ new Set();
+		this.destination = null;
+		this.flushScheduled = !1;
+		this.resumableState = resumableState;
+		this.renderState = renderState;
+		this.rootFormatContext = rootFormatContext;
+		this.progressiveChunkSize = void 0 === progressiveChunkSize ? 12800 : progressiveChunkSize;
+		this.status = 10;
+		this.fatalError = null;
+		this.pendingRootTasks = this.allPendingTasks = this.nextSegmentId = 0;
+		this.completedPreambleSegments = this.completedRootSegment = null;
+		this.byteSize = 0;
+		this.abortableTasks = abortSet;
+		this.pingedTasks = [];
+		this.clientRenderedBoundaries = [];
+		this.completedBoundaries = [];
+		this.partialBoundaries = [];
+		this.trackedPostpones = null;
+		this.onError = void 0 === onError ? defaultErrorHandler : onError;
+		this.onPostpone = void 0 === onPostpone ? noop : onPostpone;
+		this.onAllReady = void 0 === onAllReady ? noop : onAllReady;
+		this.onShellReady = void 0 === onShellReady ? noop : onShellReady;
+		this.onShellError = void 0 === onShellError ? noop : onShellError;
+		this.onFatalError = void 0 === onFatalError ? noop : onFatalError;
+		this.formState = void 0 === formState ? null : formState;
+	}
+	function createRequest(children, resumableState, renderState, rootFormatContext, progressiveChunkSize, onError, onAllReady, onShellReady, onShellError, onFatalError, onPostpone, formState) {
+		resumableState = new RequestInstance(resumableState, renderState, rootFormatContext, progressiveChunkSize, onError, onAllReady, onShellReady, onShellError, onFatalError, onPostpone, formState);
+		renderState = createPendingSegment(resumableState, 0, null, rootFormatContext, !1, !1);
+		renderState.parentFlushed = !0;
+		children = createRenderTask(resumableState, null, children, -1, null, renderState, null, null, resumableState.abortableTasks, null, rootFormatContext, null, emptyTreeContext, null, null);
+		pushComponentStack(children);
+		resumableState.pingedTasks.push(children);
+		return resumableState;
+	}
+	function createPrerenderRequest(children, resumableState, renderState, rootFormatContext, progressiveChunkSize, onError, onAllReady, onShellReady, onShellError, onFatalError, onPostpone) {
+		children = createRequest(children, resumableState, renderState, rootFormatContext, progressiveChunkSize, onError, onAllReady, onShellReady, onShellError, onFatalError, onPostpone, void 0);
+		children.trackedPostpones = {
+			workingMap: /* @__PURE__ */ new Map(),
+			rootNodes: [],
+			rootSlots: null
+		};
+		return children;
+	}
+	function resumeRequest(children, postponedState, renderState, onError, onAllReady, onShellReady, onShellError, onFatalError, onPostpone) {
+		renderState = new RequestInstance(postponedState.resumableState, renderState, postponedState.rootFormatContext, postponedState.progressiveChunkSize, onError, onAllReady, onShellReady, onShellError, onFatalError, onPostpone, null);
+		renderState.nextSegmentId = postponedState.nextSegmentId;
+		if ("number" === typeof postponedState.replaySlots) return onError = createPendingSegment(renderState, 0, null, postponedState.rootFormatContext, !1, !1), onError.parentFlushed = !0, children = createRenderTask(renderState, null, children, -1, null, onError, null, null, renderState.abortableTasks, null, postponedState.rootFormatContext, null, emptyTreeContext, null, null), pushComponentStack(children), renderState.pingedTasks.push(children), renderState;
+		children = createReplayTask(renderState, null, {
+			nodes: postponedState.replayNodes,
+			slots: postponedState.replaySlots,
+			pendingTasks: 0
+		}, children, -1, null, null, renderState.abortableTasks, null, postponedState.rootFormatContext, null, emptyTreeContext, null, null);
+		pushComponentStack(children);
+		renderState.pingedTasks.push(children);
+		return renderState;
+	}
+	function resumeAndPrerenderRequest(children, postponedState, renderState, onError, onAllReady, onShellReady, onShellError, onFatalError, onPostpone) {
+		children = resumeRequest(children, postponedState, renderState, onError, onAllReady, onShellReady, onShellError, onFatalError, onPostpone);
+		children.trackedPostpones = {
+			workingMap: /* @__PURE__ */ new Map(),
+			rootNodes: [],
+			rootSlots: null
+		};
+		return children;
+	}
+	var currentRequest = null;
+	function resolveRequest() {
+		if (currentRequest) return currentRequest;
+		var store = requestStorage.getStore();
+		return store ? store : null;
+	}
+	function pingTask(request, task) {
+		request.pingedTasks.push(task);
+		1 === request.pingedTasks.length && (request.flushScheduled = null !== request.destination, null !== request.trackedPostpones || 10 === request.status ? scheduleMicrotask(function() {
+			return performWork(request);
+		}) : setImmediate(function() {
+			return performWork(request);
+		}));
+	}
+	function createSuspenseBoundary(request, row, fallbackAbortableTasks, contentPreamble, fallbackPreamble) {
+		fallbackAbortableTasks = {
+			status: 0,
+			rootSegmentID: -1,
+			parentFlushed: !1,
+			pendingTasks: 0,
+			row,
+			completedSegments: [],
+			byteSize: 0,
+			fallbackAbortableTasks,
+			errorDigest: null,
+			contentState: createHoistableState(),
+			fallbackState: createHoistableState(),
+			contentPreamble,
+			fallbackPreamble,
+			trackedContentKeyPath: null,
+			trackedFallbackNode: null
+		};
+		null !== row && (row.pendingTasks++, contentPreamble = row.boundaries, null !== contentPreamble && (request.allPendingTasks++, fallbackAbortableTasks.pendingTasks++, contentPreamble.push(fallbackAbortableTasks)), request = row.inheritedHoistables, null !== request && hoistHoistables(fallbackAbortableTasks.contentState, request));
+		return fallbackAbortableTasks;
+	}
+	function createRenderTask(request, thenableState, node, childIndex, blockedBoundary, blockedSegment, blockedPreamble, hoistableState, abortSet, keyPath, formatContext, context, treeContext, row, componentStack) {
+		request.allPendingTasks++;
+		null === blockedBoundary ? request.pendingRootTasks++ : blockedBoundary.pendingTasks++;
+		null !== row && row.pendingTasks++;
+		var task = {
+			replay: null,
+			node,
+			childIndex,
+			ping: function() {
+				return pingTask(request, task);
+			},
+			blockedBoundary,
+			blockedSegment,
+			blockedPreamble,
+			hoistableState,
+			abortSet,
+			keyPath,
+			formatContext,
+			context,
+			treeContext,
+			row,
+			componentStack,
+			thenableState
+		};
+		abortSet.add(task);
+		return task;
+	}
+	function createReplayTask(request, thenableState, replay, node, childIndex, blockedBoundary, hoistableState, abortSet, keyPath, formatContext, context, treeContext, row, componentStack) {
+		request.allPendingTasks++;
+		null === blockedBoundary ? request.pendingRootTasks++ : blockedBoundary.pendingTasks++;
+		null !== row && row.pendingTasks++;
+		replay.pendingTasks++;
+		var task = {
+			replay,
+			node,
+			childIndex,
+			ping: function() {
+				return pingTask(request, task);
+			},
+			blockedBoundary,
+			blockedSegment: null,
+			blockedPreamble: null,
+			hoistableState,
+			abortSet,
+			keyPath,
+			formatContext,
+			context,
+			treeContext,
+			row,
+			componentStack,
+			thenableState
+		};
+		abortSet.add(task);
+		return task;
+	}
+	function createPendingSegment(request, index, boundary, parentFormatContext, lastPushedText, textEmbedded) {
+		return {
+			status: 0,
+			parentFlushed: !1,
+			id: -1,
+			index,
+			chunks: [],
+			children: [],
+			preambleChildren: [],
+			parentFormatContext,
+			boundary,
+			lastPushedText,
+			textEmbedded
+		};
+	}
+	function pushComponentStack(task) {
+		var node = task.node;
+		if ("object" === typeof node && null !== node) switch (node.$$typeof) {
+			case REACT_ELEMENT_TYPE: task.componentStack = {
+				parent: task.componentStack,
+				type: node.type
+			};
+		}
+	}
+	function replaceSuspenseComponentStackWithSuspenseFallbackStack(componentStack) {
+		return null === componentStack ? null : {
+			parent: componentStack.parent,
+			type: "Suspense Fallback"
+		};
+	}
+	function getThrownInfo(node$jscomp$0) {
+		var errorInfo = {};
+		node$jscomp$0 && Object.defineProperty(errorInfo, "componentStack", {
+			configurable: !0,
+			enumerable: !0,
+			get: function() {
+				try {
+					var info = "", node = node$jscomp$0;
+					do
+						info += describeComponentStackByType(node.type), node = node.parent;
+					while (node);
+					var JSCompiler_inline_result = info;
+				} catch (x) {
+					JSCompiler_inline_result = "\nError generating stack: " + x.message + "\n" + x.stack;
+				}
+				Object.defineProperty(errorInfo, "componentStack", { value: JSCompiler_inline_result });
+				return JSCompiler_inline_result;
+			}
+		});
+		return errorInfo;
+	}
+	function logRecoverableError(request, error, errorInfo) {
+		request = request.onError;
+		error = request(error, errorInfo);
+		if (null == error || "string" === typeof error) return error;
+	}
+	function fatalError(request, error) {
+		var onShellError = request.onShellError, onFatalError = request.onFatalError;
+		onShellError(error);
+		onFatalError(error);
+		null !== request.destination ? (request.status = 14, request.destination.destroy(error)) : (request.status = 13, request.fatalError = error);
+	}
+	function finishSuspenseListRow(request, row) {
+		unblockSuspenseListRow(request, row.next, row.hoistables);
+	}
+	function unblockSuspenseListRow(request, unblockedRow, inheritedHoistables) {
+		for (; null !== unblockedRow;) {
+			null !== inheritedHoistables && (hoistHoistables(unblockedRow.hoistables, inheritedHoistables), unblockedRow.inheritedHoistables = inheritedHoistables);
+			var unblockedBoundaries = unblockedRow.boundaries;
+			if (null !== unblockedBoundaries) {
+				unblockedRow.boundaries = null;
+				for (var i = 0; i < unblockedBoundaries.length; i++) {
+					var unblockedBoundary = unblockedBoundaries[i];
+					null !== inheritedHoistables && hoistHoistables(unblockedBoundary.contentState, inheritedHoistables);
+					finishedTask(request, unblockedBoundary, null, null);
+				}
+			}
+			unblockedRow.pendingTasks--;
+			if (0 < unblockedRow.pendingTasks) break;
+			inheritedHoistables = unblockedRow.hoistables;
+			unblockedRow = unblockedRow.next;
+		}
+	}
+	function tryToResolveTogetherRow(request, togetherRow) {
+		var boundaries = togetherRow.boundaries;
+		if (null !== boundaries && togetherRow.pendingTasks === boundaries.length) {
+			for (var allCompleteAndInlinable = !0, i = 0; i < boundaries.length; i++) {
+				var rowBoundary = boundaries[i];
+				if (1 !== rowBoundary.pendingTasks || rowBoundary.parentFlushed || isEligibleForOutlining(request, rowBoundary)) {
+					allCompleteAndInlinable = !1;
+					break;
+				}
+			}
+			allCompleteAndInlinable && unblockSuspenseListRow(request, togetherRow, togetherRow.hoistables);
+		}
+	}
+	function createSuspenseListRow(previousRow) {
+		var newRow = {
+			pendingTasks: 1,
+			boundaries: null,
+			hoistables: createHoistableState(),
+			inheritedHoistables: null,
+			together: !1,
+			next: null
+		};
+		null !== previousRow && 0 < previousRow.pendingTasks && (newRow.pendingTasks++, newRow.boundaries = [], previousRow.next = newRow);
+		return newRow;
+	}
+	function renderSuspenseListRows(request, task, keyPath, rows, revealOrder) {
+		var prevKeyPath = task.keyPath, prevTreeContext = task.treeContext, prevRow = task.row;
+		task.keyPath = keyPath;
+		keyPath = rows.length;
+		var previousSuspenseListRow = null;
+		if (null !== task.replay) {
+			var resumeSlots = task.replay.slots;
+			if (null !== resumeSlots && "object" === typeof resumeSlots) for (var n = 0; n < keyPath; n++) {
+				var i = "backwards" !== revealOrder && "unstable_legacy-backwards" !== revealOrder ? n : keyPath - 1 - n, node = rows[i];
+				task.row = previousSuspenseListRow = createSuspenseListRow(previousSuspenseListRow);
+				task.treeContext = pushTreeContext(prevTreeContext, keyPath, i);
+				var resumeSegmentID = resumeSlots[i];
+				"number" === typeof resumeSegmentID ? (resumeNode(request, task, resumeSegmentID, node, i), delete resumeSlots[i]) : renderNode(request, task, node, i);
+				0 === --previousSuspenseListRow.pendingTasks && finishSuspenseListRow(request, previousSuspenseListRow);
+			}
+			else for (resumeSlots = 0; resumeSlots < keyPath; resumeSlots++) n = "backwards" !== revealOrder && "unstable_legacy-backwards" !== revealOrder ? resumeSlots : keyPath - 1 - resumeSlots, i = rows[n], task.row = previousSuspenseListRow = createSuspenseListRow(previousSuspenseListRow), task.treeContext = pushTreeContext(prevTreeContext, keyPath, n), renderNode(request, task, i, n), 0 === --previousSuspenseListRow.pendingTasks && finishSuspenseListRow(request, previousSuspenseListRow);
+		} else if ("backwards" !== revealOrder && "unstable_legacy-backwards" !== revealOrder) for (revealOrder = 0; revealOrder < keyPath; revealOrder++) resumeSlots = rows[revealOrder], task.row = previousSuspenseListRow = createSuspenseListRow(previousSuspenseListRow), task.treeContext = pushTreeContext(prevTreeContext, keyPath, revealOrder), renderNode(request, task, resumeSlots, revealOrder), 0 === --previousSuspenseListRow.pendingTasks && finishSuspenseListRow(request, previousSuspenseListRow);
+		else {
+			revealOrder = task.blockedSegment;
+			resumeSlots = revealOrder.children.length;
+			n = revealOrder.chunks.length;
+			for (i = keyPath - 1; 0 <= i; i--) {
+				node = rows[i];
+				task.row = previousSuspenseListRow = createSuspenseListRow(previousSuspenseListRow);
+				task.treeContext = pushTreeContext(prevTreeContext, keyPath, i);
+				resumeSegmentID = createPendingSegment(request, n, null, task.formatContext, 0 === i ? revealOrder.lastPushedText : !0, !0);
+				revealOrder.children.splice(resumeSlots, 0, resumeSegmentID);
+				task.blockedSegment = resumeSegmentID;
+				try {
+					renderNode(request, task, node, i), resumeSegmentID.lastPushedText && resumeSegmentID.textEmbedded && resumeSegmentID.chunks.push(textSeparator), resumeSegmentID.status = 1, finishedSegment(request, task.blockedBoundary, resumeSegmentID), 0 === --previousSuspenseListRow.pendingTasks && finishSuspenseListRow(request, previousSuspenseListRow);
+				} catch (thrownValue) {
+					throw resumeSegmentID.status = 12 === request.status ? 3 : 4, thrownValue;
+				}
+			}
+			task.blockedSegment = revealOrder;
+			revealOrder.lastPushedText = !1;
+		}
+		null !== prevRow && null !== previousSuspenseListRow && 0 < previousSuspenseListRow.pendingTasks && (prevRow.pendingTasks++, previousSuspenseListRow.next = prevRow);
+		task.treeContext = prevTreeContext;
+		task.row = prevRow;
+		task.keyPath = prevKeyPath;
+	}
+	function renderWithHooks(request, task, keyPath, Component, props, secondArg) {
+		var prevThenableState = task.thenableState;
+		task.thenableState = null;
+		currentlyRenderingComponent = {};
+		currentlyRenderingTask = task;
+		currentlyRenderingRequest = request;
+		currentlyRenderingKeyPath = keyPath;
+		actionStateCounter = localIdCounter = 0;
+		actionStateMatchingIndex = -1;
+		thenableIndexCounter = 0;
+		thenableState = prevThenableState;
+		for (request = Component(props, secondArg); didScheduleRenderPhaseUpdate;) didScheduleRenderPhaseUpdate = !1, actionStateCounter = localIdCounter = 0, actionStateMatchingIndex = -1, thenableIndexCounter = 0, numberOfReRenders += 1, workInProgressHook = null, request = Component(props, secondArg);
+		resetHooksState();
+		return request;
+	}
+	function finishFunctionComponent(request, task, keyPath, children, hasId, actionStateCount, actionStateMatchingIndex) {
+		var didEmitActionStateMarkers = !1;
+		if (0 !== actionStateCount && null !== request.formState) {
+			var segment = task.blockedSegment;
+			if (null !== segment) {
+				didEmitActionStateMarkers = !0;
+				segment = segment.chunks;
+				for (var i = 0; i < actionStateCount; i++) i === actionStateMatchingIndex ? segment.push(formStateMarkerIsMatching) : segment.push(formStateMarkerIsNotMatching);
+			}
+		}
+		actionStateCount = task.keyPath;
+		task.keyPath = keyPath;
+		hasId ? (keyPath = task.treeContext, task.treeContext = pushTreeContext(keyPath, 1, 0), renderNode(request, task, children, -1), task.treeContext = keyPath) : didEmitActionStateMarkers ? renderNode(request, task, children, -1) : renderNodeDestructive(request, task, children, -1);
+		task.keyPath = actionStateCount;
+	}
+	function renderElement(request, task, keyPath, type, props, ref) {
+		if ("function" === typeof type) if (type.prototype && type.prototype.isReactComponent) {
+			var newProps = props;
+			if ("ref" in props) {
+				newProps = {};
+				for (var propName in props) "ref" !== propName && (newProps[propName] = props[propName]);
+			}
+			var defaultProps = type.defaultProps;
+			if (defaultProps) {
+				newProps === props && (newProps = assign({}, newProps, props));
+				for (var propName$44 in defaultProps) void 0 === newProps[propName$44] && (newProps[propName$44] = defaultProps[propName$44]);
+			}
+			props = newProps;
+			newProps = emptyContextObject;
+			defaultProps = type.contextType;
+			"object" === typeof defaultProps && null !== defaultProps && (newProps = defaultProps._currentValue);
+			newProps = new type(props, newProps);
+			var initialState = void 0 !== newProps.state ? newProps.state : null;
+			newProps.updater = classComponentUpdater;
+			newProps.props = props;
+			newProps.state = initialState;
+			defaultProps = {
+				queue: [],
+				replace: !1
+			};
+			newProps._reactInternals = defaultProps;
+			ref = type.contextType;
+			newProps.context = "object" === typeof ref && null !== ref ? ref._currentValue : emptyContextObject;
+			ref = type.getDerivedStateFromProps;
+			"function" === typeof ref && (ref = ref(props, initialState), initialState = null === ref || void 0 === ref ? initialState : assign({}, initialState, ref), newProps.state = initialState);
+			if ("function" !== typeof type.getDerivedStateFromProps && "function" !== typeof newProps.getSnapshotBeforeUpdate && ("function" === typeof newProps.UNSAFE_componentWillMount || "function" === typeof newProps.componentWillMount)) if (type = newProps.state, "function" === typeof newProps.componentWillMount && newProps.componentWillMount(), "function" === typeof newProps.UNSAFE_componentWillMount && newProps.UNSAFE_componentWillMount(), type !== newProps.state && classComponentUpdater.enqueueReplaceState(newProps, newProps.state, null), null !== defaultProps.queue && 0 < defaultProps.queue.length) if (type = defaultProps.queue, ref = defaultProps.replace, defaultProps.queue = null, defaultProps.replace = !1, ref && 1 === type.length) newProps.state = type[0];
+			else {
+				defaultProps = ref ? type[0] : newProps.state;
+				initialState = !0;
+				for (ref = ref ? 1 : 0; ref < type.length; ref++) propName$44 = type[ref], propName$44 = "function" === typeof propName$44 ? propName$44.call(newProps, defaultProps, props, void 0) : propName$44, null != propName$44 && (initialState ? (initialState = !1, defaultProps = assign({}, defaultProps, propName$44)) : assign(defaultProps, propName$44));
+				newProps.state = defaultProps;
+			}
+			else defaultProps.queue = null;
+			type = newProps.render();
+			if (12 === request.status) throw null;
+			props = task.keyPath;
+			task.keyPath = keyPath;
+			renderNodeDestructive(request, task, type, -1);
+			task.keyPath = props;
+		} else {
+			type = renderWithHooks(request, task, keyPath, type, props, void 0);
+			if (12 === request.status) throw null;
+			finishFunctionComponent(request, task, keyPath, type, 0 !== localIdCounter, actionStateCounter, actionStateMatchingIndex);
+		}
+		else if ("string" === typeof type) if (newProps = task.blockedSegment, null === newProps) newProps = props.children, defaultProps = task.formatContext, initialState = task.keyPath, task.formatContext = getChildFormatContext(defaultProps, type, props), task.keyPath = keyPath, renderNode(request, task, newProps, -1), task.formatContext = defaultProps, task.keyPath = initialState;
+		else {
+			initialState = pushStartInstance(newProps.chunks, type, props, request.resumableState, request.renderState, task.blockedPreamble, task.hoistableState, task.formatContext, newProps.lastPushedText);
+			newProps.lastPushedText = !1;
+			defaultProps = task.formatContext;
+			ref = task.keyPath;
+			task.keyPath = keyPath;
+			if (3 === (task.formatContext = getChildFormatContext(defaultProps, type, props)).insertionMode) {
+				keyPath = createPendingSegment(request, 0, null, task.formatContext, !1, !1);
+				newProps.preambleChildren.push(keyPath);
+				task.blockedSegment = keyPath;
+				try {
+					keyPath.status = 6, renderNode(request, task, initialState, -1), keyPath.lastPushedText && keyPath.textEmbedded && keyPath.chunks.push(textSeparator), keyPath.status = 1, finishedSegment(request, task.blockedBoundary, keyPath);
+				} finally {
+					task.blockedSegment = newProps;
+				}
+			} else renderNode(request, task, initialState, -1);
+			task.formatContext = defaultProps;
+			task.keyPath = ref;
+			a: {
+				task = newProps.chunks;
+				request = request.resumableState;
+				switch (type) {
+					case "title":
+					case "style":
+					case "script":
+					case "area":
+					case "base":
+					case "br":
+					case "col":
+					case "embed":
+					case "hr":
+					case "img":
+					case "input":
+					case "keygen":
+					case "link":
+					case "meta":
+					case "param":
+					case "source":
+					case "track":
+					case "wbr": break a;
+					case "body":
+						if (1 >= defaultProps.insertionMode) {
+							request.hasBody = !0;
+							break a;
+						}
+						break;
+					case "html":
+						if (0 === defaultProps.insertionMode) {
+							request.hasHtml = !0;
+							break a;
+						}
+						break;
+					case "head": if (1 >= defaultProps.insertionMode) break a;
+				}
+				task.push(endChunkForTag(type));
+			}
+			newProps.lastPushedText = !1;
+		}
+		else {
+			switch (type) {
+				case REACT_LEGACY_HIDDEN_TYPE:
+				case REACT_STRICT_MODE_TYPE:
+				case REACT_PROFILER_TYPE:
+				case REACT_FRAGMENT_TYPE:
+					type = task.keyPath;
+					task.keyPath = keyPath;
+					renderNodeDestructive(request, task, props.children, -1);
+					task.keyPath = type;
+					return;
+				case REACT_ACTIVITY_TYPE:
+					type = task.blockedSegment;
+					null === type ? "hidden" !== props.mode && (type = task.keyPath, task.keyPath = keyPath, renderNode(request, task, props.children, -1), task.keyPath = type) : "hidden" !== props.mode && (type.chunks.push(startActivityBoundary), type.lastPushedText = !1, newProps = task.keyPath, task.keyPath = keyPath, renderNode(request, task, props.children, -1), task.keyPath = newProps, type.chunks.push(endActivityBoundary), type.lastPushedText = !1);
+					return;
+				case REACT_SUSPENSE_LIST_TYPE:
+					a: {
+						type = props.children;
+						props = props.revealOrder;
+						if ("forwards" === props || "backwards" === props || "unstable_legacy-backwards" === props) {
+							if (isArrayImpl(type)) {
+								renderSuspenseListRows(request, task, keyPath, type, props);
+								break a;
+							}
+							if (newProps = getIteratorFn(type)) {
+								if (newProps = newProps.call(type)) {
+									defaultProps = newProps.next();
+									if (!defaultProps.done) {
+										do
+											defaultProps = newProps.next();
+										while (!defaultProps.done);
+										renderSuspenseListRows(request, task, keyPath, type, props);
+									}
+									break a;
+								}
+							}
+						}
+						"together" === props ? (props = task.keyPath, newProps = task.row, defaultProps = task.row = createSuspenseListRow(null), defaultProps.boundaries = [], defaultProps.together = !0, task.keyPath = keyPath, renderNodeDestructive(request, task, type, -1), 0 === --defaultProps.pendingTasks && finishSuspenseListRow(request, defaultProps), task.keyPath = props, task.row = newProps, null !== newProps && 0 < defaultProps.pendingTasks && (newProps.pendingTasks++, defaultProps.next = newProps)) : (props = task.keyPath, task.keyPath = keyPath, renderNodeDestructive(request, task, type, -1), task.keyPath = props);
+					}
+					return;
+				case REACT_VIEW_TRANSITION_TYPE:
+				case REACT_SCOPE_TYPE: throw Error("ReactDOMServer does not yet support scope components.");
+				case REACT_SUSPENSE_TYPE:
+					a: if (null !== task.replay) {
+						type = task.keyPath;
+						newProps = task.formatContext;
+						defaultProps = task.row;
+						task.keyPath = keyPath;
+						task.formatContext = getSuspenseContentFormatContext(request.resumableState, newProps);
+						task.row = null;
+						keyPath = props.children;
+						try {
+							renderNode(request, task, keyPath, -1);
+						} finally {
+							task.keyPath = type, task.formatContext = newProps, task.row = defaultProps;
+						}
+					} else {
+						type = task.keyPath;
+						ref = task.formatContext;
+						var prevRow = task.row;
+						propName$44 = task.blockedBoundary;
+						propName = task.blockedPreamble;
+						var parentHoistableState = task.hoistableState, parentSegment = task.blockedSegment, fallback = props.fallback;
+						props = props.children;
+						var fallbackAbortSet = /* @__PURE__ */ new Set();
+						var newBoundary = 2 > task.formatContext.insertionMode ? createSuspenseBoundary(request, task.row, fallbackAbortSet, createPreambleState(), createPreambleState()) : createSuspenseBoundary(request, task.row, fallbackAbortSet, null, null);
+						null !== request.trackedPostpones && (newBoundary.trackedContentKeyPath = keyPath);
+						var boundarySegment = createPendingSegment(request, parentSegment.chunks.length, newBoundary, task.formatContext, !1, !1);
+						parentSegment.children.push(boundarySegment);
+						parentSegment.lastPushedText = !1;
+						var contentRootSegment = createPendingSegment(request, 0, null, task.formatContext, !1, !1);
+						contentRootSegment.parentFlushed = !0;
+						if (null !== request.trackedPostpones) {
+							newProps = task.componentStack;
+							defaultProps = [
+								keyPath[0],
+								"Suspense Fallback",
+								keyPath[2]
+							];
+							initialState = [
+								defaultProps[1],
+								defaultProps[2],
+								[],
+								null
+							];
+							request.trackedPostpones.workingMap.set(defaultProps, initialState);
+							newBoundary.trackedFallbackNode = initialState;
+							task.blockedSegment = boundarySegment;
+							task.blockedPreamble = newBoundary.fallbackPreamble;
+							task.keyPath = defaultProps;
+							task.formatContext = getSuspenseFallbackFormatContext(request.resumableState, ref);
+							task.componentStack = replaceSuspenseComponentStackWithSuspenseFallbackStack(newProps);
+							boundarySegment.status = 6;
+							try {
+								renderNode(request, task, fallback, -1), boundarySegment.lastPushedText && boundarySegment.textEmbedded && boundarySegment.chunks.push(textSeparator), boundarySegment.status = 1, finishedSegment(request, propName$44, boundarySegment);
+							} catch (thrownValue) {
+								throw boundarySegment.status = 12 === request.status ? 3 : 4, thrownValue;
+							} finally {
+								task.blockedSegment = parentSegment, task.blockedPreamble = propName, task.keyPath = type, task.formatContext = ref;
+							}
+							task = createRenderTask(request, null, props, -1, newBoundary, contentRootSegment, newBoundary.contentPreamble, newBoundary.contentState, task.abortSet, keyPath, getSuspenseContentFormatContext(request.resumableState, task.formatContext), task.context, task.treeContext, null, newProps);
+							pushComponentStack(task);
+							request.pingedTasks.push(task);
+						} else {
+							task.blockedBoundary = newBoundary;
+							task.blockedPreamble = newBoundary.contentPreamble;
+							task.hoistableState = newBoundary.contentState;
+							task.blockedSegment = contentRootSegment;
+							task.keyPath = keyPath;
+							task.formatContext = getSuspenseContentFormatContext(request.resumableState, ref);
+							task.row = null;
+							contentRootSegment.status = 6;
+							try {
+								if (renderNode(request, task, props, -1), contentRootSegment.lastPushedText && contentRootSegment.textEmbedded && contentRootSegment.chunks.push(textSeparator), contentRootSegment.status = 1, finishedSegment(request, newBoundary, contentRootSegment), queueCompletedSegment(newBoundary, contentRootSegment), 0 === newBoundary.pendingTasks && 0 === newBoundary.status) {
+									if (newBoundary.status = 1, !isEligibleForOutlining(request, newBoundary)) {
+										null !== prevRow && 0 === --prevRow.pendingTasks && finishSuspenseListRow(request, prevRow);
+										0 === request.pendingRootTasks && task.blockedPreamble && preparePreamble(request);
+										break a;
+									}
+								} else null !== prevRow && prevRow.together && tryToResolveTogetherRow(request, prevRow);
+							} catch (thrownValue$31) {
+								newBoundary.status = 4, 12 === request.status ? (contentRootSegment.status = 3, newProps = request.fatalError) : (contentRootSegment.status = 4, newProps = thrownValue$31), defaultProps = getThrownInfo(task.componentStack), initialState = logRecoverableError(request, newProps, defaultProps), newBoundary.errorDigest = initialState, untrackBoundary(request, newBoundary);
+							} finally {
+								task.blockedBoundary = propName$44, task.blockedPreamble = propName, task.hoistableState = parentHoistableState, task.blockedSegment = parentSegment, task.keyPath = type, task.formatContext = ref, task.row = prevRow;
+							}
+							task = createRenderTask(request, null, fallback, -1, propName$44, boundarySegment, newBoundary.fallbackPreamble, newBoundary.fallbackState, fallbackAbortSet, [
+								keyPath[0],
+								"Suspense Fallback",
+								keyPath[2]
+							], getSuspenseFallbackFormatContext(request.resumableState, task.formatContext), task.context, task.treeContext, task.row, replaceSuspenseComponentStackWithSuspenseFallbackStack(task.componentStack));
+							pushComponentStack(task);
+							request.pingedTasks.push(task);
+						}
+					}
+					return;
+			}
+			if ("object" === typeof type && null !== type) switch (type.$$typeof) {
+				case REACT_FORWARD_REF_TYPE:
+					if ("ref" in props) for (parentSegment in newProps = {}, props) "ref" !== parentSegment && (newProps[parentSegment] = props[parentSegment]);
+					else newProps = props;
+					type = renderWithHooks(request, task, keyPath, type.render, newProps, ref);
+					finishFunctionComponent(request, task, keyPath, type, 0 !== localIdCounter, actionStateCounter, actionStateMatchingIndex);
+					return;
+				case REACT_MEMO_TYPE:
+					renderElement(request, task, keyPath, type.type, props, ref);
+					return;
+				case REACT_CONTEXT_TYPE:
+					defaultProps = props.children;
+					newProps = task.keyPath;
+					props = props.value;
+					initialState = type._currentValue;
+					type._currentValue = props;
+					ref = currentActiveSnapshot;
+					currentActiveSnapshot = type = {
+						parent: ref,
+						depth: null === ref ? 0 : ref.depth + 1,
+						context: type,
+						parentValue: initialState,
+						value: props
+					};
+					task.context = type;
+					task.keyPath = keyPath;
+					renderNodeDestructive(request, task, defaultProps, -1);
+					request = currentActiveSnapshot;
+					if (null === request) throw Error("Tried to pop a Context at the root of the app. This is a bug in React.");
+					request.context._currentValue = request.parentValue;
+					request = currentActiveSnapshot = request.parent;
+					task.context = request;
+					task.keyPath = newProps;
+					return;
+				case REACT_CONSUMER_TYPE:
+					props = props.children;
+					type = props(type._context._currentValue);
+					props = task.keyPath;
+					task.keyPath = keyPath;
+					renderNodeDestructive(request, task, type, -1);
+					task.keyPath = props;
+					return;
+				case REACT_LAZY_TYPE:
+					newProps = type._init;
+					type = newProps(type._payload);
+					if (12 === request.status) throw null;
+					renderElement(request, task, keyPath, type, props, ref);
+					return;
+			}
+			throw Error("Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: " + ((null == type ? type : typeof type) + "."));
+		}
+	}
+	function resumeNode(request, task, segmentId, node, childIndex) {
+		var prevReplay = task.replay, blockedBoundary = task.blockedBoundary, resumedSegment = createPendingSegment(request, 0, null, task.formatContext, !1, !1);
+		resumedSegment.id = segmentId;
+		resumedSegment.parentFlushed = !0;
+		try {
+			task.replay = null, task.blockedSegment = resumedSegment, renderNode(request, task, node, childIndex), resumedSegment.status = 1, finishedSegment(request, blockedBoundary, resumedSegment), null === blockedBoundary ? request.completedRootSegment = resumedSegment : (queueCompletedSegment(blockedBoundary, resumedSegment), blockedBoundary.parentFlushed && request.partialBoundaries.push(blockedBoundary));
+		} finally {
+			task.replay = prevReplay, task.blockedSegment = null;
+		}
+	}
+	function renderNodeDestructive(request, task, node, childIndex) {
+		null !== task.replay && "number" === typeof task.replay.slots ? resumeNode(request, task, task.replay.slots, node, childIndex) : (task.node = node, task.childIndex = childIndex, node = task.componentStack, pushComponentStack(task), retryNode(request, task), task.componentStack = node);
+	}
+	function retryNode(request, task) {
+		var node = task.node, childIndex = task.childIndex;
+		if (null !== node) {
+			if ("object" === typeof node) {
+				switch (node.$$typeof) {
+					case REACT_ELEMENT_TYPE:
+						var type = node.type, key = node.key, props = node.props;
+						node = props.ref;
+						var ref = void 0 !== node ? node : null, name = getComponentNameFromType(type), keyOrIndex = null == key ? -1 === childIndex ? 0 : childIndex : key;
+						key = [
+							task.keyPath,
+							name,
+							keyOrIndex
+						];
+						if (null !== task.replay) a: {
+							var replay = task.replay;
+							childIndex = replay.nodes;
+							for (node = 0; node < childIndex.length; node++) {
+								var node$jscomp$0 = childIndex[node];
+								if (keyOrIndex === node$jscomp$0[1]) {
+									if (4 === node$jscomp$0.length) {
+										if (null !== name && name !== node$jscomp$0[0]) throw Error("Expected the resume to render <" + node$jscomp$0[0] + "> in this slot but instead it rendered <" + name + ">. The tree doesn't match so React will fallback to client rendering.");
+										var childNodes = node$jscomp$0[2];
+										name = node$jscomp$0[3];
+										keyOrIndex = task.node;
+										task.replay = {
+											nodes: childNodes,
+											slots: name,
+											pendingTasks: 1
+										};
+										try {
+											renderElement(request, task, key, type, props, ref);
+											if (1 === task.replay.pendingTasks && 0 < task.replay.nodes.length) throw Error("Couldn't find all resumable slots by key/index during replaying. The tree doesn't match so React will fallback to client rendering.");
+											task.replay.pendingTasks--;
+										} catch (x) {
+											if ("object" === typeof x && null !== x && (x === SuspenseException || "function" === typeof x.then)) throw task.node === keyOrIndex ? task.replay = replay : childIndex.splice(node, 1), x;
+											task.replay.pendingTasks--;
+											props = getThrownInfo(task.componentStack);
+											key = request;
+											request = task.blockedBoundary;
+											type = x;
+											props = logRecoverableError(key, type, props);
+											abortRemainingReplayNodes(key, request, childNodes, name, type, props);
+										}
+										task.replay = replay;
+									} else {
+										if (type !== REACT_SUSPENSE_TYPE) throw Error("Expected the resume to render <Suspense> in this slot but instead it rendered <" + (getComponentNameFromType(type) || "Unknown") + ">. The tree doesn't match so React will fallback to client rendering.");
+										b: {
+											replay = void 0;
+											type = node$jscomp$0[5];
+											ref = node$jscomp$0[2];
+											name = node$jscomp$0[3];
+											keyOrIndex = null === node$jscomp$0[4] ? [] : node$jscomp$0[4][2];
+											node$jscomp$0 = null === node$jscomp$0[4] ? null : node$jscomp$0[4][3];
+											var prevKeyPath = task.keyPath, prevContext = task.formatContext, prevRow = task.row, previousReplaySet = task.replay, parentBoundary = task.blockedBoundary, parentHoistableState = task.hoistableState, content = props.children, fallback = props.fallback, fallbackAbortSet = /* @__PURE__ */ new Set();
+											props = 2 > task.formatContext.insertionMode ? createSuspenseBoundary(request, task.row, fallbackAbortSet, createPreambleState(), createPreambleState()) : createSuspenseBoundary(request, task.row, fallbackAbortSet, null, null);
+											props.parentFlushed = !0;
+											props.rootSegmentID = type;
+											task.blockedBoundary = props;
+											task.hoistableState = props.contentState;
+											task.keyPath = key;
+											task.formatContext = getSuspenseContentFormatContext(request.resumableState, prevContext);
+											task.row = null;
+											task.replay = {
+												nodes: ref,
+												slots: name,
+												pendingTasks: 1
+											};
+											try {
+												renderNode(request, task, content, -1);
+												if (1 === task.replay.pendingTasks && 0 < task.replay.nodes.length) throw Error("Couldn't find all resumable slots by key/index during replaying. The tree doesn't match so React will fallback to client rendering.");
+												task.replay.pendingTasks--;
+												if (0 === props.pendingTasks && 0 === props.status) {
+													props.status = 1;
+													request.completedBoundaries.push(props);
+													break b;
+												}
+											} catch (error) {
+												props.status = 4, childNodes = getThrownInfo(task.componentStack), replay = logRecoverableError(request, error, childNodes), props.errorDigest = replay, task.replay.pendingTasks--, request.clientRenderedBoundaries.push(props);
+											} finally {
+												task.blockedBoundary = parentBoundary, task.hoistableState = parentHoistableState, task.replay = previousReplaySet, task.keyPath = prevKeyPath, task.formatContext = prevContext, task.row = prevRow;
+											}
+											childNodes = createReplayTask(request, null, {
+												nodes: keyOrIndex,
+												slots: node$jscomp$0,
+												pendingTasks: 0
+											}, fallback, -1, parentBoundary, props.fallbackState, fallbackAbortSet, [
+												key[0],
+												"Suspense Fallback",
+												key[2]
+											], getSuspenseFallbackFormatContext(request.resumableState, task.formatContext), task.context, task.treeContext, task.row, replaceSuspenseComponentStackWithSuspenseFallbackStack(task.componentStack));
+											pushComponentStack(childNodes);
+											request.pingedTasks.push(childNodes);
+										}
+									}
+									childIndex.splice(node, 1);
+									break a;
+								}
+							}
+						}
+						else renderElement(request, task, key, type, props, ref);
+						return;
+					case REACT_PORTAL_TYPE: throw Error("Portals are not currently supported by the server renderer. Render them conditionally so that they only appear on the client render.");
+					case REACT_LAZY_TYPE:
+						childNodes = node._init;
+						node = childNodes(node._payload);
+						if (12 === request.status) throw null;
+						renderNodeDestructive(request, task, node, childIndex);
+						return;
+				}
+				if (isArrayImpl(node)) {
+					renderChildrenArray(request, task, node, childIndex);
+					return;
+				}
+				if (childNodes = getIteratorFn(node)) {
+					if (childNodes = childNodes.call(node)) {
+						node = childNodes.next();
+						if (!node.done) {
+							props = [];
+							do
+								props.push(node.value), node = childNodes.next();
+							while (!node.done);
+							renderChildrenArray(request, task, props, childIndex);
+						}
+						return;
+					}
+				}
+				if ("function" === typeof node.then) return task.thenableState = null, renderNodeDestructive(request, task, unwrapThenable(node), childIndex);
+				if (node.$$typeof === REACT_CONTEXT_TYPE) return renderNodeDestructive(request, task, node._currentValue, childIndex);
+				childIndex = Object.prototype.toString.call(node);
+				throw Error("Objects are not valid as a React child (found: " + ("[object Object]" === childIndex ? "object with keys {" + Object.keys(node).join(", ") + "}" : childIndex) + "). If you meant to render a collection of children, use an array instead.");
+			}
+			if ("string" === typeof node) childIndex = task.blockedSegment, null !== childIndex && (childIndex.lastPushedText = pushTextInstance(childIndex.chunks, node, request.renderState, childIndex.lastPushedText));
+			else if ("number" === typeof node || "bigint" === typeof node) childIndex = task.blockedSegment, null !== childIndex && (childIndex.lastPushedText = pushTextInstance(childIndex.chunks, "" + node, request.renderState, childIndex.lastPushedText));
+		}
+	}
+	function renderChildrenArray(request, task, children, childIndex) {
+		var prevKeyPath = task.keyPath;
+		if (-1 !== childIndex && (task.keyPath = [
+			task.keyPath,
+			"Fragment",
+			childIndex
+		], null !== task.replay)) {
+			for (var replay = task.replay, replayNodes = replay.nodes, j = 0; j < replayNodes.length; j++) {
+				var node = replayNodes[j];
+				if (node[1] === childIndex) {
+					childIndex = node[2];
+					node = node[3];
+					task.replay = {
+						nodes: childIndex,
+						slots: node,
+						pendingTasks: 1
+					};
+					try {
+						renderChildrenArray(request, task, children, -1);
+						if (1 === task.replay.pendingTasks && 0 < task.replay.nodes.length) throw Error("Couldn't find all resumable slots by key/index during replaying. The tree doesn't match so React will fallback to client rendering.");
+						task.replay.pendingTasks--;
+					} catch (x) {
+						if ("object" === typeof x && null !== x && (x === SuspenseException || "function" === typeof x.then)) throw x;
+						task.replay.pendingTasks--;
+						children = getThrownInfo(task.componentStack);
+						var boundary = task.blockedBoundary, error = x;
+						children = logRecoverableError(request, error, children);
+						abortRemainingReplayNodes(request, boundary, childIndex, node, error, children);
+					}
+					task.replay = replay;
+					replayNodes.splice(j, 1);
+					break;
+				}
+			}
+			task.keyPath = prevKeyPath;
+			return;
+		}
+		replay = task.treeContext;
+		replayNodes = children.length;
+		if (null !== task.replay && (j = task.replay.slots, null !== j && "object" === typeof j)) {
+			for (childIndex = 0; childIndex < replayNodes; childIndex++) node = children[childIndex], task.treeContext = pushTreeContext(replay, replayNodes, childIndex), boundary = j[childIndex], "number" === typeof boundary ? (resumeNode(request, task, boundary, node, childIndex), delete j[childIndex]) : renderNode(request, task, node, childIndex);
+			task.treeContext = replay;
+			task.keyPath = prevKeyPath;
+			return;
+		}
+		for (j = 0; j < replayNodes; j++) childIndex = children[j], task.treeContext = pushTreeContext(replay, replayNodes, j), renderNode(request, task, childIndex, j);
+		task.treeContext = replay;
+		task.keyPath = prevKeyPath;
+	}
+	function trackPostponedBoundary(request, trackedPostpones, boundary) {
+		boundary.status = 5;
+		boundary.rootSegmentID = request.nextSegmentId++;
+		request = boundary.trackedContentKeyPath;
+		if (null === request) throw Error("It should not be possible to postpone at the root. This is a bug in React.");
+		var fallbackReplayNode = boundary.trackedFallbackNode, children = [], boundaryNode = trackedPostpones.workingMap.get(request);
+		if (void 0 === boundaryNode) return boundary = [
+			request[1],
+			request[2],
+			children,
+			null,
+			fallbackReplayNode,
+			boundary.rootSegmentID
+		], trackedPostpones.workingMap.set(request, boundary), addToReplayParent(boundary, request[0], trackedPostpones), boundary;
+		boundaryNode[4] = fallbackReplayNode;
+		boundaryNode[5] = boundary.rootSegmentID;
+		return boundaryNode;
+	}
+	function trackPostpone(request, trackedPostpones, task, segment) {
+		segment.status = 5;
+		var keyPath = task.keyPath, boundary = task.blockedBoundary;
+		if (null === boundary) segment.id = request.nextSegmentId++, trackedPostpones.rootSlots = segment.id, null !== request.completedRootSegment && (request.completedRootSegment.status = 5);
+		else {
+			if (null !== boundary && 0 === boundary.status) {
+				var boundaryNode = trackPostponedBoundary(request, trackedPostpones, boundary);
+				if (boundary.trackedContentKeyPath === keyPath && -1 === task.childIndex) {
+					-1 === segment.id && (segment.id = segment.parentFlushed ? boundary.rootSegmentID : request.nextSegmentId++);
+					boundaryNode[3] = segment.id;
+					return;
+				}
+			}
+			-1 === segment.id && (segment.id = segment.parentFlushed && null !== boundary ? boundary.rootSegmentID : request.nextSegmentId++);
+			if (-1 === task.childIndex) null === keyPath ? trackedPostpones.rootSlots = segment.id : (task = trackedPostpones.workingMap.get(keyPath), void 0 === task ? (task = [
+				keyPath[1],
+				keyPath[2],
+				[],
+				segment.id
+			], addToReplayParent(task, keyPath[0], trackedPostpones)) : task[3] = segment.id);
+			else {
+				if (null === keyPath) {
+					if (request = trackedPostpones.rootSlots, null === request) request = trackedPostpones.rootSlots = {};
+					else if ("number" === typeof request) throw Error("It should not be possible to postpone both at the root of an element as well as a slot below. This is a bug in React.");
+				} else if (boundary = trackedPostpones.workingMap, boundaryNode = boundary.get(keyPath), void 0 === boundaryNode) request = {}, boundaryNode = [
+					keyPath[1],
+					keyPath[2],
+					[],
+					request
+				], boundary.set(keyPath, boundaryNode), addToReplayParent(boundaryNode, keyPath[0], trackedPostpones);
+				else if (request = boundaryNode[3], null === request) request = boundaryNode[3] = {};
+				else if ("number" === typeof request) throw Error("It should not be possible to postpone both at the root of an element as well as a slot below. This is a bug in React.");
+				request[task.childIndex] = segment.id;
+			}
+		}
+	}
+	function untrackBoundary(request, boundary) {
+		request = request.trackedPostpones;
+		null !== request && (boundary = boundary.trackedContentKeyPath, null !== boundary && (boundary = request.workingMap.get(boundary), void 0 !== boundary && (boundary.length = 4, boundary[2] = [], boundary[3] = null)));
+	}
+	function spawnNewSuspendedReplayTask(request, task, thenableState) {
+		return createReplayTask(request, thenableState, task.replay, task.node, task.childIndex, task.blockedBoundary, task.hoistableState, task.abortSet, task.keyPath, task.formatContext, task.context, task.treeContext, task.row, task.componentStack);
+	}
+	function spawnNewSuspendedRenderTask(request, task, thenableState) {
+		var segment = task.blockedSegment, newSegment = createPendingSegment(request, segment.chunks.length, null, task.formatContext, segment.lastPushedText, !0);
+		segment.children.push(newSegment);
+		segment.lastPushedText = !1;
+		return createRenderTask(request, thenableState, task.node, task.childIndex, task.blockedBoundary, newSegment, task.blockedPreamble, task.hoistableState, task.abortSet, task.keyPath, task.formatContext, task.context, task.treeContext, task.row, task.componentStack);
+	}
+	function renderNode(request, task, node, childIndex) {
+		var previousFormatContext = task.formatContext, previousContext = task.context, previousKeyPath = task.keyPath, previousTreeContext = task.treeContext, previousComponentStack = task.componentStack, segment = task.blockedSegment;
+		if (null === segment) {
+			segment = task.replay;
+			try {
+				return renderNodeDestructive(request, task, node, childIndex);
+			} catch (thrownValue) {
+				if (resetHooksState(), node = thrownValue === SuspenseException ? getSuspendedThenable() : thrownValue, 12 !== request.status && "object" === typeof node && null !== node) {
+					if ("function" === typeof node.then) {
+						childIndex = thrownValue === SuspenseException ? getThenableStateAfterSuspending() : null;
+						request = spawnNewSuspendedReplayTask(request, task, childIndex).ping;
+						node.then(request, request);
+						task.formatContext = previousFormatContext;
+						task.context = previousContext;
+						task.keyPath = previousKeyPath;
+						task.treeContext = previousTreeContext;
+						task.componentStack = previousComponentStack;
+						task.replay = segment;
+						switchContext(previousContext);
+						return;
+					}
+					if ("Maximum call stack size exceeded" === node.message) {
+						node = thrownValue === SuspenseException ? getThenableStateAfterSuspending() : null;
+						node = spawnNewSuspendedReplayTask(request, task, node);
+						request.pingedTasks.push(node);
+						task.formatContext = previousFormatContext;
+						task.context = previousContext;
+						task.keyPath = previousKeyPath;
+						task.treeContext = previousTreeContext;
+						task.componentStack = previousComponentStack;
+						task.replay = segment;
+						switchContext(previousContext);
+						return;
+					}
+				}
+			}
+		} else {
+			var childrenLength = segment.children.length, chunkLength = segment.chunks.length;
+			try {
+				return renderNodeDestructive(request, task, node, childIndex);
+			} catch (thrownValue$63) {
+				if (resetHooksState(), segment.children.length = childrenLength, segment.chunks.length = chunkLength, node = thrownValue$63 === SuspenseException ? getSuspendedThenable() : thrownValue$63, 12 !== request.status && "object" === typeof node && null !== node) {
+					if ("function" === typeof node.then) {
+						segment = node;
+						node = thrownValue$63 === SuspenseException ? getThenableStateAfterSuspending() : null;
+						request = spawnNewSuspendedRenderTask(request, task, node).ping;
+						segment.then(request, request);
+						task.formatContext = previousFormatContext;
+						task.context = previousContext;
+						task.keyPath = previousKeyPath;
+						task.treeContext = previousTreeContext;
+						task.componentStack = previousComponentStack;
+						switchContext(previousContext);
+						return;
+					}
+					if ("Maximum call stack size exceeded" === node.message) {
+						segment = thrownValue$63 === SuspenseException ? getThenableStateAfterSuspending() : null;
+						segment = spawnNewSuspendedRenderTask(request, task, segment);
+						request.pingedTasks.push(segment);
+						task.formatContext = previousFormatContext;
+						task.context = previousContext;
+						task.keyPath = previousKeyPath;
+						task.treeContext = previousTreeContext;
+						task.componentStack = previousComponentStack;
+						switchContext(previousContext);
+						return;
+					}
+				}
+			}
+		}
+		task.formatContext = previousFormatContext;
+		task.context = previousContext;
+		task.keyPath = previousKeyPath;
+		task.treeContext = previousTreeContext;
+		switchContext(previousContext);
+		throw node;
+	}
+	function abortTaskSoft(task) {
+		var boundary = task.blockedBoundary, segment = task.blockedSegment;
+		null !== segment && (segment.status = 3, finishedTask(this, boundary, task.row, segment));
+	}
+	function abortRemainingReplayNodes(request$jscomp$0, boundary, nodes, slots, error, errorDigest$jscomp$0) {
+		for (var i = 0; i < nodes.length; i++) {
+			var node = nodes[i];
+			if (4 === node.length) abortRemainingReplayNodes(request$jscomp$0, boundary, node[2], node[3], error, errorDigest$jscomp$0);
+			else {
+				node = node[5];
+				var request = request$jscomp$0, errorDigest = errorDigest$jscomp$0, resumedBoundary = createSuspenseBoundary(request, null, /* @__PURE__ */ new Set(), null, null);
+				resumedBoundary.parentFlushed = !0;
+				resumedBoundary.rootSegmentID = node;
+				resumedBoundary.status = 4;
+				resumedBoundary.errorDigest = errorDigest;
+				resumedBoundary.parentFlushed && request.clientRenderedBoundaries.push(resumedBoundary);
+			}
+		}
+		nodes.length = 0;
+		if (null !== slots) {
+			if (null === boundary) throw Error("We should not have any resumable nodes in the shell. This is a bug in React.");
+			4 !== boundary.status && (boundary.status = 4, boundary.errorDigest = errorDigest$jscomp$0, boundary.parentFlushed && request$jscomp$0.clientRenderedBoundaries.push(boundary));
+			if ("object" === typeof slots) for (var index in slots) delete slots[index];
+		}
+	}
+	function abortTask(task, request, error) {
+		var boundary = task.blockedBoundary, segment = task.blockedSegment;
+		if (null !== segment) {
+			if (6 === segment.status) return;
+			segment.status = 3;
+		}
+		var errorInfo = getThrownInfo(task.componentStack);
+		if (null === boundary) {
+			if (13 !== request.status && 14 !== request.status) {
+				boundary = task.replay;
+				if (null === boundary) {
+					null !== request.trackedPostpones && null !== segment ? (boundary = request.trackedPostpones, logRecoverableError(request, error, errorInfo), trackPostpone(request, boundary, task, segment), finishedTask(request, null, task.row, segment)) : (logRecoverableError(request, error, errorInfo), fatalError(request, error));
+					return;
+				}
+				boundary.pendingTasks--;
+				0 === boundary.pendingTasks && 0 < boundary.nodes.length && (segment = logRecoverableError(request, error, errorInfo), abortRemainingReplayNodes(request, null, boundary.nodes, boundary.slots, error, segment));
+				request.pendingRootTasks--;
+				0 === request.pendingRootTasks && completeShell(request);
+			}
+		} else {
+			var trackedPostpones$64 = request.trackedPostpones;
+			if (4 !== boundary.status) {
+				if (null !== trackedPostpones$64 && null !== segment) return logRecoverableError(request, error, errorInfo), trackPostpone(request, trackedPostpones$64, task, segment), boundary.fallbackAbortableTasks.forEach(function(fallbackTask) {
+					return abortTask(fallbackTask, request, error);
+				}), boundary.fallbackAbortableTasks.clear(), finishedTask(request, boundary, task.row, segment);
+				boundary.status = 4;
+				segment = logRecoverableError(request, error, errorInfo);
+				boundary.status = 4;
+				boundary.errorDigest = segment;
+				untrackBoundary(request, boundary);
+				boundary.parentFlushed && request.clientRenderedBoundaries.push(boundary);
+			}
+			boundary.pendingTasks--;
+			segment = boundary.row;
+			null !== segment && 0 === --segment.pendingTasks && finishSuspenseListRow(request, segment);
+			boundary.fallbackAbortableTasks.forEach(function(fallbackTask) {
+				return abortTask(fallbackTask, request, error);
+			});
+			boundary.fallbackAbortableTasks.clear();
+		}
+		task = task.row;
+		null !== task && 0 === --task.pendingTasks && finishSuspenseListRow(request, task);
+		request.allPendingTasks--;
+		0 === request.allPendingTasks && completeAll(request);
+	}
+	function safelyEmitEarlyPreloads(request, shellComplete) {
+		try {
+			var renderState = request.renderState, onHeaders = renderState.onHeaders;
+			if (onHeaders) {
+				var headers = renderState.headers;
+				if (headers) {
+					renderState.headers = null;
+					var linkHeader = headers.preconnects;
+					headers.fontPreloads && (linkHeader && (linkHeader += ", "), linkHeader += headers.fontPreloads);
+					headers.highImagePreloads && (linkHeader && (linkHeader += ", "), linkHeader += headers.highImagePreloads);
+					if (!shellComplete) {
+						var queueIter = renderState.styles.values(), queueStep = queueIter.next();
+						b: for (; 0 < headers.remainingCapacity && !queueStep.done; queueStep = queueIter.next()) for (var sheetIter = queueStep.value.sheets.values(), sheetStep = sheetIter.next(); 0 < headers.remainingCapacity && !sheetStep.done; sheetStep = sheetIter.next()) {
+							var sheet = sheetStep.value, props = sheet.props, key = props.href, props$jscomp$0 = sheet.props, header = getPreloadAsHeader(props$jscomp$0.href, "style", {
+								crossOrigin: props$jscomp$0.crossOrigin,
+								integrity: props$jscomp$0.integrity,
+								nonce: props$jscomp$0.nonce,
+								type: props$jscomp$0.type,
+								fetchPriority: props$jscomp$0.fetchPriority,
+								referrerPolicy: props$jscomp$0.referrerPolicy,
+								media: props$jscomp$0.media
+							});
+							if (0 <= (headers.remainingCapacity -= header.length + 2)) renderState.resets.style[key] = PRELOAD_NO_CREDS, linkHeader && (linkHeader += ", "), linkHeader += header, renderState.resets.style[key] = "string" === typeof props.crossOrigin || "string" === typeof props.integrity ? [props.crossOrigin, props.integrity] : PRELOAD_NO_CREDS;
+							else break b;
+						}
+					}
+					linkHeader ? onHeaders({ Link: linkHeader }) : onHeaders({});
+				}
+			}
+		} catch (error) {
+			logRecoverableError(request, error, {});
+		}
+	}
+	function completeShell(request) {
+		null === request.trackedPostpones && safelyEmitEarlyPreloads(request, !0);
+		null === request.trackedPostpones && preparePreamble(request);
+		request.onShellError = noop;
+		request = request.onShellReady;
+		request();
+	}
+	function completeAll(request) {
+		safelyEmitEarlyPreloads(request, null === request.trackedPostpones ? !0 : null === request.completedRootSegment || 5 !== request.completedRootSegment.status);
+		preparePreamble(request);
+		request = request.onAllReady;
+		request();
+	}
+	function queueCompletedSegment(boundary, segment) {
+		if (0 === segment.chunks.length && 1 === segment.children.length && null === segment.children[0].boundary && -1 === segment.children[0].id) {
+			var childSegment = segment.children[0];
+			childSegment.id = segment.id;
+			childSegment.parentFlushed = !0;
+			1 !== childSegment.status && 3 !== childSegment.status && 4 !== childSegment.status || queueCompletedSegment(boundary, childSegment);
+		} else boundary.completedSegments.push(segment);
+	}
+	function finishedSegment(request, boundary, segment) {
+		if (null !== byteLengthOfChunk) {
+			segment = segment.chunks;
+			for (var segmentByteSize = 0, i = 0; i < segment.length; i++) segmentByteSize += byteLengthOfChunk(segment[i]);
+			null === boundary ? request.byteSize += segmentByteSize : boundary.byteSize += segmentByteSize;
+		}
+	}
+	function finishedTask(request, boundary, row, segment) {
+		null !== row && (0 === --row.pendingTasks ? finishSuspenseListRow(request, row) : row.together && tryToResolveTogetherRow(request, row));
+		request.allPendingTasks--;
+		if (null === boundary) {
+			if (null !== segment && segment.parentFlushed) {
+				if (null !== request.completedRootSegment) throw Error("There can only be one root segment. This is a bug in React.");
+				request.completedRootSegment = segment;
+			}
+			request.pendingRootTasks--;
+			0 === request.pendingRootTasks && completeShell(request);
+		} else if (boundary.pendingTasks--, 4 !== boundary.status) if (0 === boundary.pendingTasks) {
+			if (0 === boundary.status && (boundary.status = 1), null !== segment && segment.parentFlushed && (1 === segment.status || 3 === segment.status) && queueCompletedSegment(boundary, segment), boundary.parentFlushed && request.completedBoundaries.push(boundary), 1 === boundary.status) row = boundary.row, null !== row && hoistHoistables(row.hoistables, boundary.contentState), isEligibleForOutlining(request, boundary) || (boundary.fallbackAbortableTasks.forEach(abortTaskSoft, request), boundary.fallbackAbortableTasks.clear(), null !== row && 0 === --row.pendingTasks && finishSuspenseListRow(request, row)), 0 === request.pendingRootTasks && null === request.trackedPostpones && null !== boundary.contentPreamble && preparePreamble(request);
+			else if (5 === boundary.status && (boundary = boundary.row, null !== boundary)) {
+				if (null !== request.trackedPostpones) {
+					row = request.trackedPostpones;
+					var postponedRow = boundary.next;
+					if (null !== postponedRow && (segment = postponedRow.boundaries, null !== segment)) for (postponedRow.boundaries = null, postponedRow = 0; postponedRow < segment.length; postponedRow++) {
+						var postponedBoundary = segment[postponedRow];
+						trackPostponedBoundary(request, row, postponedBoundary);
+						finishedTask(request, postponedBoundary, null, null);
+					}
+				}
+				0 === --boundary.pendingTasks && finishSuspenseListRow(request, boundary);
+			}
+		} else null === segment || !segment.parentFlushed || 1 !== segment.status && 3 !== segment.status || (queueCompletedSegment(boundary, segment), 1 === boundary.completedSegments.length && boundary.parentFlushed && request.partialBoundaries.push(boundary)), boundary = boundary.row, null !== boundary && boundary.together && tryToResolveTogetherRow(request, boundary);
+		0 === request.allPendingTasks && completeAll(request);
+	}
+	function performWork(request$jscomp$2) {
+		if (14 !== request$jscomp$2.status && 13 !== request$jscomp$2.status) {
+			var prevContext = currentActiveSnapshot, prevDispatcher = ReactSharedInternals.H;
+			ReactSharedInternals.H = HooksDispatcher;
+			var prevAsyncDispatcher = ReactSharedInternals.A;
+			ReactSharedInternals.A = DefaultAsyncDispatcher;
+			var prevRequest = currentRequest;
+			currentRequest = request$jscomp$2;
+			var prevResumableState = currentResumableState;
+			currentResumableState = request$jscomp$2.resumableState;
+			try {
+				var pingedTasks = request$jscomp$2.pingedTasks, i;
+				for (i = 0; i < pingedTasks.length; i++) {
+					var task = pingedTasks[i], request = request$jscomp$2, segment = task.blockedSegment;
+					if (null === segment) {
+						var request$jscomp$0 = request;
+						if (0 !== task.replay.pendingTasks) {
+							switchContext(task.context);
+							try {
+								"number" === typeof task.replay.slots ? resumeNode(request$jscomp$0, task, task.replay.slots, task.node, task.childIndex) : retryNode(request$jscomp$0, task);
+								if (1 === task.replay.pendingTasks && 0 < task.replay.nodes.length) throw Error("Couldn't find all resumable slots by key/index during replaying. The tree doesn't match so React will fallback to client rendering.");
+								task.replay.pendingTasks--;
+								task.abortSet.delete(task);
+								finishedTask(request$jscomp$0, task.blockedBoundary, task.row, null);
+							} catch (thrownValue) {
+								resetHooksState();
+								var x = thrownValue === SuspenseException ? getSuspendedThenable() : thrownValue;
+								if ("object" === typeof x && null !== x && "function" === typeof x.then) {
+									var ping = task.ping;
+									x.then(ping, ping);
+									task.thenableState = thrownValue === SuspenseException ? getThenableStateAfterSuspending() : null;
+								} else {
+									task.replay.pendingTasks--;
+									task.abortSet.delete(task);
+									var errorInfo = getThrownInfo(task.componentStack);
+									request = void 0;
+									var request$jscomp$1 = request$jscomp$0, boundary = task.blockedBoundary, error$jscomp$0 = 12 === request$jscomp$0.status ? request$jscomp$0.fatalError : x, replayNodes = task.replay.nodes, resumeSlots = task.replay.slots;
+									request = logRecoverableError(request$jscomp$1, error$jscomp$0, errorInfo);
+									abortRemainingReplayNodes(request$jscomp$1, boundary, replayNodes, resumeSlots, error$jscomp$0, request);
+									request$jscomp$0.pendingRootTasks--;
+									0 === request$jscomp$0.pendingRootTasks && completeShell(request$jscomp$0);
+									request$jscomp$0.allPendingTasks--;
+									0 === request$jscomp$0.allPendingTasks && completeAll(request$jscomp$0);
+								}
+							}
+						}
+					} else if (request$jscomp$0 = void 0, request$jscomp$1 = segment, 0 === request$jscomp$1.status) {
+						request$jscomp$1.status = 6;
+						switchContext(task.context);
+						var childrenLength = request$jscomp$1.children.length, chunkLength = request$jscomp$1.chunks.length;
+						try {
+							retryNode(request, task), request$jscomp$1.lastPushedText && request$jscomp$1.textEmbedded && request$jscomp$1.chunks.push(textSeparator), task.abortSet.delete(task), request$jscomp$1.status = 1, finishedSegment(request, task.blockedBoundary, request$jscomp$1), finishedTask(request, task.blockedBoundary, task.row, request$jscomp$1);
+						} catch (thrownValue) {
+							resetHooksState();
+							request$jscomp$1.children.length = childrenLength;
+							request$jscomp$1.chunks.length = chunkLength;
+							var x$jscomp$0 = thrownValue === SuspenseException ? getSuspendedThenable() : 12 === request.status ? request.fatalError : thrownValue;
+							if (12 === request.status && null !== request.trackedPostpones) {
+								var trackedPostpones = request.trackedPostpones, thrownInfo = getThrownInfo(task.componentStack);
+								task.abortSet.delete(task);
+								logRecoverableError(request, x$jscomp$0, thrownInfo);
+								trackPostpone(request, trackedPostpones, task, request$jscomp$1);
+								finishedTask(request, task.blockedBoundary, task.row, request$jscomp$1);
+							} else if ("object" === typeof x$jscomp$0 && null !== x$jscomp$0 && "function" === typeof x$jscomp$0.then) {
+								request$jscomp$1.status = 0;
+								task.thenableState = thrownValue === SuspenseException ? getThenableStateAfterSuspending() : null;
+								var ping$jscomp$0 = task.ping;
+								x$jscomp$0.then(ping$jscomp$0, ping$jscomp$0);
+							} else {
+								var errorInfo$jscomp$0 = getThrownInfo(task.componentStack);
+								task.abortSet.delete(task);
+								request$jscomp$1.status = 4;
+								var boundary$jscomp$0 = task.blockedBoundary, row = task.row;
+								null !== row && 0 === --row.pendingTasks && finishSuspenseListRow(request, row);
+								request.allPendingTasks--;
+								request$jscomp$0 = logRecoverableError(request, x$jscomp$0, errorInfo$jscomp$0);
+								if (null === boundary$jscomp$0) fatalError(request, x$jscomp$0);
+								else if (boundary$jscomp$0.pendingTasks--, 4 !== boundary$jscomp$0.status) {
+									boundary$jscomp$0.status = 4;
+									boundary$jscomp$0.errorDigest = request$jscomp$0;
+									untrackBoundary(request, boundary$jscomp$0);
+									var boundaryRow = boundary$jscomp$0.row;
+									null !== boundaryRow && 0 === --boundaryRow.pendingTasks && finishSuspenseListRow(request, boundaryRow);
+									boundary$jscomp$0.parentFlushed && request.clientRenderedBoundaries.push(boundary$jscomp$0);
+									0 === request.pendingRootTasks && null === request.trackedPostpones && null !== boundary$jscomp$0.contentPreamble && preparePreamble(request);
+								}
+								0 === request.allPendingTasks && completeAll(request);
+							}
+						}
+					}
+				}
+				pingedTasks.splice(0, i);
+				null !== request$jscomp$2.destination && flushCompletedQueues(request$jscomp$2, request$jscomp$2.destination);
+			} catch (error) {
+				logRecoverableError(request$jscomp$2, error, {}), fatalError(request$jscomp$2, error);
+			} finally {
+				currentResumableState = prevResumableState, ReactSharedInternals.H = prevDispatcher, ReactSharedInternals.A = prevAsyncDispatcher, prevDispatcher === HooksDispatcher && switchContext(prevContext), currentRequest = prevRequest;
+			}
+		}
+	}
+	function preparePreambleFromSubtree(request, segment, collectedPreambleSegments) {
+		segment.preambleChildren.length && collectedPreambleSegments.push(segment.preambleChildren);
+		for (var pendingPreambles = !1, i = 0; i < segment.children.length; i++) pendingPreambles = preparePreambleFromSegment(request, segment.children[i], collectedPreambleSegments) || pendingPreambles;
+		return pendingPreambles;
+	}
+	function preparePreambleFromSegment(request, segment, collectedPreambleSegments) {
+		var boundary = segment.boundary;
+		if (null === boundary) return preparePreambleFromSubtree(request, segment, collectedPreambleSegments);
+		var preamble = boundary.contentPreamble, fallbackPreamble = boundary.fallbackPreamble;
+		if (null === preamble || null === fallbackPreamble) return !1;
+		switch (boundary.status) {
+			case 1:
+				hoistPreambleState(request.renderState, preamble);
+				request.byteSize += boundary.byteSize;
+				segment = boundary.completedSegments[0];
+				if (!segment) throw Error("A previously unvisited boundary must have exactly one root segment. This is a bug in React.");
+				return preparePreambleFromSubtree(request, segment, collectedPreambleSegments);
+			case 5: if (null !== request.trackedPostpones) return !0;
+			case 4: if (1 === segment.status) return hoistPreambleState(request.renderState, fallbackPreamble), preparePreambleFromSubtree(request, segment, collectedPreambleSegments);
+			default: return !0;
+		}
+	}
+	function preparePreamble(request) {
+		if (request.completedRootSegment && null === request.completedPreambleSegments) {
+			var collectedPreambleSegments = [], originalRequestByteSize = request.byteSize, hasPendingPreambles = preparePreambleFromSegment(request, request.completedRootSegment, collectedPreambleSegments), preamble = request.renderState.preamble;
+			!1 === hasPendingPreambles || preamble.headChunks && preamble.bodyChunks ? request.completedPreambleSegments = collectedPreambleSegments : request.byteSize = originalRequestByteSize;
+		}
+	}
+	function flushSubtree(request, destination, segment, hoistableState) {
+		segment.parentFlushed = !0;
+		switch (segment.status) {
+			case 0: segment.id = request.nextSegmentId++;
+			case 5: return hoistableState = segment.id, segment.lastPushedText = !1, segment.textEmbedded = !1, request = request.renderState, writeChunk(destination, placeholder1), writeChunk(destination, request.placeholderPrefix), request = hoistableState.toString(16), writeChunk(destination, request), writeChunkAndReturn(destination, placeholder2);
+			case 1:
+				segment.status = 2;
+				var r = !0, chunks = segment.chunks, chunkIdx = 0;
+				segment = segment.children;
+				for (var childIdx = 0; childIdx < segment.length; childIdx++) {
+					for (r = segment[childIdx]; chunkIdx < r.index; chunkIdx++) writeChunk(destination, chunks[chunkIdx]);
+					r = flushSegment(request, destination, r, hoistableState);
+				}
+				for (; chunkIdx < chunks.length - 1; chunkIdx++) writeChunk(destination, chunks[chunkIdx]);
+				chunkIdx < chunks.length && (r = writeChunkAndReturn(destination, chunks[chunkIdx]));
+				return r;
+			case 3: return !0;
+			default: throw Error("Aborted, errored or already flushed boundaries should not be flushed again. This is a bug in React.");
+		}
+	}
+	var flushedByteSize = 0;
+	function flushSegment(request, destination, segment, hoistableState) {
+		var boundary = segment.boundary;
+		if (null === boundary) return flushSubtree(request, destination, segment, hoistableState);
+		boundary.parentFlushed = !0;
+		if (4 === boundary.status) {
+			var row = boundary.row;
+			null !== row && 0 === --row.pendingTasks && finishSuspenseListRow(request, row);
+			boundary = boundary.errorDigest;
+			writeChunkAndReturn(destination, startClientRenderedSuspenseBoundary);
+			writeChunk(destination, clientRenderedSuspenseBoundaryError1);
+			boundary && (writeChunk(destination, clientRenderedSuspenseBoundaryError1A), writeChunk(destination, escapeTextForBrowser(boundary)), writeChunk(destination, clientRenderedSuspenseBoundaryErrorAttrInterstitial));
+			writeChunkAndReturn(destination, clientRenderedSuspenseBoundaryError2);
+			flushSubtree(request, destination, segment, hoistableState);
+		} else if (1 !== boundary.status) 0 === boundary.status && (boundary.rootSegmentID = request.nextSegmentId++), 0 < boundary.completedSegments.length && request.partialBoundaries.push(boundary), writeStartPendingSuspenseBoundary(destination, request.renderState, boundary.rootSegmentID), hoistableState && hoistHoistables(hoistableState, boundary.fallbackState), flushSubtree(request, destination, segment, hoistableState);
+		else if (!flushingPartialBoundaries && isEligibleForOutlining(request, boundary) && (flushedByteSize + boundary.byteSize > request.progressiveChunkSize || hasSuspenseyContent(boundary.contentState))) boundary.rootSegmentID = request.nextSegmentId++, request.completedBoundaries.push(boundary), writeStartPendingSuspenseBoundary(destination, request.renderState, boundary.rootSegmentID), flushSubtree(request, destination, segment, hoistableState);
+		else {
+			flushedByteSize += boundary.byteSize;
+			hoistableState && hoistHoistables(hoistableState, boundary.contentState);
+			segment = boundary.row;
+			null !== segment && isEligibleForOutlining(request, boundary) && 0 === --segment.pendingTasks && finishSuspenseListRow(request, segment);
+			writeChunkAndReturn(destination, startCompletedSuspenseBoundary);
+			segment = boundary.completedSegments;
+			if (1 !== segment.length) throw Error("A previously unvisited boundary must have exactly one root segment. This is a bug in React.");
+			flushSegment(request, destination, segment[0], hoistableState);
+		}
+		return writeChunkAndReturn(destination, endSuspenseBoundary);
+	}
+	function flushSegmentContainer(request, destination, segment, hoistableState) {
+		writeStartSegment(destination, request.renderState, segment.parentFormatContext, segment.id);
+		flushSegment(request, destination, segment, hoistableState);
+		return writeEndSegment(destination, segment.parentFormatContext);
+	}
+	function flushCompletedBoundary(request, destination, boundary) {
+		flushedByteSize = boundary.byteSize;
+		for (var completedSegments = boundary.completedSegments, i = 0; i < completedSegments.length; i++) flushPartiallyCompletedSegment(request, destination, boundary, completedSegments[i]);
+		completedSegments.length = 0;
+		completedSegments = boundary.row;
+		null !== completedSegments && isEligibleForOutlining(request, boundary) && 0 === --completedSegments.pendingTasks && finishSuspenseListRow(request, completedSegments);
+		writeHoistablesForBoundary(destination, boundary.contentState, request.renderState);
+		completedSegments = request.resumableState;
+		request = request.renderState;
+		i = boundary.rootSegmentID;
+		boundary = boundary.contentState;
+		var requiresStyleInsertion = request.stylesToHoist;
+		request.stylesToHoist = !1;
+		writeChunk(destination, request.startInlineScript);
+		writeChunk(destination, endOfStartTag);
+		requiresStyleInsertion ? (0 === (completedSegments.instructions & 4) && (completedSegments.instructions |= 4, writeChunk(destination, clientRenderScriptFunctionOnly)), 0 === (completedSegments.instructions & 2) && (completedSegments.instructions |= 2, writeChunk(destination, completeBoundaryScriptFunctionOnly)), 0 === (completedSegments.instructions & 8) ? (completedSegments.instructions |= 8, writeChunk(destination, completeBoundaryWithStylesScript1FullPartial)) : writeChunk(destination, completeBoundaryWithStylesScript1Partial)) : (0 === (completedSegments.instructions & 2) && (completedSegments.instructions |= 2, writeChunk(destination, completeBoundaryScriptFunctionOnly)), writeChunk(destination, completeBoundaryScript1Partial));
+		completedSegments = i.toString(16);
+		writeChunk(destination, request.boundaryPrefix);
+		writeChunk(destination, completedSegments);
+		writeChunk(destination, completeBoundaryScript2);
+		writeChunk(destination, request.segmentPrefix);
+		writeChunk(destination, completedSegments);
+		requiresStyleInsertion ? (writeChunk(destination, completeBoundaryScript3a), writeStyleResourceDependenciesInJS(destination, boundary)) : writeChunk(destination, completeBoundaryScript3b);
+		boundary = writeChunkAndReturn(destination, completeBoundaryScriptEnd);
+		return writeBootstrap(destination, request) && boundary;
+	}
+	function flushPartiallyCompletedSegment(request, destination, boundary, segment) {
+		if (2 === segment.status) return !0;
+		var hoistableState = boundary.contentState, segmentID = segment.id;
+		if (-1 === segmentID) {
+			if (-1 === (segment.id = boundary.rootSegmentID)) throw Error("A root segment ID must have been assigned by now. This is a bug in React.");
+			return flushSegmentContainer(request, destination, segment, hoistableState);
+		}
+		if (segmentID === boundary.rootSegmentID) return flushSegmentContainer(request, destination, segment, hoistableState);
+		flushSegmentContainer(request, destination, segment, hoistableState);
+		boundary = request.resumableState;
+		request = request.renderState;
+		writeChunk(destination, request.startInlineScript);
+		writeChunk(destination, endOfStartTag);
+		0 === (boundary.instructions & 1) ? (boundary.instructions |= 1, writeChunk(destination, completeSegmentScript1Full)) : writeChunk(destination, completeSegmentScript1Partial);
+		writeChunk(destination, request.segmentPrefix);
+		segmentID = segmentID.toString(16);
+		writeChunk(destination, segmentID);
+		writeChunk(destination, completeSegmentScript2);
+		writeChunk(destination, request.placeholderPrefix);
+		writeChunk(destination, segmentID);
+		destination = writeChunkAndReturn(destination, completeSegmentScriptEnd);
+		return destination;
+	}
+	var flushingPartialBoundaries = !1;
+	function flushCompletedQueues(request, destination) {
+		currentView = /* @__PURE__ */ new Uint8Array(2048);
+		writtenBytes = 0;
+		destinationHasCapacity$1 = !0;
+		try {
+			if (!(0 < request.pendingRootTasks)) {
+				var i, completedRootSegment = request.completedRootSegment;
+				if (null !== completedRootSegment) {
+					if (5 === completedRootSegment.status) return;
+					var completedPreambleSegments = request.completedPreambleSegments;
+					if (null === completedPreambleSegments) return;
+					flushedByteSize = request.byteSize;
+					var resumableState = request.resumableState, renderState = request.renderState, preamble = renderState.preamble, htmlChunks = preamble.htmlChunks, headChunks = preamble.headChunks, i$jscomp$0;
+					if (htmlChunks) {
+						for (i$jscomp$0 = 0; i$jscomp$0 < htmlChunks.length; i$jscomp$0++) writeChunk(destination, htmlChunks[i$jscomp$0]);
+						if (headChunks) for (i$jscomp$0 = 0; i$jscomp$0 < headChunks.length; i$jscomp$0++) writeChunk(destination, headChunks[i$jscomp$0]);
+						else writeChunk(destination, startChunkForTag("head")), writeChunk(destination, endOfStartTag);
+					} else if (headChunks) for (i$jscomp$0 = 0; i$jscomp$0 < headChunks.length; i$jscomp$0++) writeChunk(destination, headChunks[i$jscomp$0]);
+					var charsetChunks = renderState.charsetChunks;
+					for (i$jscomp$0 = 0; i$jscomp$0 < charsetChunks.length; i$jscomp$0++) writeChunk(destination, charsetChunks[i$jscomp$0]);
+					charsetChunks.length = 0;
+					renderState.preconnects.forEach(flushResource, destination);
+					renderState.preconnects.clear();
+					var viewportChunks = renderState.viewportChunks;
+					for (i$jscomp$0 = 0; i$jscomp$0 < viewportChunks.length; i$jscomp$0++) writeChunk(destination, viewportChunks[i$jscomp$0]);
+					viewportChunks.length = 0;
+					renderState.fontPreloads.forEach(flushResource, destination);
+					renderState.fontPreloads.clear();
+					renderState.highImagePreloads.forEach(flushResource, destination);
+					renderState.highImagePreloads.clear();
+					currentlyFlushingRenderState = renderState;
+					renderState.styles.forEach(flushStylesInPreamble, destination);
+					currentlyFlushingRenderState = null;
+					var importMapChunks = renderState.importMapChunks;
+					for (i$jscomp$0 = 0; i$jscomp$0 < importMapChunks.length; i$jscomp$0++) writeChunk(destination, importMapChunks[i$jscomp$0]);
+					importMapChunks.length = 0;
+					renderState.bootstrapScripts.forEach(flushResource, destination);
+					renderState.scripts.forEach(flushResource, destination);
+					renderState.scripts.clear();
+					renderState.bulkPreloads.forEach(flushResource, destination);
+					renderState.bulkPreloads.clear();
+					htmlChunks || headChunks || (resumableState.instructions |= 32);
+					var hoistableChunks = renderState.hoistableChunks;
+					for (i$jscomp$0 = 0; i$jscomp$0 < hoistableChunks.length; i$jscomp$0++) writeChunk(destination, hoistableChunks[i$jscomp$0]);
+					for (resumableState = hoistableChunks.length = 0; resumableState < completedPreambleSegments.length; resumableState++) {
+						var segments = completedPreambleSegments[resumableState];
+						for (renderState = 0; renderState < segments.length; renderState++) flushSegment(request, destination, segments[renderState], null);
+					}
+					var preamble$jscomp$0 = request.renderState.preamble, headChunks$jscomp$0 = preamble$jscomp$0.headChunks;
+					(preamble$jscomp$0.htmlChunks || headChunks$jscomp$0) && writeChunk(destination, endChunkForTag("head"));
+					var bodyChunks = preamble$jscomp$0.bodyChunks;
+					if (bodyChunks) for (completedPreambleSegments = 0; completedPreambleSegments < bodyChunks.length; completedPreambleSegments++) writeChunk(destination, bodyChunks[completedPreambleSegments]);
+					flushSegment(request, destination, completedRootSegment, null);
+					request.completedRootSegment = null;
+					var renderState$jscomp$0 = request.renderState;
+					if (0 !== request.allPendingTasks || 0 !== request.clientRenderedBoundaries.length || 0 !== request.completedBoundaries.length || null !== request.trackedPostpones && (0 !== request.trackedPostpones.rootNodes.length || null !== request.trackedPostpones.rootSlots)) {
+						var resumableState$jscomp$0 = request.resumableState;
+						if (0 === (resumableState$jscomp$0.instructions & 64)) {
+							resumableState$jscomp$0.instructions |= 64;
+							writeChunk(destination, renderState$jscomp$0.startInlineScript);
+							if (0 === (resumableState$jscomp$0.instructions & 32)) {
+								resumableState$jscomp$0.instructions |= 32;
+								var shellId = "_" + resumableState$jscomp$0.idPrefix + "R_";
+								writeChunk(destination, completedShellIdAttributeStart);
+								writeChunk(destination, escapeTextForBrowser(shellId));
+								writeChunk(destination, attributeEnd);
+							}
+							writeChunk(destination, endOfStartTag);
+							writeChunk(destination, shellTimeRuntimeScript);
+							writeChunkAndReturn(destination, endInlineScript);
+						}
+					}
+					writeBootstrap(destination, renderState$jscomp$0);
+				}
+				var renderState$jscomp$1 = request.renderState;
+				completedRootSegment = 0;
+				var viewportChunks$jscomp$0 = renderState$jscomp$1.viewportChunks;
+				for (completedRootSegment = 0; completedRootSegment < viewportChunks$jscomp$0.length; completedRootSegment++) writeChunk(destination, viewportChunks$jscomp$0[completedRootSegment]);
+				viewportChunks$jscomp$0.length = 0;
+				renderState$jscomp$1.preconnects.forEach(flushResource, destination);
+				renderState$jscomp$1.preconnects.clear();
+				renderState$jscomp$1.fontPreloads.forEach(flushResource, destination);
+				renderState$jscomp$1.fontPreloads.clear();
+				renderState$jscomp$1.highImagePreloads.forEach(flushResource, destination);
+				renderState$jscomp$1.highImagePreloads.clear();
+				renderState$jscomp$1.styles.forEach(preloadLateStyles, destination);
+				renderState$jscomp$1.scripts.forEach(flushResource, destination);
+				renderState$jscomp$1.scripts.clear();
+				renderState$jscomp$1.bulkPreloads.forEach(flushResource, destination);
+				renderState$jscomp$1.bulkPreloads.clear();
+				var hoistableChunks$jscomp$0 = renderState$jscomp$1.hoistableChunks;
+				for (completedRootSegment = 0; completedRootSegment < hoistableChunks$jscomp$0.length; completedRootSegment++) writeChunk(destination, hoistableChunks$jscomp$0[completedRootSegment]);
+				hoistableChunks$jscomp$0.length = 0;
+				var clientRenderedBoundaries = request.clientRenderedBoundaries;
+				for (i = 0; i < clientRenderedBoundaries.length; i++) {
+					var boundary = clientRenderedBoundaries[i];
+					renderState$jscomp$1 = destination;
+					var resumableState$jscomp$1 = request.resumableState, renderState$jscomp$2 = request.renderState, id = boundary.rootSegmentID, errorDigest = boundary.errorDigest;
+					writeChunk(renderState$jscomp$1, renderState$jscomp$2.startInlineScript);
+					writeChunk(renderState$jscomp$1, endOfStartTag);
+					0 === (resumableState$jscomp$1.instructions & 4) ? (resumableState$jscomp$1.instructions |= 4, writeChunk(renderState$jscomp$1, clientRenderScript1Full)) : writeChunk(renderState$jscomp$1, clientRenderScript1Partial);
+					writeChunk(renderState$jscomp$1, renderState$jscomp$2.boundaryPrefix);
+					writeChunk(renderState$jscomp$1, id.toString(16));
+					writeChunk(renderState$jscomp$1, clientRenderScript1A);
+					errorDigest && (writeChunk(renderState$jscomp$1, clientRenderErrorScriptArgInterstitial), writeChunk(renderState$jscomp$1, escapeJSStringsForInstructionScripts(errorDigest || "")));
+					var JSCompiler_inline_result = writeChunkAndReturn(renderState$jscomp$1, clientRenderScriptEnd);
+					if (!JSCompiler_inline_result) {
+						request.destination = null;
+						i++;
+						clientRenderedBoundaries.splice(0, i);
+						return;
+					}
+				}
+				clientRenderedBoundaries.splice(0, i);
+				var completedBoundaries = request.completedBoundaries;
+				for (i = 0; i < completedBoundaries.length; i++) if (!flushCompletedBoundary(request, destination, completedBoundaries[i])) {
+					request.destination = null;
+					i++;
+					completedBoundaries.splice(0, i);
+					return;
+				}
+				completedBoundaries.splice(0, i);
+				completeWriting(destination);
+				currentView = /* @__PURE__ */ new Uint8Array(2048);
+				writtenBytes = 0;
+				flushingPartialBoundaries = destinationHasCapacity$1 = !0;
+				var partialBoundaries = request.partialBoundaries;
+				for (i = 0; i < partialBoundaries.length; i++) {
+					var boundary$70 = partialBoundaries[i];
+					a: {
+						clientRenderedBoundaries = request;
+						boundary = destination;
+						flushedByteSize = boundary$70.byteSize;
+						var completedSegments = boundary$70.completedSegments;
+						for (JSCompiler_inline_result = 0; JSCompiler_inline_result < completedSegments.length; JSCompiler_inline_result++) if (!flushPartiallyCompletedSegment(clientRenderedBoundaries, boundary, boundary$70, completedSegments[JSCompiler_inline_result])) {
+							JSCompiler_inline_result++;
+							completedSegments.splice(0, JSCompiler_inline_result);
+							var JSCompiler_inline_result$jscomp$0 = !1;
+							break a;
+						}
+						completedSegments.splice(0, JSCompiler_inline_result);
+						var row = boundary$70.row;
+						null !== row && row.together && 1 === boundary$70.pendingTasks && (1 === row.pendingTasks ? unblockSuspenseListRow(clientRenderedBoundaries, row, row.hoistables) : row.pendingTasks--);
+						JSCompiler_inline_result$jscomp$0 = writeHoistablesForBoundary(boundary, boundary$70.contentState, clientRenderedBoundaries.renderState);
+					}
+					if (!JSCompiler_inline_result$jscomp$0) {
+						request.destination = null;
+						i++;
+						partialBoundaries.splice(0, i);
+						return;
+					}
+				}
+				partialBoundaries.splice(0, i);
+				flushingPartialBoundaries = !1;
+				var largeBoundaries = request.completedBoundaries;
+				for (i = 0; i < largeBoundaries.length; i++) if (!flushCompletedBoundary(request, destination, largeBoundaries[i])) {
+					request.destination = null;
+					i++;
+					largeBoundaries.splice(0, i);
+					return;
+				}
+				largeBoundaries.splice(0, i);
+			}
+		} finally {
+			flushingPartialBoundaries = !1, 0 === request.allPendingTasks && 0 === request.clientRenderedBoundaries.length && 0 === request.completedBoundaries.length ? (request.flushScheduled = !1, i = request.resumableState, i.hasBody && writeChunk(destination, endChunkForTag("body")), i.hasHtml && writeChunk(destination, endChunkForTag("html")), completeWriting(destination), flushBuffered(destination), request.status = 14, destination.end(), request.destination = null) : (completeWriting(destination), flushBuffered(destination));
+		}
+	}
+	function startWork(request) {
+		request.flushScheduled = null !== request.destination;
+		scheduleMicrotask(function() {
+			return requestStorage.run(request, performWork, request);
+		});
+		setImmediate(function() {
+			10 === request.status && (request.status = 11);
+			null === request.trackedPostpones && requestStorage.run(request, enqueueEarlyPreloadsAfterInitialWork, request);
+		});
+	}
+	function enqueueEarlyPreloadsAfterInitialWork(request) {
+		safelyEmitEarlyPreloads(request, 0 === request.pendingRootTasks);
+	}
+	function enqueueFlush(request) {
+		!1 === request.flushScheduled && 0 === request.pingedTasks.length && null !== request.destination && (request.flushScheduled = !0, setImmediate(function() {
+			var destination = request.destination;
+			destination ? flushCompletedQueues(request, destination) : request.flushScheduled = !1;
+		}));
+	}
+	function startFlowing(request, destination) {
+		if (13 === request.status) request.status = 14, destination.destroy(request.fatalError);
+		else if (14 !== request.status && null === request.destination) {
+			request.destination = destination;
+			try {
+				flushCompletedQueues(request, destination);
+			} catch (error) {
+				logRecoverableError(request, error, {}), fatalError(request, error);
+			}
+		}
+	}
+	function abort(request, reason) {
+		if (11 === request.status || 10 === request.status) request.status = 12;
+		try {
+			var abortableTasks = request.abortableTasks;
+			if (0 < abortableTasks.size) {
+				var error = void 0 === reason ? Error("The render was aborted by the server without a reason.") : "object" === typeof reason && null !== reason && "function" === typeof reason.then ? Error("The render was aborted by the server with a promise.") : reason;
+				request.fatalError = error;
+				abortableTasks.forEach(function(task) {
+					return abortTask(task, request, error);
+				});
+				abortableTasks.clear();
+			}
+			null !== request.destination && flushCompletedQueues(request, request.destination);
+		} catch (error$72) {
+			logRecoverableError(request, error$72, {}), fatalError(request, error$72);
+		}
+	}
+	function addToReplayParent(node, parentKeyPath, trackedPostpones) {
+		if (null === parentKeyPath) trackedPostpones.rootNodes.push(node);
+		else {
+			var workingMap = trackedPostpones.workingMap, parentNode = workingMap.get(parentKeyPath);
+			void 0 === parentNode && (parentNode = [
+				parentKeyPath[1],
+				parentKeyPath[2],
+				[],
+				null
+			], workingMap.set(parentKeyPath, parentNode), addToReplayParent(parentNode, parentKeyPath[0], trackedPostpones));
+			parentNode[2].push(node);
+		}
+	}
+	function getPostponedState(request) {
+		var trackedPostpones = request.trackedPostpones;
+		if (null === trackedPostpones || 0 === trackedPostpones.rootNodes.length && null === trackedPostpones.rootSlots) return request.trackedPostpones = null;
+		if (null === request.completedRootSegment || 5 !== request.completedRootSegment.status && null !== request.completedPreambleSegments) {
+			var nextSegmentId = request.nextSegmentId;
+			var replaySlots = trackedPostpones.rootSlots;
+			var resumableState = request.resumableState;
+			resumableState.bootstrapScriptContent = void 0;
+			resumableState.bootstrapScripts = void 0;
+			resumableState.bootstrapModules = void 0;
+		} else {
+			nextSegmentId = 0;
+			replaySlots = -1;
+			resumableState = request.resumableState;
+			var renderState = request.renderState;
+			resumableState.nextFormID = 0;
+			resumableState.hasBody = !1;
+			resumableState.hasHtml = !1;
+			resumableState.unknownResources = { font: renderState.resets.font };
+			resumableState.dnsResources = renderState.resets.dns;
+			resumableState.connectResources = renderState.resets.connect;
+			resumableState.imageResources = renderState.resets.image;
+			resumableState.styleResources = renderState.resets.style;
+			resumableState.scriptResources = {};
+			resumableState.moduleUnknownResources = {};
+			resumableState.moduleScriptResources = {};
+			resumableState.instructions = 0;
+		}
+		return {
+			nextSegmentId,
+			rootFormatContext: request.rootFormatContext,
+			progressiveChunkSize: request.progressiveChunkSize,
+			resumableState: request.resumableState,
+			replayNodes: trackedPostpones.rootNodes,
+			replaySlots
+		};
+	}
+	function ensureCorrectIsomorphicReactVersion() {
+		var isomorphicReactPackageVersion = React.version;
+		if ("19.2.7" !== isomorphicReactPackageVersion) throw Error("Incompatible React versions: The \"react\" and \"react-dom\" packages must have the exact same version. Instead got:\n  - react:      " + (isomorphicReactPackageVersion + "\n  - react-dom:  19.2.7\nLearn more: https://react.dev/warnings/version-mismatch"));
+	}
+	ensureCorrectIsomorphicReactVersion();
+	function createDrainHandler(destination, request) {
+		return function() {
+			return startFlowing(request, destination);
+		};
+	}
+	function createCancelHandler(request, reason) {
+		return function() {
+			request.destination = null;
+			abort(request, Error(reason));
+		};
+	}
+	function createRequestImpl(children, options) {
+		var resumableState = createResumableState(options ? options.identifierPrefix : void 0, options ? options.unstable_externalRuntimeSrc : void 0, options ? options.bootstrapScriptContent : void 0, options ? options.bootstrapScripts : void 0, options ? options.bootstrapModules : void 0);
+		return createRequest(children, resumableState, createRenderState(resumableState, options ? options.nonce : void 0, options ? options.unstable_externalRuntimeSrc : void 0, options ? options.importMap : void 0, options ? options.onHeaders : void 0, options ? options.maxHeadersLength : void 0), createRootFormatContext(options ? options.namespaceURI : void 0), options ? options.progressiveChunkSize : void 0, options ? options.onError : void 0, options ? options.onAllReady : void 0, options ? options.onShellReady : void 0, options ? options.onShellError : void 0, void 0, options ? options.onPostpone : void 0, options ? options.formState : void 0);
+	}
+	function createFakeWritableFromReadableStreamController$1(controller) {
+		return {
+			write: function(chunk) {
+				"string" === typeof chunk && (chunk = textEncoder.encode(chunk));
+				controller.enqueue(chunk);
+				return !0;
+			},
+			end: function() {
+				controller.close();
+			},
+			destroy: function(error) {
+				"function" === typeof controller.error ? controller.error(error) : controller.close();
+			}
+		};
+	}
+	function resumeRequestImpl(children, postponedState, options) {
+		return resumeRequest(children, postponedState, createRenderState(postponedState.resumableState, options ? options.nonce : void 0, void 0, void 0, void 0, void 0), options ? options.onError : void 0, options ? options.onAllReady : void 0, options ? options.onShellReady : void 0, options ? options.onShellError : void 0, void 0, options ? options.onPostpone : void 0);
+	}
+	ensureCorrectIsomorphicReactVersion();
+	function createFakeWritableFromReadableStreamController(controller) {
+		return {
+			write: function(chunk) {
+				"string" === typeof chunk && (chunk = textEncoder.encode(chunk));
+				controller.enqueue(chunk);
+				return !0;
+			},
+			end: function() {
+				controller.close();
+			},
+			destroy: function(error) {
+				"function" === typeof controller.error ? controller.error(error) : controller.close();
+			}
+		};
+	}
+	function createFakeWritableFromReadable(readable) {
+		return {
+			write: function(chunk) {
+				return readable.push(chunk);
+			},
+			end: function() {
+				readable.push(null);
+			},
+			destroy: function(error) {
+				readable.destroy(error);
+			}
+		};
+	}
+	exports.prerender = function(children, options) {
+		return new Promise(function(resolve, reject) {
+			var onHeaders = options ? options.onHeaders : void 0, onHeadersImpl;
+			onHeaders && (onHeadersImpl = function(headersDescriptor) {
+				onHeaders(new Headers(headersDescriptor));
+			});
+			var resources = createResumableState(options ? options.identifierPrefix : void 0, options ? options.unstable_externalRuntimeSrc : void 0, options ? options.bootstrapScriptContent : void 0, options ? options.bootstrapScripts : void 0, options ? options.bootstrapModules : void 0), request = createPrerenderRequest(children, resources, createRenderState(resources, void 0, options ? options.unstable_externalRuntimeSrc : void 0, options ? options.importMap : void 0, onHeadersImpl, options ? options.maxHeadersLength : void 0), createRootFormatContext(options ? options.namespaceURI : void 0), options ? options.progressiveChunkSize : void 0, options ? options.onError : void 0, function() {
+				var writable, stream = new ReadableStream({
+					type: "bytes",
+					start: function(controller) {
+						writable = createFakeWritableFromReadableStreamController(controller);
+					},
+					pull: function() {
+						startFlowing(request, writable);
+					},
+					cancel: function(reason) {
+						request.destination = null;
+						abort(request, reason);
+					}
+				}, { highWaterMark: 0 });
+				stream = {
+					postponed: getPostponedState(request),
+					prelude: stream
+				};
+				resolve(stream);
+			}, void 0, void 0, reject, options ? options.onPostpone : void 0);
+			if (options && options.signal) {
+				var signal = options.signal;
+				if (signal.aborted) abort(request, signal.reason);
+				else {
+					var listener = function() {
+						abort(request, signal.reason);
+						signal.removeEventListener("abort", listener);
+					};
+					signal.addEventListener("abort", listener);
+				}
+			}
+			startWork(request);
+		});
+	};
+	exports.prerenderToNodeStream = function(children, options) {
+		return new Promise(function(resolve, reject) {
+			var resumableState = createResumableState(options ? options.identifierPrefix : void 0, options ? options.unstable_externalRuntimeSrc : void 0, options ? options.bootstrapScriptContent : void 0, options ? options.bootstrapScripts : void 0, options ? options.bootstrapModules : void 0), request = createPrerenderRequest(children, resumableState, createRenderState(resumableState, void 0, options ? options.unstable_externalRuntimeSrc : void 0, options ? options.importMap : void 0, options ? options.onHeaders : void 0, options ? options.maxHeadersLength : void 0), createRootFormatContext(options ? options.namespaceURI : void 0), options ? options.progressiveChunkSize : void 0, options ? options.onError : void 0, function() {
+				var readable = new stream.Readable({ read: function() {
+					startFlowing(request, writable);
+				} }), writable = createFakeWritableFromReadable(readable);
+				readable = {
+					postponed: getPostponedState(request),
+					prelude: readable
+				};
+				resolve(readable);
+			}, void 0, void 0, reject, options ? options.onPostpone : void 0);
+			if (options && options.signal) {
+				var signal = options.signal;
+				if (signal.aborted) abort(request, signal.reason);
+				else {
+					var listener = function() {
+						abort(request, signal.reason);
+						signal.removeEventListener("abort", listener);
+					};
+					signal.addEventListener("abort", listener);
+				}
+			}
+			startWork(request);
+		});
+	};
+	exports.renderToPipeableStream = function(children, options) {
+		var request = createRequestImpl(children, options), hasStartedFlowing = !1;
+		startWork(request);
+		return {
+			pipe: function(destination) {
+				if (hasStartedFlowing) throw Error("React currently only supports piping to one writable stream.");
+				hasStartedFlowing = !0;
+				safelyEmitEarlyPreloads(request, null === request.trackedPostpones ? 0 === request.pendingRootTasks : null === request.completedRootSegment ? 0 === request.pendingRootTasks : 5 !== request.completedRootSegment.status);
+				startFlowing(request, destination);
+				destination.on("drain", createDrainHandler(destination, request));
+				destination.on("error", createCancelHandler(request, "The destination stream errored while writing data."));
+				destination.on("close", createCancelHandler(request, "The destination stream closed early."));
+				return destination;
+			},
+			abort: function(reason) {
+				abort(request, reason);
+			}
+		};
+	};
+	exports.renderToReadableStream = function(children, options) {
+		return new Promise(function(resolve, reject) {
+			var onFatalError, onAllReady, allReady = new Promise(function(res, rej) {
+				onAllReady = res;
+				onFatalError = rej;
+			}), onHeaders = options ? options.onHeaders : void 0, onHeadersImpl;
+			onHeaders && (onHeadersImpl = function(headersDescriptor) {
+				onHeaders(new Headers(headersDescriptor));
+			});
+			var resumableState = createResumableState(options ? options.identifierPrefix : void 0, options ? options.unstable_externalRuntimeSrc : void 0, options ? options.bootstrapScriptContent : void 0, options ? options.bootstrapScripts : void 0, options ? options.bootstrapModules : void 0), request = createRequest(children, resumableState, createRenderState(resumableState, options ? options.nonce : void 0, options ? options.unstable_externalRuntimeSrc : void 0, options ? options.importMap : void 0, onHeadersImpl, options ? options.maxHeadersLength : void 0), createRootFormatContext(options ? options.namespaceURI : void 0), options ? options.progressiveChunkSize : void 0, options ? options.onError : void 0, onAllReady, function() {
+				var writable, stream = new ReadableStream({
+					type: "bytes",
+					start: function(controller) {
+						writable = createFakeWritableFromReadableStreamController$1(controller);
+					},
+					pull: function() {
+						startFlowing(request, writable);
+					},
+					cancel: function(reason) {
+						request.destination = null;
+						abort(request, reason);
+					}
+				}, { highWaterMark: 0 });
+				stream.allReady = allReady;
+				resolve(stream);
+			}, function(error) {
+				allReady.catch(function() {});
+				reject(error);
+			}, onFatalError, options ? options.onPostpone : void 0, options ? options.formState : void 0);
+			if (options && options.signal) {
+				var signal = options.signal;
+				if (signal.aborted) abort(request, signal.reason);
+				else {
+					var listener = function() {
+						abort(request, signal.reason);
+						signal.removeEventListener("abort", listener);
+					};
+					signal.addEventListener("abort", listener);
+				}
+			}
+			startWork(request);
+		});
+	};
+	exports.resume = function(children, postponedState, options) {
+		return new Promise(function(resolve, reject) {
+			var onFatalError, onAllReady, allReady = new Promise(function(res, rej) {
+				onAllReady = res;
+				onFatalError = rej;
+			}), request = resumeRequest(children, postponedState, createRenderState(postponedState.resumableState, options ? options.nonce : void 0, void 0, void 0, void 0, void 0), options ? options.onError : void 0, onAllReady, function() {
+				var writable, stream = new ReadableStream({
+					type: "bytes",
+					start: function(controller) {
+						writable = createFakeWritableFromReadableStreamController$1(controller);
+					},
+					pull: function() {
+						startFlowing(request, writable);
+					},
+					cancel: function(reason) {
+						request.destination = null;
+						abort(request, reason);
+					}
+				}, { highWaterMark: 0 });
+				stream.allReady = allReady;
+				resolve(stream);
+			}, function(error) {
+				allReady.catch(function() {});
+				reject(error);
+			}, onFatalError, options ? options.onPostpone : void 0);
+			if (options && options.signal) {
+				var signal = options.signal;
+				if (signal.aborted) abort(request, signal.reason);
+				else {
+					var listener = function() {
+						abort(request, signal.reason);
+						signal.removeEventListener("abort", listener);
+					};
+					signal.addEventListener("abort", listener);
+				}
+			}
+			startWork(request);
+		});
+	};
+	exports.resumeAndPrerender = function(children, postponedState, options) {
+		return new Promise(function(resolve, reject) {
+			var request = resumeAndPrerenderRequest(children, postponedState, createRenderState(postponedState.resumableState, void 0, void 0, void 0, void 0, void 0), options ? options.onError : void 0, function() {
+				var writable, stream = new ReadableStream({
+					type: "bytes",
+					start: function(controller) {
+						writable = createFakeWritableFromReadableStreamController(controller);
+					},
+					pull: function() {
+						startFlowing(request, writable);
+					},
+					cancel: function(reason) {
+						request.destination = null;
+						abort(request, reason);
+					}
+				}, { highWaterMark: 0 });
+				stream = {
+					postponed: getPostponedState(request),
+					prelude: stream
+				};
+				resolve(stream);
+			}, void 0, void 0, reject, options ? options.onPostpone : void 0);
+			if (options && options.signal) {
+				var signal = options.signal;
+				if (signal.aborted) abort(request, signal.reason);
+				else {
+					var listener = function() {
+						abort(request, signal.reason);
+						signal.removeEventListener("abort", listener);
+					};
+					signal.addEventListener("abort", listener);
+				}
+			}
+			startWork(request);
+		});
+	};
+	exports.resumeAndPrerenderToNodeStream = function(children, postponedState, options) {
+		return new Promise(function(resolve, reject) {
+			var request = resumeAndPrerenderRequest(children, postponedState, createRenderState(postponedState.resumableState, void 0, void 0, void 0, void 0, void 0), options ? options.onError : void 0, function() {
+				var readable = new stream.Readable({ read: function() {
+					startFlowing(request, writable);
+				} }), writable = createFakeWritableFromReadable(readable);
+				readable = {
+					postponed: getPostponedState(request),
+					prelude: readable
+				};
+				resolve(readable);
+			}, void 0, void 0, reject, options ? options.onPostpone : void 0);
+			if (options && options.signal) {
+				var signal = options.signal;
+				if (signal.aborted) abort(request, signal.reason);
+				else {
+					var listener = function() {
+						abort(request, signal.reason);
+						signal.removeEventListener("abort", listener);
+					};
+					signal.addEventListener("abort", listener);
+				}
+			}
+			startWork(request);
+		});
+	};
+	exports.resumeToPipeableStream = function(children, postponedState, options) {
+		var request = resumeRequestImpl(children, postponedState, options), hasStartedFlowing = !1;
+		startWork(request);
+		return {
+			pipe: function(destination) {
+				if (hasStartedFlowing) throw Error("React currently only supports piping to one writable stream.");
+				hasStartedFlowing = !0;
+				startFlowing(request, destination);
+				destination.on("drain", createDrainHandler(destination, request));
+				destination.on("error", createCancelHandler(request, "The destination stream errored while writing data."));
+				destination.on("close", createCancelHandler(request, "The destination stream closed early."));
+				return destination;
+			},
+			abort: function(reason) {
+				abort(request, reason);
+			}
+		};
+	};
+	exports.version = "19.2.7";
+}));
+//#endregion
+//#region node_modules/isbot/index.mjs
+var import_server_node = /* @__PURE__ */ __toESM((/* @__PURE__ */ __commonJSMin(((exports) => {
+	var l = require_react_dom_server_legacy_node_production(), s = require_react_dom_server_node_production();
+	exports.version = l.version;
+	exports.renderToString = l.renderToString;
+	exports.renderToStaticMarkup = l.renderToStaticMarkup;
+	exports.renderToPipeableStream = s.renderToPipeableStream;
+	exports.renderToReadableStream = s.renderToReadableStream;
+	exports.resumeToPipeableStream = s.resumeToPipeableStream;
+	exports.resume = s.resume;
+})))(), 1);
+var fullPattern = " daum[ /]| deusu/|(?:^|[^g])news(?!sapphire)|(?<! (?:channel/|google/))google(?!(wv|app|/google| pixel))|(?<! cu)bots?(?:\\b|_)|(?<!(?:lib))http|(?<!cam)scan|24x7|;\\s\\w+;$|@[a-z][\\w-]+\\.|\\(\\)|\\.com\\b|\\b\\w+\\.ai|\\bbw/|\\bdlc\\b|\\bort/|\\bperl\\b|\\btime/|\\||^[\\w \\.\\-\\(?:\\):%]+(?:/v?\\d+(?:\\.\\d+)?(?:\\.\\d{1,10})*?)?(?:,|$)|^[\\w\\-]+/[\\w]+$|^[^ ]{50,}$|^\\d+\\b|^\\W|^\\w*search\\b|^\\w+/[\\w\\(\\)]*$|^\\w+/\\d\\.\\d\\s\\([\\w@]+\\)$|^active|^ad muncher|^amaya|^apache/|^avsdevicesdk/|^azure|^biglotron|^blackbox exporter|^bot|^clamav[ /]|^claude-code/|^client/|^cobweb/|^custom|^ddg[_-]android|^discourse|^dispatch/\\d|^downcast/|^duckduckgo|^email|^exodusmovement|^facebook|^getright/|^gozilla/|^hobbit|^hotzonu|^hwcdn/|^igetter/|^jeode/|^jetty/|^jigsaw|^microsoft bits|^movabletype|^mozilla/\\d\\.\\d\\s[\\w\\.-]+$|^mozilla/\\d\\.\\d\\s\\((?:compatible;)?(?:\\s?[\\w\\d-.]+\\/\\d+\\.\\d+)?\\)$|^navermailapp|^netsurf|^offline|^openai/|^owler|^php|^postman|^ps_daily/|^python|^rank|^read|^reed|^remove\\.bg/|^rest|^rss|^snapchat|^sora |^space bison|^stape/|^svn|^swcd |^taringa|^thumbor/|^track|^w3c|^webbandit/|^webcopier|^wget|^whatsapp|^wordpress|^xenu link sleuth|^yahoo|^yandex|^zdm/\\d|^zoom marketplace/|abuse|advisor|agent\\b|analyzer|archive|ask jeeves/teoma|attracta|audit|bluecoat drtr|browsex|burpcollaborator|capture|catch|check\\b|checker|chrome-lighthouse|chromeframe|classifier|cloudflare|collapsify\\b|convertify|cookiehubverify/|crawl|cursor/|cypress/|dareboost|datanyze|dejaclick|detect|dmbrowser|download|exaleadcloudview|feed|fetcher|firephp|foregenix|functionize|grab|productfinder|hardenize\\b|headless|hotjar|httrack|hubspot marketing grader|ibisbrowser|infrawatch|insight|inspect|iplabel|java(?!;)|library|linkcheck|linktiger|mail\\.ru/|manager|manus-user/|marketgoo/|measure|monitor\\b|neustar wpm|node\\b|nutch|offbyone|openvas|optimize|pageburst|pagespeed|parser|phantomjs|pingdom|playwright|powermarks|preview|proxy|ptst[ /]\\d|readable/|retriever|rexx;|rigor|rss\\b|scrape|securityheaders|selenium|server|silktide|sindup/|sogou|sparkler/|speedcurve|spider|splash|statuscake|supercleaner|synapse|synthetic|testlocally|tools|torrent|transcoder|upday/|url|validator|virtuoso|wappalyzer|watchtowr|webglance|webkit2png|whatcms/|xtate/";
+var naivePattern = /bot|crawl|http|lighthouse|scan|search|spider/i;
+var pattern;
+function getPattern() {
+	if (pattern instanceof RegExp) return pattern;
+	try {
+		pattern = new RegExp(fullPattern, "i");
+	} catch (error) {
+		pattern = naivePattern;
+	}
+	return pattern;
+}
+var isNonEmptyString = (value) => typeof value === "string" && value !== "";
+function isbot(userAgent) {
+	return isNonEmptyString(userAgent) && getPattern().test(userAgent);
+}
+//#endregion
+//#region node_modules/@tanstack/react-router/dist/esm/ssr/renderRouterToStream.js
+var noop = () => {};
+async function waitForReadyOrAbort(ready, signal) {
+	let cleanup = noop;
+	try {
+		await Promise.race([ready, new Promise((resolve) => {
+			const onAbort = () => resolve();
+			cleanup = () => signal.removeEventListener("abort", onAbort);
+			signal.addEventListener("abort", onAbort, { once: true });
+			if (signal.aborted) resolve();
+		})]);
+	} finally {
+		cleanup();
+	}
+}
+var isAbortError = (request, error) => request.signal.aborted && error === request.signal.reason || error instanceof Error && error.name === "AbortError";
+var renderRouterToStream = async ({ request, router, responseHeaders, children }) => {
+	if (typeof import_server_node.renderToReadableStream === "function") {
+		const stream = await import_server_node.renderToReadableStream(children, {
+			signal: request.signal,
+			nonce: router.options.ssr?.nonce,
+			progressiveChunkSize: Number.POSITIVE_INFINITY,
+			onError: (error, info) => {
+				if (!isAbortError(request, error)) console.error("Error in renderToReadableStream:", error, info);
+			}
+		});
+		if (isbot(request.headers.get("User-Agent"))) await waitForReadyOrAbort(stream.allReady, request.signal);
+		const responseStream = transformReadableStreamWithRouter(router, stream, { onAbort: () => stream.cancel().catch(() => {}) });
+		return createSsrStreamResponse(router, new Response(responseStream, {
+			status: router.stores.statusCode.get(),
+			headers: responseHeaders
+		}));
+	}
+	if (typeof import_server_node.renderToPipeableStream === "function") {
+		const reactAppPassthrough = new PassThrough();
+		let pipeable;
+		let responseAttached = false;
+		let aborted = false;
+		let endedBeforeAttach = false;
+		let pendingAbortReason;
+		const toError = (reason) => reason instanceof Error ? reason : new Error(String(reason ?? "SSR aborted"));
+		const destroyError = (reason) => reason === void 0 ? void 0 : toError(reason);
+		const pendingDestroyError = () => pendingAbortReason === void 0 ? toError(pendingAbortReason) : destroyError(pendingAbortReason);
+		const finishPassThrough = (reason, opts) => {
+			if (reactAppPassthrough.destroyed) return;
+			if (responseAttached) reactAppPassthrough.destroy(opts?.defaultError ? toError(reason) : destroyError(reason));
+			else endedBeforeAttach = true;
+		};
+		const abortPipeable = (reason, opts) => {
+			if (aborted) return;
+			aborted = true;
+			pendingAbortReason = reason;
+			const err = toError(reason);
+			try {
+				pipeable?.abort(err);
+			} catch {}
+			finishPassThrough(reason, opts);
+		};
+		if (request.signal.aborted) abortPipeable(request.signal.reason);
+		else {
+			const onRequestAbort = () => abortPipeable(request.signal.reason);
+			request.signal.addEventListener("abort", onRequestAbort, { once: true });
+			router.serverSsr?.onCleanup(() => {
+				request.signal.removeEventListener("abort", onRequestAbort);
+			});
+		}
+		try {
+			pipeable = import_server_node.renderToPipeableStream(children, {
+				nonce: router.options.ssr?.nonce,
+				progressiveChunkSize: Number.POSITIVE_INFINITY,
+				...isbot(request.headers.get("User-Agent")) ? { onAllReady() {
+					pipeable.pipe(reactAppPassthrough);
+				} } : { onShellReady() {
+					pipeable.pipe(reactAppPassthrough);
+				} },
+				onError: (error, info) => {
+					if (!isAbortError(request, error)) console.error("Error in renderToPipeableStream:", error, info);
+					abortPipeable(error, { defaultError: true });
+				}
+			});
+		} catch (e) {
+			console.error("Error in renderToPipeableStream:", e);
+			router.serverSsr?.cleanup();
+			throw e;
+		}
+		const responseStream = transformPipeableStreamWithRouter(router, reactAppPassthrough, { onAbort: abortPipeable });
+		responseAttached = true;
+		if (endedBeforeAttach) reactAppPassthrough.destroy(pendingDestroyError());
+		if (aborted && pipeable) try {
+			pipeable.abort(toError(pendingAbortReason));
+		} catch {}
+		return createSsrStreamResponse(router, new Response(responseStream, {
+			status: router.stores.statusCode.get(),
+			headers: responseHeaders
+		}));
+	}
+	throw new Error("No renderToReadableStream or renderToPipeableStream found in react-dom/server. Ensure you are using a version of react-dom that supports streaming.");
+};
+//#endregion
+export { invariant as A, resolveManifestCssLink as C, rootRouteId as D, isResolvedRedirect as E, useRouter as M, isNotFound as O, resolveManifestAssetLink as S, isRedirect as T, TSR_SCRIPT_BARRIER_ID as _, replaceSsrResponse as a, getScriptPreloadAttrs as b, HeadContent as c, Outlet as d, lazyRouteComponent as f, GLOBAL_TSR as g, Link as h, normalizeSsrResponse as i, decodePath as j, createLRUCache as k, RouterProvider as l, createRootRouteWithContext as m, defineHandlerCallback as n, stripSsrResponseBody as o, createFileRoute as p, isSsrResponse as r, Scripts as s, renderRouterToStream as t, createRouter as u, createInlineCssPlaceholderAsset as v, executeRewriteInput as w, getStylesheetHref as x, createInlineCssStyleAsset as y };

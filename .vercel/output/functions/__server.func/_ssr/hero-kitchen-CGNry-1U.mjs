@@ -1,1 +1,0 @@
-var e="/assets/hero-kitchen-DIfcTxlP.webp";export{e as t};
