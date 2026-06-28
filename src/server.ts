@@ -1,3 +1,5 @@
+﻿import React from 'react';
+globalThis.React = React;
 import "./lib/error-capture";
 
 import { consumeLastCapturedError } from "./lib/error-capture";
