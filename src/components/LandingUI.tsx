@@ -1,10 +1,10 @@
 import { useEffect, useState, useRef, MouseEvent, TouchEvent } from "react";
-import { motion, useInView } from "framer-motion";
+import { m as motion, useInView } from "framer-motion";
 import heroImg from "@/assets/hero-worker-hq.webp";
 import gal3 from "@/assets/gallery-3.webp"; // Error habitual
-import gal1 from "@/assets/gallery-1.webp"; // Método Cubikos
+import gal1 from "@/assets/gallery-1.webp"; // MÃ©todo Cubikos
 
-/* ───────────── icons ───────────── */
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ icons â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 export const Ico = {
   Star: (p: React.SVGProps<SVGSVGElement>) => (
     <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden {...p}>
@@ -141,7 +141,7 @@ export const FadeUp = ({
     <motion.div
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-10%" }}
+      viewport={{ once: true, amount: 0.15 }}
       transition={{ duration: 0.6, delay, ease: [0.2, 0.8, 0.2, 1] }}
       className={className}
     >
@@ -162,7 +162,7 @@ export const RevealMask = ({
       <motion.div
         initial={{ y: "100%" }}
         whileInView={{ y: 0 }}
-        viewport={{ once: true, margin: "-10%" }}
+        viewport={{ once: true, amount: 0.15 }}
         transition={{ duration: 0.6, delay, ease: [0.2, 0.8, 0.2, 1] }}
       >
         {children}
@@ -210,7 +210,16 @@ export function Counter({
   );
 }
 
-export function Header() {
+
+
+const navItems = [
+  { label: "Método", href: "#metodo" },
+  { label: "Proyectos", href: "#proyectos" },
+  { label: "Opiniones", href: "#opiniones" },
+  { label: "Contacto", href: "#contacto" },
+];
+
+export const Header = React.memo(() => {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -220,13 +229,6 @@ export function Header() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
-
-  const navItems = [
-    { label: "Método", href: "#metodo" },
-    { label: "Proyectos", href: "#proyectos" },
-    { label: "Opiniones", href: "#opiniones" },
-    { label: "Contacto", href: "#contacto" },
-  ];
 
   return (
     <header
@@ -258,7 +260,7 @@ export function Header() {
           </a>
         </div>
         <button
-          aria-label="Abrir menú"
+          aria-label="Abrir menÃº"
           onClick={() => setOpen(!open)}
           className="grid h-12 w-12 place-items-center lg:hidden text-ink"
         >
@@ -266,39 +268,64 @@ export function Header() {
         </button>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Overlay */}
       {open && (
         <motion.div
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="lg:hidden bg-background absolute top-full w-full left-0 border-b border-line pb-6"
-        >
-          <div className="container-x flex flex-col gap-2 pt-4">
-            {navItems.map((i) => (
-              <a
-                key={i.href}
-                href={i.href}
-                onClick={() => setOpen(false)}
-                className="py-4 text-xl font-bold text-ink border-b border-line/50"
-              >
-                {i.label}
-              </a>
-            ))}
-            <a href="#contacto" onClick={() => setOpen(false)} className="btn-primary mt-6 w-full">
-              Solicitar presupuesto
-            </a>
-          </div>
-        </motion.div>
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.3 }}
+          className="fixed inset-0 bg-black/60 z-[90] lg:hidden"
+          onClick={() => setOpen(false)}
+        />
       )}
+
+      {/* Sliding Panel */}
+      <motion.div
+        initial={{ x: "100%" }}
+        animate={{ x: open ? "0%" : "100%" }}
+        transition={{ duration: 0.3, ease: "easeOut" }}
+        className="fixed top-0 right-0 h-full w-[85%] max-w-sm bg-[#111] z-[100] p-6 flex flex-col shadow-2xl lg:hidden"
+      >
+        <div className="flex justify-between items-center mb-10">
+          <span className="text-brand font-black text-xl tracking-widest uppercase">Cubikos</span>
+          <button
+            onClick={() => setOpen(false)}
+            aria-label="Cerrar menÃº"
+            className="text-white hover:text-brand transition-colors p-2"
+          >
+            <Ico.Close className="h-7 w-7" />
+          </button>
+        </div>
+        <div className="flex flex-col gap-6">
+          {navItems.map((i) => (
+            <a
+              key={i.href}
+              href={i.href}
+              onClick={() => setOpen(false)}
+              className="text-white font-medium text-lg border-b border-white/10 pb-4 hover:text-brand transition-colors"
+            >
+              {i.label}
+            </a>
+          ))}
+          <a
+            href="#contacto"
+            onClick={() => setOpen(false)}
+            className="mt-4 flex items-center justify-center h-14 rounded-full bg-gradient-to-r from-[#FFDE00] to-[#F39C12] text-white font-bold text-sm uppercase tracking-widest shadow-[0_5px_20px_rgba(243,156,18,0.4)]"
+          >
+            Solicitar presupuesto
+          </a>
+        </div>
+      </motion.div>
     </header>
   );
-}
+});
 
 const AnimatedScrew = ({ className, delay }: { className?: string; delay: number }) => (
   <motion.div
     initial={{ scale: 0, opacity: 0 }}
     whileInView={{ scale: [0, 1.6, 1], opacity: 1 }}
-    viewport={{ once: true }}
+    viewport={{ once: true, amount: 0.15 }}
     transition={{ delay, duration: 0.4, times: [0, 0.6, 1], ease: ["easeOut", "backOut"] }}
     className={`absolute w-3 h-3 rounded-full bg-gradient-to-br from-neutral-300 to-neutral-500 border border-neutral-600 shadow-[inset_0_1px_2px_rgba(255,255,255,0.8),0_2px_4px_rgba(0,0,0,0.4)] flex items-center justify-center z-10 ${className}`}
   >
@@ -316,7 +343,7 @@ const HammerHit = ({ className, delay }: { className: string; delay: number }) =
       x: [-30, -40, 0, 10],
       y: [-30, -40, 0, 20],
     }}
-    viewport={{ once: true }}
+    viewport={{ once: true, amount: 0.15 }}
     transition={{
       duration: 0.6,
       delay: delay - 0.25,
@@ -360,6 +387,8 @@ export function Hero() {
         <img
           src={heroImg}
           alt="Montador profesional ajustando cocina premium"
+          fetchPriority="high"
+          loading="eager"
           className="absolute inset-0 w-full h-full object-cover object-[85%_center] sm:object-[65%_center] md:object-[55%_center] contrast-[1.10] saturate-[1.05]"
           style={{ filter: "url(#crisp-sharpen)" }}
         />
@@ -384,7 +413,7 @@ export function Hero() {
 
           <FadeUp delay={0.2} className="mt-4 md:mt-5 max-w-[440px]">
             <p className="text-lg md:text-[20px] text-white/95 font-medium tracking-wide leading-relaxed text-balance antialiased drop-shadow-sm">
-              Más de 30 años instalando cocinas en toda Cataluña con precisión milimétrica y
+              MÃ¡s de 30 aÃ±os instalando cocinas en toda CataluÃ±a con precisiÃ³n milimÃ©trica y
               acabados impecables.
             </p>
           </FadeUp>
@@ -412,6 +441,18 @@ export function Hero() {
             >
               <span className="relative z-10">Ver proyectos</span>
             </a>
+          </FadeUp>
+          <FadeUp delay={0.5} className="mt-6">
+            <div className="flex items-center gap-2">
+              <div className="flex -space-x-2">
+                <div className="w-8 h-8 rounded-full bg-brand flex items-center justify-center text-[10px] font-bold text-white border-2 border-white/20">MR</div>
+                <div className="w-8 h-8 rounded-full bg-[#444] flex items-center justify-center text-[10px] font-bold text-white border-2 border-white/20">AC</div>
+                <div className="w-8 h-8 rounded-full bg-[#666] flex items-center justify-center text-[10px] font-bold text-white border-2 border-white/20">JP</div>
+              </div>
+              <span className="text-white/80 text-sm font-medium">
+                â˜…â˜…â˜…â˜…â˜… <strong className="text-white">4.9</strong> Â· 47 reseÃ±as verificadas
+              </span>
+            </div>
           </FadeUp>
         </div>
       </div>
@@ -450,7 +491,7 @@ export function Hero() {
                 <span className="relative inline-block mt-2">
                   <span className="absolute bottom-[-2px] -left-1 -right-1 h-[4px] bg-yellow-400 group-hover:h-full group-hover:bottom-0 transition-all duration-300 rounded-sm" />
                   <span className="relative z-10 text-[11px] md:text-[13px] font-bold text-ink uppercase tracking-[0.2em]">
-                    Años
+                    AÃ±os
                   </span>
                 </span>
               </div>
@@ -469,7 +510,7 @@ export function Hero() {
 
               <div className="group flex flex-col items-center text-center bg-white/95 backdrop-blur-sm rounded-lg p-5 md:p-6 shadow-md border border-white/50 cursor-default transition-transform duration-500 hover:-translate-y-2 hover:shadow-xl">
                 <span className="text-[26px] md:text-[34px] font-black text-ink leading-none tracking-tight pt-1 md:pt-2">
-                  Cataluña
+                  CataluÃ±a
                 </span>
                 <span className="relative inline-block mt-2">
                   <span className="absolute bottom-[-2px] -left-1 -right-1 h-[4px] bg-yellow-400 group-hover:h-full group-hover:bottom-0 transition-all duration-300 rounded-sm" />
@@ -481,7 +522,7 @@ export function Hero() {
 
               <div className="group flex flex-col items-center text-center bg-white/95 backdrop-blur-sm rounded-lg p-5 md:p-6 shadow-md border border-white/50 cursor-default transition-transform duration-500 hover:-translate-y-2 hover:shadow-xl">
                 <span className="text-[26px] md:text-[34px] font-black text-ink leading-none tracking-tight pt-1 md:pt-2">
-                  Garantía
+                  GarantÃ­a
                 </span>
                 <span className="relative inline-block mt-2">
                   <span className="absolute bottom-[-2px] -left-1 -right-1 h-[4px] bg-yellow-400 group-hover:h-full group-hover:bottom-0 transition-all duration-300 rounded-sm" />
@@ -505,29 +546,55 @@ export function Diferenciadora() {
   const containerRef = useRef<HTMLDivElement>(null);
   const isDragging = useRef(false);
 
-  const handleMove = (clientX: number) => {
-    if (!containerRef.current) return;
-    const rect = containerRef.current.getBoundingClientRect();
-    const x = Math.max(0, Math.min(clientX - rect.left, rect.width));
-    const percent = (x / rect.width) * 100;
-    setSliderPos(percent);
-  };
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
 
-  const onMouseMove = (e: MouseEvent) => {
-    handleMove(e.clientX);
-    if (containerRef.current) {
-      const rect = containerRef.current.getBoundingClientRect();
+    const handleMove = (clientX: number) => {
+      const rect = el.getBoundingClientRect();
+      const x = Math.max(0, Math.min(clientX - rect.left, rect.width));
+      const percent = (x / rect.width) * 100;
+      setSliderPos(percent);
+    };
+
+    const handleMouseMove = (e: MouseEvent) => {
+      handleMove(e.clientX);
+      const rect = el.getBoundingClientRect();
       setMousePos({ x: e.clientX - rect.left, y: e.clientY - rect.top });
-    }
-  };
+    };
 
-  const onTouchMove = (e: TouchEvent) => {
-    handleMove(e.touches[0].clientX);
-    if (containerRef.current) {
-      const rect = containerRef.current.getBoundingClientRect();
+    const handleTouchMove = (e: TouchEvent) => {
+      handleMove(e.touches[0].clientX);
+      const rect = el.getBoundingClientRect();
       setMousePos({ x: e.touches[0].clientX - rect.left, y: e.touches[0].clientY - rect.top });
-    }
-  };
+    };
+
+    const handleMouseEnter = () => setIsHovering(true);
+    const handleMouseLeave = () => {
+      setIsHovering(false);
+      isDragging.current = false;
+    };
+    const handleMouseDown = () => (isDragging.current = true);
+    const handleMouseUp = () => (isDragging.current = false);
+
+    el.addEventListener("mousemove", handleMouseMove);
+    el.addEventListener("touchmove", handleTouchMove, { passive: true });
+    el.addEventListener("mouseenter", handleMouseEnter);
+    el.addEventListener("mouseleave", handleMouseLeave);
+    el.addEventListener("mousedown", handleMouseDown);
+    el.addEventListener("mouseup", handleMouseUp);
+    el.addEventListener("touchend", handleMouseLeave);
+
+    return () => {
+      el.removeEventListener("mousemove", handleMouseMove);
+      el.removeEventListener("touchmove", handleTouchMove);
+      el.removeEventListener("mouseenter", handleMouseEnter);
+      el.removeEventListener("mouseleave", handleMouseLeave);
+      el.removeEventListener("mousedown", handleMouseDown);
+      el.removeEventListener("mouseup", handleMouseUp);
+      el.removeEventListener("touchend", handleMouseLeave);
+    };
+  }, []);
 
   return (
     <section id="metodo" className="bg-background text-ink py-32 md:py-48">
@@ -558,15 +625,6 @@ export function Diferenciadora() {
           <div
             ref={containerRef}
             className="relative w-full aspect-square md:aspect-[21/9] bg-[#E8E6E1] overflow-hidden cursor-none select-none touch-none shadow-premium"
-            onMouseMove={onMouseMove}
-            onTouchMove={onTouchMove}
-            onMouseEnter={() => setIsHovering(true)}
-            onMouseLeave={() => {
-              setIsHovering(false);
-              isDragging.current = false;
-            }}
-            onMouseDown={() => (isDragging.current = true)}
-            onMouseUp={() => (isDragging.current = false)}
           >
             {/* Custom SVG Crosshair Cursor */}
             <motion.div
@@ -593,7 +651,7 @@ export function Diferenciadora() {
             {/* UNDER IMAGE (After / Perfect) */}
             <img
               src={gal1}
-              alt="Método Cubikos perfecto"
+              alt="MÃ©todo Cubikos perfecto"
               className="absolute inset-0 w-full h-full object-cover pointer-events-none"
             />
 
@@ -604,7 +662,7 @@ export function Diferenciadora() {
             >
               <img
                 src={gal3}
-                alt="Ejemplo de mala ejecución"
+                alt="Ejemplo de mala ejecuciÃ³n"
                 className="absolute inset-0 w-full h-full object-cover grayscale pointer-events-none"
               />
             </div>
@@ -625,26 +683,26 @@ export function Diferenciadora() {
             <div className="text-left">
               <ul className="space-y-4 font-medium text-lg md:text-xl text-ink-soft">
                 <li className="flex items-start gap-3">
-                  <span className="text-ink mt-1">•</span> Puertas torcidas
+                  <span className="text-ink mt-1">â€¢</span> Puertas torcidas
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="text-ink mt-1">•</span> Holguras visibles
+                  <span className="text-ink mt-1">â€¢</span> Holguras visibles
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="text-ink mt-1">•</span> Desniveles
+                  <span className="text-ink mt-1">â€¢</span> Desniveles
                 </li>
               </ul>
             </div>
             <div className="text-right">
               <ul className="space-y-4 font-medium text-lg md:text-xl text-ink inline-block text-left">
                 <li className="flex items-start gap-3">
-                  <span className="text-brand mt-1">•</span> Ajuste láser
+                  <span className="text-brand mt-1">â€¢</span> Ajuste lÃ¡ser
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="text-brand mt-1">•</span> Nivelación perfecta
+                  <span className="text-brand mt-1">â€¢</span> NivelaciÃ³n perfecta
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="text-brand mt-1">•</span> Acabados premium
+                  <span className="text-brand mt-1">â€¢</span> Acabados premium
                 </li>
               </ul>
             </div>
@@ -654,3 +712,4 @@ export function Diferenciadora() {
     </section>
   );
 }
+

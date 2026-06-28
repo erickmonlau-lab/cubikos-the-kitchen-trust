@@ -1,0 +1,1 @@
+import{t}from"./index-DQbvW8Sn.mjs";import{n as e,t as r}from"./createStart-DsivpMA5.mjs";var s=e().server(async({next:e})=>{try{return await e()}catch(r){if(null!=r&&"object"==typeof r&&"statusCode"in r)throw r;return new Response(t(),{status:500,headers:{"content-type":"text/html; charset=utf-8"}})}}),a=r(()=>({requestMiddleware:[s]}));export{a as startInstance};

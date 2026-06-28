@@ -1,11 +1,11 @@
 import { FadeUp, Ico, RevealMask, Counter } from "./LandingUI";
 import useEmblaCarousel from "embla-carousel-react";
-import { motion } from "framer-motion";
+import { m as motion } from "framer-motion";
 import { PhoneCall, FileSearch, Ruler, Hammer, CheckCircle, User } from "lucide-react";
 
-import showcase1 from "@/assets/showcase-1.png";
-import showcase2 from "@/assets/showcase-2.jpg";
-import showcase3 from "@/assets/showcase-3.png";
+import showcase1 from "@/assets/showcase-1.webp";
+import showcase2 from "@/assets/showcase-2.webp";
+import showcase3 from "@/assets/showcase-3.webp";
 
 const easing: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
@@ -21,7 +21,7 @@ const PremiumFade = ({
   <motion.div
     initial={{ opacity: 0, y: 40 }}
     whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true, margin: "-10%" }}
+    viewport={{ once: true, amount: 0.15 }}
     transition={{ duration: 0.8, delay, ease: easing }}
     className={className}
   >
@@ -41,7 +41,7 @@ const PremiumScale = ({
   <motion.div
     initial={{ opacity: 0, scale: 0.9 }}
     whileInView={{ opacity: 1, scale: 1 }}
-    viewport={{ once: true, margin: "-10%" }}
+    viewport={{ once: true, amount: 0.15 }}
     transition={{ duration: 0.8, delay, ease: easing }}
     className={className}
   >
@@ -59,7 +59,7 @@ const Odometer = ({ value, className = "" }: { value: string; className?: string
               key={i}
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, amount: 0.15 }}
               transition={{ duration: 0.5, delay: 1.2 }}
             >
               {char}
@@ -74,7 +74,7 @@ const Odometer = ({ value, className = "" }: { value: string; className?: string
             <motion.div
               initial={{ y: 0 }}
               whileInView={{ y: `calc(-100% * ${targetIndex} / 11)` }}
-              viewport={{ once: true }}
+              viewport={{ once: true, amount: 0.15 }}
               transition={{ duration: 1.2, ease: "easeOut" }}
               className="absolute top-0 left-0 flex flex-col"
               style={{ height: "1100%" }}
@@ -135,7 +135,7 @@ export function Experiencia() {
           <div className="lg:col-span-7 lg:pl-12 flex flex-col justify-center pt-4 lg:pt-12">
             <PremiumFade delay={0.1}>
               <h2 className="font-display font-bold text-[40px] md:text-[56px] leading-[1.1] text-[#FAFAF8] text-balance">
-                Tres décadas perfeccionando un único oficio.
+                Tres dÃ©cadas perfeccionando un Ãºnico oficio.
               </h2>
             </PremiumFade>
 
@@ -144,19 +144,19 @@ export function Experiencia() {
               className="mt-12 space-y-6 text-xl md:text-[22px] text-[#EDEBE8] font-medium leading-relaxed max-w-3xl"
             >
               <p>
-                Mientras otras empresas reparten su atención entre reformas, coordinación de gremios
-                y decenas de servicios distintos, Cubikos ha dedicado más de treinta años a una sola
-                misión:
+                Mientras otras empresas reparten su atenciÃ³n entre reformas, coordinaciÃ³n de gremios
+                y decenas de servicios distintos, Cubikos ha dedicado mÃ¡s de treinta aÃ±os a una sola
+                misiÃ³n:
               </p>
-              <p className="font-bold text-[#FAFAF8]">Montar cocinas con precisión absoluta.</p>
+              <p className="font-bold text-[#FAFAF8]">Montar cocinas con precisiÃ³n absoluta.</p>
               <div>
                 <p>Cada ajuste.</p>
-                <p>Cada nivelación.</p>
+                <p>Cada nivelaciÃ³n.</p>
                 <p>Cada encuentro.</p>
                 <p>Cada acabado.</p>
               </div>
               <p className="text-brand font-bold pt-4">
-                Perfeccionados tras más de 10.000 instalaciones.
+                Perfeccionados tras mÃ¡s de 10.000 instalaciones.
               </p>
             </PremiumFade>
           </div>
@@ -179,12 +179,12 @@ export function StatsGrid() {
               <Counter to={30} duration={1.5} suffix="+" />
             </div>
             <div className="mt-4 text-[#888] text-[11px] font-bold uppercase tracking-widest text-center md:text-left">
-              Años de experiencia
+              AÃ±os de experiencia
             </div>
             <motion.div
               initial={{ scaleX: 0 }}
               whileInView={{ scaleX: 1 }}
-              viewport={{ once: true, margin: "-10%" }}
+              viewport={{ once: true, amount: 0.15 }}
               transition={{ duration: 0.6, delay: 0.0 }}
               style={{ originX: 0 }}
               className="h-[2px] w-[40px] bg-brand mt-5"
@@ -204,7 +204,7 @@ export function StatsGrid() {
             <motion.div
               initial={{ scaleX: 0 }}
               whileInView={{ scaleX: 1 }}
-              viewport={{ once: true, margin: "-10%" }}
+              viewport={{ once: true, amount: 0.15 }}
               transition={{ duration: 0.6, delay: 0.15 }}
               style={{ originX: 0 }}
               className="h-[2px] w-[40px] bg-brand mt-5"
@@ -219,12 +219,12 @@ export function StatsGrid() {
               <Counter to={5} duration={1} suffix="/5" />
             </div>
             <div className="mt-4 text-[#888] text-[11px] font-bold uppercase tracking-widest text-center md:text-left">
-              Valoración
+              ValoraciÃ³n
             </div>
             <motion.div
               initial={{ scaleX: 0 }}
               whileInView={{ scaleX: 1 }}
-              viewport={{ once: true, margin: "-10%" }}
+              viewport={{ once: true, amount: 0.15 }}
               transition={{ duration: 0.6, delay: 0.3 }}
               style={{ originX: 0 }}
               className="h-[2px] w-[40px] bg-brand mt-5"
@@ -239,12 +239,12 @@ export function StatsGrid() {
               <Counter to={100} duration={1.5} suffix="%" />
             </div>
             <div className="mt-4 text-[#888] text-[11px] font-bold uppercase tracking-widest text-center md:text-left">
-              Garantía
+              GarantÃ­a
             </div>
             <motion.div
               initial={{ scaleX: 0 }}
               whileInView={{ scaleX: 1 }}
-              viewport={{ once: true, margin: "-10%" }}
+              viewport={{ once: true, amount: 0.15 }}
               transition={{ duration: 0.6, delay: 0.45 }}
               style={{ originX: 0 }}
               className="h-[2px] w-[40px] bg-brand mt-5"
@@ -257,304 +257,31 @@ export function StatsGrid() {
 }
 
 const steps = [
-  { n: "01", t: "CONTACTO", d: "Valoración inicial del proyecto.", icon: PhoneCall },
-  { n: "02", t: "REVISIÓN", d: "Auditoría de planos y materiales.", icon: FileSearch },
-  { n: "03", t: "PLANIFICACIÓN", d: "Coordinación milimétrica.", icon: Ruler },
-  { n: "04", t: "MONTAJE", d: "Ejecución precisa y limpia.", icon: Hammer },
+  { n: "01", t: "CONTACTO", d: "ValoraciÃ³n inicial del proyecto.", icon: PhoneCall },
+  { n: "02", t: "REVISIÃ“N", d: "AuditorÃ­a de planos y materiales.", icon: FileSearch },
+  { n: "03", t: "PLANIFICACIÃ“N", d: "CoordinaciÃ³n milimÃ©trica.", icon: Ruler },
+  { n: "04", t: "MONTAJE", d: "EjecuciÃ³n precisa y limpia.", icon: Hammer },
   { n: "05", t: "ENTREGA", d: "Repaso final exhaustivo.", icon: CheckCircle },
 ];
 
 const KitchenAssembly = () => {
   return (
-    <div className="w-full max-w-4xl mx-auto mt-12 md:mt-24 mb-16 lg:mb-24 relative px-4 lg:px-0">
-      <svg viewBox="100 0 640 400" className="w-full h-auto drop-shadow-xl overflow-visible">
-        {/* Floor */}
-        <motion.rect
-          x="70"
-          y="360"
-          width="700"
-          height="12"
-          fill="#E5E7EB"
-          rx="6"
-          initial={{ opacity: 0, scaleX: 0 }}
-          whileInView={{ opacity: 1, scaleX: 1 }}
-          viewport={{ once: true, margin: "-10%" }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          style={{ originX: "420px" }}
+    <div className="w-full max-w-5xl mx-auto mt-12 md:mt-24 mb-16 lg:mb-24 relative px-4 lg:px-0">
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: true, amount: 0.15 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        className="relative aspect-video rounded-3xl overflow-hidden shadow-[0_30px_60px_rgba(0,0,0,0.15)] border-[4px] border-white"
+      >
+        <img loading="lazy" 
+          src={showcase3} 
+          alt="Cocina terminada con precisión milimétrica" 
+          loading="lazy"
+          className="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-1000 ease-out" 
         />
-
-        {/* Accent Wall / Backsplash */}
-        <motion.rect
-          x="130"
-          y="60"
-          width="580"
-          height="300"
-          fill="#FBBF24"
-          rx="8"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1, delay: 0.3 }}
-        />
-
-        {/* Tile detail on the backsplash */}
-        <motion.g
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 0.1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1, delay: 0.8 }}
-        >
-          <path
-            d="M 130 200 H 550 M 130 220 H 550 M 130 180 H 550 M 130 160 H 550"
-            stroke="#FFF"
-            strokeWidth="2"
-            strokeDasharray="20 20"
-          />
-        </motion.g>
-
-        {/* Toe Kick (Zócalo) */}
-        <motion.rect
-          x="150"
-          y="350"
-          width="410"
-          height="10"
-          fill="#1F2937"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.5 }}
-        />
-
-        {/* Base Cabinets */}
-        {/* Left */}
-        <motion.g
-          initial={{ opacity: 0, y: -50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ type: "spring", delay: 0.5, bounce: 0.4 }}
-        >
-          <rect x="150" y="240" width="130" height="120" fill="#FFFFFF" />
-          <line x1="215" y1="240" x2="215" y2="360" stroke="#E5E7EB" strokeWidth="2" />
-          {/* Minimal Edge Pulls */}
-          <rect x="170" y="242" width="20" height="3" fill="#374151" rx="1" />
-          <rect x="240" y="242" width="20" height="3" fill="#374151" rx="1" />
-        </motion.g>
-
-        {/* Right */}
-        <motion.g
-          initial={{ opacity: 0, y: -50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ type: "spring", delay: 0.6, bounce: 0.4 }}
-        >
-          <rect x="430" y="240" width="130" height="120" fill="#FFFFFF" />
-          <line x1="495" y1="240" x2="495" y2="360" stroke="#E5E7EB" strokeWidth="2" />
-          <rect x="450" y="242" width="20" height="3" fill="#374151" rx="1" />
-          <rect x="520" y="242" width="20" height="3" fill="#374151" rx="1" />
-        </motion.g>
-
-        {/* Oven Unit (Middle) */}
-        <motion.g
-          initial={{ opacity: 0, y: -50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ type: "spring", delay: 0.7, bounce: 0.4 }}
-        >
-          <rect x="280" y="240" width="150" height="120" fill="#FFFFFF" />
-          <rect x="295" y="270" width="120" height="70" fill="#020617" rx="8" />
-          {/* Glass Glare */}
-          <path d="M 295 300 L 330 270 H 350 L 305 310 Z" fill="#FFF" opacity="0.1" />
-          <rect x="295" y="250" width="120" height="15" fill="#374151" rx="4" />
-          <circle cx="310" cy="257.5" r="3" fill="#F8FAFC" />
-          <circle cx="325" cy="257.5" r="3" fill="#F8FAFC" />
-          <circle cx="400" cy="257.5" r="3" fill="#F8FAFC" />
-        </motion.g>
-
-        {/* Countertop (Wood Butcher Block) */}
-        <motion.g
-          initial={{ opacity: 0, scaleX: 0 }}
-          whileInView={{ opacity: 1, scaleX: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 1.0, ease: "easeOut" }}
-          style={{ originX: "350px" }}
-        >
-          <rect x="140" y="230" width="420" height="10" fill="#D4A373" rx="2" />
-          <rect x="140" y="240" width="420" height="3" fill="#C08D5D" />
-        </motion.g>
-
-        {/* Sink */}
-        <motion.g
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ type: "spring", delay: 1.2, bounce: 0.5 }}
-        >
-          <rect x="460" y="230" width="70" height="8" fill="#94A3B8" />
-          {/* Shorter faucet so it doesn't hit the upper cabinet */}
-          <path
-            d="M 495 230 V 205 Q 495 190 475 195 V 210"
-            stroke="#CBD5E1"
-            fill="none"
-            strokeWidth="6"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-          <rect x="505" y="222" width="8" height="8" fill="#CBD5E1" rx="2" />
-        </motion.g>
-
-        {/* Fridge (with gap and shading) */}
-        <motion.g
-          initial={{ opacity: 0, y: -100 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ type: "spring", delay: 1.4, bounce: 0.3 }}
-        >
-          <rect x="570" y="80" width="120" height="280" fill="#E5E7EB" rx="6" />
-          {/* Shading for depth */}
-          <rect x="570" y="80" width="12" height="280" fill="#000" opacity="0.05" rx="6" />
-          <line x1="570" y1="230" x2="690" y2="230" stroke="#D1D5DB" strokeWidth="4" />
-          <rect x="585" y="150" width="4" height="60" fill="#9CA3AF" rx="2" />
-          <rect x="585" y="245" width="4" height="40" fill="#9CA3AF" rx="2" />
-        </motion.g>
-
-        {/* Range Hood (Chimney Style) */}
-        <motion.g
-          initial={{ opacity: 0, y: -50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ type: "spring", delay: 1.6, bounce: 0.4 }}
-        >
-          <rect x="340" y="60" width="30" height="80" fill="#D1D5DB" />
-          <rect x="320" y="140" width="70" height="10" fill="#9CA3AF" rx="2" />
-          {/* Glare */}
-          <path d="M 330 140 L 340 100 H 370 L 380 140 Z" fill="#FFF" opacity="0.2" />
-        </motion.g>
-
-        {/* Upper Cabinets Left */}
-        <motion.g
-          initial={{ opacity: 0, x: -50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ type: "spring", delay: 1.8, bounce: 0.3 }}
-        >
-          <rect
-            x="150"
-            y="80"
-            width="130"
-            height="90"
-            fill="#FFFFFF"
-            stroke="#E5E7EB"
-            strokeWidth="4"
-          />
-          <line x1="215" y1="80" x2="215" y2="170" stroke="#E5E7EB" strokeWidth="4" />
-          {/* Bottom edge pulls */}
-          <rect x="170" y="165" width="20" height="3" fill="#374151" rx="1" />
-          <rect x="240" y="165" width="20" height="3" fill="#374151" rx="1" />
-        </motion.g>
-
-        {/* Upper Cabinets Right */}
-        <motion.g
-          initial={{ opacity: 0, x: 50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ type: "spring", delay: 1.9, bounce: 0.3 }}
-        >
-          <rect
-            x="430"
-            y="80"
-            width="130"
-            height="90"
-            fill="#FFFFFF"
-            stroke="#E5E7EB"
-            strokeWidth="4"
-          />
-          <line x1="495" y1="80" x2="495" y2="170" stroke="#E5E7EB" strokeWidth="4" />
-          <rect x="450" y="165" width="20" height="3" fill="#374151" rx="1" />
-          <rect x="520" y="165" width="20" height="3" fill="#374151" rx="1" />
-        </motion.g>
-
-        {/* Wine Rack (Botellero) - Assembled step by step */}
-        <motion.g
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 2.1 }}
-        >
-          {/* Frame drops in */}
-          <motion.rect
-            x="370"
-            y="80"
-            width="50"
-            height="90"
-            fill="#3E2723"
-            rx="2"
-            initial={{ opacity: 0, y: -30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ type: "spring", delay: 2.1 }}
-          />
-          {/* Horizontal Shelves drawing in */}
-          <motion.path
-            d="M 370 102 H 420 M 370 124 H 420 M 370 146 H 420"
-            stroke="#5D4037"
-            strokeWidth="2"
-            initial={{ pathLength: 0 }}
-            whileInView={{ pathLength: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4, delay: 2.4 }}
-          />
-          {/* Vertical Dividers drawing in */}
-          <motion.path
-            d="M 386 80 V 170 M 403 80 V 170"
-            stroke="#5D4037"
-            strokeWidth="2"
-            initial={{ pathLength: 0 }}
-            whileInView={{ pathLength: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4, delay: 2.7 }}
-          />
-
-          {/* Wine Bottles popping into slots */}
-          <motion.g
-            initial={{ opacity: 0, scale: 0 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ type: "spring", delay: 3.0, bounce: 0.6 }}
-            style={{ originX: "378px", originY: "100px" }}
-          >
-            {/* Bottle 1: Top Left slot */}
-            <rect x="375" y="85" width="6" height="15" fill="#1B5E20" rx="2" />
-            <rect x="376" y="83" width="4" height="4" fill="#1B5E20" />
-            <rect x="376.5" y="82" width="3" height="2" fill="#D4AF37" />
-          </motion.g>
-
-          <motion.g
-            initial={{ opacity: 0, scale: 0 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ type: "spring", delay: 3.2, bounce: 0.6 }}
-            style={{ originX: "411px", originY: "122px" }}
-          >
-            {/* Bottle 2: 2nd row, right slot */}
-            <rect x="408" y="107" width="6" height="15" fill="#4A148C" rx="2" />
-            <rect x="409" y="105" width="4" height="4" fill="#4A148C" />
-            <rect x="409.5" y="104" width="3" height="2" fill="#D4AF37" />
-          </motion.g>
-
-          <motion.g
-            initial={{ opacity: 0, scale: 0 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ type: "spring", delay: 3.4, bounce: 0.6 }}
-            style={{ originX: "394px", originY: "166px" }}
-          >
-            {/* Bottle 3: Bottom center slot */}
-            <rect x="391" y="151" width="6" height="15" fill="#B71C1C" rx="2" />
-            <rect x="392" y="149" width="4" height="4" fill="#B71C1C" />
-            <rect x="392.5" y="148" width="3" height="2" fill="#D4AF37" />
-          </motion.g>
-        </motion.g>
-      </svg>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent pointer-events-none" />
+      </motion.div>
     </div>
   );
 };
@@ -577,17 +304,17 @@ export function Proceso() {
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-10%" }}
+          viewport={{ once: true, amount: 0.15 }}
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
         >
           <div className="flex items-center gap-4 mb-6">
             <div className="h-[1px] w-12 bg-brand" />
             <span className="text-[12px] font-semibold tracking-[0.3em] uppercase text-brand">
-              Metodología
+              MetodologÃ­a
             </span>
           </div>
           <h2 className="font-display font-black text-[clamp(64px,6vw,96px)] leading-[0.95] text-ink max-w-[900px] text-balance">
-            Precisión en cada fase.
+            PrecisiÃ³n en cada fase.
           </h2>
         </motion.div>
 
@@ -603,7 +330,7 @@ export function Proceso() {
                 key={s.n}
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-10%" }}
+                viewport={{ once: true, amount: 0.15 }}
                 transition={{ duration: 0.7, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
                 className="relative pt-0 lg:pt-0"
               >
@@ -636,7 +363,7 @@ export function Proceso() {
   );
 }
 
-import usr from "@/assets/gallery-5.webp"; // Placeholder for client photo
+
 
 export function Testimonios() {
   return (
@@ -645,8 +372,8 @@ export function Testimonios() {
         <div className="max-w-6xl mx-auto flex flex-col items-center text-center">
           {/* Client Photo & Stars */}
           <FadeUp className="flex flex-col items-center">
-            <div className="w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden mb-8 shadow-premium">
-              <img src={usr} alt="Cliente Cubikos" className="w-full h-full object-cover" />
+            <div className="w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden mb-8 shadow-premium flex items-center justify-center bg-[#d8a843] text-[#111]">
+              <span className="font-display font-black text-4xl md:text-5xl tracking-widest">MS</span>
             </div>
             <div className="flex gap-2 text-ink mb-12">
               {Array.from({ length: 5 }).map((_, i) => (
@@ -693,7 +420,7 @@ export function BotelleroShowcase() {
               <div className="text-brand font-bold uppercase tracking-widest text-sm mb-4">
                 La firma de un artesano
               </div>
-              <h2 className="font-display font-black text-4xl md:text-5xl lg:text-6xl tracking-tight leading-tight mb-8 text-[#FAFAF8]">
+              <h2 className="font-display font-black text-[clamp(2rem,8vw,4rem)] tracking-tight leading-tight mb-8 text-[#FAFAF8] text-balance">
                 El Arte del Ensamblaje
               </h2>
               <p className="text-[#EDEBE8]/80 text-lg md:text-xl leading-relaxed mb-6 font-light">
@@ -702,8 +429,8 @@ export function BotelleroShowcase() {
                 perfecta.
               </p>
               <p className="text-[#EDEBE8]/80 text-lg md:text-xl leading-relaxed font-light">
-                Es en estos pequeños detalles donde la verdadera calidad de un montaje sale a
-                relucir. No instalamos cocinas; construimos mobiliario de precisión.
+                Es en estos pequeÃ±os detalles donde la verdadera calidad de un montaje sale a
+                relucir. No instalamos cocinas; construimos mobiliario de precisiÃ³n.
               </p>
             </PremiumFade>
           </div>
@@ -713,13 +440,13 @@ export function BotelleroShowcase() {
             <motion.div
               initial={{ opacity: 0, y: 60 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-10%" }}
+              viewport={{ once: true, amount: 0.15 }}
               transition={{ duration: 1, ease: easing }}
               className="absolute left-0 bottom-0 w-[70%] h-[80%] rounded-2xl overflow-hidden shadow-2xl z-10 border-[6px] border-[#0D0D0D]"
             >
-              <img
+              <img loading="lazy"
                 src={showcase1}
-                alt="Montaje de estantería iluminada"
+                alt="Montaje de estanterÃ­a iluminada"
                 className="w-full h-full object-cover"
               />
             </motion.div>
@@ -728,11 +455,11 @@ export function BotelleroShowcase() {
             <motion.div
               initial={{ opacity: 0, x: 40, y: -40 }}
               whileInView={{ opacity: 1, x: 0, y: 0 }}
-              viewport={{ once: true, margin: "-10%" }}
+              viewport={{ once: true, amount: 0.15 }}
               transition={{ duration: 1, delay: 0.2, ease: easing }}
               className="absolute right-0 top-0 w-[55%] h-[50%] rounded-2xl overflow-hidden shadow-xl z-20 border-[6px] border-[#0D0D0D]"
             >
-              <img
+              <img loading="lazy"
                 src={showcase2}
                 alt="Isla de cocina premium"
                 className="w-full h-full object-cover"
@@ -743,11 +470,11 @@ export function BotelleroShowcase() {
             <motion.div
               initial={{ opacity: 0, x: 40, y: 40 }}
               whileInView={{ opacity: 1, x: 0, y: 0 }}
-              viewport={{ once: true, margin: "-10%" }}
+              viewport={{ once: true, amount: 0.15 }}
               transition={{ duration: 1, delay: 0.4, ease: easing }}
               className="absolute right-12 bottom-8 w-[40%] h-[40%] rounded-2xl overflow-hidden shadow-xl z-30 border-[6px] border-[#0D0D0D]"
             >
-              <img
+              <img loading="lazy"
                 src={showcase3}
                 alt="Detalle de montaje en columna"
                 className="w-full h-full object-cover object-left-top"
@@ -759,3 +486,5 @@ export function BotelleroShowcase() {
     </section>
   );
 }
+
+
