@@ -759,3 +759,60 @@ export function Diferenciadora() {
     </section>
   );
 }
+
+export function CintasKinetic() {
+  const tape1 = [
+    "PRECISIÓN MILIMÉTRICA",
+    "MONTAJE PROFESIONAL",
+    "30+ AÑOS DE OFICIO",
+    "EBANISTERÍA A MEDIDA",
+    "AJUSTE LÁSER EN OBRA",
+    "10.000+ COCINAS INSTALADAS",
+    "CATALUÑA",
+    "TOLERANCIA CERO",
+    "ACABADOS IMPECABLES",
+  ];
+
+  const tape2 = [
+    "GARANTÍA TOTAL",
+    "ISLAS Y COLUMNAS",
+    "ESPECIALISTAS EXCLUSIVOS",
+    "ENCLAVES PERFECTOS",
+    "INGENIERÍA & OFICIO",
+    "CUBIKOS.ES",
+    "CALIBRACIÓN CERTIFICADA",
+    "MÁXIMA DURABILIDAD",
+  ];
+
+  return (
+    <div className="relative w-full py-10 sm:py-14 overflow-hidden bg-[#090908] select-none pointer-events-none">
+      {/* Tape 1: Gold ribbon slightly angled (-1.6deg) */}
+      <div className="relative -rotate-[1.8deg] scale-105 z-10 py-3 sm:py-3.5 bg-[#D6A634] text-[#0E0E0D] shadow-[0_10px_30px_rgba(0,0,0,0.6)]">
+        <div className="animate-marquee-left flex items-center whitespace-nowrap">
+          {[...tape1, ...tape1, ...tape1, ...tape1].map((text, i) => (
+            <div key={i} className="flex items-center">
+              <span className="font-display font-black text-[14px] sm:text-[17px] md:text-[19px] tracking-[0.14em] uppercase px-4 sm:px-6">
+                {text}
+              </span>
+              <span className="w-2 h-2 rounded-full bg-[#0E0E0D]/80 shrink-0" />
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Tape 2: Dark ribbon crossing in opposite angle (+1.8deg) */}
+      <div className="relative rotate-[1.6deg] scale-105 -mt-3 sm:-mt-4 z-20 py-3 sm:py-3.5 bg-[#141413] border-y border-[#D6A634]/40 text-white shadow-[0_14px_40px_rgba(0,0,0,0.8)]">
+        <div className="animate-marquee-right flex items-center whitespace-nowrap">
+          {[...tape2, ...tape2, ...tape2, ...tape2].map((text, i) => (
+            <div key={i} className="flex items-center">
+              <span className="font-display font-black text-[14px] sm:text-[17px] md:text-[19px] tracking-[0.14em] uppercase px-4 sm:px-6 text-white/95">
+                {text}
+              </span>
+              <span className="text-[#D6A634] font-bold text-sm sm:text-base shrink-0">✦</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
