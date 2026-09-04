@@ -531,9 +531,17 @@ export const Footer = memo(() => {
         </div>
 
         {/* Bottom Copyright Bar */}
-        <div className="pt-8 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center text-xs text-[#777] font-medium gap-4">
+        <div className="pt-8 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center text-xs text-[#888] font-medium gap-4">
           <div>
-            &copy; {new Date().getFullYear()} CUBIKOS. Todos los derechos reservados.
+            &copy; {new Date().getFullYear()} CUBIKOS. Todos los derechos reservados. · Diseñado por{" "}
+            <a
+              href="https://kovia.es"
+              target="_blank"
+              rel="noopener"
+              className="text-[#C4BFB6] hover:text-brand transition-colors font-semibold underline underline-offset-4 decoration-white/20 hover:decoration-brand"
+            >
+              kovia.es
+            </a>
           </div>
           <div className="text-right text-[#666]">
             Precisión milimétrica y excelencia en instalación de mobiliario.
