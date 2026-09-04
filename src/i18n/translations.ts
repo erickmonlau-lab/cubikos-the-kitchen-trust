@@ -1,4 +1,4 @@
-﻿import type { Language } from "../context/LanguageContext";
+import type { Language } from "../context/LanguageContext";
 
 export const translations = {
   ES: {
@@ -31,7 +31,7 @@ export const translations = {
       statCoverageLabel: "COBERTURA TOTAL",
       badgeTitle: "PRECISIÓN MILIMÉTRICA",
       badgeSub: "Acabados de ebanistería y montaje certificado",
-      scroll: "SCROLL",
+      scroll: "DESPLAZAR",
     },
     metodo: {
       eyebrow: "El montaje decide el resultado final",
@@ -184,7 +184,7 @@ export const translations = {
       statCoverageLabel: "COBERTURA TOTAL",
       badgeTitle: "PRECISIÓ MIL·LIMÈTRICA",
       badgeSub: "Acabats d'ebenisteria i muntatge certificat",
-      scroll: "SCROLL",
+      scroll: "DESPLAÇAR",
     },
     metodo: {
       eyebrow: "El muntatge decideix el resultat final",

@@ -577,14 +577,18 @@ export function Hero() {
       </div>
 
       {/* ─── Bottom Micro-Copy Bar ─── */}
-      <div className="relative z-10 w-full max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-12 pb-3.5 pt-1 shrink-0 flex items-center justify-between pointer-events-none">
-        <div className="flex items-center gap-2.5 text-[13px] sm:text-[14px] uppercase tracking-[0.18em] font-sans font-medium text-white/70">
+      <div className="relative z-10 w-full max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-12 pb-3.5 pt-1 shrink-0 flex items-center justify-between">
+        <div className="flex items-center gap-2.5 text-[13px] sm:text-[14px] uppercase tracking-[0.18em] font-sans font-medium text-white/70 pointer-events-none">
           <span className="font-bold text-white/90">CUBIKOS</span>
           <span className="text-[#D6A634]">•</span>
           <span>{t.hero.statExp} {t.hero.statExpLabel}</span>
         </div>
-        <div className="flex items-center gap-2 text-[13px] sm:text-[14px] uppercase tracking-[0.18em] font-sans font-medium text-white/70">
-          <span>{t.hero.scroll}</span>
+        <a
+          href="#metodo"
+          aria-label={t.hero.scroll}
+          className="flex items-center gap-2 text-[13px] sm:text-[14px] uppercase tracking-[0.18em] font-sans font-medium text-white/70 hover:text-white transition-colors cursor-pointer group"
+        >
+          <span className="group-hover:text-brand transition-colors">{t.hero.scroll}</span>
           <motion.span
             animate={{ y: [0, 4, 0] }}
             transition={{ repeat: Infinity, duration: 2.2, ease: "easeInOut" }}
@@ -592,7 +596,7 @@ export function Hero() {
           >
             ↓
           </motion.span>
-        </div>
+        </a>
       </div>
     </section>
   );
