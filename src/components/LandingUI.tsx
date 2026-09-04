@@ -497,29 +497,44 @@ export function Hero() {
             }}
           />
 
-          {/* Floating UI Badge — Bottom Left of Image */}
+          {/* Floating Architectural Badge — Bottom Left of Image */}
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.85, ease: [0.22, 1, 0.36, 1] }}
-            className="absolute bottom-5 left-5 sm:bottom-7 sm:left-7 z-20 flex items-center gap-3.5 px-5 py-3.5 rounded-[14px] bg-[#0E0E0D]/90 backdrop-blur-md border border-white/15 shadow-[0_10px_35px_rgba(0,0,0,0.7)]"
+            className="absolute bottom-5 left-5 sm:bottom-7 sm:left-7 z-20 flex items-stretch gap-4 px-5 py-3.5 rounded-[8px] bg-[#0E0E0D]/92 backdrop-blur-md border border-white/15 shadow-[0_16px_36px_rgba(0,0,0,0.85)]"
           >
-            <div className="w-10 h-10 rounded-full bg-[#D6A634]/15 border border-[#D6A634]/35 flex items-center justify-center shrink-0">
-              <svg className="w-5 h-5 text-[#D6A634]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-                <circle cx="12" cy="12" r="10" />
-                <line x1="22" y1="12" x2="18" y2="12" />
-                <line x1="6" y1="12" x2="2" y2="12" />
-                <line x1="12" y1="6" x2="12" y2="2" />
-                <line x1="12" y1="22" x2="12" y2="18" />
-              </svg>
-            </div>
-            <div className="flex flex-col pr-1">
-              <span className="text-[13px] sm:text-[14px] font-bold text-white uppercase tracking-[0.14em] leading-tight">
-                PRECISIÓN MILIMÉTRICA
-              </span>
-              <span className="text-[12.5px] sm:text-[13px] text-[#D8D4CC] font-normal leading-tight mt-1">
-                Acabados impecables garantizados
-              </span>
+            {/* Architectural accent marker */}
+            <div className="w-[3px] bg-[#D6A634] rounded-full my-0.5 shrink-0" />
+
+            <div className="flex items-center gap-3.5">
+              {/* Cubikos Geometric Precision Icon */}
+              <div className="w-9 h-9 rounded-[6px] bg-white/[0.05] border border-white/10 flex items-center justify-center shrink-0">
+                <svg
+                  viewBox="0 0 24 24"
+                  className="w-5 h-5 text-[#D6A634]"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.8"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  {/* Caliper / Square Gauge precision symbol */}
+                  <path d="M4 20h16M4 20V4l6 6v10M10 14h10M10 8h6M10 20h4" />
+                </svg>
+              </div>
+
+              <div className="flex flex-col">
+                <div className="flex items-center gap-2">
+                  <span className="text-[13px] sm:text-[14px] font-bold text-white uppercase tracking-[0.12em] font-sans">
+                    PRECISIÓN MILIMÉTRICA
+                  </span>
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#D6A634]" />
+                </div>
+                <span className="text-[12px] sm:text-[12.5px] text-[#A6A29A] font-medium tracking-[0.02em] mt-0.5">
+                  Acabados de ebanistería y montaje certificado
+                </span>
+              </div>
             </div>
           </motion.div>
         </motion.div>
