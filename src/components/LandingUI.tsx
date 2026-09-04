@@ -211,11 +211,9 @@ export function Counter({
 }
 
 const navItems = [
-  { label: "Experiencia", href: "/#experiencia" },
   { label: "Método", href: "/metodo" },
-  { label: "Servicios", href: "/servicios" },
   { label: "Proyectos", href: "/proyectos" },
-  { label: "Sobre Nosotros", href: "/sobre-cubikos" },
+  { label: "Experiencia", href: "/#experiencia" },
   { label: "FAQ", href: "/faq" },
   { label: "Contacto", href: "/contacto" },
 ];
