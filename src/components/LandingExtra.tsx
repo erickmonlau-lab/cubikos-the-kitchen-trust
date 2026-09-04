@@ -11,6 +11,7 @@ import gal3 from "@/assets/gallery-3.webp";
 import gal4 from "@/assets/gallery-4.webp";
 import gal5 from "@/assets/gallery-5.webp";
 import gal6 from "@/assets/gallery-6.webp";
+import faqBlueprint from "@/assets/faq-blueprint.png";
 
 const details = [
   {
@@ -171,62 +172,143 @@ export function FAQ() {
   const [open, setOpen] = useState<number | null>(0);
 
   const translatedFaqs = [
-    { q: t.faq.q1, a: t.faq.a1 },
-    { q: t.faq.q2, a: t.faq.a2 },
-    { q: t.faq.q3, a: t.faq.a3 },
-    { q: t.faq.q4, a: t.faq.a4 },
+    { num: "01", q: t.faq.q1, a: t.faq.a1 },
+    { num: "02", q: t.faq.q2, a: t.faq.a2 },
+    { num: "03", q: t.faq.q3, a: t.faq.a3 },
+    { num: "04", q: t.faq.q4, a: t.faq.a4 },
   ];
 
+  const badgeText = {
+    ES: "Cada proyecto se ejecuta con tolerancia milimétrica certificada.",
+    CA: "Cada projecte s'executa amb precisió mil·limètrica certificada.",
+    EN: "Every project is executed with certified millimeter precision.",
+  }[lang];
+
   return (
-    <section id="faq" className="bg-surface py-28 md:py-40">
-      <div className="container-x grid md:grid-cols-12 gap-12 lg:gap-16">
-        <div className="md:col-span-5">
-          <FadeUp>
-            <div className="flex items-center gap-3.5 mb-4">
-              <span className="w-12 h-[3px] bg-brand shrink-0" />
-              <span className="text-[15px] sm:text-[17px] font-mono font-black tracking-[0.28em] uppercase text-brand">
-                {t.faq.eyebrow}
-              </span>
+    <section id="faq" className="bg-[#FAF8F5] py-20 sm:py-28 lg:py-36 border-t border-[#E5E0D8] overflow-hidden">
+      <div className="container-x">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+          
+          {/* ════════ LEFT COLUMN: Editorial Headline & Blueprint Sketch ════════ */}
+          <div className="lg:col-span-5 flex flex-col justify-between h-full">
+            <div>
+              {/* Eyebrow with gold accent line */}
+              <div className="flex items-center gap-3.5 mb-6">
+                <span className="w-10 h-[1.5px] bg-[#D6A634]" />
+                <span className="text-[13px] sm:text-[14px] font-sans font-bold tracking-[0.24em] uppercase text-[#D6A634]">
+                  {t.faq.eyebrow}
+                </span>
+              </div>
+
+              {/* Serif FAQ. Headline */}
+              <h2
+                className="text-[#141413] leading-[0.9] tracking-tight mb-8"
+                style={{
+                  fontFamily: "var(--font-serif)",
+                  fontSize: "clamp(4.5rem, 8.5vw, 7.5rem)",
+                  fontWeight: 600,
+                }}
+              >
+                FAQ<span className="text-[#D6A634]">.</span>
+              </h2>
+
+              {/* Subtitle */}
+              <p className="text-[17px] sm:text-[19px] text-[#55524C] max-w-md leading-[1.6] font-normal mb-8">
+                {t.faq.desc}
+              </p>
+
+              {/* Certified tolerance badge */}
+              <div className="inline-flex items-center gap-3.5 px-5 py-3.5 rounded-[16px] bg-[#EFECE6]/80 border border-[#DDD8CF] text-[13.5px] sm:text-[14.5px] text-[#4A4742] font-medium tracking-wide shadow-sm max-w-md mb-10">
+                <div className="w-8 h-8 rounded-full bg-white/80 border border-[#DDD8CF] flex items-center justify-center shrink-0">
+                  <svg viewBox="0 0 24 24" className="w-4 h-4 text-[#D6A634]" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                    <path d="m9 12 2 2 4-4" />
+                  </svg>
+                </div>
+                <span>{badgeText}</span>
+              </div>
             </div>
-            <h2 className="font-display font-black text-4xl sm:text-5xl lg:text-6xl xl:text-7xl text-ink leading-[1.02] tracking-tight">
-              {t.faq.title.replace(".", "")}<span className="text-brand">.</span>
-            </h2>
-            <p className="mt-6 text-xl sm:text-2xl text-ink-soft font-normal leading-relaxed">
-              {t.faq.desc}
-            </p>
-          </FadeUp>
-        </div>
-        <div className="md:col-span-7">
-          <ul className="border-t border-ink">
+
+            {/* Architectural Blueprint Illustration */}
+            <div className="relative w-full max-w-[380px] mt-4 lg:mt-10 opacity-85 hover:opacity-100 transition-opacity duration-500">
+              <img
+                src={faqBlueprint}
+                alt="Plano arquitectónico y alzado técnico de cocina"
+                loading="lazy"
+                className="w-full h-auto object-contain drop-shadow-sm"
+              />
+            </div>
+          </div>
+
+          {/* ════════ RIGHT COLUMN: Architectural Accordion List ════════ */}
+          <div className="lg:col-span-7 flex flex-col space-y-4">
             {translatedFaqs.map((f, i) => {
               const isOpen = open === i;
               return (
-                <li key={f.q} className="border-b border-line">
+                <div
+                  key={f.num}
+                  className={`transition-all duration-300 rounded-[14px] overflow-hidden ${
+                    isOpen
+                      ? "bg-white border border-[#E0DBD2] shadow-[0_8px_30px_rgba(0,0,0,0.04)] relative"
+                      : "bg-transparent border-b border-[#E5E0D8] hover:bg-white/40"
+                  }`}
+                >
+                  {/* Active Gold Left Accent Bar */}
+                  {isOpen && (
+                    <div className="absolute left-0 top-0 bottom-0 w-[4px] bg-[#D6A634]" />
+                  )}
+
                   <button
                     onClick={() => setOpen(isOpen ? null : i)}
-                    className="flex w-full items-center justify-between gap-6 py-8 text-left hover:text-brand transition-colors duration-300 group"
+                    className={`w-full flex items-center justify-between text-left transition-colors duration-200 ${
+                      isOpen
+                        ? "px-6 sm:px-8 pt-7 pb-4"
+                        : "px-2 sm:px-4 py-7"
+                    }`}
                   >
-                    <span className="font-display text-2xl md:text-3xl font-black text-ink group-hover:text-brand transition-colors">
-                      {f.q}
-                    </span>
-                    <span
-                      className={`flex-shrink-0 transition-transform duration-500 ease-[cubic-bezier(0.2,0.8,0.2,1)] ${isOpen ? "rotate-45" : ""}`}
-                    >
-                      <Ico.Plus className="h-8 w-8 text-ink group-hover:text-brand" />
-                    </span>
+                    <div className="flex items-center gap-4 sm:gap-6 pr-4">
+                      <span className="font-mono text-[16px] sm:text-[18px] font-bold text-[#D6A634] tracking-wider shrink-0">
+                        {f.num}
+                      </span>
+                      <span className="w-[1px] h-5 bg-[#D6A634]/40 shrink-0" />
+                      <h3
+                        className="text-[#141413] tracking-[-0.01em] transition-colors leading-snug"
+                        style={{
+                          fontFamily: "var(--font-serif)",
+                          fontSize: "clamp(1.25rem, 1.8vw, 1.6rem)",
+                          fontWeight: 600,
+                        }}
+                      >
+                        {f.q}
+                      </h3>
+                    </div>
+
+                    <div className="shrink-0 text-[#141413] pl-2">
+                      {isOpen ? (
+                        <span className="text-2xl sm:text-3xl font-light leading-none">−</span>
+                      ) : (
+                        <span className="text-xl sm:text-2xl font-light leading-none">+</span>
+                      )}
+                    </div>
                   </button>
+
+                  {/* Expanded Answer Content */}
                   <div
-                    className="overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.2,0.8,0.2,1)]"
-                    style={{ maxHeight: isOpen ? 400 : 0, opacity: isOpen ? 1 : 0 }}
+                    className="overflow-hidden transition-all duration-400 ease-out"
+                    style={{
+                      maxHeight: isOpen ? 300 : 0,
+                      opacity: isOpen ? 1 : 0,
+                    }}
                   >
-                    <p className="pb-12 pr-12 text-xl font-medium text-ink-soft leading-relaxed max-w-3xl">
+                    <div className="px-6 sm:px-8 pb-7 pt-1 text-[16px] sm:text-[17px] text-[#635F57] leading-[1.68] font-normal max-w-2xl pl-16 sm:pl-[72px]">
                       {f.a}
-                    </p>
+                    </div>
                   </div>
-                </li>
+                </div>
               );
             })}
-          </ul>
+          </div>
+
         </div>
       </div>
     </section>
