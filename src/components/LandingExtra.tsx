@@ -49,19 +49,19 @@ const details = [
 
 export function Proyectos() {
   return (
-    <section id="proyectos" className="bg-[#111111] text-[#FAFAF8] py-20 md:py-44">
-      <div className="container-x mb-12 md:mb-20">
+    <section id="proyectos" className="bg-[#111111] text-[#FAFAF8] py-12 md:py-20">
+      <div className="container-x mb-8 md:mb-12">
         <FadeUp>
-          <div className="flex items-center gap-3 mb-4">
-            <div className="h-[2.5px] w-10 bg-brand" />
-            <span className="text-[13px] sm:text-[15px] font-mono font-bold tracking-[0.25em] uppercase text-brand">
+          <div className="flex items-center gap-3 mb-3">
+            <div className="h-[2px] w-8 bg-brand" />
+            <span className="text-[12px] sm:text-[13px] font-mono font-bold tracking-[0.25em] uppercase text-brand">
               PORTFOLIO • CASOS REALES
             </span>
           </div>
-          <h2 className="font-display font-black text-[clamp(44px,7vw,84px)] leading-[0.98] tracking-tighter text-[#FAFAF8] text-balance">
+          <h2 className="font-display font-black text-[clamp(36px,5.5vw,64px)] leading-[1] tracking-tighter text-[#FAFAF8] text-balance">
             Casos de estudio<span className="text-brand">.</span>
           </h2>
-          <p className="mt-6 md:mt-8 text-xl md:text-2xl text-[#EDEBE8] font-normal leading-relaxed text-balance max-w-2xl">
+          <p className="mt-3 md:mt-4 text-base md:text-lg text-[#EDEBE8] font-normal leading-relaxed text-balance max-w-2xl">
             La excelencia no se demuestra en un plano general, sino en la perfección de cada
             detalle, unión y remate.
           </p>
