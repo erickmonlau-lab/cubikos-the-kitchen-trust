@@ -1,65 +1,63 @@
 import React, { useRef } from "react";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import workerImg from "@/assets/hero-worker-master.webp";
+import { useLanguage } from "../../context/LanguageContext";
+import { useTranslation } from "../../i18n/translations";
 
 const easing = [0.22, 1, 0.36, 1];
 
-const precisionPillars = [
-  {
-    num: "01",
-    label: "CADA AJUSTE",
-    detail: "Tolerancia cero en bisagras y frentes.",
-    icon: (
-      <svg viewBox="0 0 24 24" className="w-4 h-4 text-[#D6A634]" fill="none" stroke="currentColor" strokeWidth="1.8">
-        <path d="M4 7h16M4 12h16M4 17h16" strokeLinecap="round" />
-        <circle cx="9" cy="7" r="2" fill="#0B0B0B" />
-        <circle cx="15" cy="12" r="2" fill="#0B0B0B" />
-        <circle cx="11" cy="17" r="2" fill="#0B0B0B" />
-      </svg>
-    ),
-  },
-  {
-    num: "02",
-    label: "CADA NIVELACIÓN",
-    detail: "Alineación láser continua en módulos e islas.",
-    icon: (
-      <svg viewBox="0 0 24 24" className="w-4 h-4 text-[#D6A634]" fill="none" stroke="currentColor" strokeWidth="1.8">
-        <circle cx="12" cy="12" r="9" />
-        <line x1="12" y1="3" x2="12" y2="7" strokeLinecap="round" />
-        <line x1="12" y1="17" x2="12" y2="21" strokeLinecap="round" />
-        <line x1="3" y1="12" x2="7" y2="12" strokeLinecap="round" />
-        <line x1="17" y1="12" x2="21" y2="12" strokeLinecap="round" />
-        <circle cx="12" cy="12" r="2" fill="#D6A634" stroke="none" />
-      </svg>
-    ),
-  },
-  {
-    num: "03",
-    label: "CADA ENCUENTRO",
-    detail: "Transiciones limpias con paredes y techos desplomados.",
-    icon: (
-      <svg viewBox="0 0 24 24" className="w-4 h-4 text-[#D6A634]" fill="none" stroke="currentColor" strokeWidth="1.8">
-        <path d="M4 4v16h16" strokeLinecap="round" strokeLinejoin="round" />
-        <path d="M4 14l10-10" strokeDasharray="2 2" />
-        <rect x="9" y="9" width="7" height="7" strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
-    ),
-  },
-  {
-    num: "04",
-    label: "CADA ACABADO",
-    detail: "Remates de ebanistería y sellados invisibles.",
-    icon: (
-      <svg viewBox="0 0 24 24" className="w-4 h-4 text-[#D6A634]" fill="none" stroke="currentColor" strokeWidth="1.8">
-        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" strokeLinejoin="round" />
-      </svg>
-    ),
-  },
-];
-
 export default function ExperienciaSection() {
+  const { lang } = useLanguage();
   const sectionRef = useRef<HTMLElement>(null);
   const isInView = useInView(sectionRef, { once: true, margin: "-10%" });
+
+  const content = {
+    ES: {
+      badgeTitle: "AÑOS DE OFICIO",
+      badgeCaption: "PRECISIÓN MILIMÉTRICA EN OBRA",
+      eyebrow: "EL VALOR DEL ENFOQUE",
+      headlineLead: "Tres décadas perfeccionando ",
+      headlineHighlight: "un único oficio.",
+      narrative: "Mientras otros amplían servicios a reformas y decenas de gremios, nosotros llevamos más de treinta años dedicados a una sola misión:",
+      verdict: "MONTAR COCINAS CON PRECISIÓN ABSOLUTA.",
+      items: [
+        { num: "01", title: "CADA AJUSTE", desc: "Tolerancia cero en frentes y herrajes." },
+        { num: "02", title: "CADA NIVELACIÓN", desc: "Alineación láser milimétrica." },
+        { num: "03", title: "CADA ENCUENTRO", desc: "Transiciones limpias con paredes y techos." },
+        { num: "04", title: "CADA ACABADO", desc: "Remates de ebanistería impecables." },
+      ],
+    },
+    CA: {
+      badgeTitle: "ANYS D'OFICI",
+      badgeCaption: "PRECISIÓ MIL·LIMÈTRICA EN OBRA",
+      eyebrow: "EL VALOR DE L'ENFOCAMENT",
+      headlineLead: "Tres dècades perfeccionant ",
+      headlineHighlight: "un únic ofici.",
+      narrative: "Mentre d'altres amplien serveis a reformes i desenes de gremis, nosaltres portem més de trenta anys dedicats a una sola missió:",
+      verdict: "MUNTAR CUINES AMB PRECISIÓ ABSOLUTA.",
+      items: [
+        { num: "01", title: "CADA AJUST", desc: "Tolerància zero en fronts i ferramentes." },
+        { num: "02", title: "CADA ANIVELLAMENT", desc: "Alineació làser mil·limètrica." },
+        { num: "03", title: "CADA TROBADA", desc: "Transicions netes amb parets i sostres." },
+        { num: "04", title: "CADA ACABAT", desc: "Remats d'ebenisteria impecables." },
+      ],
+    },
+    EN: {
+      badgeTitle: "YEARS OF CRAFT",
+      badgeCaption: "MILLIMETER ON-SITE PRECISION",
+      eyebrow: "THE VALUE OF FOCUS",
+      headlineLead: "Three decades perfecting ",
+      headlineHighlight: "a single craft.",
+      narrative: "While others branch into general contracting and scattered trades, we have spent over thirty years focused on a single mission:",
+      verdict: "FITTING KITCHENS WITH ABSOLUTE PRECISION.",
+      items: [
+        { num: "01", title: "EVERY ADJUSTMENT", desc: "Zero tolerance on reveals and hardware." },
+        { num: "02", title: "EVERY LEVELING", desc: "Continuous millimeter laser alignment." },
+        { num: "03", title: "EVERY JUNCTION", desc: "Seamless joints with uneven walls and ceilings." },
+        { num: "04", title: "EVERY FINISH", desc: "Impeccable bespoke cabinetry trim." },
+      ],
+    },
+  }[lang];
 
   return (
     <section
@@ -114,14 +112,14 @@ export default function ExperienciaSection() {
                   30+
                 </span>
                 <span className="block font-sans font-black text-[18px] sm:text-[22px] lg:text-[25px] tracking-[0.22em] text-white uppercase mt-2 drop-shadow-[0_2px_8px_rgba(0,0,0,0.95)]">
-                  AÑOS DE OFICIO
+                  {content.badgeTitle}
                 </span>
               </div>
 
               {/* Bottom Subtle Photo Caption */}
               <div className="absolute bottom-7 left-7 right-7 z-10">
                 <span className="text-[13px] sm:text-[14px] font-mono tracking-[0.18em] uppercase text-[#D6A634] font-bold">
-                  PRECISIÓN MILIMÉTRICA EN OBRA
+                  {content.badgeCaption}
                 </span>
               </div>
             </motion.div>
@@ -139,7 +137,7 @@ export default function ExperienciaSection() {
             >
               <span className="w-8 h-[2.5px] bg-[#D6A634]" />
               <span className="text-[14px] sm:text-[15px] font-sans font-bold tracking-[0.22em] text-[#D6A634] uppercase">
-                EL VALOR DEL ENFOQUE
+                {content.eyebrow}
               </span>
             </motion.div>
 
@@ -154,9 +152,9 @@ export default function ExperienciaSection() {
                 fontSize: "clamp(2.8rem, 4.8vw, 4.75rem)",
               }}
             >
-              Tres décadas perfeccionando{" "}
+              {content.headlineLead}
               <span className="italic text-[#D6A634] font-medium">
-                un único oficio.
+                {content.headlineHighlight}
               </span>
             </motion.h2>
 
@@ -167,7 +165,7 @@ export default function ExperienciaSection() {
               transition={{ duration: 0.7, delay: 0.32, ease: easing }}
               className="mt-7 text-[19px] sm:text-[21px] lg:text-[22px] text-[#D0CCC3] leading-[1.58] max-w-2xl font-normal"
             >
-              Mientras otros amplían servicios a reformas y decenas de gremios, nosotros llevamos más de treinta años dedicados a una sola misión:
+              {content.narrative}
             </motion.p>
 
             {/* Big Verdict Statement */}
@@ -178,19 +176,14 @@ export default function ExperienciaSection() {
               className="mt-7 py-2.5 pl-5 border-l-[4px] border-[#D6A634]"
             >
               <p className="font-sans font-black text-[22px] sm:text-[26px] lg:text-[30px] text-white uppercase tracking-[0.03em] leading-tight">
-                MONTAR COCINAS CON PRECISIÓN ABSOLUTA.
+                {content.verdict}
               </p>
             </motion.div>
 
             {/* ─── 4 Clean Editorial Principles (Substantially Bigger Presence) ─── */}
             <div className="mt-12 sm:mt-14 pt-8 border-t border-white/20">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-12 lg:gap-x-14 gap-y-9 sm:gap-y-11">
-                {[
-                  { num: "01", title: "CADA AJUSTE", desc: "Tolerancia cero en frentes y herrajes." },
-                  { num: "02", title: "CADA NIVELACIÓN", desc: "Alineación láser milimétrica." },
-                  { num: "03", title: "CADA ENCUENTRO", desc: "Transiciones limpias con paredes y techos." },
-                  { num: "04", title: "CADA ACABADO", desc: "Remates de ebanistería impecables." },
-                ].map((item, idx) => (
+                {content.items.map((item, idx) => (
                   <motion.div
                     key={item.num}
                     initial={{ opacity: 0, y: 12 }}

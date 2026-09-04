@@ -3,6 +3,8 @@ import { useEffect, useRef } from "react";
 import heroImg from "@/assets/hero-tio.webp";
 import { Header, CintasKinetic } from "../components/LandingUI";
 import { Footer } from "../components/LandingExtra";
+import { useLanguage } from "../context/LanguageContext";
+import { useTranslation } from "../i18n/translations";
 
 // Eager load
 import HeroSection from "../components/sections/HeroSection";
@@ -40,6 +42,8 @@ export const Route = createFileRoute("/")({
 });
 
 function FloatingWidgets() {
+  const { lang } = useLanguage();
+  const t = useTranslation(lang);
   const btnRef = useRef<HTMLAnchorElement>(null);
 
   useEffect(() => {
@@ -57,10 +61,16 @@ function FloatingWidgets() {
       {/* WhatsApp Button */}
       <a
         ref={btnRef}
-        href="https://wa.me/34666871144?text=Hola,%20me%20interesa%20solicitar%20un%20presupuesto%20para%20montaje%20de%20cocina"
+        href={`https://wa.me/34666871144?text=${encodeURIComponent(
+          lang === "EN"
+            ? "Hello, I am interested in requesting a quote for kitchen assembly"
+            : lang === "CA"
+            ? "Hola, m'interessa sol·licitar un pressupost per al muntatge de cuina"
+            : "Hola, me interesa solicitar un presupuesto para montaje de cocina"
+        )}`}
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="Contactar por WhatsApp"
+        aria-label={t.nav.whatsappAria}
         className="fixed bottom-[74px] lg:bottom-[22px] right-4 lg:right-[22px] z-[9999] flex items-center justify-center gap-2.5 bg-[#25D366] text-white font-semibold text-xs tracking-wider uppercase px-4 h-[52px] lg:h-[46px] rounded-full shadow-[0_6px_24px_rgba(37,211,102,0.45)] hover:shadow-[0_8px_30px_rgba(37,211,102,0.6)] hover:-translate-y-0.5 transition-all duration-300"
         style={{ opacity: 0, transform: "translateY(20px)" }}
       >
@@ -76,13 +86,13 @@ function FloatingWidgets() {
           href="tel:+34666871144"
           className="flex-1 flex items-center justify-center text-white font-medium border-r border-white/10 hover:bg-white/5 transition-colors"
         >
-          Llamar ahora
+          {t.mobileBar.call}
         </a>
         <a
           href="/contacto"
           className="flex-1 flex items-center justify-center text-brand font-bold hover:bg-white/5 transition-colors"
         >
-          Presupuesto gratis
+          {t.mobileBar.quote}
         </a>
       </div>
     </>

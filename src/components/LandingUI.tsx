@@ -211,19 +211,23 @@ export function Counter({
   );
 }
 
-const navItems = [
-  { label: "Inicio", href: "/" },
-  { label: "Método", href: "/metodo" },
-  { label: "Proyectos", href: "/proyectos" },
-  { label: "Experiencia", href: "/#experiencia" },
-  { label: "FAQ", href: "/faq" },
-  { label: "Contacto", href: "/contacto" },
-];
+import { useLanguage } from "../context/LanguageContext";
+import { useTranslation } from "../i18n/translations";
 
 export const Header = memo(() => {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-  const [lang, setLang] = useState<"ES" | "CA" | "EN">("ES");
+  const { lang, setLang } = useLanguage();
+  const t = useTranslation(lang);
+
+  const navItems = [
+    { label: t.nav.inicio, href: "/" },
+    { label: t.nav.metodo, href: "/metodo" },
+    { label: t.nav.proyectos, href: "/proyectos" },
+    { label: t.nav.experiencia, href: "/#experiencia" },
+    { label: t.nav.faq, href: "/faq" },
+    { label: t.nav.contacto, href: "/contacto" },
+  ];
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -245,7 +249,7 @@ export const Header = memo(() => {
         <Link
           to="/"
           className="flex items-center text-[#111111] hover:opacity-85 transition-opacity shrink-0"
-          title="Ir a la página principal"
+          title={t.nav.backHome}
         >
           <LogoCubikos className="text-[20px] sm:text-[22px]" />
         </Link>
@@ -300,7 +304,7 @@ export const Header = memo(() => {
 
         {/* Mobile menu button */}
         <button
-          aria-label="Abrir menú"
+          aria-label={t.nav.openMenu}
           onClick={() => setOpen(!open)}
           className="grid h-10 w-10 place-items-center lg:hidden text-[#111111] hover:text-[#D6A634] transition-colors"
         >
@@ -333,7 +337,7 @@ export const Header = memo(() => {
           </Link>
           <button
             onClick={() => setOpen(false)}
-            aria-label="Cerrar menú"
+            aria-label={t.nav.closeMenu}
             className="text-white hover:text-[#D6A634] transition-colors p-2"
           >
             <Ico.Close className="h-6 w-6" />
@@ -357,7 +361,7 @@ export const Header = memo(() => {
             onClick={() => setOpen(false)}
             className="mt-6 flex items-center justify-center gap-2 h-12 rounded-full bg-[#0F8E47] text-white font-bold text-xs uppercase tracking-[0.14em] shadow-[0_4px_16px_rgba(15,142,71,0.4)]"
           >
-            <span>Contactar por WhatsApp</span>
+            <span>{t.nav.whatsappAria}</span>
           </a>
         </div>
       </motion.div>
@@ -366,6 +370,9 @@ export const Header = memo(() => {
 });
 
 export function Hero() {
+  const { lang } = useLanguage();
+  const t = useTranslation(lang);
+
   return (
     <section
       id="top"
@@ -386,7 +393,7 @@ export function Hero() {
           >
             <span className="w-7 h-[2.5px] bg-[#D6A634] shrink-0" />
             <span className="text-[13px] sm:text-[14px] uppercase tracking-[0.2em] font-bold text-[#D6A634]">
-              MONTAJE PROFESIONAL DE COCINAS
+              {t.hero.eyebrow}
             </span>
           </motion.div>
 
@@ -401,10 +408,10 @@ export function Hero() {
               fontSize: 'clamp(2.4rem, 4.3vw, 4.4rem)',
             }}
           >
-            <span className="block">Una cocina perfecta</span>
-            <span className="block">empieza con un</span>
+            <span className="block">{t.hero.titleLine1}</span>
+            <span className="block">{t.hero.titleLine2}</span>
             <span className="block">
-              montaje perfecto<span className="text-[#D6A634]">.</span>
+              {t.hero.titleLine3.replace(".", "")}<span className="text-[#D6A634]">.</span>
             </span>
           </motion.h1>
 
@@ -415,10 +422,7 @@ export function Hero() {
             transition={{ duration: 0.7, delay: 0.32, ease: [0.22, 1, 0.36, 1] }}
             className="mt-4 text-[14px] sm:text-[15px] lg:text-[16px] text-[#C8C4BB] leading-[1.58] max-w-[500px] font-normal"
           >
-            Más de 30 años instalando cocinas en Cataluña con{" "}
-            <span className="text-white font-semibold">precisión milimétrica</span> y{" "}
-            <span className="text-white font-semibold">acabados impecables</span>. El montaje decide
-            el resultado final de tu cocina.
+            {t.hero.desc}
           </motion.p>
 
           {/* Action Buttons */}
@@ -432,14 +436,14 @@ export function Hero() {
               href="/contacto"
               className="group inline-flex items-center justify-center gap-2.5 px-7 h-[46px] rounded-[6px] bg-[#D6A634] text-[#111110] font-sans font-bold text-[13px] uppercase tracking-[0.12em] transition-all duration-300 shadow-[0_4px_18px_rgba(214,166,52,0.32)] hover:bg-[#e2b747] hover:shadow-[0_6px_26px_rgba(214,166,52,0.48)] hover:-translate-y-[1px]"
             >
-              <span>SOLICITAR PRESUPUESTO</span>
+              <span>{t.hero.ctaPresupuesto}</span>
               <span className="transition-transform duration-300 group-hover:translate-x-1 font-bold">→</span>
             </a>
             <a
               href="#proyectos"
               className="group inline-flex items-center justify-center gap-2.5 px-6 h-[46px] rounded-[6px] border border-white/35 bg-black/20 text-white font-sans font-semibold text-[13px] uppercase tracking-[0.12em] transition-all duration-300 hover:bg-white/[0.08] hover:border-white/70 hover:-translate-y-[1px]"
             >
-              <span>VER PROYECTOS</span>
+              <span>{t.hero.ctaProyectos}</span>
               <span className="transition-transform duration-300 group-hover:translate-x-1 font-bold">→</span>
             </a>
           </motion.div>
@@ -461,10 +465,10 @@ export function Hero() {
                 className="text-[22px] sm:text-[26px] lg:text-[28px] leading-none text-white font-normal tracking-tight"
                 style={{ fontFamily: 'var(--font-serif)' }}
               >
-                +30 años
+                {t.hero.statExp}
               </span>
               <span className="mt-1.5 text-[10px] sm:text-[11px] uppercase tracking-[0.14em] text-[#908C84] font-semibold font-sans">
-                DE EXPERIENCIA
+                {t.hero.statExpLabel}
               </span>
             </div>
 
@@ -479,10 +483,10 @@ export function Hero() {
                 className="text-[22px] sm:text-[26px] lg:text-[28px] leading-none text-white font-normal tracking-tight"
                 style={{ fontFamily: 'var(--font-serif)' }}
               >
-                500+
+                {t.hero.statProjects}
               </span>
               <span className="mt-1.5 text-[10px] sm:text-[11px] uppercase tracking-[0.14em] text-[#908C84] font-semibold font-sans">
-                COCINAS MONTADAS
+                {t.hero.statProjectsLabel}
               </span>
             </div>
 
@@ -496,10 +500,10 @@ export function Hero() {
                 className="text-[22px] sm:text-[26px] lg:text-[28px] leading-none text-white font-normal tracking-tight"
                 style={{ fontFamily: 'var(--font-serif)' }}
               >
-                Cataluña
+                {t.hero.statCoverage}
               </span>
               <span className="mt-1.5 text-[10px] sm:text-[11px] uppercase tracking-[0.14em] text-[#908C84] font-semibold font-sans">
-                COBERTURA TOTAL
+                {t.hero.statCoverageLabel}
               </span>
             </div>
           </motion.div>
@@ -559,12 +563,12 @@ export function Hero() {
               <div className="flex flex-col">
                 <div className="flex items-center gap-2">
                   <span className="text-[13px] sm:text-[14px] font-bold text-white uppercase tracking-[0.12em] font-sans">
-                    PRECISIÓN MILIMÉTRICA
+                    {t.hero.badgeTitle}
                   </span>
                   <span className="w-1.5 h-1.5 rounded-full bg-[#D6A634]" />
                 </div>
                 <span className="text-[12px] sm:text-[12.5px] text-[#A6A29A] font-medium tracking-[0.02em] mt-0.5">
-                  Acabados de ebanistería y montaje certificado
+                  {t.hero.badgeSub}
                 </span>
               </div>
             </div>
@@ -577,10 +581,10 @@ export function Hero() {
         <div className="flex items-center gap-2.5 text-[13px] sm:text-[14px] uppercase tracking-[0.18em] font-sans font-medium text-white/70">
           <span className="font-bold text-white/90">CUBIKOS</span>
           <span className="text-[#D6A634]">•</span>
-          <span>30+ AÑOS DE OFICIO</span>
+          <span>{t.hero.statExp} {t.hero.statExpLabel}</span>
         </div>
         <div className="flex items-center gap-2 text-[13px] sm:text-[14px] uppercase tracking-[0.18em] font-sans font-medium text-white/70">
-          <span>SCROLL</span>
+          <span>{t.hero.scroll}</span>
           <motion.span
             animate={{ y: [0, 4, 0] }}
             transition={{ repeat: Infinity, duration: 2.2, ease: "easeInOut" }}
@@ -595,6 +599,8 @@ export function Hero() {
 }
 
 export function Diferenciadora() {
+  const { lang } = useLanguage();
+  const t = useTranslation(lang);
   const [sliderPos, setSliderPos] = useState(50);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
@@ -656,9 +662,9 @@ export function Diferenciadora() {
       <div className="container-x">
         {/* Massive Headline */}
         <div className="max-w-5xl mb-12 md:mb-16 text-center md:text-left">
-          <span className="eyebrow text-ink-soft">El montaje decide el resultado final</span>
+          <span className="eyebrow text-ink-soft">{t.metodo.eyebrow}</span>
           <h2 className="font-display font-black text-[2.8rem] sm:text-[3.5rem] md:text-[4.75rem] leading-[0.98] tracking-tighter mt-4 text-balance">
-            Una cocina de 25.000€ puede parecer de 5.000€ si el montaje falla.
+            {t.metodo.title}
           </h2>
         </div>
 
@@ -667,10 +673,10 @@ export function Diferenciadora() {
           {/* Top Labels */}
           <div className="flex justify-between items-center mb-6 px-4 md:px-0">
             <div className="font-display font-black text-lg md:text-2xl uppercase tracking-widest text-ink flex items-center gap-2">
-              <Ico.Close className="h-5 w-5 text-red-500" /> Error Habitual
+              <Ico.Close className="h-5 w-5 text-red-500" /> {t.metodo.errLabel}
             </div>
             <div className="font-display font-black text-lg md:text-2xl uppercase tracking-widest text-brand flex items-center gap-2">
-              <Ico.Check className="h-5 w-5 text-brand" /> Método Cubikos
+              <Ico.Check className="h-5 w-5 text-brand" /> {t.metodo.okLabel}
             </div>
           </div>
 
@@ -736,26 +742,26 @@ export function Diferenciadora() {
             <div className="text-left">
               <ul className="space-y-4 font-medium text-lg md:text-xl text-ink-soft">
                 <li className="flex items-start gap-3">
-                  <span className="text-ink mt-1">•</span> Puertas torcidas
+                  <span className="text-ink mt-1">•</span> {t.metodo.err1}
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="text-ink mt-1">•</span> Holguras visibles
+                  <span className="text-ink mt-1">•</span> {t.metodo.err2}
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="text-ink mt-1">•</span> Desniveles
+                  <span className="text-ink mt-1">•</span> {t.metodo.err3}
                 </li>
               </ul>
             </div>
             <div className="text-right">
               <ul className="space-y-4 font-medium text-lg md:text-xl text-ink inline-block text-left">
                 <li className="flex items-start gap-3">
-                  <span className="text-brand mt-1">•</span> Ajuste láser
+                  <span className="text-brand mt-1">•</span> {t.metodo.ok1}
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="text-brand mt-1">•</span> Nivelación perfecta
+                  <span className="text-brand mt-1">•</span> {t.metodo.ok2}
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="text-brand mt-1">•</span> Acabados premium
+                  <span className="text-brand mt-1">•</span> {t.metodo.ok3}
                 </li>
               </ul>
             </div>
@@ -767,29 +773,82 @@ export function Diferenciadora() {
 }
 
 export function CintasKinetic() {
-  const tape1 = [
-    "PRECISIÓN MILIMÉTRICA",
-    "MONTAJE PROFESIONAL",
-    "30+ AÑOS DE OFICIO",
-    "EBANISTERÍA A MEDIDA",
-    "AJUSTE LÁSER EN OBRA",
-    "500+ COCINAS INSTALADAS",
-    "CATALUÑA",
-    "TOLERANCIA CERO",
-    "ACABADOS IMPECABLES",
-  ];
+  const { lang } = useLanguage();
 
-  const tape2 = [
-    "GARANTÍA TOTAL",
-    "ISLAS Y COLUMNAS",
-    "ESPECIALISTAS EXCLUSIVOS",
-    "ENCLAVES PERFECTOS",
-    "INGENIERÍA & OFICIO",
-    // TODO: dominio definitivo
-    "CUBIKOS COCINAS",
-    "CALIBRACIÓN CERTIFICADA",
-    "MÁXIMA DURABILIDAD",
-  ];
+  const ribbons = {
+    ES: {
+      tape1: [
+        "PRECISIÓN MILIMÉTRICA",
+        "MONTAJE PROFESIONAL",
+        "30+ AÑOS DE OFICIO",
+        "EBANISTERÍA A MEDIDA",
+        "AJUSTE LÁSER EN OBRA",
+        "500+ COCINAS INSTALADAS",
+        "CATALUÑA",
+        "TOLERANCIA CERO",
+        "ACABADOS IMPECABLES",
+      ],
+      tape2: [
+        "GARANTÍA TOTAL",
+        "ISLAS Y COLUMNAS",
+        "ESPECIALISTAS EXCLUSIVOS",
+        "ENCLAVES PERFECTOS",
+        "INGENIERÍA & OFICIO",
+        "CUBIKOS COCINAS",
+        "CALIBRACIÓN CERTIFICADA",
+        "MÁXIMA DURABILIDAD",
+      ],
+    },
+    CA: {
+      tape1: [
+        "PRECISIÓ MIL·LIMÈTRICA",
+        "MUNTATGE PROFESSIONAL",
+        "30+ ANYS D'OFICI",
+        "EBENISTERIA A MIDA",
+        "AJUST LÀSER EN OBRA",
+        "500+ CUINES INSTAL·LADES",
+        "CATALUNYA",
+        "TOLERÀNCIA ZERO",
+        "ACABATS IMPECABLES",
+      ],
+      tape2: [
+        "GARANTIA TOTAL",
+        "ILLES I COLUMNES",
+        "ESPECIALISTES EXCLUSIUS",
+        "ENCLAVAMENTS PERFECTES",
+        "ENGINYERIA & OFICI",
+        "CUBIKOS CUINES",
+        "CALIBRATGE CERTIFICAT",
+        "MÀXIMA DURABILITAT",
+      ],
+    },
+    EN: {
+      tape1: [
+        "MILLIMETER PRECISION",
+        "PROFESSIONAL ASSEMBLY",
+        "30+ YEARS OF CRAFT",
+        "CUSTOM CABINETRY",
+        "ON-SITE LASER FIT",
+        "500+ KITCHENS FITTED",
+        "CATALONIA",
+        "ZERO TOLERANCE",
+        "FLAWLESS FINISHES",
+      ],
+      tape2: [
+        "FULL WARRANTY",
+        "ISLANDS & TALL UNITS",
+        "EXCLUSIVE SPECIALISTS",
+        "PERFECT ALIGNMENTS",
+        "ENGINEERING & CRAFT",
+        "CUBIKOS KITCHENS",
+        "CERTIFIED CALIBRATION",
+        "MAXIMUM LONGEVITY",
+      ],
+    },
+  }[lang];
+
+  const tape1 = ribbons.tape1;
+  const tape2 = ribbons.tape2;
 
   return (
     <div className="relative w-full py-16 sm:py-24 md:py-28 overflow-hidden bg-[#090908] select-none pointer-events-none flex flex-col justify-center space-y-16 sm:space-y-20 md:space-y-24">

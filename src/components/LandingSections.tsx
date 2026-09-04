@@ -3,6 +3,8 @@ import { FadeUp, Ico, RevealMask, Counter } from "./LandingUI";
 import useEmblaCarousel from "embla-carousel-react";
 import { motion } from "framer-motion";
 import { PhoneCall, FileSearch, Ruler, Hammer, CheckCircle, User } from "lucide-react";
+import { useLanguage } from "../context/LanguageContext";
+import { useTranslation } from "../i18n/translations";
 
 import showcase1 from "@/assets/showcase-1.webp";
 import showcase2 from "@/assets/showcase-2.webp";
@@ -98,6 +100,9 @@ const Odometer = ({ value, className = "" }: { value: string; className?: string
 };
 
 export function Experiencia() {
+  const { lang } = useLanguage();
+  const t = useTranslation(lang);
+
   return (
     <section
       id="experiencia"
@@ -125,9 +130,25 @@ export function Experiencia() {
             </PremiumScale>
             <PremiumFade delay={0.2} className="mt-8">
               <p className="font-sans text-[22px] font-medium text-[#FAFAF8] max-w-sm leading-snug">
-                Especialistas exclusivamente
-                <br />
-                en montaje de cocinas.
+                {lang === "EN" ? (
+                  <>
+                    Specialists exclusively
+                    <br />
+                    in kitchen assembly.
+                  </>
+                ) : lang === "CA" ? (
+                  <>
+                    Especialistes exclusivament
+                    <br />
+                    en muntatge de cuines.
+                  </>
+                ) : (
+                  <>
+                    Especialistas exclusivamente
+                    <br />
+                    en montaje de cocinas.
+                  </>
+                )}
               </p>
             </PremiumFade>
           </div>
@@ -136,7 +157,11 @@ export function Experiencia() {
           <div className="lg:col-span-7 lg:pl-12 flex flex-col justify-center pt-4 lg:pt-12">
             <PremiumFade delay={0.1}>
               <h2 className="font-display font-bold text-[40px] md:text-[56px] leading-[1.1] text-[#FAFAF8] text-balance">
-                Tres décadas perfeccionando un único oficio.
+                {lang === "EN"
+                  ? "Three decades perfecting a single craft."
+                  : lang === "CA"
+                  ? "Tres dècades perfeccionant un únic ofici."
+                  : "Tres décadas perfeccionando un único oficio."}
               </h2>
             </PremiumFade>
 
@@ -145,19 +170,31 @@ export function Experiencia() {
               className="mt-12 space-y-6 text-xl md:text-[22px] text-[#EDEBE8] font-medium leading-relaxed max-w-3xl"
             >
               <p>
-                Mientras otras empresas reparten su atención entre reformas, coordinación de gremios
-                y decenas de servicios distintos, Cubikos ha dedicado más de treinta años a una sola
-                misión:
+                {lang === "EN"
+                  ? "While other companies spread their focus across general reforms, multiple trades and dozens of scattered services, Cubikos has dedicated over thirty years to one single mission:"
+                  : lang === "CA"
+                  ? "Mentre altres empreses reparteixen la seva atenció entre reformes generals i dotzenes de serveis diferents, Cubikos ha dedicat més de trenta anys a una sola missió:"
+                  : "Mientras otras empresas reparten su atención entre reformas, coordinación de gremios y decenas de servicios distintos, Cubikos ha dedicado más de treinta años a una sola misión:"}
               </p>
-              <p className="font-bold text-[#FAFAF8]">Montar cocinas con precisión absoluta.</p>
+              <p className="font-bold text-[#FAFAF8]">
+                {lang === "EN"
+                  ? "Fitting kitchens with absolute precision."
+                  : lang === "CA"
+                  ? "Muntar cuines amb precisió absoluta."
+                  : "Montar cocinas con precisión absoluta."}
+              </p>
               <div>
-                <p>Cada ajuste.</p>
-                <p>Cada nivelación.</p>
-                <p>Cada encuentro.</p>
-                <p>Cada acabado.</p>
+                <p>{lang === "EN" ? "Every adjustment." : lang === "CA" ? "Cada ajust." : "Cada ajuste."}</p>
+                <p>{lang === "EN" ? "Every leveling." : lang === "CA" ? "Cada anivellament." : "Cada nivelación."}</p>
+                <p>{lang === "EN" ? "Every joint." : lang === "CA" ? "Cada trobada." : "Cada encuentro."}</p>
+                <p>{lang === "EN" ? "Every finish." : lang === "CA" ? "Cada acabat." : "Cada acabado."}</p>
               </div>
               <p className="text-brand font-bold pt-4">
-                Perfeccionados tras más de 500 instalaciones.
+                {lang === "EN"
+                  ? "Perfected across more than 500 installations."
+                  : lang === "CA"
+                  ? "Perfeccionats després de més de 500 instal·lacions."
+                  : "Perfeccionados tras más de 500 instalaciones."}
               </p>
             </PremiumFade>
           </div>
@@ -168,6 +205,29 @@ export function Experiencia() {
 }
 
 export function StatsGrid() {
+  const { lang } = useLanguage();
+
+  const labels = {
+    ES: {
+      stat1: "Años de experiencia",
+      stat2: "Cocinas montadas",
+      stat3: "Cobertura Cataluña",
+      stat4: "Garantía de ajuste",
+    },
+    CA: {
+      stat1: "Anys d'experiència",
+      stat2: "Cuines muntades",
+      stat3: "Cobertura Catalunya",
+      stat4: "Garantia d'ajust",
+    },
+    EN: {
+      stat1: "Years of experience",
+      stat2: "Kitchens installed",
+      stat3: "Catalonia coverage",
+      stat4: "Fit guarantee",
+    },
+  }[lang];
+
   return (
     <section className="bg-[#FAFAF8] py-16 md:py-24 border-b border-[#E5E0D8]">
       <div className="container-x">
@@ -180,7 +240,7 @@ export function StatsGrid() {
               <Counter to={30} duration={1.5} suffix="+" />
             </div>
             <div className="mt-4 text-[#1A1A1A] text-[15px] sm:text-[16px] md:text-[17px] font-black uppercase tracking-[0.08em] text-center md:text-left leading-tight">
-              Años de experiencia
+              {labels.stat1}
             </div>
             <motion.div
               initial={{ scaleX: 0 }}
@@ -200,7 +260,7 @@ export function StatsGrid() {
               <Counter to={500} duration={1.5} suffix="+" />
             </div>
             <div className="mt-4 text-[#1A1A1A] text-[15px] sm:text-[16px] md:text-[17px] font-black uppercase tracking-[0.08em] text-center md:text-left leading-tight">
-              Cocinas montadas
+              {labels.stat2}
             </div>
             <motion.div
               initial={{ scaleX: 0 }}
@@ -220,7 +280,7 @@ export function StatsGrid() {
               <Counter to={100} duration={1.5} suffix="%" />
             </div>
             <div className="mt-4 text-[#1A1A1A] text-[15px] sm:text-[16px] md:text-[17px] font-black uppercase tracking-[0.08em] text-center md:text-left leading-tight">
-              Cobertura Cataluña
+              {labels.stat3}
             </div>
             <motion.div
               initial={{ scaleX: 0 }}
@@ -240,7 +300,7 @@ export function StatsGrid() {
               <Counter to={100} duration={1.5} suffix="%" />
             </div>
             <div className="mt-4 text-[#1A1A1A] text-[15px] sm:text-[16px] md:text-[17px] font-black uppercase tracking-[0.08em] text-center md:text-left leading-tight">
-              Garantía de ajuste
+              {labels.stat4}
             </div>
             <motion.div
               initial={{ scaleX: 0 }}
@@ -256,14 +316,6 @@ export function StatsGrid() {
     </section>
   );
 }
-
-const steps = [
-  { n: "01", t: "CONTACTO", d: "Valoración inicial del proyecto.", icon: PhoneCall },
-  { n: "02", t: "REVISIÓN", d: "Auditoría de planos y materiales.", icon: FileSearch },
-  { n: "03", t: "PLANIFICACIÓN", d: "Coordinación milimétrica.", icon: Ruler },
-  { n: "04", t: "MONTAJE", d: "Ejecución precisa y limpia.", icon: Hammer },
-  { n: "05", t: "ENTREGA", d: "Repaso final exhaustivo.", icon: CheckCircle },
-];
 
 const KitchenAssembly = () => {
   return (
@@ -562,6 +614,17 @@ const AnimatedStepIcon = ({ Icon, index }: { Icon: React.ElementType; index: num
 );
 
 export function Proceso() {
+  const { lang } = useLanguage();
+  const t = useTranslation(lang);
+
+  const stepsData = [
+    { n: "01", t: t.metodo.step1, d: t.metodo.step1d, icon: PhoneCall },
+    { n: "02", t: t.metodo.step2, d: t.metodo.step2d, icon: FileSearch },
+    { n: "03", t: t.metodo.step3, d: t.metodo.step3d, icon: Ruler },
+    { n: "04", t: t.metodo.step4, d: t.metodo.step4d, icon: Hammer },
+    { n: "05", t: t.metodo.step5, d: t.metodo.step5d, icon: CheckCircle },
+  ];
+
   return (
     <section id="proceso" className="bg-[#FAFAF8] py-14 sm:py-20 overflow-hidden border-b border-[#E5E0D8]">
       <div className="mx-auto w-[90%] max-w-[1440px]">
@@ -574,11 +637,11 @@ export function Proceso() {
           <div className="flex items-center gap-3.5 mb-4">
             <div className="h-[3px] w-12 bg-brand shrink-0" />
             <span className="text-[15px] sm:text-[17px] font-mono font-black tracking-[0.28em] uppercase text-brand">
-              METODOLOGÍA • PASO A PASO
+              {t.metodo.timelineEyebrow}
             </span>
           </div>
           <h2 className="font-display font-black text-4xl sm:text-5xl lg:text-6xl xl:text-7xl leading-[1.02] text-ink max-w-[900px] text-balance tracking-tight">
-            Precisión en cada fase<span className="text-brand">.</span>
+            {t.metodo.timelineTitle.replace(".", "")}<span className="text-brand">.</span>
           </h2>
         </motion.div>
 
@@ -589,7 +652,7 @@ export function Proceso() {
           <div className="absolute top-[10px] left-0 w-full h-[2px] bg-[#DADADA] hidden lg:block" />
 
           <div className="grid lg:grid-cols-5 gap-8 lg:gap-6">
-            {steps.map((s, i) => (
+            {stepsData.map((s, i) => (
               <motion.div
                 key={s.n}
                 initial={{ opacity: 0, y: 40 }}
@@ -628,6 +691,9 @@ export function Proceso() {
 }
 
 export function Testimonios() {
+  const { lang } = useLanguage();
+  const t = useTranslation(lang);
+
   return (
     <section id="opiniones" className="bg-[#FAF8F5] py-24 sm:py-36 border-t border-b border-[#E5E0D8] overflow-hidden">
       <div className="container-x">
@@ -636,32 +702,38 @@ export function Testimonios() {
             <div className="flex items-center gap-3.5 mb-5">
               <span className="w-14 h-[3px] bg-brand shrink-0" />
               <span className="text-[16px] sm:text-[18px] font-mono font-black tracking-[0.28em] uppercase text-brand">
-                OPINIONES & VALORACIONES
+                {t.opiniones.eyebrow}
               </span>
               <span className="w-14 h-[3px] bg-brand shrink-0" />
             </div>
 
             <h2 className="font-display font-black text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-ink tracking-tight leading-[1.04] mb-8 text-balance">
-              Tu satisfacción es nuestro mejor aval<span className="text-brand">.</span>
+              {t.opiniones.title.replace(".", "")}<span className="text-brand">.</span>
             </h2>
 
             <p className="text-xl sm:text-2xl text-ink-soft max-w-3xl leading-relaxed mb-10 font-normal">
-              En CUBIKOS cada montaje se entrega con tolerancia milimétrica y revisión exhaustiva. Si ya has trabajado con nosotros en Cataluña, comparte tu experiencia.
+              {t.opiniones.desc}
             </p>
 
             <div className="flex flex-col items-center gap-4">
               <a
-                href="https://wa.me/34666871144?text=Hola,%20he%20montado%20mi%20cocina%20con%20CUBIKOS%20y%20quiero%20compartir%20mi%20opinion"
+                href={`https://wa.me/34666871144?text=${encodeURIComponent(
+                  lang === "EN"
+                    ? "Hello, I installed my kitchen with CUBIKOS and I would like to share my feedback"
+                    : lang === "CA"
+                    ? "Hola, he muntat la meva cuina amb CUBIKOS i vull compartir la meva opinió"
+                    : "Hola, he montado mi cocina con CUBIKOS y quiero compartir mi opinion"
+                )}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2.5 px-8 h-[50px] rounded-full bg-[#111111] hover:bg-brand hover:text-[#111111] text-white font-sans font-bold text-xs uppercase tracking-[0.14em] transition-all duration-300 shadow-lg"
               >
-                <span>Sé el primero en dejarnos tu opinión</span>
+                <span>{t.opiniones.btn}</span>
                 <span className="font-bold">→</span>
               </a>
               <div className="flex items-center gap-2 mt-2 px-4 py-2 rounded-full bg-[#EDEBE8]/60 border border-[#D1CFCC]/50 text-sm sm:text-base font-semibold text-[#444] tracking-wide">
                 <span className="w-2 h-2 rounded-full bg-brand shrink-0" />
-                <span>Cada montaje se entrega con tolerancia milimétrica certificada.</span>
+                <span>{t.opiniones.badge}</span>
               </div>
             </div>
           </FadeUp>
@@ -672,6 +744,9 @@ export function Testimonios() {
 }
 
 export function BotelleroShowcase() {
+  const { lang } = useLanguage();
+  const t = useTranslation(lang);
+
   return (
     <section className="relative bg-[#0D0D0D] text-[#FAFAF8] py-24 md:py-40 overflow-hidden z-20">
       <div className="container-x">
@@ -681,20 +756,17 @@ export function BotelleroShowcase() {
               <div className="flex items-center gap-3.5 mb-4">
                 <span className="w-12 h-[3px] bg-brand shrink-0" />
                 <span className="text-[15px] sm:text-[17px] font-mono font-black tracking-[0.28em] uppercase text-brand">
-                  LA FIRMA DE UN ARTESANO
+                  {t.showcase.eyebrow}
                 </span>
               </div>
               <h2 className="font-display font-black text-4xl sm:text-5xl lg:text-6xl xl:text-7xl tracking-tight leading-[1.04] mb-8 text-[#FAFAF8]">
-                El Arte del Ensamblaje<span className="text-brand">.</span>
+                {t.showcase.title.replace(".", "")}<span className="text-brand">.</span>
               </h2>
               <p className="text-[#EDEBE8]/80 text-lg md:text-xl leading-relaxed mb-6 font-light">
-                Un botellero a medida no admite márgenes de error. Cada balda y cada separador debe
-                encajar con tolerancias milimétricas para garantizar la estabilidad y una estética
-                perfecta.
+                {t.showcase.p1}
               </p>
               <p className="text-[#EDEBE8]/80 text-lg md:text-xl leading-relaxed font-light">
-                Es en estos pequeños detalles donde la verdadera calidad de un montaje sale a
-                relucir. No instalamos cocinas; construimos mobiliario de precisión.
+                {t.showcase.p2}
               </p>
             </PremiumFade>
           </div>
@@ -718,10 +790,10 @@ export function BotelleroShowcase() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
               <div className="absolute bottom-5 left-5 right-5 flex flex-wrap justify-between items-end gap-2 pointer-events-none">
                 <span className="font-sans text-sm sm:text-base uppercase tracking-[0.16em] text-[#D6A634] font-bold drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
-                  PRECISIÓN MILIMÉTRICA
+                  {t.showcase.img1Title}
                 </span>
                 <span className="text-white/90 text-xs sm:text-sm font-sans font-semibold tracking-wider drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] bg-black/40 px-2.5 py-1 rounded border border-white/10">
-                  TOLERANCIA &lt; 0.5MM
+                  {t.showcase.img1Sub}
                 </span>
               </div>
             </motion.div>
@@ -744,7 +816,7 @@ export function BotelleroShowcase() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
                 <div className="absolute bottom-4 left-5 pointer-events-none">
                   <span className="text-sm sm:text-base font-sans tracking-[0.14em] text-white uppercase font-bold drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
-                    ISLAS Y ENCUENTROS
+                    {t.showcase.img2Title}
                   </span>
                 </div>
               </motion.div>
@@ -765,7 +837,7 @@ export function BotelleroShowcase() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
                 <div className="absolute bottom-4 left-5 pointer-events-none">
                   <span className="text-sm sm:text-base font-sans tracking-[0.14em] text-white uppercase font-bold drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
-                    AJUSTES EN COLUMNA
+                    {t.showcase.img3Title}
                   </span>
                 </div>
               </motion.div>

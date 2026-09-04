@@ -1,6 +1,8 @@
 import { memo, useState, useCallback, type FormEvent } from "react";
 import { Link } from "@tanstack/react-router";
 import { m as motion } from "framer-motion";
+import { useLanguage } from "../context/LanguageContext";
+import { useTranslation } from "../i18n/translations";
 import { FadeUp, Ico, RevealMask, LogoCubikos } from "./LandingUI";
 import heroImg from "@/assets/hero-tio.webp";
 import gal1 from "@/assets/gallery-1.webp";
@@ -49,6 +51,47 @@ const details = [
 ];
 
 export function Proyectos() {
+  const { lang } = useLanguage();
+  const t = useTranslation(lang);
+
+  const translatedDetails = [
+    {
+      src: gal1,
+      title: t.proyectos.card1Title,
+      subtitle: t.proyectos.card1Sub,
+      span: "lg:col-span-2 lg:row-span-2",
+      aspect: "aspect-[4/3] lg:aspect-auto",
+    },
+    {
+      src: gal2,
+      title: t.proyectos.card2Title,
+      subtitle: t.proyectos.card2Sub,
+      span: "lg:col-span-1 lg:row-span-1",
+      aspect: "aspect-square",
+    },
+    {
+      src: gal4,
+      title: t.proyectos.card3Title,
+      subtitle: t.proyectos.card3Sub,
+      span: "lg:col-span-1 lg:row-span-1",
+      aspect: "aspect-square",
+    },
+    {
+      src: gal5,
+      title: t.proyectos.card4Title,
+      subtitle: t.proyectos.card4Sub,
+      span: "lg:col-span-1 lg:row-span-1",
+      aspect: "aspect-square",
+    },
+    {
+      src: gal6,
+      title: t.proyectos.card5Title,
+      subtitle: t.proyectos.card5Sub,
+      span: "lg:col-span-2 lg:row-span-1",
+      aspect: "aspect-[21/9] lg:aspect-auto",
+    },
+  ];
+
   return (
     <section id="proyectos" className="bg-[#111111] text-[#FAFAF8] py-12 md:py-20">
       <div className="container-x mb-8 md:mb-12">
@@ -56,22 +99,21 @@ export function Proyectos() {
           <div className="flex items-center gap-3.5 mb-4">
             <div className="h-[3px] w-12 bg-brand shrink-0" />
             <span className="text-[15px] sm:text-[17px] font-mono font-black tracking-[0.28em] uppercase text-brand">
-              PORTFOLIO • CASOS REALES
+              {t.proyectos.eyebrow}
             </span>
           </div>
           <h2 className="font-display font-black text-[clamp(40px,6vw,72px)] leading-[1] tracking-tighter text-[#FAFAF8] text-balance">
-            Casos de estudio<span className="text-brand">.</span>
+            {t.proyectos.title.replace(".", "")}<span className="text-brand">.</span>
           </h2>
           <p className="mt-3 md:mt-4 text-base md:text-lg text-[#EDEBE8] font-normal leading-relaxed text-balance max-w-2xl">
-            La excelencia no se demuestra en un plano general, sino en la perfección de cada
-            detalle, unión y remate.
+            {t.proyectos.desc}
           </p>
         </FadeUp>
       </div>
 
       <div className="container-x">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 md:gap-6 lg:auto-rows-[350px]">
-          {details.map((g, i) => (
+          {translatedDetails.map((g, i) => (
             <FadeUp
               key={i}
               delay={i * 0.1}
@@ -81,7 +123,6 @@ export function Proyectos() {
                 loading="lazy"
                 src={g.src}
                 alt={g.title}
-                loading="lazy"
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-[2s] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.03]"
               />
 
@@ -125,7 +166,17 @@ const faqs = [
 ];
 
 export function FAQ() {
+  const { lang } = useLanguage();
+  const t = useTranslation(lang);
   const [open, setOpen] = useState<number | null>(0);
+
+  const translatedFaqs = [
+    { q: t.faq.q1, a: t.faq.a1 },
+    { q: t.faq.q2, a: t.faq.a2 },
+    { q: t.faq.q3, a: t.faq.a3 },
+    { q: t.faq.q4, a: t.faq.a4 },
+  ];
+
   return (
     <section id="faq" className="bg-surface py-28 md:py-40">
       <div className="container-x grid md:grid-cols-12 gap-12 lg:gap-16">
@@ -134,20 +185,20 @@ export function FAQ() {
             <div className="flex items-center gap-3.5 mb-4">
               <span className="w-12 h-[3px] bg-brand shrink-0" />
               <span className="text-[15px] sm:text-[17px] font-mono font-black tracking-[0.28em] uppercase text-brand">
-                PREGUNTAS FRECUENTES
+                {t.faq.eyebrow}
               </span>
             </div>
             <h2 className="font-display font-black text-4xl sm:text-5xl lg:text-6xl xl:text-7xl text-ink leading-[1.02] tracking-tight">
-              FAQ<span className="text-brand">.</span>
+              {t.faq.title.replace(".", "")}<span className="text-brand">.</span>
             </h2>
             <p className="mt-6 text-xl sm:text-2xl text-ink-soft font-normal leading-relaxed">
-              Claridad absoluta antes de iniciar cualquier montaje.
+              {t.faq.desc}
             </p>
           </FadeUp>
         </div>
         <div className="md:col-span-7">
           <ul className="border-t border-ink">
-            {faqs.map((f, i) => {
+            {translatedFaqs.map((f, i) => {
               const isOpen = open === i;
               return (
                 <li key={f.q} className="border-b border-line">
@@ -183,11 +234,31 @@ export function FAQ() {
 }
 
 export function CTAFinal() {
+  const { lang } = useLanguage();
+  const t = useTranslation(lang);
   const [sent, setSent] = useState(false);
   const onSubmit = useCallback((e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setSent(true);
   }, []);
+
+  const benefits = {
+    ES: [
+      { title: "Sin compromiso", desc: "Respuesta en 24-48h" },
+      { title: "Confidencial", desc: "Tus datos protegidos" },
+      { title: "Experiencia", desc: "Más de 30 años" },
+    ],
+    CA: [
+      { title: "Sense compromís", desc: "Resposta en 24-48h" },
+      { title: "Confidencial", desc: "Les teves dades protegides" },
+      { title: "Experiència", desc: "Més de 30 anys" },
+    ],
+    EN: [
+      { title: "No commitment", desc: "Response in 24-48h" },
+      { title: "Confidential", desc: "Your data is protected" },
+      { title: "Experience", desc: "Over 30 years" },
+    ],
+  }[lang];
 
   return (
     <section
@@ -207,17 +278,16 @@ export function CTAFinal() {
               <div className="flex items-center gap-4 mb-8">
                 <div className="h-[2px] w-12 bg-brand" />
                 <span className="font-display font-black text-sm uppercase tracking-widest text-brand">
-                  Valoración técnica
+                  {t.contacto.eyebrow}
                 </span>
               </div>
 
               <h2 className="font-display font-black text-[clamp(4rem,7vw,7rem)] leading-[0.95] text-white tracking-tighter text-balance max-w-2xl">
-                INICIEMOS TU PROYECTO
+                {t.contacto.title.replace(".", "")}
               </h2>
 
               <p className="mt-8 text-xl md:text-2xl font-medium text-[#EDEBE8] max-w-[550px] leading-relaxed">
-                Solicita una Valoración técnica sin compromiso y descubre cómo podemos materializar
-                tu proyecto.
+                {t.contacto.desc}
               </p>
             </motion.div>
 
@@ -229,27 +299,15 @@ export function CTAFinal() {
               transition={{ duration: 0.8, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
               className="mt-16 flex flex-col sm:flex-row gap-8 lg:gap-12"
             >
-              <div className="flex items-start gap-4">
-                <Ico.Check className="w-6 h-6 text-brand shrink-0" />
-                <div>
-                  <div className="font-bold text-white text-lg">Sin compromiso</div>
-                  <div className="text-sm text-white/70 mt-1">Respuesta en 24-48h</div>
+              {benefits.map((b) => (
+                <div key={b.title} className="flex items-start gap-4">
+                  <Ico.Check className="w-6 h-6 text-brand shrink-0" />
+                  <div>
+                    <div className="font-bold text-white text-lg">{b.title}</div>
+                    <div className="text-sm text-white/70 mt-1">{b.desc}</div>
+                  </div>
                 </div>
-              </div>
-              <div className="flex items-start gap-4">
-                <Ico.Check className="w-6 h-6 text-brand shrink-0" />
-                <div>
-                  <div className="font-bold text-white text-lg">Confidencial</div>
-                  <div className="text-sm text-white/70 mt-1">Tus datos protegidos</div>
-                </div>
-              </div>
-              <div className="flex items-start gap-4">
-                <Ico.Check className="w-6 h-6 text-brand shrink-0" />
-                <div>
-                  <div className="font-bold text-white text-lg">Experiencia</div>
-                  <div className="text-sm text-white/70 mt-1">Más de 10 años</div>
-                </div>
-              </div>
+              ))}
             </motion.div>
           </div>
 
@@ -265,10 +323,10 @@ export function CTAFinal() {
                 <div className="bg-[rgba(20,20,20,0.92)] backdrop-blur-[20px] border border-white/15 rounded-[24px] p-12 text-center text-white shadow-[0_30px_100px_rgba(0,0,0,0.4)]">
                   <Ico.Check className="h-16 w-16 text-brand mx-auto mb-8" />
                   <h3 className="font-display text-3xl font-black uppercase tracking-widest">
-                    Recibido
+                    {t.contacto.sentTitle}
                   </h3>
                   <p className="mt-6 text-lg font-medium text-[#EDEBE8]">
-                    Nuestro equipo técnico revisará tu solicitud y te contactará en breve.
+                    {t.contacto.sentMsg}
                   </p>
                 </div>
               ) : (
@@ -279,7 +337,7 @@ export function CTAFinal() {
                   <div className="space-y-10">
                     <div className="group relative">
                       <label className="text-xs font-bold uppercase tracking-widest text-[#EDEBE8] block mb-2">
-                        Nombre
+                        {t.contacto.nameLabel}
                       </label>
                       <input
                         required
@@ -289,7 +347,7 @@ export function CTAFinal() {
                     </div>
                     <div className="group relative">
                       <label className="text-xs font-bold uppercase tracking-widest text-[#EDEBE8] block mb-2">
-                        Teléfono / Email
+                        {t.contacto.contactLabel}
                       </label>
                       <input
                         required
@@ -299,29 +357,29 @@ export function CTAFinal() {
                     </div>
                     <div className="group relative">
                       <label className="text-xs font-bold uppercase tracking-widest text-[#EDEBE8] block mb-2">
-                        ¿Qué tipo de cocina necesitas montar?
+                        {t.contacto.typeLabel}
                       </label>
                       <select
                         required
                         className="w-full bg-transparent border-b border-white/20 py-2 text-xl font-medium text-white focus:outline-none focus:border-white hover:border-white transition-all duration-300 focus:-translate-y-[2px] cursor-pointer appearance-none"
                       >
                         <option value="" disabled selected className="bg-[#111] text-white/50">
-                          Selecciona una opción
+                          {t.contacto.typePlaceholder}
                         </option>
                         <option value="ikea" className="bg-[#111] text-white">
-                          IKEA
+                          {t.contacto.typeIkea}
                         </option>
                         <option value="bauhaus" className="bg-[#111] text-white">
-                          Bauhaus
+                          {t.contacto.typeBauhaus}
                         </option>
                         <option value="santos" className="bg-[#111] text-white">
-                          Santos
+                          {t.contacto.typeSantos}
                         </option>
                         <option value="amedida" className="bg-[#111] text-white">
-                          A medida
+                          {t.contacto.typeMedida}
                         </option>
                         <option value="otros" className="bg-[#111] text-white">
-                          Otros
+                          {t.contacto.typeOtros}
                         </option>
                       </select>
                       <div className="absolute right-0 top-9 pointer-events-none text-white/50">
@@ -342,7 +400,7 @@ export function CTAFinal() {
                     </div>
                     <div className="group relative">
                       <label className="text-xs font-bold uppercase tracking-widest text-[#EDEBE8] block mb-2">
-                        Detalles de la Obra (Opcional)
+                        {t.contacto.detailsLabel}
                       </label>
                       <textarea
                         rows={2}
@@ -355,7 +413,7 @@ export function CTAFinal() {
                     >
                       <div className="absolute inset-0 -translate-x-[150%] bg-gradient-to-r from-transparent via-white/50 to-transparent group-hover:translate-x-[150%] transition-transform duration-[1.2s] ease-in-out" />
                       <span className="relative z-10">
-                        Solicitar Valoración
+                        {t.contacto.submitBtn}
                       </span>
                     </button>
 
@@ -372,7 +430,7 @@ export function CTAFinal() {
                         <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
                         <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
                       </svg>
-                      Tu información está protegida y nunca será compartida.
+                      {t.contacto.privacyNotice}
                     </div>
                   </div>
                 </form>
@@ -386,6 +444,9 @@ export function CTAFinal() {
 }
 
 export const Footer = memo(() => {
+  const { lang } = useLanguage();
+  const t = useTranslation(lang);
+
   return (
     <footer className="bg-[#0A0A09] text-[#E5E1D8] pt-16 pb-12 border-t border-white/10">
       <div className="container-x">
@@ -396,19 +457,19 @@ export const Footer = memo(() => {
               <LogoCubikos className="text-[24px] text-white" />
             </Link>
             <p className="text-[14px] text-[#A6A29A] leading-relaxed mb-6 max-w-sm font-normal">
-              Especialistas en montaje e instalación técnica de mobiliario de cocina de gama media-alta y lujo. Tolerancia cero en obra.
+              {t.footer.desc}
             </p>
             <div className="space-y-2 text-[14px] text-[#C4BFB6]">
               <div>
-                <span className="text-xs uppercase tracking-widest text-[#777] block mb-1">Contacto</span>
+                <span className="text-xs uppercase tracking-widest text-[#777] block mb-1">{t.footer.contactTitle}</span>
                 {/* TODO: dominio definitivo y correo corporativo */}
                 <a href="mailto:cubikos25@gmail.com" className="hover:text-brand transition-colors">
                   cubikos25@gmail.com
                 </a>
               </div>
               <div className="pt-2">
-                <span className="text-xs uppercase tracking-widest text-[#777] block mb-1">Horario</span>
-                <p className="text-[#A6A29A]">Lunes a Viernes de 8:00 a 19:00</p>
+                <span className="text-xs uppercase tracking-widest text-[#777] block mb-1">{t.footer.scheduleTitle}</span>
+                <p className="text-[#A6A29A]">{t.footer.scheduleText}</p>
               </div>
               <div className="pt-3">
                 <a
@@ -429,37 +490,37 @@ export const Footer = memo(() => {
           {/* Col 2: Empresa */}
           <div className="lg:col-span-2 lg:col-start-6">
             <h4 className="font-sans font-bold text-[15px] text-white tracking-wide mb-6">
-              Empresa
+              {t.footer.companyTitle}
             </h4>
             <ul className="space-y-3.5 text-[14px] text-[#A6A29A]">
               <li>
                 <Link to="/sobre-cubikos" className="hover:text-white transition-colors">
-                  Presentación y oficio
+                  {t.footer.linkAbout}
                 </Link>
               </li>
               <li>
                 <Link to="/metodo" className="hover:text-white transition-colors">
-                  El Método CUBIKOS
+                  {t.footer.linkMethod}
                 </Link>
               </li>
               <li>
                 <Link to="/servicios" className="hover:text-white transition-colors">
-                  Especialidades técnicas
+                  {t.footer.linkServices}
                 </Link>
               </li>
               <li>
                 <Link to="/proyectos" className="hover:text-white transition-colors">
-                  Casos de estudio
+                  {t.footer.linkProjects}
                 </Link>
               </li>
               <li>
                 <Link to="/faq" className="hover:text-white transition-colors">
-                  Preguntas frecuentes
+                  {t.footer.linkFaq}
                 </Link>
               </li>
               <li>
                 <Link to="/contacto" className="hover:text-white transition-colors">
-                  Solicitud de presupuesto
+                  {t.footer.linkQuote}
                 </Link>
               </li>
             </ul>
@@ -468,22 +529,22 @@ export const Footer = memo(() => {
           {/* Col 3: Legal */}
           <div className="lg:col-span-2">
             <h4 className="font-sans font-bold text-[15px] text-white tracking-wide mb-6">
-              Legal
+              {t.footer.legalTitle}
             </h4>
             <ul className="space-y-3.5 text-[14px] text-[#A6A29A]">
               <li>
                 <a href="#" className="hover:text-white transition-colors">
-                  Aviso Legal
+                  {t.footer.linkLegalNotice}
                 </a>
               </li>
               <li>
                 <a href="#" className="hover:text-white transition-colors">
-                  Política de Cookies
+                  {t.footer.linkCookies}
                 </a>
               </li>
               <li>
                 <a href="#" className="hover:text-white transition-colors">
-                  Política de Privacidad
+                  {t.footer.linkPrivacy}
                 </a>
               </li>
               <li>
@@ -503,28 +564,28 @@ export const Footer = memo(() => {
           {/* Col 4: Cobertura geográfica Cataluña */}
           <div className="lg:col-span-3">
             <h4 className="font-sans font-bold text-[15px] text-white tracking-wide mb-6">
-              Trabajamos en toda Cataluña
+              {t.footer.geoTitle}
             </h4>
             <ul className="space-y-2.5 text-[14px] text-[#A6A29A]">
               <li className="flex items-center gap-2.5">
                 <span className="w-1.5 h-1.5 rounded-full bg-brand shrink-0" />
-                <span>Montaje de cocinas en Barcelona y Vallès</span>
+                <span>{t.footer.geo1}</span>
               </li>
               <li className="flex items-center gap-2.5">
                 <span className="w-1.5 h-1.5 rounded-full bg-brand shrink-0" />
-                <span>Montaje de cocinas en Maresme y Sitges</span>
+                <span>{t.footer.geo2}</span>
               </li>
               <li className="flex items-center gap-2.5">
                 <span className="w-1.5 h-1.5 rounded-full bg-brand shrink-0" />
-                <span>Montaje de cocinas en Girona y Costa Brava</span>
+                <span>{t.footer.geo3}</span>
               </li>
               <li className="flex items-center gap-2.5">
                 <span className="w-1.5 h-1.5 rounded-full bg-brand shrink-0" />
-                <span>Montaje de cocinas en Tarragona</span>
+                <span>{t.footer.geo4}</span>
               </li>
               <li className="flex items-center gap-2.5">
                 <span className="w-1.5 h-1.5 rounded-full bg-brand shrink-0" />
-                <span>Montaje de cocinas en Lleida</span>
+                <span>{t.footer.geo5}</span>
               </li>
             </ul>
           </div>
@@ -533,7 +594,7 @@ export const Footer = memo(() => {
         {/* Bottom Copyright Bar */}
         <div className="pt-8 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center text-xs text-[#888] font-medium gap-4">
           <div>
-            &copy; {new Date().getFullYear()} CUBIKOS. Todos los derechos reservados. · Diseñado por{" "}
+            &copy; {new Date().getFullYear()} CUBIKOS. {t.footer.rights} · {t.footer.designedBy}{" "}
             <a
               href="https://kovia.es"
               target="_blank"
@@ -544,7 +605,7 @@ export const Footer = memo(() => {
             </a>
           </div>
           <div className="text-right text-[#666]">
-            Precisión milimétrica y excelencia en instalación de mobiliario.
+            {t.footer.tagline}
           </div>
         </div>
       </div>
