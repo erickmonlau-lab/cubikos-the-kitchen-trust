@@ -716,11 +716,13 @@ export function BotelleroShowcase() {
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
-              <div className="absolute bottom-5 left-5 right-5 flex justify-between items-end pointer-events-none">
-                <span className="font-mono text-xs uppercase tracking-widest text-[#D6A634] font-bold">
+              <div className="absolute bottom-5 left-5 right-5 flex flex-wrap justify-between items-end gap-2 pointer-events-none">
+                <span className="font-sans text-sm sm:text-base uppercase tracking-[0.16em] text-[#D6A634] font-bold drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
                   PRECISIÓN MILIMÉTRICA
                 </span>
-                <span className="text-white/80 text-xs font-mono">TOLERANCIA &lt; 0.5MM</span>
+                <span className="text-white/90 text-xs sm:text-sm font-sans font-semibold tracking-wider drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] bg-black/40 px-2.5 py-1 rounded border border-white/10">
+                  TOLERANCIA &lt; 0.5MM
+                </span>
               </div>
             </motion.div>
 
@@ -739,9 +741,9 @@ export function BotelleroShowcase() {
                   loading="lazy"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent pointer-events-none" />
-                <div className="absolute bottom-3 left-4 pointer-events-none">
-                  <span className="text-[11px] font-mono tracking-wider text-white uppercase font-bold">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
+                <div className="absolute bottom-4 left-5 pointer-events-none">
+                  <span className="text-sm sm:text-base font-sans tracking-[0.14em] text-white uppercase font-bold drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
                     ISLAS Y ENCUENTROS
                   </span>
                 </div>
@@ -760,9 +762,9 @@ export function BotelleroShowcase() {
                   loading="lazy"
                   className="w-full h-full object-cover object-left-top transition-transform duration-700 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent pointer-events-none" />
-                <div className="absolute bottom-3 left-4 pointer-events-none">
-                  <span className="text-[11px] font-mono tracking-wider text-white uppercase font-bold">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
+                <div className="absolute bottom-4 left-5 pointer-events-none">
+                  <span className="text-sm sm:text-base font-sans tracking-[0.14em] text-white uppercase font-bold drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
                     AJUSTES EN COLUMNA
                   </span>
                 </div>
