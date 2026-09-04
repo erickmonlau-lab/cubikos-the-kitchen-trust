@@ -785,9 +785,9 @@ export function CintasKinetic() {
   ];
 
   return (
-    <div className="relative w-full py-10 sm:py-14 overflow-hidden bg-[#090908] select-none pointer-events-none">
-      {/* Tape 1: Gold ribbon slightly angled (-1.6deg) */}
-      <div className="relative -rotate-[1.8deg] scale-105 z-10 py-3 sm:py-3.5 bg-[#D6A634] text-[#0E0E0D] shadow-[0_10px_30px_rgba(0,0,0,0.6)]">
+    <div className="relative w-full py-8 sm:py-12 overflow-hidden bg-[#090908] select-none pointer-events-none flex flex-col gap-3 sm:gap-4">
+      {/* Tape 1: Gold ribbon */}
+      <div className="relative -rotate-[1.2deg] scale-105 z-10 py-3 sm:py-3.5 bg-[#D6A634] text-[#0E0E0D] shadow-[0_10px_25px_rgba(0,0,0,0.5)]">
         <div className="animate-marquee-left flex items-center whitespace-nowrap">
           {[...tape1, ...tape1, ...tape1, ...tape1].map((text, i) => (
             <div key={i} className="flex items-center">
@@ -800,8 +800,8 @@ export function CintasKinetic() {
         </div>
       </div>
 
-      {/* Tape 2: Dark ribbon crossing in opposite angle (+1.8deg) */}
-      <div className="relative rotate-[1.6deg] scale-105 -mt-3 sm:-mt-4 z-20 py-3 sm:py-3.5 bg-[#141413] border-y border-[#D6A634]/40 text-white shadow-[0_14px_40px_rgba(0,0,0,0.8)]">
+      {/* Tape 2: Dark ribbon running opposite without colliding */}
+      <div className="relative rotate-[1.2deg] scale-105 z-20 py-3 sm:py-3.5 bg-[#141413] border-y border-[#D6A634]/40 text-white shadow-[0_10px_25px_rgba(0,0,0,0.6)]">
         <div className="animate-marquee-right flex items-center whitespace-nowrap">
           {[...tape2, ...tape2, ...tape2, ...tape2].map((text, i) => (
             <div key={i} className="flex items-center">

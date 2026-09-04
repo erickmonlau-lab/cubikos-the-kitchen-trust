@@ -463,18 +463,18 @@ const KitchenAssembly = () => {
           <rect
             x="430"
             y="80"
-            width="130"
+            width="90"
             height="90"
             fill="#FFFFFF"
             stroke="#E5E7EB"
             strokeWidth="4"
           />
-          <line x1="495" y1="80" x2="495" y2="170" stroke="#E5E7EB" strokeWidth="4" />
-          <rect x="450" y="165" width="20" height="3" fill="#374151" rx="1" />
-          <rect x="520" y="165" width="20" height="3" fill="#374151" rx="1" />
+          <line x1="475" y1="80" x2="475" y2="170" stroke="#E5E7EB" strokeWidth="4" />
+          <rect x="445" y="165" width="20" height="3" fill="#374151" rx="1" />
+          <rect x="485" y="165" width="20" height="3" fill="#374151" rx="1" />
         </motion.g>
 
-        {/* Wine Rack (Botellero) - Assembled step by step */}
+        {/* Wine Rack (Botellero) - Cleanly integrated at the end of the cabinet run */}
         <motion.g
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -483,12 +483,14 @@ const KitchenAssembly = () => {
         >
           {/* Frame drops in */}
           <motion.rect
-            x="370"
+            x="525"
             y="80"
-            width="50"
+            width="40"
             height="90"
-            fill="#3E2723"
-            rx="2"
+            fill="#261C14"
+            stroke="#D6A634"
+            strokeWidth="1.5"
+            rx="3"
             initial={{ opacity: 0, y: -30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -496,19 +498,19 @@ const KitchenAssembly = () => {
           />
           {/* Horizontal Shelves drawing in */}
           <motion.path
-            d="M 370 102 H 420 M 370 124 H 420 M 370 146 H 420"
-            stroke="#5D4037"
-            strokeWidth="2"
+            d="M 525 102 H 565 M 525 124 H 565 M 525 146 H 565"
+            stroke="#D6A634"
+            strokeWidth="1.5"
             initial={{ pathLength: 0 }}
             whileInView={{ pathLength: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: 2.4 }}
           />
-          {/* Vertical Dividers drawing in */}
+          {/* Vertical Divider */}
           <motion.path
-            d="M 386 80 V 170 M 403 80 V 170"
-            stroke="#5D4037"
-            strokeWidth="2"
+            d="M 545 80 V 170"
+            stroke="#D6A634"
+            strokeWidth="1.5"
             initial={{ pathLength: 0 }}
             whileInView={{ pathLength: 1 }}
             viewport={{ once: true }}
@@ -521,12 +523,12 @@ const KitchenAssembly = () => {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ type: "spring", delay: 3.0, bounce: 0.6 }}
-            style={{ originX: "378px", originY: "100px" }}
+            style={{ originX: "535px", originY: "100px" }}
           >
-            {/* Bottle 1: Top Left slot */}
-            <rect x="375" y="85" width="6" height="15" fill="#1B5E20" rx="2" />
-            <rect x="376" y="83" width="4" height="4" fill="#1B5E20" />
-            <rect x="376.5" y="82" width="3" height="2" fill="#D4AF37" />
+            {/* Bottle 1: Top Left */}
+            <rect x="531" y="86" width="7" height="13" fill="#1B5E20" rx="2" />
+            <rect x="533" y="83" width="3" height="4" fill="#1B5E20" />
+            <rect x="533" y="82" width="3" height="2" fill="#D6A634" />
           </motion.g>
 
           <motion.g
@@ -534,12 +536,12 @@ const KitchenAssembly = () => {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ type: "spring", delay: 3.2, bounce: 0.6 }}
-            style={{ originX: "411px", originY: "122px" }}
+            style={{ originX: "555px", originY: "122px" }}
           >
-            {/* Bottle 2: 2nd row, right slot */}
-            <rect x="408" y="107" width="6" height="15" fill="#4A148C" rx="2" />
-            <rect x="409" y="105" width="4" height="4" fill="#4A148C" />
-            <rect x="409.5" y="104" width="3" height="2" fill="#D4AF37" />
+            {/* Bottle 2: 2nd row, right */}
+            <rect x="551" y="108" width="7" height="13" fill="#4A148C" rx="2" />
+            <rect x="553" y="105" width="3" height="4" fill="#4A148C" />
+            <rect x="553" y="104" width="3" height="2" fill="#D6A634" />
           </motion.g>
 
           <motion.g
@@ -547,12 +549,12 @@ const KitchenAssembly = () => {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ type: "spring", delay: 3.4, bounce: 0.6 }}
-            style={{ originX: "394px", originY: "166px" }}
+            style={{ originX: "535px", originY: "155px" }}
           >
-            {/* Bottle 3: Bottom center slot */}
-            <rect x="391" y="151" width="6" height="15" fill="#B71C1C" rx="2" />
-            <rect x="392" y="149" width="4" height="4" fill="#B71C1C" />
-            <rect x="392.5" y="148" width="3" height="2" fill="#D4AF37" />
+            {/* Bottle 3: 3rd row, left */}
+            <rect x="531" y="130" width="7" height="13" fill="#881337" rx="2" />
+            <rect x="533" y="127" width="3" height="4" fill="#881337" />
+            <rect x="533" y="126" width="3" height="2" fill="#D6A634" />
           </motion.g>
         </motion.g>
       </svg>
