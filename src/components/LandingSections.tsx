@@ -268,170 +268,284 @@ const steps = [
 const KitchenAssembly = () => {
   return (
     <div className="w-full max-w-2xl mx-auto my-6 md:my-10 relative px-4 sm:px-0">
-      <div className="relative rounded-2xl overflow-hidden bg-[#0A0A09] border border-white/10 shadow-[0_16px_40px_rgba(0,0,0,0.6)] p-6 sm:p-8">
-        {/* CAD Blueprint Grid Header */}
-        <div className="flex items-center justify-between pb-4 border-b border-white/10 mb-6 text-[11px] font-mono tracking-widest text-[#8E8A82] uppercase">
-          <div className="flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-[#D6A634]" />
-            <span className="text-white font-bold">PLANO TÉCNICO CAD 01</span>
-          </div>
-          <span>ESCALA 1:20 • TOLERANCIA 0.0°</span>
-        </div>
+      <svg viewBox="100 0 640 400" className="w-full h-auto drop-shadow-lg overflow-visible">
+        {/* Floor */}
+        <motion.rect
+          x="70"
+          y="360"
+          width="700"
+          height="12"
+          fill="#E5E7EB"
+          rx="6"
+          initial={{ opacity: 0, scaleX: 0 }}
+          whileInView={{ opacity: 1, scaleX: 1 }}
+          viewport={{ once: true, margin: "-10%" }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          style={{ originX: "420px" }}
+        />
 
-        <svg viewBox="100 20 640 370" className="w-full h-auto drop-shadow-md overflow-visible">
-          {/* Blueprint Technical Grid Background */}
-          <defs>
-            <pattern id="cadGrid" width="20" height="20" patternUnits="userSpaceOnUse">
-              <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(214,166,52,0.06)" strokeWidth="0.8" />
-            </pattern>
-          </defs>
-          <rect x="70" y="40" width="700" height="340" fill="url(#cadGrid)" />
+        {/* Accent Wall / Backsplash */}
+        <motion.rect
+          x="130"
+          y="60"
+          width="580"
+          height="300"
+          fill="#FBBF24"
+          rx="8"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1, delay: 0.3 }}
+        />
 
-          {/* Level Axis Datum Line */}
-          <motion.g
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <line x1="90" y1="360" x2="750" y2="360" stroke="#D6A634" strokeWidth="1.2" strokeDasharray="6 4" opacity="0.6" />
-            <text x="755" y="364" fill="#D6A634" fontSize="10" fontFamily="monospace" opacity="0.8">0.00m</text>
-          </motion.g>
-
-          {/* Plinth / Zócalo */}
-          <motion.rect
-            x="150"
-            y="350"
-            width="410"
-            height="10"
-            fill="#181816"
-            stroke="#D6A634"
-            strokeWidth="1"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.3 }}
+        {/* Tile detail on the backsplash */}
+        <motion.g
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 0.1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1, delay: 0.8 }}
+        >
+          <path
+            d="M 130 200 H 550 M 130 220 H 550 M 130 180 H 550 M 130 160 H 550"
+            stroke="#FFF"
+            strokeWidth="2"
+            strokeDasharray="20 20"
           />
+        </motion.g>
 
-          {/* Base Cabinets (Left + Right + Oven) */}
-          <motion.g
-            initial={{ opacity: 0, y: -20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ type: "spring", delay: 0.4 }}
-          >
-            {/* Left Module */}
-            <rect x="150" y="240" width="130" height="110" fill="#141413" stroke="#D6A634" strokeWidth="1.2" />
-            <line x1="215" y1="240" x2="215" y2="350" stroke="rgba(255,255,255,0.15)" strokeWidth="1" />
-            <line x1="170" y1="245" x2="190" y2="245" stroke="#D6A634" strokeWidth="2" strokeLinecap="round" />
-            <line x1="240" y1="245" x2="260" y2="245" stroke="#D6A634" strokeWidth="2" strokeLinecap="round" />
+        {/* Toe Kick (Zócalo) */}
+        <motion.rect
+          x="150"
+          y="350"
+          width="410"
+          height="10"
+          fill="#1F2937"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.5 }}
+        />
 
-            {/* Middle Oven Module */}
-            <rect x="280" y="240" width="150" height="110" fill="#0D0D0C" stroke="#D6A634" strokeWidth="1.2" />
-            <rect x="295" y="260" width="120" height="75" fill="#161615" stroke="rgba(214,166,52,0.5)" strokeWidth="1" rx="4" />
-            <line x1="295" y1="250" x2="415" y2="250" stroke="#8E8A82" strokeWidth="2" />
-            <circle cx="310" cy="250" r="2.5" fill="#D6A634" />
-            <circle cx="400" cy="250" r="2.5" fill="#D6A634" />
+        {/* Base Cabinets */}
+        {/* Left */}
+        <motion.g
+          initial={{ opacity: 0, y: -50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ type: "spring", delay: 0.5, bounce: 0.4 }}
+        >
+          <rect x="150" y="240" width="130" height="120" fill="#FFFFFF" />
+          <line x1="215" y1="240" x2="215" y2="360" stroke="#E5E7EB" strokeWidth="2" />
+          <rect x="170" y="242" width="20" height="3" fill="#374151" rx="1" />
+          <rect x="240" y="242" width="20" height="3" fill="#374151" rx="1" />
+        </motion.g>
 
-            {/* Right Module */}
-            <rect x="430" y="240" width="130" height="110" fill="#141413" stroke="#D6A634" strokeWidth="1.2" />
-            <line x1="495" y1="240" x2="495" y2="350" stroke="rgba(255,255,255,0.15)" strokeWidth="1" />
-            <line x1="450" y1="245" x2="470" y2="245" stroke="#D6A634" strokeWidth="2" strokeLinecap="round" />
-            <line x1="520" y1="245" x2="540" y2="245" stroke="#D6A634" strokeWidth="2" strokeLinecap="round" />
-          </motion.g>
+        {/* Right */}
+        <motion.g
+          initial={{ opacity: 0, y: -50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ type: "spring", delay: 0.6, bounce: 0.4 }}
+        >
+          <rect x="430" y="240" width="130" height="120" fill="#FFFFFF" />
+          <line x1="495" y1="240" x2="495" y2="360" stroke="#E5E7EB" strokeWidth="2" />
+          <rect x="450" y="242" width="20" height="3" fill="#374151" rx="1" />
+          <rect x="520" y="242" width="20" height="3" fill="#374151" rx="1" />
+        </motion.g>
 
-          {/* High-End Ceramic Countertop */}
-          <motion.g
-            initial={{ opacity: 0, scaleX: 0 }}
-            whileInView={{ opacity: 1, scaleX: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.7 }}
-            style={{ originX: "350px" }}
-          >
-            <rect x="140" y="228" width="425" height="12" fill="#22201D" stroke="#D6A634" strokeWidth="1.4" rx="2" />
-            <line x1="145" y1="234" x2="560" y2="234" stroke="rgba(214,166,52,0.4)" strokeWidth="0.8" />
-          </motion.g>
+        {/* Oven Unit (Middle) */}
+        <motion.g
+          initial={{ opacity: 0, y: -50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ type: "spring", delay: 0.7, bounce: 0.4 }}
+        >
+          <rect x="280" y="240" width="150" height="120" fill="#FFFFFF" />
+          <rect x="295" y="270" width="120" height="70" fill="#020617" rx="8" />
+          <path d="M 295 300 L 330 270 H 350 L 305 310 Z" fill="#FFF" opacity="0.1" />
+          <rect x="295" y="250" width="120" height="15" fill="#374151" rx="4" />
+          <circle cx="310" cy="257.5" r="3" fill="#F8FAFC" />
+          <circle cx="325" cy="257.5" r="3" fill="#F8FAFC" />
+          <circle cx="400" cy="257.5" r="3" fill="#F8FAFC" />
+        </motion.g>
 
-          {/* Under-mount Sink & Minimalist Tap */}
-          <motion.g
-            initial={{ opacity: 0, y: -15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.9 }}
-          >
-            <rect x="460" y="230" width="70" height="6" fill="#0D0D0C" stroke="#D6A634" strokeWidth="1" />
-            <path d="M 495 228 V 195 Q 495 185 478 188 V 202" fill="none" stroke="#D6A634" strokeWidth="2.5" strokeLinecap="round" />
-          </motion.g>
+        {/* Countertop (Wood Butcher Block) */}
+        <motion.g
+          initial={{ opacity: 0, scaleX: 0 }}
+          whileInView={{ opacity: 1, scaleX: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 1.0, ease: "easeOut" }}
+          style={{ originX: "350px" }}
+        >
+          <rect x="140" y="230" width="420" height="10" fill="#D4A373" rx="2" />
+          <rect x="140" y="240" width="420" height="3" fill="#C08D5D" />
+        </motion.g>
 
-          {/* Tall Column / Fridge Integration */}
-          <motion.g
-            initial={{ opacity: 0, y: -40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 1.1 }}
-          >
-            <rect x="575" y="80" width="115" height="280" fill="#141413" stroke="#D6A634" strokeWidth="1.2" rx="4" />
-            <line x1="575" y1="228" x2="690" y2="228" stroke="rgba(255,255,255,0.2)" strokeWidth="1" />
-            <line x1="588" y1="130" x2="588" y2="180" stroke="#D6A634" strokeWidth="2" strokeLinecap="round" />
-            <line x1="588" y1="245" x2="588" y2="285" stroke="#D6A634" strokeWidth="2" strokeLinecap="round" />
-          </motion.g>
+        {/* Sink */}
+        <motion.g
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ type: "spring", delay: 1.2, bounce: 0.5 }}
+        >
+          <rect x="460" y="230" width="70" height="8" fill="#94A3B8" />
+          <path
+            d="M 495 230 V 205 Q 495 190 475 195 V 210"
+            stroke="#CBD5E1"
+            fill="none"
+            strokeWidth="6"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <rect x="505" y="222" width="8" height="8" fill="#CBD5E1" rx="2" />
+        </motion.g>
 
-          {/* Chimney Extractor Hood */}
-          <motion.g
+        {/* Fridge (with gap and shading) */}
+        <motion.g
+          initial={{ opacity: 0, y: -100 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ type: "spring", delay: 1.4, bounce: 0.3 }}
+        >
+          <rect x="570" y="80" width="120" height="280" fill="#E5E7EB" rx="6" />
+          <rect x="570" y="80" width="12" height="280" fill="#000" opacity="0.05" rx="6" />
+          <line x1="570" y1="230" x2="690" y2="230" stroke="#D1D5DB" strokeWidth="4" />
+          <rect x="585" y="150" width="4" height="60" fill="#9CA3AF" rx="2" />
+          <rect x="585" y="245" width="4" height="40" fill="#9CA3AF" rx="2" />
+        </motion.g>
+
+        {/* Range Hood (Chimney Style) */}
+        <motion.g
+          initial={{ opacity: 0, y: -50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ type: "spring", delay: 1.6, bounce: 0.4 }}
+        >
+          <rect x="340" y="60" width="30" height="80" fill="#D1D5DB" />
+          <rect x="320" y="140" width="70" height="10" fill="#9CA3AF" rx="2" />
+          <path d="M 330 140 L 340 100 H 370 L 380 140 Z" fill="#FFF" opacity="0.2" />
+        </motion.g>
+
+        {/* Upper Cabinets Left */}
+        <motion.g
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ type: "spring", delay: 1.8, bounce: 0.3 }}
+        >
+          <rect
+            x="150"
+            y="80"
+            width="130"
+            height="90"
+            fill="#FFFFFF"
+            stroke="#E5E7EB"
+            strokeWidth="4"
+          />
+          <line x1="215" y1="80" x2="215" y2="170" stroke="#E5E7EB" strokeWidth="4" />
+          <rect x="170" y="165" width="20" height="3" fill="#374151" rx="1" />
+          <rect x="240" y="165" width="20" height="3" fill="#374151" rx="1" />
+        </motion.g>
+
+        {/* Upper Cabinets Right */}
+        <motion.g
+          initial={{ opacity: 0, x: 50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ type: "spring", delay: 1.9, bounce: 0.3 }}
+        >
+          <rect
+            x="430"
+            y="80"
+            width="90"
+            height="90"
+            fill="#FFFFFF"
+            stroke="#E5E7EB"
+            strokeWidth="4"
+          />
+          <line x1="475" y1="80" x2="475" y2="170" stroke="#E5E7EB" strokeWidth="4" />
+          <rect x="445" y="165" width="20" height="3" fill="#374151" rx="1" />
+          <rect x="485" y="165" width="20" height="3" fill="#374151" rx="1" />
+        </motion.g>
+
+        {/* Wine Rack (Botellero) - Cleanly integrated at the end of the cabinet run */}
+        <motion.g
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 2.1 }}
+        >
+          <motion.rect
+            x="525"
+            y="80"
+            width="40"
+            height="90"
+            fill="#261C14"
+            stroke="#D6A634"
+            strokeWidth="1.5"
+            rx="3"
             initial={{ opacity: 0, y: -30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 1.3 }}
+            transition={{ type: "spring", delay: 2.1 }}
+          />
+          <motion.path
+            d="M 525 102 H 565 M 525 124 H 565 M 525 146 H 565"
+            stroke="#D6A634"
+            strokeWidth="1.5"
+            initial={{ pathLength: 0 }}
+            whileInView={{ pathLength: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: 2.4 }}
+          />
+          <motion.path
+            d="M 545 80 V 170"
+            stroke="#D6A634"
+            strokeWidth="1.5"
+            initial={{ pathLength: 0 }}
+            whileInView={{ pathLength: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: 2.7 }}
+          />
+
+          {/* Wine Bottles popping into slots */}
+          <motion.g
+            initial={{ opacity: 0, scale: 0 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ type: "spring", delay: 3.0, bounce: 0.6 }}
+            style={{ originX: "535px", originY: "100px" }}
           >
-            <rect x="340" y="60" width="30" height="80" fill="#141413" stroke="#D6A634" strokeWidth="1" />
-            <polygon points="315,150 395,150 370,140 340,140" fill="#1C1B19" stroke="#D6A634" strokeWidth="1" />
-            <line x1="330" y1="150" x2="380" y2="150" stroke="#D6A634" strokeWidth="2" strokeLinecap="round" />
+            <rect x="531" y="86" width="7" height="13" fill="#1B5E20" rx="2" />
+            <rect x="533" y="83" width="3" height="4" fill="#1B5E20" />
+            <rect x="533" y="82" width="3" height="2" fill="#D6A634" />
           </motion.g>
 
-          {/* Upper Cabinets Left */}
           <motion.g
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, scale: 0 }}
+            whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            transition={{ delay: 1.5 }}
+            transition={{ type: "spring", delay: 3.2, bounce: 0.6 }}
+            style={{ originX: "555px", originY: "122px" }}
           >
-            <rect x="150" y="80" width="130" height="90" fill="#141413" stroke="#D6A634" strokeWidth="1.2" />
-            <line x1="215" y1="80" x2="215" y2="170" stroke="rgba(255,255,255,0.15)" strokeWidth="1" />
-            <line x1="170" y1="165" x2="190" y2="165" stroke="#D6A634" strokeWidth="2" strokeLinecap="round" />
-            <line x1="240" y1="165" x2="260" y2="165" stroke="#D6A634" strokeWidth="2" strokeLinecap="round" />
+            <rect x="551" y="108" width="7" height="13" fill="#4A148C" rx="2" />
+            <rect x="553" y="105" width="3" height="4" fill="#4A148C" />
+            <rect x="553" y="104" width="3" height="2" fill="#D6A634" />
           </motion.g>
 
-          {/* Upper Cabinets Right */}
           <motion.g
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, scale: 0 }}
+            whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            transition={{ delay: 1.6 }}
+            transition={{ type: "spring", delay: 3.4, bounce: 0.6 }}
+            style={{ originX: "535px", originY: "155px" }}
           >
-            <rect x="430" y="80" width="90" height="90" fill="#141413" stroke="#D6A634" strokeWidth="1.2" />
-            <line x1="475" y1="80" x2="475" y2="170" stroke="rgba(255,255,255,0.15)" strokeWidth="1" />
-            <line x1="445" y1="165" x2="465" y2="165" stroke="#D6A634" strokeWidth="2" strokeLinecap="round" />
-            <line x1="485" y1="165" x2="505" y2="165" stroke="#D6A634" strokeWidth="2" strokeLinecap="round" />
+            <rect x="531" y="130" width="7" height="13" fill="#881337" rx="2" />
+            <rect x="533" y="127" width="3" height="4" fill="#881337" />
+            <rect x="533" y="126" width="3" height="2" fill="#D6A634" />
           </motion.g>
-
-          {/* Architectural Wine Column (Botellero) */}
-          <motion.g
-            initial={{ opacity: 0, y: -20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 1.8 }}
-          >
-            <rect x="525" y="80" width="40" height="90" fill="#1C1B19" stroke="#D6A634" strokeWidth="1.2" rx="2" />
-            <line x1="525" y1="102" x2="565" y2="102" stroke="#D6A634" strokeWidth="0.8" />
-            <line x1="525" y1="124" x2="565" y2="124" stroke="#D6A634" strokeWidth="0.8" />
-            <line x1="525" y1="146" x2="565" y2="146" stroke="#D6A634" strokeWidth="0.8" />
-            <line x1="545" y1="80" x2="545" y2="170" stroke="#D6A634" strokeWidth="0.8" />
-            <circle cx="535" cy="92" r="4" fill="#D6A634" opacity="0.9" />
-            <circle cx="555" cy="114" r="4" fill="#D6A634" opacity="0.9" />
-            <circle cx="535" cy="136" r="4" fill="#D6A634" opacity="0.9" />
-          </motion.g>
-        </svg>
-      </div>
+        </motion.g>
+      </svg>
     </div>
   );
 };
