@@ -220,57 +220,88 @@ const navItems = [
 export const Header = memo(() => {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const [lang, setLang] = useState<"ES" | "CA" | "EN">("ES");
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 30);
+    const onScroll = () => setScrolled(window.scrollY > 20);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   return (
-    <header
-      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-[#0E0E0D]/95 backdrop-blur-md border-b border-white/10 shadow-[0_4px_30px_rgba(0,0,0,0.6)] h-[68px]"
-          : "bg-[#0E0E0D] border-b border-transparent h-[76px]"
-      }`}
-    >
-      <div className="max-w-[1440px] mx-auto h-full px-6 sm:px-10 lg:px-12 flex items-center justify-between">
-        {/* Logo */}
-        <a href="#top" className="text-white transition-opacity hover:opacity-90 duration-200 shrink-0">
-          <LogoCubikos className="text-[20px] md:text-[23px]" />
+    <header className="fixed inset-x-0 top-0 z-50 pt-3.5 sm:pt-4 px-4 sm:px-6 lg:px-8 pointer-events-none transition-all duration-300">
+      <div
+        className={`max-w-[1380px] mx-auto h-[64px] sm:h-[68px] px-4 sm:px-6 lg:px-7 rounded-full flex items-center justify-between pointer-events-auto transition-all duration-300 ${
+          scrolled
+            ? "bg-[#FAF8F5]/95 backdrop-blur-md shadow-[0_12px_36px_rgba(0,0,0,0.35)] border border-black/5"
+            : "bg-[#FAF8F5] shadow-[0_8px_30px_rgba(0,0,0,0.22)] border border-black/5"
+        }`}
+      >
+        {/* Left: Brand Logo */}
+        <a
+          href="#top"
+          className="flex items-center gap-1 text-[#111111] hover:opacity-85 transition-opacity shrink-0"
+        >
+          <span className="font-display font-black text-[19px] sm:text-[21px] tracking-tight uppercase">
+            CUBIKOS
+          </span>
+          <span className="font-display font-bold text-[19px] sm:text-[21px] text-[#D6A634]">.es</span>
         </a>
 
-        {/* Centered Navigation */}
-        <nav className="hidden items-center gap-9 lg:flex">
+        {/* Center: Navigation Links */}
+        <nav className="hidden lg:flex items-center gap-7 xl:gap-8">
           {navItems.map((i) => (
             <a
               key={i.href}
               href={i.href}
-              className="text-[13px] font-medium tracking-[0.06em] text-white/80 transition-colors duration-200 hover:text-[#D6A634]"
+              className="text-[14px] font-medium text-[#2B2927] hover:text-[#D6A634] transition-colors duration-200"
             >
               {i.label}
             </a>
           ))}
         </nav>
 
-        {/* Header Right CTA */}
-        <div className="hidden lg:block shrink-0">
+        {/* Right: Language Selector + WhatsApp Pill */}
+        <div className="hidden sm:flex items-center gap-3 shrink-0">
+          {/* Language Pill Switcher */}
+          <div className="flex items-center h-10 px-2 rounded-full bg-[#ECE8E1]/80 border border-black/5 text-[11px] font-bold text-[#55524E]">
+            {(["ES", "CA", "EN"] as const).map((l, idx) => (
+              <div key={l} className="flex items-center">
+                <button
+                  onClick={() => setLang(l)}
+                  className={`px-2.5 py-1 rounded-full transition-all duration-200 ${
+                    lang === l
+                      ? "bg-white text-[#111111] shadow-[0_1px_4px_rgba(0,0,0,0.12)] font-black"
+                      : "hover:text-[#111111]"
+                  }`}
+                >
+                  {l}
+                </button>
+                {idx < 2 && <span className="text-[#C4BFB6] mx-0.5 font-normal">|</span>}
+              </div>
+            ))}
+          </div>
+
+          {/* WhatsApp Pill Button */}
           <a
-            href="#contacto"
-            className="group inline-flex items-center justify-center gap-2 px-6 h-10 rounded-[6px] font-bold text-[12px] uppercase tracking-[0.14em] transition-all duration-300 bg-[#D6A634] text-[#111110] shadow-[0_2px_14px_rgba(214,166,52,0.3)] hover:shadow-[0_4px_22px_rgba(214,166,52,0.5)] hover:bg-[#e0b240] hover:-translate-y-0.5"
+            href="https://wa.me/34666871144?text=Hola,%20me%20interesa%20solicitar%20un%20presupuesto%20para%20montaje%20de%20cocina"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 h-10 px-5 rounded-full bg-[#0F8E47] hover:bg-[#0c7a3c] text-white text-[13px] font-semibold tracking-wide shadow-[0_2px_10px_rgba(15,142,71,0.3)] hover:shadow-[0_4px_14px_rgba(15,142,71,0.45)] hover:-translate-y-0.5 transition-all duration-200"
           >
-            <span>SOLICITAR PRESUPUESTO</span>
-            <span className="font-bold transition-transform duration-200 group-hover:translate-x-0.5">→</span>
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+            </svg>
+            <span>WhatsApp</span>
           </a>
         </div>
 
-        {/* Mobile menu trigger */}
+        {/* Mobile menu button */}
         <button
           aria-label="Abrir menú"
           onClick={() => setOpen(!open)}
-          className="grid h-10 w-10 place-items-center lg:hidden text-white"
+          className="grid h-10 w-10 place-items-center lg:hidden text-[#111111] hover:text-[#D6A634] transition-colors"
         >
           {open ? <Ico.Close className="h-6 w-6" /> : <Ico.Menu className="h-6 w-6" />}
         </button>
@@ -283,7 +314,7 @@ export const Header = memo(() => {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.25 }}
-          className="fixed inset-0 bg-black/70 backdrop-blur-sm z-[90] lg:hidden"
+          className="fixed inset-0 bg-black/70 backdrop-blur-sm z-[90] lg:hidden pointer-events-auto"
           onClick={() => setOpen(false)}
         />
       )}
@@ -293,10 +324,13 @@ export const Header = memo(() => {
         initial={{ x: "100%" }}
         animate={{ x: open ? "0%" : "100%" }}
         transition={{ duration: 0.3, ease: "easeOut" }}
-        className="fixed top-0 right-0 h-full w-[82%] max-w-sm bg-[#121211] text-[#F5F1E8] z-[100] p-6 flex flex-col shadow-2xl lg:hidden"
+        className="fixed top-0 right-0 h-full w-[82%] max-w-sm bg-[#121211] text-[#F5F1E8] z-[100] p-6 flex flex-col shadow-2xl lg:hidden pointer-events-auto"
       >
         <div className="flex justify-between items-center pb-6 border-b border-white/10 mb-8">
-          <span className="text-[#D6A634] font-black text-lg tracking-widest uppercase">Cubikos</span>
+          <div className="flex items-center gap-1">
+            <span className="text-[#FAF8F5] font-black text-lg tracking-tight uppercase">CUBIKOS</span>
+            <span className="text-[#D6A634] font-bold text-lg">.es</span>
+          </div>
           <button
             onClick={() => setOpen(false)}
             aria-label="Cerrar menú"
@@ -317,12 +351,13 @@ export const Header = memo(() => {
             </a>
           ))}
           <a
-            href="#contacto"
+            href="https://wa.me/34666871144"
+            target="_blank"
+            rel="noopener noreferrer"
             onClick={() => setOpen(false)}
-            className="mt-6 flex items-center justify-center gap-2 h-12 rounded-[6px] bg-[#D6A634] text-[#111110] font-bold text-xs uppercase tracking-[0.16em] shadow-[0_4px_16px_rgba(214,166,52,0.3)] hover:bg-[#c4972c] transition-colors"
+            className="mt-6 flex items-center justify-center gap-2 h-12 rounded-full bg-[#0F8E47] text-white font-bold text-xs uppercase tracking-[0.14em] shadow-[0_4px_16px_rgba(15,142,71,0.4)]"
           >
-            <span>SOLICITAR PRESUPUESTO</span>
-            <span>→</span>
+            <span>Contactar por WhatsApp</span>
           </a>
         </div>
       </motion.div>
@@ -337,7 +372,7 @@ export function Hero() {
       className="relative w-full h-screen min-h-[640px] max-h-[1050px] overflow-hidden bg-[#0E0E0D] flex flex-col justify-between"
     >
       {/* Header spacer */}
-      <div className="w-full h-[76px] shrink-0" />
+      <div className="w-full h-[84px] sm:h-[88px] shrink-0" />
 
       {/* ─── Hero Two-Column Container ─── */}
       <div className="relative z-10 w-full max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-12 flex-1 flex flex-col lg:flex-row items-center gap-8 lg:gap-12 min-h-0 py-2 lg:py-4">
