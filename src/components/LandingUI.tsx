@@ -222,7 +222,7 @@ export const Header = memo(() => {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 50);
+    const onScroll = () => setScrolled(window.scrollY > 20);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -230,69 +230,71 @@ export const Header = memo(() => {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 bg-white/95 backdrop-blur-xl shadow-[0_4px_30px_rgba(0,0,0,0.08)] ${scrolled ? "py-4" : "py-6"}`}
+      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? "bg-[#F7F7F5]/98 backdrop-blur-md shadow-[0_2px_20px_rgba(0,0,0,0.06)] h-[72px]"
+          : "bg-[#F7F7F5] h-[78px]"
+      } border-b border-[#E7E5E0]`}
     >
-      <div className="container-x flex items-center justify-between">
-        <a href="#top" className="text-brand transition-transform hover:scale-105 duration-300">
-          <LogoCubikos className="text-[22px] md:text-[26px]" />
+      <div className="max-w-[1360px] mx-auto h-full px-6 sm:px-8 lg:px-12 flex items-center justify-between">
+        <a href="#top" className="text-[#181714] transition-opacity hover:opacity-85 duration-200">
+          <LogoCubikos className="text-[21px] md:text-[24px]" />
         </a>
-        <nav className="hidden items-center gap-14 lg:flex">
+        <nav className="hidden items-center gap-10 lg:flex">
           {navItems.map((i) => (
             <a
               key={i.href}
               href={i.href}
-              className="group relative text-[17px] font-medium tracking-wide transition-colors text-ink hover:text-brand"
+              className="text-[14px] font-medium tracking-[0.02em] text-[#181714] transition-colors duration-200 hover:text-[#C9982E]"
             >
               {i.label}
-              <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-brand transition-all duration-300 group-hover:w-full" />
             </a>
           ))}
         </nav>
         <div className="hidden lg:block">
           <a
             href="#contacto"
-            className="group relative overflow-hidden flex items-center justify-center px-7 h-11 rounded-full font-bold text-[13px] uppercase tracking-[0.15em] transition-all duration-300 bg-brand text-[#111111] shadow-[0_4px_20px_rgba(216,168,67,0.3)] hover:shadow-[0_8px_30px_rgba(216,168,67,0.5)] hover:-translate-y-0.5 hover:bg-[#e2b54f]"
+            className="inline-flex items-center justify-center px-6 h-10 rounded-full font-bold text-[12px] uppercase tracking-[0.14em] transition-all duration-300 bg-[#D6A634] text-[#111110] shadow-[0_2px_12px_rgba(214,166,52,0.25)] hover:shadow-[0_4px_18px_rgba(214,166,52,0.4)] hover:bg-[#c4972c] hover:-translate-y-0.5"
           >
-            <div className="absolute inset-0 -translate-x-[150%] bg-gradient-to-r from-transparent via-white/50 to-transparent group-hover:translate-x-[150%] transition-transform duration-1000 ease-in-out" />
-            <span className="relative z-10">Solicitar presupuesto</span>
+            <span>Solicitar presupuesto</span>
           </a>
         </div>
         <button
           aria-label="Abrir menú"
           onClick={() => setOpen(!open)}
-          className="grid h-12 w-12 place-items-center lg:hidden text-ink"
+          className="grid h-10 w-10 place-items-center lg:hidden text-[#181714]"
         >
-          {open ? <Ico.Close className="h-8 w-8" /> : <Ico.Menu className="h-8 w-8" />}
+          {open ? <Ico.Close className="h-6 w-6" /> : <Ico.Menu className="h-6 w-6" />}
         </button>
       </div>
 
-      {/* Overlay */}
+      {/* Mobile Overlay */}
       {open && (
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.3 }}
-          className="fixed inset-0 bg-black/60 z-[90] lg:hidden"
+          transition={{ duration: 0.25 }}
+          className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[90] lg:hidden"
           onClick={() => setOpen(false)}
         />
       )}
 
-      {/* Sliding Panel */}
+      {/* Mobile Sliding Panel */}
       <motion.div
         initial={{ x: "100%" }}
         animate={{ x: open ? "0%" : "100%" }}
         transition={{ duration: 0.3, ease: "easeOut" }}
-        className="fixed top-0 right-0 h-full w-[85%] max-w-sm bg-[#111] z-[100] p-6 flex flex-col shadow-2xl lg:hidden"
+        className="fixed top-0 right-0 h-full w-[82%] max-w-sm bg-[#121211] text-[#F5F1E8] z-[100] p-6 flex flex-col shadow-2xl lg:hidden"
       >
-        <div className="flex justify-between items-center mb-10">
-          <span className="text-brand font-black text-xl tracking-widest uppercase">Cubikos</span>
+        <div className="flex justify-between items-center pb-6 border-b border-white/10 mb-8">
+          <span className="text-[#D6A634] font-black text-lg tracking-widest uppercase">Cubikos</span>
           <button
             onClick={() => setOpen(false)}
             aria-label="Cerrar menú"
-            className="text-white hover:text-brand transition-colors p-2"
+            className="text-white hover:text-[#D6A634] transition-colors p-2"
           >
-            <Ico.Close className="h-7 w-7" />
+            <Ico.Close className="h-6 w-6" />
           </button>
         </div>
         <div className="flex flex-col gap-6">
@@ -301,7 +303,7 @@ export const Header = memo(() => {
               key={i.href}
               href={i.href}
               onClick={() => setOpen(false)}
-              className="text-white font-medium text-lg border-b border-white/10 pb-4 hover:text-brand transition-colors"
+              className="text-white/90 font-medium text-base border-b border-white/5 pb-3 hover:text-[#D6A634] transition-colors"
             >
               {i.label}
             </a>
@@ -309,7 +311,7 @@ export const Header = memo(() => {
           <a
             href="#contacto"
             onClick={() => setOpen(false)}
-            className="mt-4 flex items-center justify-center h-14 rounded-full bg-brand text-[#111111] font-bold text-sm uppercase tracking-widest shadow-[0_5px_25px_rgba(216,168,67,0.4)] hover:bg-[#e2b54f] transition-colors"
+            className="mt-6 flex items-center justify-center h-12 rounded-[4px] bg-[#D6A634] text-[#111110] font-bold text-xs uppercase tracking-[0.16em] shadow-[0_4px_16px_rgba(214,166,52,0.3)] hover:bg-[#c4972c] transition-colors"
           >
             Solicitar presupuesto
           </a>
@@ -319,225 +321,139 @@ export const Header = memo(() => {
   );
 });
 
-const AnimatedScrew = ({ className, delay }: { className?: string; delay: number }) => (
-  <motion.div
-    initial={{ scale: 0, opacity: 0 }}
-    whileInView={{ scale: [0, 1.6, 1], opacity: 1 }}
-    viewport={{ once: true, amount: 0.15 }}
-    transition={{ delay, duration: 0.4, times: [0, 0.6, 1], ease: ["easeOut", "backOut"] }}
-    className={`absolute w-3 h-3 rounded-full bg-gradient-to-br from-neutral-300 to-neutral-500 border border-neutral-600 shadow-[inset_0_1px_2px_rgba(255,255,255,0.8),0_2px_4px_rgba(0,0,0,0.4)] flex items-center justify-center z-10 ${className}`}
-  >
-    <div className="w-1.5 h-[1.5px] bg-neutral-700/80 rotate-45 rounded-full" />
-    <div className="absolute w-1.5 h-[1.5px] bg-neutral-700/80 -rotate-45 rounded-full" />
-  </motion.div>
-);
-
-const HammerHit = ({ className, delay }: { className: string; delay: number }) => (
-  <motion.div
-    initial={{ opacity: 0, rotate: -45, x: -30, y: -30 }}
-    whileInView={{
-      opacity: [0, 1, 1, 0],
-      rotate: [-45, -60, 20, 20],
-      x: [-30, -40, 0, 10],
-      y: [-30, -40, 0, 20],
-    }}
-    viewport={{ once: true, amount: 0.15 }}
-    transition={{
-      duration: 0.6,
-      delay: delay - 0.25,
-      times: [0, 0.4, 0.6, 1],
-      ease: "easeInOut",
-    }}
-    className={`absolute z-30 pointer-events-none ${className}`}
-  >
-    <svg
-      width="40"
-      height="40"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className="text-ink drop-shadow-2xl fill-white/90"
-    >
-      <path d="m15 12-8.373 8.373a1 1 0 1 1-1.414-1.414L13.586 10.586" />
-      <path d="m18 11.5-4.5-4.5" />
-      <path d="M14 6h3l5 5v3h-3l-5-5Z" />
-    </svg>
-  </motion.div>
-);
-
 export function Hero() {
   return (
-    <section id="top" className="relative min-h-[100svh] flex flex-col bg-ink pb-32 md:pb-40">
-      <motion.div
-        initial={{ scale: 1.05 }}
-        animate={{ scale: 1 }}
-        transition={{ duration: 1.5, ease: "easeOut" }}
-        className="absolute inset-0 z-0 overflow-hidden"
-      >
-        <svg className="hidden">
-          <filter id="crisp-sharpen">
-            <feConvolveMatrix order="3" preserveAlpha="true" kernelMatrix="0 -1 0 -1 5 -1 0 -1 0" />
-          </filter>
-        </svg>
+    <section
+      id="top"
+      className="relative w-full overflow-hidden bg-[#0C0C0B] pt-[78px] min-h-[680px] lg:h-[760px] max-h-[820px] flex items-center"
+    >
+      {/* Background Image Container */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
         <img
           src={heroImg}
-          alt="Montador profesional ajustando cocina premium"
+          alt="Montaje artesanal de cocina con precisión milimétrica"
           fetchPriority="high"
           loading="eager"
-          className="absolute inset-0 w-full h-full object-cover object-[85%_center] sm:object-[65%_center] md:object-[55%_center] contrast-[1.10] saturate-[1.05]"
-          style={{ filter: "url(#crisp-sharpen)" }}
+          className="w-full h-full object-cover object-[68%_center] lg:object-[62%_center] scale-[1.01] transition-transform duration-1000 ease-out"
         />
-        {/* Subtle Radial Atmosphere for Text Legibility (No solid blocks) */}
-        <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_30%_50%,rgba(0,0,0,0.45)_0%,transparent_65%)] md:bg-[radial-gradient(circle_at_25%_50%,rgba(0,0,0,0.55)_0%,transparent_50%)]" />
-        {/* Mobile Dedicated Text Protection Layer */}
-        <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-black/90 via-black/40 to-transparent md:hidden" />
-      </motion.div>
 
-      <div className="relative z-10 w-full flex flex-col container-x my-auto pt-24 pb-10 md:pt-32 md:pb-16">
-        <div className="w-full max-w-[480px]">
-          <RevealMask>
-            <h1 className="font-display font-black text-[clamp(1.9rem,5.5vw,2.6rem)] md:text-[clamp(2.8rem,4vw,3.6rem)] text-white tracking-tighter leading-[1.05]">
-              <span className="block">Una cocina</span>
-              <span className="block">perfecta</span>
-              <span className="block text-white/90">empieza con un</span>
-              <span className="block">
-                montaje perfecto<span className="text-brand">.</span>
-              </span>
-            </h1>
-          </RevealMask>
+        {/* Desktop Editorial Gradient: 95% black left -> 72% center -> 5% transparent right */}
+        <div
+          className="hidden md:block absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(90deg, rgba(15,15,14,0.96) 0%, rgba(15,15,14,0.92) 36%, rgba(15,15,14,0.72) 58%, rgba(15,15,14,0.22) 80%, rgba(15,15,14,0.05) 100%)",
+          }}
+        />
 
-          <FadeUp delay={0.2} className="mt-4 md:mt-5 max-w-[440px]">
-            <p className="text-lg md:text-[20px] text-white/95 font-medium tracking-wide leading-relaxed text-balance antialiased drop-shadow-sm">
-              Más de 30 años instalando cocinas en toda Cataluña con precisión milimétrica y
-              acabados impecables.
-            </p>
-          </FadeUp>
+        {/* Mobile Gradient: Vertical protection for headline readability */}
+        <div
+          className="md:hidden absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(180deg, rgba(15,15,14,0.92) 0%, rgba(15,15,14,0.86) 65%, rgba(15,15,14,0.4) 100%)",
+          }}
+        />
+      </div>
 
-          <FadeUp delay={0.4} className="flex flex-col sm:flex-row items-center gap-5 sm:gap-6">
-            <div className="relative w-full sm:w-auto">
-              <motion.div
-                animate={{ scale: [1, 1.15, 1], opacity: [0.6, 0, 0.6] }}
-                transition={{ repeat: Infinity, duration: 2, repeatDelay: 2 }}
-                className="absolute inset-0 rounded-full border-[2px] border-brand pointer-events-none"
-              />
-              <a
-                href="#contacto"
-                className="group relative overflow-hidden w-full sm:w-auto flex items-center justify-center px-10 h-16 rounded-full bg-brand text-[#111111] font-black text-[14px] md:text-[16px] uppercase tracking-[0.2em] transition-all duration-300 shadow-[0_10px_40px_rgba(216,168,67,0.4)] hover:shadow-[0_20px_60px_rgba(216,168,67,0.6)] hover:-translate-y-1 hover:bg-[#e2b54f]"
-              >
-                <div className="absolute inset-0 -translate-x-[150%] bg-gradient-to-r from-transparent via-white/50 to-transparent group-hover:translate-x-[150%] transition-transform duration-[1.2s] ease-in-out" />
-                <span className="relative z-10">
-                  Solicitar presupuesto
-                </span>
-              </a>
-            </div>
+      {/* Content Container */}
+      <div className="relative z-10 w-full max-w-[1360px] mx-auto px-6 sm:px-8 lg:px-12 py-12 lg:py-0">
+        <div className="w-full max-w-[560px] lg:max-w-[580px] flex flex-col justify-center">
+          {/* Micro-label */}
+          <div className="flex items-center gap-3 mb-5">
+            <span className="w-8 h-[1.5px] bg-[#D6A634]" />
+            <span className="font-mono text-[11px] md:text-[12px] uppercase tracking-[0.24em] font-semibold text-[#D6A634]">
+              Montaje profesional de cocinas
+            </span>
+          </div>
+
+          {/* Headline in Serif Cormorant Garamond */}
+          <h1 className="font-serif text-[40px] sm:text-[48px] md:text-[54px] lg:text-[58px] leading-[1.08] tracking-[-0.015em] text-[#F5F1E8] font-normal">
+            <span className="block">Una cocina perfecta</span>
+            <span className="block">empieza con un</span>
+            <span className="block">
+              montaje perfecto<span className="text-[#D6A634]">.</span>
+            </span>
+          </h1>
+
+          {/* Subtitle */}
+          <p className="mt-5 text-[15px] sm:text-[16px] md:text-[17px] text-[#A6A29A] leading-[1.65] max-w-[500px] font-normal">
+            Más de 30 años instalando cocinas en Cataluña con{" "}
+            <span className="text-[#F5F1E8] font-medium">precisión milimétrica</span> y{" "}
+            <span className="text-[#F5F1E8] font-medium">acabados impecables</span>. El montaje decide
+            el resultado final de tu cocina.
+          </p>
+
+          {/* CTAs */}
+          <div className="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+            <a
+              href="#contacto"
+              className="group inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-[4px] bg-[#D6A634] text-[#111110] font-sans font-bold text-[13px] uppercase tracking-[0.14em] transition-all duration-200 shadow-[0_4px_16px_rgba(214,166,52,0.25)] hover:bg-[#c4972c] hover:shadow-[0_6px_22px_rgba(214,166,52,0.35)]"
+            >
+              <span>Solicitar presupuesto</span>
+              <span className="transition-transform duration-200 group-hover:translate-x-1">→</span>
+            </a>
             <a
               href="#proyectos"
-              className="group relative overflow-hidden w-full sm:w-auto flex items-center justify-center px-10 h-16 rounded-full bg-white text-ink font-bold text-[14px] md:text-[15px] uppercase tracking-[0.2em] transition-all duration-300 shadow-[0_10px_30px_rgba(0,0,0,0.3)] hover:shadow-[0_15px_40px_rgba(255,255,255,0.4)] hover:-translate-y-1"
+              className="group inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-[4px] border border-[#F5F1E8]/35 bg-transparent text-[#F5F1E8] font-sans font-medium text-[13px] uppercase tracking-[0.14em] transition-all duration-200 hover:border-[#F5F1E8]/80 hover:bg-white/5"
             >
-              <span className="relative z-10">Ver proyectos</span>
+              <span>Ver proyectos</span>
+              <span className="transition-transform duration-200 group-hover:translate-x-1">→</span>
             </a>
-          </FadeUp>
-          <FadeUp delay={0.5} className="mt-6">
-            <div className="flex items-center gap-2">
-              <div className="flex -space-x-2">
-                <div className="w-8 h-8 rounded-full bg-brand flex items-center justify-center text-[10px] font-bold text-white border-2 border-white/20">
-                  MR
-                </div>
-                <div className="w-8 h-8 rounded-full bg-[#444] flex items-center justify-center text-[10px] font-bold text-white border-2 border-white/20">
-                  AC
-                </div>
-                <div className="w-8 h-8 rounded-full bg-[#666] flex items-center justify-center text-[10px] font-bold text-white border-2 border-white/20">
-                  JP
-                </div>
-              </div>
-              <span className="text-white/80 text-sm font-medium">
-                ★★★★★ <strong className="text-white">4.9</strong> · 47 reseñas verificadas
+          </div>
+
+          {/* Trust Block (Horizontal Metrics) */}
+          <div className="mt-10 pt-7 border-t border-white/12 flex items-center gap-6 sm:gap-8">
+            {/* Metric 1 */}
+            <div className="flex flex-col">
+              <span className="font-serif text-[26px] sm:text-[28px] leading-none text-[#F5F1E8] font-medium">
+                +30 años
+              </span>
+              <span className="mt-1 text-[11px] uppercase tracking-[0.12em] text-[#8C8880] font-medium">
+                De experiencia
               </span>
             </div>
-          </FadeUp>
+
+            {/* Divider */}
+            <div className="w-[1px] h-9 bg-white/15" />
+
+            {/* Metric 2 */}
+            <div className="flex flex-col">
+              <span className="font-serif text-[26px] sm:text-[28px] leading-none text-[#F5F1E8] font-medium">
+                Cataluña
+              </span>
+              <span className="mt-1 text-[11px] uppercase tracking-[0.12em] text-[#8C8880] font-medium">
+                Cobertura total
+              </span>
+            </div>
+
+            {/* Divider */}
+            <div className="w-[1px] h-9 bg-white/15" />
+
+            {/* Metric 3 */}
+            <div className="flex flex-col">
+              <span className="font-serif text-[26px] sm:text-[28px] leading-none text-[#F5F1E8] font-medium">
+                500+
+              </span>
+              <span className="mt-1 text-[11px] uppercase tracking-[0.12em] text-[#8C8880] font-medium">
+                Cocinas montadas
+              </span>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 z-20 w-[90%] max-w-[900px]">
-        <FadeUp delay={0.6}>
-          <div
-            className="relative rounded-3xl p-8 md:px-14 md:py-12 shadow-[0_30px_80px_rgba(0,0,0,0.8)] border border-white/20"
-            style={{
-              backgroundImage: "url('/wood-panel.webp')",
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-            }}
-          >
-            {/* Subtle inner shadow for depth, letting the natural wood color shine */}
-            <div className="absolute inset-0 rounded-3xl shadow-[inset_0_0_50px_rgba(0,0,0,0.2)] pointer-events-none" />
+      {/* Subtle Corner Signature - Bottom Left */}
+      <div className="hidden lg:flex absolute bottom-5 left-12 items-center gap-2 text-[10px] uppercase tracking-[0.2em] text-[#6E6A62] font-mono pointer-events-none z-10">
+        <span>Cubikos</span>
+        <span>•</span>
+        <span>30+ Años de oficio</span>
+      </div>
 
-            {/* Skeuomorphic Screws with Hammer Animation */}
-            <HammerHit className="top-0 left-0" delay={1.0} />
-            <AnimatedScrew className="top-4 left-4 -rotate-12" delay={1.0} />
-
-            <HammerHit className="top-0 right-0" delay={1.2} />
-            <AnimatedScrew className="top-4 right-4 rotate-45" delay={1.2} />
-
-            <HammerHit className="bottom-0 left-0" delay={1.4} />
-            <AnimatedScrew className="bottom-4 left-4 rotate-90" delay={1.4} />
-
-            <HammerHit className="bottom-0 right-0" delay={1.6} />
-            <AnimatedScrew className="bottom-4 right-4 -rotate-45" delay={1.6} />
-
-            <div className="relative z-10 grid grid-cols-2 gap-4 md:gap-6 md:grid-cols-4 px-2 py-2">
-              <div className="group flex flex-col items-center text-center bg-white/95 backdrop-blur-sm rounded-lg p-5 md:p-6 shadow-md border border-white/50 cursor-default transition-transform duration-500 hover:-translate-y-2 hover:shadow-xl">
-                <span className="text-[32px] md:text-[44px] font-black text-ink leading-none tracking-tighter">
-                  30+
-                </span>
-                <span className="relative inline-block mt-2">
-                  <span className="absolute bottom-[-2px] -left-1 -right-1 h-[4px] bg-yellow-400 group-hover:h-full group-hover:bottom-0 transition-all duration-300 rounded-sm" />
-                  <span className="relative z-10 text-[11px] md:text-[13px] font-bold text-ink uppercase tracking-[0.2em]">
-                    Años
-                  </span>
-                </span>
-              </div>
-
-              <div className="group flex flex-col items-center text-center bg-white/95 backdrop-blur-sm rounded-lg p-5 md:p-6 shadow-md border border-white/50 cursor-default transition-transform duration-500 hover:-translate-y-2 hover:shadow-xl">
-                <span className="text-[32px] md:text-[44px] font-black text-ink leading-none tracking-tighter">
-                  500+
-                </span>
-                <span className="relative inline-block mt-2">
-                  <span className="absolute bottom-[-2px] -left-1 -right-1 h-[4px] bg-yellow-400 group-hover:h-full group-hover:bottom-0 transition-all duration-300 rounded-sm" />
-                  <span className="relative z-10 text-[11px] md:text-[13px] font-bold text-ink uppercase tracking-[0.2em]">
-                    Cocinas
-                  </span>
-                </span>
-              </div>
-
-              <div className="group flex flex-col items-center text-center bg-white/95 backdrop-blur-sm rounded-lg p-5 md:p-6 shadow-md border border-white/50 cursor-default transition-transform duration-500 hover:-translate-y-2 hover:shadow-xl">
-                <span className="text-[26px] md:text-[34px] font-black text-ink leading-none tracking-tight pt-1 md:pt-2">
-                  Cataluña
-                </span>
-                <span className="relative inline-block mt-2">
-                  <span className="absolute bottom-[-2px] -left-1 -right-1 h-[4px] bg-yellow-400 group-hover:h-full group-hover:bottom-0 transition-all duration-300 rounded-sm" />
-                  <span className="relative z-10 text-[11px] md:text-[13px] font-bold text-ink uppercase tracking-[0.2em]">
-                    Cobertura
-                  </span>
-                </span>
-              </div>
-
-              <div className="group flex flex-col items-center text-center bg-white/95 backdrop-blur-sm rounded-lg p-5 md:p-6 shadow-md border border-white/50 cursor-default transition-transform duration-500 hover:-translate-y-2 hover:shadow-xl">
-                <span className="text-[26px] md:text-[34px] font-black text-ink leading-none tracking-tight pt-1 md:pt-2">
-                  Garantía
-                </span>
-                <span className="relative inline-block mt-2">
-                  <span className="absolute bottom-[-2px] -left-1 -right-1 h-[4px] bg-yellow-400 group-hover:h-full group-hover:bottom-0 transition-all duration-300 rounded-sm" />
-                  <span className="relative z-10 text-[11px] md:text-[13px] font-bold text-ink uppercase tracking-[0.2em]">
-                    Profesional
-                  </span>
-                </span>
-              </div>
-            </div>
-          </div>
-        </FadeUp>
+      {/* Subtle Scroll Hint - Bottom Right */}
+      <div className="hidden lg:flex absolute bottom-5 right-12 items-center gap-1.5 text-[10px] uppercase tracking-[0.2em] text-[#6E6A62] font-mono pointer-events-none z-10">
+        <span>Scroll</span>
+        <span className="text-[#D6A634]">↓</span>
       </div>
     </section>
   );

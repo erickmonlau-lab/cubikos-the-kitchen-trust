@@ -15,6 +15,7 @@
   /* Fonts */
   --font-display: "Inter Tight", system-ui, sans-serif;
   --font-sans: "Inter", system-ui, sans-serif;
+  --font-serif: "Cormorant Garamond", "Playfair Display", Georgia, serif;
 
   /* Cubikos Editorial Palette */
   --color-background: var(--background);
