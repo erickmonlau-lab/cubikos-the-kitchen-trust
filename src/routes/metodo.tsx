@@ -125,11 +125,18 @@ function MetodoPage() {
                     {f.descripcion}
                   </p>
                 </div>
-                <div className="lg:col-span-4 bg-[#090908] p-6 rounded-xl border border-white/5 flex flex-col justify-center">
-                  <span className="text-xs font-mono text-[#D6A634] uppercase tracking-widest font-bold mb-2">
-                    ESTÁNDAR TÉCNICO
-                  </span>
-                  <span className="text-sm font-medium text-[#EDEBE8]">{f.detalle}</span>
+                <div className="lg:col-span-4 self-stretch flex flex-col justify-center">
+                  <div className="relative rounded-2xl bg-white/[0.02] border border-white/[0.08] p-6 backdrop-blur-sm group-hover:border-[#D6A634]/30 transition-colors">
+                    <div className="flex items-center gap-2 mb-3">
+                      <span className="w-2 h-2 rounded-full bg-[#D6A634] inline-block shadow-[0_0_8px_rgba(214,166,52,0.6)]" />
+                      <span className="text-[11px] font-sans font-semibold tracking-[0.2em] text-[#D6A634] uppercase">
+                        Estándar Técnico
+                      </span>
+                    </div>
+                    <p className="text-[14px] leading-relaxed text-[#DCD8CF] font-normal">
+                      {f.detalle}
+                    </p>
+                  </div>
                 </div>
               </motion.div>
             ))}
