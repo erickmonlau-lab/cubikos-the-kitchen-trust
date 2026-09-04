@@ -659,9 +659,10 @@ export function Testimonios() {
                 <span>Sé el primero en dejarnos tu opinión</span>
                 <span className="font-bold">→</span>
               </a>
-              <span className="text-xs font-semibold text-[#888] tracking-wider">
-                Cada montaje se entrega con tolerancia milimétrica certificada.
-              </span>
+              <div className="flex items-center gap-2 mt-2 px-4 py-2 rounded-full bg-[#EDEBE8]/60 border border-[#D1CFCC]/50 text-sm sm:text-base font-semibold text-[#444] tracking-wide">
+                <span className="w-2 h-2 rounded-full bg-brand shrink-0" />
+                <span>Cada montaje se entrega con tolerancia milimétrica certificada.</span>
+              </div>
             </div>
           </FadeUp>
         </div>
