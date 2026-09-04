@@ -267,8 +267,8 @@ const steps = [
 
 const KitchenAssembly = () => {
   return (
-    <div className="w-full max-w-4xl mx-auto mt-12 md:mt-24 mb-16 lg:mb-24 relative px-4 lg:px-0">
-      <svg viewBox="100 0 640 400" className="w-full h-auto drop-shadow-xl overflow-visible">
+    <div className="w-full max-w-2xl mx-auto my-6 md:my-10 relative px-4 sm:px-0">
+      <svg viewBox="100 0 640 400" className="w-full h-auto drop-shadow-lg overflow-visible">
         {/* Floor */}
         <motion.rect
           x="70"
@@ -575,28 +575,28 @@ const AnimatedStepIcon = ({ Icon, index }: { Icon: React.ElementType; index: num
 
 export function Proceso() {
   return (
-    <section id="proceso" className="bg-[#FAFAF8] py-[120px] overflow-hidden">
-      <div className="mx-auto w-[90%] max-w-[1600px]">
+    <section id="proceso" className="bg-[#FAFAF8] py-14 sm:py-20 overflow-hidden border-b border-[#E5E0D8]">
+      <div className="mx-auto w-[90%] max-w-[1440px]">
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-10%" }}
-          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         >
-          <div className="flex items-center gap-4 mb-6">
-            <div className="h-[1px] w-12 bg-brand" />
-            <span className="text-[12px] font-semibold tracking-[0.3em] uppercase text-brand">
+          <div className="flex items-center gap-3 mb-3">
+            <div className="h-[2px] w-8 bg-brand" />
+            <span className="text-[12px] font-bold tracking-[0.25em] uppercase text-brand">
               Metodología
             </span>
           </div>
-          <h2 className="font-display font-black text-[clamp(64px,6vw,96px)] leading-[0.95] text-ink max-w-[900px] text-balance">
+          <h2 className="font-display font-black text-[38px] sm:text-[48px] lg:text-[56px] leading-[1.05] text-ink max-w-[800px] text-balance">
             Precisión en cada fase.
           </h2>
         </motion.div>
 
         <KitchenAssembly />
 
-        <div className="mt-[40px] relative">
+        <div className="mt-8 sm:mt-12 relative">
           {/* Timeline central line */}
           <div className="absolute top-[10px] left-0 w-full h-[2px] bg-[#DADADA] hidden lg:block" />
 
