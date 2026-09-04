@@ -49,15 +49,21 @@ const details = [
 
 export function Proyectos() {
   return (
-    <section id="proyectos" className="bg-[#111111] text-[#FAFAF8] py-16 md:py-48">
-      <div className="container-x mb-12 md:mb-24">
+    <section id="proyectos" className="bg-[#111111] text-[#FAFAF8] py-20 md:py-44">
+      <div className="container-x mb-12 md:mb-20">
         <FadeUp>
-          <h2 className="font-display font-black text-[clamp(48px,8vw,80px)] leading-[0.95] tracking-tighter text-[#FAFAF8] text-balance">
-            Casos de estudio.
+          <div className="flex items-center gap-3 mb-4">
+            <div className="h-[2.5px] w-10 bg-brand" />
+            <span className="text-[13px] sm:text-[15px] font-mono font-bold tracking-[0.25em] uppercase text-brand">
+              PORTFOLIO • CASOS REALES
+            </span>
+          </div>
+          <h2 className="font-display font-black text-[clamp(44px,7vw,84px)] leading-[0.98] tracking-tighter text-[#FAFAF8] text-balance">
+            Casos de estudio<span className="text-brand">.</span>
           </h2>
-          <p className="mt-6 md:mt-8 text-lg md:text-2xl text-[#EDEBE8] font-medium leading-relaxed text-balance max-w-2xl">
+          <p className="mt-6 md:mt-8 text-xl md:text-2xl text-[#EDEBE8] font-normal leading-relaxed text-balance max-w-2xl">
             La excelencia no se demuestra en un plano general, sino en la perfección de cada
-            detalle, Unión y remate.
+            detalle, unión y remate.
           </p>
         </FadeUp>
       </div>
@@ -120,15 +126,25 @@ const faqs = [
 export function FAQ() {
   const [open, setOpen] = useState<number | null>(0);
   return (
-    <section id="faq" className="bg-surface py-32 md:py-48">
-      <div className="container-x grid md:grid-cols-12 gap-16">
-        <div className="md:col-span-4">
+    <section id="faq" className="bg-surface py-28 md:py-40">
+      <div className="container-x grid md:grid-cols-12 gap-12 lg:gap-16">
+        <div className="md:col-span-5">
           <FadeUp>
-            <span className="eyebrow">FAQ</span>
-            <h2 className="headline-lg mt-4">Claridad absoluta.</h2>
+            <div className="flex items-center gap-3 mb-4">
+              <span className="w-10 h-[2.5px] bg-brand" />
+              <span className="text-[13px] sm:text-[15px] font-mono font-bold tracking-[0.25em] uppercase text-brand">
+                PREGUNTAS FRECUENTES
+              </span>
+            </div>
+            <h2 className="font-display font-black text-4xl sm:text-5xl lg:text-6xl xl:text-7xl text-ink leading-[1.02] tracking-tight">
+              FAQ<span className="text-brand">.</span>
+            </h2>
+            <p className="mt-6 text-xl sm:text-2xl text-ink-soft font-normal leading-relaxed">
+              Claridad absoluta antes de iniciar cualquier montaje.
+            </p>
           </FadeUp>
         </div>
-        <div className="md:col-span-8">
+        <div className="md:col-span-7">
           <ul className="border-t border-ink">
             {faqs.map((f, i) => {
               const isOpen = open === i;

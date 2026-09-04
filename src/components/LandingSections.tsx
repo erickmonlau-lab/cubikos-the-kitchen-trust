@@ -571,14 +571,14 @@ export function Proceso() {
           viewport={{ once: true, margin: "-10%" }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         >
-          <div className="flex items-center gap-3 mb-3">
-            <div className="h-[2px] w-8 bg-brand" />
-            <span className="text-[12px] font-bold tracking-[0.25em] uppercase text-brand">
-              Metodología
+          <div className="flex items-center gap-3 mb-4">
+            <div className="h-[2.5px] w-10 bg-brand" />
+            <span className="text-[13px] sm:text-[15px] font-mono font-bold tracking-[0.25em] uppercase text-brand">
+              METODOLOGÍA • PASO A PASO
             </span>
           </div>
-          <h2 className="font-display font-black text-[38px] sm:text-[48px] lg:text-[56px] leading-[1.05] text-ink max-w-[800px] text-balance">
-            Precisión en cada fase.
+          <h2 className="font-display font-black text-4xl sm:text-5xl lg:text-6xl xl:text-7xl leading-[1.02] text-ink max-w-[900px] text-balance tracking-tight">
+            Precisión en cada fase<span className="text-brand">.</span>
           </h2>
         </motion.div>
 
@@ -629,23 +629,23 @@ export function Proceso() {
 
 export function Testimonios() {
   return (
-    <section id="opiniones" className="bg-[#FAF8F5] py-20 sm:py-28 border-t border-b border-[#E5E0D8] overflow-hidden">
+    <section id="opiniones" className="bg-[#FAF8F5] py-24 sm:py-36 border-t border-b border-[#E5E0D8] overflow-hidden">
       <div className="container-x">
         <div className="max-w-4xl mx-auto flex flex-col items-center text-center">
           <FadeUp className="flex flex-col items-center">
-            <div className="flex items-center gap-2 mb-4">
-              <span className="w-8 h-[2px] bg-brand" />
-              <span className="text-[12px] font-bold tracking-[0.25em] uppercase text-brand">
-                Opiniones y Valoraciones
+            <div className="flex items-center gap-3 mb-5">
+              <span className="w-12 h-[2.5px] bg-brand" />
+              <span className="text-[14px] sm:text-[16px] font-mono font-bold tracking-[0.25em] uppercase text-brand">
+                OPINIONES & VALORACIONES
               </span>
-              <span className="w-8 h-[2px] bg-brand" />
+              <span className="w-12 h-[2.5px] bg-brand" />
             </div>
 
-            <h2 className="font-display font-black text-3xl sm:text-4xl md:text-5xl text-ink tracking-tight mb-6">
-              Tu satisfacción es nuestro mejor aval
+            <h2 className="font-display font-black text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-ink tracking-tight leading-[1.04] mb-8 text-balance">
+              Tu satisfacción es nuestro mejor aval<span className="text-brand">.</span>
             </h2>
 
-            <p className="text-lg sm:text-xl text-ink-soft max-w-2xl leading-relaxed mb-8 font-medium">
+            <p className="text-xl sm:text-2xl text-ink-soft max-w-3xl leading-relaxed mb-10 font-normal">
               En CUBIKOS cada montaje se entrega con tolerancia milimétrica y revisión exhaustiva. Si ya has trabajado con nosotros en Cataluña, comparte tu experiencia.
             </p>
 
@@ -677,11 +677,14 @@ export function BotelleroShowcase() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
           <div className="flex flex-col justify-center">
             <PremiumFade delay={0}>
-              <div className="text-brand font-bold uppercase tracking-widest text-sm mb-4">
-                La firma de un artesano
+              <div className="flex items-center gap-3 mb-4">
+                <span className="w-10 h-[2.5px] bg-brand" />
+                <span className="text-[13px] sm:text-[15px] font-mono font-bold tracking-[0.25em] uppercase text-brand">
+                  LA FIRMA DE UN ARTESANO
+                </span>
               </div>
-              <h2 className="font-display font-black text-4xl md:text-5xl lg:text-6xl tracking-tight leading-tight mb-8 text-[#FAFAF8]">
-                El Arte del Ensamblaje
+              <h2 className="font-display font-black text-4xl sm:text-5xl lg:text-6xl xl:text-7xl tracking-tight leading-[1.04] mb-8 text-[#FAFAF8]">
+                El Arte del Ensamblaje<span className="text-brand">.</span>
               </h2>
               <p className="text-[#EDEBE8]/80 text-lg md:text-xl leading-relaxed mb-6 font-light">
                 Un botellero a medida no admite márgenes de error. Cada balda y cada separador debe
