@@ -1,8 +1,8 @@
-﻿import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { Header, Ico } from "../components/LandingUI";
 import { Footer } from "../components/LandingExtra";
-import heroKitchen from "@/assets/hero-kitchen.webp";
+import heroKitchen from "@/assets/hero-tio.webp";
 
 export const Route = createFileRoute("/faq")({
   head: () => ({

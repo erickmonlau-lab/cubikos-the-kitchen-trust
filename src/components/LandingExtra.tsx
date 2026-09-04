@@ -1,7 +1,7 @@
 import { memo, useState, useCallback, type FormEvent } from "react";
 import { m as motion } from "framer-motion";
 import { FadeUp, Ico, RevealMask, LogoCubikos } from "./LandingUI";
-import heroImg from "@/assets/hero-kitchen.webp";
+import heroImg from "@/assets/hero-tio.webp";
 import gal1 from "@/assets/gallery-1.webp";
 import gal2 from "@/assets/gallery-2.webp";
 import gal3 from "@/assets/gallery-3.webp";

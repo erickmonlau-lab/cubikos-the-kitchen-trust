@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef } from "react";
-import heroImg from "@/assets/hero-kitchen.webp";
+import heroImg from "@/assets/hero-tio.webp";
 import { Header, CintasKinetic } from "../components/LandingUI";
 import { Footer } from "../components/LandingExtra";
 

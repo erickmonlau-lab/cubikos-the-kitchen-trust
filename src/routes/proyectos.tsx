@@ -1,10 +1,10 @@
-﻿import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Header } from "../components/LandingUI";
 import { Footer } from "../components/LandingExtra";
 import { motion, AnimatePresence } from "framer-motion";
 import { CATEGORIAS_PROYECTOS, PROYECTOS_DATA, type Proyecto } from "../data/proyectos";
-import heroKitchen from "@/assets/hero-kitchen.webp";
+import heroKitchen from "@/assets/hero-tio.webp";
 
 export const Route = createFileRoute("/proyectos")({
   head: () => ({
