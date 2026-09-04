@@ -212,8 +212,10 @@ export function Counter({
 
 const navItems = [
   { label: "Método", href: "#metodo" },
+  { label: "Experiencia", href: "#experiencia" },
   { label: "Proyectos", href: "#proyectos" },
   { label: "Opiniones", href: "#opiniones" },
+  { label: "FAQ", href: "#faq" },
   { label: "Contacto", href: "#contacto" },
 ];
 
@@ -473,7 +475,7 @@ export function Hero() {
                 className="text-[22px] sm:text-[26px] lg:text-[28px] leading-none text-white font-normal tracking-tight"
                 style={{ fontFamily: 'var(--font-serif)' }}
               >
-                500+
+                10.000+
               </span>
               <span className="mt-1.5 text-[10px] sm:text-[11px] uppercase tracking-[0.14em] text-[#908C84] font-semibold font-sans">
                 COCINAS MONTADAS

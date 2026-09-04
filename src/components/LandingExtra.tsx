@@ -120,7 +120,7 @@ const faqs = [
 export function FAQ() {
   const [open, setOpen] = useState<number | null>(0);
   return (
-    <section className="bg-surface py-32 md:py-48">
+    <section id="faq" className="bg-surface py-32 md:py-48">
       <div className="container-x grid md:grid-cols-12 gap-16">
         <div className="md:col-span-4">
           <FadeUp>
@@ -410,6 +410,16 @@ export const Footer = memo(() => {
                   Proyectos
                 </a>
               </li>
+              <li>
+                <a href="#opiniones" className="hover:text-brand transition-colors">
+                  Opiniones
+                </a>
+              </li>
+              <li>
+                <a href="#faq" className="hover:text-brand transition-colors">
+                  FAQ
+                </a>
+              </li>
             </ul>
           </div>
 
@@ -420,8 +430,8 @@ export const Footer = memo(() => {
             </h4>
             <ul className="space-y-4 text-[#EDEBE8] font-medium text-lg">
               <li>
-                <a href="mailto:cubikos25@gmail.com" className="hover:text-brand transition-colors">
-                  cubikos25@gmail.com
+                <a href="mailto:hola@cubikos.es" className="hover:text-brand transition-colors">
+                  hola@cubikos.es
                 </a>
               </li>
               <li>
