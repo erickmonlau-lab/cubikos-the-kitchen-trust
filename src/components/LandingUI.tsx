@@ -1,4 +1,5 @@
 import { memo, useEffect, useState, useRef, MouseEvent, TouchEvent, type SVGProps, type ReactNode } from "react";
+import { Link } from "@tanstack/react-router";
 import { motion, useInView } from "framer-motion";
 import heroImg from "@/assets/hero-tio.webp";
 import gal3 from "@/assets/gallery-3.webp"; // Error habitual
@@ -211,6 +212,7 @@ export function Counter({
 }
 
 const navItems = [
+  { label: "Inicio", href: "/" },
   { label: "Método", href: "/metodo" },
   { label: "Proyectos", href: "/proyectos" },
   { label: "Experiencia", href: "/#experiencia" },
@@ -240,23 +242,24 @@ export const Header = memo(() => {
         }`}
       >
         {/* Left: Brand Logo */}
-        <a
-          href="/"
+        <Link
+          to="/"
           className="flex items-center text-[#111111] hover:opacity-85 transition-opacity shrink-0"
+          title="Ir a la página principal"
         >
           <LogoCubikos className="text-[20px] sm:text-[22px]" />
-        </a>
+        </Link>
 
         {/* Center: Navigation Links */}
-        <nav className="hidden lg:flex items-center gap-7 xl:gap-8">
+        <nav className="hidden lg:flex items-center gap-6 xl:gap-8">
           {navItems.map((i) => (
-            <a
+            <Link
               key={i.href}
-              href={i.href}
+              to={i.href}
               className="text-[14px] font-medium text-[#2B2927] hover:text-[#D6A634] transition-colors duration-200"
             >
               {i.label}
-            </a>
+            </Link>
           ))}
         </nav>
 
@@ -325,7 +328,9 @@ export const Header = memo(() => {
         className="fixed top-0 right-0 h-full w-[82%] max-w-sm bg-[#121211] text-[#F5F1E8] z-[100] p-6 flex flex-col shadow-2xl lg:hidden pointer-events-auto"
       >
         <div className="flex justify-between items-center pb-6 border-b border-white/10 mb-8">
-          <LogoCubikos className="text-[20px] text-white" />
+          <Link to="/" onClick={() => setOpen(false)}>
+            <LogoCubikos className="text-[20px] text-white" />
+          </Link>
           <button
             onClick={() => setOpen(false)}
             aria-label="Cerrar menú"
@@ -336,14 +341,14 @@ export const Header = memo(() => {
         </div>
         <div className="flex flex-col gap-6">
           {navItems.map((i) => (
-            <a
+            <Link
               key={i.href}
-              href={i.href}
+              to={i.href}
               onClick={() => setOpen(false)}
               className="text-white/90 font-medium text-base border-b border-white/5 pb-3 hover:text-[#D6A634] transition-colors"
             >
               {i.label}
-            </a>
+            </Link>
           ))}
           <a
             href="https://wa.me/34666871144"

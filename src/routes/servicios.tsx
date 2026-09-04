@@ -77,6 +77,17 @@ function ServiciosPage() {
       <Header />
 
       <main className="pt-32 sm:pt-40 pb-24">
+        {/* Back Link */}
+        <div className="container-x max-w-[1400px] mb-8">
+          <Link
+            to="/"
+            className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[#A6A29A] hover:text-[#D6A634] transition-colors group"
+          >
+            <span className="text-[#D6A634] font-bold transition-transform group-hover:-translate-x-1">←</span>
+            <span>Volver a la página principal</span>
+          </Link>
+        </div>
+
         {/* Header */}
         <section className="container-x max-w-[1400px] mb-16 sm:mb-24">
           <div className="flex items-center gap-3 mb-6">

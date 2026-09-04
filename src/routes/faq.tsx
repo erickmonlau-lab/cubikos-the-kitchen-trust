@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Header, Ico } from "../components/LandingUI";
 import { Footer } from "../components/LandingExtra";
@@ -67,6 +67,17 @@ function FAQPage() {
       <Header />
 
       <main className="pt-32 sm:pt-40 pb-24">
+        {/* Back Link */}
+        <div className="container-x max-w-[1200px] mb-8">
+          <Link
+            to="/"
+            className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[#A6A29A] hover:text-[#D6A634] transition-colors group"
+          >
+            <span className="text-[#D6A634] font-bold transition-transform group-hover:-translate-x-1">←</span>
+            <span>Volver a la página principal</span>
+          </Link>
+        </div>
+
         <section className="container-x max-w-[1200px] mb-16 sm:mb-20">
           <div className="flex items-center gap-3 mb-6">
             <span className="w-10 h-[2px] bg-[#D6A634]" />
