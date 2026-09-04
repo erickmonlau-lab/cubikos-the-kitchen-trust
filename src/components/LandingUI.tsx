@@ -1,6 +1,6 @@
 import { memo, useEffect, useState, useRef, MouseEvent, TouchEvent, type SVGProps, type ReactNode } from "react";
 import { m as motion, useInView } from "framer-motion";
-import heroImg from "@/assets/hero-worker-hq.webp";
+import heroImg from "@/assets/hero-worker-final.webp";
 import gal3 from "@/assets/gallery-3.webp"; // Error habitual
 import gal1 from "@/assets/gallery-1.webp"; // Método Cubikos
 
@@ -325,7 +325,7 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="relative w-full h-screen min-h-[660px] max-h-[1050px] overflow-hidden bg-[#0A0A09] flex flex-col justify-between"
+      className="relative w-full h-screen min-h-[660px] max-h-[1050px] overflow-hidden bg-[#111110] flex flex-col justify-between"
     >
       {/* Background Image Container - Covers entire screen */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
@@ -334,15 +334,15 @@ export function Hero() {
           alt="Montaje artesanal de cocina con precisión milimétrica"
           fetchPriority="high"
           loading="eager"
-          className="w-full h-full object-cover object-[75%_center] sm:object-[68%_center] lg:object-[62%_center] contrast-[1.05] brightness-[0.98]"
+          className="w-full h-full object-cover object-[78%_center] md:object-[70%_center] lg:object-[66%_center]"
         />
 
-        {/* Desktop Editorial Gradient: Solid deep tone on left text column, smooth ramp into open scene */}
+        {/* Desktop Editorial Gradient: Balanced natural gradient that protects text while keeping the kitchen photo vibrant */}
         <div
           className="hidden md:block absolute inset-0"
           style={{
             background:
-              "linear-gradient(90deg, rgba(10,10,9,0.98) 0%, rgba(10,10,9,0.96) 36%, rgba(10,10,9,0.85) 48%, rgba(10,10,9,0.52) 64%, rgba(10,10,9,0.18) 82%, rgba(10,10,9,0.06) 100%)",
+              "linear-gradient(90deg, rgba(14,14,13,0.96) 0%, rgba(14,14,13,0.92) 32%, rgba(14,14,13,0.70) 50%, rgba(14,14,13,0.25) 70%, rgba(14,14,13,0) 90%)",
           }}
         />
 
@@ -351,12 +351,12 @@ export function Hero() {
           className="md:hidden absolute inset-0"
           style={{
             background:
-              "linear-gradient(180deg, rgba(10,10,9,0.92) 0%, rgba(10,10,9,0.88) 60%, rgba(10,10,9,0.60) 100%)",
+              "linear-gradient(180deg, rgba(14,14,13,0.92) 0%, rgba(14,14,13,0.85) 60%, rgba(14,14,13,0.40) 100%)",
           }}
         />
 
-        {/* Subtle vignette top & bottom for high-end editorial feel */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A09]/90 via-transparent to-[#0A0A09]/40 pointer-events-none" />
+        {/* Gentle atmospheric vignette */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#111110]/80 via-transparent to-[#111110]/30 pointer-events-none" />
       </div>
 
       {/* Top spacing to accommodate header */}
