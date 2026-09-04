@@ -211,12 +211,12 @@ export function Counter({
 }
 
 const navItems = [
-  { label: "Método", href: "#metodo" },
-  { label: "Experiencia", href: "#experiencia" },
-  { label: "Proyectos", href: "#proyectos" },
-  { label: "Opiniones", href: "#opiniones" },
-  { label: "FAQ", href: "#faq" },
-  { label: "Contacto", href: "#contacto" },
+  { label: "Método", href: "/metodo" },
+  { label: "Servicios", href: "/servicios" },
+  { label: "Proyectos", href: "/proyectos" },
+  { label: "Sobre Nosotros", href: "/sobre-cubikos" },
+  { label: "FAQ", href: "/faq" },
+  { label: "Contacto", href: "/contacto" },
 ];
 
 export const Header = memo(() => {
@@ -242,7 +242,7 @@ export const Header = memo(() => {
       >
         {/* Left: Brand Logo */}
         <a
-          href="#top"
+          href="/"
           className="flex items-center text-[#111111] hover:opacity-85 transition-opacity shrink-0"
         >
           <LogoCubikos className="text-[20px] sm:text-[22px]" />

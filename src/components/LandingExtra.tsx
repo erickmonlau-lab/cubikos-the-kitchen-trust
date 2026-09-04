@@ -396,28 +396,33 @@ export const Footer = memo(() => {
             </h4>
             <ul className="space-y-4 text-[#EDEBE8] font-bold text-sm tracking-widest uppercase">
               <li>
-                <a href="#metodo" className="hover:text-brand transition-colors">
+                <a href="/metodo" className="hover:text-brand transition-colors">
                   Método
                 </a>
               </li>
               <li>
-                <a href="#experiencia" className="hover:text-brand transition-colors">
-                  Experiencia
+                <a href="/servicios" className="hover:text-brand transition-colors">
+                  Servicios
                 </a>
               </li>
               <li>
-                <a href="#proyectos" className="hover:text-brand transition-colors">
+                <a href="/proyectos" className="hover:text-brand transition-colors">
                   Proyectos
                 </a>
               </li>
               <li>
-                <a href="#opiniones" className="hover:text-brand transition-colors">
-                  Opiniones
+                <a href="/sobre-cubikos" className="hover:text-brand transition-colors">
+                  Sobre Nosotros
                 </a>
               </li>
               <li>
-                <a href="#faq" className="hover:text-brand transition-colors">
+                <a href="/faq" className="hover:text-brand transition-colors">
                   FAQ
+                </a>
+              </li>
+              <li>
+                <a href="/contacto" className="hover:text-brand transition-colors">
+                  Contacto
                 </a>
               </li>
             </ul>

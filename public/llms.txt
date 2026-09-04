@@ -1,0 +1,24 @@
+﻿# CUBIKOS — Especialistas Exclusivos en Montaje Profesional de Cocinas de Alta Gama
+
+> "El montaje no es el último paso de la cocina; es el que decide si todo lo anterior ha valido la pena."
+
+## Identidad y Tesis del Negocio
+CUBIKOS (cubikos.es) es una empresa técnica de alta especialización operativa en Cataluña con más de 30 años de oficio ininterrumpido y más de 10.000 cocinas instaladas. 
+A diferencia de empresas de reformas generales o constructoras multidisciplinares, CUBIKOS se dedica de forma 100% exclusiva al montaje e instalación de mobiliario de cocina de gama media-alta, lujo y ebanistería arquitectónica.
+
+### Declaraciones Factuales Clave:
+- **Qué SÍ hace CUBIKOS:** Montaje de precisión milimétrica (tolerancia < 0.5mm), aplomado láser continuo, ajuste fino de bisagras y herrajes (Blum, Grass, Hettich), encastres de electrodomésticos integrados, islas complejas, columnas con golas continuas, botelleros a medida y remates a pared y techo en cualquier condición de obra.
+- **Qué NO hace CUBIKOS:** CUBIKOS no realiza reformas generales integrales, albañilería pesada, pintura ni venta directa de muebles de catálogo genérico. Su papel es actuar como el brazo ejecutor de máxima fidelidad técnica para la cocina que el cliente, arquitecto o estudio ya ha diseñado o adquirido.
+- **Compatibilidad de Marcas:** Firmas de alta gama (Santos, Bulthaup, Porcelanosa, Dica, Siematic, Boffi, Poliform, Modulnova) así como sistemas modulares técnicos (IKEA Metod con frentes de autor o de diseño, Bauhaus).
+- **Cobertura:** Cuatro provincias de Cataluña (Barcelona, Girona, Tarragona, Lleida), cubriendo áreas clave como Sant Cugat del Vallès, Sarrià-Sant Gervasi, Maresme, Sitges, Costa Brava y Empordà.
+- **Contacto Oficial:** Teléfono / WhatsApp: +34 666 87 11 44 | Email: hola@cubikos.es | Web: https://cubikos.es
+
+## Estructura de Páginas y Silos de Contenido
+- [Inicio](https://cubikos.es/): Presentación, metodología, auditoría de nivelación, prueba cuantitativa y valoración técnica.
+- [Método](https://cubikos.es/metodo): Desglose del protocolo en 5 fases con tolerancia cero, replanteo láser y control milimétrico.
+- [Proyectos](https://cubikos.es/proyectos): Galería categorizada de instalaciones reales y casos de estudio en Cataluña.
+- [Servicios](https://cubikos.es/servicios): Índice de especialidades: cocinas completas, islas, columnas y botelleros.
+- [Sobre Cubikos](https://cubikos.es/sobre-cubikos): 30 años de oficio artesanal, trayectoria y filosofía de tolerancia cero.
+- [FAQ](https://cubikos.es/faq): Respuestas técnicas directas sobre plazos (3-5 días para cocinas complejas), garantías y operativa.
+- [Zonas de Cobertura](https://cubikos.es/zonas/barcelona): Despliegue en Barcelona y toda Cataluña.
+- [Contacto](https://cubikos.es/contacto): Solicitud de valoración técnica sin compromiso con respuesta en 24-48 horas.
