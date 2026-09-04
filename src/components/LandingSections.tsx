@@ -176,10 +176,10 @@ export function StatsGrid() {
             delay={0.0}
             className="flex flex-col items-center md:items-start px-4 md:px-8 border-r border-[#E5E0D8] py-4"
           >
-            <div className="font-display font-black text-[clamp(2.5rem,3.5vw,4.5rem)] xl:text-[5rem] tracking-tighter text-brand leading-none">
+            <div className="font-display font-black text-[clamp(3.5rem,5vw,6rem)] xl:text-[6.5rem] tracking-tighter text-brand leading-none">
               <Counter to={30} duration={1.5} suffix="+" />
             </div>
-            <div className="mt-4 text-[#888] text-[11px] font-bold uppercase tracking-widest text-center md:text-left">
+            <div className="mt-4 text-[#1A1A1A] text-[16px] sm:text-[18px] md:text-[20px] font-black uppercase tracking-[0.08em] text-center md:text-left leading-tight">
               Años de experiencia
             </div>
             <motion.div
@@ -188,7 +188,7 @@ export function StatsGrid() {
               viewport={{ once: true, margin: "-10%" }}
               transition={{ duration: 0.6, delay: 0.0 }}
               style={{ originX: 0 }}
-              className="h-[2px] w-[40px] bg-brand mt-5"
+              className="h-[3px] w-[50px] bg-brand mt-4"
             />
           </PremiumFade>
 
@@ -196,10 +196,10 @@ export function StatsGrid() {
             delay={0.15}
             className="flex flex-col items-center md:items-start px-4 md:px-8 md:border-r border-[#E5E0D8] py-4"
           >
-            <div className="font-display font-black text-[clamp(2.5rem,3.5vw,4.5rem)] xl:text-[5rem] tracking-tighter text-brand leading-none">
+            <div className="font-display font-black text-[clamp(3.5rem,5vw,6rem)] xl:text-[6.5rem] tracking-tighter text-brand leading-none">
               <Counter to={10000} duration={2} suffix="+" />
             </div>
-            <div className="mt-4 text-[#888] text-[11px] font-bold uppercase tracking-widest text-center md:text-left">
+            <div className="mt-4 text-[#1A1A1A] text-[16px] sm:text-[18px] md:text-[20px] font-black uppercase tracking-[0.08em] text-center md:text-left leading-tight">
               Cocinas montadas
             </div>
             <motion.div
@@ -208,7 +208,7 @@ export function StatsGrid() {
               viewport={{ once: true, margin: "-10%" }}
               transition={{ duration: 0.6, delay: 0.15 }}
               style={{ originX: 0 }}
-              className="h-[2px] w-[40px] bg-brand mt-5"
+              className="h-[3px] w-[50px] bg-brand mt-4"
             />
           </PremiumFade>
 
@@ -216,10 +216,10 @@ export function StatsGrid() {
             delay={0.3}
             className="flex flex-col items-center md:items-start px-4 md:px-8 border-r border-[#E5E0D8] py-4"
           >
-            <div className="font-display font-black text-[clamp(2.5rem,3.5vw,4.5rem)] xl:text-[5rem] tracking-tighter text-brand leading-none">
+            <div className="font-display font-black text-[clamp(3.5rem,5vw,6rem)] xl:text-[6.5rem] tracking-tighter text-brand leading-none">
               <Counter to={5} duration={1} suffix="/5" />
             </div>
-            <div className="mt-4 text-[#888] text-[11px] font-bold uppercase tracking-widest text-center md:text-left">
+            <div className="mt-4 text-[#1A1A1A] text-[16px] sm:text-[18px] md:text-[20px] font-black uppercase tracking-[0.08em] text-center md:text-left leading-tight">
               Valoración
             </div>
             <motion.div
@@ -228,7 +228,7 @@ export function StatsGrid() {
               viewport={{ once: true, margin: "-10%" }}
               transition={{ duration: 0.6, delay: 0.3 }}
               style={{ originX: 0 }}
-              className="h-[2px] w-[40px] bg-brand mt-5"
+              className="h-[3px] w-[50px] bg-brand mt-4"
             />
           </PremiumFade>
 
@@ -236,10 +236,10 @@ export function StatsGrid() {
             delay={0.45}
             className="flex flex-col items-center md:items-start px-4 md:px-8 py-4"
           >
-            <div className="font-display font-black text-[clamp(2.5rem,3.5vw,4.5rem)] xl:text-[5rem] tracking-tighter text-brand leading-none">
+            <div className="font-display font-black text-[clamp(3.5rem,5vw,6rem)] xl:text-[6.5rem] tracking-tighter text-brand leading-none">
               <Counter to={100} duration={1.5} suffix="%" />
             </div>
-            <div className="mt-4 text-[#888] text-[11px] font-bold uppercase tracking-widest text-center md:text-left">
+            <div className="mt-4 text-[#1A1A1A] text-[16px] sm:text-[18px] md:text-[20px] font-black uppercase tracking-[0.08em] text-center md:text-left leading-tight">
               Garantía
             </div>
             <motion.div
@@ -248,7 +248,7 @@ export function StatsGrid() {
               viewport={{ once: true, margin: "-10%" }}
               transition={{ duration: 0.6, delay: 0.45 }}
               style={{ originX: 0 }}
-              className="h-[2px] w-[40px] bg-brand mt-5"
+              className="h-[3px] w-[50px] bg-brand mt-4"
             />
           </PremiumFade>
         </div>

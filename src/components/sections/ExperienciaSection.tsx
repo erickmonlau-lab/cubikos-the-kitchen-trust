@@ -103,17 +103,17 @@ export default function ExperienciaSection() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-black/45 pointer-events-none" />
 
               {/* Integrated 30+ Badge */}
-              <div className="absolute top-7 left-7 sm:top-9 sm:left-9 z-10">
+              <div className="absolute top-6 left-6 sm:top-10 sm:left-10 z-10">
                 <span
-                  className="block text-[#D6A634] leading-[0.88] font-normal drop-shadow-[0_2px_14px_rgba(0,0,0,0.85)]"
+                  className="block text-[#D6A634] leading-[0.82] font-medium drop-shadow-[0_4px_24px_rgba(0,0,0,0.95)] tracking-tight"
                   style={{
                     fontFamily: "var(--font-serif)",
-                    fontSize: "clamp(4.8rem, 8vw, 7rem)",
+                    fontSize: "clamp(6.5rem, 12vw, 10rem)",
                   }}
                 >
                   30+
                 </span>
-                <span className="block font-sans font-black text-[14px] sm:text-[15px] lg:text-[16px] tracking-[0.25em] text-white uppercase mt-1.5 drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)]">
+                <span className="block font-sans font-black text-[18px] sm:text-[22px] lg:text-[25px] tracking-[0.22em] text-white uppercase mt-2 drop-shadow-[0_2px_8px_rgba(0,0,0,0.95)]">
                   AÑOS DE OFICIO
                 </span>
               </div>
