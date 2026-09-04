@@ -185,27 +185,27 @@ export function FAQ() {
   }[lang];
 
   return (
-    <section id="faq" className="bg-[#FAF8F5] py-20 sm:py-28 lg:py-36 border-t border-[#E5E0D8] overflow-hidden">
-      <div className="container-x">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+    <section id="faq" className="bg-[#FAF8F5] py-24 sm:py-32 lg:py-40 border-t border-[#E5E0D8] overflow-hidden">
+      <div className="w-full max-w-[1520px] mx-auto px-6 sm:px-10 lg:px-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 xl:gap-20 items-start">
           
-          {/* ════════ LEFT COLUMN: Editorial Headline & Blueprint Sketch ════════ */}
-          <div className="lg:col-span-5 flex flex-col justify-between h-full">
+          {/* ════════ LEFT COLUMN: Much More Visual Headline, Badge & Large Blueprint ════════ */}
+          <div className="lg:col-span-5 flex flex-col justify-between">
             <div>
               {/* Eyebrow with gold accent line */}
-              <div className="flex items-center gap-3.5 mb-6">
-                <span className="w-10 h-[1.5px] bg-[#D6A634]" />
-                <span className="text-[13px] sm:text-[14px] font-sans font-bold tracking-[0.24em] uppercase text-[#D6A634]">
+              <div className="flex items-center gap-3.5 mb-5 sm:mb-6">
+                <span className="w-12 h-[2px] bg-[#D6A634]" />
+                <span className="text-[14px] sm:text-[15px] font-sans font-black tracking-[0.24em] uppercase text-[#D6A634]">
                   {t.faq.eyebrow}
                 </span>
               </div>
 
-              {/* Serif FAQ. Headline */}
+              {/* Serif FAQ. Giant Headline */}
               <h2
-                className="text-[#141413] leading-[0.9] tracking-tight mb-8"
+                className="text-[#141413] leading-[0.88] tracking-tight mb-8"
                 style={{
                   fontFamily: "var(--font-serif)",
-                  fontSize: "clamp(4.5rem, 8.5vw, 7.5rem)",
+                  fontSize: "clamp(5.5rem, 11vw, 9.5rem)",
                   fontWeight: 600,
                 }}
               >
@@ -213,14 +213,14 @@ export function FAQ() {
               </h2>
 
               {/* Subtitle */}
-              <p className="text-[17px] sm:text-[19px] text-[#55524C] max-w-md leading-[1.6] font-normal mb-8">
+              <p className="text-[20px] sm:text-[22px] lg:text-[24px] text-[#4A4742] max-w-lg leading-[1.5] font-normal mb-8">
                 {t.faq.desc}
               </p>
 
               {/* Certified tolerance badge */}
-              <div className="inline-flex items-center gap-3.5 px-5 py-3.5 rounded-[16px] bg-[#EFECE6]/80 border border-[#DDD8CF] text-[13.5px] sm:text-[14.5px] text-[#4A4742] font-medium tracking-wide shadow-sm max-w-md mb-10">
-                <div className="w-8 h-8 rounded-full bg-white/80 border border-[#DDD8CF] flex items-center justify-center shrink-0">
-                  <svg viewBox="0 0 24 24" className="w-4 h-4 text-[#D6A634]" fill="none" stroke="currentColor" strokeWidth="2">
+              <div className="inline-flex items-center gap-4 px-5 py-4 rounded-[18px] bg-[#EDE8DE]/90 border border-[#D8D2C5] text-[14px] sm:text-[15.5px] text-[#2E2C28] font-semibold tracking-wide shadow-sm max-w-lg mb-8">
+                <div className="w-9 h-9 rounded-full bg-white border border-[#D6A634]/50 flex items-center justify-center shrink-0 shadow-sm">
+                  <svg viewBox="0 0 24 24" className="w-5 h-5 text-[#D6A634]" fill="none" stroke="currentColor" strokeWidth="2.2">
                     <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
                     <path d="m9 12 2 2 4-4" />
                   </svg>
@@ -229,53 +229,53 @@ export function FAQ() {
               </div>
             </div>
 
-            {/* Architectural Blueprint Illustration */}
-            <div className="relative w-full max-w-[380px] mt-4 lg:mt-10 opacity-85 hover:opacity-100 transition-opacity duration-500">
+            {/* Architectural Blueprint Illustration - Large & Striking */}
+            <div className="relative w-full max-w-[460px] mt-4 lg:mt-6 p-4 rounded-[20px] bg-white/40 border border-[#E5E0D8]/60 shadow-[0_10px_30px_rgba(0,0,0,0.03)] hover:shadow-md hover:bg-white/70 transition-all duration-500">
               <img
                 src={faqBlueprint}
                 alt="Plano arquitectónico y alzado técnico de cocina"
                 loading="lazy"
-                className="w-full h-auto object-contain drop-shadow-sm"
+                className="w-full h-auto object-contain drop-shadow-sm transition-transform duration-700 hover:scale-[1.02]"
               />
             </div>
           </div>
 
-          {/* ════════ RIGHT COLUMN: Architectural Accordion List ════════ */}
-          <div className="lg:col-span-7 flex flex-col space-y-4">
+          {/* ════════ RIGHT COLUMN: Large Architectural Accordion List ════════ */}
+          <div className="lg:col-span-7 flex flex-col space-y-4 sm:space-y-5 pt-2">
             {translatedFaqs.map((f, i) => {
               const isOpen = open === i;
               return (
                 <div
                   key={f.num}
-                  className={`transition-all duration-300 rounded-[14px] overflow-hidden ${
+                  className={`transition-all duration-300 rounded-[18px] overflow-hidden ${
                     isOpen
-                      ? "bg-white border border-[#E0DBD2] shadow-[0_8px_30px_rgba(0,0,0,0.04)] relative"
-                      : "bg-transparent border-b border-[#E5E0D8] hover:bg-white/40"
+                      ? "bg-white border-2 border-[#D6A634]/40 shadow-[0_12px_40px_rgba(0,0,0,0.06)] relative"
+                      : "bg-white/60 border border-[#E5E0D8] hover:bg-white hover:border-[#D6A634]/30 shadow-sm"
                   }`}
                 >
                   {/* Active Gold Left Accent Bar */}
                   {isOpen && (
-                    <div className="absolute left-0 top-0 bottom-0 w-[4px] bg-[#D6A634]" />
+                    <div className="absolute left-0 top-0 bottom-0 w-[5px] bg-[#D6A634]" />
                   )}
 
                   <button
                     onClick={() => setOpen(isOpen ? null : i)}
                     className={`w-full flex items-center justify-between text-left transition-colors duration-200 ${
                       isOpen
-                        ? "px-6 sm:px-8 pt-7 pb-4"
-                        : "px-2 sm:px-4 py-7"
+                        ? "px-6 sm:px-9 pt-8 pb-5"
+                        : "px-6 sm:px-9 py-8"
                     }`}
                   >
-                    <div className="flex items-center gap-4 sm:gap-6 pr-4">
-                      <span className="font-mono text-[16px] sm:text-[18px] font-bold text-[#D6A634] tracking-wider shrink-0">
+                    <div className="flex items-center gap-4 sm:gap-7 pr-4">
+                      <span className="font-mono text-[18px] sm:text-[22px] font-bold text-[#D6A634] tracking-wider shrink-0">
                         {f.num}
                       </span>
-                      <span className="w-[1px] h-5 bg-[#D6A634]/40 shrink-0" />
+                      <span className="w-[1.5px] h-6 bg-[#D6A634]/50 shrink-0" />
                       <h3
-                        className="text-[#141413] tracking-[-0.01em] transition-colors leading-snug"
+                        className="text-[#141413] tracking-[-0.015em] transition-colors leading-[1.25]"
                         style={{
                           fontFamily: "var(--font-serif)",
-                          fontSize: "clamp(1.25rem, 1.8vw, 1.6rem)",
+                          fontSize: "clamp(1.4rem, 2.1vw, 1.85rem)",
                           fontWeight: 600,
                         }}
                       >
@@ -283,11 +283,15 @@ export function FAQ() {
                       </h3>
                     </div>
 
-                    <div className="shrink-0 text-[#141413] pl-2">
+                    <div className="shrink-0 text-[#141413] pl-3">
                       {isOpen ? (
-                        <span className="text-2xl sm:text-3xl font-light leading-none">−</span>
+                        <div className="w-8 h-8 rounded-full bg-[#FAF8F5] border border-[#DDD8CF] flex items-center justify-center font-light text-xl leading-none text-[#141413]">
+                          −
+                        </div>
                       ) : (
-                        <span className="text-xl sm:text-2xl font-light leading-none">+</span>
+                        <div className="w-8 h-8 rounded-full bg-transparent border border-[#DDD8CF] flex items-center justify-center font-light text-xl leading-none text-[#555] hover:border-[#D6A634] hover:text-[#D6A634] transition-colors">
+                          +
+                        </div>
                       )}
                     </div>
                   </button>
@@ -296,11 +300,11 @@ export function FAQ() {
                   <div
                     className="overflow-hidden transition-all duration-400 ease-out"
                     style={{
-                      maxHeight: isOpen ? 300 : 0,
+                      maxHeight: isOpen ? 360 : 0,
                       opacity: isOpen ? 1 : 0,
                     }}
                   >
-                    <div className="px-6 sm:px-8 pb-7 pt-1 text-[16px] sm:text-[17px] text-[#635F57] leading-[1.68] font-normal max-w-2xl pl-16 sm:pl-[72px]">
+                    <div className="px-6 sm:px-9 pb-8 pt-1 text-[17px] sm:text-[18.5px] text-[#55524C] leading-[1.7] font-normal max-w-2xl pl-16 sm:pl-[84px]">
                       {f.a}
                     </div>
                   </div>
