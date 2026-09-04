@@ -65,11 +65,11 @@ export default function ExperienciaSection() {
     <section
       ref={sectionRef}
       id="experiencia"
-      className="relative bg-[#090908] text-[#FAF8F5] py-20 sm:py-28 lg:py-32 overflow-hidden border-t border-b border-white/[0.08]"
+      className="relative bg-[#090908] text-[#FAF8F5] py-24 sm:py-32 lg:py-36 overflow-hidden border-t border-b border-white/[0.08]"
     >
       {/* Background Architectural Grid & Subtle Radial Glow */}
       <div
-        className="absolute inset-0 pointer-events-none opacity-[0.03]"
+        className="absolute inset-0 pointer-events-none opacity-[0.035]"
         style={{
           backgroundImage: `
             linear-gradient(to right, #FAF8F5 1px, transparent 1px),
@@ -78,11 +78,11 @@ export default function ExperienciaSection() {
           backgroundSize: "72px 72px",
         }}
       />
-      <div className="absolute top-1/4 left-1/3 w-[500px] h-[500px] bg-[#D6A634]/[0.03] rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute top-1/4 left-1/3 w-[600px] h-[600px] bg-[#D6A634]/[0.035] rounded-full blur-[150px] pointer-events-none" />
 
-      <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-12">
+      <div className="relative z-10 w-full max-w-[1520px] mx-auto px-6 sm:px-10 lg:px-12">
         {/* ─── Main Two-Column Layout ─── */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 xl:gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 xl:gap-20 items-center">
           
           {/* ════════ LEFT COLUMN: Pure Architectural Photo with Integrated 30+ ════════ */}
           <div className="lg:col-span-6 xl:col-span-5 flex flex-col">
@@ -90,7 +90,7 @@ export default function ExperienciaSection() {
               initial={{ opacity: 0, y: 24 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8, ease: easing }}
-              className="relative w-full h-[420px] sm:h-[500px] lg:h-[580px] rounded-[22px] overflow-hidden border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.7)] bg-[#141413]"
+              className="relative w-full h-[460px] sm:h-[560px] lg:h-[680px] rounded-[24px] overflow-hidden border border-white/10 shadow-[0_24px_60px_rgba(0,0,0,0.8)] bg-[#141413]"
             >
               <img
                 src={workerImg}
@@ -100,27 +100,27 @@ export default function ExperienciaSection() {
               />
 
               {/* Gradient overlay for contrast */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-black/40 pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-black/45 pointer-events-none" />
 
               {/* Integrated 30+ Badge */}
-              <div className="absolute top-6 left-6 sm:top-8 sm:left-8 z-10">
+              <div className="absolute top-7 left-7 sm:top-9 sm:left-9 z-10">
                 <span
-                  className="block text-[#D6A634] leading-[0.9] font-normal drop-shadow-[0_2px_12px_rgba(0,0,0,0.8)]"
+                  className="block text-[#D6A634] leading-[0.88] font-normal drop-shadow-[0_2px_14px_rgba(0,0,0,0.85)]"
                   style={{
                     fontFamily: "var(--font-serif)",
-                    fontSize: "clamp(4.2rem, 7vw, 6rem)",
+                    fontSize: "clamp(4.8rem, 8vw, 7rem)",
                   }}
                 >
                   30+
                 </span>
-                <span className="block font-sans font-black text-[13px] sm:text-[14px] tracking-[0.25em] text-white uppercase mt-1 drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)]">
+                <span className="block font-sans font-black text-[14px] sm:text-[15px] lg:text-[16px] tracking-[0.25em] text-white uppercase mt-1.5 drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)]">
                   AÑOS DE OFICIO
                 </span>
               </div>
 
               {/* Bottom Subtle Photo Caption */}
-              <div className="absolute bottom-6 left-6 right-6 z-10">
-                <span className="text-[12px] sm:text-[13px] font-mono tracking-[0.16em] uppercase text-[#D6A634] font-semibold">
+              <div className="absolute bottom-7 left-7 right-7 z-10">
+                <span className="text-[13px] sm:text-[14px] font-mono tracking-[0.18em] uppercase text-[#D6A634] font-bold">
                   PRECISIÓN MILIMÉTRICA EN OBRA
                 </span>
               </div>
@@ -128,17 +128,17 @@ export default function ExperienciaSection() {
           </div>
 
           {/* ════════ RIGHT COLUMN: Large Typography, Short Punchy Copy & 4 Points ════════ */}
-          <div className="lg:col-span-6 xl:col-span-7 flex flex-col justify-center py-2 lg:py-4">
+          <div className="lg:col-span-6 xl:col-span-7 flex flex-col justify-center py-2 lg:py-6">
             
             {/* Eyebrow */}
             <motion.div
               initial={{ opacity: 0, y: 12 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.1, ease: easing }}
-              className="flex items-center gap-3 mb-4"
+              className="flex items-center gap-3 mb-5"
             >
-              <span className="w-6 h-[2.5px] bg-[#D6A634]" />
-              <span className="text-[13px] sm:text-[14px] font-sans font-bold tracking-[0.22em] text-[#D6A634] uppercase">
+              <span className="w-8 h-[2.5px] bg-[#D6A634]" />
+              <span className="text-[14px] sm:text-[15px] font-sans font-bold tracking-[0.22em] text-[#D6A634] uppercase">
                 EL VALOR DEL ENFOQUE
               </span>
             </motion.div>
@@ -151,7 +151,7 @@ export default function ExperienciaSection() {
               className="text-white font-normal leading-[1.04] tracking-[-0.025em]"
               style={{
                 fontFamily: "var(--font-serif)",
-                fontSize: "clamp(2.6rem, 4.4vw, 4.2rem)",
+                fontSize: "clamp(2.8rem, 4.8vw, 4.75rem)",
               }}
             >
               Tres décadas perfeccionando{" "}
@@ -160,12 +160,12 @@ export default function ExperienciaSection() {
               </span>
             </motion.h2>
 
-            {/* Clear, Legible Short Narrative (No walls of text) */}
+            {/* Clear, Legible Short Narrative */}
             <motion.p
               initial={{ opacity: 0, y: 14 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.7, delay: 0.32, ease: easing }}
-              className="mt-6 text-[17px] sm:text-[19px] lg:text-[20px] text-[#D0CCC3] leading-[1.6] max-w-xl font-normal"
+              className="mt-7 text-[19px] sm:text-[21px] lg:text-[22px] text-[#D0CCC3] leading-[1.58] max-w-2xl font-normal"
             >
               Mientras otros amplían servicios a reformas y decenas de gremios, nosotros llevamos más de treinta años dedicados a una sola misión:
             </motion.p>
@@ -175,16 +175,16 @@ export default function ExperienciaSection() {
               initial={{ opacity: 0, x: -14 }}
               animate={isInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.7, delay: 0.42, ease: easing }}
-              className="mt-6 py-2 pl-5 border-l-[3.5px] border-[#D6A634]"
+              className="mt-7 py-2.5 pl-5 border-l-[4px] border-[#D6A634]"
             >
-              <p className="font-sans font-black text-[20px] sm:text-[24px] lg:text-[26px] text-white uppercase tracking-[0.03em] leading-tight">
+              <p className="font-sans font-black text-[22px] sm:text-[26px] lg:text-[30px] text-white uppercase tracking-[0.03em] leading-tight">
                 MONTAR COCINAS CON PRECISIÓN ABSOLUTA.
               </p>
             </motion.div>
 
-            {/* ─── 4 Clean Editorial Principles (Bigger text, no card clutter) ─── */}
-            <div className="mt-10 sm:mt-12 pt-7 border-t border-white/15">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-7 sm:gap-y-8">
+            {/* ─── 4 Clean Editorial Principles (Bigger text, spacious grid) ─── */}
+            <div className="mt-12 sm:mt-14 pt-8 border-t border-white/15">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-8 sm:gap-y-10">
                 {[
                   { num: "01", title: "CADA AJUSTE", desc: "Tolerancia cero en frentes y herrajes." },
                   { num: "02", title: "CADA NIVELACIÓN", desc: "Alineación láser milimétrica." },
@@ -198,14 +198,14 @@ export default function ExperienciaSection() {
                     transition={{ duration: 0.5, delay: 0.5 + idx * 0.08, ease: easing }}
                     className="flex items-start gap-4"
                   >
-                    <span className="font-mono text-[14px] sm:text-[15px] font-bold text-[#D6A634] tracking-wider pt-0.5 shrink-0">
+                    <span className="font-mono text-[16px] sm:text-[18px] font-bold text-[#D6A634] tracking-wider pt-0.5 shrink-0">
                       {item.num}
                     </span>
                     <div className="flex flex-col">
-                      <span className="font-sans font-bold text-[15px] sm:text-[16px] text-white uppercase tracking-[0.08em] leading-snug">
+                      <span className="font-sans font-black text-[16px] sm:text-[18px] text-white uppercase tracking-[0.08em] leading-snug">
                         {item.title}
                       </span>
-                      <span className="text-[14px] sm:text-[15px] text-[#A6A29A] font-normal mt-1 leading-snug">
+                      <span className="text-[15px] sm:text-[16px] text-[#B0ACA4] font-normal mt-1 leading-snug">
                         {item.desc}
                       </span>
                     </div>
