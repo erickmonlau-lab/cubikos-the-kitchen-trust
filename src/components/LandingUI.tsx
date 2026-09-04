@@ -350,10 +350,10 @@ export function Hero() {
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-            className="flex items-center gap-3 mb-2.5 lg:mb-3.5"
+            className="flex items-center gap-3 mb-3 lg:mb-4"
           >
-            <span className="w-6 h-[2px] bg-[#D6A634] shrink-0" />
-            <span className="text-[11px] sm:text-[12px] uppercase tracking-[0.24em] font-semibold text-[#D6A634]">
+            <span className="w-7 h-[2.5px] bg-[#D6A634] shrink-0" />
+            <span className="text-[13px] sm:text-[14px] uppercase tracking-[0.2em] font-bold text-[#D6A634]">
               MONTAJE PROFESIONAL DE COCINAS
             </span>
           </motion.div>
@@ -502,10 +502,10 @@ export function Hero() {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.85, ease: [0.22, 1, 0.36, 1] }}
-            className="absolute bottom-5 left-5 sm:bottom-7 sm:left-7 z-20 flex items-center gap-3 px-4 py-3 rounded-[12px] bg-[#0E0E0D]/85 backdrop-blur-md border border-white/10 shadow-[0_8px_30px_rgba(0,0,0,0.6)]"
+            className="absolute bottom-5 left-5 sm:bottom-7 sm:left-7 z-20 flex items-center gap-3.5 px-5 py-3.5 rounded-[14px] bg-[#0E0E0D]/90 backdrop-blur-md border border-white/15 shadow-[0_10px_35px_rgba(0,0,0,0.7)]"
           >
-            <div className="w-8 h-8 rounded-full bg-[#D6A634]/15 border border-[#D6A634]/30 flex items-center justify-center shrink-0">
-              <svg className="w-4 h-4 text-[#D6A634]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <div className="w-10 h-10 rounded-full bg-[#D6A634]/15 border border-[#D6A634]/35 flex items-center justify-center shrink-0">
+              <svg className="w-5 h-5 text-[#D6A634]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
                 <circle cx="12" cy="12" r="10" />
                 <line x1="22" y1="12" x2="18" y2="12" />
                 <line x1="6" y1="12" x2="2" y2="12" />
@@ -514,10 +514,10 @@ export function Hero() {
               </svg>
             </div>
             <div className="flex flex-col pr-1">
-              <span className="text-[11px] font-bold text-white uppercase tracking-[0.14em] leading-tight">
+              <span className="text-[13px] sm:text-[14px] font-bold text-white uppercase tracking-[0.14em] leading-tight">
                 PRECISIÓN MILIMÉTRICA
               </span>
-              <span className="text-[11px] text-[#C2BEB5] font-normal leading-tight mt-0.5">
+              <span className="text-[12.5px] sm:text-[13px] text-[#D8D4CC] font-normal leading-tight mt-1">
                 Acabados impecables garantizados
               </span>
             </div>
@@ -527,17 +527,17 @@ export function Hero() {
 
       {/* ─── Bottom Micro-Copy Bar ─── */}
       <div className="relative z-10 w-full max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-12 pb-3.5 pt-1 shrink-0 flex items-center justify-between pointer-events-none">
-        <div className="flex items-center gap-2 text-[11px] uppercase tracking-[0.2em] font-mono text-white/45">
-          <span className="font-semibold text-white/65">CUBIKOS</span>
-          <span>•</span>
+        <div className="flex items-center gap-2.5 text-[13px] sm:text-[14px] uppercase tracking-[0.18em] font-sans font-medium text-white/70">
+          <span className="font-bold text-white/90">CUBIKOS</span>
+          <span className="text-[#D6A634]">•</span>
           <span>30+ AÑOS DE OFICIO</span>
         </div>
-        <div className="flex items-center gap-2 text-[11px] uppercase tracking-[0.2em] font-mono text-white/45">
+        <div className="flex items-center gap-2 text-[13px] sm:text-[14px] uppercase tracking-[0.18em] font-sans font-medium text-white/70">
           <span>SCROLL</span>
           <motion.span
             animate={{ y: [0, 4, 0] }}
             transition={{ repeat: Infinity, duration: 2.2, ease: "easeInOut" }}
-            className="text-[#D6A634] inline-block font-sans font-bold text-[13px]"
+            className="text-[#D6A634] inline-block font-sans font-bold text-[16px]"
           >
             ↓
           </motion.span>
