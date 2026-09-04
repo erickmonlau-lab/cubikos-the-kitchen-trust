@@ -141,7 +141,7 @@ function RootShell({ children }: { children: ReactNode }) {
                 "Especialistas en montaje profesional de cocinas en Cataluña. Más de 30 años y 10.000 instalaciones con precisión milimétrica.",
               url: "https://cubikos.es",
               telephone: "+34666871144",
-              email: "cubikos25@gmail.com",
+              email: "hola@cubikos.es",
               foundingDate: "1994",
               priceRange: "€€€",
               address: {
@@ -165,12 +165,6 @@ function RootShell({ children }: { children: ReactNode }) {
                   closes: "18:00",
                 },
               ],
-              aggregateRating: {
-                "@type": "AggregateRating",
-                ratingValue: "5",
-                reviewCount: "47",
-                bestRating: "5",
-              },
               sameAs: ["https://www.instagram.com/raphael_gs68"],
             }),
           }}
