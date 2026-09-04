@@ -241,12 +241,9 @@ export const Header = memo(() => {
         {/* Left: Brand Logo */}
         <a
           href="#top"
-          className="flex items-center gap-1 text-[#111111] hover:opacity-85 transition-opacity shrink-0"
+          className="flex items-center text-[#111111] hover:opacity-85 transition-opacity shrink-0"
         >
-          <span className="font-display font-black text-[19px] sm:text-[21px] tracking-tight uppercase">
-            CUBIKOS
-          </span>
-          <span className="font-display font-bold text-[19px] sm:text-[21px] text-[#D6A634]">.es</span>
+          <LogoCubikos className="text-[20px] sm:text-[22px]" />
         </a>
 
         {/* Center: Navigation Links */}
@@ -327,10 +324,7 @@ export const Header = memo(() => {
         className="fixed top-0 right-0 h-full w-[82%] max-w-sm bg-[#121211] text-[#F5F1E8] z-[100] p-6 flex flex-col shadow-2xl lg:hidden pointer-events-auto"
       >
         <div className="flex justify-between items-center pb-6 border-b border-white/10 mb-8">
-          <div className="flex items-center gap-1">
-            <span className="text-[#FAF8F5] font-black text-lg tracking-tight uppercase">CUBIKOS</span>
-            <span className="text-[#D6A634] font-bold text-lg">.es</span>
-          </div>
+          <LogoCubikos className="text-[20px] text-white" />
           <button
             onClick={() => setOpen(false)}
             aria-label="Cerrar menú"
@@ -369,13 +363,13 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="relative w-full min-h-[100svh] lg:min-h-screen bg-[#0E0E0D] text-white flex flex-col justify-between pt-24 sm:pt-28 pb-4"
+      className="relative w-full min-h-[100svh] lg:min-h-screen bg-[#0E0E0D] text-white flex flex-col justify-between pt-20 sm:pt-24 pb-3"
     >
       {/* ─── Hero Two-Column Container ─── */}
-      <div className="relative z-10 w-full max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-12 flex-1 flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12 py-4 lg:py-6">
+      <div className="relative z-10 w-full max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-12 flex-1 flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-14 py-2 lg:py-4">
 
-        {/* ─── LEFT COLUMN (45% width) ─── */}
-        <div className="w-full lg:w-[46%] xl:w-[45%] flex flex-col justify-center shrink-0">
+        {/* ─── LEFT COLUMN (46% width) ─── */}
+        <div className="w-full lg:w-[48%] xl:w-[46%] flex flex-col justify-center shrink-0">
 
           {/* Eyebrow */}
           <motion.div
@@ -505,12 +499,12 @@ export function Hero() {
           </motion.div>
         </div>
 
-        {/* ─── RIGHT COLUMN (54–55% width) — High-end Contained Photography ─── */}
+        {/* ─── RIGHT COLUMN (High-end Contained Photography) ─── */}
         <motion.div
           initial={{ opacity: 0, scale: 0.98 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.9, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-          className="relative w-full lg:w-[54%] xl:w-[55%] h-[420px] sm:h-[480px] lg:h-[calc(100vh-190px)] min-h-[420px] lg:min-h-[520px] max-h-[760px] rounded-[24px] overflow-hidden shrink-0 shadow-[0_12px_44px_rgba(0,0,0,0.7)]"
+          className="relative w-full lg:w-[50%] xl:w-[52%] h-[400px] sm:h-[460px] lg:h-[calc(100vh-170px)] min-h-[380px] lg:min-h-[480px] max-h-[720px] rounded-[24px] overflow-hidden shrink-0 shadow-[0_16px_50px_rgba(0,0,0,0.6)]"
         >
           <img
             src={heroImg}
