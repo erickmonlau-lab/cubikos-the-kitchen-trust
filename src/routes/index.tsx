@@ -79,7 +79,7 @@ function FloatingWidgets() {
           Llamar ahora
         </a>
         <a
-          href="#contacto"
+          href="/contacto"
           className="flex-1 flex items-center justify-center text-brand font-bold hover:bg-white/5 transition-colors"
         >
           Presupuesto gratis
@@ -120,8 +120,6 @@ function Landing() {
         <TestimoniosSection />
 
         <FAQSection />
-
-        <ContactoSection />
       </main>
       <Footer />
     </div>

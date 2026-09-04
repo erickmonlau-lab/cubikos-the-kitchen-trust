@@ -429,7 +429,7 @@ export function Hero() {
             className="mt-5 lg:mt-6 flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5"
           >
             <a
-              href="#contacto"
+              href="/contacto"
               className="group inline-flex items-center justify-center gap-2.5 px-7 h-[46px] rounded-[6px] bg-[#D6A634] text-[#111110] font-sans font-bold text-[13px] uppercase tracking-[0.12em] transition-all duration-300 shadow-[0_4px_18px_rgba(214,166,52,0.32)] hover:bg-[#e2b747] hover:shadow-[0_6px_26px_rgba(214,166,52,0.48)] hover:-translate-y-[1px]"
             >
               <span>SOLICITAR PRESUPUESTO</span>
