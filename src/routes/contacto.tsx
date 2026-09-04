@@ -77,11 +77,12 @@ function ContactoPage() {
                     <span className="text-xs font-mono uppercase tracking-widest text-[#D6A634] font-bold block mb-1">
                       EMAIL PROFESIONAL
                     </span>
+                    {/* TODO: dominio definitivo y correo corporativo */}
                     <a
-                      href="mailto:hola@cubikos.es"
+                      href="mailto:cubikos25@gmail.com"
                       className="text-xl font-bold text-white hover:text-[#D6A634] transition-colors"
                     >
-                      hola@cubikos.es
+                      cubikos25@gmail.com
                     </a>
                   </div>
 

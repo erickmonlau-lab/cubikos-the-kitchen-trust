@@ -91,18 +91,20 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "montaje cocinas barcelona, instalación cocinas cataluña, montadores cocinas profesionales, montaje muebles cocina, instalación cocina premium barcelona, montadores ikea barcelona",
       },
       { property: "og:locale", content: "es_ES" },
-      { property: "og:url", content: "https://cubikos.es/" },
+      // TODO: dominio definitivo
+      { property: "og:url", content: "https://cubikos.vercel.app/" },
       { name: "twitter:title", content: "CUBIKOS | Montaje Profesional de Cocinas en Cataluña" },
       {
         name: "twitter:description",
         content:
-          "30 años y 10.000 cocinas instaladas con precisión milimétrica. El mejor montaje de cocinas de Cataluña. Solicita presupuesto sin compromiso.",
+          "30 años y 500+ cocinas instaladas con precisión milimétrica. El mejor montaje de cocinas de Cataluña. Solicita presupuesto sin compromiso.",
       },
     ],
     links: [
-      { rel: "canonical", href: "https://cubikos.es/" },
-      { rel: "alternate", hrefLang: "es", href: "https://cubikos.es/" },
-      { rel: "alternate", hrefLang: "x-default", href: "https://cubikos.es/" },
+      // TODO: dominio definitivo
+      { rel: "canonical", href: "https://cubikos.vercel.app/" },
+      { rel: "alternate", hrefLang: "es", href: "https://cubikos.vercel.app/" },
+      { rel: "alternate", hrefLang: "x-default", href: "https://cubikos.vercel.app/" },
       { rel: "manifest", href: "/manifest.json" },
       { rel: "apple-touch-icon", href: "/apple-touch-icon.png" },
       { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
@@ -134,14 +136,17 @@ function RootShell({ children }: { children: ReactNode }) {
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": ["LocalBusiness", "HomeAndConstructionBusiness"],
-              "@id": "https://cubikos.es/#business",
+              // TODO: dominio definitivo
+              "@id": "https://cubikos.vercel.app/#business",
               name: "CUBIKOS",
               alternateName: "Cubikos Kitchen Trust",
               description:
-                "Especialistas en montaje profesional de cocinas en Cataluña. Más de 30 años y 10.000 instalaciones con precisión milimétrica.",
-              url: "https://cubikos.es",
+                "Especialistas en montaje profesional de cocinas en Cataluña. Más de 30 años y 500+ instalaciones con precisión milimétrica.",
+              // TODO: dominio definitivo
+              url: "https://cubikos.vercel.app",
               telephone: "+34666871144",
-              email: "hola@cubikos.es",
+              // TODO: dominio definitivo y correo corporativo
+              email: "cubikos25@gmail.com",
               foundingDate: "1994",
               priceRange: "€€€",
               address: {

@@ -1,45 +1,99 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- TODO: actualizar a dominio definitivo cuando esté confirmado -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Páginas Principales -->
   <url>
-    <loc>https://cubikos.es/</loc>
+    <loc>https://cubikos.vercel.app/</loc>
     <lastmod>2026-09-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://cubikos.es/metodo</loc>
+    <loc>https://cubikos.vercel.app/metodo</loc>
     <lastmod>2026-09-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://cubikos.es/proyectos</loc>
+    <loc>https://cubikos.vercel.app/proyectos</loc>
     <lastmod>2026-09-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://cubikos.es/servicios</loc>
+    <loc>https://cubikos.vercel.app/servicios</loc>
     <lastmod>2026-09-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://cubikos.es/sobre-cubikos</loc>
+    <loc>https://cubikos.vercel.app/sobre-cubikos</loc>
     <lastmod>2026-09-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://cubikos.es/faq</loc>
+    <loc>https://cubikos.vercel.app/faq</loc>
     <lastmod>2026-09-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cubikos.es/contacto</loc>
+    <loc>https://cubikos.vercel.app/contacto</loc>
     <lastmod>2026-09-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+
+  <!-- Especialidades y Servicios -->
+  <url>
+    <loc>https://cubikos.vercel.app/servicios/montaje-cocinas-alta-gama</loc>
+    <lastmod>2026-09-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://cubikos.vercel.app/servicios/islas-y-columnas</loc>
+    <lastmod>2026-09-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://cubikos.vercel.app/servicios/botelleros-a-medida</loc>
+    <lastmod>2026-09-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://cubikos.vercel.app/servicios/electrodomesticos-integrados</loc>
+    <lastmod>2026-09-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Casos de Estudio y Proyectos -->
+  <url>
+    <loc>https://cubikos.vercel.app/proyectos/cocina-isla-sarria</loc>
+    <lastmod>2026-09-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cubikos.vercel.app/proyectos/botellero-iluminado-sant-cugat</loc>
+    <lastmod>2026-09-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cubikos.vercel.app/proyectos/columna-hornos-emporda</loc>
+    <lastmod>2026-09-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cubikos.vercel.app/proyectos/frentes-negro-mate-eixample</loc>
+    <lastmod>2026-09-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 </urlset>

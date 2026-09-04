@@ -211,6 +211,7 @@ export function Counter({
 }
 
 const navItems = [
+  { label: "Experiencia", href: "/#experiencia" },
   { label: "Método", href: "/metodo" },
   { label: "Servicios", href: "/servicios" },
   { label: "Proyectos", href: "/proyectos" },
@@ -475,7 +476,7 @@ export function Hero() {
                 className="text-[22px] sm:text-[26px] lg:text-[28px] leading-none text-white font-normal tracking-tight"
                 style={{ fontFamily: 'var(--font-serif)' }}
               >
-                10.000+
+                500+
               </span>
               <span className="mt-1.5 text-[10px] sm:text-[11px] uppercase tracking-[0.14em] text-[#908C84] font-semibold font-sans">
                 COCINAS MONTADAS
@@ -769,7 +770,7 @@ export function CintasKinetic() {
     "30+ AÑOS DE OFICIO",
     "EBANISTERÍA A MEDIDA",
     "AJUSTE LÁSER EN OBRA",
-    "10.000+ COCINAS INSTALADAS",
+    "500+ COCINAS INSTALADAS",
     "CATALUÑA",
     "TOLERANCIA CERO",
     "ACABADOS IMPECABLES",
@@ -781,7 +782,8 @@ export function CintasKinetic() {
     "ESPECIALISTAS EXCLUSIVOS",
     "ENCLAVES PERFECTOS",
     "INGENIERÍA & OFICIO",
-    "CUBIKOS.ES",
+    // TODO: dominio definitivo
+    "CUBIKOS COCINAS",
     "CALIBRACIÓN CERTIFICADA",
     "MÁXIMA DURABILIDAD",
   ];

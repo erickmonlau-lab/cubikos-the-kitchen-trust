@@ -88,54 +88,59 @@ function ProyectosPage() {
           >
             <AnimatePresence>
               {proyectosFiltrados.map((item) => (
-                <motion.article
+                <motion.div
                   key={item.slug}
                   layout
                   initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.95 }}
                   transition={{ duration: 0.4 }}
-                  className="bg-[#141413] border border-white/10 rounded-2xl overflow-hidden group hover:border-[#D6A634]/50 transition-all duration-300 flex flex-col"
                 >
-                  {/* Photo with badges */}
-                  <div className="relative aspect-[4/3] w-full overflow-hidden bg-black/40">
-                    <img
-                      src={item.imagenPrincipal}
-                      alt={item.titulo}
-                      loading="lazy"
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
+                  <Link
+                    to="/proyectos_/$slug"
+                    params={{ slug: item.slug }}
+                    className="bg-[#141413] border border-white/10 rounded-2xl overflow-hidden group hover:border-[#D6A634]/50 transition-all duration-300 flex flex-col h-full"
+                  >
+                    {/* Photo with badges */}
+                    <div className="relative aspect-[4/3] w-full overflow-hidden bg-black/40">
+                      <img
+                        src={item.imagenPrincipal}
+                        alt={item.titulo}
+                        loading="lazy"
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
 
-                    <div className="absolute top-4 left-4 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full border border-white/10 text-[11px] font-mono text-[#D6A634] font-bold">
-                      {item.categoriaLabel}
+                      <div className="absolute top-4 left-4 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full border border-white/10 text-[11px] font-mono text-[#D6A634] font-bold">
+                        {item.categoriaLabel}
+                      </div>
+
+                      <div className="absolute bottom-4 left-4 right-4 flex justify-between items-center text-xs font-mono text-white/90 pointer-events-none">
+                        <span>{item.ubicacion}</span>
+                        <span className="text-[#D6A634] font-bold">{item.tolerancia}</span>
+                      </div>
                     </div>
 
-                    <div className="absolute bottom-4 left-4 right-4 flex justify-between items-center text-xs font-mono text-white/90 pointer-events-none">
-                      <span>{item.ubicacion}</span>
-                      <span className="text-[#D6A634] font-bold">{item.tolerancia}</span>
-                    </div>
-                  </div>
+                    {/* Content */}
+                    <div className="p-6 sm:p-7 flex flex-col flex-1 justify-between">
+                      <div>
+                        <h2 className="text-xl font-display font-bold text-white mb-2 group-hover:text-[#D6A634] transition-colors">
+                          {item.titulo}
+                        </h2>
+                        <p className="text-sm text-[#A6A29A] line-clamp-2 leading-relaxed mb-4">
+                          {item.subtitulo}
+                        </p>
+                      </div>
 
-                  {/* Content */}
-                  <div className="p-6 sm:p-7 flex flex-col flex-1 justify-between">
-                    <div>
-                      <h2 className="text-xl font-display font-bold text-white mb-2 group-hover:text-[#D6A634] transition-colors">
-                        {item.titulo}
-                      </h2>
-                      <p className="text-sm text-[#A6A29A] line-clamp-2 leading-relaxed mb-4">
-                        {item.subtitulo}
-                      </p>
+                      <div className="pt-4 border-t border-white/10 flex items-center justify-between text-xs font-bold uppercase tracking-wider text-[#D6A634]">
+                        <span>Ver ficha técnica</span>
+                        <span className="transition-transform duration-300 group-hover:translate-x-1 font-bold">
+                          →
+                        </span>
+                      </div>
                     </div>
-
-                    <div className="pt-4 border-t border-white/10 flex items-center justify-between text-xs font-bold uppercase tracking-wider text-[#D6A634]">
-                      <span>Ver ficha técnica</span>
-                      <span className="transition-transform duration-300 group-hover:translate-x-1 font-bold">
-                        →
-                      </span>
-                    </div>
-                  </div>
-                </motion.article>
+                  </Link>
+                </motion.div>
               ))}
             </AnimatePresence>
           </motion.div>

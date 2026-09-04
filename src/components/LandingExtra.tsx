@@ -435,8 +435,9 @@ export const Footer = memo(() => {
             </h4>
             <ul className="space-y-4 text-[#EDEBE8] font-medium text-lg">
               <li>
-                <a href="mailto:hola@cubikos.es" className="hover:text-brand transition-colors">
-                  hola@cubikos.es
+                {/* TODO: dominio definitivo y correo corporativo */}
+                <a href="mailto:cubikos25@gmail.com" className="hover:text-brand transition-colors">
+                  cubikos25@gmail.com
                 </a>
               </li>
               <li>

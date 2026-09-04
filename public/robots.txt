@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
-Sitemap: https://cubikos.es/sitemap.xml
+# TODO: dominio definitivo
+Sitemap: https://cubikos.vercel.app/sitemap.xml

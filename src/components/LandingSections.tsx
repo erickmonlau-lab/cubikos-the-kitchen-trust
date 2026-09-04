@@ -157,7 +157,7 @@ export function Experiencia() {
                 <p>Cada acabado.</p>
               </div>
               <p className="text-brand font-bold pt-4">
-                Perfeccionados tras más de 10.000 instalaciones.
+                Perfeccionados tras más de 500 instalaciones.
               </p>
             </PremiumFade>
           </div>
@@ -171,15 +171,15 @@ export function StatsGrid() {
   return (
     <section className="bg-[#FAFAF8] py-16 md:py-24 border-b border-[#E5E0D8]">
       <div className="container-x">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-6 lg:gap-0 divide-y sm:divide-y-0 sm:divide-x divide-[#E5E0D8]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-6 lg:gap-0 divide-y sm:divide-y-0 sm:divide-x divide-[#E5E0D8]">
           <PremiumFade
             delay={0.0}
-            className="flex flex-col items-center md:items-start px-4 md:px-6 lg:px-8 py-4 min-w-0 overflow-visible"
+            className="flex flex-col items-center md:items-start px-6 lg:px-8 py-6 min-w-0 overflow-visible"
           >
-            <div className="font-display font-black text-[clamp(2.8rem,4vw,5rem)] xl:text-[5.5rem] tracking-tighter text-brand leading-none whitespace-nowrap">
+            <div className="font-display font-black text-[clamp(2.5rem,3.8vw,4.5rem)] xl:text-[5rem] tracking-tight text-brand leading-none whitespace-nowrap">
               <Counter to={30} duration={1.5} suffix="+" />
             </div>
-            <div className="mt-4 text-[#1A1A1A] text-[15px] sm:text-[16px] md:text-[18px] font-black uppercase tracking-[0.08em] text-center md:text-left leading-tight">
+            <div className="mt-4 text-[#1A1A1A] text-[15px] sm:text-[16px] md:text-[17px] font-black uppercase tracking-[0.08em] text-center md:text-left leading-tight">
               Años de experiencia
             </div>
             <motion.div
@@ -194,12 +194,12 @@ export function StatsGrid() {
 
           <PremiumFade
             delay={0.15}
-            className="flex flex-col items-center md:items-start px-4 md:px-6 lg:px-8 py-4 min-w-0 overflow-visible pt-8 sm:pt-4"
+            className="flex flex-col items-center md:items-start px-6 lg:px-8 py-6 min-w-0 overflow-visible pt-8 sm:pt-6"
           >
-            <div className="font-display font-black text-[clamp(2.8rem,4vw,5rem)] xl:text-[5.5rem] tracking-tighter text-brand leading-none whitespace-nowrap">
-              <Counter to={10000} duration={2} suffix="+" />
+            <div className="font-display font-black text-[clamp(2.5rem,3.8vw,4.5rem)] xl:text-[5rem] tracking-tight text-brand leading-none whitespace-nowrap">
+              <Counter to={500} duration={1.5} suffix="+" />
             </div>
-            <div className="mt-4 text-[#1A1A1A] text-[15px] sm:text-[16px] md:text-[18px] font-black uppercase tracking-[0.08em] text-center md:text-left leading-tight">
+            <div className="mt-4 text-[#1A1A1A] text-[15px] sm:text-[16px] md:text-[17px] font-black uppercase tracking-[0.08em] text-center md:text-left leading-tight">
               Cocinas montadas
             </div>
             <motion.div
@@ -214,13 +214,13 @@ export function StatsGrid() {
 
           <PremiumFade
             delay={0.3}
-            className="flex flex-col items-center md:items-start px-4 md:px-6 lg:px-8 py-4 min-w-0 overflow-visible pt-8 sm:pt-4"
+            className="flex flex-col items-center md:items-start px-6 lg:px-8 py-6 min-w-0 overflow-visible pt-8 sm:pt-6"
           >
-            <div className="font-display font-black text-[clamp(2.8rem,4vw,5rem)] xl:text-[5.5rem] tracking-tighter text-brand leading-none whitespace-nowrap">
-              <Counter to={5} duration={1} suffix="/5" />
+            <div className="font-display font-black text-[clamp(2.5rem,3.8vw,4.5rem)] xl:text-[5rem] tracking-tight text-brand leading-none whitespace-nowrap">
+              <Counter to={100} duration={1.5} suffix="%" />
             </div>
-            <div className="mt-4 text-[#1A1A1A] text-[15px] sm:text-[16px] md:text-[18px] font-black uppercase tracking-[0.08em] text-center md:text-left leading-tight">
-              Valoración
+            <div className="mt-4 text-[#1A1A1A] text-[15px] sm:text-[16px] md:text-[17px] font-black uppercase tracking-[0.08em] text-center md:text-left leading-tight">
+              Cobertura Cataluña
             </div>
             <motion.div
               initial={{ scaleX: 0 }}
@@ -234,13 +234,13 @@ export function StatsGrid() {
 
           <PremiumFade
             delay={0.45}
-            className="flex flex-col items-center md:items-start px-4 md:px-6 lg:px-8 py-4 min-w-0 overflow-visible pt-8 sm:pt-4"
+            className="flex flex-col items-center md:items-start px-6 lg:px-8 py-6 min-w-0 overflow-visible pt-8 sm:pt-6"
           >
-            <div className="font-display font-black text-[clamp(2.8rem,4vw,5rem)] xl:text-[5.5rem] tracking-tighter text-brand leading-none whitespace-nowrap">
+            <div className="font-display font-black text-[clamp(2.5rem,3.8vw,4.5rem)] xl:text-[5rem] tracking-tight text-brand leading-none whitespace-nowrap">
               <Counter to={100} duration={1.5} suffix="%" />
             </div>
-            <div className="mt-4 text-[#1A1A1A] text-[15px] sm:text-[16px] md:text-[18px] font-black uppercase tracking-[0.08em] text-center md:text-left leading-tight">
-              Garantía
+            <div className="mt-4 text-[#1A1A1A] text-[15px] sm:text-[16px] md:text-[17px] font-black uppercase tracking-[0.08em] text-center md:text-left leading-tight">
+              Garantía de ajuste
             </div>
             <motion.div
               initial={{ scaleX: 0 }}
@@ -649,18 +649,18 @@ export function Testimonios() {
               En CUBIKOS cada montaje se entrega con tolerancia milimétrica y revisión exhaustiva. Si ya has trabajado con nosotros en Cataluña, comparte tu experiencia.
             </p>
 
-            <div className="flex flex-col sm:flex-row items-center gap-4">
+            <div className="flex flex-col items-center gap-4">
               <a
-                href="https://wa.me/34666871144?text=Hola,%20quiero%20compartir%20mi%20opinion%20sobre%20el%20montaje%20de%20mi%20cocina"
+                href="https://wa.me/34666871144?text=Hola,%20he%20montado%20mi%20cocina%20con%20CUBIKOS%20y%20quiero%20compartir%20mi%20opinion"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2.5 px-8 h-[50px] rounded-full bg-[#111111] hover:bg-brand hover:text-[#111111] text-white font-sans font-bold text-xs uppercase tracking-[0.14em] transition-all duration-300 shadow-lg"
               >
-                <span>Dejar una reseña en Google</span>
+                <span>Sé el primero en dejarnos tu opinión</span>
                 <span className="font-bold">→</span>
               </a>
-              <span className="text-xs font-semibold text-[#888] uppercase tracking-wider">
-                Valoración media 5.0 / 5.0 ★
+              <span className="text-xs font-semibold text-[#888] tracking-wider">
+                Cada montaje se entrega con tolerancia milimétrica certificada.
               </span>
             </div>
           </FadeUp>

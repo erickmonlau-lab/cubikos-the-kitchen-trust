@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { Header } from "../components/LandingUI";
 import { Footer } from "../components/LandingExtra";
 import { motion } from "framer-motion";
@@ -134,14 +134,21 @@ function ServiciosPage() {
                   </div>
                 </div>
 
-                <div className="pt-8 mt-8 border-t border-white/5">
-                  <a
-                    href="/#contacto"
-                    className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#D6A634] hover:text-white transition-colors"
+                <div className="pt-8 mt-8 border-t border-white/10 flex items-center justify-between">
+                  <Link
+                    to="/servicios_/$slug"
+                    params={{ slug: s.id }}
+                    className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#D6A634] hover:underline transition-colors"
                   >
-                    <span>Consultar para tu cocina</span>
+                    <span>Ver protocolo y ficha técnica</span>
                     <span>→</span>
-                  </a>
+                  </Link>
+                  <Link
+                    to="/contacto"
+                    className="text-xs text-[#A6A29A] hover:text-white transition-colors"
+                  >
+                    Pedir presupuesto
+                  </Link>
                 </div>
               </motion.div>
             ))}

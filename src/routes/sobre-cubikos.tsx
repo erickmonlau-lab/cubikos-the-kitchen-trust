@@ -1,4 +1,4 @@
-﻿import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { Header } from "../components/LandingUI";
 import { Footer } from "../components/LandingExtra";
 import heroWorker from "@/assets/hero-worker-master.webp";
@@ -90,7 +90,7 @@ function SobrePage() {
             </div>
             <div className="pt-8 sm:pt-0">
               <span className="font-display font-black text-5xl sm:text-6xl text-[#D6A634] block mb-2">
-                10.000+
+                500+
               </span>
               <span className="text-xs uppercase tracking-widest text-[#A6A29A] font-bold">
                 Cocinas instaladas en Cataluña
