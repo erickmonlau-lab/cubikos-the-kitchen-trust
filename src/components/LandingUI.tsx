@@ -325,7 +325,7 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="relative w-full overflow-hidden bg-[#0C0C0B] pt-[78px] min-h-[680px] lg:h-[760px] max-h-[820px] flex items-center"
+      className="relative w-full overflow-hidden bg-[#0F0F0E] pt-[78px] min-h-[720px] lg:h-[780px] max-h-[860px] flex items-center"
     >
       {/* Background Image Container */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
@@ -334,15 +334,15 @@ export function Hero() {
           alt="Montaje artesanal de cocina con precisión milimétrica"
           fetchPriority="high"
           loading="eager"
-          className="w-full h-full object-cover object-[68%_center] lg:object-[62%_center] scale-[1.01] transition-transform duration-1000 ease-out"
+          className="w-full h-full object-cover object-[70%_center] lg:object-[64%_center] contrast-[1.08] saturate-[1.02]"
         />
 
-        {/* Desktop Editorial Gradient: 95% black left -> 72% center -> 5% transparent right */}
+        {/* Desktop Editorial Gradient: Solid deep black on text column, smooth ramp across middle, delicate veil on craftsman */}
         <div
           className="hidden md:block absolute inset-0"
           style={{
             background:
-              "linear-gradient(90deg, rgba(15,15,14,0.96) 0%, rgba(15,15,14,0.92) 36%, rgba(15,15,14,0.72) 58%, rgba(15,15,14,0.22) 80%, rgba(15,15,14,0.05) 100%)",
+              "linear-gradient(90deg, #0F0F0E 0%, #0F0F0E 34%, rgba(15,15,14,0.95) 44%, rgba(15,15,14,0.78) 58%, rgba(15,15,14,0.30) 78%, rgba(15,15,14,0.08) 100%)",
           }}
         />
 
@@ -351,24 +351,27 @@ export function Hero() {
           className="md:hidden absolute inset-0"
           style={{
             background:
-              "linear-gradient(180deg, rgba(15,15,14,0.92) 0%, rgba(15,15,14,0.86) 65%, rgba(15,15,14,0.4) 100%)",
+              "linear-gradient(180deg, rgba(15,15,14,0.96) 0%, rgba(15,15,14,0.90) 65%, rgba(15,15,14,0.55) 100%)",
           }}
         />
       </div>
 
       {/* Content Container */}
-      <div className="relative z-10 w-full max-w-[1360px] mx-auto px-6 sm:px-8 lg:px-12 py-12 lg:py-0">
-        <div className="w-full max-w-[560px] lg:max-w-[580px] flex flex-col justify-center">
+      <div className="relative z-10 w-full max-w-[1360px] mx-auto px-6 sm:px-8 lg:px-12 py-10 lg:py-0">
+        <div className="w-full max-w-[580px] lg:max-w-[620px] flex flex-col justify-center">
           {/* Micro-label */}
-          <div className="flex items-center gap-3 mb-5">
-            <span className="w-8 h-[1.5px] bg-[#D6A634]" />
-            <span className="font-mono text-[11px] md:text-[12px] uppercase tracking-[0.24em] font-semibold text-[#D6A634]">
+          <div className="flex items-center gap-3 mb-6">
+            <span className="w-8 h-[2px] bg-[#D6A634]" />
+            <span className="font-mono text-[11px] md:text-[12px] uppercase tracking-[0.22em] font-semibold text-[#D6A634]">
               Montaje profesional de cocinas
             </span>
           </div>
 
           {/* Headline in Serif Cormorant Garamond */}
-          <h1 className="font-serif text-[40px] sm:text-[48px] md:text-[54px] lg:text-[58px] leading-[1.08] tracking-[-0.015em] text-[#F5F1E8] font-normal">
+          <h1
+            className="text-[42px] sm:text-[50px] md:text-[58px] lg:text-[62px] leading-[1.06] tracking-[-0.015em] text-[#FAF8F5] font-normal"
+            style={{ fontFamily: 'var(--font-serif)' }}
+          >
             <span className="block">Una cocina perfecta</span>
             <span className="block">empieza con un</span>
             <span className="block">
@@ -377,10 +380,10 @@ export function Hero() {
           </h1>
 
           {/* Subtitle */}
-          <p className="mt-5 text-[15px] sm:text-[16px] md:text-[17px] text-[#A6A29A] leading-[1.65] max-w-[500px] font-normal">
+          <p className="mt-6 text-[15px] sm:text-[16px] md:text-[17px] text-[#C2BEB5] leading-[1.65] max-w-[500px] font-normal">
             Más de 30 años instalando cocinas en Cataluña con{" "}
-            <span className="text-[#F5F1E8] font-medium">precisión milimétrica</span> y{" "}
-            <span className="text-[#F5F1E8] font-medium">acabados impecables</span>. El montaje decide
+            <span className="text-[#FAF8F5] font-medium">precisión milimétrica</span> y{" "}
+            <span className="text-[#FAF8F5] font-medium">acabados impecables</span>. El montaje decide
             el resultado final de tu cocina.
           </p>
 
@@ -388,54 +391,63 @@ export function Hero() {
           <div className="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
             <a
               href="#contacto"
-              className="group inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-[4px] bg-[#D6A634] text-[#111110] font-sans font-bold text-[13px] uppercase tracking-[0.14em] transition-all duration-200 shadow-[0_4px_16px_rgba(214,166,52,0.25)] hover:bg-[#c4972c] hover:shadow-[0_6px_22px_rgba(214,166,52,0.35)]"
+              className="group inline-flex items-center justify-center gap-2.5 px-8 py-3.5 rounded-[4px] bg-[#D6A634] text-[#111110] font-sans font-bold text-[13px] uppercase tracking-[0.14em] transition-all duration-200 shadow-[0_4px_16px_rgba(214,166,52,0.30)] hover:bg-[#e0b240] hover:shadow-[0_6px_22px_rgba(214,166,52,0.45)] hover:-translate-y-0.5"
             >
               <span>Solicitar presupuesto</span>
-              <span className="transition-transform duration-200 group-hover:translate-x-1">→</span>
+              <span className="transition-transform duration-200 group-hover:translate-x-1 font-bold">→</span>
             </a>
             <a
               href="#proyectos"
-              className="group inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-[4px] border border-[#F5F1E8]/35 bg-transparent text-[#F5F1E8] font-sans font-medium text-[13px] uppercase tracking-[0.14em] transition-all duration-200 hover:border-[#F5F1E8]/80 hover:bg-white/5"
+              className="group inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-[4px] border border-[#FAF8F5]/40 bg-black/20 backdrop-blur-sm text-[#FAF8F5] font-sans font-semibold text-[13px] uppercase tracking-[0.14em] transition-all duration-200 hover:border-[#FAF8F5]/90 hover:bg-white/10 hover:-translate-y-0.5"
             >
               <span>Ver proyectos</span>
-              <span className="transition-transform duration-200 group-hover:translate-x-1">→</span>
+              <span className="transition-transform duration-200 group-hover:translate-x-1 font-bold">→</span>
             </a>
           </div>
 
           {/* Trust Block (Horizontal Metrics) */}
-          <div className="mt-10 pt-7 border-t border-white/12 flex items-center gap-6 sm:gap-8">
+          <div className="mt-10 pt-7 border-t border-white/15 flex items-center gap-6 sm:gap-10">
             {/* Metric 1 */}
             <div className="flex flex-col">
-              <span className="font-serif text-[26px] sm:text-[28px] leading-none text-[#F5F1E8] font-medium">
+              <span
+                className="text-[28px] sm:text-[32px] leading-none text-[#FAF8F5] font-medium"
+                style={{ fontFamily: 'var(--font-serif)' }}
+              >
                 +30 años
               </span>
-              <span className="mt-1 text-[11px] uppercase tracking-[0.12em] text-[#8C8880] font-medium">
+              <span className="mt-1.5 text-[11px] uppercase tracking-[0.14em] text-[#9E9A91] font-semibold font-sans">
                 De experiencia
               </span>
             </div>
 
             {/* Divider */}
-            <div className="w-[1px] h-9 bg-white/15" />
+            <div className="w-[1px] h-10 bg-white/20" />
 
             {/* Metric 2 */}
             <div className="flex flex-col">
-              <span className="font-serif text-[26px] sm:text-[28px] leading-none text-[#F5F1E8] font-medium">
+              <span
+                className="text-[28px] sm:text-[32px] leading-none text-[#FAF8F5] font-medium"
+                style={{ fontFamily: 'var(--font-serif)' }}
+              >
                 Cataluña
               </span>
-              <span className="mt-1 text-[11px] uppercase tracking-[0.12em] text-[#8C8880] font-medium">
+              <span className="mt-1.5 text-[11px] uppercase tracking-[0.14em] text-[#9E9A91] font-semibold font-sans">
                 Cobertura total
               </span>
             </div>
 
             {/* Divider */}
-            <div className="w-[1px] h-9 bg-white/15" />
+            <div className="w-[1px] h-10 bg-white/20" />
 
             {/* Metric 3 */}
             <div className="flex flex-col">
-              <span className="font-serif text-[26px] sm:text-[28px] leading-none text-[#F5F1E8] font-medium">
+              <span
+                className="text-[28px] sm:text-[32px] leading-none text-[#FAF8F5] font-medium"
+                style={{ fontFamily: 'var(--font-serif)' }}
+              >
                 500+
               </span>
-              <span className="mt-1 text-[11px] uppercase tracking-[0.12em] text-[#8C8880] font-medium">
+              <span className="mt-1.5 text-[11px] uppercase tracking-[0.14em] text-[#9E9A91] font-semibold font-sans">
                 Cocinas montadas
               </span>
             </div>
@@ -444,14 +456,14 @@ export function Hero() {
       </div>
 
       {/* Subtle Corner Signature - Bottom Left */}
-      <div className="hidden lg:flex absolute bottom-5 left-12 items-center gap-2 text-[10px] uppercase tracking-[0.2em] text-[#6E6A62] font-mono pointer-events-none z-10">
+      <div className="hidden lg:flex absolute bottom-5 left-12 items-center gap-2 text-[10px] uppercase tracking-[0.2em] text-[#858077] font-mono pointer-events-none z-10">
         <span>Cubikos</span>
         <span>•</span>
         <span>30+ Años de oficio</span>
       </div>
 
       {/* Subtle Scroll Hint - Bottom Right */}
-      <div className="hidden lg:flex absolute bottom-5 right-12 items-center gap-1.5 text-[10px] uppercase tracking-[0.2em] text-[#6E6A62] font-mono pointer-events-none z-10">
+      <div className="hidden lg:flex absolute bottom-5 right-12 items-center gap-1.5 text-[10px] uppercase tracking-[0.2em] text-[#858077] font-mono pointer-events-none z-10">
         <span>Scroll</span>
         <span className="text-[#D6A634]">↓</span>
       </div>

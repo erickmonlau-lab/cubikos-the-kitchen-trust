@@ -67,7 +67,6 @@
     font-family: var(--font-display);
     font-weight: 900; /* Inter Tight Black */
     letter-spacing: -0.01em;
-    color: var(--color-ink);
   }
 }
 
