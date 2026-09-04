@@ -182,9 +182,9 @@ export default function ExperienciaSection() {
               </p>
             </motion.div>
 
-            {/* ─── 4 Clean Editorial Principles (Bigger text, spacious grid) ─── */}
-            <div className="mt-12 sm:mt-14 pt-8 border-t border-white/15">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-8 sm:gap-y-10">
+            {/* ─── 4 Clean Editorial Principles (Substantially Bigger Presence) ─── */}
+            <div className="mt-12 sm:mt-14 pt-8 border-t border-white/20">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-12 lg:gap-x-14 gap-y-9 sm:gap-y-11">
                 {[
                   { num: "01", title: "CADA AJUSTE", desc: "Tolerancia cero en frentes y herrajes." },
                   { num: "02", title: "CADA NIVELACIÓN", desc: "Alineación láser milimétrica." },
@@ -196,16 +196,16 @@ export default function ExperienciaSection() {
                     initial={{ opacity: 0, y: 12 }}
                     animate={isInView ? { opacity: 1, y: 0 } : {}}
                     transition={{ duration: 0.5, delay: 0.5 + idx * 0.08, ease: easing }}
-                    className="flex items-start gap-4"
+                    className="flex items-start gap-5"
                   >
-                    <span className="font-mono text-[16px] sm:text-[18px] font-bold text-[#D6A634] tracking-wider pt-0.5 shrink-0">
+                    <span className="font-mono text-[22px] sm:text-[24px] lg:text-[26px] font-bold text-[#D6A634] tracking-wider leading-none shrink-0 pt-0.5">
                       {item.num}
                     </span>
                     <div className="flex flex-col">
-                      <span className="font-sans font-black text-[16px] sm:text-[18px] text-white uppercase tracking-[0.08em] leading-snug">
+                      <span className="font-sans font-black text-[19px] sm:text-[21px] lg:text-[22px] text-white uppercase tracking-[0.05em] leading-snug">
                         {item.title}
                       </span>
-                      <span className="text-[15px] sm:text-[16px] text-[#B0ACA4] font-normal mt-1 leading-snug">
+                      <span className="text-[16px] sm:text-[17px] lg:text-[18px] text-[#C0BCB4] font-normal mt-1.5 leading-snug">
                         {item.desc}
                       </span>
                     </div>
