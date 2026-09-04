@@ -1,4 +1,5 @@
 import { memo, useState, useCallback, type FormEvent } from "react";
+import { Link } from "@tanstack/react-router";
 import { m as motion } from "framer-motion";
 import { FadeUp, Ico, RevealMask, LogoCubikos } from "./LandingUI";
 import heroImg from "@/assets/hero-tio.webp";
@@ -191,15 +192,8 @@ export function CTAFinal() {
   return (
     <section
       id="contacto"
-      className="relative min-h-[100svh] bg-ink flex items-center py-24 overflow-hidden"
+      className="relative bg-[#0E0E0D] border-t border-white/10 flex items-center py-16 md:py-24 overflow-hidden"
     >
-      {/* Background Image with Parallax & Overlay */}
-      <div
-        className="absolute inset-0 z-0 bg-fixed bg-center bg-cover"
-        style={{ backgroundImage: `url(${heroImg})` }}
-      />
-      <div className="absolute inset-0 z-0 bg-black/75" />
-
       <div className="container-x relative z-10 w-full">
         <div className="grid lg:grid-cols-12 gap-16 lg:gap-8 items-center">
           {/* Columna Izquierda (60%) */}
@@ -393,109 +387,156 @@ export function CTAFinal() {
 
 export const Footer = memo(() => {
   return (
-    <footer className="bg-ink text-white py-12 md:py-16 border-t border-white/10">
+    <footer className="bg-[#0A0A09] text-[#E5E1D8] pt-16 pb-12 border-t border-white/10">
       <div className="container-x">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-8 mb-24">
-          {/* Col 1: Brand & Desc */}
-          <div className="md:col-span-5 lg:col-span-4">
-            <LogoCubikos className="text-[24px] text-brand mb-8" />
-            <p className="text-lg text-[#D1CFCC] max-w-sm font-medium leading-relaxed">
-              Especialistas en montaje de mobiliario de cocina. Desde proyectos a medida hasta
-              grandes firmas comerciales. Precisión técnica en toda Cataluña.
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 mb-16">
+          {/* Col 1: Marca & Contacto directo */}
+          <div className="lg:col-span-4 flex flex-col">
+            <Link to="/" className="inline-block mb-6">
+              <LogoCubikos className="text-[24px] text-white" />
+            </Link>
+            <p className="text-[14px] text-[#A6A29A] leading-relaxed mb-6 max-w-sm font-normal">
+              Especialistas en montaje e instalación técnica de mobiliario de cocina de gama media-alta y lujo. Tolerancia cero en obra.
             </p>
+            <div className="space-y-2 text-[14px] text-[#C4BFB6]">
+              <div>
+                <span className="text-xs uppercase tracking-widest text-[#777] block mb-1">Contacto</span>
+                {/* TODO: dominio definitivo y correo corporativo */}
+                <a href="mailto:cubikos25@gmail.com" className="hover:text-brand transition-colors">
+                  cubikos25@gmail.com
+                </a>
+              </div>
+              <div className="pt-2">
+                <span className="text-xs uppercase tracking-widest text-[#777] block mb-1">Horario</span>
+                <p className="text-[#A6A29A]">Lunes a Viernes de 8:00 a 19:00</p>
+              </div>
+              <div className="pt-3">
+                <a
+                  href="https://wa.me/34666871144"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-white font-bold text-[18px] hover:text-brand transition-colors"
+                >
+                  <span>+34 666 87 11 44</span>
+                  <span className="text-[11px] font-sans font-semibold uppercase tracking-wider text-brand px-2 py-0.5 rounded bg-brand/10 border border-brand/20">
+                    WhatsApp
+                  </span>
+                </a>
+              </div>
+            </div>
           </div>
 
-          {/* Col 2: Nav */}
-          <div className="md:col-span-3 lg:col-start-7 lg:col-span-2">
-            <h4 className="font-display font-black tracking-widest uppercase text-xs mb-8 text-[#777]">
-              Explorar
+          {/* Col 2: Empresa */}
+          <div className="lg:col-span-2 lg:col-start-6">
+            <h4 className="font-sans font-bold text-[15px] text-white tracking-wide mb-6">
+              Empresa
             </h4>
-            <ul className="space-y-4 text-[#EDEBE8] font-bold text-sm tracking-widest uppercase">
+            <ul className="space-y-3.5 text-[14px] text-[#A6A29A]">
               <li>
-                <a href="/metodo" className="hover:text-brand transition-colors">
-                  Método
+                <Link to="/sobre-cubikos" className="hover:text-white transition-colors">
+                  Presentación y oficio
+                </Link>
+              </li>
+              <li>
+                <Link to="/metodo" className="hover:text-white transition-colors">
+                  El Método CUBIKOS
+                </Link>
+              </li>
+              <li>
+                <Link to="/servicios" className="hover:text-white transition-colors">
+                  Especialidades técnicas
+                </Link>
+              </li>
+              <li>
+                <Link to="/proyectos" className="hover:text-white transition-colors">
+                  Casos de estudio
+                </Link>
+              </li>
+              <li>
+                <Link to="/faq" className="hover:text-white transition-colors">
+                  Preguntas frecuentes
+                </Link>
+              </li>
+              <li>
+                <Link to="/contacto" className="hover:text-white transition-colors">
+                  Solicitud de presupuesto
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Col 3: Legal */}
+          <div className="lg:col-span-2">
+            <h4 className="font-sans font-bold text-[15px] text-white tracking-wide mb-6">
+              Legal
+            </h4>
+            <ul className="space-y-3.5 text-[14px] text-[#A6A29A]">
+              <li>
+                <a href="#" className="hover:text-white transition-colors">
+                  Aviso Legal
                 </a>
               </li>
               <li>
-                <a href="/servicios" className="hover:text-brand transition-colors">
-                  Servicios
+                <a href="#" className="hover:text-white transition-colors">
+                  Política de Cookies
                 </a>
               </li>
               <li>
-                <a href="/proyectos" className="hover:text-brand transition-colors">
-                  Proyectos
+                <a href="#" className="hover:text-white transition-colors">
+                  Política de Privacidad
                 </a>
               </li>
               <li>
-                <a href="/sobre-cubikos" className="hover:text-brand transition-colors">
-                  Sobre Nosotros
-                </a>
-              </li>
-              <li>
-                <a href="/faq" className="hover:text-brand transition-colors">
-                  FAQ
-                </a>
-              </li>
-              <li>
-                <a href="/contacto" className="hover:text-brand transition-colors">
-                  Contacto
+                <a
+                  href="https://www.instagram.com/raphael_gs68?igsh=MzdhdGxwamZwNGY1"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white transition-colors flex items-center gap-1.5"
+                >
+                  Instagram
+                  <span className="text-xs text-brand">↗</span>
                 </a>
               </li>
             </ul>
           </div>
 
-          {/* Col 3: Contact */}
-          <div className="md:col-span-4 lg:col-span-3">
-            <h4 className="font-display font-black tracking-widest uppercase text-xs mb-8 text-[#777]">
-              Contacto
+          {/* Col 4: Cobertura geográfica Cataluña */}
+          <div className="lg:col-span-3">
+            <h4 className="font-sans font-bold text-[15px] text-white tracking-wide mb-6">
+              Trabajamos en toda Cataluña
             </h4>
-            <ul className="space-y-4 text-[#EDEBE8] font-medium text-lg">
-              <li>
-                {/* TODO: dominio definitivo y correo corporativo */}
-                <a href="mailto:cubikos25@gmail.com" className="hover:text-brand transition-colors">
-                  cubikos25@gmail.com
-                </a>
+            <ul className="space-y-2.5 text-[14px] text-[#A6A29A]">
+              <li className="flex items-center gap-2.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-brand shrink-0" />
+                <span>Montaje de cocinas en Barcelona y Vallès</span>
               </li>
-              <li>
-                <a
-                  href="https://wa.me/34666871144"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-brand transition-colors"
-                >
-                  +34 666 87 11 44{" "}
-                  <span className="text-xs text-[#777] ml-2 uppercase tracking-widest">
-                    (WhatsApp)
-                  </span>
-                </a>
+              <li className="flex items-center gap-2.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-brand shrink-0" />
+                <span>Montaje de cocinas en Maresme y Sitges</span>
               </li>
-              <li className="text-[#D1CFCC] text-sm font-bold tracking-widest uppercase pt-2">
-                Cataluña, España
+              <li className="flex items-center gap-2.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-brand shrink-0" />
+                <span>Montaje de cocinas en Girona y Costa Brava</span>
+              </li>
+              <li className="flex items-center gap-2.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-brand shrink-0" />
+                <span>Montaje de cocinas en Tarragona</span>
+              </li>
+              <li className="flex items-center gap-2.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-brand shrink-0" />
+                <span>Montaje de cocinas en Lleida</span>
               </li>
             </ul>
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-white/10 text-xs font-bold uppercase tracking-widest text-[#777]">
-          <div className="order-2 md:order-1 mt-6 md:mt-0">
+        {/* Bottom Copyright Bar */}
+        <div className="pt-8 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center text-xs text-[#777] font-medium gap-4">
+          <div>
             &copy; {new Date().getFullYear()} CUBIKOS. Todos los derechos reservados.
           </div>
-          <div className="order-1 md:order-2 flex flex-wrap justify-center gap-8">
-            <a
-              href="https://www.instagram.com/raphael_gs68?igsh=MzdhdGxwamZwNGY1"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-[#FAFAF8] transition-colors"
-            >
-              Instagram
-            </a>
-            <a href="#" className="hover:text-[#FAFAF8] transition-colors">
-              Aviso Legal
-            </a>
-            <a href="#" className="hover:text-[#FAFAF8] transition-colors">
-              Privacidad
-            </a>
+          <div className="text-right text-[#666]">
+            Precisión milimétrica y excelencia en instalación de mobiliario.
           </div>
         </div>
       </div>
