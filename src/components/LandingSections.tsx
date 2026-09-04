@@ -571,9 +571,9 @@ export function Proceso() {
           viewport={{ once: true, margin: "-10%" }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         >
-          <div className="flex items-center gap-3 mb-4">
-            <div className="h-[2.5px] w-10 bg-brand" />
-            <span className="text-[13px] sm:text-[15px] font-mono font-bold tracking-[0.25em] uppercase text-brand">
+          <div className="flex items-center gap-3.5 mb-4">
+            <div className="h-[3px] w-12 bg-brand shrink-0" />
+            <span className="text-[15px] sm:text-[17px] font-mono font-black tracking-[0.28em] uppercase text-brand">
               METODOLOGÍA • PASO A PASO
             </span>
           </div>
@@ -633,12 +633,12 @@ export function Testimonios() {
       <div className="container-x">
         <div className="max-w-4xl mx-auto flex flex-col items-center text-center">
           <FadeUp className="flex flex-col items-center">
-            <div className="flex items-center gap-3 mb-5">
-              <span className="w-12 h-[2.5px] bg-brand" />
-              <span className="text-[14px] sm:text-[16px] font-mono font-bold tracking-[0.25em] uppercase text-brand">
+            <div className="flex items-center gap-3.5 mb-5">
+              <span className="w-14 h-[3px] bg-brand shrink-0" />
+              <span className="text-[16px] sm:text-[18px] font-mono font-black tracking-[0.28em] uppercase text-brand">
                 OPINIONES & VALORACIONES
               </span>
-              <span className="w-12 h-[2.5px] bg-brand" />
+              <span className="w-14 h-[3px] bg-brand shrink-0" />
             </div>
 
             <h2 className="font-display font-black text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-ink tracking-tight leading-[1.04] mb-8 text-balance">
@@ -677,9 +677,9 @@ export function BotelleroShowcase() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
           <div className="flex flex-col justify-center">
             <PremiumFade delay={0}>
-              <div className="flex items-center gap-3 mb-4">
-                <span className="w-10 h-[2.5px] bg-brand" />
-                <span className="text-[13px] sm:text-[15px] font-mono font-bold tracking-[0.25em] uppercase text-brand">
+              <div className="flex items-center gap-3.5 mb-4">
+                <span className="w-12 h-[3px] bg-brand shrink-0" />
+                <span className="text-[15px] sm:text-[17px] font-mono font-black tracking-[0.28em] uppercase text-brand">
                   LA FIRMA DE UN ARTESANO
                 </span>
               </div>

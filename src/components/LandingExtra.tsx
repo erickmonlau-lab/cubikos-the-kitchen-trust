@@ -53,13 +53,13 @@ export function Proyectos() {
     <section id="proyectos" className="bg-[#111111] text-[#FAFAF8] py-12 md:py-20">
       <div className="container-x mb-8 md:mb-12">
         <FadeUp>
-          <div className="flex items-center gap-3 mb-3">
-            <div className="h-[2px] w-8 bg-brand" />
-            <span className="text-[12px] sm:text-[13px] font-mono font-bold tracking-[0.25em] uppercase text-brand">
+          <div className="flex items-center gap-3.5 mb-4">
+            <div className="h-[3px] w-12 bg-brand shrink-0" />
+            <span className="text-[15px] sm:text-[17px] font-mono font-black tracking-[0.28em] uppercase text-brand">
               PORTFOLIO • CASOS REALES
             </span>
           </div>
-          <h2 className="font-display font-black text-[clamp(36px,5.5vw,64px)] leading-[1] tracking-tighter text-[#FAFAF8] text-balance">
+          <h2 className="font-display font-black text-[clamp(40px,6vw,72px)] leading-[1] tracking-tighter text-[#FAFAF8] text-balance">
             Casos de estudio<span className="text-brand">.</span>
           </h2>
           <p className="mt-3 md:mt-4 text-base md:text-lg text-[#EDEBE8] font-normal leading-relaxed text-balance max-w-2xl">
@@ -131,9 +131,9 @@ export function FAQ() {
       <div className="container-x grid md:grid-cols-12 gap-12 lg:gap-16">
         <div className="md:col-span-5">
           <FadeUp>
-            <div className="flex items-center gap-3 mb-4">
-              <span className="w-10 h-[2.5px] bg-brand" />
-              <span className="text-[13px] sm:text-[15px] font-mono font-bold tracking-[0.25em] uppercase text-brand">
+            <div className="flex items-center gap-3.5 mb-4">
+              <span className="w-12 h-[3px] bg-brand shrink-0" />
+              <span className="text-[15px] sm:text-[17px] font-mono font-black tracking-[0.28em] uppercase text-brand">
                 PREGUNTAS FRECUENTES
               </span>
             </div>
