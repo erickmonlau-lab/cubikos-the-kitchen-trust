@@ -369,22 +369,19 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="relative w-full h-screen min-h-[640px] max-h-[1050px] overflow-hidden bg-[#0E0E0D] flex flex-col justify-between"
+      className="relative w-full min-h-[100svh] lg:min-h-screen bg-[#0E0E0D] text-white flex flex-col justify-between pt-24 sm:pt-28 pb-4"
     >
-      {/* Header spacer */}
-      <div className="w-full h-[84px] sm:h-[88px] shrink-0" />
-
       {/* ─── Hero Two-Column Container ─── */}
-      <div className="relative z-10 w-full max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-12 flex-1 flex flex-col lg:flex-row items-center gap-8 lg:gap-12 min-h-0 py-2 lg:py-4">
+      <div className="relative z-10 w-full max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-12 flex-1 flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12 py-4 lg:py-6">
 
         {/* ─── LEFT COLUMN (45% width) ─── */}
-        <div className="w-full lg:w-[46%] xl:w-[45%] flex flex-col justify-center min-h-0 my-auto">
+        <div className="w-full lg:w-[46%] xl:w-[45%] flex flex-col justify-center shrink-0">
 
           {/* Eyebrow */}
           <motion.div
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
             className="flex items-center gap-3 mb-3 lg:mb-4"
           >
             <span className="w-7 h-[2.5px] bg-[#D6A634] shrink-0" />
@@ -397,11 +394,11 @@ export function Hero() {
           <motion.h1
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.28, ease: [0.22, 1, 0.36, 1] }}
-            className="text-white leading-[1.02] tracking-[-0.02em] font-normal"
+            transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+            className="text-white leading-[1.04] tracking-[-0.02em] font-normal"
             style={{
               fontFamily: 'var(--font-serif)',
-              fontSize: 'clamp(2.35rem, 4.3vw, 4.4rem)',
+              fontSize: 'clamp(2.4rem, 4.3vw, 4.4rem)',
             }}
           >
             <span className="block">Una cocina perfecta</span>
@@ -415,8 +412,8 @@ export function Hero() {
           <motion.p
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.42, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-3.5 lg:mt-4 text-[14px] sm:text-[15px] lg:text-[16px] text-[#C8C4BB] leading-[1.58] max-w-[500px] font-normal"
+            transition={{ duration: 0.7, delay: 0.32, ease: [0.22, 1, 0.36, 1] }}
+            className="mt-4 text-[14px] sm:text-[15px] lg:text-[16px] text-[#C8C4BB] leading-[1.58] max-w-[500px] font-normal"
           >
             Más de 30 años instalando cocinas en Cataluña con{" "}
             <span className="text-white font-semibold">precisión milimétrica</span> y{" "}
@@ -428,7 +425,7 @@ export function Hero() {
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.55, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.7, delay: 0.44, ease: [0.22, 1, 0.36, 1] }}
             className="mt-5 lg:mt-6 flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5"
           >
             <a
@@ -512,8 +509,8 @@ export function Hero() {
         <motion.div
           initial={{ opacity: 0, scale: 0.98 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.1, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-          className="relative w-full lg:w-[54%] xl:w-[55%] h-[40vh] sm:h-[46vh] lg:h-[calc(100vh-140px)] max-h-[820px] rounded-[24px] overflow-hidden shrink-0 shadow-[0_12px_44px_rgba(0,0,0,0.7)]"
+          transition={{ duration: 0.9, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+          className="relative w-full lg:w-[54%] xl:w-[55%] h-[420px] sm:h-[480px] lg:h-[calc(100vh-190px)] min-h-[420px] lg:min-h-[520px] max-h-[760px] rounded-[24px] overflow-hidden shrink-0 shadow-[0_12px_44px_rgba(0,0,0,0.7)]"
         >
           <img
             src={heroImg}
