@@ -646,16 +646,14 @@ export function Diferenciadora() {
   }, []);
 
   return (
-    <section id="metodo" className="bg-background text-ink py-32 md:py-48">
+    <section id="metodo" className="bg-background text-ink py-16 md:py-24">
       <div className="container-x">
         {/* Massive Headline */}
-        <div className="max-w-5xl mb-24 text-center md:text-left">
-          <RevealMask>
-            <span className="eyebrow text-ink-soft">El montaje decide el resultado final</span>
-            <h2 className="font-display font-black text-[3.5rem] md:text-[5.5rem] leading-[0.95] tracking-tighter mt-6 text-balance">
-              Una cocina de 25.000€ puede parecer de 5.000€ si el montaje falla.
-            </h2>
-          </RevealMask>
+        <div className="max-w-5xl mb-12 md:mb-16 text-center md:text-left">
+          <span className="eyebrow text-ink-soft">El montaje decide el resultado final</span>
+          <h2 className="font-display font-black text-[2.8rem] sm:text-[3.5rem] md:text-[4.75rem] leading-[0.98] tracking-tighter mt-4 text-balance">
+            Una cocina de 25.000€ puede parecer de 5.000€ si el montaje falla.
+          </h2>
         </div>
 
         {/* Before/After Interactive Slider */}
