@@ -1,4 +1,4 @@
-﻿import { memo, useEffect, useState, useRef, MouseEvent, TouchEvent, type SVGProps, type ReactNode } from "react";
+import { memo, useEffect, useState, useRef, MouseEvent, TouchEvent, type SVGProps, type ReactNode } from "react";
 import { m as motion, useInView } from "framer-motion";
 import heroImg from "@/assets/hero-worker-hq.webp";
 import gal3 from "@/assets/gallery-3.webp"; // Error habitual
@@ -251,14 +251,14 @@ export const Header = memo(() => {
         <div className="hidden lg:block">
           <a
             href="#contacto"
-            className="group relative overflow-hidden flex items-center justify-center px-8 h-12 rounded-full font-bold text-[13px] uppercase tracking-[0.15em] transition-all duration-300 bg-gradient-to-r from-[#FFDE00] to-[#F39C12] text-white shadow-[0_5px_20px_rgba(243,156,18,0.4)] hover:shadow-[0_10px_30px_rgba(243,156,18,0.6)] hover:-translate-y-0.5"
+            className="group relative overflow-hidden flex items-center justify-center px-7 h-11 rounded-full font-bold text-[13px] uppercase tracking-[0.15em] transition-all duration-300 bg-brand text-[#111111] shadow-[0_4px_20px_rgba(216,168,67,0.3)] hover:shadow-[0_8px_30px_rgba(216,168,67,0.5)] hover:-translate-y-0.5 hover:bg-[#e2b54f]"
           >
-            <div className="absolute inset-0 -translate-x-[150%] bg-gradient-to-r from-transparent via-white/60 to-transparent group-hover:translate-x-[150%] transition-transform duration-1000 ease-in-out" />
-            <span className="relative z-10 drop-shadow-md">Solicitar presupuesto</span>
+            <div className="absolute inset-0 -translate-x-[150%] bg-gradient-to-r from-transparent via-white/50 to-transparent group-hover:translate-x-[150%] transition-transform duration-1000 ease-in-out" />
+            <span className="relative z-10">Solicitar presupuesto</span>
           </a>
         </div>
         <button
-          aria-label="Abrir menÃº"
+          aria-label="Abrir menú"
           onClick={() => setOpen(!open)}
           className="grid h-12 w-12 place-items-center lg:hidden text-ink"
         >
@@ -289,7 +289,7 @@ export const Header = memo(() => {
           <span className="text-brand font-black text-xl tracking-widest uppercase">Cubikos</span>
           <button
             onClick={() => setOpen(false)}
-            aria-label="Cerrar menÃº"
+            aria-label="Cerrar menú"
             className="text-white hover:text-brand transition-colors p-2"
           >
             <Ico.Close className="h-7 w-7" />
@@ -309,7 +309,7 @@ export const Header = memo(() => {
           <a
             href="#contacto"
             onClick={() => setOpen(false)}
-            className="mt-4 flex items-center justify-center h-14 rounded-full bg-gradient-to-r from-[#FFDE00] to-[#F39C12] text-white font-bold text-sm uppercase tracking-widest shadow-[0_5px_20px_rgba(243,156,18,0.4)]"
+            className="mt-4 flex items-center justify-center h-14 rounded-full bg-brand text-[#111111] font-bold text-sm uppercase tracking-widest shadow-[0_5px_25px_rgba(216,168,67,0.4)] hover:bg-[#e2b54f] transition-colors"
           >
             Solicitar presupuesto
           </a>
@@ -411,7 +411,7 @@ export function Hero() {
 
           <FadeUp delay={0.2} className="mt-4 md:mt-5 max-w-[440px]">
             <p className="text-lg md:text-[20px] text-white/95 font-medium tracking-wide leading-relaxed text-balance antialiased drop-shadow-sm">
-              MÃ¡s de 30 Años instalando cocinas en toda Cataluña con precisiÃ³n milimÃ©trica y
+              Más de 30 años instalando cocinas en toda Cataluña con precisión milimétrica y
               acabados impecables.
             </p>
           </FadeUp>
@@ -425,10 +425,10 @@ export function Hero() {
               />
               <a
                 href="#contacto"
-                className="group relative overflow-hidden w-full sm:w-auto flex items-center justify-center px-10 h-16 rounded-full bg-gradient-to-r from-[#FFDE00] to-[#F39C12] text-white font-black text-[14px] md:text-[16px] uppercase tracking-[0.2em] transition-all duration-300 shadow-[0_10px_40px_rgba(243,156,18,0.5)] hover:shadow-[0_20px_60px_rgba(243,156,18,0.8)] hover:-translate-y-1"
+                className="group relative overflow-hidden w-full sm:w-auto flex items-center justify-center px-10 h-16 rounded-full bg-brand text-[#111111] font-black text-[14px] md:text-[16px] uppercase tracking-[0.2em] transition-all duration-300 shadow-[0_10px_40px_rgba(216,168,67,0.4)] hover:shadow-[0_20px_60px_rgba(216,168,67,0.6)] hover:-translate-y-1 hover:bg-[#e2b54f]"
               >
-                <div className="absolute inset-0 -translate-x-[150%] bg-gradient-to-r from-transparent via-white/60 to-transparent group-hover:translate-x-[150%] transition-transform duration-[1.2s] ease-in-out" />
-                <span className="relative z-10 drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)]">
+                <div className="absolute inset-0 -translate-x-[150%] bg-gradient-to-r from-transparent via-white/50 to-transparent group-hover:translate-x-[150%] transition-transform duration-[1.2s] ease-in-out" />
+                <span className="relative z-10">
                   Solicitar presupuesto
                 </span>
               </a>
@@ -454,8 +454,7 @@ export function Hero() {
                 </div>
               </div>
               <span className="text-white/80 text-sm font-medium">
-                â˜…â˜…â˜…â˜…â˜… <strong className="text-white">4.9</strong> Â· 47 reseÃ±as
-                verificadas
+                ★★★★★ <strong className="text-white">4.9</strong> · 47 reseñas verificadas
               </span>
             </div>
           </FadeUp>

@@ -1,4 +1,4 @@
-﻿import { memo, useState, useCallback, type FormEvent } from "react";
+import { memo, useState, useCallback, type FormEvent } from "react";
 import { m as motion } from "framer-motion";
 import { FadeUp, Ico, RevealMask, LogoCubikos } from "./LandingUI";
 import heroImg from "@/assets/hero-kitchen.webp";
@@ -27,7 +27,7 @@ const details = [
   {
     src: gal4,
     title: "Nivelación láser",
-    subtitle: "Ajuste de mÃ³dulos base",
+    subtitle: "Ajuste de módulos base",
     span: "lg:col-span-1 lg:row-span-1",
     aspect: "aspect-square",
   },
@@ -341,10 +341,10 @@ export function CTAFinal() {
                     </div>
                     <button
                       type="submit"
-                      className="group relative overflow-hidden flex items-center justify-center w-full h-16 bg-gradient-to-r from-[#FFDE00] to-[#F39C12] text-white font-black text-[15px] md:text-[16px] uppercase tracking-[0.2em] rounded-full transition-all duration-300 shadow-[0_10px_40px_rgba(243,156,18,0.4)] hover:shadow-[0_20px_60px_rgba(243,156,18,0.7)] hover:-translate-y-1"
+                      className="group relative overflow-hidden flex items-center justify-center w-full h-16 bg-brand text-[#111111] font-black text-[15px] md:text-[16px] uppercase tracking-[0.2em] rounded-full transition-all duration-300 shadow-[0_10px_40px_rgba(216,168,67,0.35)] hover:shadow-[0_20px_60px_rgba(216,168,67,0.6)] hover:-translate-y-1 hover:bg-[#e2b54f]"
                     >
-                      <div className="absolute inset-0 -translate-x-[150%] bg-gradient-to-r from-transparent via-white/60 to-transparent group-hover:translate-x-[150%] transition-transform duration-[1.2s] ease-in-out" />
-                      <span className="relative z-10 drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)]">
+                      <div className="absolute inset-0 -translate-x-[150%] bg-gradient-to-r from-transparent via-white/50 to-transparent group-hover:translate-x-[150%] transition-transform duration-[1.2s] ease-in-out" />
+                      <span className="relative z-10">
                         Solicitar Valoración
                       </span>
                     </button>
@@ -397,7 +397,7 @@ export const Footer = memo(() => {
             <ul className="space-y-4 text-[#EDEBE8] font-bold text-sm tracking-widest uppercase">
               <li>
                 <a href="#metodo" className="hover:text-brand transition-colors">
-                  MÃ©todo
+                  Método
                 </a>
               </li>
               <li>
