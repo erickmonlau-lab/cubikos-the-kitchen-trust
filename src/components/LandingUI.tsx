@@ -222,7 +222,7 @@ export const Header = memo(() => {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
+    const onScroll = () => setScrolled(window.scrollY > 30);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -232,33 +232,41 @@ export const Header = memo(() => {
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-[#111110]/95 backdrop-blur-md border-b border-white/10 shadow-[0_4px_30px_rgba(0,0,0,0.5)] h-[70px]"
-          : "bg-gradient-to-b from-black/70 via-black/30 to-transparent border-b border-transparent h-[86px]"
+          ? "bg-[#0E0E0D]/95 backdrop-blur-md border-b border-white/10 shadow-[0_4px_30px_rgba(0,0,0,0.6)] h-[68px]"
+          : "bg-[#0E0E0D] border-b border-transparent h-[76px]"
       }`}
     >
-      <div className="max-w-[1400px] mx-auto h-full px-6 sm:px-10 lg:px-16 flex items-center justify-between">
-        <a href="#top" className="text-white transition-opacity hover:opacity-90 duration-200">
-          <LogoCubikos className="text-[22px] md:text-[26px]" />
+      <div className="max-w-[1440px] mx-auto h-full px-6 sm:px-10 lg:px-12 flex items-center justify-between">
+        {/* Logo */}
+        <a href="#top" className="text-white transition-opacity hover:opacity-90 duration-200 shrink-0">
+          <LogoCubikos className="text-[20px] md:text-[23px]" />
         </a>
-        <nav className="hidden items-center gap-10 lg:flex">
+
+        {/* Centered Navigation */}
+        <nav className="hidden items-center gap-9 lg:flex">
           {navItems.map((i) => (
             <a
               key={i.href}
               href={i.href}
-              className="text-[15px] font-medium tracking-[0.03em] text-white/90 transition-colors duration-200 hover:text-[#D6A634]"
+              className="text-[13px] font-medium tracking-[0.06em] text-white/80 transition-colors duration-200 hover:text-[#D6A634]"
             >
               {i.label}
             </a>
           ))}
         </nav>
-        <div className="hidden lg:block">
+
+        {/* Header Right CTA */}
+        <div className="hidden lg:block shrink-0">
           <a
             href="#contacto"
-            className="inline-flex items-center justify-center px-7 h-11 rounded-full font-bold text-[13px] uppercase tracking-[0.12em] transition-all duration-300 bg-[#D6A634] text-[#111110] shadow-[0_2px_14px_rgba(214,166,52,0.3)] hover:shadow-[0_4px_22px_rgba(214,166,52,0.5)] hover:bg-[#e0b240] hover:-translate-y-0.5"
+            className="group inline-flex items-center justify-center gap-2 px-6 h-10 rounded-[6px] font-bold text-[12px] uppercase tracking-[0.14em] transition-all duration-300 bg-[#D6A634] text-[#111110] shadow-[0_2px_14px_rgba(214,166,52,0.3)] hover:shadow-[0_4px_22px_rgba(214,166,52,0.5)] hover:bg-[#e0b240] hover:-translate-y-0.5"
           >
-            <span>Solicitar presupuesto</span>
+            <span>SOLICITAR PRESUPUESTO</span>
+            <span className="font-bold transition-transform duration-200 group-hover:translate-x-0.5">→</span>
           </a>
         </div>
+
+        {/* Mobile menu trigger */}
         <button
           aria-label="Abrir menú"
           onClick={() => setOpen(!open)}
@@ -311,9 +319,10 @@ export const Header = memo(() => {
           <a
             href="#contacto"
             onClick={() => setOpen(false)}
-            className="mt-6 flex items-center justify-center h-12 rounded-[4px] bg-[#D6A634] text-[#111110] font-bold text-xs uppercase tracking-[0.16em] shadow-[0_4px_16px_rgba(214,166,52,0.3)] hover:bg-[#c4972c] transition-colors"
+            className="mt-6 flex items-center justify-center gap-2 h-12 rounded-[6px] bg-[#D6A634] text-[#111110] font-bold text-xs uppercase tracking-[0.16em] shadow-[0_4px_16px_rgba(214,166,52,0.3)] hover:bg-[#c4972c] transition-colors"
           >
-            Solicitar presupuesto
+            <span>SOLICITAR PRESUPUESTO</span>
+            <span>→</span>
           </a>
         </div>
       </motion.div>
@@ -325,177 +334,210 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="relative w-full h-screen min-h-[660px] max-h-[1050px] overflow-hidden bg-[#0E0E0D] flex flex-col justify-between"
+      className="relative w-full h-screen min-h-[640px] max-h-[1050px] overflow-hidden bg-[#0E0E0D] flex flex-col justify-between"
     >
       {/* Header spacer */}
-      <div className="w-full h-[80px] md:h-[86px] shrink-0" />
+      <div className="w-full h-[76px] shrink-0" />
 
-      {/* ─── Split Layout: Text + Photo ─── */}
-      <div className="relative z-10 flex-1 flex flex-col lg:flex-row min-h-0">
+      {/* ─── Hero Two-Column Container ─── */}
+      <div className="relative z-10 w-full max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-12 flex-1 flex flex-col lg:flex-row items-center gap-8 lg:gap-12 min-h-0 py-2 lg:py-4">
 
-        {/* LEFT — Copy Block */}
-        <div className="flex-1 flex items-center justify-center lg:justify-end px-6 sm:px-10 lg:px-0 py-4 lg:py-6 min-h-0">
-          <div className="w-full max-w-[620px] lg:pr-12 xl:pr-16 flex flex-col justify-center my-auto">
+        {/* ─── LEFT COLUMN (45% width) ─── */}
+        <div className="w-full lg:w-[46%] xl:w-[45%] flex flex-col justify-center min-h-0 my-auto">
 
-            {/* Eyebrow */}
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-              className="flex items-center gap-3 mb-3 lg:mb-4"
+          {/* Eyebrow */}
+          <motion.div
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+            className="flex items-center gap-3 mb-2.5 lg:mb-3.5"
+          >
+            <span className="w-6 h-[2px] bg-[#D6A634] shrink-0" />
+            <span className="text-[11px] sm:text-[12px] uppercase tracking-[0.24em] font-semibold text-[#D6A634]">
+              MONTAJE PROFESIONAL DE COCINAS
+            </span>
+          </motion.div>
+
+          {/* Main Headline */}
+          <motion.h1
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.28, ease: [0.22, 1, 0.36, 1] }}
+            className="text-white leading-[1.02] tracking-[-0.02em] font-normal"
+            style={{
+              fontFamily: 'var(--font-serif)',
+              fontSize: 'clamp(2.35rem, 4.3vw, 4.4rem)',
+            }}
+          >
+            <span className="block">Una cocina perfecta</span>
+            <span className="block">empieza con un</span>
+            <span className="block">
+              montaje perfecto<span className="text-[#D6A634]">.</span>
+            </span>
+          </motion.h1>
+
+          {/* Description */}
+          <motion.p
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.42, ease: [0.22, 1, 0.36, 1] }}
+            className="mt-3.5 lg:mt-4 text-[14px] sm:text-[15px] lg:text-[16px] text-[#C8C4BB] leading-[1.58] max-w-[500px] font-normal"
+          >
+            Más de 30 años instalando cocinas en Cataluña con{" "}
+            <span className="text-white font-semibold">precisión milimétrica</span> y{" "}
+            <span className="text-white font-semibold">acabados impecables</span>. El montaje decide
+            el resultado final de tu cocina.
+          </motion.p>
+
+          {/* Action Buttons */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.55, ease: [0.22, 1, 0.36, 1] }}
+            className="mt-5 lg:mt-6 flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5"
+          >
+            <a
+              href="#contacto"
+              className="group inline-flex items-center justify-center gap-2.5 px-7 h-[46px] rounded-[6px] bg-[#D6A634] text-[#111110] font-sans font-bold text-[13px] uppercase tracking-[0.12em] transition-all duration-300 shadow-[0_4px_18px_rgba(214,166,52,0.32)] hover:bg-[#e2b747] hover:shadow-[0_6px_26px_rgba(214,166,52,0.48)] hover:-translate-y-[1px]"
             >
-              <span className="w-7 h-[2px] bg-[#D6A634]" />
-              <span className="text-[11px] sm:text-[12px] uppercase tracking-[0.22em] font-semibold text-[#D6A634]">
-                Montaje profesional de cocinas
-              </span>
-            </motion.div>
-
-            {/* Headline */}
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.9, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
-              className="text-white leading-[1.03] tracking-[-0.02em] font-normal"
-              style={{
-                fontFamily: 'var(--font-serif)',
-                fontSize: 'clamp(2.35rem, 4.4vw, 4.8rem)',
-              }}
+              <span>SOLICITAR PRESUPUESTO</span>
+              <span className="transition-transform duration-300 group-hover:translate-x-1 font-bold">→</span>
+            </a>
+            <a
+              href="#proyectos"
+              className="group inline-flex items-center justify-center gap-2.5 px-6 h-[46px] rounded-[6px] border border-white/35 bg-black/20 text-white font-sans font-semibold text-[13px] uppercase tracking-[0.12em] transition-all duration-300 hover:bg-white/[0.08] hover:border-white/70 hover:-translate-y-[1px]"
             >
-              <span className="block">Una cocina perfecta</span>
-              <span className="block">empieza con un</span>
-              <span className="block">
-                montaje perfecto<span className="text-[#D6A634]">.</span>
-              </span>
-            </motion.h1>
+              <span>VER PROYECTOS</span>
+              <span className="transition-transform duration-300 group-hover:translate-x-1 font-bold">→</span>
+            </a>
+          </motion.div>
 
-            {/* Description */}
-            <motion.p
-              initial={{ opacity: 0, y: 14 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
-              className="mt-4 lg:mt-5 text-[15px] sm:text-[16px] lg:text-[17px] text-[#C8C4BB] leading-[1.6] max-w-[520px] font-normal"
-            >
-              Más de 30 años instalando cocinas en Cataluña con{" "}
-              <span className="text-white font-medium">precisión milimétrica</span> y{" "}
-              <span className="text-white font-medium">acabados impecables</span>. El montaje decide
-              el resultado final de tu cocina.
-            </motion.p>
-
-            {/* CTAs */}
-            <motion.div
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.65, ease: [0.22, 1, 0.36, 1] }}
-              className="mt-6 lg:mt-7 flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5"
-            >
-              <a
-                href="#contacto"
-                className="group inline-flex items-center justify-center gap-2.5 px-8 h-[48px] rounded-[4px] bg-[#D6A634] text-[#111110] font-sans font-bold text-[13px] uppercase tracking-[0.12em] transition-all duration-300 shadow-[0_4px_20px_rgba(214,166,52,0.30)] hover:bg-[#e2b747] hover:shadow-[0_6px_28px_rgba(214,166,52,0.45)] hover:-translate-y-[1px]"
+          {/* Horizontal Stats Row with Linear Icons */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.68, ease: [0.22, 1, 0.36, 1] }}
+            className="mt-6 lg:mt-7 pt-5 border-t border-white/15 grid grid-cols-3 gap-3 sm:gap-4 items-start w-full max-w-[520px]"
+          >
+            {/* Stat 1 */}
+            <div className="flex flex-col pr-2">
+              <svg className="w-4 h-4 text-[#D6A634] mb-1.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <circle cx="12" cy="12" r="9" />
+                <polyline points="12 6 12 12 16 14" />
+              </svg>
+              <span
+                className="text-[22px] sm:text-[26px] lg:text-[28px] leading-none text-white font-normal tracking-tight"
+                style={{ fontFamily: 'var(--font-serif)' }}
               >
-                <span>Solicitar presupuesto</span>
-                <span className="transition-transform duration-300 group-hover:translate-x-1 font-bold">→</span>
-              </a>
-              <a
-                href="#proyectos"
-                className="group inline-flex items-center justify-center gap-2.5 px-7 h-[48px] rounded-[4px] border border-white/30 text-white font-sans font-medium text-[13px] uppercase tracking-[0.12em] transition-all duration-300 hover:bg-white/[0.06] hover:border-white/60 hover:-translate-y-[1px]"
-              >
-                <span>Ver proyectos</span>
-                <span className="transition-transform duration-300 group-hover:translate-x-1 font-bold">→</span>
-              </a>
-            </motion.div>
+                +30 años
+              </span>
+              <span className="mt-1.5 text-[10px] sm:text-[11px] uppercase tracking-[0.14em] text-[#908C84] font-semibold font-sans">
+                DE EXPERIENCIA
+              </span>
+            </div>
 
-            {/* Trust Stats */}
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.8, ease: [0.22, 1, 0.36, 1] }}
-              className="mt-6 lg:mt-8 pt-5 lg:pt-6 border-t border-white/15 flex items-center gap-6 sm:gap-9"
-            >
-              <div className="flex flex-col">
-                <span
-                  className="text-[24px] sm:text-[28px] lg:text-[30px] leading-none text-white font-normal tracking-tight"
-                  style={{ fontFamily: 'var(--font-serif)' }}
-                >
-                  +30 años
-                </span>
-                <span className="mt-1.5 text-[11px] sm:text-[12px] uppercase tracking-[0.14em] text-[#908C84] font-medium font-sans">
-                  De experiencia
-                </span>
-              </div>
-              <div className="w-[1px] h-8 lg:h-9 bg-white/15" />
-              <div className="flex flex-col">
-                <span
-                  className="text-[24px] sm:text-[28px] lg:text-[30px] leading-none text-white font-normal tracking-tight"
-                  style={{ fontFamily: 'var(--font-serif)' }}
-                >
-                  500+
-                </span>
-                <span className="mt-1.5 text-[11px] sm:text-[12px] uppercase tracking-[0.14em] text-[#908C84] font-medium font-sans">
-                  Cocinas montadas
-                </span>
-              </div>
-              <div className="w-[1px] h-8 lg:h-9 bg-white/15" />
-              <div className="flex flex-col">
-                <span
-                  className="text-[24px] sm:text-[28px] lg:text-[30px] leading-none text-white font-normal tracking-tight"
-                  style={{ fontFamily: 'var(--font-serif)' }}
-                >
-                  Cataluña
-                </span>
-                <span className="mt-1.5 text-[11px] sm:text-[12px] uppercase tracking-[0.14em] text-[#908C84] font-medium font-sans">
-                  Cobertura total
-                </span>
-              </div>
-            </motion.div>
-          </div>
+            {/* Stat 2 */}
+            <div className="flex flex-col px-2 sm:px-3 border-l border-white/15">
+              <svg className="w-4 h-4 text-[#D6A634] mb-1.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+                <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
+                <line x1="12" y1="22.08" x2="12" y2="12" />
+              </svg>
+              <span
+                className="text-[22px] sm:text-[26px] lg:text-[28px] leading-none text-white font-normal tracking-tight"
+                style={{ fontFamily: 'var(--font-serif)' }}
+              >
+                500+
+              </span>
+              <span className="mt-1.5 text-[10px] sm:text-[11px] uppercase tracking-[0.14em] text-[#908C84] font-semibold font-sans">
+                COCINAS MONTADAS
+              </span>
+            </div>
+
+            {/* Stat 3 */}
+            <div className="flex flex-col pl-2 sm:pl-3 border-l border-white/15">
+              <svg className="w-4 h-4 text-[#D6A634] mb-1.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z" />
+                <circle cx="12" cy="10" r="3" />
+              </svg>
+              <span
+                className="text-[22px] sm:text-[26px] lg:text-[28px] leading-none text-white font-normal tracking-tight"
+                style={{ fontFamily: 'var(--font-serif)' }}
+              >
+                Cataluña
+              </span>
+              <span className="mt-1.5 text-[10px] sm:text-[11px] uppercase tracking-[0.14em] text-[#908C84] font-semibold font-sans">
+                COBERTURA TOTAL
+              </span>
+            </div>
+          </motion.div>
         </div>
 
-        {/* RIGHT — Photo Panel */}
+        {/* ─── RIGHT COLUMN (54–55% width) — High-end Contained Photography ─── */}
         <motion.div
-          initial={{ opacity: 0, scale: 1.03 }}
+          initial={{ opacity: 0, scale: 0.98 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.4, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-          className="relative w-full lg:w-[48%] xl:w-[46%] h-[45vh] sm:h-[50vh] lg:h-full shrink-0 overflow-hidden"
+          transition={{ duration: 1.1, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+          className="relative w-full lg:w-[54%] xl:w-[55%] h-[40vh] sm:h-[46vh] lg:h-[calc(100vh-140px)] max-h-[820px] rounded-[24px] overflow-hidden shrink-0 shadow-[0_12px_44px_rgba(0,0,0,0.7)]"
         >
           <img
             src={heroImg}
-            alt="Raphael, montador profesional de Cubikos, ajustando armarios de cocina"
+            alt="Raphael, montador profesional de Cubikos, ajustando armarios de cocina de lujo"
             fetchPriority="high"
             loading="eager"
-            className="w-full h-full object-cover object-[60%_15%] lg:object-[55%_20%]"
+            className="w-full h-full object-cover object-[58%_18%]"
           />
-          {/* Subtle edge blend into the dark left side (desktop only) */}
+
+          {/* Subtle warm architectural gradient overlay */}
           <div
-            className="hidden lg:block absolute inset-0 pointer-events-none"
+            className="absolute inset-0 pointer-events-none"
             style={{
-              background: "linear-gradient(90deg, rgba(14,14,13,0.5) 0%, rgba(14,14,13,0) 15%)",
+              background:
+                "linear-gradient(180deg, rgba(14,14,13,0.15) 0%, transparent 40%, rgba(14,14,13,0.45) 100%)",
             }}
           />
-          {/* Bottom fade on mobile */}
-          <div
-            className="lg:hidden absolute inset-0 pointer-events-none"
-            style={{
-              background: "linear-gradient(to top, rgba(14,14,13,0.4) 0%, transparent 30%)",
-            }}
-          />
-          {/* Gold accent line at the seam */}
-          <div className="hidden lg:block absolute left-0 top-[12%] bottom-[12%] w-[2px] bg-[#D6A634]/40" />
+
+          {/* Floating UI Badge — Bottom Left of Image */}
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.85, ease: [0.22, 1, 0.36, 1] }}
+            className="absolute bottom-5 left-5 sm:bottom-7 sm:left-7 z-20 flex items-center gap-3 px-4 py-3 rounded-[12px] bg-[#0E0E0D]/85 backdrop-blur-md border border-white/10 shadow-[0_8px_30px_rgba(0,0,0,0.6)]"
+          >
+            <div className="w-8 h-8 rounded-full bg-[#D6A634]/15 border border-[#D6A634]/30 flex items-center justify-center shrink-0">
+              <svg className="w-4 h-4 text-[#D6A634]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <circle cx="12" cy="12" r="10" />
+                <line x1="22" y1="12" x2="18" y2="12" />
+                <line x1="6" y1="12" x2="2" y2="12" />
+                <line x1="12" y1="6" x2="12" y2="2" />
+                <line x1="12" y1="22" x2="12" y2="18" />
+              </svg>
+            </div>
+            <div className="flex flex-col pr-1">
+              <span className="text-[11px] font-bold text-white uppercase tracking-[0.14em] leading-tight">
+                PRECISIÓN MILIMÉTRICA
+              </span>
+              <span className="text-[11px] text-[#C2BEB5] font-normal leading-tight mt-0.5">
+                Acabados impecables garantizados
+              </span>
+            </div>
+          </motion.div>
         </motion.div>
       </div>
 
-      {/* ─── Bottom Bar ─── */}
-      <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-16 pb-4 lg:pb-5 pt-2 shrink-0 flex items-center justify-between pointer-events-none">
-        <div className="flex items-center gap-2 text-[12px] uppercase tracking-[0.18em] font-mono text-white/50">
-          <span className="font-semibold text-white/70">Cubikos</span>
+      {/* ─── Bottom Micro-Copy Bar ─── */}
+      <div className="relative z-10 w-full max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-12 pb-3.5 pt-1 shrink-0 flex items-center justify-between pointer-events-none">
+        <div className="flex items-center gap-2 text-[11px] uppercase tracking-[0.2em] font-mono text-white/45">
+          <span className="font-semibold text-white/65">CUBIKOS</span>
           <span>•</span>
-          <span>30+ Años de oficio</span>
+          <span>30+ AÑOS DE OFICIO</span>
         </div>
-        <div className="flex items-center gap-2 text-[12px] uppercase tracking-[0.18em] font-mono text-white/50">
-          <span>Scroll</span>
+        <div className="flex items-center gap-2 text-[11px] uppercase tracking-[0.2em] font-mono text-white/45">
+          <span>SCROLL</span>
           <motion.span
-            animate={{ y: [0, 5, 0] }}
+            animate={{ y: [0, 4, 0] }}
             transition={{ repeat: Infinity, duration: 2.2, ease: "easeInOut" }}
-            className="text-[#D6A634] inline-block font-sans font-bold text-[14px]"
+            className="text-[#D6A634] inline-block font-sans font-bold text-[13px]"
           >
             ↓
           </motion.span>
