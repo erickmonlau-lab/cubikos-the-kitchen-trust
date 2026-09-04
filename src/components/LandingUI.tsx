@@ -1,6 +1,6 @@
 import { memo, useEffect, useState, useRef, MouseEvent, TouchEvent, type SVGProps, type ReactNode } from "react";
 import { m as motion, useInView } from "framer-motion";
-import heroImg from "@/assets/hero-worker-final.webp";
+import heroImg from "@/assets/hero-worker-master.webp";
 import gal3 from "@/assets/gallery-3.webp"; // Error habitual
 import gal1 from "@/assets/gallery-1.webp"; // Método Cubikos
 
@@ -325,56 +325,75 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="relative w-full h-screen min-h-[660px] max-h-[1050px] overflow-hidden bg-[#111110] flex flex-col justify-between"
+      className="relative w-full h-screen min-h-[660px] max-h-[1050px] overflow-hidden bg-[#121211] flex flex-col justify-between"
     >
-      {/* Background Image Container - Covers entire screen */}
-      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+      {/* Background Image Container - Pristine High-Res Master Photography */}
+      <motion.div
+        initial={{ opacity: 0, scale: 1.025 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 1.3, ease: [0.22, 1, 0.36, 1] }}
+        className="absolute inset-0 z-0 overflow-hidden pointer-events-none"
+      >
         <img
           src={heroImg}
-          alt="Montaje artesanal de cocina con precisión milimétrica"
+          alt="Montador profesional ajustando armarios con iluminación cálida"
           fetchPriority="high"
           loading="eager"
-          className="w-full h-full object-cover object-[78%_center] md:object-[70%_center] lg:object-[66%_center]"
+          className="w-full h-full object-cover object-[75%_center] sm:object-[68%_center] lg:object-[62%_center]"
         />
 
-        {/* Desktop Editorial Gradient: Balanced natural gradient that protects text while keeping the kitchen photo vibrant */}
+        {/* Layer 2: Localized Gradient Overlay (Protects text on the left, leaves kitchen & craftsman fully visible and luminous on the right) */}
         <div
           className="hidden md:block absolute inset-0"
           style={{
             background:
-              "linear-gradient(90deg, rgba(14,14,13,0.96) 0%, rgba(14,14,13,0.92) 32%, rgba(14,14,13,0.70) 50%, rgba(14,14,13,0.25) 70%, rgba(14,14,13,0) 90%)",
+              "linear-gradient(90deg, rgba(14,14,13,0.92) 0%, rgba(14,14,13,0.85) 28%, rgba(14,14,13,0.60) 45%, rgba(14,14,13,0.18) 65%, rgba(14,14,13,0) 85%)",
           }}
         />
 
-        {/* Mobile Dedicated Gradient */}
+        {/* Mobile Gradient (Soft vertical transition ensuring readability without crushing the background) */}
         <div
           className="md:hidden absolute inset-0"
           style={{
             background:
-              "linear-gradient(180deg, rgba(14,14,13,0.92) 0%, rgba(14,14,13,0.85) 60%, rgba(14,14,13,0.40) 100%)",
+              "linear-gradient(180deg, rgba(14,14,13,0.90) 0%, rgba(14,14,13,0.78) 55%, rgba(14,14,13,0.30) 100%)",
           }}
         />
 
-        {/* Gentle atmospheric vignette */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#111110]/80 via-transparent to-[#111110]/30 pointer-events-none" />
-      </div>
+        {/* Subtle Localized Vignette (Never pure black at bottom, preserves countertop and floor detail) */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background:
+              "linear-gradient(to top, rgba(14,14,13,0.50) 0%, transparent 25%, transparent 80%, rgba(14,14,13,0.35) 100%)",
+          }}
+        />
+      </motion.div>
 
-      {/* Top spacing to accommodate header */}
+      {/* Top spacing to accommodate header seamlessly */}
       <div className="w-full h-[82px] shrink-0" />
 
-      {/* Main Editorial Content Container */}
-      <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-16 my-auto py-6">
+      {/* Main Content Area */}
+      <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-16 my-auto py-4 sm:py-6">
         <div className="w-full max-w-[580px] lg:max-w-[620px] flex flex-col justify-center">
-          {/* Micro-label */}
-          <div className="flex items-center gap-3 mb-4 sm:mb-5">
+          {/* Eyebrow */}
+          <motion.div
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+            className="flex items-center gap-3 mb-4 sm:mb-5"
+          >
             <span className="w-7 h-[2px] bg-[#D6A634]" />
             <span className="font-mono text-[11px] sm:text-[12px] uppercase tracking-[0.24em] font-semibold text-[#D6A634]">
               Montaje profesional de cocinas
             </span>
-          </div>
+          </motion.div>
 
-          {/* Headline in Cormorant Garamond Serif */}
-          <h1
+          {/* Headline in Serif Cormorant Garamond */}
+          <motion.h1
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
             className="text-[38px] sm:text-[48px] md:text-[54px] lg:text-[60px] leading-[1.05] tracking-[-0.015em] text-[#FAF8F5] font-normal"
             style={{ fontFamily: 'var(--font-serif)' }}
           >
@@ -383,94 +402,115 @@ export function Hero() {
             <span className="block">
               montaje perfecto<span className="text-[#D6A634]">.</span>
             </span>
-          </h1>
+          </motion.h1>
 
-          {/* Subtitle */}
-          <p className="mt-4 sm:mt-5 text-[15px] sm:text-[16px] md:text-[17px] text-[#C7C3BB] leading-[1.6] max-w-[500px] font-normal">
+          {/* Subtitle with high legibility */}
+          <motion.p
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
+            className="mt-4 sm:mt-5 text-[15px] sm:text-[16px] md:text-[17px] text-[#D8D4CC] leading-[1.65] max-w-[520px] font-normal drop-shadow-sm"
+          >
             Más de 30 años instalando cocinas en Cataluña con{" "}
             <span className="text-[#FAF8F5] font-medium">precisión milimétrica</span> y{" "}
             <span className="text-[#FAF8F5] font-medium">acabados impecables</span>. El montaje decide
             el resultado final de tu cocina.
-          </p>
+          </motion.p>
 
-          {/* Action CTAs */}
-          <div className="mt-7 sm:mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+          {/* CTAs */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
+            className="mt-7 sm:mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-4"
+          >
             <a
               href="#contacto"
-              className="group inline-flex items-center justify-center gap-2.5 px-8 py-3.5 rounded-[4px] bg-[#D6A634] text-[#111110] font-sans font-bold text-[13px] uppercase tracking-[0.14em] transition-all duration-200 shadow-[0_4px_20px_rgba(214,166,52,0.35)] hover:bg-[#e0b240] hover:shadow-[0_6px_26px_rgba(214,166,52,0.5)] hover:-translate-y-0.5"
+              className="group inline-flex items-center justify-center gap-2.5 px-8 py-3.5 rounded-[4px] bg-[#D6A634] text-[#111110] font-sans font-bold text-[13px] uppercase tracking-[0.14em] transition-all duration-250 shadow-[0_4px_16px_rgba(214,166,52,0.30)] hover:bg-[#e2b747] hover:shadow-[0_6px_22px_rgba(214,166,52,0.45)] hover:-translate-y-[1px]"
             >
               <span>Solicitar presupuesto</span>
-              <span className="transition-transform duration-200 group-hover:translate-x-1 font-bold">→</span>
+              <span className="transition-transform duration-250 group-hover:translate-x-1 font-bold">→</span>
             </a>
             <a
               href="#proyectos"
-              className="group inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-[4px] border border-[#FAF8F5]/40 bg-black/25 backdrop-blur-sm text-[#FAF8F5] font-sans font-semibold text-[13px] uppercase tracking-[0.14em] transition-all duration-200 hover:border-[#FAF8F5]/90 hover:bg-white/10 hover:-translate-y-0.5"
+              className="group inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-[4px] border border-[#FAF8F5]/45 bg-black/25 backdrop-blur-sm text-[#FAF8F5] font-sans font-medium text-[13px] uppercase tracking-[0.14em] transition-all duration-250 hover:bg-white/[0.08] hover:border-[#FAF8F5]/80 hover:-translate-y-[1px]"
             >
               <span>Ver proyectos</span>
-              <span className="transition-transform duration-200 group-hover:translate-x-1 font-bold">→</span>
+              <span className="transition-transform duration-250 group-hover:translate-x-1 font-bold">→</span>
             </a>
-          </div>
+          </motion.div>
 
-          {/* Horizontal Trust Stats */}
-          <div className="mt-8 sm:mt-9 pt-6 border-t border-white/15 flex items-center gap-6 sm:gap-10">
+          {/* Horizontal Trust Stats - High contrast & architectural dividers */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.55, ease: [0.22, 1, 0.36, 1] }}
+            className="mt-8 sm:mt-10 pt-6 border-t border-white/20 flex items-center gap-6 sm:gap-10"
+          >
             {/* Metric 1 */}
             <div className="flex flex-col">
               <span
-                className="text-[26px] sm:text-[30px] leading-none text-[#FAF8F5] font-medium"
+                className="text-[26px] sm:text-[30px] leading-none text-[#FAF8F5] font-medium tracking-tight drop-shadow-sm"
                 style={{ fontFamily: 'var(--font-serif)' }}
               >
                 +30 años
               </span>
-              <span className="mt-1.5 text-[10px] sm:text-[11px] uppercase tracking-[0.14em] text-[#9E9A91] font-semibold font-sans">
+              <span className="mt-1.5 text-[10px] sm:text-[11px] uppercase tracking-[0.14em] text-[#C2BEB5] font-medium font-sans">
                 De experiencia
               </span>
             </div>
 
-            {/* Divider */}
-            <div className="w-[1px] h-9 bg-white/20" />
+            {/* Architectural Divider */}
+            <div className="w-[1px] h-9 bg-white/25" />
 
             {/* Metric 2 */}
             <div className="flex flex-col">
               <span
-                className="text-[26px] sm:text-[30px] leading-none text-[#FAF8F5] font-medium"
+                className="text-[26px] sm:text-[30px] leading-none text-[#FAF8F5] font-medium tracking-tight drop-shadow-sm"
                 style={{ fontFamily: 'var(--font-serif)' }}
               >
                 Cataluña
               </span>
-              <span className="mt-1.5 text-[10px] sm:text-[11px] uppercase tracking-[0.14em] text-[#9E9A91] font-semibold font-sans">
+              <span className="mt-1.5 text-[10px] sm:text-[11px] uppercase tracking-[0.14em] text-[#C2BEB5] font-medium font-sans">
                 Cobertura total
               </span>
             </div>
 
-            {/* Divider */}
-            <div className="w-[1px] h-9 bg-white/20" />
+            {/* Architectural Divider */}
+            <div className="w-[1px] h-9 bg-white/25" />
 
             {/* Metric 3 */}
             <div className="flex flex-col">
               <span
-                className="text-[26px] sm:text-[30px] leading-none text-[#FAF8F5] font-medium"
+                className="text-[26px] sm:text-[30px] leading-none text-[#FAF8F5] font-medium tracking-tight drop-shadow-sm"
                 style={{ fontFamily: 'var(--font-serif)' }}
               >
                 500+
               </span>
-              <span className="mt-1.5 text-[10px] sm:text-[11px] uppercase tracking-[0.14em] text-[#9E9A91] font-semibold font-sans">
+              <span className="mt-1.5 text-[10px] sm:text-[11px] uppercase tracking-[0.14em] text-[#C2BEB5] font-medium font-sans">
                 Cocinas montadas
               </span>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
 
-      {/* Bottom Bar: Brand details and scroll prompt */}
-      <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-16 pb-6 pt-2 shrink-0 flex items-center justify-between text-[10px] uppercase tracking-[0.2em] text-[#858077] font-mono pointer-events-none">
-        <div className="flex items-center gap-2">
-          <span>Cubikos</span>
+      {/* Bottom Micro-copy & Editorial Scroll Indicator */}
+      <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-16 pb-6 pt-2 shrink-0 flex items-center justify-between text-[11px] uppercase tracking-[0.2em] font-mono pointer-events-none">
+        <div className="flex items-center gap-2 text-white/70">
+          <span className="font-semibold text-white/85">Cubikos</span>
           <span>•</span>
           <span>30+ Años de oficio</span>
         </div>
-        <div className="flex items-center gap-1.5">
+        <div className="flex items-center gap-1.5 text-white/70">
           <span>Scroll</span>
-          <span className="text-[#D6A634]">↓</span>
+          <motion.span
+            animate={{ y: [0, 4, 0] }}
+            transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+            className="text-[#D6A634] inline-block font-sans font-bold"
+          >
+            ↓
+          </motion.span>
         </div>
       </div>
     </section>
