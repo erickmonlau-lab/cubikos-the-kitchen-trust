@@ -9,6 +9,10 @@ import { useTranslation } from "../i18n/translations";
 import showcase1 from "@/assets/showcase-1.webp";
 import showcase2 from "@/assets/showcase-2.webp";
 import showcase3 from "@/assets/showcase-3.webp";
+import opMain from "@/assets/opiniones-main.webp";
+import opSub1 from "@/assets/opiniones-sub1.webp";
+import opSub2 from "@/assets/opiniones-sub2.webp";
+import opSub3 from "@/assets/opiniones-sub3.webp";
 
 const easing: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
@@ -694,49 +698,248 @@ export function Testimonios() {
   const { lang } = useLanguage();
   const t = useTranslation(lang);
 
+  const stats = {
+    ES: [
+      {
+        val: "500+",
+        label: "COCINAS MONTADAS",
+        sub: "EN CATALUÑA",
+        icon: (
+          <svg viewBox="0 0 24 24" className="w-5 h-5 text-[#D6A634]" fill="none" stroke="currentColor" strokeWidth="1.8">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+          </svg>
+        ),
+      },
+      {
+        val: "30+",
+        label: "AÑOS PERFECCIONANDO",
+        sub: "UN ÚNICO OFICIO",
+        icon: (
+          <svg viewBox="0 0 24 24" className="w-5 h-5 text-[#D6A634]" fill="none" stroke="currentColor" strokeWidth="1.8">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+            <path d="m9 12 2 2 4-4" />
+          </svg>
+        ),
+      },
+      {
+        val: "100%",
+        label: "COMPROMISO DE",
+        sub: "PRECISIÓN",
+        icon: (
+          <svg viewBox="0 0 24 24" className="w-5 h-5 text-[#D6A634]" fill="none" stroke="currentColor" strokeWidth="1.8">
+            <circle cx="12" cy="8" r="6" />
+            <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11" />
+          </svg>
+        ),
+      },
+    ],
+    CA: [
+      {
+        val: "500+",
+        label: "CUINES MUNTADES",
+        sub: "A CATALUNYA",
+        icon: (
+          <svg viewBox="0 0 24 24" className="w-5 h-5 text-[#D6A634]" fill="none" stroke="currentColor" strokeWidth="1.8">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+          </svg>
+        ),
+      },
+      {
+        val: "30+",
+        label: "ANYS PERFECCIONANT",
+        sub: "UN ÚNIC OFICI",
+        icon: (
+          <svg viewBox="0 0 24 24" className="w-5 h-5 text-[#D6A634]" fill="none" stroke="currentColor" strokeWidth="1.8">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+            <path d="m9 12 2 2 4-4" />
+          </svg>
+        ),
+      },
+      {
+        val: "100%",
+        label: "COMPROMÍS DE",
+        sub: "PRECISIÓ",
+        icon: (
+          <svg viewBox="0 0 24 24" className="w-5 h-5 text-[#D6A634]" fill="none" stroke="currentColor" strokeWidth="1.8">
+            <circle cx="12" cy="8" r="6" />
+            <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11" />
+          </svg>
+        ),
+      },
+    ],
+    EN: [
+      {
+        val: "500+",
+        label: "KITCHENS INSTALLED",
+        sub: "IN CATALONIA",
+        icon: (
+          <svg viewBox="0 0 24 24" className="w-5 h-5 text-[#D6A634]" fill="none" stroke="currentColor" strokeWidth="1.8">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+          </svg>
+        ),
+      },
+      {
+        val: "30+",
+        label: "YEARS PERFECTING",
+        sub: "ONE CRAFT",
+        icon: (
+          <svg viewBox="0 0 24 24" className="w-5 h-5 text-[#D6A634]" fill="none" stroke="currentColor" strokeWidth="1.8">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+            <path d="m9 12 2 2 4-4" />
+          </svg>
+        ),
+      },
+      {
+        val: "100%",
+        label: "COMMITMENT TO",
+        sub: "PRECISION",
+        icon: (
+          <svg viewBox="0 0 24 24" className="w-5 h-5 text-[#D6A634]" fill="none" stroke="currentColor" strokeWidth="1.8">
+            <circle cx="12" cy="8" r="6" />
+            <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11" />
+          </svg>
+        ),
+      },
+    ],
+  }[lang];
+
   return (
-    <section id="opiniones" className="bg-[#FAF8F5] py-24 sm:py-36 border-t border-b border-[#E5E0D8] overflow-hidden">
+    <section id="opiniones" className="bg-[#FAF8F5] py-20 sm:py-28 lg:py-32 border-t border-b border-[#E5E0D8] overflow-hidden">
       <div className="container-x">
-        <div className="max-w-4xl mx-auto flex flex-col items-center text-center">
-          <FadeUp className="flex flex-col items-center">
-            <div className="flex items-center gap-3.5 mb-5">
-              <span className="w-14 h-[3px] bg-brand shrink-0" />
-              <span className="text-[16px] sm:text-[18px] font-mono font-black tracking-[0.28em] uppercase text-brand">
-                {t.opiniones.eyebrow}
-              </span>
-              <span className="w-14 h-[3px] bg-brand shrink-0" />
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+          {/* ════════ LEFT COLUMN: Editorial Photo Composition ════════ */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-10%" }}
+            transition={{ duration: 0.8, ease: easing }}
+            className="lg:col-span-5 flex flex-col gap-4"
+          >
+            {/* Top Main Image */}
+            <div className="w-full h-[320px] sm:h-[400px] lg:h-[420px] rounded-[22px] overflow-hidden shadow-[0_16px_40px_rgba(0,0,0,0.07)] border border-[#E8E4DD] bg-[#EFECE6]">
+              <img
+                src={opMain}
+                alt="Montador profesional ajustando armarios altos"
+                loading="lazy"
+                className="w-full h-full object-cover object-center transition-transform duration-700 hover:scale-105"
+              />
             </div>
 
-            <h2 className="font-display font-black text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-ink tracking-tight leading-[1.04] mb-8 text-balance">
-              {t.opiniones.title.replace(".", "")}<span className="text-brand">.</span>
-            </h2>
+            {/* Bottom 3 Detail Images Grid */}
+            <div className="grid grid-cols-3 gap-3 sm:gap-4">
+              <div className="aspect-[4/5] rounded-[16px] overflow-hidden shadow-sm border border-[#E8E4DD] bg-[#EFECE6]">
+                <img
+                  src={opSub1}
+                  alt="Nivelación milimétrica con nivel de burbuja"
+                  loading="lazy"
+                  className="w-full h-full object-cover object-center transition-transform duration-500 hover:scale-110"
+                />
+              </div>
+              <div className="aspect-[4/5] rounded-[16px] overflow-hidden shadow-sm border border-[#E8E4DD] bg-[#EFECE6]">
+                <img
+                  src={opSub2}
+                  alt="Herraje y bisagra técnica de alta gama"
+                  loading="lazy"
+                  className="w-full h-full object-cover object-center transition-transform duration-500 hover:scale-110"
+                />
+              </div>
+              <div className="aspect-[4/5] rounded-[16px] overflow-hidden shadow-sm border border-[#E8E4DD] bg-[#EFECE6]">
+                <img
+                  src={opSub3}
+                  alt="Encuentro y remate perfecto de encimera"
+                  loading="lazy"
+                  className="w-full h-full object-cover object-center transition-transform duration-500 hover:scale-110"
+                />
+              </div>
+            </div>
+          </motion.div>
 
-            <p className="text-xl sm:text-2xl text-ink-soft max-w-3xl leading-relaxed mb-10 font-normal">
-              {t.opiniones.desc}
-            </p>
+          {/* ════════ RIGHT COLUMN: Editorial Typography, CTA, Badge & 3-Metric Footer ════════ */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-10%" }}
+            transition={{ duration: 0.8, ease: easing }}
+            className="lg:col-span-7 flex flex-col justify-between pt-2 lg:pt-4"
+          >
+            <div>
+              {/* Eyebrow */}
+              <div className="flex items-center gap-3.5 mb-6">
+                <span className="w-10 h-[1.5px] bg-[#D6A634]" />
+                <span className="text-[13px] sm:text-[14px] font-sans font-bold tracking-[0.24em] uppercase text-[#D6A634]">
+                  {t.opiniones.eyebrow}
+                </span>
+                <span className="w-10 h-[1.5px] bg-[#D6A634]" />
+              </div>
 
-            <div className="flex flex-col items-center gap-4">
-              <a
-                href={`https://wa.me/34666871144?text=${encodeURIComponent(
-                  lang === "EN"
-                    ? "Hello, I installed my kitchen with CUBIKOS and I would like to share my feedback"
-                    : lang === "CA"
-                    ? "Hola, he muntat la meva cuina amb CUBIKOS i vull compartir la meva opinió"
-                    : "Hola, he montado mi cocina con CUBIKOS y quiero compartir mi opinion"
-                )}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2.5 px-8 h-[50px] rounded-full bg-[#111111] hover:bg-brand hover:text-[#111111] text-white font-sans font-bold text-xs uppercase tracking-[0.14em] transition-all duration-300 shadow-lg"
+              {/* Serif Headline with gold dot */}
+              <h2
+                className="text-[#141413] leading-[1.08] tracking-[-0.02em] mb-7 text-balance"
+                style={{
+                  fontFamily: "var(--font-serif)",
+                  fontSize: "clamp(2.4rem, 4.4vw, 4.2rem)",
+                  fontWeight: 600,
+                }}
               >
-                <span>{t.opiniones.btn}</span>
-                <span className="font-bold">→</span>
-              </a>
-              <div className="flex items-center gap-2 mt-2 px-4 py-2 rounded-full bg-[#EDEBE8]/60 border border-[#D1CFCC]/50 text-sm sm:text-base font-semibold text-[#444] tracking-wide">
-                <span className="w-2 h-2 rounded-full bg-brand shrink-0" />
+                {t.opiniones.title.replace(".", "")}
+                <span className="text-[#D6A634]">.</span>
+              </h2>
+
+              {/* Narrative paragraph */}
+              <p className="text-[17px] sm:text-[19px] text-[#55524C] max-w-2xl leading-[1.65] font-normal mb-9">
+                {t.opiniones.desc}
+              </p>
+
+              {/* Pill Button CTA */}
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5 mb-8">
+                <a
+                  href={`https://wa.me/34666871144?text=${encodeURIComponent(
+                    lang === "EN"
+                      ? "Hello, I installed my kitchen with CUBIKOS and I would like to share my feedback"
+                      : lang === "CA"
+                      ? "Hola, he muntat la meva cuina amb CUBIKOS i vull compartir la meva opinió"
+                      : "Hola, he montado mi cocina con CUBIKOS y quiero compartir mi opinion"
+                  )}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-3 px-8 h-[52px] rounded-full bg-[#0F0F0E] hover:bg-[#D6A634] hover:text-[#0F0F0E] text-white font-sans font-black text-[12px] sm:text-[13px] uppercase tracking-[0.18em] transition-all duration-300 shadow-[0_10px_26px_rgba(0,0,0,0.18)] hover:-translate-y-0.5"
+                >
+                  <span>{t.opiniones.btn}</span>
+                  <span className="font-black text-sm">→</span>
+                </a>
+              </div>
+
+              {/* Certified tolerance badge pill */}
+              <div className="inline-flex items-center gap-2.5 px-4 sm:px-5 py-2.5 rounded-full bg-[#EFECE6]/80 border border-[#DDD8CF] text-[13px] sm:text-[14.5px] text-[#4A4742] font-medium tracking-wide shadow-sm">
+                <svg viewBox="0 0 24 24" className="w-4 h-4 text-[#D6A634] shrink-0" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                  <path d="m9 12 2 2 4-4" />
+                </svg>
                 <span>{t.opiniones.badge}</span>
               </div>
             </div>
-          </FadeUp>
+
+            {/* ─── Bottom 3 Metrics (Border-t divider like editorial magazine layout) ─── */}
+            <div className="mt-14 sm:mt-16 pt-8 sm:pt-10 border-t border-[#E5E0D8]">
+              <div className="grid grid-cols-3 gap-4 sm:gap-6 divide-x divide-[#E5E0D8]">
+                {stats.map((st, i) => (
+                  <div key={st.val} className={`flex flex-col items-center text-center ${i > 0 ? "pl-3 sm:pl-6" : ""}`}>
+                    <div className="mb-2 flex items-center justify-center">{st.icon}</div>
+                    <div className="font-display font-black text-2xl sm:text-3xl lg:text-4xl text-[#141413] tracking-tight leading-none mb-2">
+                      {st.val}
+                    </div>
+                    <div className="text-[11px] sm:text-[12px] font-sans font-black uppercase tracking-[0.08em] text-[#6A665E] leading-tight">
+                      {st.label}
+                    </div>
+                    <div className="text-[10px] sm:text-[11px] font-sans font-bold uppercase tracking-[0.08em] text-[#9A958C] leading-tight mt-0.5">
+                      {st.sub}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+          </motion.div>
         </div>
       </div>
     </section>
