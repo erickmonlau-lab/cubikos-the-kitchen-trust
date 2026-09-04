@@ -319,7 +319,7 @@ export function StatsGrid() {
 
 const KitchenAssembly = () => {
   return (
-    <div className="w-full max-w-2xl mx-auto my-6 md:my-10 relative px-4 sm:px-0">
+    <div className="w-full max-w-xl mx-auto my-3 md:my-5 relative px-4 sm:px-0">
       <svg viewBox="100 0 640 400" className="w-full h-auto drop-shadow-lg overflow-visible">
         {/* Floor */}
         <motion.rect
@@ -603,12 +603,12 @@ const KitchenAssembly = () => {
 };
 
 const AnimatedStepIcon = ({ Icon, index }: { Icon: React.ElementType; index: number }) => (
-  <div className="flex items-center text-brand ml-3 opacity-90">
+  <div className="flex items-center text-brand ml-2.5 opacity-90">
     <motion.div
       animate={{ rotate: [-10, 15, -10], scale: [1, 1.1, 1], y: [0, -2, 0] }}
       transition={{ repeat: Infinity, duration: 1.5, delay: index * 0.2, ease: "easeInOut" }}
     >
-      <Icon size={20} strokeWidth={2.5} />
+      <Icon size={18} strokeWidth={2.5} />
     </motion.div>
   </div>
 );
@@ -626,59 +626,59 @@ export function Proceso() {
   ];
 
   return (
-    <section id="proceso" className="bg-[#FAFAF8] py-14 sm:py-20 overflow-hidden border-b border-[#E5E0D8]">
+    <section id="proceso" className="bg-[#FAFAF8] py-10 sm:py-14 overflow-hidden border-b border-[#E5E0D8]">
       <div className="mx-auto w-[90%] max-w-[1440px]">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-10%" }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         >
-          <div className="flex items-center gap-3.5 mb-4">
+          <div className="flex items-center gap-3.5 mb-3">
             <div className="h-[3px] w-12 bg-brand shrink-0" />
-            <span className="text-[15px] sm:text-[17px] font-mono font-black tracking-[0.28em] uppercase text-brand">
+            <span className="text-[14px] sm:text-[16px] font-mono font-black tracking-[0.28em] uppercase text-brand">
               {t.metodo.timelineEyebrow}
             </span>
           </div>
-          <h2 className="font-display font-black text-4xl sm:text-5xl lg:text-6xl xl:text-7xl leading-[1.02] text-ink max-w-[900px] text-balance tracking-tight">
+          <h2 className="font-display font-black text-3xl sm:text-4xl lg:text-5xl xl:text-6xl leading-[1.02] text-ink max-w-[900px] text-balance tracking-tight">
             {t.metodo.timelineTitle.replace(".", "")}<span className="text-brand">.</span>
           </h2>
         </motion.div>
 
         <KitchenAssembly />
 
-        <div className="mt-8 sm:mt-12 relative">
+        <div className="mt-4 sm:mt-6 relative">
           {/* Timeline central line */}
           <div className="absolute top-[10px] left-0 w-full h-[2px] bg-[#DADADA] hidden lg:block" />
 
-          <div className="grid lg:grid-cols-5 gap-8 lg:gap-6">
+          <div className="grid lg:grid-cols-5 gap-6 lg:gap-4">
             {stepsData.map((s, i) => (
               <motion.div
                 key={s.n}
-                initial={{ opacity: 0, y: 40 }}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-10%" }}
-                transition={{ duration: 0.7, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
+                transition={{ duration: 0.6, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] }}
                 className="relative pt-0 lg:pt-0"
               >
                 {/* Timeline Point */}
-                <div className="hidden lg:flex absolute top-[11px] left-6 -translate-y-1/2 w-[20px] h-[20px] rounded-full bg-white border-[4px] border-brand z-10" />
+                <div className="hidden lg:flex absolute top-[11px] left-6 -translate-y-1/2 w-[18px] h-[18px] rounded-full bg-white border-[3.5px] border-brand z-10" />
 
                 {/* Timeline Line Mobile */}
-                <div className="absolute left-[24px] top-[40px] bottom-[-32px] w-[2px] bg-[#DADADA] lg:hidden" />
+                <div className="absolute left-[24px] top-[36px] bottom-[-24px] w-[2px] bg-[#DADADA] lg:hidden" />
 
-                <div className="bg-white p-[24px] rounded-[16px] shadow-[0_20px_60px_rgba(0,0,0,0.08)] hover:-translate-y-2 transition-transform duration-500 ease-out mt-8 lg:mt-12 relative z-10 ml-12 lg:ml-0 flex flex-col justify-between h-[calc(100%-2rem)] lg:h-auto">
+                <div className="bg-white p-4 sm:p-5 rounded-[14px] shadow-[0_12px_40px_rgba(0,0,0,0.06)] hover:-translate-y-1.5 transition-transform duration-500 ease-out mt-5 lg:mt-8 relative z-10 ml-12 lg:ml-0 flex flex-col justify-between h-[calc(100%-1rem)] lg:h-auto border border-[#EBE8E3]">
                   {/* Point for mobile, inside card area */}
-                  <div className="lg:hidden absolute left-[-48px] top-[24px] w-[20px] h-[20px] rounded-full bg-brand border-[4px] border-white shadow-[0_0_0_1px_rgba(218,218,218,1)] z-10" />
+                  <div className="lg:hidden absolute left-[-48px] top-[20px] w-[18px] h-[18px] rounded-full bg-brand border-[3.5px] border-white shadow-[0_0_0_1px_rgba(218,218,218,1)] z-10" />
 
                   <div>
-                    <div className="flex items-center mb-2">
-                      <span className="font-display text-sm font-black text-brand">
+                    <div className="flex items-center mb-1.5">
+                      <span className="font-display text-[13px] sm:text-sm font-black text-brand tracking-wide">
                         {s.n} {s.t}
                       </span>
                       <AnimatedStepIcon Icon={s.icon} index={i} />
                     </div>
-                    <p className="text-lg font-medium text-ink-soft leading-snug">{s.d}</p>
+                    <p className="text-[14px] sm:text-[15px] font-medium text-ink-soft leading-snug">{s.d}</p>
                   </div>
                 </div>
               </motion.div>
