@@ -240,8 +240,8 @@ export const KitchenAssemblyAnimation = memo(() => {
                 <rect x="-2" y="5" width="136" height="8" rx="2" fill="url(#stoneSlab)" stroke="#FFF" strokeWidth="0.8" strokeOpacity="0.6" />
                 <line x1="-1" y1="12" x2="133" y2="12" stroke="#684D0D" strokeWidth="1" />
 
-                {/* Flush Induction Cooktop (above oven module) */}
-                <rect x="93" y="3" width="32" height="3" rx="1" fill="#0A0A09" stroke="#D6A634" strokeWidth="0.8" />
+                {/* Flush Integrated Induction Cooktop (enrasada perfectamente en la encimera, sin sobresalir hacia arriba) */}
+                <rect x="94" y="5.5" width="29" height="1.8" rx="0.5" fill="#111110" stroke="#D6A634" strokeWidth="0.6" />
                 
                 {/* Black & Gold Design Kitchen Faucet */}
                 <path d="M22 5 L22 -14 Q22 -20 15 -20 Q11 -20 11 -15" fill="none" stroke="#D6A634" strokeWidth="2.5" strokeLinecap="round" />
