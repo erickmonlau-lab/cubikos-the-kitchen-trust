@@ -181,11 +181,18 @@ export const KitchenAssemblyAnimation = memo(() => {
             {/* Stage 0: Active Laser Sweep across base */}
             {stage === 0 && (
               <motion.g
-                animate={{ opacity: [0.5, 1, 0.5] }}
-                transition={{ repeat: Infinity, duration: 1.2 }}
+                animate={{ 
+                  y: [-3, 3, -3],
+                  opacity: [0.75, 1, 0.75]
+                }}
+                transition={{ 
+                  repeat: Infinity, 
+                  duration: 2, 
+                  ease: "easeInOut" 
+                }}
               >
                 {/* Rayo continuo desde el módulo izquierdo hasta el nivel láser en la mano del montador */}
-                <line x1="-5" y1="12" x2="144" y2="12" stroke="#EF4444" strokeWidth="2" strokeDasharray="4 3" />
+                <line x1="-5" y1="12" x2="144" y2="12" stroke="#EF4444" strokeWidth="2.2" strokeDasharray="4 3" />
                 <rect x="2" y="3" width="28" height="8" rx="2" fill="#EF4444" />
                 <text x="16" y="9.5" fill="#FFF" fontSize="5" fontFamily="monospace" textAnchor="middle" fontWeight="bold">0.0mm</text>
               </motion.g>
@@ -318,15 +325,18 @@ export const KitchenAssemblyAnimation = memo(() => {
                 <rect x="52" y="80" width="8" height="12" rx="1.5" fill="#333" stroke="#D6A634" strokeWidth="0.8" />
 
                 {/* Left arm extending laser level tool directly into the module */}
-                <g>
+                <motion.g
+                  animate={{ y: [-3, 3, -3] }}
+                  transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+                >
                   <path d="M26 64 Q8 65 -10 62" fill="none" stroke="#171715" strokeWidth="5.5" strokeLinecap="round" />
                   <circle cx="-10" cy="62" r="3.2" fill="#FCD34D" />
-                  {/* Digital laser leveler box aligned with base cabinet line at y=120 absolute (person y=58 -> y=62) */}
+                  {/* Digital laser leveler box aligned with base cabinet line */}
                   <rect x="-24" y="56" width="14" height="12" rx="2" fill="#EF4444" stroke="#111" strokeWidth="1" />
                   <circle cx="-17" cy="62" r="2" fill="#FFF" />
                   {/* Pequeña lente dorada que emite el rayo */}
                   <rect x="-26" y="60.5" width="2" height="3" rx="0.5" fill="#D6A634" />
-                </g>
+                </motion.g>
               </g>
             )}
 
