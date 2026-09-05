@@ -21,31 +21,41 @@ export const KitchenAssemblyAnimation = memo(() => {
       num: '01',
       title: currentLang === 'ca' ? 'Nivell de mòduls' : currentLang === 'en' ? 'Base leveling' : 'Nivelación base',
       badge: '0.0 mm',
-      pillClass: 'bg-[#D6A634] text-[#0A0A09] border-[#F5D580] shadow-[#D6A634]/30'
+      pillClass: 'bg-[#D6A634] text-[#0A0A09] border-[#F5D580] shadow-[#D6A634]/30',
+      barBorder: 'border-[#D6A634]/40 bg-[#D6A634]/10',
+      badgeColor: 'text-[#F5D580]'
     },
     {
       num: '02',
       title: currentLang === 'ca' ? 'Calaixos & gola' : currentLang === 'en' ? 'Drawers & gola' : 'Cajones y gola',
       badge: 'SOFT-CLOSE',
-      pillClass: 'bg-[#38BDF8] text-[#082F49] border-[#7DD3FC] shadow-[#38BDF8]/30'
+      pillClass: 'bg-[#38BDF8] text-[#082F49] border-[#7DD3FC] shadow-[#38BDF8]/30',
+      barBorder: 'border-[#38BDF8]/40 bg-[#38BDF8]/10',
+      badgeColor: 'text-[#38BDF8]'
     },
     {
       num: '03',
       title: currentLang === 'ca' ? 'Encimera porcelànica' : currentLang === 'en' ? 'Stone countertop' : 'Encimera piedra',
       badge: 'SEAMLESS',
-      pillClass: 'bg-[#F59E0B] text-[#451A03] border-[#FCD34D] shadow-[#F59E0B]/30'
+      pillClass: 'bg-[#F59E0B] text-[#451A03] border-[#FCD34D] shadow-[#F59E0B]/30',
+      barBorder: 'border-[#F59E0B]/40 bg-[#F59E0B]/10',
+      badgeColor: 'text-[#FCD34D]'
     },
     {
       num: '04',
       title: currentLang === 'ca' ? 'Ancoratge mobles alts' : currentLang === 'en' ? 'Wall cabinets' : 'Muebles altos',
       badge: 'ANCLAJE',
-      pillClass: 'bg-[#A855F7] text-[#2E1065] border-[#D8B4FE] shadow-[#A855F7]/30'
+      pillClass: 'bg-[#A855F7] text-[#2E1065] border-[#D8B4FE] shadow-[#A855F7]/30',
+      barBorder: 'border-[#A855F7]/40 bg-[#A855F7]/10',
+      badgeColor: 'text-[#D8B4FE]'
     },
     {
       num: '05',
       title: currentLang === 'ca' ? 'Tolerància 0.0mm' : currentLang === 'en' ? 'Tolerance 0.0mm' : 'Tolerancia 0.0mm',
       badge: 'APROBADO',
-      pillClass: 'bg-[#10B981] text-[#022C22] border-[#6EE7B7] shadow-[#10B981]/30'
+      pillClass: 'bg-[#10B981] text-[#022C22] border-[#6EE7B7] shadow-[#10B981]/30',
+      barBorder: 'border-[#10B981]/40 bg-[#10B981]/10',
+      badgeColor: 'text-[#6EE7B7]'
     }
   ];
 
@@ -72,15 +82,15 @@ export const KitchenAssemblyAnimation = memo(() => {
         </AnimatePresence>
       </div>
 
-      {/* Barra Técnica Unificada: Paso + Estado perfectamente alineados y coherentes */}
-      <div className="w-full flex items-center justify-between bg-[#151513] border border-white/10 rounded-lg px-2.5 py-1 mb-2 shadow-md">
-        <div className="flex items-center gap-1.5 text-[11px] font-mono font-semibold text-[#D6A634]">
-          <span className="text-white/40 text-[10px]">PASO</span>
-          <span>{stages[stage].num}</span>
+      {/* Barra Técnica Unificada: Con color vivo dinámico y fondo destacado */}
+      <div className={`w-full flex items-center justify-between border rounded-lg px-2.5 py-1 mb-2 shadow-md transition-all duration-300 ${stages[stage].barBorder}`}>
+        <div className="flex items-center gap-1.5 text-[11px] font-mono font-bold text-white">
+          <span className="text-white/60 text-[9px] uppercase tracking-wider">PASO</span>
+          <span className="text-[#D6A634]">{stages[stage].num}</span>
         </div>
-        <div className="h-3 w-[1px] bg-white/10" />
-        <div className="flex items-center gap-1 text-[10px] font-mono font-bold text-emerald-400">
-          <CheckCircle2 className="w-3 h-3 text-emerald-400 shrink-0" />
+        <div className="h-3 w-[1px] bg-white/20" />
+        <div className={`flex items-center gap-1 text-[10px] font-mono font-bold ${stages[stage].badgeColor}`}>
+          <CheckCircle2 className="w-3 h-3 shrink-0" />
           <span>{stages[stage].badge}</span>
         </div>
       </div>
@@ -473,7 +483,7 @@ export const KitchenAssemblyAnimation = memo(() => {
       </div>
 
       {/* Mini Interactive Footnote */}
-      <span className="text-[10px] font-mono tracking-widest text-[#8C8C88] uppercase mt-1 group-hover:text-[#D6A634] transition-colors">
+      <span className="text-[10px] font-mono tracking-widest uppercase mt-1.5 px-2 py-0.5 rounded-full bg-[#D6A634]/10 border border-[#D6A634]/30 text-[#D6A634] font-semibold group-hover:bg-[#D6A634]/20 group-hover:border-[#D6A634]/50 transition-all text-center">
         {currentLang === 'ca' ? 'PROBANT MUNTATGE CUBIKOS · FASE ' + (stage + 1) + '/5' : currentLang === 'en' ? 'CUBIKOS FITTING SEQUENCE · STEP ' + (stage + 1) + '/5' : 'MONTAJE DE PRECISIÓN CUBIKOS · PASO ' + (stage + 1) + '/5'}
       </span>
     </div>
