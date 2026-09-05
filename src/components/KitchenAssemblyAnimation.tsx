@@ -46,12 +46,12 @@ export const KitchenAssemblyAnimation = memo(() => {
 
   return (
     <div 
-      className="relative flex flex-col items-center justify-center select-none cursor-pointer group"
+      className="relative flex flex-col items-center justify-center select-none cursor-pointer group w-full max-w-[260px] pl-2 sm:pl-4"
       onClick={() => setStage((prev) => (prev + 1) % 5)}
       title="Haz clic para avanzar fase"
     >
       {/* Floating Status Pill Header - SOLID OPAQUE COLOR */}
-      <div className="h-9 mb-2 flex items-center justify-center">
+      <div className="h-9 mb-2 flex items-center justify-center w-full">
         <AnimatePresence mode="wait">
           <motion.div
             key={stage}
@@ -68,7 +68,7 @@ export const KitchenAssemblyAnimation = memo(() => {
       </div>
 
       {/* Neat Meta Chips Row (Always in front & perfectly positioned, no overlap) */}
-      <div className="w-full max-w-[240px] flex items-center justify-between gap-2 px-1 mb-1 z-20">
+      <div className="w-full flex items-center justify-between gap-2 px-1 mb-1 z-20">
         <div className="px-2.5 py-1 rounded-md bg-[#1C1C19] border border-[#D6A634]/70 text-[#D6A634] text-[10px] font-mono font-bold shadow-md">
           <span>PASO 0{stage + 1}</span>
         </div>
@@ -79,7 +79,7 @@ export const KitchenAssemblyAnimation = memo(() => {
       </div>
 
       {/* SVG Stage */}
-      <div className="relative w-64 h-52 flex items-center justify-center">
+      <div className="relative w-full aspect-[260/215] max-w-[250px] flex items-center justify-center">
         <svg viewBox="0 0 260 215" className="w-full h-full overflow-visible drop-shadow-2xl">
           <defs>
             <linearGradient id="kitWallBack" x1="0%" y1="0%" x2="0%" y2="100%">
