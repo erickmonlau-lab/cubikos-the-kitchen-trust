@@ -344,29 +344,24 @@ export const KitchenAssemblyAnimation = memo(() => {
             {/* FASE 1: Montando y encajando un auténtico cajón con guías metálicas */}
             {stage === 1 && (
               <g>
-                {/* Both arms extended horizontally pushing drawer into carcass */}
                 <motion.g
-                  animate={{ x: [6, -14, 6] }}
+                  animate={{ x: [4, -8, 4] }}
                   transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
                 >
-                  {/* Right arm — grips right edge of drawer (x≈-2, y≈65) */}
-                  <path d="M50 68 Q22 66 -2 65" fill="none" stroke="#171715" strokeWidth="5.5" strokeLinecap="round" />
-                  <circle cx="-2" cy="65" r="3.2" fill="#FCD34D" />
+                  {/* Brazo derecho — empuja cara derecha del cajón, alcance natural */}
+                  <path d="M50 68 Q32 66 8 65" fill="none" stroke="#171715" strokeWidth="5.5" strokeLinecap="round" />
+                  <circle cx="8" cy="65" r="3.2" fill="#FCD34D" />
 
-                  {/* Left arm — grips left edge of drawer (x≈-38, y≈65) */}
-                  <path d="M26 68 Q4 66 -38 65" fill="none" stroke="#171715" strokeWidth="5.5" strokeLinecap="round" />
-                  <circle cx="-38" cy="65" r="3.2" fill="#FCD34D" />
+                  {/* Brazo izquierdo — también en cara derecha, ligeramente debajo */}
+                  <path d="M26 68 Q18 67 8 67" fill="none" stroke="#171715" strokeWidth="5.5" strokeLinecap="round" />
+                  <circle cx="8" cy="67" r="3.2" fill="#FCD34D" />
 
-                  {/* Realistic 3D Drawer Box */}
-                  <g transform="translate(-40, 52)">
-                    {/* Metal side runner / guía metálica */}
-                    <line x1="0" y1="22" x2="36" y2="22" stroke="#94A3B8" strokeWidth="2" strokeLinecap="round" />
-                    {/* Drawer Front */}
-                    <rect x="0" y="10" width="38" height="18" rx="1.5" fill="#262624" stroke="#D6A634" strokeWidth="1.2" />
-                    {/* Integrated J-Pull / Gola groove */}
-                    <line x1="1" y1="13" x2="37" y2="13" stroke="#D6A634" strokeWidth="2" />
-                    {/* Soft-close inner runner sparkle */}
-                    <circle cx="3" cy="22" r="1.5" fill="#38BDF8" />
+                  {/* Cajón cerca del personaje, manos en el borde derecho */}
+                  <g transform="translate(-18, 52)">
+                    <line x1="0" y1="20" x2="28" y2="20" stroke="#94A3B8" strokeWidth="2" strokeLinecap="round" />
+                    <rect x="0" y="10" width="28" height="16" rx="1.5" fill="#262624" stroke="#D6A634" strokeWidth="1.2" />
+                    <line x1="1" y1="13" x2="27" y2="13" stroke="#D6A634" strokeWidth="2" />
+                    <circle cx="3" cy="20" r="1.5" fill="#38BDF8" />
                   </g>
                 </motion.g>
               </g>
@@ -375,24 +370,22 @@ export const KitchenAssemblyAnimation = memo(() => {
             {/* FASE 2: Asentando la encimera de piedra con cuidado */}
             {stage === 2 && (
               <g>
-                {/* Both arms extended forward at slight downward angle placing the countertop */}
                 <motion.g
-                  animate={{ y: [-5, 3, -5] }}
+                  animate={{ y: [-4, 3, -4] }}
                   transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
                 >
-                  {/* Right arm — forward and slightly down, reaching the slab edge */}
-                  <path d="M50 66 Q34 64 12 62" fill="none" stroke="#171715" strokeWidth="5.5" strokeLinecap="round" />
-                  <circle cx="12" cy="62" r="3.2" fill="#FCD34D" />
+                  {/* Brazo derecho — natural hacia adelante-abajo */}
+                  <path d="M50 66 Q36 64 14 63" fill="none" stroke="#171715" strokeWidth="5.5" strokeLinecap="round" />
+                  <circle cx="14" cy="63" r="3.2" fill="#FCD34D" />
 
-                  {/* Left arm — forward and slightly down, reaching the slab edge */}
-                  <path d="M26 66 Q10 64 -8 60" fill="none" stroke="#171715" strokeWidth="5.5" strokeLinecap="round" />
-                  <circle cx="-8" cy="60" r="3.2" fill="#FCD34D" />
+                  {/* Brazo izquierdo — natural hacia adelante-abajo */}
+                  <path d="M26 66 Q16 65 0 63" fill="none" stroke="#171715" strokeWidth="5.5" strokeLinecap="round" />
+                  <circle cx="0" cy="63" r="3.2" fill="#FCD34D" />
 
-                  {/* Stone slab piece being positioned */}
-                  <polygon points="-28,52 18,52 14,57 -32,57" fill="url(#stoneSlab)" stroke="#FFF" strokeWidth="0.8" />
-                  {/* Sparkles of perfect fit */}
+                  {/* Losa de piedra entre las manos */}
+                  <polygon points="-20,56 24,56 20,61 -24,61" fill="url(#stoneSlab)" stroke="#FFF" strokeWidth="0.8" />
                   <motion.circle
-                    cx="-10" cy="54" r="1.5" fill="#FFF"
+                    cx="2" cy="58" r="1.5" fill="#FFF"
                     animate={{ scale: [0.5, 1.8, 0.5], opacity: [0.2, 1, 0.2] }}
                     transition={{ repeat: Infinity, duration: 0.8 }}
                   />
@@ -403,31 +396,27 @@ export const KitchenAssemblyAnimation = memo(() => {
             {/* FASE 3: En lo alto de la escalera taladrando y anclando el mueble alto */}
             {stage === 3 && (
               <g>
-                {/* Mano derecha apoyada en el lateral del mueble alto — llega hasta x≈-44 */}
-                <path d="M50 64 Q14 42 -44 28" fill="none" stroke="#171715" strokeWidth="5.5" strokeLinecap="round" />
-                <circle cx="-44" cy="28" r="3.2" fill="#FCD34D" />
+                {/* Brazo derecho — estabilizando arriba, alcance natural ~25u */}
+                <path d="M50 62 Q36 50 24 46" fill="none" stroke="#171715" strokeWidth="5.5" strokeLinecap="round" />
+                <circle cx="24" cy="46" r="3.2" fill="#FCD34D" />
 
-                {/* Brazo izquierdo con taladro apretando el anclaje */}
+                {/* Brazo izquierdo con taladro — alcance natural ~22u, vibrando */}
                 <motion.g
-                  animate={{ x: [-2, 2, -2] }}
+                  animate={{ x: [-1, 1, -1] }}
                   transition={{ repeat: Infinity, duration: 0.2, ease: "easeInOut" }}
                 >
-                  <path d="M26 64 Q4 48 -38 30" fill="none" stroke="#171715" strokeWidth="5.5" strokeLinecap="round" />
-                  <circle cx="-38" cy="30" r="3.2" fill="#FCD34D" />
+                  <path d="M26 62 Q14 52 2 48" fill="none" stroke="#171715" strokeWidth="5.5" strokeLinecap="round" />
+                  <circle cx="2" cy="48" r="3.2" fill="#FCD34D" />
 
-                  {/* Taladro horizontal — broca apuntando al mueble (izquierda) */}
-                  <g transform="translate(-52, 22) rotate(0)">
-                    <rect x="0" y="5" width="13" height="6" rx="2" fill="#D6A634" />
-                    <rect x="5" y="11" width="4.5" height="7" rx="1.5" fill="#111" />
-                    {/* Broca tocando el anclaje del mueble */}
-                    <line x1="0" y1="8" x2="-10" y2="8" stroke="#E2E8F0" strokeWidth="2" strokeLinecap="round" />
-                    <circle cx="-10" cy="8" r="1.5" fill="#38BDF8" />
-                    {/* Chispas de apriete técnico */}
+                  {/* Taladro en mano izquierda, broca larga apuntando al mueble */}
+                  <g transform="translate(-8, 40) rotate(0)">
+                    <rect x="0" y="4" width="12" height="6" rx="2" fill="#D6A634" />
+                    <rect x="4" y="10" width="4" height="6" rx="1.5" fill="#111" />
+                    {/* Broca larga apuntando izquierda hacia el mueble */}
+                    <line x1="0" y1="7" x2="-22" y2="7" stroke="#E2E8F0" strokeWidth="2" strokeLinecap="round" />
+                    <circle cx="-22" cy="7" r="1.5" fill="#38BDF8" />
                     <motion.circle
-                      cx="-11"
-                      cy="8"
-                      r="2"
-                      fill="#FDE047"
+                      cx="-22" cy="7" r="2" fill="#FDE047"
                       animate={{ opacity: [0, 1, 0], scale: [0.6, 2.2, 0.6] }}
                       transition={{ repeat: Infinity, duration: 0.18 }}
                     />
