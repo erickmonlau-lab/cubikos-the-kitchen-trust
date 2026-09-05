@@ -344,20 +344,20 @@ export const KitchenAssemblyAnimation = memo(() => {
             {/* FASE 1: Montando y encajando un auténtico cajón con guías metálicas */}
             {stage === 1 && (
               <g>
-                {/* Both arms holding an actual 3D modular drawer and sliding it into the carcass */}
+                {/* Both arms extended horizontally pushing drawer into carcass */}
                 <motion.g
                   animate={{ x: [6, -14, 6] }}
                   transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
                 >
-                  {/* Right arm reaching and gripping right edge of drawer */}
-                  <path d="M50 64 Q36 76 8 72" fill="none" stroke="#171715" strokeWidth="5.5" strokeLinecap="round" />
-                  <circle cx="8" cy="72" r="3.2" fill="#FCD34D" />
+                  {/* Right arm — extended forward at chest height toward kitchen */}
+                  <path d="M50 68 Q32 66 10 65" fill="none" stroke="#171715" strokeWidth="5.5" strokeLinecap="round" />
+                  <circle cx="10" cy="65" r="3.2" fill="#FCD34D" />
 
-                  {/* Left arm reaching and gripping left edge of drawer */}
-                  <path d="M26 64 Q12 74 -10 68" fill="none" stroke="#171715" strokeWidth="5.5" strokeLinecap="round" />
-                  <circle cx="-10" cy="68" r="3.2" fill="#FCD34D" />
+                  {/* Left arm — extended forward at chest height toward kitchen */}
+                  <path d="M26 68 Q10 67 -10 66" fill="none" stroke="#171715" strokeWidth="5.5" strokeLinecap="round" />
+                  <circle cx="-10" cy="66" r="3.2" fill="#FCD34D" />
 
-                  {/* Realistic 3D Drawer Box (Isometric top & front) */}
+                  {/* Realistic 3D Drawer Box */}
                   <g transform="translate(-40, 52)">
                     {/* Metal side runner / guía metálica */}
                     <line x1="0" y1="22" x2="36" y2="22" stroke="#94A3B8" strokeWidth="2" strokeLinecap="round" />
@@ -375,18 +375,18 @@ export const KitchenAssemblyAnimation = memo(() => {
             {/* FASE 2: Asentando la encimera de piedra con cuidado */}
             {stage === 2 && (
               <g>
-                {/* Both arms holding and lowering the countertop stone slab */}
+                {/* Both arms extended forward at slight downward angle placing the countertop */}
                 <motion.g
-                  animate={{ y: [-6, 3, -6] }}
+                  animate={{ y: [-5, 3, -5] }}
                   transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
                 >
-                  {/* Right arm down holding slab edge */}
-                  <path d="M50 64 Q40 76 12 60" fill="none" stroke="#171715" strokeWidth="5.5" strokeLinecap="round" />
-                  <circle cx="12" cy="60" r="3.2" fill="#FCD34D" />
+                  {/* Right arm — forward and slightly down, reaching the slab edge */}
+                  <path d="M50 66 Q34 64 12 62" fill="none" stroke="#171715" strokeWidth="5.5" strokeLinecap="round" />
+                  <circle cx="12" cy="62" r="3.2" fill="#FCD34D" />
 
-                  {/* Left arm down holding slab edge */}
-                  <path d="M26 64 Q12 66 -8 56" fill="none" stroke="#171715" strokeWidth="5.5" strokeLinecap="round" />
-                  <circle cx="-8" cy="56" r="3.2" fill="#FCD34D" />
+                  {/* Left arm — forward and slightly down, reaching the slab edge */}
+                  <path d="M26 66 Q10 64 -8 60" fill="none" stroke="#171715" strokeWidth="5.5" strokeLinecap="round" />
+                  <circle cx="-8" cy="60" r="3.2" fill="#FCD34D" />
 
                   {/* Stone slab piece being positioned */}
                   <polygon points="-28,52 18,52 14,57 -32,57" fill="url(#stoneSlab)" stroke="#FFF" strokeWidth="0.8" />
