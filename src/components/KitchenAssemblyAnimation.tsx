@@ -185,9 +185,8 @@ export const KitchenAssemblyAnimation = memo(() => {
                 transition={{ repeat: Infinity, duration: 1 }}
               >
                 <line x1="-5" y1="12" x2="135" y2="12" stroke="#EF4444" strokeWidth="2" strokeDasharray="4 3" />
-                <circle cx="66" cy="12" r="3.5" fill="#EF4444" />
-                <rect x="52" y="3" width="28" height="8" rx="2" fill="#EF4444" />
-                <text x="66" y="9.5" fill="#FFF" fontSize="5" fontFamily="monospace" textAnchor="middle" fontWeight="bold">0.0mm</text>
+                <rect x="2" y="3" width="28" height="8" rx="2" fill="#EF4444" />
+                <text x="16" y="9.5" fill="#FFF" fontSize="5" fontFamily="monospace" textAnchor="middle" fontWeight="bold">0.0mm</text>
               </motion.g>
             )}
 
@@ -249,7 +248,7 @@ export const KitchenAssemblyAnimation = memo(() => {
           {/* ============================================================== */}
           {/* 5. CUBIKOS MASTER FITTER PERSON (WITH DYNAMIC ACTIVE ARMS & LADDER) */}
           {/* ============================================================== */}
-          <g transform={`translate(168, ${stage === 3 ? 24 : 58})`}>
+          <g transform={`translate(${stage === 3 ? 150 : 168}, ${stage === 3 ? 24 : 58})`}>
             {/* Person Shadow (Only on ground stages) */}
             {stage !== 3 && (
               <ellipse cx="38" cy="132" rx="18" ry="5" fill="#000" fillOpacity="0.45" />
@@ -400,24 +399,23 @@ export const KitchenAssemblyAnimation = memo(() => {
                 <path d="M50 60 Q38 48 26 42" fill="none" stroke="#171715" strokeWidth="5.5" strokeLinecap="round" />
                 <circle cx="26" cy="42" r="3.2" fill="#FCD34D" />
 
-                {/* Brazo izquierdo — alcance 30u, mano en la empuñadura del taladro */}
+                {/* Brazo izquierdo — alcance 25u, mano en empuñadura del taladro */}
                 <motion.g
                   animate={{ x: [-1, 1, -1] }}
                   transition={{ repeat: Infinity, duration: 0.2, ease: "easeInOut" }}
                 >
-                  <path d="M26 62 Q18 52 8 40" fill="none" stroke="#171715" strokeWidth="5.5" strokeLinecap="round" />
-                  <circle cx="8" cy="40" r="3.2" fill="#FCD34D" />
+                  <path d="M26 62 Q20 50 12 42" fill="none" stroke="#171715" strokeWidth="5.5" strokeLinecap="round" />
+                  <circle cx="12" cy="42" r="3.2" fill="#FCD34D" />
 
-                  {/* Taladro en translate(-4,33): grip en persona-relativo (8,40).
-                      Broca 43u → punta en (-4-43, 33+7) = (-47, 40) = SVG absoluto (121, 64) = cara del mueble */}
-                  <g transform="translate(-4, 33) rotate(0)">
+                  {/* Taladro en translate(2,33): grip en (14,40).
+                      Broca 29u → tip en (-27,40) = SVG absoluto (123,64) = cara mueble */}
+                  <g transform="translate(2, 33) rotate(0)">
                     <rect x="0" y="4" width="12" height="6" rx="2" fill="#D6A634" />
                     <rect x="4" y="10" width="4" height="6" rx="1.5" fill="#111" />
-                    {/* Broca toca exactamente el borde derecho del mueble alto */}
-                    <line x1="0" y1="7" x2="-43" y2="7" stroke="#E2E8F0" strokeWidth="2" strokeLinecap="round" />
-                    <circle cx="-43" cy="7" r="1.5" fill="#38BDF8" />
+                    <line x1="0" y1="7" x2="-29" y2="7" stroke="#E2E8F0" strokeWidth="2" strokeLinecap="round" />
+                    <circle cx="-29" cy="7" r="1.5" fill="#38BDF8" />
                     <motion.circle
-                      cx="-43" cy="7" r="2.5" fill="#FDE047"
+                      cx="-29" cy="7" r="2.5" fill="#FDE047"
                       animate={{ opacity: [0, 1, 0], scale: [0.5, 2.5, 0.5] }}
                       transition={{ repeat: Infinity, duration: 0.18 }}
                     />
