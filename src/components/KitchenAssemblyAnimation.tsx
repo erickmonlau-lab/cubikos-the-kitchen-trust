@@ -403,28 +403,28 @@ export const KitchenAssemblyAnimation = memo(() => {
             {/* FASE 3: En lo alto de la escalera taladrando y anclando el mueble alto */}
             {stage === 3 && (
               <g>
-                {/* Mano derecha apoyada en el costado del mueble alto */}
-                <path d="M50 64 Q30 54 2 46" fill="none" stroke="#171715" strokeWidth="5.5" strokeLinecap="round" />
-                <circle cx="2" cy="46" r="3.2" fill="#FCD34D" />
+                {/* Mano derecha apoyada en el lateral del mueble alto — llega hasta x≈-44 */}
+                <path d="M50 64 Q14 42 -44 28" fill="none" stroke="#171715" strokeWidth="5.5" strokeLinecap="round" />
+                <circle cx="-44" cy="28" r="3.2" fill="#FCD34D" />
 
-                {/* Brazo izquierdo natural a la altura del hombro taladrando en el anclaje */}
+                {/* Brazo izquierdo con taladro apretando el anclaje */}
                 <motion.g
                   animate={{ x: [-2, 2, -2] }}
                   transition={{ repeat: Infinity, duration: 0.2, ease: "easeInOut" }}
                 >
-                  <path d="M26 64 Q8 58 -10 50" fill="none" stroke="#171715" strokeWidth="5.5" strokeLinecap="round" />
-                  <circle cx="-10" cy="50" r="3.2" fill="#FCD34D" />
+                  <path d="M26 64 Q4 48 -38 30" fill="none" stroke="#171715" strokeWidth="5.5" strokeLinecap="round" />
+                  <circle cx="-38" cy="30" r="3.2" fill="#FCD34D" />
 
-                  {/* Taladro atornillador profesional tocando el anclaje del mueble alto */}
-                  <g transform="translate(-24, 40) rotate(5)">
+                  {/* Taladro horizontal — broca apuntando al mueble (izquierda) */}
+                  <g transform="translate(-52, 22) rotate(0)">
                     <rect x="0" y="5" width="13" height="6" rx="2" fill="#D6A634" />
                     <rect x="5" y="11" width="4.5" height="7" rx="1.5" fill="#111" />
                     {/* Broca tocando el anclaje del mueble */}
-                    <line x1="0" y1="8" x2="-8" y2="8" stroke="#E2E8F0" strokeWidth="2" strokeLinecap="round" />
-                    <circle cx="-8" cy="8" r="1.5" fill="#38BDF8" />
+                    <line x1="0" y1="8" x2="-10" y2="8" stroke="#E2E8F0" strokeWidth="2" strokeLinecap="round" />
+                    <circle cx="-10" cy="8" r="1.5" fill="#38BDF8" />
                     {/* Chispas de apriete técnico */}
                     <motion.circle
-                      cx="-9"
+                      cx="-11"
                       cy="8"
                       r="2"
                       fill="#FDE047"
