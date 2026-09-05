@@ -193,31 +193,31 @@ const contentByLang: Record<"ES" | "CA" | "EN", MetodoData> = {
 export default function MetodoCubikosSection() {
   const { lang } = useLanguage();
   const d = contentByLang[lang] || contentByLang.ES;
-  const [activeStage, setActiveStage] = useState(0);
+  const [activeStage, setActiveStage] = useState<number | null>(null);
 
   return (
     <section
       id="metodo"
-      className="relative bg-[#FAF8F5] text-[#141413] py-12 sm:py-16 lg:py-20 overflow-hidden border-t border-b border-[#E5E0D8]"
+      className="relative bg-[#FAF8F5] text-[#141413] py-10 sm:py-14 lg:py-16 overflow-hidden border-t border-b border-[#E5E0D8]"
     >
-      <div className="relative z-10 w-full max-w-[1380px] mx-auto px-6 sm:px-10 lg:px-12">
+      <div className="relative z-10 w-full max-w-[1380px] mx-auto px-5 sm:px-8 lg:px-10">
         {/* ─── Main 40% / 60% Layout ─── */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 xl:gap-14 items-start">
           
           {/* ════════ LEFT COLUMN (~42%): Sticky Editorial Header & Blueprint ════════ */}
-          <div className="lg:col-span-5 lg:sticky lg:top-32 flex flex-col justify-between">
+          <div className="lg:col-span-5 flex flex-col justify-start">
             <div>
               {/* Eyebrow with gold horizontal accent line */}
-              <div className="flex items-center gap-3 mb-6">
-                <span className="w-10 h-[2px] bg-[#D6A634]" />
-                <span className="text-[13px] sm:text-[14px] font-sans font-bold tracking-[0.22em] text-[#D6A634] uppercase">
+              <div className="flex items-center gap-2.5 mb-3 sm:mb-4">
+                <span className="w-8 h-[2px] bg-[#D6A634]" />
+                <span className="text-[12px] sm:text-[13px] font-sans font-bold tracking-[0.2em] text-[#D6A634] uppercase">
                   {d.eyebrow}
                 </span>
               </div>
 
               {/* Editorial Chapter Headline */}
               <h2
-                className="text-[#141413] font-normal leading-[1.06] tracking-tight mb-8"
+                className="text-[#141413] font-normal leading-[1.06] tracking-tight mb-4 sm:mb-5"
                 style={{
                   fontFamily: "var(--font-serif)",
                   fontSize: "clamp(2rem, 3.2vw, 3.2rem)",
@@ -236,7 +236,7 @@ export default function MetodoCubikosSection() {
               </p>
 
               {/* Mantra Phrase with Gold Dots */}
-              <div className="flex flex-wrap items-center gap-x-3 gap-y-2 text-[11.5px] sm:text-[12.5px] font-mono tracking-[0.14em] uppercase text-[#141413] font-bold mb-5 sm:mb-6">
+              <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1.5 text-[11px] sm:text-[12px] font-mono tracking-[0.14em] uppercase text-[#141413] font-bold mb-5 sm:mb-6">
                 {d.mantra.map((word, i) => (
                   <React.Fragment key={word}>
                     <span>{word}</span>
@@ -249,12 +249,12 @@ export default function MetodoCubikosSection() {
             </div>
 
             {/* Architectural Blueprint Illustration from User Reference */}
-            <div className="relative w-full max-w-[340px] mt-1 p-1.5 rounded-[16px] bg-white/40 border border-[#E5E0D8]/80 shadow-[0_8px_24px_rgba(0,0,0,0.03)] hover:shadow-md hover:bg-white/70 transition-all duration-500">
+            <div className="relative w-full max-w-[320px] p-1.5 rounded-[14px] bg-white/40 border border-[#E5E0D8]/80 shadow-[0_4px_16px_rgba(0,0,0,0.02)] hover:shadow-md hover:bg-white/70 transition-all duration-300">
               <img
                 src={faqBlueprint}
                 alt="Plano técnico y alzado arquitectónico de cocina CUBIKOS"
                 loading="lazy"
-                className="w-full h-auto object-contain transition-transform duration-700 hover:scale-[1.02]"
+                className="w-full h-auto max-h-[140px] sm:max-h-[150px] object-contain transition-transform duration-500 hover:scale-[1.02]"
               />
             </div>
           </div>
@@ -269,17 +269,16 @@ export default function MetodoCubikosSection() {
                 return (
                   <div
                     key={stage.num}
-                    onClick={() => setActiveStage(index)}
-                    onMouseEnter={() => setActiveStage(index)}
-                    className="group cursor-pointer select-none py-3.5 sm:py-4 border-b border-[#E8E4DC] last:border-b-0 transition-colors"
+                    onClick={() => setActiveStage(prev => (prev === index ? null : index))}
+                    className="group cursor-pointer select-none py-3 sm:py-3.5 border-b border-[#E8E4DC] last:border-b-0 transition-colors"
                   >
                     <div className="flex items-start gap-4 sm:gap-7">
                       
                       {/* Left: Number + Vertical Connecting Line */}
-                      <div className="relative shrink-0 flex items-start gap-3 sm:gap-4 pt-1">
+                      <div className="relative shrink-0 flex items-start gap-3 sm:gap-4 pt-0.5">
                         {/* Huge Serif Number */}
                         <span
-                          className="font-serif text-[32px] sm:text-[38px] lg:text-[42px] leading-none font-normal select-none transition-all duration-300"
+                          className="font-serif text-[30px] sm:text-[36px] lg:text-[40px] leading-none font-normal select-none transition-all duration-300"
                           style={{
                             fontFamily: "var(--font-serif)",
                             color: isActive ? "#D6A634" : "#B8B3A8",
@@ -290,7 +289,7 @@ export default function MetodoCubikosSection() {
                         </span>
 
                         {/* Node and Connecting Animated Line between Stages */}
-                        <div className="relative flex flex-col items-center pt-2 sm:pt-3 w-4">
+                        <div className="relative flex flex-col items-center pt-1.5 sm:pt-2 w-4">
                           {/* Circle Node on line */}
                           <div
                             className={`w-2.5 h-2.5 rounded-full border-2 transition-all duration-300 z-10 ${
@@ -302,13 +301,13 @@ export default function MetodoCubikosSection() {
 
                           {/* Line going down to next item */}
                           {!isLast && (
-                            <div className="w-[1.5px] h-14 sm:h-16 bg-[#E2DDD3] relative overflow-hidden mt-1">
+                            <div className="w-[1.5px] h-12 sm:h-14 bg-[#E2DDD3] relative overflow-hidden mt-1">
                               <motion.div
                                 className="w-full bg-[#D6A634] shadow-[0_0_8px_rgba(214,166,52,0.8)]"
                                 animate={{
-                                  height: isActive ? "100%" : activeStage > index ? "100%" : "0%",
+                                  height: isActive || (activeStage !== null && activeStage > index) ? "100%" : "0%",
                                 }}
-                                transition={{ duration: 0.45, ease: "easeOut" }}
+                                transition={{ duration: 0.35, ease: "easeOut" }}
                               />
                             </div>
                           )}
