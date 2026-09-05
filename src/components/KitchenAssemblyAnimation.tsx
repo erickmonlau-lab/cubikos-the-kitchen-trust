@@ -1,206 +1,329 @@
-import React, { memo, useState } from 'react';
+import React, { memo, useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Sparkles, Hammer, CheckCircle2 } from 'lucide-react';
+import { CheckCircle2, Sparkles } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
 export const KitchenAssemblyAnimation = memo(() => {
   const { lang } = useLanguage();
   const currentLang = (lang || 'ES').toLowerCase();
-  const [activeBubble, setActiveBubble] = useState(0);
+  const [stage, setStage] = useState(0);
 
-  const bubbles = [
+  // Progressive loop of real kitchen assembly
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setStage((prev) => (prev + 1) % 5);
+    }, 2800);
+    return () => clearInterval(timer);
+  }, []);
+
+  const stages = [
     {
-      text: currentLang === 'ca' ? 'Ajustant a 0.0mm 📐' : currentLang === 'en' ? 'Tuning to 0.0mm 📐' : 'Ajustando a 0.0mm 📐',
-      color: 'bg-[#D6A634]/15 border-[#D6A634]/40 text-[#F5EBD7]'
+      label: currentLang === 'ca' ? '1. Nivelant mòduls base 📐' : currentLang === 'en' ? '1. Leveling base units 📐' : '1. Nivelando módulos base 📐',
+      color: 'bg-amber-500/10 border-amber-500/30 text-amber-300',
+      action: 'screwing'
     },
     {
-      text: currentLang === 'ca' ? 'Cascs nivelats! 🔨' : currentLang === 'en' ? 'Carcass leveled! 🔨' : '¡Cascos nivelados! 🔨',
-      color: 'bg-emerald-500/15 border-emerald-500/40 text-emerald-200'
+      label: currentLang === 'ca' ? '2. Muntant calaixos & gola 🗄️' : currentLang === 'en' ? '2. Fitting drawers & gola 🗄️' : '2. Montando cajones & gola 🗄️',
+      color: 'bg-sky-500/10 border-sky-500/30 text-sky-300',
+      action: 'fitting'
     },
     {
-      text: currentLang === 'ca' ? 'Bancada enrasada ✨' : currentLang === 'en' ? 'Seamless stone fit ✨' : 'Encimera enrasada ✨',
-      color: 'bg-amber-500/15 border-amber-500/40 text-amber-200'
+      label: currentLang === 'ca' ? '3. Col·locant encimera pedra ✨' : currentLang === 'en' ? '3. Installing stone countertop ✨' : '3. Colocando encimera piedra ✨',
+      color: 'bg-[#D6A634]/15 border-[#D6A634]/40 text-[#F5EBD7]',
+      action: 'placing'
     },
     {
-      text: currentLang === 'ca' ? 'Soft-close llest! 🚪' : currentLang === 'en' ? 'Soft-close ready! 🚪' : '¡Soft-close listo! 🚪',
-      color: 'bg-sky-500/15 border-sky-500/40 text-sky-200'
+      label: currentLang === 'ca' ? '4. Ancorant mobles alts 🔨' : currentLang === 'en' ? '4. Hanging wall cabinets 🔨' : '4. Anclando muebles altos 🔨',
+      color: 'bg-purple-500/10 border-purple-500/30 text-purple-300',
+      action: 'drilling'
+    },
+    {
+      label: currentLang === 'ca' ? '5. ¡Tolerància 0.0mm llesta! ✅' : currentLang === 'en' ? '5. 0.0mm tolerance verified! ✅' : '5. ¡Tolerancia 0.0mm lista! ✅',
+      color: 'bg-emerald-500/15 border-emerald-500/40 text-emerald-300',
+      action: 'celebrating'
     }
   ];
 
   return (
     <div 
-      className="relative flex flex-col items-center justify-center select-none group cursor-pointer"
-      onClick={() => setActiveBubble((prev) => (prev + 1) % bubbles.length)}
-      title="CUBIKOS Master Fitter"
+      className="relative flex flex-col items-center justify-center select-none cursor-pointer group"
+      onClick={() => setStage((prev) => (prev + 1) % 5)}
+      title="Haz clic para avanzar fase"
     >
-      {/* Floating Dynamic Dialogue Cloud / Badge (similar to reference) */}
-      <div className="h-9 mb-1 flex items-center justify-center">
+      {/* Floating Status Pill Header */}
+      <div className="h-8 mb-2 flex items-center justify-center">
         <AnimatePresence mode="wait">
           <motion.div
-            key={activeBubble}
-            initial={{ opacity: 0, y: 5, scale: 0.85 }}
+            key={stage}
+            initial={{ opacity: 0, y: 6, scale: 0.9 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: -5, scale: 0.85 }}
-            transition={{ duration: 0.25 }}
-            className={`px-3 py-1 rounded-full border text-[11px] font-mono tracking-tight font-medium shadow-lg backdrop-blur-md flex items-center gap-1.5 ${bubbles[activeBubble].color}`}
+            exit={{ opacity: 0, y: -6, scale: 0.9 }}
+            transition={{ duration: 0.22 }}
+            className={`px-3 py-1 rounded-full border text-[11px] font-mono font-medium shadow-md backdrop-blur-md flex items-center gap-1.5 ${stages[stage].color}`}
           >
-            <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#D6A634] animate-ping" />
-            <span>{bubbles[activeBubble].text}</span>
+            <span className="w-1.5 h-1.5 rounded-full bg-[#D6A634] animate-ping" />
+            <span>{stages[stage].label}</span>
           </motion.div>
         </AnimatePresence>
       </div>
 
-      {/* Floating Miniature Tool Chips around the character */}
-      <motion.div 
-        animate={{ y: [0, -4, 0] }} 
-        transition={{ repeat: Infinity, duration: 2.8, ease: "easeInOut" }}
-        className="absolute -left-1 top-12 px-2 py-0.5 rounded-md bg-[#181816] border border-[#D6A634]/30 text-[#D6A634] text-[9px] font-mono shadow-md flex items-center gap-1"
-      >
-        <span>0.0mm</span>
-      </motion.div>
-
-      <motion.div 
-        animate={{ y: [0, 4, 0] }} 
-        transition={{ repeat: Infinity, duration: 2.4, ease: "easeInOut", delay: 0.5 }}
-        className="absolute -right-2 top-10 px-2 py-0.5 rounded-md bg-[#181816] border border-emerald-500/30 text-emerald-400 text-[9px] font-mono shadow-md flex items-center gap-1"
-      >
+      {/* Floating Chips */}
+      <div className="absolute -left-2 top-11 px-2 py-0.5 rounded bg-[#171715] border border-white/10 text-[#D6A634] text-[9px] font-mono shadow">
+        <span>PAS 0{stage + 1}</span>
+      </div>
+      <div className="absolute -right-3 top-11 px-2 py-0.5 rounded bg-[#171715] border border-white/10 text-emerald-400 text-[9px] font-mono shadow flex items-center gap-1">
         <CheckCircle2 className="w-2.5 h-2.5" />
-        <span>OK</span>
-      </motion.div>
+        <span>0.0mm</span>
+      </div>
 
-      {/* Isometric Stage with Miniature Kitchen Module & Character */}
-      <div className="relative w-44 h-40 flex items-center justify-center">
-        <svg viewBox="0 0 200 180" className="w-full h-full overflow-visible drop-shadow-xl">
+      {/* SVG Stage */}
+      <div className="relative w-56 h-48 flex items-center justify-center">
+        <svg viewBox="0 0 250 210" className="w-full h-full overflow-visible drop-shadow-2xl">
           <defs>
-            <linearGradient id="charShirt" x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stopColor="#2A2A26" />
-              <stop offset="100%" stopColor="#171715" />
+            <linearGradient id="kitWallBack" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stopColor="#1E1E1C" />
+              <stop offset="100%" stopColor="#141413" />
             </linearGradient>
-            <linearGradient id="charPants" x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stopColor="#1E293B" />
-              <stop offset="100%" stopColor="#0F172A" />
+            <linearGradient id="carcassDark" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#2A2A27" />
+              <stop offset="100%" stopColor="#171716" />
             </linearGradient>
-            <linearGradient id="cabinetGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#2F2F2B" />
-              <stop offset="100%" stopColor="#1B1B19" />
+            <linearGradient id="stoneSlab" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#EDE3D2" />
+              <stop offset="50%" stopColor="#D6A634" />
+              <stop offset="100%" stopColor="#9C771B" />
             </linearGradient>
-            <linearGradient id="counterGold" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#F5EBD7" />
-              <stop offset="40%" stopColor="#D6A634" />
-              <stop offset="100%" stopColor="#B3861B" />
+            <linearGradient id="highUnitGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stopColor="#2D2D2A" />
+              <stop offset="100%" stopColor="#1C1C1A" />
             </linearGradient>
           </defs>
 
+          {/* Wall Tiles / Splashback Background */}
+          <rect x="20" y="20" width="135" height="155" rx="4" fill="url(#kitWallBack)" stroke="#262624" strokeWidth="1" />
+          {/* Subtle Tile Grid Lines */}
+          <line x1="20" y1="65" x2="155" y2="65" stroke="#2B2B28" strokeWidth="0.8" strokeDasharray="3 3" />
+          <line x1="20" y1="105" x2="155" y2="105" stroke="#2B2B28" strokeWidth="0.8" strokeDasharray="3 3" />
+          <line x1="65" y1="20" x2="65" y2="175" stroke="#2B2B28" strokeWidth="0.8" strokeDasharray="3 3" />
+          <line x1="110" y1="20" x2="110" y2="175" stroke="#2B2B28" strokeWidth="0.8" strokeDasharray="3 3" />
+
           {/* Floor Shadow */}
-          <ellipse cx="100" cy="160" rx="65" ry="12" fill="#000000" fillOpacity="0.45" />
+          <ellipse cx="125" cy="188" rx="95" ry="14" fill="#000" fillOpacity="0.5" />
 
-          {/* Miniature Kitchen Island being assembled (Left side) */}
-          <g transform="translate(18, 55)">
-            {/* Base Cabinet Carcass */}
-            <polygon points="10,40 50,22 90,40 50,58" fill="url(#cabinetGrad)" stroke="#454540" strokeWidth="1" />
-            <polygon points="10,40 50,58 50,88 10,70" fill="#20201E" stroke="#3A3A36" strokeWidth="1" />
-            <polygon points="50,58 90,40 90,70 50,88" fill="#171716" stroke="#3A3A36" strokeWidth="1" />
-
-            {/* Gola Profile Line */}
-            <line x1="10" y1="47" x2="50" y2="65" stroke="#D6A634" strokeWidth="1.5" strokeOpacity="0.8" />
-            <line x1="50" y1="65" x2="90" y2="47" stroke="#D6A634" strokeWidth="1.5" strokeOpacity="0.8" />
-
-            {/* Countertop Stone Slab Floating / Assembling */}
+          {/* ============================================================== */}
+          {/* 1. WALL CABINETS (Appears in Stage 3 and 4) */}
+          {/* ============================================================== */}
+          {stage >= 3 && (
             <motion.g
-              animate={{ y: [0, -5, 0] }}
-              transition={{ repeat: Infinity, duration: 2.8, ease: "easeInOut" }}
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4 }}
             >
-              <polygon points="8,35 50,16 92,35 50,54" fill="url(#counterGold)" stroke="#FFF" strokeWidth="0.8" strokeOpacity="0.5" />
-              <polygon points="8,35 50,54 50,59 8,40" fill="#9A751E" stroke="#684D0D" strokeWidth="0.5" />
-              <polygon points="50,54 92,35 92,40 50,59" fill="#B38822" stroke="#684D0D" strokeWidth="0.5" />
+              {/* Upper Cabinet 1 */}
+              <rect x="28" y="28" width="46" height="42" rx="2" fill="url(#highUnitGrad)" stroke="#3E3E3A" strokeWidth="1" />
+              <line x1="28" y1="66" x2="74" y2="66" stroke="#D6A634" strokeWidth="1.5" strokeOpacity="0.6" />
+              {/* Under-cabinet warm LED */}
+              <line x1="29" y1="71" x2="73" y2="71" stroke="#FDE047" strokeWidth="2" strokeOpacity="0.8" />
 
-              {/* Laser Line across Countertop */}
-              <line x1="20" y1="36" x2="80" y2="36" stroke="#EF4444" strokeWidth="1" strokeDasharray="2 2" />
+              {/* Upper Cabinet 2 */}
+              <rect x="78" y="28" width="46" height="42" rx="2" fill="url(#highUnitGrad)" stroke="#3E3E3A" strokeWidth="1" />
+              <line x1="78" y1="66" x2="124" y2="66" stroke="#D6A634" strokeWidth="1.5" strokeOpacity="0.6" />
+              <line x1="79" y1="71" x2="123" y2="71" stroke="#FDE047" strokeWidth="2" strokeOpacity="0.8" />
+
+              {/* Built-in Extractor Hood Detail */}
+              <rect x="127" y="32" width="22" height="34" rx="2" fill="#141413" stroke="#333" strokeWidth="1" />
+              <line x1="129" y1="63" x2="147" y2="63" stroke="#D6A634" strokeWidth="1" />
             </motion.g>
+          )}
 
-            {/* Level bubble indicator */}
-            <g transform="translate(42, 6)">
-              <rect width="16" height="6" rx="3" fill="#D6A634" fillOpacity="0.2" stroke="#D6A634" strokeWidth="0.7" />
-              <circle cx="50" cy="9" r="1.5" fill="#EF4444" />
-            </g>
+          {/* ============================================================== */}
+          {/* 2. BASE CARCASS STRUCTURE (Always visible, animated in stage 0) */}
+          {/* ============================================================== */}
+          <g transform="translate(25, 105)">
+            {/* Plinth / Zócalo técnico */}
+            <rect x="2" y="65" width="124" height="8" rx="1" fill="#111110" stroke="#222" strokeWidth="1" />
+
+            {/* Base Cabinet 1: Sink module */}
+            <rect x="2" y="12" width="40" height="53" rx="1" fill="url(#carcassDark)" stroke="#3A3A36" strokeWidth="1" />
+            
+            {/* Base Cabinet 2: Drawers & Cutlery module */}
+            <rect x="44" y="12" width="40" height="53" rx="1" fill="url(#carcassDark)" stroke="#3A3A36" strokeWidth="1" />
+
+            {/* Base Cabinet 3: Column / Oven module */}
+            <rect x="86" y="12" width="40" height="53" rx="1" fill="url(#carcassDark)" stroke="#3A3A36" strokeWidth="1" />
+
+            {/* Stage 0: Laser Leveling on Carcass */}
+            {stage === 0 && (
+              <motion.g
+                animate={{ opacity: [0.3, 1, 0.3] }}
+                transition={{ repeat: Infinity, duration: 1.2 }}
+              >
+                <line x1="-5" y1="12" x2="135" y2="12" stroke="#EF4444" strokeWidth="1.5" strokeDasharray="3 3" />
+                <circle cx="65" cy="12" r="3" fill="#EF4444" />
+              </motion.g>
+            )}
+
+            {/* ============================================================== */}
+            {/* 3. FRONTS, DRAWERS & GOLA PROFILE (Stages >= 1) */}
+            {/* ============================================================== */}
+            {stage >= 1 && (
+              <motion.g
+                initial={{ opacity: 0, x: -10 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.35 }}
+              >
+                {/* Module 1 door with gold handleless profile */}
+                <rect x="4" y="14" width="36" height="49" rx="1" fill="#20201E" stroke="#D6A634" strokeWidth="0.8" strokeOpacity="0.6" />
+                <line x1="4" y1="17" x2="40" y2="17" stroke="#D6A634" strokeWidth="1.5" />
+
+                {/* Module 2: 3 Soft-close drawers */}
+                <rect x="46" y="14" width="36" height="15" rx="1" fill="#222220" stroke="#444" strokeWidth="0.8" />
+                <line x1="46" y1="17" x2="82" y2="17" stroke="#D6A634" strokeWidth="1.5" />
+                <rect x="46" y="31" width="36" height="15" rx="1" fill="#222220" stroke="#444" strokeWidth="0.8" />
+                <line x1="46" y1="34" x2="82" y2="34" stroke="#D6A634" strokeWidth="1" strokeOpacity="0.8" />
+                <rect x="46" y="48" width="36" height="15" rx="1" fill="#222220" stroke="#444" strokeWidth="0.8" />
+                <line x1="46" y1="51" x2="82" y2="51" stroke="#D6A634" strokeWidth="1" strokeOpacity="0.8" />
+
+                {/* Module 3: Integrated Dark Glass Oven & Cooktop base */}
+                <rect x="88" y="14" width="36" height="34" rx="1" fill="#0C0C0B" stroke="#D6A634" strokeWidth="0.8" strokeOpacity="0.5" />
+                <line x1="93" y1="21" x2="119" y2="21" stroke="#E2E8F0" strokeWidth="1.5" strokeLinecap="round" />
+                <circle cx="106" cy="32" r="7" fill="none" stroke="#D6A634" strokeWidth="1" strokeDasharray="3 2" />
+                {/* Lower drawer under oven */}
+                <rect x="88" y="50" width="36" height="13" rx="1" fill="#20201E" stroke="#3A3A36" strokeWidth="0.8" />
+              </motion.g>
+            )}
+
+            {/* ============================================================== */}
+            {/* 4. SOLID STONE COUNTERTOP & FAUCET (Stages >= 2) */}
+            {/* ============================================================== */}
+            {stage >= 2 && (
+              <motion.g
+                initial={{ opacity: 0, y: -15, scale: 0.98 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                transition={{ duration: 0.45 }}
+              >
+                {/* Monolithic Porcelain Countertop Slab */}
+                <rect x="-2" y="6" width="132" height="7" rx="1.5" fill="url(#stoneSlab)" stroke="#FFF" strokeWidth="0.6" strokeOpacity="0.4" />
+                <line x1="-1" y1="12" x2="129" y2="12" stroke="#684D0D" strokeWidth="1" />
+
+                {/* Flush Induction Cooktop (above oven module) */}
+                <rect x="91" y="4" width="30" height="3" rx="1" fill="#0A0A09" stroke="#D6A634" strokeWidth="0.6" />
+                
+                {/* Black & Gold Design Kitchen Faucet (above sink module) */}
+                <path d="M22 6 L22 -12 Q22 -18 16 -18 Q12 -18 12 -14" fill="none" stroke="#D6A634" strokeWidth="2.2" strokeLinecap="round" />
+                <rect x="18" y="3" width="7" height="3.5" rx="1" fill="#262624" />
+                {/* Faucet drop of water sparkle */}
+                <circle cx="12" cy="-10" r="1" fill="#38BDF8" />
+              </motion.g>
+            )}
+
+            {/* Stage 4: Verified 0.0mm Stamp */}
+            {stage === 4 && (
+              <motion.g
+                initial={{ scale: 0, rotate: -20, opacity: 0 }}
+                animate={{ scale: 1, rotate: 0, opacity: 1 }}
+                transition={{ type: 'spring', damping: 12, stiffness: 200 }}
+                transform="translate(45, -5)"
+              >
+                <circle cx="20" cy="20" r="16" fill="#141412" stroke="#D6A634" strokeWidth="1.5" />
+                <path d="M14 20 L18 24 L26 15" fill="none" stroke="#D6A634" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                <text x="20" y="31" fill="#FFF" fontSize="4.5" fontFamily="monospace" textAnchor="middle" fontWeight="bold">0.0 mm</text>
+              </motion.g>
+            )}
           </g>
 
-          {/* Miniature Character (Assembler / Montador de Cocina) Right Side */}
-          <g transform="translate(95, 30)">
-            {/* Character Shadow */}
-            <ellipse cx="45" cy="132" rx="20" ry="5" fill="#000000" fillOpacity="0.4" />
+          {/* ============================================================== */}
+          {/* 5. CUBIKOS MASTER FITTER PERSON (Interactive right side) */}
+          {/* ============================================================== */}
+          <g transform="translate(162, 58)">
+            {/* Person Shadow */}
+            <ellipse cx="38" cy="130" rx="18" ry="4.5" fill="#000" fillOpacity="0.4" />
 
-            {/* Legs & Shoes */}
-            <rect x="36" y="100" width="7" height="28" rx="3.5" fill="url(#charPants)" />
-            <rect x="47" y="100" width="7" height="28" rx="3.5" fill="url(#charPants)" />
-            <rect x="34" y="125" width="11" height="6" rx="3" fill="#3E2723" />
-            <rect x="47" y="125" width="11" height="6" rx="3" fill="#3E2723" />
+            {/* Legs with technical work pants */}
+            <rect x="29" y="98" width="7.5" height="28" rx="3.5" fill="#1E293B" />
+            <rect x="40" y="98" width="7.5" height="28" rx="3.5" fill="#1E293B" />
+            {/* Safety Work Boots */}
+            <rect x="27" y="122" width="11" height="6.5" rx="3" fill="#451A03" />
+            <rect x="40" y="122" width="11" height="6.5" rx="3" fill="#451A03" />
 
-            {/* Torso / Body with CUBIKOS Technical Uniform */}
-            <rect x="30" y="58" width="30" height="44" rx="10" fill="url(#charShirt)" stroke="#353530" strokeWidth="1" />
+            {/* Torso & CUBIKOS Uniform */}
+            <rect x="24" y="58" width="28" height="42" rx="9" fill="#171715" stroke="#333" strokeWidth="1" />
+            {/* Harness / Gold suspenders */}
+            <line x1="30" y1="58" x2="30" y2="96" stroke="#D6A634" strokeWidth="2" />
+            <line x1="46" y1="58" x2="46" y2="96" stroke="#D6A634" strokeWidth="2" />
+            <rect x="35" y="80" width="6" height="5" rx="1.5" fill="#D6A634" />
+
+            {/* Head */}
+            <circle cx="38" cy="40" r="14" fill="#FCD34D" />
             
-            {/* Tool Vest / Braces with Gold Detail */}
-            <path d="M36 58 L36 96" stroke="#D6A634" strokeWidth="2" strokeOpacity="0.8" />
-            <path d="M54 58 L54 96" stroke="#D6A634" strokeWidth="2" strokeOpacity="0.8" />
-            <rect x="42" y="80" width="6" height="5" rx="1.5" fill="#D6A634" />
+            {/* Glasses */}
+            <rect x="29" y="34" width="7.5" height="7.5" rx="2" fill="none" stroke="#D6A634" strokeWidth="1.2" />
+            <rect x="39" y="34" width="7.5" height="7.5" rx="2" fill="none" stroke="#D6A634" strokeWidth="1.2" />
+            <line x1="36.5" y1="38" x2="39" y2="38" stroke="#D6A634" strokeWidth="1.2" />
 
-            {/* Character Head */}
-            <circle cx="45" cy="40" r="14" fill="#FBD38D" />
+            {/* Eyes */}
+            <circle cx="33" cy="38" r="2" fill="#0F172A" />
+            <circle cx="43" cy="38" r="2" fill="#0F172A" />
+            <circle cx="34" cy="37" r="0.6" fill="#FFF" />
+            <circle cx="44" cy="37" r="0.6" fill="#FFF" />
 
-            {/* Eyes (Friendly, cartoon style) */}
-            <circle cx="41" cy="38" r="2.2" fill="#1A202C" />
-            <circle cx="49" cy="38" r="2.2" fill="#1A202C" />
-            <circle cx="42" cy="37" r="0.7" fill="#FFFFFF" />
-            <circle cx="50" cy="37" r="0.7" fill="#FFFFFF" />
+            {/* Smile / Concentrated look */}
+            <path d="M34 45 Q38 48 42 45" fill="none" stroke="#9A3412" strokeWidth="1.2" strokeLinecap="round" />
 
-            {/* Glasses (Like in reference) */}
-            <rect x="37" y="34" width="7" height="7" rx="2" fill="none" stroke="#D6A634" strokeWidth="1.2" />
-            <rect x="46" y="34" width="7" height="7" rx="2" fill="none" stroke="#D6A634" strokeWidth="1.2" />
-            <line x1="44" y1="37" x2="46" y2="37" stroke="#D6A634" strokeWidth="1.2" />
+            {/* Modern Hair */}
+            <path d="M24 38 C24 26 31 23 38 23 C45 23 52 26 52 38 C48 32 42 29 38 29 C33 29 28 32 24 38 Z" fill="#334155" />
 
-            {/* Smile */}
-            <path d="M42 45 Q45 48 48 45" fill="none" stroke="#C05621" strokeWidth="1" strokeLinecap="round" />
+            {/* Right Arm (Resting on side or clipboard) */}
+            <path d="M51 64 Q61 76 54 88" fill="none" stroke="#171715" strokeWidth="5.5" strokeLinecap="round" />
+            <circle cx="54" cy="88" r="3.2" fill="#FCD34D" />
 
-            {/* Hair / Modern Cut */}
-            <path d="M31 38 C31 27 38 24 45 24 C52 24 59 27 59 38 C55 33 48 30 45 30 C40 30 35 33 31 38 Z" fill="#2D3748" />
-
-            {/* Right Arm (Resting on hip or holding tape) */}
-            <path d="M58 64 Q68 76 62 88" fill="none" stroke="#2A2A26" strokeWidth="6" strokeLinecap="round" />
-            <circle cx="62" cy="88" r="3.5" fill="#FBD38D" />
-
-            {/* Left Arm (Active: Installing / Screwing with animated motion) */}
-            <motion.g
-              animate={{ rotate: [0, -12, 0] }}
-              transition={{ repeat: Infinity, duration: 1.2, ease: "easeInOut" }}
-              style={{ transformOrigin: "32px 64px" }}
-            >
-              {/* Arm reaching towards the cabinet */}
-              <path d="M32 64 Q18 70 8 66" fill="none" stroke="#2A2A26" strokeWidth="6" strokeLinecap="round" />
-              <circle cx="8" cy="66" r="3.5" fill="#FBD38D" />
-
-              {/* Cordless Drill / Screwdriver Tool in Hand */}
-              <g transform="translate(-1, 56) rotate(15)">
-                <rect x="0" y="4" width="10" height="5" rx="1.5" fill="#D6A634" />
-                <rect x="4" y="9" width="3.5" height="7" rx="1" fill="#171715" />
-                <line x1="0" y1="6.5" x2="-4" y2="6.5" stroke="#E2E8F0" strokeWidth="1.5" strokeLinecap="round" />
-                {/* Tiny spark while drilling */}
-                <motion.circle
-                  cx="-5"
-                  cy="6.5"
-                  r="1.5"
-                  fill="#F6E05E"
-                  animate={{ opacity: [0, 1, 0], scale: [0.5, 1.5, 0.5] }}
-                  transition={{ repeat: Infinity, duration: 0.6 }}
-                />
+            {/* Left Arm: Actively working according to stage! */}
+            {stage === 4 ? (
+              /* Thumbs up celebrating */
+              <g>
+                <path d="M25 64 Q12 60 14 44" fill="none" stroke="#171715" strokeWidth="5.5" strokeLinecap="round" />
+                <circle cx="14" cy="44" r="3.5" fill="#FCD34D" />
+                <Sparkles className="w-3 h-3 text-[#D6A634]" />
+                <line x1="14" y1="44" x2="14" y2="39" stroke="#FCD34D" strokeWidth="2.5" strokeLinecap="round" />
               </g>
-            </motion.g>
+            ) : (
+              /* Drilling / Screwing / Adjusting towards the kitchen */
+              <motion.g
+                animate={{ 
+                  rotate: stage === 0 ? [-5, 5, -5] : stage === 3 ? [-10, 10, -10] : [-8, 2, -8],
+                  y: stage === 3 ? -18 : 0 // reaches up when hanging top units!
+                }}
+                transition={{ repeat: Infinity, duration: stage === 0 ? 0.8 : stage === 3 ? 0.5 : 1.1, ease: "easeInOut" }}
+                style={{ transformOrigin: "26px 64px" }}
+              >
+                <path d="M26 64 Q10 70 -4 67" fill="none" stroke="#171715" strokeWidth="5.5" strokeLinecap="round" />
+                <circle cx="-4" cy="67" r="3.2" fill="#FCD34D" />
+
+                {/* Cordless Drill Tool with Bit and Sparks */}
+                <g transform="translate(-16, 56) rotate(12)">
+                  <rect x="0" y="5" width="12" height="6" rx="2" fill="#D6A634" />
+                  <rect x="5" y="11" width="4.5" height="7" rx="1.5" fill="#111" />
+                  <line x1="0" y1="8" x2="-6" y2="8" stroke="#E2E8F0" strokeWidth="1.8" strokeLinecap="round" />
+
+                  {/* Drilling sparkles */}
+                  <motion.circle
+                    cx="-8"
+                    cy="8"
+                    r="1.8"
+                    fill="#FDE047"
+                    animate={{ opacity: [0, 1, 0], scale: [0.6, 1.8, 0.6] }}
+                    transition={{ repeat: Infinity, duration: 0.3 }}
+                  />
+                </g>
+              </motion.g>
+            )}
           </g>
         </svg>
       </div>
 
-      {/* Mini Caption */}
-      <span className="text-[10px] font-mono tracking-wider text-[#8C8C88] uppercase mt-1 group-hover:text-[#D6A634] transition-colors">
-        {currentLang === 'ca' ? 'Muntatge CUBIKOS' : currentLang === 'en' ? 'CUBIKOS Assembly' : 'Montaje CUBIKOS'}
+      {/* Mini Interactive Footnote */}
+      <span className="text-[10px] font-mono tracking-widest text-[#8C8C88] uppercase mt-1 group-hover:text-[#D6A634] transition-colors">
+        {currentLang === 'ca' ? 'PROBANT MUNTATGE CUBIKOS · FASE ' + (stage + 1) + '/5' : currentLang === 'en' ? 'CUBIKOS FITTING SEQUENCE · STEP ' + (stage + 1) + '/5' : 'MONTAJE DE PRECISIÓN CUBIKOS · PASO ' + (stage + 1) + '/5'}
       </span>
     </div>
   );
