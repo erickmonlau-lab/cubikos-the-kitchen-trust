@@ -537,9 +537,9 @@ export const Footer = memo(() => {
   return (
     <footer className="bg-[#0A0A09] text-[#E5E1D8] pt-16 pb-12 border-t border-white/10">
       <div className="container-x">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-6 mb-16 items-start">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-4 mb-16 items-start">
           {/* Col 1: Marca & Contacto directo */}
-          <div className="lg:col-span-4 flex flex-col">
+          <div className="lg:col-span-3 xl:col-span-4 flex flex-col">
             <Link to="/" className="inline-block mb-6">
               <LogoCubikos className="text-[24px] text-white" />
             </Link>
@@ -677,8 +677,8 @@ export const Footer = memo(() => {
             </ul>
           </div>
 
-          {/* Col 5: Personita montando cocina en miniatura (Extremo derecho) */}
-          <div className="lg:col-span-2 flex flex-col items-center justify-center pt-2 sm:pt-0">
+          {/* Col 5: Personita montando cocina en miniatura (Extremo derecho, con espacio propio) */}
+          <div className="lg:col-span-3 xl:col-span-2 flex flex-col items-center lg:items-end justify-center pt-4 lg:pt-0">
             <KitchenAssemblyAnimation />
           </div>
         </div>

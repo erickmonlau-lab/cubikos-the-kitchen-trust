@@ -67,13 +67,15 @@ export const KitchenAssemblyAnimation = memo(() => {
         </AnimatePresence>
       </div>
 
-      {/* Floating Chips - SOLID OPAQUE */}
-      <div className="absolute -left-2 top-12 px-2.5 py-1 rounded-md bg-[#1C1C19] border border-[#D6A634]/60 text-[#D6A634] text-[10px] font-mono font-bold shadow-lg">
-        <span>PASO 0{stage + 1}</span>
-      </div>
-      <div className="absolute -right-3 top-12 px-2.5 py-1 rounded-md bg-[#064E3B] border border-[#34D399] text-[#A7F3D0] text-[10px] font-mono font-bold shadow-lg flex items-center gap-1.5">
-        <CheckCircle2 className="w-3 h-3 text-[#34D399]" />
-        <span>{stages[stage].tagText}</span>
+      {/* Neat Meta Chips Row (Always in front & perfectly positioned, no overlap) */}
+      <div className="w-full max-w-[240px] flex items-center justify-between gap-2 px-1 mb-1 z-20">
+        <div className="px-2.5 py-1 rounded-md bg-[#1C1C19] border border-[#D6A634]/70 text-[#D6A634] text-[10px] font-mono font-bold shadow-md">
+          <span>PASO 0{stage + 1}</span>
+        </div>
+        <div className="px-2.5 py-1 rounded-md bg-[#064E3B] border border-[#34D399] text-[#A7F3D0] text-[10px] font-mono font-bold shadow-md flex items-center gap-1.5">
+          <CheckCircle2 className="w-3 h-3 text-[#34D399]" />
+          <span>{stages[stage].tagText}</span>
+        </div>
       </div>
 
       {/* SVG Stage */}
