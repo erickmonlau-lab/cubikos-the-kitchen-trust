@@ -396,28 +396,29 @@ export const KitchenAssemblyAnimation = memo(() => {
             {/* FASE 3: En lo alto de la escalera taladrando y anclando el mueble alto */}
             {stage === 3 && (
               <g>
-                {/* Brazo derecho — estabilizando arriba, alcance natural ~25u */}
-                <path d="M50 62 Q36 50 24 46" fill="none" stroke="#171715" strokeWidth="5.5" strokeLinecap="round" />
-                <circle cx="24" cy="46" r="3.2" fill="#FCD34D" />
+                {/* Brazo derecho — estabilizando arriba, alcance natural */}
+                <path d="M50 60 Q38 48 26 42" fill="none" stroke="#171715" strokeWidth="5.5" strokeLinecap="round" />
+                <circle cx="26" cy="42" r="3.2" fill="#FCD34D" />
 
-                {/* Brazo izquierdo con taladro — alcance natural ~22u, vibrando */}
+                {/* Brazo izquierdo — alcance 30u, mano en la empuñadura del taladro */}
                 <motion.g
                   animate={{ x: [-1, 1, -1] }}
                   transition={{ repeat: Infinity, duration: 0.2, ease: "easeInOut" }}
                 >
-                  <path d="M26 62 Q14 52 2 48" fill="none" stroke="#171715" strokeWidth="5.5" strokeLinecap="round" />
-                  <circle cx="2" cy="48" r="3.2" fill="#FCD34D" />
+                  <path d="M26 62 Q18 52 8 40" fill="none" stroke="#171715" strokeWidth="5.5" strokeLinecap="round" />
+                  <circle cx="8" cy="40" r="3.2" fill="#FCD34D" />
 
-                  {/* Taladro en mano izquierda, broca larga apuntando al mueble */}
-                  <g transform="translate(-8, 40) rotate(0)">
+                  {/* Taladro en translate(-4,33): grip en persona-relativo (8,40).
+                      Broca 43u → punta en (-4-43, 33+7) = (-47, 40) = SVG absoluto (121, 64) = cara del mueble */}
+                  <g transform="translate(-4, 33) rotate(0)">
                     <rect x="0" y="4" width="12" height="6" rx="2" fill="#D6A634" />
                     <rect x="4" y="10" width="4" height="6" rx="1.5" fill="#111" />
-                    {/* Broca larga apuntando izquierda hacia el mueble */}
-                    <line x1="0" y1="7" x2="-22" y2="7" stroke="#E2E8F0" strokeWidth="2" strokeLinecap="round" />
-                    <circle cx="-22" cy="7" r="1.5" fill="#38BDF8" />
+                    {/* Broca toca exactamente el borde derecho del mueble alto */}
+                    <line x1="0" y1="7" x2="-43" y2="7" stroke="#E2E8F0" strokeWidth="2" strokeLinecap="round" />
+                    <circle cx="-43" cy="7" r="1.5" fill="#38BDF8" />
                     <motion.circle
-                      cx="-22" cy="7" r="2" fill="#FDE047"
-                      animate={{ opacity: [0, 1, 0], scale: [0.6, 2.2, 0.6] }}
+                      cx="-43" cy="7" r="2.5" fill="#FDE047"
+                      animate={{ opacity: [0, 1, 0], scale: [0.5, 2.5, 0.5] }}
                       transition={{ repeat: Infinity, duration: 0.18 }}
                     />
                   </g>
