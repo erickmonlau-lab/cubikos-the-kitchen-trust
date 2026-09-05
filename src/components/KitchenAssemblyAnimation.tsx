@@ -484,9 +484,9 @@ export const KitchenAssemblyAnimation = memo(() => {
         </svg>
       </div>
 
-      {/* Mini Interactive Footnote: Fondo 100% sólido, letras blancas, sin descolgar jamás */}
-      <div className="w-full flex justify-center mt-2">
-        <span className="text-[10px] font-mono tracking-wider uppercase px-3 py-1 rounded-full bg-[#D6A634] text-white font-bold shadow-md whitespace-nowrap border border-[#F5D580]/40 group-hover:bg-[#E5B540] transition-all text-center">
+      {/* Mini Interactive Footnote: Fondo 100% sólido, letras blancas más grandes y legibles */}
+      <div className="w-full flex justify-center mt-2.5">
+        <span className="text-xs font-mono tracking-wider uppercase px-3.5 py-1.5 rounded-full bg-[#D6A634] text-white font-extrabold shadow-md whitespace-nowrap border border-[#F5D580]/40 group-hover:bg-[#E5B540] transition-all text-center">
           {currentLang === 'ca' ? `MUNTATGE CUBIKOS · PAS ${stage + 1}/5` : currentLang === 'en' ? `FITTING CUBIKOS · STEP ${stage + 1}/5` : `MONTAJE CUBIKOS · PASO ${stage + 1}/5`}
         </span>
       </div>
