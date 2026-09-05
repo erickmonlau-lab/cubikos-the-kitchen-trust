@@ -51,7 +51,7 @@ export const KitchenAssemblyAnimation = memo(() => {
     },
     {
       num: '05',
-      title: currentLang === 'ca' ? 'Tolerància 0.0mm' : currentLang === 'en' ? 'Tolerance 0.0mm' : 'Tolerancia 0.0mm',
+      title: currentLang === 'ca' ? 'Precisió 0.0 mm' : currentLang === 'en' ? 'Precision 0.0 mm' : 'Precisión 0.0 mm',
       badge: currentLang === 'ca' ? 'APROVAT' : currentLang === 'en' ? 'APPROVED' : 'APROBADO',
       pillClass: 'bg-[#059669] text-white border-[#34D399] shadow-[#059669]/30',
       barBg: 'bg-[#059669] border-[#34D399]',
@@ -80,7 +80,7 @@ export const KitchenAssemblyAnimation = memo(() => {
             className={`w-full py-1.5 px-3 rounded-full text-center text-xs font-mono font-bold tracking-tight shadow-lg border flex items-center justify-center gap-2 whitespace-nowrap ${stages[stage].pillClass}`}
           >
             <span className="w-2.5 h-2.5 rounded-full bg-[#FDE047] shadow-[0_0_8px_#FDE047] animate-ping shrink-0" />
-            <span className="truncate">{stage + 1}. {stages[stage].title}</span>
+            <span>{stage + 1}. {stages[stage].title}</span>
           </motion.div>
         </AnimatePresence>
       </div>
