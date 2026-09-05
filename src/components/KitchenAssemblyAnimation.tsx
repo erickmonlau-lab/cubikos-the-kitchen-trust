@@ -82,14 +82,14 @@ export const KitchenAssemblyAnimation = memo(() => {
         </AnimatePresence>
       </div>
 
-      {/* Barra Técnica Unificada: Fondo 100% sólido, color llamativo y letras blancas */}
-      <div className={`w-full flex items-center justify-between border-2 rounded-lg px-3 py-1.5 mb-2 shadow-lg transition-all duration-300 ${stages[stage].barBg}`}>
-        <div className="flex items-center gap-1.5 text-xs font-mono font-black text-white">
+      {/* Barra Técnica Unificada: Ajustada y compacta, no tan ancha */}
+      <div className={`inline-flex items-center justify-between gap-4 border-2 rounded-lg px-3 py-1 mb-2 shadow-lg transition-all duration-300 max-w-[210px] ${stages[stage].barBg}`}>
+        <div className="flex items-center gap-1.5 text-xs font-mono font-black text-white shrink-0">
           <span className="text-white/80 text-[10px] uppercase tracking-wider font-bold">PASO</span>
           <span className="bg-black/30 px-1.5 py-0.5 rounded text-white">{stages[stage].num}</span>
         </div>
-        <div className="h-3.5 w-[1px] bg-white/40" />
-        <div className="flex items-center gap-1.5 text-[11px] font-mono font-black text-white">
+        <div className="h-3.5 w-[1px] bg-white/40 shrink-0" />
+        <div className="flex items-center gap-1.5 text-[11px] font-mono font-black text-white shrink-0">
           <CheckCircle2 className="w-3.5 h-3.5 text-white shrink-0" />
           <span>{stages[stage].badge}</span>
         </div>
