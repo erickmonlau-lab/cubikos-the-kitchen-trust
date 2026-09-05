@@ -225,27 +225,50 @@ export const KitchenAssemblyAnimation = memo(() => {
               </motion.g>
             )}
 
-            {/* Stage 4: Verified 0.0mm Stamp */}
+            {/* Stage 4: Verified 0.0mm Stamp - Crisp, high-contrast, perfectly visible */}
             {stage === 4 && (
               <motion.g
-                initial={{ scale: 0, rotate: -25, opacity: 0 }}
+                initial={{ scale: 0, rotate: -20, opacity: 0 }}
                 animate={{ scale: 1, rotate: 0, opacity: 1 }}
-                transition={{ type: 'spring', damping: 12, stiffness: 220 }}
-                transform="translate(48, -6)"
+                transition={{ type: 'spring', damping: 14, stiffness: 220 }}
+                transform="translate(42, -10)"
               >
-                <circle cx="20" cy="20" r="17" fill="#141412" stroke="#D6A634" strokeWidth="2" />
-                <path d="M13 20 L18 25 L27 14" fill="none" stroke="#D6A634" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-                <text x="20" y="32" fill="#FFF" fontSize="5" fontFamily="monospace" textAnchor="middle" fontWeight="bold">0.0 mm</text>
+                {/* Badge Outer Shadow & Golden Ring */}
+                <circle cx="26" cy="26" r="24" fill="#0A0A09" stroke="#D6A634" strokeWidth="2.5" />
+                <circle cx="26" cy="26" r="21" fill="none" stroke="#D6A634" strokeWidth="1" strokeDasharray="3 2" />
+                {/* Thick Bold Green Checkmark */}
+                <path d="M17 25 L23 32 L35 18" fill="none" stroke="#10B981" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" />
+                {/* High-contrast solid pill tag for 0.0 mm */}
+                <rect x="11" y="36" width="30" height="9" rx="3" fill="#D6A634" />
+                <text x="26" y="43" fill="#0A0A09" fontSize="6.5" fontFamily="monospace" fontWeight="900" textAnchor="middle">0.0 mm</text>
               </motion.g>
             )}
           </g>
 
           {/* ============================================================== */}
-          {/* 5. CUBIKOS MASTER FITTER PERSON (WITH DYNAMIC ACTIVE ARMS) */}
+          {/* 5. CUBIKOS MASTER FITTER PERSON (WITH DYNAMIC ACTIVE ARMS & LADDER) */}
           {/* ============================================================== */}
-          <g transform="translate(168, 58)">
-            {/* Person Shadow */}
-            <ellipse cx="38" cy="132" rx="18" ry="5" fill="#000" fillOpacity="0.45" />
+          <g transform={`translate(168, ${stage === 3 ? 24 : 58})`}>
+            {/* Person Shadow (Only on ground stages) */}
+            {stage !== 3 && (
+              <ellipse cx="38" cy="132" rx="18" ry="5" fill="#000" fillOpacity="0.45" />
+            )}
+
+            {/* Escalera técnica de aluminio (en stage 3 se coloca debajo de sus botas) */}
+            {stage === 3 && (
+              <g transform="translate(18, 126)">
+                {/* Sombra de la escalera en el suelo */}
+                <ellipse cx="20" cy="42" rx="24" ry="4" fill="#000" fillOpacity="0.5" />
+                {/* Patas de la escalera de aluminio */}
+                <line x1="8" y1="2" x2="0" y2="42" stroke="#94A3B8" strokeWidth="3" strokeLinecap="round" />
+                <line x1="28" y1="2" x2="38" y2="42" stroke="#94A3B8" strokeWidth="3" strokeLinecap="round" />
+                {/* Peldaños de apoyo */}
+                <line x1="6" y1="14" x2="30" y2="14" stroke="#CBD5E1" strokeWidth="2.5" />
+                <line x1="4" y1="26" x2="33" y2="26" stroke="#CBD5E1" strokeWidth="2.5" />
+                {/* Plataforma superior donde apoyan las botas del montador */}
+                <rect x="5" y="-1" width="28" height="6" rx="2" fill="#D6A634" stroke="#B45309" strokeWidth="1" />
+              </g>
+            )}
 
             {/* Legs with technical work pants */}
             <rect x="29" y="98" width="7.5" height="28" rx="3.5" fill="#1E293B" />
@@ -376,42 +399,29 @@ export const KitchenAssemblyAnimation = memo(() => {
               </g>
             )}
 
-            {/* FASE 3: En escalera de aluminio taladrando y anclando el mueble alto */}
+            {/* FASE 3: En lo alto de la escalera taladrando y anclando el mueble alto */}
             {stage === 3 && (
               <g>
-                {/* Escalera técnica de aluminio debajo del montador para llegar arriba */}
-                <g transform="translate(18, 90)">
-                  {/* Patas de la escalera */}
-                  <line x1="8" y1="0" x2="2" y2="40" stroke="#94A3B8" strokeWidth="2.5" strokeLinecap="round" />
-                  <line x1="28" y1="0" x2="34" y2="40" stroke="#94A3B8" strokeWidth="2.5" strokeLinecap="round" />
-                  {/* Peldaños */}
-                  <line x1="6" y1="12" x2="30" y2="12" stroke="#E2E8F0" strokeWidth="2" />
-                  <line x1="4" y1="24" x2="32" y2="24" stroke="#E2E8F0" strokeWidth="2" />
-                  {/* Plataforma antideslizante superior */}
-                  <rect x="5" y="-2" width="26" height="5" rx="1.5" fill="#D6A634" />
-                </g>
+                {/* Mano derecha apoyada en el costado del mueble alto */}
+                <path d="M50 64 Q30 54 2 46" fill="none" stroke="#171715" strokeWidth="5.5" strokeLinecap="round" />
+                <circle cx="2" cy="46" r="3.2" fill="#FCD34D" />
 
-                {/* Mano derecha apoyada fijando el lateral del mueble alto */}
-                <path d="M50 48 Q32 30 -6 18" fill="none" stroke="#171715" strokeWidth="5.5" strokeLinecap="round" />
-                <circle cx="-6" cy="18" r="3.2" fill="#FCD34D" />
-
-                {/* Brazo izquierdo con taladro tocando EXACTAMENTE el herraje del mueble alto */}
+                {/* Brazo izquierdo natural a la altura del hombro taladrando en el anclaje */}
                 <motion.g
-                  animate={{ x: [-1.5, 1.5, -1.5] }}
+                  animate={{ x: [-2, 2, -2] }}
                   transition={{ repeat: Infinity, duration: 0.2, ease: "easeInOut" }}
                 >
-                  <path d="M26 48 Q10 24 -16 6" fill="none" stroke="#171715" strokeWidth="5.5" strokeLinecap="round" />
-                  <circle cx="-16" cy="6" r="3.2" fill="#FCD34D" />
+                  <path d="M26 64 Q8 58 -10 50" fill="none" stroke="#171715" strokeWidth="5.5" strokeLinecap="round" />
+                  <circle cx="-10" cy="50" r="3.2" fill="#FCD34D" />
 
                   {/* Taladro atornillador profesional tocando el anclaje del mueble alto */}
-                  <g transform="translate(-32, -4) rotate(15)">
+                  <g transform="translate(-24, 40) rotate(5)">
                     <rect x="0" y="5" width="13" height="6" rx="2" fill="#D6A634" />
                     <rect x="5" y="11" width="4.5" height="7" rx="1.5" fill="#111" />
-                    {/* Broca de precisión tocando el tornillo de pared */}
+                    {/* Broca tocando el anclaje del mueble */}
                     <line x1="0" y1="8" x2="-8" y2="8" stroke="#E2E8F0" strokeWidth="2" strokeLinecap="round" />
-                    {/* Tornillo de anclaje iluminado en el mueble */}
                     <circle cx="-8" cy="8" r="1.5" fill="#38BDF8" />
-                    {/* Chispas de taladro tocando el mueble */}
+                    {/* Chispas de apriete técnico */}
                     <motion.circle
                       cx="-9"
                       cy="8"
