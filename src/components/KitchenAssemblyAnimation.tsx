@@ -463,18 +463,18 @@ export const KitchenAssemblyAnimation = memo(() => {
                   <polygon points="12,20 13,23 16,24 13,25 12,28 11,25 8,24 11,23" fill="#D6A634" />
                 </motion.g>
 
-                {/* Sello amarillo completo con tick sobre la cabeza perfectamente visible */}
+                {/* Sello amarillo completo con tick flotando más arriba sobre la cabeza */}
                 <motion.g
-                  initial={{ scale: 0, opacity: 0 }}
-                  animate={{ scale: 1, opacity: 1 }}
+                  initial={{ scale: 0, y: 8, opacity: 0 }}
+                  animate={{ scale: 1, y: 0, opacity: 1 }}
                   transition={{ type: 'spring', damping: 14, stiffness: 220 }}
                 >
-                  {/* Badge Outer Glow & Solid Yellow Disc centrado en cx=38, cy=10 */}
-                  <circle cx="38" cy="10" r="14" fill="#F59E0B" filter="drop-shadow(0 2px 8px rgba(245,158,11,0.8))" />
-                  <circle cx="38" cy="10" r="13" fill="#FBBF24" stroke="#F59E0B" strokeWidth="1.5" />
-                  <circle cx="38" cy="10" r="10.5" fill="none" stroke="#D97706" strokeWidth="0.8" strokeDasharray="2 1.5" />
-                  {/* Bold clean Tick mark centered at 38, 10 */}
-                  <path d="M33 10 L36.5 13.5 L43.5 6.5" fill="none" stroke="#0F172A" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round" />
+                  {/* Badge Outer Glow & Solid Yellow Disc centrado en cx=38, cy=-4 */}
+                  <circle cx="38" cy="-4" r="14" fill="#F59E0B" filter="drop-shadow(0 3px 10px rgba(245,158,11,0.85))" />
+                  <circle cx="38" cy="-4" r="13" fill="#FBBF24" stroke="#F59E0B" strokeWidth="1.5" />
+                  <circle cx="38" cy="-4" r="10.5" fill="none" stroke="#D97706" strokeWidth="0.8" strokeDasharray="2 1.5" />
+                  {/* Bold clean Tick mark centered at 38, -4 */}
+                  <path d="M33 -4 L36.5 -0.5 L43.5 -7.5" fill="none" stroke="#0F172A" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round" />
                 </motion.g>
               </g>
             )}
