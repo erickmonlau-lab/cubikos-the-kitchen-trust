@@ -20,7 +20,7 @@ export const KitchenAssemblyAnimation = memo(() => {
     {
       num: '01',
       title: currentLang === 'ca' ? 'Nivell de mòduls' : currentLang === 'en' ? 'Base leveling' : 'Nivelación base',
-      badge: '0.0 mm',
+      badge: currentLang === 'ca' ? 'NIVELAT' : currentLang === 'en' ? 'LEVEL' : 'NIVELADO',
       pillClass: 'bg-[#D6A634] text-[#0A0A09] border-[#F5D580] shadow-[#D6A634]/30',
       barBg: 'bg-[#B45309] border-[#F59E0B]',
       badgeColor: 'text-white'
@@ -86,17 +86,20 @@ export const KitchenAssemblyAnimation = memo(() => {
       </div>
 
       {/* Barra Técnica Unificada: Ajustada y compacta, no tan ancha */}
-      <div className={`inline-flex items-center justify-between gap-4 border-2 rounded-lg px-3 py-1 mb-2 shadow-lg transition-all duration-300 max-w-[210px] ${stages[stage].barBg}`}>
+      <div className={`inline-flex items-center justify-between gap-3.5 border-2 rounded-lg px-3 py-1.5 mb-2 shadow-lg transition-all duration-300 max-w-[220px] ${stages[stage].barBg}`}>
         <div className="flex items-center gap-1.5 text-xs font-mono font-black text-white shrink-0">
           <span className="text-white/90 text-[10px] uppercase tracking-wider font-bold">{stepLabel}</span>
           <span className="bg-[#FBBF24] text-[#0F172A] font-black px-1.5 py-0.5 rounded shadow-sm">{stages[stage].num}</span>
         </div>
         <div className="h-3.5 w-[1px] bg-white/40 shrink-0" />
         <div className="flex items-center gap-1.5 text-[11px] font-mono font-black text-white shrink-0">
+          {/* Tick limpio y nítido con fondo blanco sin distorsiones */}
           <div className="w-4 h-4 rounded-full bg-white flex items-center justify-center shadow-sm shrink-0">
-            <CheckCircle2 className="w-3.5 h-3.5 text-[#0F172A] fill-white" />
+            <svg viewBox="0 0 16 16" className="w-3 h-3 text-[#0F172A]" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <polyline points="3.5 8.5 6.5 11.5 12.5 5" />
+            </svg>
           </div>
-          <span>{stages[stage].badge}</span>
+          <span className="whitespace-nowrap">{stages[stage].badge}</span>
         </div>
       </div>
 
