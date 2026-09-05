@@ -235,24 +235,22 @@ export const KitchenAssemblyAnimation = memo(() => {
               </motion.g>
             )}
 
-            {/* Stage 4: Verified 0.0mm Stamp - Crisp, high-contrast, perfectly visible */}
-            {stage === 4 && (
-              <motion.g
-                initial={{ scale: 0, rotate: -20, opacity: 0 }}
-                animate={{ scale: 1, rotate: 0, opacity: 1 }}
-                transition={{ type: 'spring', damping: 14, stiffness: 220 }}
-                transform="translate(42, -10)"
-              >
-                {/* Badge Outer Shadow & Golden Ring */}
-                <circle cx="26" cy="26" r="24" fill="#0A0A09" stroke="#D6A634" strokeWidth="2.5" />
-                <circle cx="26" cy="26" r="21" fill="none" stroke="#D6A634" strokeWidth="1" strokeDasharray="3 2" />
-                {/* Thick Bold Green Checkmark */}
-                <path d="M17 25 L23 32 L35 18" fill="none" stroke="#10B981" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" />
-                {/* High-contrast solid pill tag for 0.0 mm */}
-                <rect x="11" y="36" width="30" height="9" rx="3" fill="#D6A634" />
-                <text x="26" y="43" fill="#0A0A09" fontSize="6.5" fontFamily="monospace" fontWeight="900" textAnchor="middle">0.0 mm</text>
-              </motion.g>
-            )}
+              {/* Stage 4: Verified Stamp - Solid yellow with bold tick */}
+              {stage === 4 && (
+                <motion.g
+                  initial={{ scale: 0, rotate: -20, opacity: 0 }}
+                  animate={{ scale: 1, rotate: 0, opacity: 1 }}
+                  transition={{ type: 'spring', damping: 14, stiffness: 220 }}
+                  transform="translate(42, -10)"
+                >
+                  {/* Badge Outer Glow & Solid Yellow Disc */}
+                  <circle cx="26" cy="26" r="22" fill="#F59E0B" filter="drop-shadow(0 4px 10px rgba(245,158,11,0.5))" />
+                  <circle cx="26" cy="26" r="21" fill="#FBBF24" stroke="#F59E0B" strokeWidth="1.5" />
+                  <circle cx="26" cy="26" r="18" fill="none" stroke="#D97706" strokeWidth="1" strokeDasharray="3 2" />
+                  {/* High contrast bold Tick Mark centered */}
+                  <path d="M16 26 L23 33 L36 19" fill="none" stroke="#0F172A" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
+                </motion.g>
+              )}
           </g>
 
           {/* ============================================================== */}
