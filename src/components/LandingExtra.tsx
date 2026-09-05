@@ -4,6 +4,7 @@ import { m as motion } from "framer-motion";
 import { useLanguage } from "../context/LanguageContext";
 import { useTranslation } from "../i18n/translations";
 import { FadeUp, Ico, RevealMask, LogoCubikos } from "./LandingUI";
+import { KitchenAssemblyAnimation } from "./KitchenAssemblyAnimation";
 import heroImg from "@/assets/hero-tio.webp";
 import gal1 from "@/assets/gallery-1.webp";
 import gal2 from "@/assets/gallery-2.webp";
@@ -536,6 +537,9 @@ export const Footer = memo(() => {
   return (
     <footer className="bg-[#0A0A09] text-[#E5E1D8] pt-16 pb-12 border-t border-white/10">
       <div className="container-x">
+        {/* Interactive Kitchen Assembly Sequence Animation */}
+        <KitchenAssemblyAnimation />
+
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 mb-16">
           {/* Col 1: Marca & Contacto directo */}
           <div className="lg:col-span-4 flex flex-col">
