@@ -93,7 +93,9 @@ export const KitchenAssemblyAnimation = memo(() => {
         </div>
         <div className="h-3.5 w-[1px] bg-white/40 shrink-0" />
         <div className="flex items-center gap-1.5 text-[11px] font-mono font-black text-white shrink-0">
-          <CheckCircle2 className="w-3.5 h-3.5 text-white shrink-0" />
+          <div className="w-4 h-4 rounded-full bg-white flex items-center justify-center shadow-sm shrink-0">
+            <CheckCircle2 className="w-3.5 h-3.5 text-[#0F172A] fill-white" />
+          </div>
           <span>{stages[stage].badge}</span>
         </div>
       </div>
@@ -463,17 +465,18 @@ export const KitchenAssemblyAnimation = memo(() => {
                   <polygon points="12,20 13,23 16,24 13,25 12,28 11,25 8,24 11,23" fill="#D6A634" />
                 </motion.g>
 
-                {/* Sello con FONDO BLANCO y tick nítido flotando sobre la cabeza */}
+                {/* Sello amarillo completo con tick flotando sobre la cabeza */}
                 <motion.g
                   initial={{ scale: 0, y: 8, opacity: 0 }}
                   animate={{ scale: 1, y: 0, opacity: 1 }}
                   transition={{ type: 'spring', damping: 14, stiffness: 220 }}
                 >
-                  {/* Badge Outer Glow & Solid Pure White Disc centrado en cx=38, cy=-4 */}
-                  <circle cx="38" cy="-4" r="14" fill="#FFFFFF" filter="drop-shadow(0 4px 12px rgba(255,255,255,0.7))" stroke="#E2E8F0" strokeWidth="1.5" />
-                  <circle cx="38" cy="-4" r="11" fill="none" stroke="#D6A634" strokeWidth="1" strokeDasharray="2 1.5" />
+                  {/* Badge Outer Glow & Solid Yellow Disc centrado en cx=38, cy=-4 */}
+                  <circle cx="38" cy="-4" r="14" fill="#F59E0B" filter="drop-shadow(0 3px 10px rgba(245,158,11,0.85))" />
+                  <circle cx="38" cy="-4" r="13" fill="#FBBF24" stroke="#F59E0B" strokeWidth="1.5" />
+                  <circle cx="38" cy="-4" r="10.5" fill="none" stroke="#D97706" strokeWidth="0.8" strokeDasharray="2 1.5" />
                   {/* Bold clean Tick mark centered at 38, -4 */}
-                  <path d="M33 -4 L36.5 -0.5 L43.5 -7.5" fill="none" stroke="#059669" strokeWidth="3.2" strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M33 -4 L36.5 -0.5 L43.5 -7.5" fill="none" stroke="#0F172A" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round" />
                 </motion.g>
               </g>
             )}
