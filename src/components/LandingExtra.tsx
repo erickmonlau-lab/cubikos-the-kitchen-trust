@@ -677,8 +677,8 @@ export const Footer = memo(() => {
             </ul>
           </div>
 
-          {/* Col 5: Personita montando cocina en miniatura (Extremo derecho, con generoso margen de separación) */}
-          <div className="lg:col-span-3 flex flex-col items-center lg:items-end justify-center pt-6 lg:pt-0 lg:pl-6 xl:pl-10">
+          {/* Col 5: Personita montando cocina en miniatura (Extremo derecho, alineado al borde derecho del contenedor) */}
+          <div className="lg:col-span-3 flex flex-col items-center lg:items-end justify-center pt-6 lg:pt-0 lg:ml-auto">
             <KitchenAssemblyAnimation />
           </div>
         </div>

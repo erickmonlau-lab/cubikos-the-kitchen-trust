@@ -18,68 +18,75 @@ export const KitchenAssemblyAnimation = memo(() => {
 
   const stages = [
     {
-      label: currentLang === 'ca' ? '1. Nivelant mòduls base 📐' : currentLang === 'en' ? '1. Leveling base units 📐' : '1. Nivelando módulos base 📐',
-      pillClass: 'bg-[#D6A634] text-[#111110] border border-[#F5D580] shadow-lg shadow-[#D6A634]/20 font-bold',
-      tagText: 'NIVEL 0.0mm'
+      num: '01',
+      title: currentLang === 'ca' ? 'Nivell de mòduls' : currentLang === 'en' ? 'Base leveling' : 'Nivelación base',
+      badge: '0.0 mm',
+      pillClass: 'bg-[#D6A634] text-[#0A0A09] border-[#F5D580] shadow-[#D6A634]/30'
     },
     {
-      label: currentLang === 'ca' ? '2. Muntant calaixos & gola 🗄️' : currentLang === 'en' ? '2. Fitting drawers & gola 🗄️' : '2. Montando cajones & gola 🗄️',
-      pillClass: 'bg-[#38BDF8] text-[#082F49] border border-[#7DD3FC] shadow-lg shadow-[#38BDF8]/20 font-bold',
-      tagText: 'SOFT-CLOSE'
+      num: '02',
+      title: currentLang === 'ca' ? 'Calaixos & gola' : currentLang === 'en' ? 'Drawers & gola' : 'Cajones y gola',
+      badge: 'SOFT-CLOSE',
+      pillClass: 'bg-[#38BDF8] text-[#082F49] border-[#7DD3FC] shadow-[#38BDF8]/30'
     },
     {
-      label: currentLang === 'ca' ? '3. Col·locant encimera pedra ✨' : currentLang === 'en' ? '3. Installing stone countertop ✨' : '3. Colocando encimera piedra ✨',
-      pillClass: 'bg-[#F59E0B] text-[#451A03] border border-[#FCD34D] shadow-lg shadow-[#F59E0B]/20 font-bold',
-      tagText: 'ENCIMERA'
+      num: '03',
+      title: currentLang === 'ca' ? 'Encimera porcelànica' : currentLang === 'en' ? 'Stone countertop' : 'Encimera piedra',
+      badge: 'SEAMLESS',
+      pillClass: 'bg-[#F59E0B] text-[#451A03] border-[#FCD34D] shadow-[#F59E0B]/30'
     },
     {
-      label: currentLang === 'ca' ? '4. Ancorant mobles alts 🔨' : currentLang === 'en' ? '4. Hanging wall cabinets 🔨' : '4. Anclando muebles altos 🔨',
-      pillClass: 'bg-[#A855F7] text-[#3B0764] border border-[#D8B4FE] shadow-lg shadow-[#A855F7]/20 font-bold',
-      tagText: 'ANCLAJE'
+      num: '04',
+      title: currentLang === 'ca' ? 'Ancoratge mobles alts' : currentLang === 'en' ? 'Wall cabinets' : 'Muebles altos',
+      badge: 'ANCLAJE',
+      pillClass: 'bg-[#A855F7] text-[#2E1065] border-[#D8B4FE] shadow-[#A855F7]/30'
     },
     {
-      label: currentLang === 'ca' ? '5. ¡Tolerància 0.0mm llesta! ✅' : currentLang === 'en' ? '5. 0.0mm tolerance verified! ✅' : '5. ¡Tolerancia 0.0mm lista! ✅',
-      pillClass: 'bg-[#10B981] text-[#064E3B] border border-[#6EE7B7] shadow-lg shadow-[#10B981]/20 font-bold',
-      tagText: '100% LISTO'
+      num: '05',
+      title: currentLang === 'ca' ? 'Tolerància 0.0mm' : currentLang === 'en' ? 'Tolerance 0.0mm' : 'Tolerancia 0.0mm',
+      badge: 'APROBADO',
+      pillClass: 'bg-[#10B981] text-[#022C22] border-[#6EE7B7] shadow-[#10B981]/30'
     }
   ];
 
   return (
     <div 
-      className="relative flex flex-col items-center justify-center select-none cursor-pointer group w-full max-w-[260px] pl-2 sm:pl-4"
+      className="relative flex flex-col items-center select-none cursor-pointer group w-full max-w-[250px]"
       onClick={() => setStage((prev) => (prev + 1) % 5)}
       title="Haz clic para avanzar fase"
     >
-      {/* Floating Status Pill Header - SOLID OPAQUE COLOR */}
-      <div className="h-9 mb-2 flex items-center justify-center w-full">
+      {/* Botón Principal de Fase: Compacto, texto de una sola línea sin saltos feos */}
+      <div className="h-10 mb-2 flex items-center justify-center w-full">
         <AnimatePresence mode="wait">
           <motion.div
             key={stage}
-            initial={{ opacity: 0, y: 7, scale: 0.88 }}
+            initial={{ opacity: 0, y: 5, scale: 0.92 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: -7, scale: 0.88 }}
+            exit={{ opacity: 0, y: -5, scale: 0.92 }}
             transition={{ duration: 0.2 }}
-            className={`px-3.5 py-1.5 rounded-full text-xs font-mono tracking-tight flex items-center gap-2 ${stages[stage].pillClass}`}
+            className={`w-full py-1.5 px-3 rounded-full text-center text-xs font-mono font-bold tracking-tight shadow-lg border flex items-center justify-center gap-2 whitespace-nowrap ${stages[stage].pillClass}`}
           >
-            <span className="w-2 h-2 rounded-full bg-white animate-ping" />
-            <span>{stages[stage].label}</span>
+            <span className="w-2 h-2 rounded-full bg-current opacity-80 animate-ping shrink-0" />
+            <span className="truncate">{stage + 1}. {stages[stage].title}</span>
           </motion.div>
         </AnimatePresence>
       </div>
 
-      {/* Neat Meta Chips Row (Always in front & perfectly positioned, no overlap) */}
-      <div className="w-full flex items-center justify-between gap-2 px-1 mb-1 z-20">
-        <div className="px-2.5 py-1 rounded-md bg-[#1C1C19] border border-[#D6A634]/70 text-[#D6A634] text-[10px] font-mono font-bold shadow-md">
-          <span>PASO 0{stage + 1}</span>
+      {/* Barra Técnica Unificada: Paso + Estado perfectamente alineados y coherentes */}
+      <div className="w-full flex items-center justify-between bg-[#151513] border border-white/10 rounded-lg px-2.5 py-1 mb-2 shadow-md">
+        <div className="flex items-center gap-1.5 text-[11px] font-mono font-semibold text-[#D6A634]">
+          <span className="text-white/40 text-[10px]">PASO</span>
+          <span>{stages[stage].num}</span>
         </div>
-        <div className="px-2.5 py-1 rounded-md bg-[#064E3B] border border-[#34D399] text-[#A7F3D0] text-[10px] font-mono font-bold shadow-md flex items-center gap-1.5">
-          <CheckCircle2 className="w-3 h-3 text-[#34D399]" />
-          <span>{stages[stage].tagText}</span>
+        <div className="h-3 w-[1px] bg-white/10" />
+        <div className="flex items-center gap-1 text-[10px] font-mono font-bold text-emerald-400">
+          <CheckCircle2 className="w-3 h-3 text-emerald-400 shrink-0" />
+          <span>{stages[stage].badge}</span>
         </div>
       </div>
 
       {/* SVG Stage */}
-      <div className="relative w-full aspect-[260/215] max-w-[250px] flex items-center justify-center">
+      <div className="relative w-full aspect-[260/215] flex items-center justify-center">
         <svg viewBox="0 0 260 215" className="w-full h-full overflow-visible drop-shadow-2xl">
           <defs>
             <linearGradient id="kitWallBack" x1="0%" y1="0%" x2="0%" y2="100%">
