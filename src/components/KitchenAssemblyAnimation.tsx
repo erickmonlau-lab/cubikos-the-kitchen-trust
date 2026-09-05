@@ -349,13 +349,13 @@ export const KitchenAssemblyAnimation = memo(() => {
                   animate={{ x: [6, -14, 6] }}
                   transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
                 >
-                  {/* Right arm — extended forward at chest height toward kitchen */}
-                  <path d="M50 68 Q32 66 10 65" fill="none" stroke="#171715" strokeWidth="5.5" strokeLinecap="round" />
-                  <circle cx="10" cy="65" r="3.2" fill="#FCD34D" />
+                  {/* Right arm — grips right edge of drawer (x≈-2, y≈65) */}
+                  <path d="M50 68 Q22 66 -2 65" fill="none" stroke="#171715" strokeWidth="5.5" strokeLinecap="round" />
+                  <circle cx="-2" cy="65" r="3.2" fill="#FCD34D" />
 
-                  {/* Left arm — extended forward at chest height toward kitchen */}
-                  <path d="M26 68 Q10 67 -10 66" fill="none" stroke="#171715" strokeWidth="5.5" strokeLinecap="round" />
-                  <circle cx="-10" cy="66" r="3.2" fill="#FCD34D" />
+                  {/* Left arm — grips left edge of drawer (x≈-38, y≈65) */}
+                  <path d="M26 68 Q4 66 -38 65" fill="none" stroke="#171715" strokeWidth="5.5" strokeLinecap="round" />
+                  <circle cx="-38" cy="65" r="3.2" fill="#FCD34D" />
 
                   {/* Realistic 3D Drawer Box */}
                   <g transform="translate(-40, 52)">
