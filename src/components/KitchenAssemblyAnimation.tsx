@@ -395,9 +395,9 @@ export const KitchenAssemblyAnimation = memo(() => {
             {/* FASE 3: En lo alto de la escalera taladrando y anclando el mueble alto */}
             {stage === 3 && (
               <g>
-                {/* Brazo derecho — estabilizando arriba, alcance natural */}
-                <path d="M50 60 Q38 48 26 42" fill="none" stroke="#171715" strokeWidth="5.5" strokeLinecap="round" />
-                <circle cx="26" cy="42" r="3.2" fill="#FCD34D" />
+                {/* Brazo derecho — apoyado abajo sujetando el lateral de la escalera / cadera para no tapar la cara */}
+                <path d="M50 64 Q56 78 48 94" fill="none" stroke="#171715" strokeWidth="5.5" strokeLinecap="round" />
+                <circle cx="48" cy="94" r="3.2" fill="#FCD34D" />
 
                 {/* Brazo izquierdo — alcance 25u, mano en empuñadura del taladro */}
                 <motion.g
