@@ -317,26 +317,33 @@ export const KitchenAssemblyAnimation = memo(() => {
               </g>
             )}
 
-            {/* FASE 1: Montando y empujando cajones soft-close */}
+            {/* FASE 1: Montando y encajando un auténtico cajón con guías metálicas */}
             {stage === 1 && (
               <g>
-                {/* Both arms holding and pushing the drawer into place */}
+                {/* Both arms holding an actual 3D modular drawer and sliding it into the carcass */}
                 <motion.g
-                  animate={{ x: [4, -8, 4] }}
-                  transition={{ repeat: Infinity, duration: 1.4, ease: "easeInOut" }}
+                  animate={{ x: [6, -14, 6] }}
+                  transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
                 >
-                  {/* Right arm reaching forward */}
-                  <path d="M50 64 Q38 72 2 74" fill="none" stroke="#171715" strokeWidth="5.5" strokeLinecap="round" />
-                  <circle cx="2" cy="74" r="3.2" fill="#FCD34D" />
+                  {/* Right arm reaching and gripping right edge of drawer */}
+                  <path d="M50 64 Q36 76 8 72" fill="none" stroke="#171715" strokeWidth="5.5" strokeLinecap="round" />
+                  <circle cx="8" cy="72" r="3.2" fill="#FCD34D" />
 
-                  {/* Left arm reaching forward */}
-                  <path d="M26 64 Q10 70 -6 68" fill="none" stroke="#171715" strokeWidth="5.5" strokeLinecap="round" />
-                  <circle cx="-6" cy="68" r="3.2" fill="#FCD34D" />
+                  {/* Left arm reaching and gripping left edge of drawer */}
+                  <path d="M26 64 Q12 74 -10 68" fill="none" stroke="#171715" strokeWidth="5.5" strokeLinecap="round" />
+                  <circle cx="-10" cy="68" r="3.2" fill="#FCD34D" />
 
-                  {/* Drawer front being pushed into cabinet */}
-                  <rect x="-24" y="62" width="22" height="18" rx="1.5" fill="#2D2D2A" stroke="#D6A634" strokeWidth="1.2" />
-                  <line x1="-24" y1="66" x2="-2" y2="66" stroke="#D6A634" strokeWidth="1.5" />
-                  <text x="-13" y="75" fill="#999" fontSize="4.5" textAnchor="middle">GOLA</text>
+                  {/* Realistic 3D Drawer Box (Isometric top & front) */}
+                  <g transform="translate(-40, 52)">
+                    {/* Metal side runner / guía metálica */}
+                    <line x1="0" y1="22" x2="36" y2="22" stroke="#94A3B8" strokeWidth="2" strokeLinecap="round" />
+                    {/* Drawer Front */}
+                    <rect x="0" y="10" width="38" height="18" rx="1.5" fill="#262624" stroke="#D6A634" strokeWidth="1.2" />
+                    {/* Integrated J-Pull / Gola groove */}
+                    <line x1="1" y1="13" x2="37" y2="13" stroke="#D6A634" strokeWidth="2" />
+                    {/* Soft-close inner runner sparkle */}
+                    <circle cx="3" cy="22" r="1.5" fill="#38BDF8" />
+                  </g>
                 </motion.g>
               </g>
             )}
@@ -369,41 +376,49 @@ export const KitchenAssemblyAnimation = memo(() => {
               </g>
             )}
 
-            {/* FASE 3: Taladrando arriba en los muebles altos */}
+            {/* FASE 3: En escalera de aluminio taladrando y anclando el mueble alto */}
             {stage === 3 && (
               <g>
-                {/* Right hand steadying the wall cabinet */}
-                <motion.g
-                  animate={{ y: [-2, 2, -2] }}
-                  transition={{ repeat: Infinity, duration: 0.8 }}
-                >
-                  <path d="M50 64 Q42 42 16 28" fill="none" stroke="#171715" strokeWidth="5.5" strokeLinecap="round" />
-                  <circle cx="16" cy="28" r="3.2" fill="#FCD34D" />
-                </motion.g>
+                {/* Escalera técnica de aluminio debajo del montador para llegar arriba */}
+                <g transform="translate(18, 90)">
+                  {/* Patas de la escalera */}
+                  <line x1="8" y1="0" x2="2" y2="40" stroke="#94A3B8" strokeWidth="2.5" strokeLinecap="round" />
+                  <line x1="28" y1="0" x2="34" y2="40" stroke="#94A3B8" strokeWidth="2.5" strokeLinecap="round" />
+                  {/* Peldaños */}
+                  <line x1="6" y1="12" x2="30" y2="12" stroke="#E2E8F0" strokeWidth="2" />
+                  <line x1="4" y1="24" x2="32" y2="24" stroke="#E2E8F0" strokeWidth="2" />
+                  {/* Plataforma antideslizante superior */}
+                  <rect x="5" y="-2" width="26" height="5" rx="1.5" fill="#D6A634" />
+                </g>
 
-                {/* Left arm raised HIGH with drill screwing into wall */}
-                <motion.g
-                  animate={{ rotate: [-6, 6, -6], y: [-2, 2, -2] }}
-                  transition={{ repeat: Infinity, duration: 0.4, ease: "easeInOut" }}
-                  style={{ transformOrigin: "26px 64px" }}
-                >
-                  {/* Reaching up towards the top cabinet */}
-                  <path d="M26 64 Q10 40 -8 30" fill="none" stroke="#171715" strokeWidth="5.5" strokeLinecap="round" />
-                  <circle cx="-8" cy="30" r="3.2" fill="#FCD34D" />
+                {/* Mano derecha apoyada fijando el lateral del mueble alto */}
+                <path d="M50 48 Q32 30 -6 18" fill="none" stroke="#171715" strokeWidth="5.5" strokeLinecap="round" />
+                <circle cx="-6" cy="18" r="3.2" fill="#FCD34D" />
 
-                  {/* Cordless Drill drilling wall cabinet */}
-                  <g transform="translate(-18, 18) rotate(35)">
-                    <rect x="0" y="5" width="12" height="6" rx="2" fill="#D6A634" />
+                {/* Brazo izquierdo con taladro tocando EXACTAMENTE el herraje del mueble alto */}
+                <motion.g
+                  animate={{ x: [-1.5, 1.5, -1.5] }}
+                  transition={{ repeat: Infinity, duration: 0.2, ease: "easeInOut" }}
+                >
+                  <path d="M26 48 Q10 24 -16 6" fill="none" stroke="#171715" strokeWidth="5.5" strokeLinecap="round" />
+                  <circle cx="-16" cy="6" r="3.2" fill="#FCD34D" />
+
+                  {/* Taladro atornillador profesional tocando el anclaje del mueble alto */}
+                  <g transform="translate(-32, -4) rotate(15)">
+                    <rect x="0" y="5" width="13" height="6" rx="2" fill="#D6A634" />
                     <rect x="5" y="11" width="4.5" height="7" rx="1.5" fill="#111" />
-                    <line x1="0" y1="8" x2="-6" y2="8" stroke="#E2E8F0" strokeWidth="1.8" strokeLinecap="round" />
-                    {/* Drilling sparkles flying */}
+                    {/* Broca de precisión tocando el tornillo de pared */}
+                    <line x1="0" y1="8" x2="-8" y2="8" stroke="#E2E8F0" strokeWidth="2" strokeLinecap="round" />
+                    {/* Tornillo de anclaje iluminado en el mueble */}
+                    <circle cx="-8" cy="8" r="1.5" fill="#38BDF8" />
+                    {/* Chispas de taladro tocando el mueble */}
                     <motion.circle
-                      cx="-8"
+                      cx="-9"
                       cy="8"
                       r="2"
                       fill="#FDE047"
-                      animate={{ opacity: [0, 1, 0], scale: [0.5, 2, 0.5] }}
-                      transition={{ repeat: Infinity, duration: 0.25 }}
+                      animate={{ opacity: [0, 1, 0], scale: [0.6, 2.2, 0.6] }}
+                      transition={{ repeat: Infinity, duration: 0.18 }}
                     />
                   </g>
                 </motion.g>
