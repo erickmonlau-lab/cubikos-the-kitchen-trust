@@ -537,10 +537,7 @@ export const Footer = memo(() => {
   return (
     <footer className="bg-[#0A0A09] text-[#E5E1D8] pt-16 pb-12 border-t border-white/10">
       <div className="container-x">
-        {/* Interactive Kitchen Assembly Sequence Animation */}
-        <KitchenAssemblyAnimation />
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-6 mb-16 items-start">
           {/* Col 1: Marca & Contacto directo */}
           <div className="lg:col-span-4 flex flex-col">
             <Link to="/" className="inline-block mb-6">
@@ -578,7 +575,7 @@ export const Footer = memo(() => {
           </div>
 
           {/* Col 2: Empresa */}
-          <div className="lg:col-span-2 lg:col-start-6">
+          <div className="lg:col-span-2">
             <h4 className="font-sans font-bold text-[15px] text-white tracking-wide mb-6">
               {t.footer.companyTitle}
             </h4>
@@ -652,7 +649,7 @@ export const Footer = memo(() => {
           </div>
 
           {/* Col 4: Cobertura geográfica Cataluña */}
-          <div className="lg:col-span-3">
+          <div className="lg:col-span-2">
             <h4 className="font-sans font-bold text-[15px] text-white tracking-wide mb-6">
               {t.footer.geoTitle}
             </h4>
@@ -678,6 +675,11 @@ export const Footer = memo(() => {
                 <span>{t.footer.geo5}</span>
               </li>
             </ul>
+          </div>
+
+          {/* Col 5: Personita montando cocina en miniatura (Extremo derecho) */}
+          <div className="lg:col-span-2 flex flex-col items-center justify-center pt-2 sm:pt-0">
+            <KitchenAssemblyAnimation />
           </div>
         </div>
 
