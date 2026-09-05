@@ -51,7 +51,7 @@ export const KitchenAssemblyAnimation = memo(() => {
     },
     {
       num: '05',
-      title: currentLang === 'ca' ? 'Precisió ±0 mm' : currentLang === 'en' ? 'Precision ±0 mm' : 'Precisión ±0 mm',
+      title: currentLang === 'ca' ? 'Precisió' : currentLang === 'en' ? 'Precision' : 'Precisión',
       badge: currentLang === 'ca' ? 'APROVAT' : currentLang === 'en' ? 'APPROVED' : 'APROBADO',
       pillClass: 'bg-[#059669] text-white border-[#34D399] shadow-[#059669]/30',
       barBg: 'bg-[#059669] border-[#34D399]',
