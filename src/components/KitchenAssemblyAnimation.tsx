@@ -28,15 +28,15 @@ export const KitchenAssemblyAnimation = memo(() => {
     {
       num: '02',
       title: currentLang === 'ca' ? 'Calaixos & gola' : currentLang === 'en' ? 'Drawers & gola' : 'Cajones y gola',
-      badge: 'SOFT-CLOSE',
+      badge: currentLang === 'ca' ? 'TANCAMENT SUAU' : currentLang === 'en' ? 'SOFT-CLOSE' : 'CIERRE SUAVE',
       pillClass: 'bg-[#0284C7] text-white border-[#38BDF8] shadow-[#0284C7]/30',
       barBg: 'bg-[#0284C7] border-[#38BDF8]',
       badgeColor: 'text-white'
     },
     {
       num: '03',
-      title: currentLang === 'ca' ? 'Encimera porcelànica' : currentLang === 'en' ? 'Stone countertop' : 'Encimera piedra',
-      badge: 'SEAMLESS',
+      title: currentLang === 'ca' ? 'Taulell porcelànic' : currentLang === 'en' ? 'Stone countertop' : 'Encimera porcelánica',
+      badge: currentLang === 'ca' ? 'SENSE JUNTES' : currentLang === 'en' ? 'SEAMLESS' : 'SIN JUNTAS',
       pillClass: 'bg-[#D97706] text-white border-[#FBBF24] shadow-[#D97706]/30',
       barBg: 'bg-[#D97706] border-[#FBBF24]',
       badgeColor: 'text-white'
@@ -44,7 +44,7 @@ export const KitchenAssemblyAnimation = memo(() => {
     {
       num: '04',
       title: currentLang === 'ca' ? 'Ancoratge mobles alts' : currentLang === 'en' ? 'Wall cabinets' : 'Muebles altos',
-      badge: 'ANCLAJE',
+      badge: currentLang === 'ca' ? 'ANCORATGE' : currentLang === 'en' ? 'ANCHORING' : 'ANCLAJE',
       pillClass: 'bg-[#7C3AED] text-white border-[#A78BFA] shadow-[#7C3AED]/30',
       barBg: 'bg-[#7C3AED] border-[#A78BFA]',
       badgeColor: 'text-white'
@@ -52,18 +52,21 @@ export const KitchenAssemblyAnimation = memo(() => {
     {
       num: '05',
       title: currentLang === 'ca' ? 'Tolerància 0.0mm' : currentLang === 'en' ? 'Tolerance 0.0mm' : 'Tolerancia 0.0mm',
-      badge: 'APROBADO',
+      badge: currentLang === 'ca' ? 'APROVAT' : currentLang === 'en' ? 'APPROVED' : 'APROBADO',
       pillClass: 'bg-[#059669] text-white border-[#34D399] shadow-[#059669]/30',
       barBg: 'bg-[#059669] border-[#34D399]',
       badgeColor: 'text-white'
     }
   ];
 
+  const stepLabel = currentLang === 'ca' ? 'PAS' : currentLang === 'en' ? 'STEP' : 'PASO';
+  const tooltipText = currentLang === 'ca' ? 'Fes clic per avançar fase' : currentLang === 'en' ? 'Click to advance stage' : 'Haz clic para avanzar fase';
+
   return (
     <div 
       className="relative flex flex-col items-center select-none cursor-pointer group w-full max-w-[270px]"
       onClick={() => setStage((prev) => (prev + 1) % 5)}
-      title="Haz clic para avanzar fase"
+      title={tooltipText}
     >
       {/* Botón Principal de Fase */}
       <div className="h-10 mb-2 flex items-center justify-center w-full">
@@ -85,7 +88,7 @@ export const KitchenAssemblyAnimation = memo(() => {
       {/* Barra Técnica Unificada: Ajustada y compacta, no tan ancha */}
       <div className={`inline-flex items-center justify-between gap-4 border-2 rounded-lg px-3 py-1 mb-2 shadow-lg transition-all duration-300 max-w-[210px] ${stages[stage].barBg}`}>
         <div className="flex items-center gap-1.5 text-xs font-mono font-black text-white shrink-0">
-          <span className="text-white/80 text-[10px] uppercase tracking-wider font-bold">PASO</span>
+          <span className="text-white/80 text-[10px] uppercase tracking-wider font-bold">{stepLabel}</span>
           <span className="bg-black/30 px-1.5 py-0.5 rounded text-white">{stages[stage].num}</span>
         </div>
         <div className="h-3.5 w-[1px] bg-white/40 shrink-0" />
