@@ -22,50 +22,50 @@ export const KitchenAssemblyAnimation = memo(() => {
       title: currentLang === 'ca' ? 'Nivell de mòduls' : currentLang === 'en' ? 'Base leveling' : 'Nivelación base',
       badge: '0.0 mm',
       pillClass: 'bg-[#D6A634] text-[#0A0A09] border-[#F5D580] shadow-[#D6A634]/30',
-      barBorder: 'border-[#D6A634]/40 bg-[#D6A634]/10',
-      badgeColor: 'text-[#F5D580]'
+      barBg: 'bg-[#B45309] border-[#F59E0B]',
+      badgeColor: 'text-white'
     },
     {
       num: '02',
       title: currentLang === 'ca' ? 'Calaixos & gola' : currentLang === 'en' ? 'Drawers & gola' : 'Cajones y gola',
       badge: 'SOFT-CLOSE',
-      pillClass: 'bg-[#38BDF8] text-[#082F49] border-[#7DD3FC] shadow-[#38BDF8]/30',
-      barBorder: 'border-[#38BDF8]/40 bg-[#38BDF8]/10',
-      badgeColor: 'text-[#38BDF8]'
+      pillClass: 'bg-[#0284C7] text-white border-[#38BDF8] shadow-[#0284C7]/30',
+      barBg: 'bg-[#0284C7] border-[#38BDF8]',
+      badgeColor: 'text-white'
     },
     {
       num: '03',
       title: currentLang === 'ca' ? 'Encimera porcelànica' : currentLang === 'en' ? 'Stone countertop' : 'Encimera piedra',
       badge: 'SEAMLESS',
-      pillClass: 'bg-[#F59E0B] text-[#451A03] border-[#FCD34D] shadow-[#F59E0B]/30',
-      barBorder: 'border-[#F59E0B]/40 bg-[#F59E0B]/10',
-      badgeColor: 'text-[#FCD34D]'
+      pillClass: 'bg-[#D97706] text-white border-[#FBBF24] shadow-[#D97706]/30',
+      barBg: 'bg-[#D97706] border-[#FBBF24]',
+      badgeColor: 'text-white'
     },
     {
       num: '04',
       title: currentLang === 'ca' ? 'Ancoratge mobles alts' : currentLang === 'en' ? 'Wall cabinets' : 'Muebles altos',
       badge: 'ANCLAJE',
-      pillClass: 'bg-[#A855F7] text-[#2E1065] border-[#D8B4FE] shadow-[#A855F7]/30',
-      barBorder: 'border-[#A855F7]/40 bg-[#A855F7]/10',
-      badgeColor: 'text-[#D8B4FE]'
+      pillClass: 'bg-[#7C3AED] text-white border-[#A78BFA] shadow-[#7C3AED]/30',
+      barBg: 'bg-[#7C3AED] border-[#A78BFA]',
+      badgeColor: 'text-white'
     },
     {
       num: '05',
       title: currentLang === 'ca' ? 'Tolerància 0.0mm' : currentLang === 'en' ? 'Tolerance 0.0mm' : 'Tolerancia 0.0mm',
       badge: 'APROBADO',
-      pillClass: 'bg-[#10B981] text-[#022C22] border-[#6EE7B7] shadow-[#10B981]/30',
-      barBorder: 'border-[#10B981]/40 bg-[#10B981]/10',
-      badgeColor: 'text-[#6EE7B7]'
+      pillClass: 'bg-[#059669] text-white border-[#34D399] shadow-[#059669]/30',
+      barBg: 'bg-[#059669] border-[#34D399]',
+      badgeColor: 'text-white'
     }
   ];
 
   return (
     <div 
-      className="relative flex flex-col items-center select-none cursor-pointer group w-full max-w-[250px]"
+      className="relative flex flex-col items-center select-none cursor-pointer group w-full max-w-[270px]"
       onClick={() => setStage((prev) => (prev + 1) % 5)}
       title="Haz clic para avanzar fase"
     >
-      {/* Botón Principal de Fase: Compacto, texto de una sola línea sin saltos feos */}
+      {/* Botón Principal de Fase */}
       <div className="h-10 mb-2 flex items-center justify-center w-full">
         <AnimatePresence mode="wait">
           <motion.div
@@ -76,21 +76,21 @@ export const KitchenAssemblyAnimation = memo(() => {
             transition={{ duration: 0.2 }}
             className={`w-full py-1.5 px-3 rounded-full text-center text-xs font-mono font-bold tracking-tight shadow-lg border flex items-center justify-center gap-2 whitespace-nowrap ${stages[stage].pillClass}`}
           >
-            <span className="w-2 h-2 rounded-full bg-current opacity-80 animate-ping shrink-0" />
+            <span className="w-2 h-2 rounded-full bg-white opacity-90 animate-ping shrink-0" />
             <span className="truncate">{stage + 1}. {stages[stage].title}</span>
           </motion.div>
         </AnimatePresence>
       </div>
 
-      {/* Barra Técnica Unificada: Con color vivo dinámico y fondo destacado */}
-      <div className={`w-full flex items-center justify-between border rounded-lg px-2.5 py-1 mb-2 shadow-md transition-all duration-300 ${stages[stage].barBorder}`}>
-        <div className="flex items-center gap-1.5 text-[11px] font-mono font-bold text-white">
-          <span className="text-white/60 text-[9px] uppercase tracking-wider">PASO</span>
-          <span className="text-[#D6A634]">{stages[stage].num}</span>
+      {/* Barra Técnica Unificada: Fondo 100% sólido, color llamativo y letras blancas */}
+      <div className={`w-full flex items-center justify-between border-2 rounded-lg px-3 py-1.5 mb-2 shadow-lg transition-all duration-300 ${stages[stage].barBg}`}>
+        <div className="flex items-center gap-1.5 text-xs font-mono font-black text-white">
+          <span className="text-white/80 text-[10px] uppercase tracking-wider font-bold">PASO</span>
+          <span className="bg-black/30 px-1.5 py-0.5 rounded text-white">{stages[stage].num}</span>
         </div>
-        <div className="h-3 w-[1px] bg-white/20" />
-        <div className={`flex items-center gap-1 text-[10px] font-mono font-bold ${stages[stage].badgeColor}`}>
-          <CheckCircle2 className="w-3 h-3 shrink-0" />
+        <div className="h-3.5 w-[1px] bg-white/40" />
+        <div className="flex items-center gap-1.5 text-[11px] font-mono font-black text-white">
+          <CheckCircle2 className="w-3.5 h-3.5 text-white shrink-0" />
           <span>{stages[stage].badge}</span>
         </div>
       </div>
@@ -480,10 +480,12 @@ export const KitchenAssemblyAnimation = memo(() => {
         </svg>
       </div>
 
-      {/* Mini Interactive Footnote */}
-      <span className="text-[10px] font-mono tracking-widest uppercase mt-1.5 px-2 py-0.5 rounded-full bg-[#D6A634]/10 border border-[#D6A634]/30 text-[#D6A634] font-semibold group-hover:bg-[#D6A634]/20 group-hover:border-[#D6A634]/50 transition-all text-center">
-        {currentLang === 'ca' ? 'PROBANT MUNTATGE CUBIKOS · FASE ' + (stage + 1) + '/5' : currentLang === 'en' ? 'CUBIKOS FITTING SEQUENCE · STEP ' + (stage + 1) + '/5' : 'MONTAJE DE PRECISIÓN CUBIKOS · PASO ' + (stage + 1) + '/5'}
-      </span>
+      {/* Mini Interactive Footnote: Fondo 100% sólido, letras blancas, sin descolgar jamás */}
+      <div className="w-full flex justify-center mt-2">
+        <span className="text-[10px] font-mono tracking-wider uppercase px-3 py-1 rounded-full bg-[#D6A634] text-white font-bold shadow-md whitespace-nowrap border border-[#F5D580]/40 group-hover:bg-[#E5B540] transition-all text-center">
+          {currentLang === 'ca' ? `MUNTATGE CUBIKOS · PAS ${stage + 1}/5` : currentLang === 'en' ? `FITTING CUBIKOS · STEP ${stage + 1}/5` : `MONTAJE CUBIKOS · PASO ${stage + 1}/5`}
+        </span>
+      </div>
     </div>
   );
 });
