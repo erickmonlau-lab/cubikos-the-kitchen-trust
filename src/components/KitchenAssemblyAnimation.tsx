@@ -447,13 +447,13 @@ export const KitchenAssemblyAnimation = memo(() => {
                   <line x1="18" y1="36" x2="18" y2="30" stroke="#FCD34D" strokeWidth="3" strokeLinecap="round" />
                 </motion.g>
 
-                {/* Celebration Sparkles around head */}
+                {/* Celebration Sparkles around head (movida más arriba para no chocar con el pelo en y=23) */}
                 <motion.g
                   animate={{ scale: [0.8, 1.2, 0.8], opacity: [0.6, 1, 0.6] }}
                   transition={{ repeat: Infinity, duration: 1 }}
                 >
-                  <polygon points="38,12 40,16 44,18 40,20 38,24 36,20 32,18 36,16" fill="#F59E0B" />
-                  <polygon points="12,20 13,23 16,24 13,25 12,28 11,25 8,24 11,23" fill="#D6A634" />
+                  <polygon points="38,4 40,8 44,10 40,12 38,16 36,12 32,10 36,8" fill="#F59E0B" />
+                  <polygon points="12,14 13,17 16,18 13,19 12,22 11,19 8,18 11,17" fill="#D6A634" />
                 </motion.g>
 
                 {/* Sello amarillo completo con tick flotando más arriba sobre la cabeza */}
