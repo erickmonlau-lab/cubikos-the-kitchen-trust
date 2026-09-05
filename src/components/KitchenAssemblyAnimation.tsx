@@ -460,19 +460,19 @@ export const KitchenAssemblyAnimation = memo(() => {
                   <polygon points="12,20 13,23 16,24 13,25 12,28 11,25 8,24 11,23" fill="#D6A634" />
                 </motion.g>
 
-                {/* Sello amarillo completo con tick arriba del personaje */}
+                {/* Sello amarillo completo con tick perfectamente CENTRADO arriba de la cabeza (cx=38) */}
                 <motion.g
-                  initial={{ scale: 0, y: 10, opacity: 0 }}
+                  initial={{ scale: 0, y: 15, opacity: 0 }}
                   animate={{ scale: 1, y: 0, opacity: 1 }}
                   transition={{ type: 'spring', damping: 12, stiffness: 200 }}
-                  transform="translate(18, -16)"
+                  transform="translate(19, -24)"
                 >
                   {/* Badge Outer Glow & Solid Yellow Disc */}
-                  <circle cx="20" cy="20" r="19" fill="#F59E0B" filter="drop-shadow(0 4px 10px rgba(245,158,11,0.6))" />
-                  <circle cx="20" cy="20" r="18" fill="#FBBF24" stroke="#F59E0B" strokeWidth="1.5" />
-                  <circle cx="20" cy="20" r="15" fill="none" stroke="#D97706" strokeWidth="1" strokeDasharray="3 2" />
+                  <circle cx="19" cy="19" r="18" fill="#F59E0B" filter="drop-shadow(0 4px 10px rgba(245,158,11,0.6))" />
+                  <circle cx="19" cy="19" r="17" fill="#FBBF24" stroke="#F59E0B" strokeWidth="1.5" />
+                  <circle cx="19" cy="19" r="14" fill="none" stroke="#D97706" strokeWidth="1" strokeDasharray="3 2" />
                   {/* Bold clean Tick mark centered */}
-                  <path d="M12 20 L17 26 L28 14" fill="none" stroke="#0F172A" strokeWidth="3.8" strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M12 19 L17 24 L27 13" fill="none" stroke="#0F172A" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" />
                 </motion.g>
               </g>
             )}
