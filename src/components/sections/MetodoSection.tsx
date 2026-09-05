@@ -1,1 +1,1 @@
-﻿export { Diferenciadora as default } from "../LandingUI";
+export { default } from "../MetodoCubikosSection";

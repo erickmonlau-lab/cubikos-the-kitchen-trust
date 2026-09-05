@@ -662,7 +662,7 @@ export function Diferenciadora() {
   }, []);
 
   return (
-    <section id="metodo" className="bg-background text-ink py-16 md:py-24">
+    <section id="precision" className="bg-background text-ink py-16 md:py-24">
       <div className="container-x">
         {/* Massive Headline */}
         <div className="max-w-5xl mb-12 md:mb-16 text-center md:text-left">
